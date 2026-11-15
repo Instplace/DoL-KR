@@ -1,95 +1,59 @@
-# Degrees of Lewdity 한국어 번역판
+# Degrees of Lewdity 한국어 번역판 (DoL-KR)
 
-[Degrees of Lewdity](https://vrelnir.blogspot.com/)의 한국어 번역 프로젝트입니다.
+[Degrees of Lewdity](https://vrelnir.blogspot.com/) **0.5.13.8**의 한국어 번역본입니다.
 
-이 저장소는 지금까지 제작된 한국어 번역본과 관련 작업물을 공개하고, 이후 다른 사람이 자유롭게 이어서 작업할 수 있도록 하기 위해 마련되었습니다.
+[아카라이브 DOL 채널](https://arca.live/b/dolgame)에서 만들어 온 번역본([Ooo-eee/DoL_KrTranslation](https://github.com/Ooo-eee/DoL_KrTranslation), 게임 버전 0.5.12.13)을 이어받아, 원작 0.5.13.8에 맞춰 갱신하고 문체와 용어를 정리했습니다.
 
-## 프로젝트 유지보수 안내
+> 이 게임은 성인용입니다. 성적·폭력적인 내용을 담고 있으며 미성년자에게 적합하지 않습니다.
 
-이 프로젝트의 기존 번역 작업 및 관리자는 **이 저장소 공개를 기점으로 정기적인 번역 및 유지보수를 종료합니다.**
+## 이전 번역본과 달라진 점
 
-이후 번역 추가, 오탈자 수정, 게임 버전 업데이트 대응 등의 작업은 별도의 관리자가 자율적으로 이어갈 수 있습니다.
+- **0.5.13.8 반영**: 원작에서 새로 생기거나 바뀐 문장 약 7,000줄과 선택지 문구 약 1,000개를 번역했습니다. 기존 번역문은 원문이 바뀌지 않은 한 그대로 두었습니다.
+- **고유 명사 통일**: 같은 대상을 여러 가지로 적던 표기를 하나로 맞췄습니다(약 470곳). 거리 이름은 "○○ 가"(하이 가, 다뉴브 가…), 인물·장소는 용어집의 표준 표기를 따릅니다.
+- **문체 통일**: 번역 안에서 갈리던 관례를 다수 쪽으로 정리했습니다.
+  - 서술은 현재형 한다체, 선택지는 "~한다" 꼴("~하기" 1,400여 곳 변경)
+  - 대사 뒤에 화자 표시가 이어지면 대사를 마침표로 끝냄(`"집에 가자." 로빈이 말한다.`)
+  - 말더듬은 `"고-고마워."` 꼴
+- **인물 말투 정리**: 이름 있는 인물 34명의 성격과 말투를 정리한 가이드를 만들고, 그에 맞춰 대사 약 1,400줄을 다듬었습니다(화계·호칭·1인칭이 장면마다 흔들리던 곳 위주).
+- **원작과 어긋나 있던 수치 정리**: 기존 번역본에는 원작의 밸런스 변경(절도 수입, 과외 보수, 농장 시설 비용 등. 일부는 0.5.11.4에서 바뀐 것)이 반영되지 않은 줄이 남아 있었습니다. 매크로 인자와 본문에 적힌 금액 등 약 120곳을 원작 0.5.13.8의 값으로 맞췄습니다.
+- 원작 갱신으로 구조가 바뀐 패시지의 코드를 원문과 맞추고, 그 과정에서 발견한 기존 오류(없는 함수를 부르던 출산 장면, 오타 난 식별자 등)를 고쳤습니다.
 
-저장소는 지금까지의 번역 작업과 관련 자료를 보존하고, 이후 다른 사람이 프로젝트를 이어갈 수 있도록 공개 상태로 유지합니다.
+정리 기준은 [`docs/kr-translation/`](docs/kr-translation/)에 있습니다.
 
-프로젝트를 이어서 작업하고자 하는 경우 이 저장소를 자유롭게 Fork하여 수정 및 관리할 수 있습니다. 별도의 공동 관리 권한 부여나 프로젝트 이전은 전제로 하지 않습니다.
+| 문서 | 내용 |
+| --- | --- |
+| [`STYLE.md`](docs/kr-translation/STYLE.md) | 문체·표기 규칙 |
+| [`GLOSSARY-propernouns.md`](docs/kr-translation/GLOSSARY-propernouns.md) | 고유 명사 표준 표기 |
+| `GLOSSARY-system.md` · `GLOSSARY-world.md` · `GLOSSARY-body-combat.md` | 시스템·세계·신체/전투 용어 |
+| [`CONVENTIONS.md`](docs/kr-translation/CONVENTIONS.md) | 조사 마커, 한글화 사전(`game/kr_js/`) 등 기술 관례 |
+| [`characters/`](docs/kr-translation/characters/) | 인물별 말투 가이드 |
 
-> 기존 관리자는 이후 번역 업데이트, 오탈자 수정, 게임 버전 업데이트 대응, 버그 수정 등의 유지보수를 지속적으로 제공하지 않습니다.
+### 알아 둘 점
 
-## 원작
-
-이 번역본은 Vrelnir가 제작한 **Degrees of Lewdity**를 기반으로 합니다.
-
-* 원작자: Vrelnir
-* 원작 사이트: https://vrelnir.blogspot.com/
-
-게임의 원작 및 원작자가 제공하는 자료에 관한 자세한 내용은 원작의 `README.md`와 `LICENSE` 파일을 참고해주세요.
-
-## 라이선스
-
-이 번역본은 원작에 적용된 **CC-BY-NC-SA** 라이선스에 따라 배포됩니다.
-
-이 번역본을 기반으로 한 2차 저작물은 해당 라이선스의 조건을 준수하는 경우 자유롭게 공유·배포하거나 수정하여 이용할 수 있습니다.
-
-### 라이선스 조건
-
-* **BY (저작자표시)**
-  원작과 번역본의 저작자 및 출처를 명시해야 합니다.
-
-* **NC (비영리)**
-  영리 목적으로 이용할 수 없습니다.
-
-* **SA (동일조건변경허락)**
-  이 번역본을 기반으로 수정하거나 제작한 2차 저작물에도 동일한 **CC-BY-NC-SA** 라이선스를 적용해야 합니다.
-
-자세한 라이선스 내용은 저장소에 포함된 `LICENSE` 파일을 참고해주세요.
-
-### 참고
-
-* [CC-BY-NC-SA 라이선스 한글 번역본](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.ko)
-* [CC-BY-NC-SA 라이선스 권리 한글 번역본](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)
-
-## 번역 프로젝트 출처
-
-이 번역 프로젝트는 [아카라이브 DOL 채널](https://arca.live/b/dolgame)을 중심으로 진행되었습니다.
-
-기존 번역 및 수정 작업에는 여러 참여자가 관여했을 수 있으므로, 개별 번역문의 저작자와 기여 관계를 이 README에서 모두 특정하지 않습니다.
-
-번역본을 이용하거나 수정하여 배포하는 경우에는 가능한 한 이 저장소와 원작의 출처를 함께 표시해주세요.
-
-## 프로젝트를 이어가는 경우
-
-프로젝트를 이어서 관리하고자 하는 경우 이 저장소를 자유롭게 Fork하여 작업할 수 있습니다.
-
-예를 들어 다음과 같은 작업이 가능합니다.
-
-* 새로운 게임 버전에 맞춘 번역 업데이트
-* 기존 번역문의 오탈자 및 번역 오류 수정
-* 누락된 문자열의 추가 번역
-* 번역 품질 개선
-* 버그 및 호환성 문제 수정
-* 번역 작업에 필요한 도구 및 스크립트 개선
-
-Fork한 저장소를 별도의 프로젝트로 운영하거나, 수정된 번역본을 재배포하는 것도 가능합니다. 단, 수정 및 재배포 시에는 본 번역본과 원작에 적용되는 **CC-BY-NC-SA 라이선스 조건**을 준수해야 합니다.
-
-기존 관리자는 이후 파생 프로젝트의 관리나 유지보수에 관여하지 않습니다.
+이번 갱신분의 번역과 통일 작업은 AI(Claude)의 도움을 받아 진행했습니다. 원문과의 구조 비교, 빌드, 브라우저에서의 실행 점검은 자동으로 거쳤지만 사람이 모든 문장을 하나하나 검수한 것은 아닙니다. 어색한 문장이나 오역, 표기가 어긋난 곳을 발견하면 Issue나 Pull Request로 알려 주세요.
 
 ## 이용 방법
 
-게임의 설치 및 실행 방법은 하기에 포함된 `README.md`를 참고해주세요.
+빌드와 실행 방법은 원작과 같습니다. 아래에 이어지는 원문 README의 "How to build"를 참고하세요(`compile.bat` 또는 `compile.sh`를 실행하면 `Degrees of Lewdity.html`이 만들어집니다).
 
-이 저장소의 파일은 원작 게임의 구조와 버전에 따라 달라질 수 있으므로, 사용 중인 게임 버전과 번역본의 대응 버전을 확인한 후 이용하는 것을 권장합니다.
+## 원작과 출처
 
-## 마지막으로
+- **원작**: Vrelnir의 [Degrees of Lewdity](https://vrelnir.blogspot.com/) ([소스 저장소](https://gitgud.io/Vrelnir/degrees-of-lewdity))
+- **한국어 번역**: [아카라이브 DOL 채널](https://arca.live/b/dolgame)의 번역 참여자들, 그리고 그 결과물을 공개한 [Ooo-eee/DoL_KrTranslation](https://github.com/Ooo-eee/DoL_KrTranslation). 이 저장소의 첫 커밋이 그 번역본(0.5.12.13)입니다.
 
-이 저장소는 지금까지 진행된 한국어 번역 작업을 보존하고, 이후 다른 사람이 프로젝트를 이어갈 수 있도록 공개하는 것을 목적으로 합니다.
+기존 번역에는 여러 참여자가 관여했으므로 개별 번역문의 저작자를 여기서 모두 특정하지는 않습니다.
 
-기존 관리자는 이 시점 이후 프로젝트의 지속적인 유지보수나 업데이트를 담당하지 않습니다.
+## 라이선스
 
-프로젝트를 이어가고자 하는 분들은 자유롭게 저장소를 Fork하거나 수정하여 작업을 이어가실 수 있습니다. 단, 수정 및 재배포 시에는 본 저장소와 원작에 적용되는 라이선스 조건을 준수해주세요.
+원작과 기존 번역본에 적용된 **CC BY-NC-SA 4.0**을 그대로 따릅니다. 이 저장소에서 더한 변경도 같은 조건으로 공개합니다.
 
-아래로는 원문 `readme.md`가 이어집니다.
+- **BY (저작자표시)**: 원작과 번역본의 저작자 및 출처를 밝혀야 합니다.
+- **NC (비영리)**: 영리 목적으로 이용할 수 없습니다.
+- **SA (동일조건변경허락)**: 이 번역본을 고치거나 바탕으로 삼은 2차 저작물에도 같은 라이선스를 적용해야 합니다.
 
+자세한 내용은 [`LICENSE`](LICENSE) 파일과 [라이선스 한글 요약](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)을 참고하세요. 조건을 지키는 한 자유롭게 Fork하여 번역을 이어가거나 재배포할 수 있습니다.
+
+아래로는 원작의 `README.md`가 이어집니다.
 
 ---
 
@@ -148,9 +112,10 @@ See [README in devTools/apkbuilder](devTools/apkbuilder/README-windows.txt)
     1. Install [Twee 3 Language Tools extension](https://marketplace.visualstudio.com/items?itemName=cyrusfirheir.twee3-language-tools)
     2. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
     3. Install [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-    4. Install and configure [Code Spell Checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker):
+    4. Install and optionally configure [Code Spell Checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker):
         1. Use "English - United Kingdom" and "English - United States" dictionaries
-        2. Enable spellchecking for`twee3-sugarcube-2`, `markdown`, `javascript` and other programming languages
+        2. Enable spellchecking for `html`, `css`, `javascript` and other relevant programming languages and dictionaries
+           The extension should automatically use these settings for the project via `.cspell.json`, including the custom dictionary in `.cspell-project-words.txt`, so manual configuration should not be necessary. If running `npx cspell .` yields an absurd amount of results (including words that are in the custom dictionary), then the settings may not be automatically set or recognised, so you should set them yourself. Make sure the custom dictionary is recognised, or the extension won't be very useful!
     5. Optionally enable fixing js/css on save. In `settings.json` set:
 
         ```json
