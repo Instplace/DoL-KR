@@ -25,7 +25,7 @@
 		<br><br>
 	<<else>>
 		<<set $skulduggerydifficulty to 100>>
-		<<lockicon "pick">><<link [[사물함 따기 (0:15)|School Lockers Sneak]]>><<handheldon>><<pass 15>><<crimeUp 30 "petty">><<skulduggerycheck "silent">><</link>><<skulduggerydifficulty>><<crime "petty">>
+		<<lockicon "pick">><<link [[사물함을 딴다 (0:15)|School Lockers Sneak]]>><<handheldon>><<pass 15>><<crimeUp 30 "petty">><<skulduggerycheck "silent">><</link>><<skulduggerydifficulty>><<crime "petty">>
 		<br>
 	<</if>>
 <</if>>
@@ -190,10 +190,10 @@
 :: School Lockers Apology
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 
-당신은 수치심에 발끝을 내려다본다. "죄, 죄송해요. 그냥 한번 보고 싶었어요."
+당신은 수치심에 발끝을 내려다본다. "죄-죄송해요. 그냥 한번 보고 싶었어요."
 <br><br>
 
-<<person>>【은는】 탐탁지 않아 보였지만, 화가 난 것 같지는 않다. "그냥 꺼져," <<he>>【이가】 <<his>> 소지품을 뒤지며 말한다. 아마도 없어진 물건이 있는지 확인하는 것 같다.
+<<person>>【은는】 탐탁지 않아 보였지만, 화가 난 것 같지는 않다. "그냥 꺼져." <<he>>【이가】 <<his>> 소지품을 뒤지며 말한다. 아마도 없어진 물건이 있는지 확인하는 것 같다.
 <br><br>
 
 <<link [[다음|School Lockers]]>><<endevent>><</link>>
@@ -222,7 +222,7 @@
 	<<set $enemyhealth -= 100>>
 	<<set $enemyanger += 100>>
 	<<npcidlegenitals>>
-	"오, 그래," 당신이 말한다. "어쩔 건데?" <<He>>【이가】 달려와 당신에게 부딪히고, 둘 다 바닥으로 굴러떨어진다.
+	"오, 그래." 당신이 말한다. "어쩔 건데?" <<He>>【이가】 달려와 당신에게 부딪히고, 둘 다 바닥으로 굴러떨어진다.
 	<br><br>
 	<<set $timer to 10>>
 <</if>>
@@ -249,15 +249,15 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	절정은 <<him>>에게서 남은 분노를 앗아간 것 같다. "다시는 그러지 마," <<he>>【이가】 멋쩍은 표정으로 말한다. <<He>>【은는】 <<his>> 사물함을 닫고 걸어간다. <<tearful>> 당신은 자리에서 일어선다.
+	절정은 <<him>>에게서 남은 분노를 앗아간 것 같다. "다시는 그러지 마." <<he>>【이가】 멋쩍은 표정으로 말한다. <<He>>【은는】 <<his>> 사물함을 닫고 걸어간다. <<tearful>> 당신은 자리에서 일어선다.
 <<elseif $enemyhealth lte 0>>
-	"더, 더는 안 돼! 네가 이겼어," <<he>>【이가】 현장에서 도망치며 눈물을 글썽이며 말한다. <<tearful>> 당신은 의기양양하게 우뚝 선다.
+	"더-더는 안 돼! 네가 이겼어." <<he>>【이가】 현장에서 도망치며 눈물을 글썽이며 말한다. <<tearful>> 당신은 의기양양하게 우뚝 선다.
 	<<ltrauma>><<lstress>><<gcool>><<trauma -6>><<stress -12>><<status 1>>
 <<elseif $timer lte 0>>
 	<<if $pillory.tenant.special.name isnot "Leighton">>
 		레이튼이 현장으로 뛰어들어와 당신 둘을 물리적으로 떼어놓는다.
 		<<endevent>><<npc Leighton>><<person1>>
-		"이건 절대로 용납할 수 없는 일이다," <<he>>【이가】 당신을 보며 말한다. "방과 후에 내 사무실에서 보자. 예의 바르게 행동하는 법을 가르쳐주도록 하지."
+		"이건 절대로 용납할 수 없는 일이다." <<he>>【이가】 당신을 보며 말한다. "방과 후에 내 사무실에서 보자. 예의 바르게 행동하는 법을 가르쳐주도록 하지."
 	<<else>>
 		윈터가 현장으로 뛰어들어온다. <<person1>><<person>>【은는】 <<nnpc_his "Winter">> 도착에 달아난다.
 		<<endevent>><<npc Winter>><<person1>>

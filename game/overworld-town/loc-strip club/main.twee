@@ -64,7 +64,7 @@
 			"신분증 좀 보여주시죠."
 			<br><br>
 			<<if $speech_attitude is "meek">>
-				"저, 저기... 이거 보여드리면 될까요?" 당신은 잠시 허둥대다가
+				"저-저기... 이거 보여드리면 될까요?" 당신은 잠시 허둥대다가
 			<<elseif $speech_attitude is "bratty">>
 				"이거면 되잖아?" 당신은 퉁명스럽게
 			<<else>>
@@ -394,7 +394,7 @@
 
 		<<link [[예|Strip Club Management]]>><<endevent>><<set $phase to 2>><</link>>
 		<br>
-		<<link [[아니오|Strip Club Management]]>><<endevent>><<set $phase to 3>><</link>>
+		<<link [[아니요|Strip Club Management]]>><<endevent>><<set $phase to 3>><</link>>
 		<br>
 	<<else>>
 		<<link [[떠난다|Strip Club]]>><<endevent>><</link>>
@@ -608,7 +608,7 @@
 		<<loadNPC 0 bartend>><<generate2>><<generate3>><<person2>>
 		당신은 <<person>>【와과】 <<person3>><<person>>【이가】 다른 손님에 대해 이야기하는 것을 엿듣게 된다. 당신은 가슴이 철렁 내려앉으며 그들이 아까 당신을 괴롭혔던 <<person1>><<person>>에 대해 이야기하고 있다는 것을 깨닫는다.
 		<br><br>
-		"분명... 누군가 <<him>>【을를】 화나게 한 거야," <<person2>><<person>>【이가】 홀짝거리며 말한다. "이제 복수하려고 벼르고 있어. 그 불쌍한 새끼를 위해 함정을 파려 하고 있지. 다른 놈들까지 끌어들이려 하고 있고..."
+		"분명... 누군가 <<him>>【을를】 화나게 한 거야." <<person2>><<person>>【이가】 홀짝거리며 말한다. "이제 복수하려고 벼르고 있어. 그 불쌍한 새끼를 위해 함정을 파려 하고 있지. 다른 놈들까지 끌어들이려 하고 있고..."
 		<br><br>
 		<span class="red">당신에 대한 이야기다.</span>
 		<br><br>
@@ -620,7 +620,7 @@
 	<<elseif $rng gte 21 and $bartend_info_other is undefined>>
 		<<set $bartend_info_other to 0>>
 		<<generate1>><<generate2>><<generatev3>>
-		당신은 <<person1>><<person>>【와과】 <<person2>><<person>>의 대화를 엿듣게 된다. "진짜 죽여주네," <<person1>><<person>>【이가】 말한다. <<person2>><<person>>【은는】 고개를 끄덕인다. 그들은 근처 무대에서 춤추는 <<person3>><<person>>【을를】 음흉하게 쳐다보고 있다.
+		당신은 <<person1>><<person>>【와과】 <<person2>><<person>>의 대화를 엿듣게 된다. "진짜 죽여주네." <<person1>><<person>>【이가】 말한다. <<person2>><<person>>【은는】 고개를 끄덕인다. 그들은 근처 무대에서 춤추는 <<person3>><<person>>【을를】 음흉하게 쳐다보고 있다.
 		<br><br>
 
 		"그럼 우리가 돈 주고 사는 건 어때? 그렇게 비싸진 않을 텐데."
@@ -1198,7 +1198,7 @@
 	<<He>>【은는】 히죽 웃는다. <span class="red">당신은 <<he>>【이가】 믿지 않는다고 생각한다.</span>
 	"브라이어에게 전해두지." <<he>>【이가】 말하고는 골목으로 숨어든다.<<llove "Briar">>
 	<br><br>
-	<<npcincr Briar love 1>>
+	<<npcincr Briar love -1>>
 	<<set $brothel_rivalry += 2>>
 	<<skulduggeryuse>>
 

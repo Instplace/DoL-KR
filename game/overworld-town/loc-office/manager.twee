@@ -13,7 +13,7 @@
 	<br><br>
 	당신은 <<office_manager>>에게 묻는다.
 	<<if $speech_attitude is "meek">>
-		"ㅈ, 저를요? 특별히요?"
+		"저-저를요? 특별히요?"
 	<<elseif $speech_attitude is "bratty">>
 		"'특별히 저를 지목했다'니 무슨 소리예요? 장난치는 거 아니죠?"
 	<<else>>

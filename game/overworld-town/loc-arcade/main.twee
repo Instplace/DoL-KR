@@ -10,14 +10,14 @@
 		<<wearProp "lockpick">>
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:10)|Arcade]]>><<pass 10>><<crimeUp 20 "trespassing">><</link>><<crime "trespassing">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:10)|Arcade]]>><<pass 10>><<crimeUp 20 "trespassing">><</link>><<crime "trespassing">>
 		<br>
 	<</if>>
 <<else>>
 	<span class="red">자물쇠는 당신의 실력으로 딸 수 없을 것 같다.</span><<skulduggeryrequired>>
 	<br><br>
 <</if>>
-<<starfishicon>><<link [[떠나기|Starfish Street]]>><<set $eventskip to 1>><</link>>
+<<starfishicon>><<link [[떠난다|Starfish Street]]>><<set $eventskip to 1>><</link>>
 <br>
 
 :: Arcade
@@ -59,13 +59,13 @@
 
 				<<socialiseicon "party">><<link [[수락 (0:10)|Beach]]>><<pass 10>><<set $eventskip to 1>><<stress -6>><<status 1>><</link>><<lstress>><<gcool>>
 				<br>
-				<<starfishicon>><<link [[핑계를 대고 작별 인사하기|Starfish Street]]>><</link>>
+				<<starfishicon>><<link [[핑계를 대고 작별 인사한다|Starfish Street]]>><</link>>
 			<<else>>
-				<<starfishicon>><<link [[밖으로 나가기|Starfish Street]]>><</link>>
+				<<starfishicon>><<link [[밖으로 나간다|Starfish Street]]>><</link>>
 			<</if>>
 			<br>
 		<<else>>
-			<<ind>><<link [[끝날 때까지 숨어 있기 (1:00)|Arcade]]>><<pass 1 hour>><</link>>
+			<<ind>><<link [[끝날 때까지 숨어 있는다 (1:00)|Arcade]]>><<pass 1 hour>><</link>>
 		<</if>>
 	<<else>>
 		<<if Time.dayState is "night" or Time.dayState is "dawn">>
@@ -79,11 +79,11 @@
 			<<orgasmLocation "arcade">>
 		<</if>>
 		<<if $arcadeteenspresent is 1 and $exposed lte 0>>
-			<<socialiseicon>><<link [[같이 놀기 (0:30)|Arcade Hang]]>><<pass 30>><<stress -6>><<status 1>><</link>><<lstress>><<gcool>>
+			<<socialiseicon>><<link [[같이 논다 (0:30)|Arcade Hang]]>><<pass 30>><<stress -6>><<status 1>><</link>><<lstress>><<gcool>>
 			<br>
 		<</if>>
 		<<if $money gte 500 and (Time.dayState is "day" or Time.dayState is "dusk") and $exposed lte 0>>
-			<<robinicon "controller">><<link [[게임하기 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
+			<<robinicon "controller">><<link [[게임한다 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
 			<br>
 		<</if>>
 		<<set _kylarLocation to getKylarLocation()>>
@@ -91,7 +91,7 @@
 			<br>
 			카일라가 게임기 중 하나에서 게임을 하고 있는 것이 보인다.
 			<br>
-			<<ind>><<link [[다가가기|Kylar Arcade]]>><<set $kylar_text_trigger to true>><</link>>
+			<<ind>><<link [[다가간다|Kylar Arcade]]>><<set $kylar_text_trigger to true>><</link>>
 			<br>
 		<</if>>
 		<<if ($tenyclusPlayCount is undefined or $tenyclusPlayCount is 0) and $hallucinations gte 1 and !$daily.tenyclusPlayed and $money gte 500 and (Time.dayState is "day" or Time.dayState is "dusk") and $exposed lte 0>>
@@ -99,17 +99,17 @@
 			<br>
 			구석에 홀로 놓인 게임기 한 대가 눈에 띈다. 이상하게도, 다른 사람들은 아무도 그것을 알아채지 못하는 것 같다.
 			<br>
-			<<investigateicon>><<link [[홀로 있는 게임기 조사하기|Arcade Tenyclus Intro]]>><</link>>
+			<<investigateicon>><<link [[홀로 있는 게임기를 조사한다|Arcade Tenyclus Intro]]>><</link>>
 			<br>
 		<</if>>
 		<<if $tenyclusPlayCount gte 1 and $tenyclusPlayCount lt 7 and $hallucinations gte 1 and !$daily.tenyclusPlayed and (Time.dayState is "day" or Time.dayState is "dusk") and $exposed lte 0>>
 			<br>
 			구석에 놓인 "테니클루스" 게임기가 눈에 띈다. 다른 사람들은 아무도 그것을 알아채지 못하는 것 같다.
 			<br>
-			<<arcadeicon>><<link [[테니클루스 플레이하기|Arcade Tenyclus Play]]>><</link>>
+			<<arcadeicon>><<link [[테니클루스를 플레이한다|Arcade Tenyclus Play]]>><</link>>
 			<br>
 		<</if>>
-		<<starfishicon>><<link [[떠나기|Starfish Street]]>><</link>>
+		<<starfishicon>><<link [[떠난다|Starfish Street]]>><</link>>
 		<br>
 	<</if>>
 <</if>>
@@ -137,151 +137,35 @@
 	<<link [[그만둔다|Arcade]]>><</link>>
 	<br>
 <<else>>
-	<<rng 13>>
-	<<switch $rng>>
-		<<case 1 2>>
-			슈팅 게임을 플레이하며 수많은 <<print either("좀비", "해적", "외계인", "군인", "범죄자", "돌연변이")>>【을를】 죽인다.
-			<br><br>
+	<<cleareventpool>>
 
-			<<if dangerEvent() and $eventskip is 0>>
-				<<generatey1>><<person1>>
-				한 <<person>>【이가】 당신 옆으로 걸어온다. <<He>>【은는】 2P로 참여해 총을 쏘기 시작한다. <<He>>【은는】 아무 말도 하지 않는다.
-				<br><br>
+	<<if dangerEvent() and $eventskip is 0>>
+		<<addevent "arcadePlayShooterDanger" 2>>
+	<<else>>
+		<<addevent "arcadePlayShooter" 2>>
+	<</if>>
 
-				<<link [[계속 플레이한다|Arcade Keep Playing]]>><</link>>
-				<br>
-				<<link [[밀치고 양손으로 총을 쏜다|Arcade Shove]]>><<def 1>><<trauma -2>><</link>><<ltrauma>>
-				<br>
-				<<set $skulduggerydifficulty to 400>>
-				<<link [[훔친다|Arcade Steal]]>><<crimeUp 30 "petty">><</link>><<skulduggerydifficulty>><<gcrime "petty">>
-				<br>
-				<<link [[그만둔다|Arcade]]>><<endevent>><</link>>
-				<br>
-			<<else>>
-				<<rng>>
-				<<if $rng gte 71>>
-					만족스러운 질척이는 소리와 함께 최종 보스의 머리를 날려버린다.
-					<<ltrauma>><<trauma -2>>
-				<<elseif $rng gte 31>>
-					모두가 불평하는 그 구간에 도달한다. 왜 그랬는지 다시 한번 깨닫게 된다.
-				<<else>>
-					총이 제대로 작동하지 않는 것 같다. 적의 공격을 공중에서 쏘아 맞히려 했지만, 대신 얼굴에 맞고 만다.
-				<</if>>
-				<br><br>
-				<<arcadeEndLink>>
-			<</if>>
-		<<case 3 4>>
-			빠른 속도의 슈팅 게임을 플레이한다.
-			<br><br>
+	<<if dangerEvent() and $eventskip is 0>>
+		<<addevent "arcadePlayShmupDanger" 2>>
+	<<else>>
+		<<addevent "arcadePlayShmup" 2>>
+	<</if>>
 
-			<<if dangerEvent() and $eventskip is 0>>
-				<<generate1>><<person1>>한 <<person>>【이가】 당신 옆에 서서 지켜본다. <<He>>【은는】 의심스러운 지혜가 담긴 조언을 해준다.
-				<br><br>
-				<<He>>【은는】 아주 가까이 서 있다.
-				<br><br>
-				<<link [[계속 플레이한다|Arcade Watched Play]]>><</link>>
-				<br>
-				<<link [[그만둔다|Arcade Watched Stop]]>><<stress 6>><</link>><<gstress>>
-				<br>
-			<<else>>
-				<<rng>>
-				<<if $rng gte 71>>
-					운이 당신 편이다. 적절한 순간에 적절한 파워업이 떨어지고, 당신은 승리를 향해 질주한다.
-					<<ltrauma>><<trauma -2>>
-				<<elseif $rng gte 31>>
-					당신에게는 너무 빨라서, 게임 중간에 격추당한다.
-				<<else>>
-					거의 다 왔지만, 최종 보스가 너무 강했다.
-				<</if>>
-				<br><br>
-				<<arcadeEndLink>>
-			<</if>>
-		<<case 5 6>>
-			격투 게임 기기 앞에 서자, 곧 캐릭터 선택 화면이 나타난다. 선택할 수 있는 캐릭터는 네 명이다. 누구를 고를까?
-			<br><br>
-			<<link [[악당처럼 생긴 캐릭터를 고른다|Arcade fighting cabinet]]>><<set $arcadeCharacter to "villainous">><</link>>
-			<br>
-			<<link [[뾰족머리 캐릭터를 고른다|Arcade fighting cabinet]]>><<set $arcadeCharacter to "spiky hair">><</link>>
-			<br>
-			<<link [[노출이 심한 옷을 입은 캐릭터를 고른다|Arcade fighting cabinet]]>><<set $arcadeCharacter to "scantily-clad">><</link>>
-			<br>
-			<<link [[근육질 캐릭터를 고른다|Arcade fighting cabinet]]>><<set $arcadeCharacter to "muscular">><</link>>
-			<br>
-		<<case 7>>
-			<<generate1>><<person1>>
-			플랫포머 게임을 하고 있다. 성공적으로 적 위로 뛰어올라 파워업을 잡는다. 한 <<person>>【이가】 말을 걸어, 당신은 뒤를 돌아본다.
-			<br><br>
-			"너 진짜 게임 못한다! 그냥 비켜, 내가 하게."
-			<br><br>
-			<<if $speech_attitude is "bratty">>
-				<<link [[따진다|Arcade Classmate Braggart]]>><<set $phase to 1>><</link>>
-				<br>
-			<</if>>
-			<<link [[물러난다|Arcade Classmate Braggart]]>><<set $phase to 2>><</link>>
-			<br>
-			<<link [[무시한다|Arcade Classmate Braggart]]>><<set $phase to 3>><</link>>
-		<<case 8 9>>
-			<<generate1>><<person1>>
-			우주 테마의 슈팅 게임으로 다가가 "1P" 자리를 차지한다. 시작하기도 전에 한 <<person>>【이가】 당신에게 다가온다. <<him>> 뒤에는 작은 무리가 모여 있다. 이 플레이어는 꽤 인기 있는 모양이다.
-			<br><br>
-			<<switch random(1,2)>>
-				<<case 1>>"너 완전 좆밥처럼 보이는데. 누가 더 잘하는지 한판 붙어볼까?" <<person>>【이가】 비웃으며 말한다.
-				<<case 2>>"나 이 게임 꽤 잘해. 작은 내기 한번 할래?" <<he>>【이가】 기기에 토큰을 올려놓으며 묻는다.
-			<</switch>>
-			<br><br>
-			<<link [[대결을 수락한다|Arcade Popular Gamer]]>><<set $phase to 1>><</link>>
-			<br>
-			<<link [[거절한다|Arcade Popular Gamer]]>><<set $phase to 2>><</link>>
-		<<case 10>>
-			<<generate1>><<person1>>
-			빈 게임기를 찾아 방구석에 있는 하나를 발견한다. 토큰을 넣고 게임을 시작하며 악당들을 날려버린다. <<stress -5>><<lstress>>
-			<br><br>
-			바주카를 막 사용하려는 순간 화면이 어두워진다. 게임기 뒤로 가보니 플러그가 뽑혀 있다.
-			<br><br>
+	<<addevent "arcadePlayFighting" 2>>
+	<<addevent "arcadePlayPlatformer" 1>>
+	<<addevent "arcadePlayPopular" 2>>
 
-			<<if dangerEvent() and $eventskip is 0>>
-				콘솔 플러그를 다시 꽂는다. 누군가 발에 걸려 넘어졌을지도 모른다. 게임을 계속하기 위해 돌아섰지만, 한 <<person>>【이가】 길을 막고 있는 것을 발견한다. 당신이 무슨 말을 하기도 전에, <<he>>【이가】 당신을 붙잡는다.
-				<br><br>
-				<<link [[다음|Arcade Watched Rape]]>><<set $molestationstart to 1>><</link>>
-			<<else>>
-				콘솔 플러그를 다시 꽂는다. 누군가 발에 걸려 넘어졌을지도 모른다. 게임을 끝내려 하지만, 게임이 리셋된 것을 발견한다. 진행 상황을 반복하고 싶지 않아 자리를 뜬다.
-				<br><br>
-				<<arcadeEndLink>>
-			<</if>>
-		<<case 11>>
-			<<generate1>><<person1>>
-			벨트스크롤 액션 게임을 골라, 다가오는 적들을 때려눕힌다. 게임을 하는 동안, 등 뒤로 작은 무리가 모이는 소리가 들린다. 그들은 고전 게임을 하고 있는 한 <<person>>에게 시선을 고정하고 있다.
-			<br><br>
-			"와! 이 속도면 최고 기록을 깨겠는데!" 구경꾼 중 한 명이 소리친다. "다들 와서 봐!"
-			<br><br>
-			<<link [[구경하러 간다|Arcade Watch High Score]]>><<set $phase to 1>><</link>>
-			<br>
-			<<link [[내 게임을 마저 한다|Arcade Watch High Score]]>><<endevent>><<set $phase to 2>><</link>>
-		<<case 12>>
-			<<generatey1>><<person1>>
-			새로운 게임을 찾아 아케이드를 돌아다닌다. 근처에서 환호성이 들리고, 대전 격투 게임 앞에 작은 무리가 모여 있는 것을 본다. 더 가까이 다가간다.
-			<br><br>
+	<<if dangerEvent() and $eventskip is 0>>
+		<<addevent "arcadePlayPlugDanger" 1>>
+	<<else>>
+		<<addevent "arcadePlayPlug" 1>>
+	<</if>>
 
-			한쪽에는 자신감 넘치고 의기양양해 보이는 <<person>>【이가】 있다. 패배한 듯한 다른 게이머는 컨트롤러에서 물러난다.
-			<br><br>
+	<<addevent "arcadePlayHighscore" 1>>
+	<<addevent "arcadePlayExposure" 1>>
+	<<addevent "arcadePlayHockey" 1>>
 
-			"이걸로 12연승이야!" <<person>>【이가】 군중을 향해 외친다. "13연승의 제물이 될 사람!"
-			<br><br>
-
-			<<link [[도전을 받아들인다 (0:10)|Arcade Exposure Accept]]>><</link>>
-			<br>
-			<<link [[무시한다|Arcade Exposure Ignore]]>><</link>>
-
-		<<case 13>>
-			<<generatey1>><<person1>>
-
-			에어 하키 테이블 옆을 지나간다. 당신 또래의 <<person>>【이가】 테이블 하나에 기대어 있다. 당신이 지나가자 <<He>>【이가】 말을 건다. "몇 판 할래?" <<he>>【이가】 말한다.
-			<br><br>
-
-			<<link [[동의한다|Arcade Hockey Agree]]>><</link>>
-			<br>
-			<<link [[거절한다|Arcade Hockey Decline]]>><<set $phase to 1>><</link>>
-	<</switch>>
+	<<runeventpool>>
 <</if>>
 
 :: Arcade Watched Stop
@@ -291,10 +175,10 @@
 <br><br>
 <<endevent>>
 	<<if $money gte 500 and Time.dayState isnot "night">>
-		<<link [[계속 플레이하기 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
+		<<link [[계속 플레이한다 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
 		<br>
 	<</if>>
-		<<link [[그만하기|Arcade]]>><</link>>
+		<<link [[그만둔다|Arcade]]>><</link>>
 		<br>
 
 :: Arcade Watched Play
@@ -311,10 +195,10 @@
 <br><br>
 <<endevent>>
 	<<if $money gte 500 and Time.dayState isnot "night">>
-		<<link [[계속 플레이하기 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
+		<<link [[계속 플레이한다 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
 		<br>
 	<</if>>
-		<<link [[그만하기|Arcade]]>><</link>>
+		<<link [[그만둔다|Arcade]]>><</link>>
 		<br>
 <</if>>
 
@@ -394,7 +278,7 @@
 <br><br>
 <<endevent>>
 <<if $money gte 500 and Time.dayState isnot "night">>
-	<<link [[계속 플레이하기 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
+	<<link [[계속 플레이한다 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
 	<br>
 <</if>>
 	<<link [[그만둔다|Arcade]]>><</link>>
@@ -410,7 +294,7 @@
 
 <<endevent>>
 <<if $money gte 500 and Time.dayState isnot "night">>
-	<<link [[계속 플레이하기 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
+	<<link [[계속 플레이한다 (£5 0:20)|Arcade Play]]>><<money -500 "arcade">><<pass 20>><<stress -2>><</link>><<lstress>>
 	<br>
 <</if>>
 	<<link [[그만둔다|Arcade]]>><</link>>
@@ -435,7 +319,7 @@
 
 <<else>>
 
-<span class="red"><<He>>【이가】 돌아보더니 당신을 발견한다.</span> "어이," <<he>>【이가】 말한다. "손 버릇 좀 고쳐." <<He>>【은는】 돈을 <<his>> 주머니 깊숙이, 쉽게 닿지 않는 곳으로 집어넣는다.
+<span class="red"><<He>>【이가】 돌아보더니 당신을 발견한다.</span> "어이." <<he>>【이가】 말한다. "손 버릇 좀 고쳐." <<He>>【은는】 돈을 <<his>> 주머니 깊숙이, 쉽게 닿지 않는 곳으로 집어넣는다.
 <br><br>
 
 <<skulduggeryuse>>
@@ -492,21 +376,21 @@
 		<br><br>
 
 		<<if $phase is 0>>
-			"멍청하긴," 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
+			"멍청하긴." 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
 			<br><br>
 
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 
 		<<elseif $phase is 1>>
-			"내 차례야," 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
+			"내 차례야." 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 2>>
-			"너희들 이거 처음 해보나 보네," 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
+			"너희들 이거 처음 해보나 보네." 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 3>>
-			"시간이 너무 오래 걸리잖아," 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
+			"시간이 너무 오래 걸리잖아." 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<else>>
@@ -521,7 +405,7 @@
 				<<towelup>>
 				<</if>>
 			<br><br>
-			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네," <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
+			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네." <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
 			<br><br>
 
 			<<endevent>>
@@ -561,21 +445,21 @@
 		<br><br>
 
 		<<if $phase is 0>>
-			"멍청하긴," 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
+			"멍청하긴." 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
 			<br><br>
 
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 
 		<<elseif $phase is 1>>
-			"내 차례야," 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
+			"내 차례야." 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 2>>
-			"너희들 이거 처음 해보나 보네," 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
+			"너희들 이거 처음 해보나 보네." 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 3>>
-			"시간이 너무 오래 걸리잖아," 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
+			"시간이 너무 오래 걸리잖아." 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<else>>
@@ -590,7 +474,7 @@
 				<<towelup>>
 				<</if>>
 			<br><br>
-			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네," <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
+			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네." <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
 			<br><br>
 
 			<<endevent>>
@@ -620,21 +504,21 @@
 		<br><br>
 
 		<<if $phase is 0>>
-			"멍청하긴," 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
+			"멍청하긴." 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
 			<br><br>
 
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 
 		<<elseif $phase is 1>>
-			"내 차례야," 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
+			"내 차례야." 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 2>>
-			"너희들 이거 처음 해보나 보네," 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
+			"너희들 이거 처음 해보나 보네." 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 3>>
-			"시간이 너무 오래 걸리잖아," 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
+			"시간이 너무 오래 걸리잖아." 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<else>>
@@ -649,7 +533,7 @@
 				<<towelup>>
 				<</if>>
 			<br><br>
-			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네," <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
+			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네." <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
 			<br><br>
 
 			<<endevent>>
@@ -689,21 +573,21 @@
 		<br><br>
 
 		<<if $phase is 0>>
-			"멍청하긴," 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
+			"멍청하긴." 한 <<person2>><<person>>【이가】 <<his>> 친구를 옆으로 밀치며 말한다. "내가 어떻게 하는 건지 보여줄게."
 			<br><br>
 
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 
 		<<elseif $phase is 1>>
-			"내 차례야," 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
+			"내 차례야." 한 <<person3>><<person>>【이가】 레버를 넘겨받으며 말한다. "어렵지도 않구만."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 2>>
-			"너희들 이거 처음 해보나 보네," 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
+			"너희들 이거 처음 해보나 보네." 한 <<person4>><<person>>【이가】 말한다. "잘 봐."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<elseif $phase is 3>>
-			"시간이 너무 오래 걸리잖아," 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
+			"시간이 너무 오래 걸리잖아." 한 <<person5>><<person>>【이가】 말한다. "곧 누가 우리를 잡을 거야. 내가 해볼게."
 			<br><br>
 			<<link [[다음|Arcade Crane 2]]>><<set $phase += 1>><</link>>
 		<<else>>
@@ -718,7 +602,7 @@
 				<<towelup>>
 				<</if>>
 			<br><br>
-			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네," <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
+			"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네." <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
 			<br><br>
 
 			<<endevent>>
@@ -750,7 +634,7 @@
 	<<towelup>>
 	<br><br>
 
-	"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네," <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
+	"어떻게 사람이 저렇게 잔인할 수 있는지 믿을 수가 없네." <<he>>【은는】 고개를 저으며 말한다. "이제 조심해서 다녀."
 	<br><br>
 
 	<<endevent>>
@@ -849,7 +733,7 @@
 <<if $tenyclusRounds gt 0 and $tenyclusLives gt 0>>
 	<<link [[다음|Arcade Tenyclus]]>><</link>>
 	<br>
-	<<link [[그만하기|Arcade Tenyclus Leave]]>><<willpowerdifficulty 1 $willpowermax>><</link>>
+	<<link [[그만둔다|Arcade Tenyclus Leave]]>><<willpowerdifficulty 1 $willpowermax>><</link>>
 <<else>>
 	<<if $tenyclusLives lte 0>>
 		목숨을 모두 잃었다. 게임 오버. <<control -25>><<lcontrol>>
@@ -1092,9 +976,7 @@
 <<link [[다음|Arcade Exposure Play]]>><</link>>
 
 :: Arcade Exposure Play
-<<effects>><<person1>><<set $arcadeExposure to {}>>
-<<set $arcadeExposure.lower to $worn.lower.name>>
-<<set $arcadeExposure.underlower to $worn.under_lower.name>>
+<<effects>><<person1>>
 
 첫 번째 경기는 형편없었지만, 망신을 당하지는 않았다. 당신은 <<he>>【이가】 즐겨 쓰는 속임수를 알아차렸지만, 그것을 이용하기에는 너무 늦었다. 당신의 체력 바가 0에 도달한다.
 <br><br>
@@ -1155,16 +1037,16 @@
 		"넌 대체 무슨 변태야?" 상대방의 친구가 소리친다. 당신은 <<him>>【을를】 무시하고 계속 플레이한다.
 		<br><br>
 	<<elseif $worn.genitals.name isnot "naked">>
-		<<if $arcadeExposure.underlower isnot "naked">>
-			<<He>>【은는】 이어서 당신의 $arcadeExposure.underlower【을를】 잡고 그것마저 끌어내린다.
+		<<if $worn.under_lower.name isnot "naked">>
+			<<He>>【은는】 이어서 당신의 $worn.under_lower.name【을를】 잡고 그것마저 끌어내린다.
 		<</if>>
 		갑자기 오락실 전체가 당신의 <<print $worn.genitals.name>>【을를】 볼 수 있게 된다. 군중은 숨을 헐떡이고, 이어서 중얼거림과 불안한 웃음소리가 터져 나온다.
 		<br><br>
 
 		"넌 대체 무슨 변태야?" 상대방의 친구가 소리친다. 당신은 <<him>>【을를】 무시하고 계속 플레이한다.
 		<br><br>
-	<<elseif $arcadeExposure.underlower isnot "naked">>
-		<<He>>【은는】 이어서 당신의 $arcadeExposure.underlower【을를】 잡고 그것마저 끌어내린다.
+	<<elseif $worn.under_lower.name isnot "naked">>
+		<<He>>【은는】 이어서 당신의 $worn.under_lower.name【을를】 잡고 그것마저 끌어내린다.
 		<br><br>
 	<</if>>
 
@@ -1179,16 +1061,16 @@
 		"넌 대체 무슨 변태야?" 상대방의 친구가 소리친다. 당신은 <<him>>【을를】 무시하고 계속 플레이한다.
 		<br><br>
 	<<elseif $worn.genitals.name isnot "naked">>
-		<<if $arcadeExposure.underlower isnot "naked">>
-			<<He>>【은는】 이어서 당신의 $arcadeExposure.underlower【을를】 잡고 그것마저 끌어내린다.
+		<<if $worn.under_lower.name isnot "naked">>
+			<<He>>【은는】 이어서 당신의 $worn.under_lower.name【을를】 잡고 그것마저 끌어내린다.
 		<</if>>
 		갑자기 오락실 전체가 당신의 <<print $worn.genitals.name>>【을를】 볼 수 있게 된다. 군중은 숨을 헐떡이고, 이어서 중얼거림과 불안한 웃음소리가 터져 나온다.
 		<br><br>
 
 		"넌 대체 무슨 변태야?" 상대방의 친구가 소리친다. 당신은 <<him>>【을를】 무시하고 계속 플레이한다.
 		<br><br>
-	<<elseif $arcadeExposure.underlower isnot "naked">>
-		설상가상으로, 당신의 $arcadeExposure.underlower도 함께 내려간다.
+	<<elseif $worn.under_lower.name isnot "naked">>
+		설상가상으로, 당신의 $worn.under_lower.name【이】 함께 내려간다.
 		<br><br>
 	<</if>>
 <</if>>
@@ -1228,7 +1110,7 @@
 	<<if $worn.under_lower.type.includes("chastity")>>
 		당신은 너무 기뻐서 모든 사람이 당신의 $worn.genitals.name【을를】 볼 수 있다는 사실을 신경 쓰지 않는다.
 	<<else>>
-		당신은 너무 기뻐서 몇 초 동안, 당신의 $arcadeExposure.lower【이가】 오락실에 노출되어 있다는 사실을 잊는다.
+		당신은 너무 기뻐서 몇 초 동안, 당신의 <<bottom>>【이가】 오락실에 노출되어 있다는 사실을 잊는다.
 	<</if>>
 	<br><br>
 
@@ -1260,7 +1142,7 @@
 	당신은 노출뿐만 아니라 그 이상의 수치심을 느끼며 옷을 고쳐 입는다.<<gstress>><<stress 6>>
 	<br><br>
 
-	<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><<unset $arcadeExposure>><</link>>
+	<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><</link>>
 
 <</if>>
 
@@ -1276,7 +1158,7 @@
 잠시 동안 환호와 과시가 이어진 후, 당신은 마침내 옷을 고쳐 입고, 오락실은 정상으로 돌아온다.
 <br><br>
 
-<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><<unset $arcadeExposure>><</link>>
+<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><</link>>
 
 :: Arcade Exposure Fix
 <<effects>>
@@ -1284,12 +1166,12 @@
 당신은 재빨리 옷을 고쳐 입고, 마침내 당신의 <<if $worn.under_lower.type.includes("chastity")>>벨트<<else>>엉덩이<</if>>【을를】 가린다. 군중은 계속해서 당신에게 환호와 박수를 보낸다. 당신은 몇 분 동안 그 분위기를 만끽하지만, 이전에 노출되었던 것에 대해 여전히 당혹감을 느낀다. 당신은 얼굴을 붉히며 자리를 뜬다.
 <br><br>
 
-<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><<unset $arcadeExposure>><</link>>
+<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<clotheson>><</link>>
 
 :: Arcade Exposure Stop
 <<effects>>
 
-당신은 조작기에서 손을 떼고, 당신의 $arcadeExposure.lower【을를】 잡고 <<his>> 손을 쳐낸다. 순식간에 일어난 일이지만, 당신이 화면으로 돌아왔을 때 <span class="red">당신의 체력 바는 거의 사라져 있었다.</span> 당신은 반격할 시간도 없이 두 번째로 패배한다.
+당신은 조작기에서 손을 떼고, 당신의 $worn.lower.name【을를】 잡고 <<his>> 손을 쳐낸다. 순식간에 일어난 일이지만, 당신이 화면으로 돌아왔을 때 <span class="red">당신의 체력 바는 거의 사라져 있었다.</span> 당신은 반격할 시간도 없이 두 번째로 패배한다.
 <br><br>
 
 "하!" <<person1>><<person>>【이가】 소리친다. "네가 있어야 할 애들 풀장에나 있지 그랬어!"
@@ -1298,7 +1180,7 @@
 군중이 다시 환호하지만, 이전보다 더 조용하다. 그들 모두 속임수가 있었던 것을 보았다. 좌절한 당신은 자리를 뜬다.<<gstress>><<stress 6>>
 <br><br>
 
-<<link [[다음|Arcade]]>><<endevent>><<pass 10>><<unset $arcadeExposure>><</link>>
+<<link [[다음|Arcade]]>><<endevent>><<pass 10>><</link>>
 
 :: Arcade Exposure Ignore
 <<effects>>
@@ -1312,21 +1194,21 @@
 <<widget "arcade_npc_bet">>
 
 	<<if $arcadeHockey.npc_clothes.upper.name isnot "naked">>
-		"네가 이번 판 이기면 내 <<npcClothesText $NPCList[0] "upper">>【을를】 벗을게," <<he>>【이가】 말한다.
+		"네가 이번 판 이기면 내 <<npcClothesText $NPCList[0] "upper">>【을를】 벗을게." <<he>>【이가】 말한다.
 
 	<<elseif $arcadeHockey.npc_clothes.lower.name isnot "naked">>
 		<<if $arcadeHockey.player_count_win is 0>>
-			"네가 이번 판 이기면 내 <<npcClothesText $NPCList[0] "lower">>【을를】 벗을게," <<he>>【이가】 말한다.
+			"네가 이번 판 이기면 내 <<npcClothesText $NPCList[0] "lower">>【을를】 벗을게." <<he>>【이가】 말한다.
 		<<else>>
-			"다음은 내 <<npcClothesText $NPCList[0] "lower">>【을를】," <<he>>【이가】 말한다. "네가 이번 판 이기면 이거 벗을게."
+			"다음은 내 <<npcClothesText $NPCList[0] "lower">>【을를】." <<he>>【이가】 말한다. "네가 이번 판 이기면 이거 벗을게."
 		<</if>>
 
 	<<elseif !$arcadeHockey.npc_braless and $NPCList[0].pronoun is "f">>
-		"다음은 브래지어야," <<he>>【이가】 말한다. "네가 이번 판 이기면 모두가 보는 앞에서 젖탱이를 까줄게." <<He>>【은는】 그 생각이 딱히 싫지는 않은 모양이다.
+		"다음은 브래지어야." <<he>>【이가】 말한다. "네가 이번 판 이기면 모두가 보는 앞에서 젖탱이를 까줄게." <<He>>【은는】 그 생각이 딱히 싫지는 않은 모양이다.
 		<<if $NPCList[0].breastsize gte 4>>사실, <<he>>【은는】 심지어 <<his>> 브래지어 끈을 몇 번 튕겨, <<his>> <<npcChest>>【을를】 출렁이게 하기까지 한다.<</if>>
 
 	<<else>>
-		<<He>>【은는】 손을 뻗어 <<his>> 속옷 허리 밴드를 잡아당긴다. "이게 내게 남은 전부야," <<he>>【이가】 말한다.
+		<<He>>【은는】 손을 뻗어 <<his>> 속옷 허리 밴드를 잡아당긴다. "이게 내게 남은 전부야." <<he>>【이가】 말한다.
 		<<if $NPCList[0].penis isnot "none">>
 			당신은 <<his>> 움직임에 따라 윤곽을 드러낸 <<his>> <<npcPenis>>【이가】 까딱거리는 것을 볼 수 있다.
 		<<else>>
@@ -1500,7 +1382,7 @@
 	<br><br>
 
 	<<if $arcadeHockey.player_count_win + $arcadeHockey.player_count_lost is 1>>
-		"재밌을 것 같은데." <<he>>【이가】 씩 웃으며 말한다.
+		"재밌을 것 같은데," <<he>>【이가】 씩 웃으며 말한다.
 	<<else>>
 		"너무 쉽잖아. 지고 싶었던 거지, 안 그래?" <<he>>【이가】 씩 웃으며 묻는다. "난 상관없어, 알잖아."
 	<</if>>
@@ -1510,7 +1392,7 @@
 	당신이 이길 수 없다는 것이 금방 명확해졌다. 당신은 열심히 하고 있지만 <<he>>【은는】 여유를 부리고 있다. 당신은 2점을 득점했지만, <span class="red"><<he>>【이가】 문제없이 당신을 이겼다.</span><<gstress>><<stress 6>>
 	<br><br>
 
-	"날 이기려면 연습 좀 더 해야겠는데." <<he>>【이가】 말한다.
+	"날 이기려면 연습 좀 더 해야겠는데," <<he>>【이가】 말한다.
 
 <<elseif ($difficulty - currentSkillValue("handskill")) gte 100>>
 	<<set $arcadeHockey.player_count_lost += 1>><<set $arcadeHockey.player_lost to true>>
@@ -1540,7 +1422,7 @@
 	이기는 데 큰 노력이 필요하지 않다. 당신은 평정심을 유지하며 침착했지만, <<he>>【은는】 따라가기 위해 명백히 고군분투하고 있다. <<He>>【은는】 간신히 2점을 득점했지만, <span class="green">당신은 아무렇지 않게 5점째를 성공시킨다.</span><<lstress>><<stress -6>>
 	<br><br>
 
-	"젠장," <<he>>【이가】 말한다. "아무래도 실력이 좀 녹슨 것 같네."
+	"젠장." <<he>>【이가】 말한다. "아무래도 실력이 좀 녹슨 것 같네."
 
 <<else>>
 	<<set $arcadeHockey.player_count_win += 1>>
@@ -1801,7 +1683,7 @@
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"지금은 그만할래. 음, 다음에는 할지도 모르지만." 당신이 말한다.
+		"지금은 그만할래. 음, 다음에는 할지도 모르지만," 당신이 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"아니, 괜찮아. 갈 데가 있어서." 당신이 말한다.
 	<<else>>

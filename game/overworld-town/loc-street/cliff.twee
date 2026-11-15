@@ -117,7 +117,7 @@
 
 <<elseif $chef_event gte random(1, 100) and $exposed lte 0 and !$possessed>>
 	<<rng>><<run statusCheck("Gwylan")>>
-	<<if $chef_sus gte 100 and $chef_threat and (crimeSumCurrent() gte 2500  or $community_service gte 1)>>
+	<<if $chef_sus gte 100 and $chef_threat and (crimeSumCurrent() gte 2500 or $community_service gte 1)>>
 		<<set $chef_sus to 0>>
 		<<generatePolice 1>><<generatePolice 2>><<generatePolice 3>>
 		<<set $NPCList[0].traits.push("unforgiving")>>
@@ -127,7 +127,7 @@
 		<<elseif $NPCList[_n].pronoun is "f">>
 			<<set $NPCList[0].fullDescription to "stern-looking woman">>
 		<</if>>
-		경찰차 한 대가 당신 옆에 멈춰 선다. 눈에 띄게 긴장한 <<person2>><<person>>【이가】 먼저 차에서 내린다. 그 뒤를 이어 <<person1>><<person>>【이가】 내린다.
+		경찰차 한 대가 당신 옆에 멈춰 선다. 눈에 띄게 긴장한 <<person2>><<person>>【이가】 먼저 차에서 내린다. <<person1>>그 뒤를 이어 <<person>>【이가】 내린다.
 		<br>
 		"이 녀석은 우리 부서에도 아주 잘 알려져 있지." <<person1>><<person>>【이가】 말한다. "네가 이 녀석을 신고했을 때 내가 꼭 오겠다고 고집 부리길 잘했군."
 		<br><br>
@@ -214,7 +214,7 @@
 		<<link [[말하지 않는다|Gwylan Chef Cream]]>><<set $phase to 2>><</link>><<gwylanWillpowerDifficulty>>
 		<br>
 	<<elseif $chef_sus gte 10 and $rng gte 51>>
-		<<generate1>><<person1>>"어이, 너." 옆에서 목소리가 들린다. "요리사." 돌아보니 골목 옆 벽에 기대 선 <<person>>【이가】 보인다. "크림 좋더라. 맛도 좋고. 재료도 맞힐 수 있을 것 같은데." <<He>>【은는】 씩 웃는다. "너 꽤 못된 짓을 했더라. 당국이 알게 두고 싶은 일은 아니겠지, 그건 확실해."
+		<<generate1>><<person1>>"어이, 너." 옆에서 목소리가 들린다. "요리사." 돌아보니 골목 옆 벽에 기대 선 <<person>>【이가】 보인다. "크림 좋더라. 맛도 좋고. 재료도 맞힐 수 있을 것 같은데," <<He>>【은는】 씩 웃는다. "너 꽤 못된 짓을 했더라. 당국이 알게 두고 싶은 일은 아니겠지, 그건 확실해."
 		<br><br>
 
 		<<link [[무엇을 원하는지 묻는다|Chef Blackmail Ask]]>><</link>>
@@ -497,7 +497,7 @@
 	<<if Time.dayState is "night">>
 		<<if $stress gte ($stressmax / 10) * 3>>
 			<<if $pillory.tenant.fruitstock gte 1>>
-				<<link [[과일 던지기 (0:02)|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 0>><<stress -6>><<set $pillory.tenant.fruitstock -= 1>><</link>><<lstress>>
+				<<link [[과일을 던진다 (0:02)|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 0>><<stress -6>><<set $pillory.tenant.fruitstock -= 1>><</link>><<lstress>>
 				<br>
 			<<else>>
 				<span class="red">지금은 던질 과일이 남아있지 않습니다.</span>
@@ -505,11 +505,11 @@
 			<</if>>
 		<</if>>
 		<<if $cat gte 6 and ($pillory.tenant.ass + $pillory.tenant.genital) gte 2>>
-			<<link [[죄수 손질하기 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 1>><</link>>
+			<<link [[죄수를 손질한다 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 1>><</link>>
 			<br>
 		<</if>>
 		<<if $pillory.tenant.lowerexposed gte 2 and $stress gte 4000 and $trauma gte (($traumamax / 5) * 1)>>
-			<<link [[죄수 엉덩이 때리기 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 2>><</link>><<llstress>><<ltrauma>>
+			<<link [[죄수 엉덩이를 때린다 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 2>><</link>><<llstress>><<ltrauma>>
 			<br>
 		<</if>>
 		<<if ($pillory.tenant.lowerexposed lte 1 or (($pronoun is "m" and $pillory.tenant.upperexposed lte 1) or ($pronoun is "f" and $pillory.tenant.upperexposed lte 2))) and $stress gte 7000 and $trauma gte (($traumamax / 5) * 2)>>
@@ -527,7 +527,7 @@
 		<</if>>
 		<<if $submissive lte 1000 or $fame.good gte 50 or $stat_police.pillory gte 1 or (($awareness + $purity) gte 1050)>>
 			<<if ($pillory.tenant.lowerexposed + $pillory.tenant.upperexposed) gte 1 and !$daily.exposedPillory>>
-				<<link [[죄수 덮어주기 (0:05)|Cliff Street Prisoner Night Help]]>><<pass 5>><<set $phase to 0>><</link>><<gstress>>
+				<<link [[죄수를 덮어준다 (0:05)|Cliff Street Prisoner Night Help]]>><<pass 5>><<set $phase to 0>><</link>><<gstress>>
 				<br>
 			<</if>>
 			<<if $submissive lte 850 or $fame.good gte 150 or $stat_police.pillory gte 1 or (($awareness + $purity) gte 1400)>>
@@ -536,7 +536,7 @@
 				<<elseif $pillory.tenant.crowd gte 4>><<set $skulduggerydifficulty to 1100>> /* 10% chance of success, even at max skulduggery */
 				<<else>><<set $skulduggerydifficulty to 875>>
 				<</if>>
-				<<link [[죄수 풀어주기 (0:05)|Cliff Street Prisoner Night Help]]>><<pass 5>><<set $phase to 1>><</link>> <<crime "obstruction">><<skulduggerydifficulty>><<dangerousText>>
+				<<link [[죄수를 풀어준다 (0:05)|Cliff Street Prisoner Night Help]]>><<pass 5>><<set $phase to 1>><</link>> <<crime "obstruction">><<skulduggerydifficulty>><<dangerousText>>
 				<br>
 			<<else>>
 				<span class="pink">구출을 시도할 결단력이 부족합니다.</span>
@@ -546,7 +546,7 @@
 	<<else>> /* day */
 		<<if $stress gte ($stressmax / 5) * 2>>
 			<<if $pillory.tenant.fruitstock gte 1>>
-				<<link [[과일 던지기 (0:02)|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 0>><<stress -6>><<set $pillory.tenant.fruitstock -= 1>><</link>><<lstress>>
+				<<link [[과일을 던진다 (0:02)|Cliff Street Prisoner]]>><<pass 2>><<set $phase to 0>><<stress -6>><<set $pillory.tenant.fruitstock -= 1>><</link>><<lstress>>
 				<br>
 			<<else>>
 				<span class="red">지금은 던질 과일이 남아있지 않습니다.</span>
@@ -554,12 +554,12 @@
 			<</if>>
 		<</if>>
 		<<if $pillory.tenant.lowerexposed lte 1 and $pillory.tenant.wedgied isnot 1 and ($stress gte 6000 or $trauma gte (($traumamax / 5) * 2))>>
-			<<link [[팬티 잡아당기기 (0:05)|Cliff Street Prisoner]]>><<set $pillory.tenant.wedgied to 1>><<pass 5>><<set $phase to 4>><<stress -12>><</link>><<llstress>><<ltrauma>>
+			<<link [[팬티를 잡아당긴다 (0:05)|Cliff Street Prisoner]]>><<set $pillory.tenant.wedgied to 1>><<pass 5>><<set $phase to 4>><<stress -12>><</link>><<llstress>><<ltrauma>>
 			<br>
 		<</if>>
 		<<if $submissive lte 1000 or $fame.good gte 50 or $stat_police.pillory gte 1 or (($awareness + $purity) gte 1050)>>
 			<<if ($pillory.tenant.lowerexposed + $pillory.tenant.upperexposed) gte 1>>
-				<<link [[죄수 덮어주기 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 5>><</link>><<gstress>>
+				<<link [[죄수를 덮어준다 (0:05)|Cliff Street Prisoner]]>><<pass 5>><<set $phase to 5>><</link>><<gstress>>
 				<br>
 				<span class="teal">이 시간에는 더 돕기가 꺼려집니다. 밤의 장막을 틈타면 가능할지도 모릅니다.</span>
 				<br><br>
@@ -919,7 +919,7 @@
 		폐가 타들어갈 것 같고 쓰러지기 직전, <<he>>【이가】 무언가에 걸려 비틀거리는 소리가 들린다.<br>
 		아드레날린이 솟구쳐 거리를 벌린다. 모퉁이를 돌아 내리막길을 질주하며, 당신은 날개를 펴고 하늘로 솟아오른다.
 		<br><br>
-		기적적으로 당신은 탈출했다. 날 수 있다는 건 정말 유용하다! 한동안 마을 위를 날아다닌 후, 당신은 상업 지구의 쇼핑몰 근처 옥상에 착륙한다.
+		기적적으로 당신은 탈출했다. 날 수 있다는 건 정말 유용하다! 한동안 마을 위를 날아다닌 후, 당신은 상업 지구의 쇼핑센터 근처 옥상에 착륙한다.
 		<br><br>
 		<<endevent>>
 		<<link [[다음|Commercial rooftops]]>><<pass 5>><</link>>
@@ -968,7 +968,7 @@
 	<<set _blag to false>>
 <</if>>
 <<if _blag is true>>
-	"실은," 당신은 단호하게 말한다. "전 여기 있어야 할 사람입니다. 서장님이 보내셨어요. 이 속박의 품질을 시험하고 있었습니다. 이 조잡한 솜씨는 끔찍하군요. 몇 명이나 탈출했죠?"
+	"실은." 당신은 단호하게 말한다. "전 여기 있어야 할 사람입니다. 서장님이 보내셨어요. 이 속박의 품질을 시험하고 있었습니다. 이 조잡한 솜씨는 끔찍하군요. 몇 명이나 탈출했죠?"
 	<br><br>
 	"어... 모르겠는데요. 제 생각엔..." <<person2>><<person>>【이가】 혼란스러워 보인다.
 	<br><br>
@@ -997,7 +997,7 @@
 	<<link [[다음|Commercial Alleyways]]>><<set $eventskip to 1>><</link>>
 	<br>
 <<else>>
-	"실은," 당신은 단호하게 말한다. "전 여기 있어야 할 사람입니다. 이 속박의 품질을 시험하고 있었어요. 이 조잡한—"
+	"실은." 당신은 단호하게 말한다. "전 여기 있어야 할 사람입니다. 이 속박의 품질을 시험하고 있었어요. 이 조잡한—"
 	<br><br>
 	"아니." <<person2>><<person>>【이가】 <<his>> 고개를 젓는다. "아니."
 	<br><br>

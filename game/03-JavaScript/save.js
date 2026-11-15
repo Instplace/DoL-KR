@@ -1,5 +1,3 @@
-/* globals traverse, traversePair */
-
 const DoLSave = ((Story, Save) => {
 	"use strict";
 
@@ -544,14 +542,13 @@ window.importSettings = function (data, type) {
 	let reader;
 	switch (type) {
 		case "text":
-			V.importString = compatibilityConversion(document.getElementById("settingsDataInput")?.value);
+			V.importString = document.getElementById("settingsDataInput").value;
 			Wikifier.wikifyEval('<<displaySettings "importConfirmDetails">>');
 			break;
 		case "file":
 			reader = new FileReader();
-			reader.addEventListener("load", function (e) {
-				// eslint-disable-next-line no-undef
-				V.importString = compatibilityConversion(e.target?.result);
+			reader.addEventListener("load", event => {
+				V.importString = event.target.result;
 				Wikifier.wikifyEval('<<displaySettings "importConfirmDetails">>');
 			});
 			reader.readAsBinaryString(data[0]);
@@ -562,1077 +559,2049 @@ window.importSettings = function (data, type) {
 	}
 };
 
-function compatibilityConversion(rawData) {
-	let processed;
-
-	try {
-		processed = JSON.parse(rawData);
-	} catch {
-		return rawData;
-	}
-	if (!processed || typeof processed !== "object") return rawData;
-
-	const map = {
-		alluremod: { key: "allureModifier", invert: false },
-		analdisable: { key: "analEnabled", invert: true },
-		analdoubledisable: { key: "analDoubleEnabled", invert: true },
-		analingusdisablegiving: { key: "analingusGivingEnabled", invert: true },
-		analingusdisablereceiving: { key: "analingusReceivingEnabled", invert: true },
-		asphyxiaLvl: { key: "asphyxiaLevel", invert: false },
-		baseNpcPregnancyChance: { key: "baseNpcPregnancyChance", invert: false },
-		basePlayerPregnancyChance: { key: "basePlayerPregnancyChance", invert: false },
-		beastmalechance: { key: "beastMaleChance", invert: false },
-		beastMaleChanceFemale: { key: "beastMaleChanceFemale", invert: false },
-		beastMaleChanceMale: { key: "beastMaleChanceMale", invert: false },
-		beastMaleChanceSplit: { key: "beastMaleChanceSplit", invert: false },
-		beedisable: { key: "beesEnabled", invert: true },
-		bestialitydisable: { key: "bestialityEnabled", invert: true },
-		blackchance: { key: "darkSkinChance", invert: false },
-		bodywritingLvl: { key: "bodyWritingLevel", invert: false },
-		breast_mod: { key: "breastModifier", invert: false },
-		breastfeedingdisable: { key: "breastFeedingEnabled", invert: true },
-		cbchance: { key: "maleNPCVaginaChance", invert: false },
-		cheatdisabletoggle: { key: "cheatsEnabledToggle", invert: true },
-		checkstyle: { key: "skillCheckStyle", invert: false },
-		clothesPrice: { key: "clothingCostModifier", invert: false },
-		clothesPriceLewd: { key: "lewdClothingCostModifier", invert: false },
-		clothesPriceSchool: { key: "schoolClothingCostModifier", invert: false },
-		clothesPriceUnderwear: { key: "underwearCostModifier", invert: false },
-		condomChance: { key: "condomChance", invert: false },
-		condomLvl: { key: "condomLevel", invert: false },
-		condomUseChanceCon: { key: "condomUseChanceConsensual", invert: false },
-		condomUseChanceRape: { key: "condomUseChanceRape", invert: false },
-		cycledisable: { key: "fertilityCycleEnabled", invert: true },
-		dgchance: { key: "femaleNPCPenisChance", invert: false },
-		facesitdisable: { key: "facesitEnabled", invert: true },
-		footdisable: { key: "footFetishEnabled", invert: true },
-		forcedcrossdressingdisable: { key: "forcedCrossdressingEnabled", invert: true },
-		furniturePriceFactor: { key: "furnitureCostModifier", invert: false },
-		horsedisable: { key: "horsesEnabled", invert: true },
-		humanPregnancyMonths: { key: "humanPregnancyMonths", invert: false },
-		hypnosisdisable: { key: "hypnosisEnabled", invert: true },
-		incompletePregnancyDisable: { key: "incompletePregnancyEnabled", invert: true },
-		lurkerdisable: { key: "lurkersEnabled", invert: true },
-		malechance: { key: "maleChance", invert: false },
-		maleChanceFemale: { key: "maleChanceFemale", invert: false },
-		maleChanceMale: { key: "maleChanceMale", invert: false },
-		maleChanceSplit: { key: "maleChanceSplit", invert: false },
-		malevictimchance: { key: "maleVictimChance", invert: false },
-		monsterchance: { key: "monsterChance", invert: false },
-		monsterhallucinations: { key: "monsterHallucinationsOnly", invert: false },
-		multipleWardrobes: { key: "multipleWardrobes", invert: false },
-		npcPregnancyDisable: { key: "npcPregnancyEnabled", invert: true },
-		npcVirginityChance: { key: "npcVirginChanceStudent", invert: false },
-		npcVirginityChanceAdult: { key: "npcVirginChanceAdult", invert: false },
-		NudeGenderDC: { key: "nudeGenderPerception", invert: false },
-		parasitedisable: { key: "parasitesEnabled", invert: true },
-		parasitepregdisable: { key: "parasitePregnancyEnabled", invert: true },
-		pbdisable: { key: "pubicHairEnabled", invert: true },
-		penis_mod: { key: "penisModifier", invert: false },
-		plantdisable: { key: "plantsEnabled", invert: true },
-		playerPregnancyBeastDisable: { key: "playerPregnancyBeastEnabled", invert: true },
-		playerPregnancyEggLayingDisable: { key: "playerPregnancyEggLayingEnabled", invert: true },
-		playerPregnancyHumanDisable: { key: "playerPregnancyHumanEnabled", invert: true },
-		pregnancyspeechdisable: { key: "pregnancySpeechEnabled", invert: true },
-		pregnancytype: { key: "pregnancyType", invert: false },
-		rentmod: { key: "rentCostModifier", invert: false },
-		ruinedorgasmdisable: { key: "ruinedOrgasmEnabled", invert: true },
-		slimedisable: { key: "slimesEnabled", invert: true },
-		slugdisable: { key: "slugsEnabled", invert: true },
-		spiderdisable: { key: "spidersEnabled", invert: true },
-		statdisable: { key: "blindStatsEnabled", invert: false },
-		straponchance: { key: "straponChance", invert: false },
-		swarmdisable: { key: "swarmsEnabled", invert: true },
-		tending_yield_factor: { key: "tendingYieldModifier", invert: false },
-		tentacledisable: { key: "tentaclesEnabled", invert: true },
-		toydildodisable: { key: "toyDildoEnabled", invert: true },
-		toymultiplepenetration: { key: "toyMultiplePenetrationEnabled", invert: true },
-		toywhipdisable: { key: "toyWhipEnabled", invert: true },
-		transformdisable: { key: "transformAnimalEnabled", invert: true },
-		transformdisabledivine: { key: "transformDivineEnabled", invert: true },
-		vaginaldoubledisable: { key: "vaginalDoubleEnabled", invert: true },
-		voredisable: { key: "voreEnabled", invert: true },
-		waspdisable: { key: "waspsEnabled", invert: true },
-		watersportsdisable: { key: "watersportsEnabled", invert: true },
-		wolfPregnancyWeeks: { key: "wolfPregnancyWeeks", invert: false },
-	};
-
-	processed.general.settings ??= {};
-
-	for (const legacyKey in map) {
-		if (!(legacyKey in processed.general)) continue;
-		const { key, invert } = map[legacyKey];
-		const legacyValue = processed.general[legacyKey];
-
-		if (typeof legacyValue === "boolean" && invert) {
-			processed.general.settings[key] ??= !legacyValue;
-		} else {
-			processed.general.settings[key] ??= legacyValue;
-		}
-		delete processed.general[legacyKey];
-	}
-
-	if (!processed.pregnancyChancePercent) {
-		const settings = processed.general.settings;
-		if (settings.basePlayerPregnancyChance !== undefined) {
-			settings.basePlayerPregnancyChance = legacyPregnancyChanceToPercent(settings.basePlayerPregnancyChance, 100);
-		}
-		if (settings.baseNpcPregnancyChance !== undefined) {
-			settings.baseNpcPregnancyChance = legacyPregnancyChanceToPercent(settings.baseNpcPregnancyChance, 20);
-		}
-	}
-
-	// A settings file exported before NNPC and generic pregnancy became separate toggles carries only
-	// the one flag. It governed both kinds of NPC, so both inherit it.
-	const incoming = processed.general.settings;
-	if (incoming.npcPregnancyEnabled !== undefined && incoming.nnpcPregnancyEnabled === undefined) {
-		incoming.nnpcPregnancyEnabled = incoming.npcPregnancyEnabled;
-	}
-
-	return JSON.stringify(processed);
-}
-
 /**
- * Using the incoming configuration object, replace all active variables (V | $ | State.variables)
+ * Convert the retired binary dark skin percentage into skin tone scale settings.
+ * 0% and 100% keep the exact tone the old light and dark NPCs were drawn with.
+ * Anything in between becomes the most common tone across the full range.
  *
- * @param {string} data
+ * @param {number} darkChance the retired $settings.darkSkinChance, 0-100
+ * @returns {{skinToneMin: number, skinToneMode: number, skinToneMax: number}}
  */
+function skinToneSettingsFromDarkChance(darkChance) {
+	const dark = Math.clamp(Math.round(darkChance), 0, 100);
+	if (dark <= 0) return { skinToneMin: 0, skinToneMode: 0, skinToneMax: 0 };
+	if (dark >= 100) return { skinToneMin: 70, skinToneMode: 70, skinToneMax: 70 };
+	return { skinToneMin: 0, skinToneMode: dark, skinToneMax: 100 };
+}
+window.skinToneSettingsFromDarkChance = skinToneSettingsFromDarkChance;
+
 function importSettingsData(data) {
-	if (data == null) {
-		return;
-	}
-	let overrides;
-	// console.log("json",JSON.parse(result));
-	if (V.importString) {
-		overrides = JSON.parse(V.importString);
-		delete V.importString;
-	} else {
-		overrides = JSON.parse(data);
-	}
-	if (V.passage === "Start" && overrides.starting != null) {
-		overrides.starting = settingsConvert(false, "starting", overrides.starting);
-	}
-	if (overrides.general != null) {
-		overrides.general = settingsConvert(false, "general", overrides.general);
-	}
+	const imported = JSON.parse(data);
+	delete V.importString;
 
-	/**
-	 * @param {object} source
-	 * @param {object} target
-	 * @param {string} key
-	 * @returns {any?}
-	 */
-	const validateAndSet = (source, target, key) => {
-		if (!validateValue(source[key], target[key])) {
-			console.debug(`검증 실패 - 키 ${key} 소스`, source, "대상", target);
-			return null;
-		}
-		return target[key];
-	};
-
-	/**
-	 * @param {object} source
-	 * @param {object} target
-	 * @param {string} key
-	 * @returns {any?}
-	 */
-	const setValue = (source, target, key) => {
-		target[key] = source[key];
-		return target[key];
-	};
-
-	if (V.passage === "Start" && overrides.starting != null) {
-		const startingConfig = settingsObjects("starting");
-
-		traversePair(startingConfig, overrides.starting, "root", settingContainers, validateAndSet);
-		traversePair(overrides.starting, V, "root", settingContainers, setValue);
-	}
-
-	if (overrides.general != null) {
-		const listObject = settingsObjects("general");
-		const listKey = Object.keys(listObject);
-		const namedObjects = ["map", "shopDefaults", "settings", "options", "wardrobeDefaults"];
-		// correct swapped min/max values
-		if (overrides.general.breastsizemin > overrides.general.breastsizemax) {
-			const temp = overrides.general.breastsizemin;
-			overrides.general.breastsizemin = overrides.general.breastsizemax;
-			overrides.general.breastsizemax = temp;
-		}
-		if (overrides.general.penissizemin > overrides.general.penissizemax) {
-			const temp = overrides.general.penissizemin;
-			overrides.general.penissizemin = overrides.general.penissizemax;
-			overrides.general.penissizemax = temp;
-		}
-		for (let i = 0; i < listKey.length; i++) {
-			if (namedObjects.includes(listKey[i]) && overrides.general[listKey[i]] != null) {
-				const itemKey = Object.keys(listObject[listKey[i]]);
-				for (let j = 0; j < itemKey.length; j++) {
-					if (V[listKey[i]][itemKey[j]] != null && overrides.general[listKey[i]][itemKey[j]] != null) {
-						if (validateValue(listObject[listKey[i]][itemKey[j]], overrides.general[listKey[i]][itemKey[j]])) {
-							V[listKey[i]][itemKey[j]] = overrides.general[listKey[i]][itemKey[j]];
-						}
-					}
-				}
-			} else if (!namedObjects.includes(listKey[i])) {
-				if (V[listKey[i]] != null && overrides.general[listKey[i]] != null) {
-					if (validateValue(listObject[listKey[i]], overrides.general[listKey[i]])) {
-						V[listKey[i]] = overrides.general[listKey[i]];
-					}
-				}
-			}
-		}
-	}
-
-	if (overrides.npc != null) {
-		const listObject = settingsObjects("npc");
-		// eslint-disable-next-line no-var
-		const listKey = Object.keys(listObject);
-		// eslint-disable-next-line no-var
-		for (let i = 0; i < V.NPCNameList.length; i++) {
-			if (overrides.npc[V.NPCNameList[i]] != null) {
-				const carriedGender = getActivePregnancies(V.NPCName[i].nam).length ? V.NPCName[i].gender : undefined;
-				// eslint-disable-next-line no-var
-				for (let j = 0; j < listKey.length; j++) {
-					// Overwrite to allow for "none" default value in the start passage to allow for rng to decide
-					if (
-						V.passage === "Start" &&
-						["pronoun", "gender", "skincolour"].includes(listKey[j]) &&
-						overrides.npc[V.NPCNameList[i]][listKey[j]] === "none"
-					) {
-						V.NPCName[i][listKey[j]] = overrides.npc[V.NPCNameList[i]][listKey[j]];
-					} else if (validateValue(listObject[listKey[j]], overrides.npc[V.NPCNameList[i]][listKey[j]])) {
-						V.NPCName[i][listKey[j]] = overrides.npc[V.NPCNameList[i]][listKey[j]];
-					}
-				}
-				if (carriedGender !== undefined) V.NPCName[i].gender = carriedGender;
-			}
-		}
-	}
+	if (V.passage === "Start") applyStartingSettings(imported.starting);
+	applyGeneralSettings(imported.general);
+	applyNpcSettings(imported.npc);
 }
 window.importSettingsData = importSettingsData;
 
-/**
- * @param {object} configuration
- * @param {object} value
- * @returns {boolean}
- */
-function validateValue(configuration, value) {
-	// console.log("validateValue", keys, value);
-	const keyArray = Object.keys(configuration);
-	let valid = false;
-	if (keyArray.length === 0) {
-		valid = true;
-	}
-	if (keyArray.includes("min")) {
-		if (configuration.min <= value && configuration.max >= value) {
-			valid = true;
-		}
-	}
-	if (keyArray.includes("decimals") && value != null) {
-		// eslint-disable-next-line eqeqeq
-		if (value.toFixed(configuration.decimals) != value) {
-			valid = false;
-		}
-	}
-	if (keyArray.includes("bool")) {
-		if (value === true || value === false) {
-			valid = true;
-		}
-	}
-	if (keyArray.includes("boolLetter")) {
-		if (value === "t" || value === "f") {
-			valid = true;
-		}
-	}
-	if (keyArray.includes("strings") && value != null) {
-		if (configuration.strings.includes(value)) {
-			valid = true;
-		}
-	}
-	return valid;
+function applyGeneralSettings(general) {
+	V.breastsizemin = general.breastsizemin ?? V.breastsizemin;
+	V.breastsizemax = general.breastsizemax ?? V.breastsizemax;
+	V.bottomsizemin = general.bottomsizemin ?? V.bottomsizemin;
+	V.bottomsizemax = general.bottomsizemax ?? V.bottomsizemax;
+	V.penissizemin = general.penissizemin ?? V.penissizemin;
+	V.penissizemax = general.penissizemax ?? V.penissizemax;
+	V.confirmSave = general.confirmSave ?? V.confirmSave;
+	V.confirmLoad = general.confirmLoad ?? V.confirmLoad;
+	V.confirmDelete = general.confirmDelete ?? V.confirmDelete;
+	V.reducedLineHeight = general.reducedLineHeight ?? V.reducedLineHeight;
+	V.outfitEditorPerPage = general.outfitEditorPerPage ?? V.outfitEditorPerPage;
+
+	applyGameplaySettings(general.settings);
+	applyBeastSettings(general.settings);
+	applyOptions(general.options);
+	applyShopDefaults(general.shopDefaults);
+	applyWardrobeDefaults(general.wardrobeDefaults);
 }
-window.validateValue = validateValue;
 
-function exportSettings(data, type) {
-	const output = {
-		general: {
-			map: {},
-			shopDefaults: {},
-			options: {},
-			settings: {},
-			wardrobeDefaults: {},
-		},
-		npc: {},
-	};
-	let listObject;
-	let listKey;
-	if (V.passage === "Start") {
-		const startingConfig = settingsObjects("starting");
-		const startingOutput = traversePair(startingConfig, V, "root", settingContainers, (source, target, key) => {
-			console.debug(source, target, key);
-			if (!validateValue(source[key], target[key])) {
-				console.debug(`대상 ${key}에 유효한 값이 없습니다:`, target[key], "설정:", source[key]);
-				return null;
-			}
-			return target[key];
-		});
+function applyBeastSettings(settings) {
+	C.beastSettingTypes.forEach(type => {
+		const incoming = settings.beastSettings[type];
+		const target = V.settings.beastSettings[type];
+		target.monsterChance = incoming.monsterChance ?? target.monsterChance;
+		target.hallucinationsOnly = incoming.hallucinationsOnly ?? target.hallucinationsOnly;
+		target.maleChance = incoming.maleChance ?? target.maleChance;
+		target.maleChanceMale = incoming.maleChanceMale ?? target.maleChanceMale;
+		target.maleChanceFemale = incoming.maleChanceFemale ?? target.maleChanceFemale;
+		target.maleChanceSplit = incoming.maleChanceSplit ?? target.maleChanceSplit;
+		target.bestiality = incoming.bestiality ?? target.bestiality;
+		target.victimsAlwaysMonster = incoming.victimsAlwaysMonster ?? target.victimsAlwaysMonster;
+	});
 
-		output.starting = startingOutput;
-	}
+	C.namedBeasts.forEach(beast => {
+		const incoming = settings.namedBeasts[beast];
+		const target = V.settings.namedBeasts[beast];
+		target.monsterChance = incoming.monsterChance ?? target.monsterChance;
+		target.hallucinationsOnly = incoming.hallucinationsOnly ?? target.hallucinationsOnly;
+	});
+}
 
-	listObject = settingsObjects("general");
-	listKey = Object.keys(listObject);
-	const namedObjects = ["map", "shopDefaults", "settings", "options", "wardrobeDefaults"];
+function applyNpcSettings(npc) {
+	V.NPCNameList.forEach((name, i) => {
+		const incoming = npc[name];
+		const target = V.NPCName[i];
 
-	for (let i = 0; i < listKey.length; i++) {
-		if (namedObjects.includes(listKey[i]) && V[listKey[i]] != null) {
-			const itemKey = Object.keys(listObject[listKey[i]]);
-			for (let j = 0; j < itemKey.length; j++) {
-				if (V[listKey[i]][itemKey[j]] != null) {
-					if (validateValue(listObject[listKey[i]][itemKey[j]], V[listKey[i]][itemKey[j]])) {
-						output.general[listKey[i]][itemKey[j]] = V[listKey[i]][itemKey[j]];
-					}
-				}
-			}
-		} else if (!namedObjects.includes(listKey[i])) {
-			if (V[listKey[i]] != null) {
-				if (validateValue(listObject[listKey[i]], V[listKey[i]])) {
-					output.general[listKey[i]] = V[listKey[i]];
-				}
-			}
-		}
-	}
-	listObject = settingsObjects("npc");
-	listKey = Object.keys(listObject);
-	for (let i = 0; i < V.NPCNameList.length; i++) {
-		output.npc[V.NPCNameList[i]] = {};
-		for (let j = 0; j < listKey.length; j++) {
-			// Overwrite to allow for "none" default value in the start passage to allow for rng to decide
-			if (V.passage === "Start" && ["pronoun", "gender", "skincolour"].includes(listKey[j]) && V.NPCName[i][listKey[j]] === "none") {
-				output.npc[V.NPCNameList[i]][listKey[j]] = V.NPCName[i][listKey[j]];
-			} else if (validateValue(listObject[listKey[j]], V.NPCName[i][listKey[j]])) {
-				output.npc[V.NPCNameList[i]][listKey[j]] = V.NPCName[i][listKey[j]];
-			}
-		}
-	}
+		// An NPC carrying a pregnancy keeps the gender it conceived with, regardless of the setting.
+		const lockedGender = getActivePregnancies(target.nam).length ? target.gender : undefined;
 
-	if (V.passage === "Start") {
-		output.starting = settingsConvert(true, "starting", output.starting);
-	}
-	output.general = settingsConvert(true, "general", output.general);
-	output.pregnancyChancePercent = true;
+		target.pronoun = incoming.pronoun ?? target.pronoun;
+		target.gender = incoming.gender ?? target.gender;
+		target.skincolour = incoming.skincolour ?? target.skincolour;
+		target.skinType = incoming.skinType ?? target.skinType;
+		target.penissize = incoming.penissize ?? target.penissize;
+		target.breastsize = incoming.breastsize ?? target.breastsize;
 
-	// console.log(S);
-	const result = JSON.stringify(output);
+		if (lockedGender) target.gender = lockedGender;
+	});
+}
+
+function applyStartingSettings(starting) {
+	const player = starting.player;
+
+	V.bodysize = starting.bodysize ?? V.bodysize;
+	V.facevariant = starting.facevariant ?? V.facevariant;
+	V.breastsensitivity = starting.breastsensitivity ?? V.breastsensitivity;
+	V.genitalsensitivity = starting.genitalsensitivity ?? V.genitalsensitivity;
+	V.mouthsensitivity = starting.mouthsensitivity ?? V.mouthsensitivity;
+	V.bottomsensitivity = starting.bottomsensitivity ?? V.bottomsensitivity;
+	V.drunkSensitivity = starting.drunkSensitivity ?? V.drunkSensitivity;
+	V.eyeselect = starting.eyeselect ?? V.eyeselect;
+	V.hairselect = starting.hairselect ?? V.hairselect;
+	V.hairlength = starting.hairlength ?? V.hairlength;
+	V.awareselect = starting.awareselect ?? V.awareselect;
+	V.background = starting.background ?? V.background;
+	V.startingseason = starting.startingseason ?? V.startingseason;
+	V.gamemode = starting.gamemode ?? V.gamemode;
+	V.ironmanmode = starting.ironmanmode ?? V.ironmanmode;
+
+	V.player.gender = player.gender ?? V.player.gender;
+	V.player.sex = player.sex ?? V.player.sex;
+	V.player.gender_body = player.gender_body ?? V.player.gender_body;
+	V.player.bodyshape = player.bodyshape ?? V.player.bodyshape;
+	V.player.skin.color = player.skinColour ?? V.player.skin.color;
+	V.player.ballsExist = player.ballsExist ?? V.player.ballsExist;
+	V.player.skin.faceFreckles = player.faceFreckles ?? V.player.skin.faceFreckles;
+	V.player.skin.bodyFreckles = player.bodyFreckles ?? V.player.skin.bodyFreckles;
+	V.player.breastsize = player.breastsize ?? V.player.breastsize;
+	V.player.penissize = player.penissize ?? V.player.penissize;
+	V.player.bottomsize = player.bottomsize ?? V.player.bottomsize;
+}
+
+function applyGameplaySettings(settings) {
+	V.settings.analEnabled = settings.analEnabled ?? V.settings.analEnabled;
+	V.settings.analingusGivingEnabled = settings.analingusGivingEnabled ?? V.settings.analingusGivingEnabled;
+	V.settings.analingusReceivingEnabled = settings.analingusReceivingEnabled ?? V.settings.analingusReceivingEnabled;
+	V.settings.transformAnimalEnabled = settings.transformAnimalEnabled ?? V.settings.transformAnimalEnabled;
+	V.settings.asphyxiaLevel = settings.asphyxiaLevel ?? V.settings.asphyxiaLevel;
+	V.settings.penisModifier = settings.penisModifier ?? V.settings.penisModifier;
+	V.settings.breastModifier = settings.breastModifier ?? V.settings.breastModifier;
+	V.settings.rentCostModifier = settings.rentCostModifier ?? V.settings.rentCostModifier;
+	V.settings.baseNpcPregnancyChance = settings.baseNpcPregnancyChance ?? V.settings.baseNpcPregnancyChance;
+	V.settings.basePlayerPregnancyChance = settings.basePlayerPregnancyChance ?? V.settings.basePlayerPregnancyChance;
+	V.settings.beesEnabled = settings.beesEnabled ?? V.settings.beesEnabled;
+	V.settings.blindStatsEnabled = settings.blindStatsEnabled ?? V.settings.blindStatsEnabled;
+	V.settings.bodyWritingLevel = settings.bodyWritingLevel ?? V.settings.bodyWritingLevel;
+	V.settings.breastFeedingEnabled = settings.breastFeedingEnabled ?? V.settings.breastFeedingEnabled;
+	V.settings.cheatsEnabledToggle = settings.cheatsEnabledToggle ?? V.settings.cheatsEnabledToggle;
+	V.settings.condomLevel = settings.condomLevel ?? V.settings.condomLevel;
+	V.settings.clothingCostModifier = settings.clothingCostModifier ?? V.settings.clothingCostModifier;
+	V.settings.furnitureCostModifier = settings.furnitureCostModifier ?? V.settings.furnitureCostModifier;
+	V.settings.lewdClothingCostModifier = settings.lewdClothingCostModifier ?? V.settings.lewdClothingCostModifier;
+	V.settings.schoolClothingCostModifier = settings.schoolClothingCostModifier ?? V.settings.schoolClothingCostModifier;
+	V.settings.underwearCostModifier = settings.underwearCostModifier ?? V.settings.underwearCostModifier;
+	V.settings.tendingYieldModifier = settings.tendingYieldModifier ?? V.settings.tendingYieldModifier;
+	V.settings.toyDildoEnabled = settings.toyDildoEnabled ?? V.settings.toyDildoEnabled;
+	V.settings.transformDivineEnabled = settings.transformDivineEnabled ?? V.settings.transformDivineEnabled;
+	V.settings.analDoubleEnabled = settings.analDoubleEnabled ?? V.settings.analDoubleEnabled;
+	V.settings.vaginalDoubleEnabled = settings.vaginalDoubleEnabled ?? V.settings.vaginalDoubleEnabled;
+	V.settings.allureModifier = settings.allureModifier ?? V.settings.allureModifier;
+	V.settings.facesitEnabled = settings.facesitEnabled ?? V.settings.facesitEnabled;
+	V.settings.pregnancySpeechEnabled = settings.pregnancySpeechEnabled ?? V.settings.pregnancySpeechEnabled;
+	V.settings.footFetishEnabled = settings.footFetishEnabled ?? V.settings.footFetishEnabled;
+	V.settings.forcedCrossdressingEnabled = settings.forcedCrossdressingEnabled ?? V.settings.forcedCrossdressingEnabled;
+	V.settings.granularBeastControl = settings.granularBeastControl ?? V.settings.granularBeastControl;
+	V.settings.humanPregnancyMonths = settings.humanPregnancyMonths ?? V.settings.humanPregnancyMonths;
+	V.settings.hypnosisEnabled = settings.hypnosisEnabled ?? V.settings.hypnosisEnabled;
+	V.settings.npcVirginChanceAdult = settings.npcVirginChanceAdult ?? V.settings.npcVirginChanceAdult;
+	V.settings.npcVirginChanceStudent = settings.npcVirginChanceStudent ?? V.settings.npcVirginChanceStudent;
+	V.settings.skinToneMin = settings.skinToneMin ?? V.settings.skinToneMin;
+	V.settings.skinToneMode = settings.skinToneMode ?? V.settings.skinToneMode;
+	V.settings.skinToneMax = settings.skinToneMax ?? V.settings.skinToneMax;
+	V.settings.lurkersEnabled = settings.lurkersEnabled ?? V.settings.lurkersEnabled;
+	V.settings.fertilityCycleEnabled = settings.fertilityCycleEnabled ?? V.settings.fertilityCycleEnabled;
+	V.settings.toyMultiplePenetrationEnabled = settings.toyMultiplePenetrationEnabled ?? V.settings.toyMultiplePenetrationEnabled;
+	V.settings.multipleWardrobes = settings.multipleWardrobes ?? V.settings.multipleWardrobes;
+	V.settings.maleChanceSplit = settings.maleChanceSplit ?? V.settings.maleChanceSplit;
+	V.settings.npcPregnancyEnabled = settings.npcPregnancyEnabled ?? V.settings.npcPregnancyEnabled;
+	V.settings.nnpcPregnancyEnabled = settings.nnpcPregnancyEnabled ?? V.settings.nnpcPregnancyEnabled;
+	V.settings.analPregnancy = settings.analPregnancy ?? V.settings.analPregnancy;
+	V.settings.npcAnalPregnancyEnabled = settings.npcAnalPregnancyEnabled ?? V.settings.npcAnalPregnancyEnabled;
+	V.settings.maleChanceMale = settings.maleChanceMale ?? V.settings.maleChanceMale;
+	V.settings.maleChanceFemale = settings.maleChanceFemale ?? V.settings.maleChanceFemale;
+	V.settings.nudeGenderPerception = settings.nudeGenderPerception ?? V.settings.nudeGenderPerception;
+	V.settings.parasitePregnancyEnabled = settings.parasitePregnancyEnabled ?? V.settings.parasitePregnancyEnabled;
+	V.settings.parasitesEnabled = settings.parasitesEnabled ?? V.settings.parasitesEnabled;
+	V.settings.maleNPCVaginaChance = settings.maleNPCVaginaChance ?? V.settings.maleNPCVaginaChance;
+	V.settings.maleVictimChance = settings.maleVictimChance ?? V.settings.maleVictimChance;
+	V.settings.maleChance = settings.maleChance ?? V.settings.maleChance;
+	V.settings.femaleNPCPenisChance = settings.femaleNPCPenisChance ?? V.settings.femaleNPCPenisChance;
+	V.settings.straponChance = settings.straponChance ?? V.settings.straponChance;
+	V.settings.plantsEnabled = settings.plantsEnabled ?? V.settings.plantsEnabled;
+	V.settings.playerPregnancyEggLayingEnabled = settings.playerPregnancyEggLayingEnabled ?? V.settings.playerPregnancyEggLayingEnabled;
+	V.settings.playerPregnancyBeastEnabled = settings.playerPregnancyBeastEnabled ?? V.settings.playerPregnancyBeastEnabled;
+	V.settings.playerPregnancyHumanEnabled = settings.playerPregnancyHumanEnabled ?? V.settings.playerPregnancyHumanEnabled;
+	V.settings.pregnancyType = settings.pregnancyType ?? V.settings.pregnancyType;
+	V.settings.pubicHairEnabled = settings.pubicHairEnabled ?? V.settings.pubicHairEnabled;
+	V.settings.ruinedOrgasmEnabled = settings.ruinedOrgasmEnabled ?? V.settings.ruinedOrgasmEnabled;
+	V.settings.skillCheckStyle = settings.skillCheckStyle ?? V.settings.skillCheckStyle;
+	V.settings.slimesEnabled = settings.slimesEnabled ?? V.settings.slimesEnabled;
+	V.settings.slugsEnabled = settings.slugsEnabled ?? V.settings.slugsEnabled;
+	V.settings.spidersEnabled = settings.spidersEnabled ?? V.settings.spidersEnabled;
+	V.settings.swarmsEnabled = settings.swarmsEnabled ?? V.settings.swarmsEnabled;
+	V.settings.tentaclesEnabled = settings.tentaclesEnabled ?? V.settings.tentaclesEnabled;
+	V.settings.voreEnabled = settings.voreEnabled ?? V.settings.voreEnabled;
+	V.settings.waspsEnabled = settings.waspsEnabled ?? V.settings.waspsEnabled;
+	V.settings.watersportsEnabled = settings.watersportsEnabled ?? V.settings.watersportsEnabled;
+	V.settings.toyWhipEnabled = settings.toyWhipEnabled ?? V.settings.toyWhipEnabled;
+	V.settings.wolfPregnancyWeeks = settings.wolfPregnancyWeeks ?? V.settings.wolfPregnancyWeeks;
+	V.settings.condomChance = settings.condomChance ?? V.settings.condomChance;
+	V.settings.condomUseChanceRape = settings.condomUseChanceRape ?? V.settings.condomUseChanceRape;
+	V.settings.condomUseChanceConsensual = settings.condomUseChanceConsensual ?? V.settings.condomUseChanceConsensual;
+	V.settings.incompletePregnancyEnabled = settings.incompletePregnancyEnabled ?? V.settings.incompletePregnancyEnabled;
+}
+
+function applyOptions(options) {
+	V.options.neverNudeMenus = options.neverNudeMenus ?? V.options.neverNudeMenus;
+	V.options.showCaptionText = options.showCaptionText ?? V.options.showCaptionText;
+	V.options.clothingCaption = options.clothingCaption ?? V.options.clothingCaption;
+	V.options.clothingReplacementWarning = options.clothingReplacementWarning ?? V.options.clothingReplacementWarning;
+	V.options.sidebarStats = options.sidebarStats ?? V.options.sidebarStats;
+	V.options.sidebarTime = options.sidebarTime ?? V.options.sidebarTime;
+	V.options.combatControls = options.combatControls ?? V.options.combatControls;
+	V.options.mapMovement = options.mapMovement ?? V.options.mapMovement;
+	V.options.mapTop = options.mapTop ?? V.options.mapTop;
+	V.options.mapMarkers = options.mapMarkers ?? V.options.mapMarkers;
+	V.options.images = options.images ?? V.options.images;
+	V.options.combatImages = options.combatImages ?? V.options.combatImages;
+	V.options.bodywritingImages = options.bodywritingImages ?? V.options.bodywritingImages;
+	V.options.silhouetteEnabled = options.silhouetteEnabled ?? V.options.silhouetteEnabled;
+	V.options.sidebarAnimations = options.sidebarAnimations ?? V.options.sidebarAnimations;
+	V.options.blinkingEnabled = options.blinkingEnabled ?? V.options.blinkingEnabled;
+	V.options.combatAnimations = options.combatAnimations ?? V.options.combatAnimations;
+	V.options.halfClosedEnabled = options.halfClosedEnabled ?? V.options.halfClosedEnabled;
+	V.options.characterLightEnabled = options.characterLightEnabled ?? V.options.characterLightEnabled;
+	V.options.lightSpotlight = options.lightSpotlight ?? V.options.lightSpotlight;
+	V.options.lightGradient = options.lightGradient ?? V.options.lightGradient;
+	V.options.lightGlow = options.lightGlow ?? V.options.lightGlow;
+	V.options.lightFlat = options.lightFlat ?? V.options.lightFlat;
+	V.options.lightTFColor = options.lightTFColor ?? V.options.lightTFColor;
+	V.options.combatLightEnabled = options.combatLightEnabled ?? V.options.combatLightEnabled;
+	V.options.combatLightOffsetY = options.combatLightOffsetY ?? V.options.combatLightOffsetY;
+	V.options.combatLightSpotlight = options.combatLightSpotlight ?? V.options.combatLightSpotlight;
+	V.options.combatLightSpotlightX = options.combatLightSpotlightX ?? V.options.combatLightSpotlightX;
+	V.options.combatLightSpotlightY = options.combatLightSpotlightY ?? V.options.combatLightSpotlightY;
+	V.options.combatLightGradient = options.combatLightGradient ?? V.options.combatLightGradient;
+	V.options.combatLightGlow = options.combatLightGlow ?? V.options.combatLightGlow;
+	V.options.combatLightFlat = options.combatLightFlat ?? V.options.combatLightFlat;
+	V.options.combatLightTFColor = options.combatLightTFColor ?? V.options.combatLightTFColor;
+	V.options.maxStates = options.maxStates ?? V.options.maxStates;
+	V.options.historyControls = options.historyControls ?? V.options.historyControls;
+	V.options.useNarrowMarket = options.useNarrowMarket ?? V.options.useNarrowMarket;
+	V.options.skipStatisticsConfirmation = options.skipStatisticsConfirmation ?? V.options.skipStatisticsConfirmation;
+	V.options.passageCount = options.passageCount ?? V.options.passageCount;
+	V.options.playtime = options.playtime ?? V.options.playtime;
+	V.options.numberify_enabled = options.numberify_enabled ?? V.options.numberify_enabled;
+	V.options.timestyle = options.timestyle ?? V.options.timestyle;
+	V.options.tipdisable = options.tipdisable ?? V.options.tipdisable;
+	V.options.pepperSprayDisplay = options.pepperSprayDisplay ?? V.options.pepperSprayDisplay;
+	V.options.condomsDisplay = options.condomsDisplay ?? V.options.condomsDisplay;
+	V.options.closeButtonMobile = options.closeButtonMobile ?? V.options.closeButtonMobile;
+	V.options.showDebugRenderer = options.showDebugRenderer ?? V.options.showDebugRenderer;
+	V.options.showCombatTools = options.showCombatTools ?? V.options.showCombatTools;
+	V.options.numpad = options.numpad ?? V.options.numpad;
+	V.options.traitOverlayFormat = options.traitOverlayFormat ?? V.options.traitOverlayFormat;
+	V.options.font = options.font ?? V.options.font;
+	V.options.passageLineHeight = options.passageLineHeight ?? V.options.passageLineHeight;
+	V.options.overlayLineHeight = options.overlayLineHeight ?? V.options.overlayLineHeight;
+	V.options.sidebarLineHeight = options.sidebarLineHeight ?? V.options.sidebarLineHeight;
+	V.options.passageFontSize = options.passageFontSize ?? V.options.passageFontSize;
+	V.options.overlayFontSize = options.overlayFontSize ?? V.options.overlayFontSize;
+	V.options.sidebarFontSize = options.sidebarFontSize ?? V.options.sidebarFontSize;
+	V.options.genderBody = options.genderBody ?? V.options.genderBody;
+	V.options.notesAutoSave = options.notesAutoSave ?? V.options.notesAutoSave;
+	V.options.dateFormat = options.dateFormat ?? V.options.dateFormat;
+}
+
+function applyShopDefaults(shopDefaults) {
+	V.shopDefaults.alwaysBackToShopButton = shopDefaults.alwaysBackToShopButton ?? V.shopDefaults.alwaysBackToShopButton;
+	V.shopDefaults.color = shopDefaults.color ?? V.shopDefaults.color;
+	V.shopDefaults.colourItems = shopDefaults.colourItems ?? V.shopDefaults.colourItems;
+	V.shopDefaults.compactMode = shopDefaults.compactMode ?? V.shopDefaults.compactMode;
+	V.shopDefaults.disableReturn = shopDefaults.disableReturn ?? V.shopDefaults.disableReturn;
+	V.shopDefaults.highContrast = shopDefaults.highContrast ?? V.shopDefaults.highContrast;
+	V.shopDefaults.mannequinGender = shopDefaults.mannequinGender ?? V.shopDefaults.mannequinGender;
+	V.shopDefaults.mannequinGenderFromClothes = shopDefaults.mannequinGenderFromClothes ?? V.shopDefaults.mannequinGenderFromClothes;
+	V.shopDefaults.noHelp = shopDefaults.noHelp ?? V.shopDefaults.noHelp;
+	V.shopDefaults.noTraits = shopDefaults.noTraits ?? V.shopDefaults.noTraits;
+	V.shopDefaults.secColor = shopDefaults.secColor ?? V.shopDefaults.secColor;
+}
+
+function applyWardrobeDefaults(wardrobeDefaults) {
+	V.wardrobeDefaults.showTraits = wardrobeDefaults.showTraits ?? V.wardrobeDefaults.showTraits;
+	V.wardrobeDefaults.extraInfo = wardrobeDefaults.extraInfo ?? V.wardrobeDefaults.extraInfo;
+}
+
+/**
+ * @param {"text" | "file"} type "text" to fill the textarea, "file" to download.
+ */
+function exportSettings(type) {
+	const result = JSON.stringify(settingsToExportObject());
 	if (type === "text") {
-		const textArea = document.getElementById("settingsDataInput");
-		textArea.value = result;
+		document.getElementById("settingsDataInput").value = result;
 	} else if (type === "file") {
-		const blob = new Blob([result], { type: "text/plain;charset=utf-8" });
-		saveAs(blob, "DolSettingsExport.txt");
+		saveAs(new Blob([result], { type: "text/plain;charset=utf-8" }), "DolSettingsExport.txt");
 	}
 }
 window.exportSettings = exportSettings;
 
-const settingContainers = ["player", "skin", "settings"];
+function settingsToExportObject() {
+	const data = {
+		starting: {
+			bodysize: V.bodysize,
+			facevariant: V.facevariant,
+			breastsensitivity: V.breastsensitivity,
+			genitalsensitivity: V.genitalsensitivity,
+			mouthsensitivity: V.mouthsensitivity,
+			bottomsensitivity: V.bottomsensitivity,
+			drunkSensitivity: V.drunkSensitivity,
+			eyeselect: V.eyeselect,
+			hairselect: V.hairselect,
+			hairlength: V.hairlength,
+			awareselect: V.awareselect,
+			background: V.background,
+			startingseason: V.startingseason,
+			gamemode: V.gamemode,
+			ironmanmode: V.ironmanmode,
+			player: {
+				gender: V.player.gender,
+				sex: V.player.sex,
+				gender_body: V.player.gender_body,
+				bodyshape: V.player.bodyshape,
+				skinColour: V.player.skin.color,
+				ballsExist: V.player.ballsExist,
+				faceFreckles: V.player.skin.faceFreckles,
+				bodyFreckles: V.player.skin.bodyFreckles,
+				breastsize: V.player.breastsize,
+				penissize: V.player.penissize,
+				bottomsize: V.player.bottomsize,
+			},
+		},
+		general: {
+			breastsizemin: V.breastsizemin,
+			breastsizemax: V.breastsizemax,
+			bottomsizemin: V.bottomsizemin,
+			bottomsizemax: V.bottomsizemax,
+			penissizemin: V.penissizemin,
+			penissizemax: V.penissizemax,
+			confirmSave: V.confirmSave,
+			confirmLoad: V.confirmLoad,
+			confirmDelete: V.confirmDelete,
+			reducedLineHeight: V.reducedLineHeight,
+			outfitEditorPerPage: V.outfitEditorPerPage,
+			settings: {
+				analEnabled: V.settings.analEnabled,
+				analingusGivingEnabled: V.settings.analingusGivingEnabled,
+				analingusReceivingEnabled: V.settings.analingusReceivingEnabled,
+				transformAnimalEnabled: V.settings.transformAnimalEnabled,
+				asphyxiaLevel: V.settings.asphyxiaLevel,
+				penisModifier: V.settings.penisModifier,
+				breastModifier: V.settings.breastModifier,
+				rentCostModifier: V.settings.rentCostModifier,
+				baseNpcPregnancyChance: V.settings.baseNpcPregnancyChance,
+				basePlayerPregnancyChance: V.settings.basePlayerPregnancyChance,
+				beesEnabled: V.settings.beesEnabled,
+				blindStatsEnabled: V.settings.blindStatsEnabled,
+				bodyWritingLevel: V.settings.bodyWritingLevel,
+				breastFeedingEnabled: V.settings.breastFeedingEnabled,
+				cheatsEnabledToggle: V.settings.cheatsEnabledToggle,
+				condomLevel: V.settings.condomLevel,
+				clothingCostModifier: V.settings.clothingCostModifier,
+				furnitureCostModifier: V.settings.furnitureCostModifier,
+				lewdClothingCostModifier: V.settings.lewdClothingCostModifier,
+				schoolClothingCostModifier: V.settings.schoolClothingCostModifier,
+				underwearCostModifier: V.settings.underwearCostModifier,
+				tendingYieldModifier: V.settings.tendingYieldModifier,
+				toyDildoEnabled: V.settings.toyDildoEnabled,
+				transformDivineEnabled: V.settings.transformDivineEnabled,
+				analDoubleEnabled: V.settings.analDoubleEnabled,
+				vaginalDoubleEnabled: V.settings.vaginalDoubleEnabled,
+				allureModifier: V.settings.allureModifier,
+				facesitEnabled: V.settings.facesitEnabled,
+				pregnancySpeechEnabled: V.settings.pregnancySpeechEnabled,
+				footFetishEnabled: V.settings.footFetishEnabled,
+				forcedCrossdressingEnabled: V.settings.forcedCrossdressingEnabled,
+				granularBeastControl: V.settings.granularBeastControl,
+				humanPregnancyMonths: V.settings.humanPregnancyMonths,
+				hypnosisEnabled: V.settings.hypnosisEnabled,
+				npcVirginChanceAdult: V.settings.npcVirginChanceAdult,
+				npcVirginChanceStudent: V.settings.npcVirginChanceStudent,
+				skinToneMin: V.settings.skinToneMin,
+				skinToneMode: V.settings.skinToneMode,
+				skinToneMax: V.settings.skinToneMax,
+				lurkersEnabled: V.settings.lurkersEnabled,
+				fertilityCycleEnabled: V.settings.fertilityCycleEnabled,
+				toyMultiplePenetrationEnabled: V.settings.toyMultiplePenetrationEnabled,
+				multipleWardrobes: V.settings.multipleWardrobes,
+				maleChanceSplit: V.settings.maleChanceSplit,
+				npcPregnancyEnabled: V.settings.npcPregnancyEnabled,
+				nnpcPregnancyEnabled: V.settings.nnpcPregnancyEnabled,
+				analPregnancy: V.settings.analPregnancy,
+				npcAnalPregnancyEnabled: V.settings.npcAnalPregnancyEnabled,
+				maleChanceMale: V.settings.maleChanceMale,
+				maleChanceFemale: V.settings.maleChanceFemale,
+				nudeGenderPerception: V.settings.nudeGenderPerception,
+				parasitePregnancyEnabled: V.settings.parasitePregnancyEnabled,
+				parasitesEnabled: V.settings.parasitesEnabled,
+				maleNPCVaginaChance: V.settings.maleNPCVaginaChance,
+				maleVictimChance: V.settings.maleVictimChance,
+				maleChance: V.settings.maleChance,
+				femaleNPCPenisChance: V.settings.femaleNPCPenisChance,
+				straponChance: V.settings.straponChance,
+				plantsEnabled: V.settings.plantsEnabled,
+				playerPregnancyEggLayingEnabled: V.settings.playerPregnancyEggLayingEnabled,
+				playerPregnancyBeastEnabled: V.settings.playerPregnancyBeastEnabled,
+				playerPregnancyHumanEnabled: V.settings.playerPregnancyHumanEnabled,
+				pregnancyType: V.settings.pregnancyType,
+				pubicHairEnabled: V.settings.pubicHairEnabled,
+				ruinedOrgasmEnabled: V.settings.ruinedOrgasmEnabled,
+				skillCheckStyle: V.settings.skillCheckStyle,
+				slimesEnabled: V.settings.slimesEnabled,
+				slugsEnabled: V.settings.slugsEnabled,
+				spidersEnabled: V.settings.spidersEnabled,
+				swarmsEnabled: V.settings.swarmsEnabled,
+				tentaclesEnabled: V.settings.tentaclesEnabled,
+				voreEnabled: V.settings.voreEnabled,
+				waspsEnabled: V.settings.waspsEnabled,
+				watersportsEnabled: V.settings.watersportsEnabled,
+				toyWhipEnabled: V.settings.toyWhipEnabled,
+				wolfPregnancyWeeks: V.settings.wolfPregnancyWeeks,
+				condomChance: V.settings.condomChance,
+				condomUseChanceRape: V.settings.condomUseChanceRape,
+				condomUseChanceConsensual: V.settings.condomUseChanceConsensual,
+				incompletePregnancyEnabled: V.settings.incompletePregnancyEnabled,
+				beastSettings: {},
+				namedBeasts: {},
+			},
+			options: {
+				neverNudeMenus: V.options.neverNudeMenus,
+				showCaptionText: V.options.showCaptionText,
+				clothingCaption: V.options.clothingCaption,
+				clothingReplacementWarning: V.options.clothingReplacementWarning,
+				sidebarStats: V.options.sidebarStats,
+				sidebarTime: V.options.sidebarTime,
+				combatControls: V.options.combatControls,
+				mapMovement: V.options.mapMovement,
+				mapTop: V.options.mapTop,
+				mapMarkers: V.options.mapMarkers,
+				images: V.options.images,
+				combatImages: V.options.combatImages,
+				bodywritingImages: V.options.bodywritingImages,
+				silhouetteEnabled: V.options.silhouetteEnabled,
+				sidebarAnimations: V.options.sidebarAnimations,
+				blinkingEnabled: V.options.blinkingEnabled,
+				combatAnimations: V.options.combatAnimations,
+				halfClosedEnabled: V.options.halfClosedEnabled,
+				characterLightEnabled: V.options.characterLightEnabled,
+				lightSpotlight: V.options.lightSpotlight,
+				lightGradient: V.options.lightGradient,
+				lightGlow: V.options.lightGlow,
+				lightFlat: V.options.lightFlat,
+				lightTFColor: V.options.lightTFColor,
+				combatLightEnabled: V.options.combatLightEnabled,
+				combatLightOffsetY: V.options.combatLightOffsetY,
+				combatLightSpotlight: V.options.combatLightSpotlight,
+				combatLightSpotlightX: V.options.combatLightSpotlightX,
+				combatLightSpotlightY: V.options.combatLightSpotlightY,
+				combatLightGradient: V.options.combatLightGradient,
+				combatLightGlow: V.options.combatLightGlow,
+				combatLightFlat: V.options.combatLightFlat,
+				combatLightTFColor: V.options.combatLightTFColor,
+				maxStates: V.options.maxStates,
+				historyControls: V.options.historyControls,
+				useNarrowMarket: V.options.useNarrowMarket,
+				skipStatisticsConfirmation: V.options.skipStatisticsConfirmation,
+				passageCount: V.options.passageCount,
+				playtime: V.options.playtime,
+				numberify_enabled: V.options.numberify_enabled,
+				timestyle: V.options.timestyle,
+				tipdisable: V.options.tipdisable,
+				pepperSprayDisplay: V.options.pepperSprayDisplay,
+				condomsDisplay: V.options.condomsDisplay,
+				closeButtonMobile: V.options.closeButtonMobile,
+				showDebugRenderer: V.options.showDebugRenderer,
+				showCombatTools: V.options.showCombatTools,
+				numpad: V.options.numpad,
+				traitOverlayFormat: V.options.traitOverlayFormat,
+				font: V.options.font,
+				passageLineHeight: V.options.passageLineHeight,
+				overlayLineHeight: V.options.overlayLineHeight,
+				sidebarLineHeight: V.options.sidebarLineHeight,
+				passageFontSize: V.options.passageFontSize,
+				overlayFontSize: V.options.overlayFontSize,
+				sidebarFontSize: V.options.sidebarFontSize,
+				genderBody: V.options.genderBody,
+				notesAutoSave: V.options.notesAutoSave,
+				dateFormat: V.options.dateFormat,
+			},
+			shopDefaults: {
+				alwaysBackToShopButton: V.shopDefaults.alwaysBackToShopButton,
+				color: V.shopDefaults.color,
+				colourItems: V.shopDefaults.colourItems,
+				compactMode: V.shopDefaults.compactMode,
+				disableReturn: V.shopDefaults.disableReturn,
+				highContrast: V.shopDefaults.highContrast,
+				mannequinGender: V.shopDefaults.mannequinGender,
+				mannequinGenderFromClothes: V.shopDefaults.mannequinGenderFromClothes,
+				noHelp: V.shopDefaults.noHelp,
+				noTraits: V.shopDefaults.noTraits,
+				secColor: V.shopDefaults.secColor,
+			},
+			wardrobeDefaults: {
+				showTraits: V.wardrobeDefaults.showTraits,
+				extraInfo: V.wardrobeDefaults.extraInfo,
+			},
+		},
+		npc: {},
+	};
 
-function settingsObjects(type) {
-	let result;
-	/* boolLetter type also requires the bool type aswell */
-	switch (type) {
-		case "starting":
-			result = {
-				bodysize: {
-					min: 0,
-					max: 3,
-					decimals: 0,
-					displayName: "몸집:",
-					textMap: { 0: "아주 작음", 1: "작음", 2: "보통", 3: "큼" },
-					randomize: "characterAppearance",
-				},
-				facevariant: {
-					strings: ["default", "catty", "aloof", "sweet", "foxy", "gloomy"],
-					displayName: "인상:",
-					textMap: { default: "상냥한", catty: "새침한", aloof: "냉담한", sweet: "다정한", foxy: "여우같은", gloomy: "우울한" },
-					randomize: "characterAppearance",
-				},
-				breastsensitivity: {
-					min: 1,
-					max: 3,
-					displayName: "가슴 민감도:",
-					decimals: 0,
-					textMap: { 1: "보통", 2: "반응함", 3: "예민함" },
-					randomize: "characterTrait",
-				},
-				genitalsensitivity: {
-					min: 1,
-					max: 3,
-					displayName: "성기 민감도:",
-					decimals: 0,
-					textMap: { 1: "보통", 2: "반응함", 3: "예민함" },
-					randomize: "characterTrait",
-				},
-				mouthsensitivity: {
-					min: 1,
-					max: 3,
-					decimals: 0,
-					displayName: "입 민감도:",
-					textMap: { 1: "보통", 2: "반응함", 3: "예민함" },
-					randomize: "characterTrait",
-				},
-				bottomsensitivity: {
-					min: 1,
-					max: 3,
-					decimals: 0,
-					displayName: "엉덩이 민감도:",
-					textMap: { 1: "보통", 2: "반응함", 3: "예민함" },
-					randomize: "characterTrait",
-				},
-				drunkSensitivity: {
-					min: 0.5,
-					max: 1.5,
-					decimals: 1,
-					displayName: "주량:",
-					textMap: { 0.5: "알쓰", 1: "보통", 1.5: "술고래" },
-					randomize: "characterTrait",
-				},
-				eyeselect: {
-					strings: [
-						"purple",
-						"dark blue",
-						"light blue",
-						"amber",
-						"hazel",
-						"brown",
-						"green",
-						"lime green",
-						"red",
-						"pink",
-						"black",
-						"grey",
-						"light grey",
-						"random",
-					],
-					randomize: "characterAppearance",
-					displayName: "눈 색:",
-				},
-				hairselect: {
-					strings: [
-						"red",
-						"jetblack",
-						"black",
-						"darkbrown",
-						"brown",
-						"copperbrown",
-						"softbrown",
-						"lightbrown",
-						"burntorange",
-						"blond",
-						"softblond",
-						"platinumblond",
-						"ashyblond",
-						"strawberryblond",
-						"ginger",
-						"white",
-						"snowwhite",
-						"random",
-					],
-					displayName: "머리색:",
-					randomize: "characterAppearance",
-				},
-				hairlength: { min: 0, max: 400, decimals: 0, displayName: "머리 길이:", randomize: "characterAppearance" },
-				awareselect: {
-					strings: ["innocent", "knowledgeable"],
-					displayName: "성지식:",
-					randomize: "characterTrait",
-				},
-				background: {
-					strings: [
-						"waif",
-						"nerd",
-						"athlete",
-						"delinquent",
-						"promiscuous",
-						"exhibitionist",
-						"deviant",
-						"beautiful",
-						"crossdresser",
-						"lustful",
-						"plantlover",
-					],
-					displayName: "배경:",
-					randomize: "characterTrait",
-				},
-				startingseason: {
-					strings: ["spring", "summer", "autumn", "winter", "random"],
-					displayName: "시작 계절:",
-				},
-				gamemode: { strings: ["normal", "soft", "hard"], displayName: "게임 난이도:" },
-				ironmanmode: { bool: false, displayName: "아이언맨 모드:" },
-				player: {
-					gender: {
-						strings: ["m", "f", "n"],
-						displayName: "성별:",
-						textMap: { m: "남성", f: "여성", n: "둘 다 아님" },
-						randomize: "characterAppearance",
-					},
-					sex: {
-						strings: ["m", "f", "h"],
-						displayName: "성기:",
-						textMap: { m: "자지", f: "보지", h: "후타나리" },
-						randomize: "characterAppearance",
-					},
-					gender_body: {
-						strings: ["m", "f", "a"],
-						displayName: "신체 유형:",
-						textMap: { m: "남성적", f: "여성적", a: "중성적" },
-					},
-					bodyshape: {
-						strings: ["classic", "slender", "curvy", "soft"],
-						textMap: { classic: "기본형", slender: "가냘픔", curvy: "곡선적", soft: "부드러움" },
-						displayName: "체형:",
-						randomize: "characterAppearance",
-					},
-					skin: {
-						color: {
-							strings: [
-								"light",
-								"medium",
-								"dark",
-								"gyaru",
-								"rlight",
-								"rmedium",
-								"rdark",
-								"rgyaru",
-								"ylight",
-								"ymedium",
-								"ydark",
-								"ygyaru",
-								"glight",
-								"gmedium",
-								"gdark",
-								"ggyaru",
-								"blight",
-								"bmedium",
-								"bdark",
-								"bgyaru",
-							],
-							randomize: "characterAppearance",
-							displayName: "자연 피부색:",
-						},
-					},
-					ballsExist: { bool: true, displayName: "고환:", textMap: { true: "있음", false: "없음" }, randomize: "characterAppearance" },
-					freckles: {
-						bool: true,
-						displayName: "주근깨:",
-						textMap: { true: "있음", false: "없음" },
-						strings: ["random"],
-						randomize: "characterAppearance",
-					},
-					breastsize: {
-						min: 0,
-						max: 4,
-						decimals: 0,
-						displayName: "가슴 크기:",
-						textMap: { 0: "납작한", 1: "아주 작은", 2: "작은", 3: "봉긋한", 4: "볼륨있는" },
-						randomize: "characterAppearance",
-					},
-					penissize: {
-						min: 0,
-						max: 2,
-						decimals: 0,
-						displayName: "자지 크기:",
-						textMap: { 0: "매우 작은", 1: "아주 작은", 2: "작은" },
-						randomize: "characterAppearance",
-					},
-					bottomsize: {
-						min: 0,
-						max: 3,
-						decimals: 0,
-						displayName: "엉덩이 크기:",
-						textMap: { 0: "납작한", 1: "아담한", 2: "둥근", 3: "부드러운" },
-						randomize: "characterAppearance",
-					},
-				},
-			};
-			break;
-		case "general":
-			result = {
-				settings: {
-					analEnabled: { bool: true, displayName: "애널:" },
-					analingusGivingEnabled: { bool: true, displayName: "애널링구스(시행):" },
-					analingusReceivingEnabled: { bool: true, displayName: "애널링구스(받음):" },
-					transformAnimalEnabled: { bool: true, displayName: "동물 변신:" },
-					asphyxiaLevel: {
-						min: 0,
-						max: 4,
-						decimals: 0,
-						displayName: "질식:",
-						textMap: {
-							0: "NPC가 당신의 목을 건드리지 않습니다",
-							1: "NPC가 호흡을 방해하지 않는 선에서 당신의 목을 잡을 수 있습니다",
-							2: "합의된 조우 중 NPC가 당신의 목을 조르려 할 수 있습니다",
-							3: "비동의 조우 중 NPC가 당신의 목을 조르려 할 수 있습니다",
-						},
-					},
-					penisModifier: { min: -8, max: 8, decimals: 0, displayName: "NPC 자지 평균 크기:", randomize: "encounter" },
-					breastModifier: { min: -12, max: 12, decimals: 0, displayName: "여성 가슴 평균 크기:", randomize: "encounter" },
-					rentCostModifier: { min: 0.1, max: 3, decimals: 1, displayName: "베일리의 임대료:", randomize: "gameplay" },
-					baseNpcPregnancyChance: { min: 0, max: 100, decimals: 0, displayName: "NPC 기본 임신 확률:", randomize: "gameplay" },
-					basePlayerPregnancyChance: { min: 0, max: 100, decimals: 0, displayName: "플레이어 기본 임신 확률:", randomize: "gameplay" },
-					beastMaleChanceSplit: { bool: true, displayName: "짐승의 성별 외형별 끌림 분리:" },
-					beastMaleChanceMale: { min: 0, max: 100, decimals: 0, displayName: "남성에게 끌리는 짐승:", randomize: "encounter" },
-					beastMaleChanceFemale: { min: 0, max: 100, decimals: 0, displayName: "여성에게 끌리는 짐승:", randomize: "encounter" },
-					beesEnabled: { bool: true, displayName: "벌:" },
-					bestialityEnabled: { bool: true, displayName: "수간:" },
-					blindStatsEnabled: { bool: true, displayName: "블라인드 스탯 모드:" },
-					bodyWritingLevel: {
-						min: 0,
-						max: 3,
-						decimals: 0,
-						displayName: "몸 낙서:",
-						textMap: {
-							0: "NPC가 당신 몸에 낙서하지 않습니다",
-							1: "NPC가 당신 몸에 낙서해도 되는지 물을 수 있습니다",
-							2: "NPC가 억지로 당신 몸에 낙서할 수 있습니다",
-							3: "NPC가 억지로 당신 몸에 낙서하고 문신을 새길 수 있습니다",
-						},
-					},
-					breastFeedingEnabled: { bool: true, displayName: "모유수유:" },
-					cheatsEnabledToggle: { bool: true, displayName: "치트 모드:" },
-					condomLevel: {
-						min: 0,
-						max: 3,
-						decimals: 0,
-						displayName: "콘돔:",
-						textMap: {
-							0: "모두가 라텍스와 안전한 성관계에 알레르기가 있습니다",
-							1: "당신만 콘돔을 사용할 수 있지만, NPC에게 콘돔을 줄 수 있습니다",
-							2: "NPC는 플레이어와 임신이 가능한 경우에만 콘돔을 소지합니다",
-							3: "NPC는 원할 때 언제든 콘돔을 소지하고 사용할 수 있습니다",
-						},
-						randomize: "gameplay",
-					},
-					clothingCostModifier: { min: 1, max: 10, decimals: 1, displayName: "의류 가격:", randomize: "gameplay" },
-					furnitureCostModifier: { min: 0.6, max: 5, decimals: 1, displayName: "가구 가격:", randomize: "gameplay" },
-					lewdClothingCostModifier: { min: 0.1, max: 2, decimals: 1, displayName: "선정적인 의류 가격:", randomize: "gameplay" },
-					schoolClothingCostModifier: { min: 1, max: 2, decimals: 1, displayName: "교복 가격:", randomize: "gameplay" },
-					underwearCostModifier: { min: 1, max: 2, decimals: 1, displayName: "속옷 가격:", randomize: "gameplay" },
-					tendingYieldModifier: { min: 1, max: 10, decimals: 1, displayName: "작물 수확량:", randomize: "gameplay" },
-					toyDildoEnabled: { bool: true, displayName: "딜도:" },
-					transformDivineEnabled: { bool: true, displayName: "신성 변신:" },
-					analDoubleEnabled: { bool: true, displayName: "이중 애널:" },
-					vaginalDoubleEnabled: { bool: true, displayName: "이중 질 삽입:" },
-					allureModifier: { min: 0.2, max: 2, decimals: 1, displayName: "조우율:", randomize: "gameplay" },
-					facesitEnabled: { bool: true, displayName: "페이스시팅:" },
-					pregnancySpeechEnabled: { bool: true, displayName: "가임/임신 관련 언급:" },
-					footFetishEnabled: { bool: true, displayName: "발 페티시:" },
-					forcedCrossdressingEnabled: { bool: true, displayName: "강제 크로스드레싱:" },
-					horsesEnabled: { bool: true, displayName: "말:" },
-					humanPregnancyMonths: { min: 1, max: 9, decimals: 0, displayName: "인간 임신 기간:" },
-					hypnosisEnabled: { bool: true, displayName: "최면:" },
-					npcVirginChanceAdult: { min: 0, max: 100, decimals: 0, displayName: "성인 NPC가 동정/처녀일 확률:", randomize: "encounter" },
-					npcVirginChanceStudent: { min: 0, max: 100, decimals: 0, displayName: "젊은 성인 NPC가 동정/처녀일 확률:", randomize: "encounter" },
-					darkSkinChance: { min: 0, max: 100, decimals: 0, displayName: "NPC가 어두운 피부를 가질 확률:", randomize: "encounter" },
-					lurkersEnabled: { bool: true, displayName: "럴커:" },
-					fertilityCycleEnabled: { bool: true, displayName: "월경 주기:" },
-					toyMultiplePenetrationEnabled: { bool: true, displayName: "섹스 토이 다중 삽입:" },
-					multipleWardrobes: { strings: [false, "isolated"], displayName: "여러 옷장:" }, //, "all"
-					maleChanceSplit: { bool: true, displayName: "NPC의 성별 외형별 끌림 분리:" },
-					npcPregnancyEnabled: { bool: true, displayName: "일반 NPC 임신:" },
-                    nnpcPregnancyEnabled: { bool: true, displayName: "주요 NPC/연인 임신:" },
-                    analPregnancy: { strings: [false, "exceptional", "always"], displayName: "플레이어 항문 임신:" },
-                    npcAnalPregnancyEnabled: { bool: true, displayName: "NPC 항문 임신:" },
-					maleChanceMale: { min: 0, max: 100, decimals: 0, displayName: "남성에게 끌리는 NPC:", randomize: "encounter" },
-					maleChanceFemale: { min: 0, max: 100, decimals: 0, displayName: "여성에게 끌리는 NPC:", randomize: "encounter" },
-					nudeGenderPerception: {
-						min: 0,
-						max: 2,
-						decimals: 0,
-						displayName: "나체 성별 인식:",
-						textMap: {
-							"-1": "NPC가 성별을 인식할 때 성기를 무시하며, 크로스드레싱 경고가 표시되지 않습니다",
-							0: "NPC가 성별을 인식할 때 성기를 무시합니다",
-							1: "NPC가 당신의 성별을 인식할 때 성기를 고려합니다",
-							2: "NPC가 성기를 기준으로 당신의 성별을 판단합니다",
-						},
-					},
-					monsterHallucinationsOnly: {
-						bool: true,
-						displayName: "환각 중일 때만 짐승을 몬스터로 대체:",
-						randomize: "encounter",
-					},
-					parasitePregnancyEnabled: { bool: true, displayName: "기생충 임신:" },
-					parasitesEnabled: { bool: true, displayName: "기생충:" },
-					beastMaleChance: {
-						min: 0,
-						max: 100,
-						decimals: 0,
-						displayName: "당신에게 끌리는 짐승 중 수컷 비율:",
-						randomize: "encounter",
-					},
-					monsterChance: {
-						min: 0,
-						max: 100,
-						decimals: 0,
-						displayName: "몬스터 소년/소녀로 대체되는 짐승 비율:",
-						randomize: "encounter",
-					},
-					maleNPCVaginaChance: { min: 0, max: 100, decimals: 0, displayName: "보지를 가진 남성 비율:", randomize: "encounter" },
-					maleVictimChance: { min: 0, max: 100, decimals: 0, displayName: "다른 피해자 중 남성 비율:", randomize: "encounter" },
-					maleChance: { min: 0, max: 100, decimals: 0, displayName: "당신에게 끌리는 사람 중 남성 비율:", randomize: "encounter" },
-					femaleNPCPenisChance: { min: 0, max: 100, decimals: 0, displayName: "자지를 가진 여성 비율:", randomize: "encounter" },
-					straponChance: { min: 0, max: 100, decimals: 0, displayName: "페니스 밴드를 가진 여성 비율:", randomize: "encounter" },
-					plantsEnabled: { bool: true, displayName: "인간형 식물:" },
-					playerPregnancyEggLayingEnabled: { bool: true, displayName: "플레이어 산란:" },
-					playerPregnancyBeastEnabled: { bool: true, displayName: "플레이어의 짐승 임신:" },
-					playerPregnancyHumanEnabled: { bool: true, displayName: "플레이어의 인간 임신:" },
-					pregnancyType: { strings: ["realistic", "fetish"], displayName: "임신 모드:" },
-					pubicHairEnabled: { bool: true, displayName: "음모:" },
-					ruinedOrgasmEnabled: { bool: true, displayName: "망친 절정:" },
-					skillCheckStyle: { strings: ["percentage", "words", "skillname"], randomize: "gameplay", displayName: "스킬 체크 표시:" },
-					slimesEnabled: { bool: true, displayName: "슬라임:" },
-					slugsEnabled: { bool: true, displayName: "민달팽이:" },
-					spidersEnabled: { bool: true, displayName: "거미:" },
-					swarmsEnabled: { bool: true, displayName: "무리:" },
-					tentaclesEnabled: { bool: true, displayName: "촉수:" },
-					voreEnabled: { bool: true, displayName: "보어:" },
-					waspsEnabled: { bool: true, displayName: "말벌:" },
-					watersportsEnabled: { bool: true, displayName: "워터스포츠:" },
-					toyWhipEnabled: { bool: true, displayName: "채찍:" },
-					wolfPregnancyWeeks: { min: 2, max: 12, decimals: 0, displayName: "늑대 임신 기간:" },
-				},
-				blackwolfmonster: {
-					min: 0,
-					max: 2,
-					decimals: 0,
-					displayName: "검은 늑대 짐승 유형:",
-					textMap: { 0: "항상 짐승", 1: "조건 충족 시 몬스터 소년/소녀", 2: "항상 몬스터 소년/소녀" },
-					randomize: "encounter",
-				},
-				greathawkmonster: {
-					min: 0,
-					max: 2,
-					decimals: 0,
-					displayName: "거대 매 짐승 유형:",
-					textMap: { 0: "항상 짐승", 1: "조건 충족 시 몬스터 소년/소녀", 2: "항상 몬스터 소년/소녀" },
-					randomize: "encounter",
-				},
-				nightmonstermonster: {
-					min: 0,
-					max: 2,
-					decimals: 0,
-					displayName: "밤의 괴물 짐승 유형:",
-					textMap: { 0: "항상 짐승", 1: "조건 충족 시 몬스터 소년/소녀", 2: "항상 몬스터 소년/소녀" },
-					randomize: "encounter",
-				},
-				breastsizemin: {
-					min: 0,
-					max: 4,
-					decimals: 0,
-					displayName: "가슴 최소 크기:",
-					textMap: { 0: "납작함", 1: "봉긋함", 2: "아주 작음", 3: "작음", 4: "탱탱함" },
-				},
-				breastsizemax: {
-					min: 0,
-					max: 12,
-					decimals: 0,
-					displayName: "가슴 최대 크기:",
-					textMap: {
-						0: "납작함",
-						1: "봉긋함",
-						2: "아주 작음",
-						3: "작음",
-						4: "탱탱함",
-						5: "적당함",
-						6: "풍만함",
-						7: "큼",
-						8: "넉넉함",
-						9: "육중함",
-						10: "거대함",
-						11: "거대함",
-						12: "어마어마함",
-					},
-				},
-				bottomsizemin: {
-					min: 0,
-					max: 2,
-					decimals: 0,
-					displayName: "엉덩이 최소 크기:",
-					textMap: { 0: "납작한", 1: "아담한", 2: "둥근", 3: "부드러운" },
-				},
-				bottomsizemax: {
-					min: 0,
-					max: 8,
-					decimals: 0,
-					displayName: "엉덩이 최대 크기:",
-					textMap: { 0: "납작한", 1: "아담한", 2: "둥근", 3: "부드러운" , 4: "통통한", 5: "꽉 찬", 6: "풍만한", 7: "큰", 8: "거대한" },
-				},
-				penissizemin: { min: -2, max: 0, decimals: 0, displayName: "자지 최소 크기:", textMap: { 0: "매우 작은", 1: "약간 작은", 2: "작은" } },
-				penissizemax: {
-					min: 0,
-					max: 6,
-					decimals: 0,
-					displayName: "자지 최대 크기:",
-					textMap: { 0: "매우 작은", 1: "약간 작은", 2: "작은", 3: "보통", 4: "큰", 5: "매우 큰", 6: "거대한" },
-				},
-				confirmSave: { bool: true, displayName: "세이브 확인 요구:" },
-				confirmLoad: { bool: true, displayName: "로드 확인 요구:" },
-				confirmDelete: { bool: true, displayName: "삭제 확인 요구:" },
-				reducedLineHeight: { bool: true, displayName: "줄 높이 축소:" },
-				outfitEditorPerPage: { min: 5, max: 20, decimals: 0, displayName: "페이지당 항목 수:" }, //, "all"
-				options: {
-					neverNudeMenus: { bool: true, displayName: "메뉴에서 플레이어 노출 숨기기:" },
-					showCaptionText: { bool: true, displayName: "사이드바 캡션 텍스트 표시:" },
-					clothingCaption: { bool: true, displayName: "사이드바 의류 설명 표시:" },
-					clothingReplacementWarning: { bool: true, displayName: "의류 교체 경고 활성화:" },
-					sidebarStats: { strings: ["disabled", "limited", "all"], displayName: "닫힌 사이드바 스탯:" },
-					sidebarTime: { strings: ["disabled", "top", "bottom"], displayName: "닫힌 사이드바 시간:" },
-					combatControls: { strings: ["radio", "columnRadio", "lists", "limitedLists"], displayName: "전투 조작:" },
-					mapMovement: { bool: true, displayName: "지도 클릭 이동 활성화:" },
-					mapTop: { bool: true, displayName: "지도를 지도 링크 위로 이동:" },
-					mapMarkers: { bool: true, displayName: "지도에서 클릭 가능 영역 표시:" },
-					images: { min: 0, max: 1, decimals: 0, displayName: "이미지:" },
-					combatImages: { min: 0, max: 1, decimals: 0, displayName: "전투 이미지:" },
-					bodywritingImages: { bool: true, displayName: "몸 낙서 이미지:" },
-					silhouetteEnabled: { bool: true, displayName: "NPC 실루엣:" },
-					sidebarAnimations: { bool: true, displayName: "사이드바 이미지:" },
-					blinkingEnabled: { bool: true, displayName: "눈 깜빡임 애니메이션:" },
-					combatAnimations: { bool: true, displayName: "전투 애니메이션:" },
-					halfClosedEnabled: { bool: true, displayName: "반쯤 감은 눈:" },
-					characterLightEnabled: { bool: true, displayName: "캐릭터 조명:" },
-					lightSpotlight: { min: 0, max: 1, decimals: 2, displayName: "스포트라이트:" },
-					lightGradient: { min: 0, max: 1, decimals: 2, displayName: "그라데이션:" },
-					lightGlow: { min: 0, max: 1, decimals: 2, displayName: "광채:" },
-					lightFlat: { min: 0, max: 1, decimals: 2, displayName: "평면광:" },
-					lightTFColor: { min: 0, max: 1, decimals: 2, displayName: "천사/악마 변신 색상 요소:" },
-					combatLightEnabled: { bool: true, displayName: "캐릭터 조명:" },
-					combatLightOffsetY: { min: 0, max: 128, decimals: 0, displayName: "Y 오프셋:" },
-					combatLightSpotlight: { min: 0, max: 1, decimals: 2, displayName: "스포트라이트:" },
-					combatLightSpotlightX: { min: 0, max: 128, decimals: 0, displayName: "스포트라이트 너비:" },
-					combatLightSpotlightY: { min: 0, max: 48, decimals: 0, displayName: "스포트라이트 높이:" },
-					combatLightGradient: { min: 0, max: 1, decimals: 2, displayName: "그라데이션:" },
-					combatLightGlow: { min: 0, max: 1, decimals: 2, displayName: "광채:" },
-					combatLightFlat: { min: 0, max: 1, decimals: 2, displayName: "평면광:" },
-					combatLightTFColor: { min: 0, max: 1, decimals: 2, displayName: "천사/악마 변신 색상 요소:" },
-					maxStates: { min: 1, max: 20, decimals: 0, displayName: "히스토리 깊이:" },
-					historyControls: { bool: true, displayName: "히스토리 조작 표시:" },
-					useNarrowMarket: { bool: true, displayName: "시장 인벤토리에 좁은 화면 버전 사용:" },
-					skipStatisticsConfirmation: { bool: true, displayName: "추가 스탯 보기 확인 건너뛰기:" },
-					passageCount: { strings: ["disabled", "changes", "total"], displayName: "패시지 수 표시:" },
-					playtime: { bool: true, displayName: "플레이 시간 표시:" },
-					numberify_enabled: { min: 0, max: 1, decimals: 0, displayName: "번호 링크 이동 활성화:" },
-					timestyle: { strings: ["military", "ampm"], displayName: "시간 표시 방식:" },
-					tipdisable: { boolLetter: true, bool: true, displayName: "사이드바 팁:" },
-					pepperSprayDisplay: { strings: ["none", "sprays", "compact"], displayName: "호신 스프레이 표시:" },
-					condomsDisplay: { strings: ["none", "standard"], displayName: "콘돔 표시:" },
-					closeButtonMobile: { bool: true, displayName: "페이지당 항목 수:" },
-					showDebugRenderer: { bool: true, displayName: "렌더러 디버거 활성화:" },
-					showCombatTools: { bool: true, displayName: "전투 도구 활성화:" },
-					numpad: { bool: true, displayName: "숫자패드 활성화:" },
-					traitOverlayFormat: { strings: ["table", "reducedTable", "list"], displayName: "특성 표시:" },
-					font: {
-						strings: ["", "Arial", "Verdana", "TimesNewRoman", "Georgia", "Garamond", "CourierNew", "LucidaConsole", "Monaco", "ComicSans"],
-						displayName: "글꼴:",
-					},
-					passageLineHeight: { strings: [0, 1, 1.25, 1.5, 1.75, 2], displayName: "패시지 줄 높이:" },
-					overlayLineHeight: { strings: [0, 1, 1.25, 1.5, 1.75, 2], displayName: "오버레이 줄 높이:" },
-					sidebarLineHeight: { strings: [0, 1, 1.25, 1.5, 1.75, 2], displayName: "사이드바 줄 높이:" },
-					passageFontSize: { strings: [0, 10, 12, 14, 16, 18, 20], displayName: "패시지 글자 크기:" },
-					overlayFontSize: { strings: [0, 10, 12, 14, 16, 18, 20], displayName: "오버레이 글자 크기:" },
-					sidebarFontSize: { strings: [0, 12, 14, 16, 18, 20], displayName: "사이드바 글자 크기:" },
-					genderBody: { strings: ["default", "m", "a", "f"], displayName: "표시할 신체 유형:" },
-					notesAutoSave: { bool: true, displayName: "메모 자동 저장:" },
-					dateFormat: { strings: ["en-GB", "en-US", "zh-CN"], displayName: "날짜 형식:" },
-				},
-				shopDefaults: {
-					alwaysBackToShopButton: { bool: true },
-					color: {
-						strings: ["black", "blue", "brown", "green", "pink", "purple", "red", "tangerine", "teal", "white", "yellow", "custom", "random"],
-					},
-					colourItems: { strings: ["disable", "random", "default"] },
-					compactMode: { bool: true },
-					disableReturn: { bool: true },
-					highContrast: { bool: true },
-					mannequinGender: { strings: ["same", "opposite", "male", "female"] },
-					mannequinGenderFromClothes: { bool: true },
-					noHelp: { bool: true },
-					noTraits: { bool: true },
-					secColor: {
-						strings: ["black", "blue", "brown", "green", "pink", "purple", "red", "tangerine", "teal", "white", "yellow", "custom", "random"],
-					},
-				},
-				wardrobeDefaults: {
-					showTraits: { bool: false },
-					extraInfo: { bool: false },
-				},
-			};
-			break;
-		case "npc":
-			result = {
-				pronoun: { strings: ["m", "f"], displayName: "대명사: ", textMap: { none: "해당 없음", m: "남성", f: "여성" } },
-				gender: { strings: ["m", "f"], displayName: "성기: ", textMap: { none: "해당 없음", m: "자지", f: "보지" } },
-				skincolour: {
-					strings: ["white", "black", "ghost"],
-					displayName: "피부색: ",
-					textMap: { none: "해당 없음", white: "창백함", black: "어두움", ghost: "유령처럼 창백함" },
-				},
-				penissize: { min: 0, max: 4, decimals: 0, displayName: "자지 크기: ", textMap: { 0: "해당 없음", 1: "작은", 2: "보통", 3: "큰", 4: "거대한" } },
-				breastsize: {
-					min: 0,
-					max: 12,
-					decimals: 0,
-					displayName: "가슴 크기: ",
-					textMap: {
-						none: "해당 없음",
-						0: "납작한",
-						1: "아주 작은",
-						2: "작은",
-						3: "봉긋한",
-						4: "볼륨있는",
-						5: "글래머한",
-						6: "꽉 찬",
-						7: "풍만한",
-						8: "큰",
-						9: "커다란",
-						10: "거대한",
-						11: "엄청난",
-						12: "어마어마한"
-					},
-				},
-			};
-			break;
-	}
-	return result;
-}
-window.settingsObjects = settingsObjects;
+	C.beastSettingTypes.forEach(type => {
+		data.general.settings.beastSettings[type] = {
+			monsterChance: V.settings.beastSettings[type].monsterChance,
+			hallucinationsOnly: V.settings.beastSettings[type].hallucinationsOnly,
+			maleChance: V.settings.beastSettings[type].maleChance,
+			maleChanceMale: V.settings.beastSettings[type].maleChanceMale,
+			maleChanceFemale: V.settings.beastSettings[type].maleChanceFemale,
+			maleChanceSplit: V.settings.beastSettings[type].maleChanceSplit,
+			bestiality: V.settings.beastSettings[type].bestiality,
+			victimsAlwaysMonster: V.settings.beastSettings[type].victimsAlwaysMonster,
+		};
+	});
 
-/* Converts specific settings to so they don't look so chaotic to players */
-function settingsConvert(exportType, type, settings) {
-	const listObject = settingsObjects(type);
-	const result = settings;
-	const keys = Object.keys(listObject);
-	for (let i = 0; i < keys.length; i++) {
-		if (result[keys[i]] === undefined) continue;
-		if (["map", "player", "shopDefaults", "options", "wardrobeDefaults"].includes(keys[i])) {
-			const itemKey = Object.keys(listObject[keys[i]]);
-			for (let j = 0; j < itemKey.length; j++) {
-				if (result[keys[i]][itemKey[j]] === undefined) continue;
-				const keyArray = Object.keys(listObject[keys[i]][itemKey[j]]);
-				if (exportType) {
-					if (keyArray.includes("boolLetter") && keyArray.includes("bool")) {
-						if (result[keys[i]][itemKey[j]] === "t") {
-							result[keys[i]][itemKey[j]] = true;
-						} else if (result[keys[i]][itemKey[j]] === "f") {
-							result[keys[i]][itemKey[j]] = false;
-						}
-					}
-				} else {
-					if (keyArray.includes("boolLetter") && keyArray.includes("bool")) {
-						if (result[keys[i]][itemKey[j]] === true) {
-							result[keys[i]][itemKey[j]] = "t";
-						} else if (result[keys[i]][itemKey[j]] === false) {
-							result[keys[i]][itemKey[j]] = "f";
-						}
-					}
-				}
-			}
-		} else {
-			const keyArray = Object.keys(listObject[keys[i]]);
-			if (exportType) {
-				if (keyArray.includes("boolLetter") && keyArray.includes("bool")) {
-					if (result[keys[i]] === "t") {
-						result[keys[i]] = true;
-					} else if (result[keys[i]] === "f") {
-						result[keys[i]] = false;
-					}
-				}
-			} else {
-				if (keyArray.includes("boolLetter") && keyArray.includes("bool")) {
-					if (result[keys[i]] === true) {
-						result[keys[i]] = "t";
-					} else if (result[keys[i]] === false) {
-						result[keys[i]] = "f";
-					}
-				}
-			}
-		}
-	}
-	return result;
+	C.namedBeasts.forEach(beast => {
+		data.general.settings.namedBeasts[beast] = {
+			monsterChance: V.settings.namedBeasts[beast].monsterChance,
+			hallucinationsOnly: V.settings.namedBeasts[beast].hallucinationsOnly,
+		};
+	});
+
+	V.NPCNameList.forEach((name, i) => {
+		data.npc[name] = {
+			pronoun: V.NPCName[i].pronoun,
+			gender: V.NPCName[i].gender,
+			skincolour: V.NPCName[i].skincolour,
+			skinType: V.NPCName[i].skinType,
+			penissize: V.NPCName[i].penissize,
+			breastsize: V.NPCName[i].breastsize,
+		};
+	});
+
+	return data;
 }
-window.settingsConvert = settingsConvert;
+
+/**
+ * @param {string} varName The setting's variable name.
+ * @returns {string} The name to show.
+ */
+window.settingNameFromVarName = function (varName) {
+	switch (varName) {
+		case "dog":
+			return "Dogs";
+		case "cat":
+			return "Cats";
+		case "pig":
+			return "Pigs";
+		case "boar":
+			return "Boars";
+		case "wolf":
+			return "Wolves";
+		case "bear":
+			return "Bears";
+		case "dolphin":
+			return "Dolphins";
+		case "lizard":
+			return "Lizards";
+		case "cow":
+			return "Cattle";
+		case "horse":
+			return "Horses";
+		case "fox":
+			return "Foxes";
+		case "hawk":
+			return "Hawks";
+		case "spider":
+			return "Spiders";
+		case "snake":
+			return "Snakes";
+		case "blackwolf":
+			return "검은 늑대";
+		case "greathawk":
+			return "거대 매";
+		case "nightmonster":
+			return "밤의 괴물";
+		case "bodysize":
+			return "몸집";
+		case "facevariant":
+			return "Demeanour";
+		case "breastsensitivity":
+			return "가슴 민감도";
+		case "genitalsensitivity":
+			return "성기 민감도";
+		case "mouthsensitivity":
+			return "입 민감도";
+		case "bottomsensitivity":
+			return "엉덩이 민감도";
+		case "drunkSensitivity":
+			return "주량";
+		case "eyeselect":
+			return "눈 색";
+		case "hairselect":
+			return "머리색";
+		case "hairlength":
+			return "머리 길이";
+		case "awareselect":
+			return "Awareness";
+		case "background":
+			return "Background";
+		case "startingseason":
+			return "시작 계절";
+		case "gamemode":
+			return "게임 난이도";
+		case "ironmanmode":
+			return "아이언맨 모드";
+		case "gender":
+			return "Gender";
+		case "sex":
+			return "Genitals";
+		case "gender_body":
+			return "신체 유형";
+		case "bodyshape":
+			return "체형";
+		case "skinColour":
+			return "자연 피부색";
+		case "ballsExist":
+			return "Balls";
+		case "faceFreckles":
+			return "얼굴 주근깨";
+		case "bodyFreckles":
+			return "몸 주근깨";
+		case "breastsize":
+			return "가슴 크기";
+		case "penissize":
+			return "자지 크기";
+		case "bottomsize":
+			return "엉덩이 크기";
+		case "breastsizemin":
+			return "가슴 최소 크기";
+		case "breastsizemax":
+			return "가슴 최대 크기";
+		case "bottomsizemin":
+			return "엉덩이 최소 크기";
+		case "bottomsizemax":
+			return "엉덩이 최대 크기";
+		case "penissizemin":
+			return "자지 최소 크기";
+		case "penissizemax":
+			return "자지 최대 크기";
+		case "confirmSave":
+			return "세이브 확인 요구";
+		case "confirmLoad":
+			return "로드 확인 요구";
+		case "confirmDelete":
+			return "삭제 확인 요구";
+		case "reducedLineHeight":
+			return "줄 높이 축소";
+		case "outfitEditorPerPage":
+			return "페이지당 항목 수";
+		case "analEnabled":
+			return "Anal";
+		case "analingusGivingEnabled":
+			return "항문 핥기 (하는 쪽)";
+		case "analingusReceivingEnabled":
+			return "항문 핥기 (받는 쪽)";
+		case "transformAnimalEnabled":
+			return "동물 변신";
+		case "asphyxiaLevel":
+			return "Asphyxiation";
+		case "penisModifier":
+			return "NPC 자지 평균 크기";
+		case "breastModifier":
+			return "여성 가슴 평균 크기";
+		case "rentCostModifier":
+			return "베일리의 상납금";
+		case "baseNpcPregnancyChance":
+			return "NPC 기본 임신 확률";
+		case "basePlayerPregnancyChance":
+			return "플레이어 기본 임신 확률";
+		case "beesEnabled":
+			return "Bees";
+		case "blindStatsEnabled":
+			return "블라인드 스탯 모드";
+		case "bodyWritingLevel":
+			return "Bodywriting";
+		case "breastFeedingEnabled":
+			return "Breastfeeding";
+		case "cheatsEnabledToggle":
+			return "치트 모드";
+		case "condomLevel":
+			return "Condoms";
+		case "clothingCostModifier":
+			return "의류 가격";
+		case "furnitureCostModifier":
+			return "가구 가격";
+		case "lewdClothingCostModifier":
+			return "선정적인 의류 가격";
+		case "schoolClothingCostModifier":
+			return "교복 가격";
+		case "underwearCostModifier":
+			return "속옷 가격";
+		case "tendingYieldModifier":
+			return "작물 수확량";
+		case "toyDildoEnabled":
+			return "Dildos";
+		case "transformDivineEnabled":
+			return "신성 변신";
+		case "analDoubleEnabled":
+			return "이중 애널";
+		case "vaginalDoubleEnabled":
+			return "이중 질 삽입";
+		case "allureModifier":
+			return "조우율";
+		case "facesitEnabled":
+			return "Facesitting";
+		case "pregnancySpeechEnabled":
+			return "가임/임신 관련 언급";
+		case "footFetishEnabled":
+			return "발 페티시";
+		case "forcedCrossdressingEnabled":
+			return "강제 크로스드레싱";
+		case "granularBeastControl":
+			return "세분화된 짐승 선호도";
+		case "humanPregnancyMonths":
+			return "인간 임신 기간";
+		case "hypnosisEnabled":
+			return "Hypnosis";
+		case "npcVirginChanceAdult":
+			return "성인 NPC가 동정/처녀일 확률";
+		case "npcVirginChanceStudent":
+			return "젊은 성인 NPC가 동정/처녀일 확률";
+		case "skinToneMin":
+			return "가장 밝은 NPC 피부";
+		case "skinToneMode":
+			return "가장 흔한 NPC 피부";
+		case "skinToneMax":
+			return "가장 어두운 NPC 피부";
+		case "lurkersEnabled":
+			return "Lurkers";
+		case "fertilityCycleEnabled":
+			return "월경 주기";
+		case "toyMultiplePenetrationEnabled":
+			return "섹스 토이 다중 삽입";
+		case "multipleWardrobes":
+			return "여러 옷장";
+		case "maleChanceSplit":
+			return "NPC의 성별 외형별 끌림 분리";
+		case "npcPregnancyEnabled":
+			return "일반 NPC 임신";
+		case "nnpcPregnancyEnabled":
+			return "NNPC pregnancy";
+		case "analPregnancy":
+			return "플레이어 항문 임신";
+		case "npcAnalPregnancyEnabled":
+			return "NPC 항문 임신";
+		case "maleChanceMale":
+			return "남성에게 끌리는 NPC";
+		case "maleChanceFemale":
+			return "여성에게 끌리는 NPC";
+		case "nudeGenderPerception":
+			return "나체 성별 인식";
+		case "parasitePregnancyEnabled":
+			return "기생충 임신";
+		case "parasitesEnabled":
+			return "Parasites";
+		case "maleNPCVaginaChance":
+			return "보지를 가진 남성 비율";
+		case "maleVictimChance":
+			return "다른 피해자 중 남성 비율";
+		case "maleChance":
+			return "당신에게 끌리는 사람 중 남성 비율";
+		case "femaleNPCPenisChance":
+			return "자지를 가진 여성 비율";
+		case "straponChance":
+			return "페니스 밴드를 가진 여성 비율";
+		case "plantsEnabled":
+			return "Plantpeople";
+		case "playerPregnancyEggLayingEnabled":
+			return "플레이어 산란";
+		case "playerPregnancyBeastEnabled":
+			return "플레이어의 짐승 임신";
+		case "playerPregnancyHumanEnabled":
+			return "플레이어의 인간 임신";
+		case "pregnancyType":
+			return "임신 모드";
+		case "pubicHairEnabled":
+			return "음모";
+		case "ruinedOrgasmEnabled":
+			return "망친 절정";
+		case "skillCheckStyle":
+			return "스킬 체크 표시";
+		case "slimesEnabled":
+			return "Slimes";
+		case "slugsEnabled":
+			return "Slugs";
+		case "spidersEnabled":
+			return "Spiders";
+		case "swarmsEnabled":
+			return "Swarms";
+		case "tentaclesEnabled":
+			return "Tentacles";
+		case "voreEnabled":
+			return "Vore";
+		case "waspsEnabled":
+			return "Wasps";
+		case "watersportsEnabled":
+			return "Watersports";
+		case "toyWhipEnabled":
+			return "Whips";
+		case "wolfPregnancyWeeks":
+			return "늑대 임신 기간";
+		case "neverNudeMenus":
+			return "메뉴에서 플레이어 노출 숨기기";
+		case "showCaptionText":
+			return "사이드바 캡션 텍스트 표시";
+		case "clothingCaption":
+			return "사이드바 의류 설명 표시";
+		case "clothingReplacementWarning":
+			return "의류 교체 경고 활성화";
+		case "sidebarStats":
+			return "닫힌 사이드바 스탯";
+		case "sidebarTime":
+			return "닫힌 사이드바 시간";
+		case "combatControls":
+			return "전투 조작";
+		case "mapMovement":
+			return "지도 클릭 이동 활성화";
+		case "mapTop":
+			return "지도를 지도 링크 위로 이동";
+		case "mapMarkers":
+			return "지도에서 클릭 가능 영역 표시";
+		case "images":
+			return "Images";
+		case "combatImages":
+			return "전투 이미지";
+		case "bodywritingImages":
+			return "몸 낙서 이미지";
+		case "silhouetteEnabled":
+			return "NPC silhouettes";
+		case "sidebarAnimations":
+			return "사이드바 이미지";
+		case "blinkingEnabled":
+			return "눈 깜빡임 애니메이션";
+		case "combatAnimations":
+			return "전투 애니메이션";
+		case "halfClosedEnabled":
+			return "반쯤 감은 눈";
+		case "characterLightEnabled":
+			return "캐릭터 조명";
+		case "lightSpotlight":
+			return "Spotlight";
+		case "lightGradient":
+			return "Gradient";
+		case "lightGlow":
+			return "Glow";
+		case "lightFlat":
+			return "평면광";
+		case "lightTFColor":
+			return "천사/악마 변신 색상 요소";
+		case "combatLightEnabled":
+			return "캐릭터 조명";
+		case "combatLightOffsetY":
+			return "Y offset";
+		case "combatLightSpotlight":
+			return "Spotlight";
+		case "combatLightSpotlightX":
+			return "스포트라이트 너비";
+		case "combatLightSpotlightY":
+			return "스포트라이트 높이";
+		case "combatLightGradient":
+			return "Gradient";
+		case "combatLightGlow":
+			return "Glow";
+		case "combatLightFlat":
+			return "평면광";
+		case "combatLightTFColor":
+			return "천사/악마 변신 색상 요소";
+		case "maxStates":
+			return "히스토리 깊이";
+		case "historyControls":
+			return "히스토리 조작 표시";
+		case "useNarrowMarket":
+			return "시장 인벤토리에 좁은 화면 버전 사용";
+		case "skipStatisticsConfirmation":
+			return "추가 스탯 보기 확인 건너뛰기";
+		case "passageCount":
+			return "패시지 수 표시";
+		case "playtime":
+			return "플레이 시간 표시";
+		case "numberify_enabled":
+			return "번호 링크 이동 활성화";
+		case "timestyle":
+			return "시간 표시 방식";
+		case "tipdisable":
+			return "사이드바 팁";
+		case "pepperSprayDisplay":
+			return "호신 스프레이 표시";
+		case "condomsDisplay":
+			return "콘돔 표시";
+		case "closeButtonMobile":
+			return "페이지당 항목 수";
+		case "showDebugRenderer":
+			return "렌더러 디버거 활성화";
+		case "showCombatTools":
+			return "전투 도구 활성화";
+		case "numpad":
+			return "숫자패드 활성화";
+		case "traitOverlayFormat":
+			return "특성 표시";
+		case "font":
+			return "Font";
+		case "passageLineHeight":
+			return "패시지 줄 높이";
+		case "overlayLineHeight":
+			return "오버레이 줄 높이";
+		case "sidebarLineHeight":
+			return "사이드바 줄 높이";
+		case "passageFontSize":
+			return "패시지 글자 크기";
+		case "overlayFontSize":
+			return "오버레이 글자 크기";
+		case "sidebarFontSize":
+			return "사이드바 글자 크기";
+		case "genderBody":
+			return "표시할 신체 유형";
+		case "notesAutoSave":
+			return "메모 자동 저장";
+		case "dateFormat":
+			return "날짜 형식";
+		case "alwaysBackToShopButton":
+			return "상점 돌아가기 버튼 항상 표시";
+		case "color":
+			return "기본 의상 색";
+		case "colourItems":
+			return "물건 색 표시";
+		case "compactMode":
+			return "간결 모드";
+		case "disableReturn":
+			return "돌아가기 버튼 숨기기";
+		case "highContrast":
+			return "고대비";
+		case "mannequinGender":
+			return "마네킹 성별";
+		case "mannequinGenderFromClothes":
+			return "의상에 따른 마네킹 성별";
+		case "noHelp":
+			return "도움말 숨기기";
+		case "noTraits":
+			return "특성 숨기기";
+		case "secColor":
+			return "기본 보조 의상 색";
+		case "showTraits":
+			return "특성 표시";
+		case "extraInfo":
+			return "추가 정보 표시";
+		case "monsterChance":
+			return "괴물인간 확률";
+		case "hallucinationsOnly":
+			return "환각 중에만 괴물인간";
+		case "victimsAlwaysMonster":
+			return "피해자는 항상 괴물인간";
+		case "bestiality":
+			return "Bestiality";
+		case "pronoun":
+			return "Pronoun";
+		case "skincolour":
+			return "피부 톤";
+		case "skinType":
+			return "피부 유형";
+		default:
+			return varName;
+	}
+};
+
+/**
+ * @param {string} varName The setting's variable name.
+ * @param {any} value The value from the settings string.
+ * @returns {any} The value to show.
+ */
+function settingValueNameFromValue(varName, value) {
+	switch (varName) {
+		case "bodysize":
+			switch (value) {
+				case 0:
+					return "Tiny";
+				case 1:
+					return "Small";
+				case 2:
+					return "Normal";
+				case 3:
+					return "Large";
+			}
+			break;
+		case "facevariant":
+			switch (value) {
+				case "default":
+					return "Default";
+				case "catty":
+					return "Catty";
+				case "aloof":
+					return "Aloof";
+				case "sweet":
+					return "Sweet";
+				case "foxy":
+					return "Foxy";
+				case "gloomy":
+					return "Gloomy";
+			}
+			break;
+		case "breastsensitivity":
+			switch (value) {
+				case 1:
+					return "Normal";
+				case 2:
+					return "Sensitive";
+				case 3:
+					return "예민함";
+			}
+			break;
+		case "genitalsensitivity":
+			switch (value) {
+				case 1:
+					return "Normal";
+				case 2:
+					return "Sensitive";
+				case 3:
+					return "예민함";
+			}
+			break;
+		case "mouthsensitivity":
+			switch (value) {
+				case 1:
+					return "Normal";
+				case 2:
+					return "Sensitive";
+				case 3:
+					return "예민함";
+			}
+			break;
+		case "bottomsensitivity":
+			switch (value) {
+				case 1:
+					return "Normal";
+				case 2:
+					return "Sensitive";
+				case 3:
+					return "예민함";
+			}
+			break;
+		case "drunkSensitivity":
+			switch (value) {
+				case 1:
+					return "Normal";
+				case 0.5:
+					return "Heavyweight";
+				case 1.5:
+					return "Lightweight";
+			}
+			break;
+		case "eyeselect":
+			switch (value) {
+				case "purple":
+					return "Purple";
+				case "dark blue":
+					return "어두운 파란색";
+				case "light blue":
+					return "밝은 파랑";
+				case "amber":
+					return "Amber";
+				case "hazel":
+					return "Hazel";
+				case "brown":
+					return "Brown";
+				case "green":
+					return "Green";
+				case "lime green":
+					return "라임 그린";
+				case "red":
+					return "Red";
+				case "pink":
+					return "Pink";
+				case "black":
+					return "Black";
+				case "grey":
+					return "Grey";
+				case "light grey":
+					return "밝은 회색";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "hairselect":
+			switch (value) {
+				case "red":
+					return "Red";
+				case "jetblack":
+					return "칠흑색";
+				case "black":
+					return "Black";
+				case "darkbrown":
+					return "어두운 갈색";
+				case "brown":
+					return "Brown";
+				case "copperbrown":
+					return "구리빛 갈색";
+				case "softbrown":
+					return "부드러운 갈색";
+				case "lightbrown":
+					return "밝은 갈색";
+				case "burntorange":
+					return "번트 오렌지";
+				case "blond":
+					return "Blond";
+				case "softblond":
+					return "부드러운 금발";
+				case "platinumblond":
+					return "백금발";
+				case "ashyblond":
+					return "애쉬 블론드";
+				case "strawberryblond":
+					return "스트로베리 블론드";
+				case "ginger":
+					return "Ginger";
+				case "white":
+					return "White";
+				case "snowwhite":
+					return "설백색";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "awareselect":
+			switch (value) {
+				case "innocent":
+					return "Innocent";
+				case "knowledgeable":
+					return "Knowledgeable";
+			}
+			break;
+		case "background":
+			switch (value) {
+				case "waif":
+					return "Waif";
+				case "nerd":
+					return "Nerd";
+				case "athlete":
+					return "Athlete";
+				case "delinquent":
+					return "Delinquent";
+				case "promiscuous":
+					return "Promiscuous";
+				case "exhibitionist":
+					return "Exhibitionist";
+				case "deviant":
+					return "Deviant";
+				case "beautiful":
+					return "Beautiful";
+				case "crossdresser":
+					return "Crossdresser";
+				case "lustful":
+					return "Lustful";
+				case "plantlover":
+					return "식물 애호가";
+			}
+			break;
+		case "startingseason":
+			switch (value) {
+				case "spring":
+					return "Spring";
+				case "summer":
+					return "Summer";
+				case "autumn":
+					return "Autumn";
+				case "winter":
+					return "Winter";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "gamemode":
+			switch (value) {
+				case "normal":
+					return "Normal";
+				case "soft":
+					return "Soft";
+				case "hard":
+					return "Hard";
+			}
+			break;
+		case "gender":
+			switch (value) {
+				case "m":
+					return "Male";
+				case "f":
+					return "Female";
+				case "n":
+					return "Neither";
+			}
+			break;
+		case "sex":
+			switch (value) {
+				case "m":
+					return "Penis";
+				case "f":
+					return "Vagina";
+				case "h":
+					return "Hermaphrodite";
+			}
+			break;
+		case "gender_body":
+			switch (value) {
+				case "m":
+					return "Masculine";
+				case "f":
+					return "Feminine";
+				case "a":
+					return "Androgynous";
+			}
+			break;
+		case "bodyshape":
+			switch (value) {
+				case "classic":
+					return "Classic";
+				case "slender":
+					return "Slender";
+				case "curvy":
+					return "Curvy";
+				case "soft":
+					return "Soft";
+			}
+			break;
+		case "skinColour":
+			switch (value) {
+				case "light":
+					return "중립 밝음";
+				case "medium":
+					return "중립 보통";
+				case "dark":
+					return "중립 어두움";
+				case "gyaru":
+					return "중립 갸루";
+				case "rlight":
+					return "따뜻한 밝음";
+				case "rmedium":
+					return "따뜻한 보통";
+				case "rdark":
+					return "따뜻한 어두움";
+				case "rgyaru":
+					return "따뜻한 갸루";
+				case "glight":
+					return "황금빛 밝음";
+				case "gmedium":
+					return "황금빛 보통";
+				case "gdark":
+					return "황금빛 어두움";
+				case "ggyaru":
+					return "황금빛 갸루";
+				case "ylight":
+					return "올리브 밝음";
+				case "ymedium":
+					return "올리브 보통";
+				case "ydark":
+					return "올리브 어두움";
+				case "ygyaru":
+					return "올리브 갸루";
+				case "blight":
+					return "차가운 밝음";
+				case "bmedium":
+					return "차가운 보통";
+				case "bdark":
+					return "차가운 어두움";
+				case "bgyaru":
+					return "차가운 갸루";
+			}
+			break;
+		case "ballsExist":
+			switch (value) {
+				case true:
+					return "Existent";
+				case false:
+					return "Nonexistent";
+			}
+			break;
+		case "faceFreckles":
+			switch (value) {
+				case true:
+					return "Existent";
+				case false:
+					return "Nonexistent";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "bodyFreckles":
+			switch (value) {
+				case "none":
+					return "None";
+				case "upper":
+					return "상체";
+				case "full":
+					return "전신";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "breastsize":
+			switch (value) {
+				case 0:
+					return "Flat";
+				case 1:
+					return "Budding";
+				case 2:
+					return "Tiny";
+				case 3:
+					return "Small";
+				case 4:
+					return "Pert";
+			}
+			break;
+		case "penissize":
+			switch (value) {
+				case 0:
+					return "Tiny";
+				case 1:
+					return "Small";
+				case 2:
+					return "Normal";
+			}
+			break;
+		case "bottomsize":
+			switch (value) {
+				case 0:
+					return "Slender";
+				case 1:
+					return "Slim";
+				case 2:
+					return "Modest";
+				case 3:
+					return "Cushioned";
+			}
+			break;
+		case "breastsizemin":
+			switch (value) {
+				case 0:
+					return "Flat";
+				case 1:
+					return "Budding";
+				case 2:
+					return "Tiny";
+				case 3:
+					return "Small";
+				case 4:
+					return "Pert";
+			}
+			break;
+		case "breastsizemax":
+			switch (value) {
+				case 0:
+					return "Flat";
+				case 1:
+					return "Budding";
+				case 2:
+					return "Tiny";
+				case 3:
+					return "Small";
+				case 4:
+					return "Pert";
+				case 5:
+					return "Modest";
+				case 6:
+					return "Full";
+				case 7:
+					return "Large";
+				case 8:
+					return "Ample";
+				case 9:
+					return "Massive";
+				case 10:
+					return "Huge";
+				case 11:
+					return "Gigantic";
+				case 12:
+					return "Enormous";
+			}
+			break;
+		case "bottomsizemin":
+			switch (value) {
+				case 0:
+					return "Slender";
+				case 1:
+					return "Slim";
+				case 2:
+					return "Modest";
+				case 3:
+					return "Cushioned";
+			}
+			break;
+		case "bottomsizemax":
+			switch (value) {
+				case 0:
+					return "Slender";
+				case 1:
+					return "Slim";
+				case 2:
+					return "Modest";
+				case 3:
+					return "Cushioned";
+				case 4:
+					return "Soft";
+				case 5:
+					return "Round";
+				case 6:
+					return "Plump";
+				case 7:
+					return "Large";
+				case 8:
+					return "Huge";
+			}
+			break;
+		case "penissizemin":
+			switch (value) {
+				case 0:
+					return "Micro";
+				case 1:
+					return "Mini";
+				case 2:
+					return "Tiny";
+			}
+			break;
+		case "penissizemax":
+			switch (value) {
+				case 0:
+					return "Micro";
+				case 1:
+					return "Mini";
+				case 2:
+					return "Tiny";
+				case 3:
+					return "Small";
+				case 4:
+					return "Normal";
+				case 5:
+					return "Large";
+				case 6:
+					return "Enormous";
+			}
+			break;
+		case "asphyxiaLevel":
+			switch (value) {
+				case 0:
+					return "NPC가 당신의 목을 건드리지 않습니다";
+				case 1:
+					return "NPC가 호흡을 방해하지 않는 선에서 당신의 목을 잡을 수 있습니다";
+				case 2:
+					return "합의된 조우 중 NPC가 당신의 목을 조르려 할 수 있습니다";
+				case 3:
+					return "비동의 조우 중 NPC가 당신의 목을 조르려 할 수 있습니다";
+			}
+			break;
+		case "bodyWritingLevel":
+			switch (value) {
+				case 0:
+					return "NPC가 당신 몸에 낙서하지 않습니다";
+				case 1:
+					return "NPC가 당신 몸에 낙서해도 되는지 물을 수 있습니다";
+				case 2:
+					return "NPC가 억지로 당신 몸에 낙서할 수 있습니다";
+				case 3:
+					return "NPC가 억지로 당신 몸에 낙서하고 문신을 새길 수 있습니다";
+			}
+			break;
+		case "condomLevel":
+			switch (value) {
+				case 0:
+					return "모두가 라텍스와 안전한 성관계에 알레르기가 있습니다";
+				case 1:
+					return "당신만 콘돔을 사용할 수 있지만, NPC에게 콘돔을 줄 수 있습니다";
+				case 2:
+					return "NPC는 플레이어와 임신이 가능한 경우에만 콘돔을 소지합니다";
+				case 3:
+					return "NPC는 원할 때 언제든 콘돔을 소지하고 사용할 수 있습니다";
+			}
+			break;
+		case "multipleWardrobes":
+			switch (value) {
+				case false:
+					return "하나의 공용 옷장";
+				case "isolated":
+					return "장소별로 분리";
+			}
+			break;
+		case "analPregnancy":
+			switch (value) {
+				case false:
+					return "Disabled";
+				case "exceptional":
+					return "예외적인 경우에만";
+				case "always":
+					return "Always";
+			}
+			break;
+		case "nudeGenderPerception":
+			switch (value) {
+				case 0:
+					return "NPC가 성별을 인식할 때 성기를 무시합니다";
+				case 1:
+					return "NPC가 당신의 성별을 인식할 때 성기를 고려합니다";
+				case 2:
+					return "NPC가 성기를 기준으로 당신의 성별을 판단합니다";
+				case -1:
+					return "NPC가 성별을 인식할 때 성기를 무시하며, 크로스드레싱 경고가 표시되지 않습니다";
+			}
+			break;
+		case "pregnancyType":
+			switch (value) {
+				case "realistic":
+					return "Realistic";
+				case "fetish":
+					return "Fetishised";
+			}
+			break;
+		case "skillCheckStyle":
+			switch (value) {
+				case "percentage":
+					return "정확한 성공 확률";
+				case "words":
+					return "대략적인 성공 확률";
+				case "skillname":
+					return "기술 이름만";
+			}
+			break;
+		case "sidebarStats":
+			switch (value) {
+				case "disabled":
+					return "Disabled";
+				case "limited":
+					return "Limited";
+				case "all":
+					return "All";
+			}
+			break;
+		case "sidebarTime":
+			switch (value) {
+				case "disabled":
+					return "Disabled";
+				case "top":
+					return "Top";
+				case "bottom":
+					return "Bottom";
+			}
+			break;
+		case "combatControls":
+			switch (value) {
+				case "radio":
+					return "라디오 버튼";
+				case "columnRadio":
+					return "열별 라디오 버튼";
+				case "lists":
+					return "Lists";
+				case "limitedLists":
+					return "제한된 목록";
+			}
+			break;
+		case "passageCount":
+			switch (value) {
+				case "disabled":
+					return "Disabled";
+				case "changes":
+					return "패시지 변경 횟수";
+				case "total":
+					return "패시지 횟수";
+			}
+			break;
+		case "numberify_enabled":
+		case "images":
+		case "combatImages":
+		case "lightFlat":
+		case "combatLightGradient":
+		case "combatLightFlat":
+			switch (value) {
+				case 0:
+					return "Disabled";
+				case 1:
+					return "Enabled";
+			}
+			break;
+		case "timestyle":
+			switch (value) {
+				case "military":
+					return "군용 (24시간제)";
+				case "ampm":
+					return "AM/PM (12-Hour)";
+			}
+			break;
+		case "tipdisable":
+			return value ? "Disabled" : "Enabled";
+		case "pepperSprayDisplay":
+			switch (value) {
+				case "none":
+					return "Hidden";
+				case "sprays":
+					return "Sprays";
+				case "compact":
+					return "Compact";
+			}
+			break;
+		case "condomsDisplay":
+			switch (value) {
+				case "none":
+					return "Hidden";
+				case "standard":
+					return "Standard";
+			}
+			break;
+		case "traitOverlayFormat":
+			switch (value) {
+				case "table":
+					return "Table";
+				case "reducedTable":
+					return "간략한 표";
+				case "list":
+					return "List";
+			}
+			break;
+		case "font":
+			switch (value) {
+				case "":
+					return "Default";
+				case "Arial":
+					return "Arial";
+				case "Verdana":
+					return "Verdana";
+				case "TimesNewRoman":
+					return "Times New Roman";
+				case "Georgia":
+					return "Georgia";
+				case "Garamond":
+					return "Garamond";
+				case "CourierNew":
+					return "Courier New";
+				case "LucidaConsole":
+					return "Lucida Console";
+				case "Monaco":
+					return "Monaco";
+				case "ComicSans":
+					return "Comic Sans";
+			}
+			break;
+		case "passageLineHeight":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "overlayLineHeight":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "sidebarLineHeight":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "passageFontSize":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "overlayFontSize":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "sidebarFontSize":
+			switch (value) {
+				case 0:
+					return "Default";
+			}
+			break;
+		case "genderBody":
+			switch (value) {
+				case "default":
+					return "Default";
+				case "m":
+					return "Masculine";
+				case "a":
+					return "Androgynous";
+				case "f":
+					return "Feminine";
+			}
+			break;
+		case "dateFormat":
+			switch (value) {
+				case "en-GB":
+					return "Day/Month/Year";
+				case "en-US":
+					return "Month/Day/Year";
+				case "zh-CN":
+					return "Year/Month/Day";
+			}
+			break;
+		case "color":
+			switch (value) {
+				case "black":
+					return "Black";
+				case "blue":
+					return "Blue";
+				case "brown":
+					return "Brown";
+				case "green":
+					return "Green";
+				case "pink":
+					return "Pink";
+				case "purple":
+					return "Purple";
+				case "red":
+					return "Red";
+				case "tangerine":
+					return "Tangerine";
+				case "teal":
+					return "Teal";
+				case "white":
+					return "White";
+				case "yellow":
+					return "Yellow";
+				case "custom":
+					return "Custom";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "colourItems":
+			switch (value) {
+				case "disable":
+					return "Disabled";
+				case "random":
+					return "Random";
+				case "default":
+					return "Default";
+			}
+			break;
+		case "mannequinGender":
+			switch (value) {
+				case "same":
+					return "플레이어와 같음";
+				case "opposite":
+					return "플레이어와 반대";
+				case "male":
+					return "Male";
+				case "female":
+					return "Female";
+			}
+			break;
+		case "secColor":
+			switch (value) {
+				case "black":
+					return "Black";
+				case "blue":
+					return "Blue";
+				case "brown":
+					return "Brown";
+				case "green":
+					return "Green";
+				case "pink":
+					return "Pink";
+				case "purple":
+					return "Purple";
+				case "red":
+					return "Red";
+				case "tangerine":
+					return "Tangerine";
+				case "teal":
+					return "Teal";
+				case "white":
+					return "White";
+				case "yellow":
+					return "Yellow";
+				case "custom":
+					return "Custom";
+				case "random":
+					return "Random";
+			}
+			break;
+		case "bestiality":
+			switch (value) {
+				case "on":
+					return "Enabled";
+				case "off":
+					return "Disabled";
+				case "monsterOnly":
+					return "괴물인간으로만";
+			}
+			break;
+		case "pronoun":
+			switch (value) {
+				case "none":
+					return "N/A";
+				case "m":
+					return "Male";
+				case "f":
+					return "Female";
+			}
+			break;
+		case "skinType":
+			switch (value) {
+				case "ghost":
+					return "유령처럼 창백함";
+			}
+			break;
+		case "skincolour":
+			return setup.colours.getSkinToneLabel(value);
+		case "skinToneMin":
+		case "skinToneMode":
+		case "skinToneMax":
+			return `${value} (${setup.colours.getSkinToneLabel(value)})`;
+	}
+
+	switch (varName) {
+		case "rentCostModifier":
+		case "clothingCostModifier":
+		case "furnitureCostModifier":
+		case "lewdClothingCostModifier":
+		case "schoolClothingCostModifier":
+		case "underwearCostModifier":
+		case "tendingYieldModifier":
+		case "allureModifier":
+			return Math.round(value * 100) + "%";
+		case "maleChance":
+		case "maleChanceMale":
+		case "maleChanceFemale":
+		case "femaleNPCPenisChance":
+		case "maleNPCVaginaChance":
+		case "maleVictimChance":
+		case "npcVirginChanceStudent":
+		case "npcVirginChanceAdult":
+		case "straponChance":
+		case "monsterChance":
+		case "basePlayerPregnancyChance":
+		case "baseNpcPregnancyChance":
+			return value + "%";
+		case "humanPregnancyMonths":
+			return value + (value === 1 ? " month" : " months");
+		case "wolfPregnancyWeeks":
+			return value + (value === 1 ? " week" : " weeks");
+	}
+
+	switch (value) {
+		case true:
+			return "Enabled";
+		case false:
+			return "Disabled";
+		default:
+			return value;
+	}
+}
+window.settingValueNameFromValue = settingValueNameFromValue;
+
+function randomiseCharacterAppearance() {
+	V.bodysize = random(0, 3);
+	V.facevariant = either("default", "catty", "aloof", "sweet", "foxy", "gloomy");
+	V.eyeselect = either(
+		"purple",
+		"dark blue",
+		"light blue",
+		"amber",
+		"hazel",
+		"brown",
+		"green",
+		"lime green",
+		"red",
+		"pink",
+		"black",
+		"grey",
+		"light grey",
+		"random"
+	);
+	V.hairselect = either(
+		"red",
+		"jetblack",
+		"black",
+		"darkbrown",
+		"brown",
+		"copperbrown",
+		"softbrown",
+		"lightbrown",
+		"burntorange",
+		"blond",
+		"softblond",
+		"platinumblond",
+		"ashyblond",
+		"strawberryblond",
+		"ginger",
+		"white",
+		"snowwhite",
+		"random"
+	);
+	V.hairlength = random(0, 400);
+	V.player.gender = either("m", "f", "n");
+	V.player.sex = either("m", "f", "h");
+	V.player.bodyshape = either("classic", "slender", "curvy", "soft");
+	V.player.skin.color = either(
+		"light",
+		"medium",
+		"dark",
+		"gyaru",
+		"rlight",
+		"rmedium",
+		"rdark",
+		"rgyaru",
+		"ylight",
+		"ymedium",
+		"ydark",
+		"ygyaru",
+		"glight",
+		"gmedium",
+		"gdark",
+		"ggyaru",
+		"blight",
+		"bmedium",
+		"bdark",
+		"bgyaru"
+	);
+	V.player.ballsExist = either(true, false);
+	V.player.skin.faceFreckles = either(true, false);
+	V.player.skin.bodyFreckles = either("none", "upper", "full");
+	V.player.breastsize = random(0, 4);
+	V.player.penissize = random(0, 2);
+	V.player.bottomsize = random(0, 3);
+}
+
+function randomiseCharacterTrait() {
+	V.breastsensitivity = random(1, 3);
+	V.genitalsensitivity = random(1, 3);
+	V.mouthsensitivity = random(1, 3);
+	V.bottomsensitivity = random(1, 3);
+	V.drunkSensitivity = Math.round(randomFloat(0.5, 1.5) * 10) / 10;
+	V.awareselect = either("innocent", "knowledgeable");
+	V.background = either(
+		"waif",
+		"nerd",
+		"athlete",
+		"delinquent",
+		"promiscuous",
+		"exhibitionist",
+		"deviant",
+		"beautiful",
+		"crossdresser",
+		"lustful",
+		"plantlover"
+	);
+}
+
+function randomiseEncounterSettings() {
+	V.settings.penisModifier = random(-8, 8);
+	V.settings.breastModifier = random(-12, 12);
+	V.settings.npcVirginChanceAdult = random(0, 100);
+	V.settings.npcVirginChanceStudent = random(0, 100);
+	const skinTones = [random(0, 100), random(0, 100), random(0, 100)].sort((a, b) => a - b);
+	V.settings.skinToneMin = skinTones[0];
+	V.settings.skinToneMode = skinTones[1];
+	V.settings.skinToneMax = skinTones[2];
+	V.settings.maleChanceMale = random(0, 100);
+	V.settings.maleChanceFemale = random(0, 100);
+	V.settings.maleNPCVaginaChance = random(0, 100);
+	V.settings.maleVictimChance = random(0, 100);
+	V.settings.maleChance = random(0, 100);
+	V.settings.femaleNPCPenisChance = random(0, 100);
+	V.settings.straponChance = random(0, 100);
+
+	V.genericBeastSettings.beastMaleChance = random(0, 100);
+	V.genericBeastSettings.beastMaleChanceMale = random(0, 100);
+	V.genericBeastSettings.beastMaleChanceFemale = random(0, 100);
+	V.genericBeastSettings.monsterChance = random(0, 100);
+	V.genericBeastSettings.monsterHallucinationsOnly = either(true, false);
+	V.genericBeastSettings.victimsAlwaysMonster = either(true, false);
+	setAllBeastsMaleChance(V.genericBeastSettings.beastMaleChance);
+	setAllBeastsMaleChanceMale(V.genericBeastSettings.beastMaleChanceMale);
+	setAllBeastsMaleChanceFemale(V.genericBeastSettings.beastMaleChanceFemale);
+	setAllBeastsMonsterChance(V.genericBeastSettings.monsterChance);
+	setAllBeastsMonsterHallucinationsOnly(V.genericBeastSettings.monsterHallucinationsOnly);
+	setAllBeastsVictimsAlwaysMonster(V.genericBeastSettings.victimsAlwaysMonster);
+
+	C.namedBeasts.forEach(beast => {
+		V.settings.namedBeasts[beast].monsterChance = random(0, 100);
+		V.settings.namedBeasts[beast].hallucinationsOnly = either(true, false);
+	});
+}
+
+function randomiseGameplaySettings() {
+	V.settings.rentCostModifier = Math.round(randomFloat(0.1, 3) * 10) / 10;
+	V.settings.baseNpcPregnancyChance = random(0, 100);
+	V.settings.basePlayerPregnancyChance = random(0, 100);
+	V.settings.condomLevel = random(0, 3);
+	V.settings.clothingCostModifier = Math.round(randomFloat(1, 10) * 10) / 10;
+	V.settings.furnitureCostModifier = Math.round(randomFloat(0.6, 5) * 10) / 10;
+	V.settings.lewdClothingCostModifier = Math.round(randomFloat(0.1, 2) * 10) / 10;
+	V.settings.schoolClothingCostModifier = Math.round(randomFloat(1, 2) * 10) / 10;
+	V.settings.underwearCostModifier = Math.round(randomFloat(1, 2) * 10) / 10;
+	V.settings.tendingYieldModifier = Math.round(randomFloat(1, 10) * 10) / 10;
+	V.settings.allureModifier = Math.round(randomFloat(0.2, 2) * 10) / 10;
+	V.settings.skillCheckStyle = either("percentage", "words", "skillname");
+}
+
+/**
+ * Randomises one category of settings, or everything when given no category.
+ *
+ * @param {string} category One of the randomise categories, or undefined for all of them.
+ */
+function randomiseSettings(category) {
+	switch (category) {
+		case "characterAppearance":
+			randomiseCharacterAppearance();
+			break;
+		case "characterTrait":
+			randomiseCharacterTrait();
+			break;
+		case "encounter":
+			randomiseEncounterSettings();
+			break;
+		case "gameplay":
+			randomiseGameplaySettings();
+			break;
+		default:
+			if (V.passage === "Start") {
+				randomiseCharacterAppearance();
+				randomiseCharacterTrait();
+			}
+			randomiseEncounterSettings();
+			randomiseGameplaySettings();
+	}
+}
+window.randomiseSettings = randomiseSettings;
 
 window.loadExternalExportFile = function () {
-	importScripts("DolSettingsExport.json")
+	importScripts("DolSettingsExport.js")
 		.then(function () {
 			const textArea = document.getElementById("settingsDataInput");
 			textArea.value = JSON.stringify(DolSettingsExport);
 		})
 		.catch(function () {
-			// console.log(err);
 			const button = document.getElementById("LoadExternalExportFile");
 			button.value = "불러오기 오류";
 		});
-};
-
-/**
- * @param {string} filter
- * @returns {string}
- */
-function randomizeSettings(filter) {
-	const result = {};
-
-	/**
-	 * @param {object} source
-	 * @param {string} key
-	 * @returns {any?}
-	 */
-	const setRandomValue = (source, key) => {
-		const value = source[key];
-		if ((!filter && value.randomize) || (filter && filter === value.randomize)) {
-			return randomizeSettingSet(value);
-		}
-		return null;
-	};
-
-	if (V.passage === "Start") {
-		const startingConfig = settingsObjects("starting");
-		const starting = traverse(startingConfig, "root", settingContainers, setRandomValue);
-		result.starting = starting;
-	}
-
-	const generalConfig = settingsObjects("general");
-	const general = traverse(generalConfig, "root", settingContainers, setRandomValue);
-	result.general = general;
-
-	return JSON.stringify(result);
-}
-window.randomizeSettings = randomizeSettings;
-
-const randomNumber = function (min, max, decimals = 0) {
-	const decimalsMult = Math.pow(10, decimals);
-	const minMult = min * decimalsMult;
-	const maxMult = (max + 1) * decimalsMult;
-	const rn = Math.floor(Math.random() * (maxMult - minMult)) / decimalsMult + min;
-	return parseFloat(rn.toFixed(decimals));
-};
-
-const randomizeSettingSet = function (setting) {
-	let result;
-	const keys = Object.keys(setting);
-	if (keys.includes("min")) {
-		result = randomNumber(setting.min, setting.max, setting.decimals);
-	}
-	if (keys.includes("strings")) {
-		result = setting.strings.pluck();
-	}
-	if (keys.includes("boolLetter")) {
-		result = ["t", "f"].pluck();
-	}
-	if (keys.includes("bool")) {
-		result = [true, false].pluck();
-	}
-	return result;
 };
 
 /**

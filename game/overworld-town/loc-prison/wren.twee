@@ -216,18 +216,19 @@
 
 :: Prison Wren Clothes Buy
 <<effects>>
+<<clearsinglenpc 0>>
 <<npc Wren>><<person1>>
 <<switch $phase>>
 	<<case "panties" "briefs">>
 		"네 감옥으로 보내질 거야." 렌이 말한다. "직원들은 자기들 것도 주문 안 하는 것 같아. 다들 나한테 오거든."
 	<<case "bra" "vest">>
-		"네 방으로 보내줄게," 렌이 말한다. "난 거의 속옷 <<= $pronoun is "m" ? "판매원" : "판매원">>이나 다름없거든."
+		"네 방으로 보내줄게." 렌이 말한다. "난 거의 속옷 <<= $pronoun is "m" ? "판매원" : "판매원">>이나 다름없거든."
 	<<case "shirt">>
 		"네 감옥으로 보내질 거야." 렌이 말한다. "난 구식 스타일을 좋아해. 그래서 저택을 그렇게 즐기는지도 모르지."
 	<<case "trousers">>
 		"네 감옥으로 보내질 거야." 렌이 말한다. "좀 더러워져도 걱정 마."
 	<<case "jumpsuit">>
-		"네 감옥으로 보내질 거야." 렌이 말한다. "교도소에 이게 엄청 많다고 들었는데, 신참한테는 하나만 준대."
+		"네 감옥으로 보내질 거야." 렌이 말한다. "감옥에 이게 엄청 많다고 들었는데, 신참한테는 하나만 준대."
 <</switch>>
 <br><br>
 
@@ -295,7 +296,7 @@
 	<<He>>【은는】 <<his>> 손바닥에서 이빨을 굴린다. "아직 마음 있어?"
 	<br><br>
 
-	<<link [[포스터 교체하기|Prison Wren Poster]]>><<set $phase to 1>><</link>>
+	<<link [[포스터를 교체한다|Prison Wren Poster]]>><<set $phase to 1>><</link>>
 	<br>
 	<<link [[그만둔다|Prison Wren]]>><<unset $poster_choice>><</link>>
 	<br>

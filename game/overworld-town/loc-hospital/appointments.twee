@@ -53,7 +53,7 @@
 		<</addinlineevent>>
 	<</if>>
 
-	<<if isBeastSceneAllowed() and $harper_appointments.last isnot "dog">>
+	<<if beastSexEnabledForType("dog") and $harper_appointments.last isnot "dog">>
 		<<addinlineevent "harper dog">>
 			<<set $harper_appointments.last to "dog">>
 			<<include "Doctor Harper's Office Dog">>
@@ -198,7 +198,7 @@
 
 :: Doctor Harper's Office Dog
 <<generate2>>
-<<if V.settings.bestialityEnabled>>
+<<if animalSexEnabledForType("dog")>>
 	<<generateBEAST 3 dog>>
 <<else>>
 	<<generateBEAST 3 dog undefined undefined "monster">>
@@ -232,7 +232,7 @@
 
 <br><br>
 <<if $speech_attitude is "meek">>
-	"ㅊ, 착한 <<beastgender 2>>구나." 당신은 조심스럽게 <<beasttype 2>>【을를】 쓰다듬으며 말한다.
+	"차-착한 <<beastgender 2>>구나." 당신은 조심스럽게 <<beasttype 2>>【을를】 쓰다듬으며 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"누가 이렇게 착한 <<beastgender 2>>일까?" 당신은 <<beasttype 2>>의 귀를 헝클어뜨리며 말한다.
 <<else>>
@@ -373,7 +373,7 @@
 			<<He>>【이가】 창가로 성큼성큼 걸어간다. <<He>>【이가】 창문을 열자, <<generate2>><<person2>><<person>>【이가】 커다란 카메라와 삼각대를 들고 안으로 들어온다. <<generate3>><<generate4>><<generate5>><<generate6>><<He>>의 뒤를 바짝 따라 네 명의 다른 사람들, <<person3>><<person>>, <<person4>><<person>>, <<person5>><<person>>, 그리고 <<person6>><<person>>【이가】 들어온다.
 			<br><br>
 
-			<<person2>>그 <<person>>【이가】 카메라를 설치하는 동안, 다른 네 명은 하퍼에게 돈을 건네기 시작한다.<<person1>> <<He>>【이가】 돈을 세고는, <<his>> 서랍에 숨긴 후 당신을 향해 돌아선다. "옷을 벗으세요," <<he>>【이가】 부드럽게 말한다.
+			<<person2>>그 <<person>>【이가】 카메라를 설치하는 동안, 다른 네 명은 하퍼에게 돈을 건네기 시작한다.<<person1>> <<He>>【이가】 돈을 세고는, <<his>> 서랍에 숨긴 후 당신을 향해 돌아선다. "옷을 벗으세요." <<he>>【이가】 부드럽게 말한다.
 			<br><br>
 
 			<<if $harper_appointments.hypnosis lte 4>>
@@ -807,7 +807,7 @@
 	<<set $uncomfortable.nude to $harper_appointments.uncomfortable>>
 	<<unset $harper_appointments.uncomfortable>>
 
-	하퍼 박사는 당신이 최면 상태에서 깨어나는 모습을 지켜보던 <<person1>><<he>>【와과】 함께 당황한다.
+	하퍼 의사는 당신이 최면 상태에서 깨어나는 모습을 지켜보던 <<person1>><<he>>【와과】 함께 당황한다.
 	<br><br>
 
 	<<beasttype 2>>【이가】 당신 위에서 낑낑거리며, <<person3>><<bhe>>【이가】 <<bhis>> <<npcPenis>>【을를】 빼내려고 몸부림치는 동안 당신을 잡아당긴다. <<arousal 900>><<ggarousal>>
@@ -822,7 +822,7 @@
 	하퍼가 충격받은 목소리로 말한다. "저 불쌍한 <<beasttype 2>>에게 무슨 짓을 하는 겁니까?" <<person2>><<person>>【은는】 입을 벌린 채 당신을 쳐다본다.
 	<br><br>
 
-	하퍼가 재촉하고 나서야 <<he>>【이가】 입을 연다. "ㅇ-어, 그래! 내 <<beasttype 2>>에게 무슨 짓이야?" <<His>> 반응은 너무 늦어서 설득력이 없다.
+	하퍼가 재촉하고 나서야 <<he>>【이가】 입을 연다. "어-어, 그래! 내 <<beasttype 2>>에게 무슨 짓이야?" <<His>> 반응은 너무 늦어서 설득력이 없다.
 	<br><br>
 
 	<<link [[사과한다|Doctor Harper's Office Dog Wake]]>><<set $phase to 0>><<stress 4>><<trauma 2>><<awareness -2>><</link>><<gstress>><<gtrauma>><<lawareness>>

@@ -19,7 +19,7 @@
 		<<if Weather.precipitation isnot "none">>
 			<<He>>【은는】 나가는 길에 <<his>> 사물함에 들러 우산을 챙긴다.
 		<</if>>
-		당신들은 공원을 가로질러 쇼핑 센터에 도착한다.
+		당신들은 공원을 가로질러 쇼핑센터에 도착한다.
 	<<elseif $location is "temple">>
 		<<set $exit to "temple">>
 		<<if Time.weekDay is 1 and Time.hour gte 10 and Time.hour lte 12 and $daily.massAttended isnot 1>>
@@ -53,7 +53,7 @@
 	<<else>>
 		<<He>>【은는】 기운을 낸다. "무슨 생각인데요?"
 		<br><br>
-		<<highicon>><<link [[쇼핑 센터 (0:15+)|Sydney Walk Shopping]]>><</link>>
+		<<highicon>><<link [[쇼핑센터 (0:15+)|Sydney Walk Shopping]]>><</link>>
 		<br>
 		<<if C.npc.Sydney.love gte 50>>
 			<<starfishicon>><<link [[해변 (0:50+)|Sydney Walk Beach]]>><</link>>
@@ -75,9 +75,9 @@
 :: Sydney Walk Shopping
 <<set $outside to 0>><<if $location is "school">><<schooleffects>><</if>><<effects>><<run statusCheck("Sydney")>><<set _sydneyPray to true>>
 <<if $speech_attitude is "meek">>
-	"쇼핑 센터는 어때요?" 당신이 묻는다.
+	"쇼핑센터는 어때요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
-	"쇼핑 센터 가자. 네 모습도 좀 산뜻하게 바꿔볼 겸." 당신이 말한다.
+	"쇼핑센터 가자. 네 모습도 좀 산뜻하게 바꿔볼 겸." 당신이 말한다.
 <<else>>
 	"쇼핑하러 가도 좋겠어요." 당신이 말한다.
 <</if>>
@@ -156,7 +156,7 @@
 		<<if Weather.precipitation isnot "none">>
 			<<He>>【은는】 나가는 길에 <<his>> 사물함에 들러 우산을 챙긴다.
 		<</if>>
-		당신들은 공원을 가로질러 쇼핑 센터에 도착한다.
+		당신들은 공원을 가로질러 쇼핑센터에 도착한다.
 	<<elseif $location is "temple">>
 		<<set $exit to "temple">><<set $location to "town">>
 		시드니는 <<monks>> 무리에게 손을 흔들어 인사하고,<<if $sydneyromance is 1>> 당신의 팔을 잡은 채<</if>> 당신과 함께 떠난다.
@@ -178,7 +178,7 @@
 <<if $speech_attitude is "meek">>
 	"해변은 어때요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
-	"우리 해변에서 하루 보내도 좋을 것 같은데." 당신이 말한다.
+	"우리 해변에서 하루 보내도 좋을 것 같은데," 당신이 말한다.
 <<else>>
 	"해변에 가서 좀 놀아도 좋겠어요." 당신이 말한다.
 <</if>>
@@ -287,7 +287,7 @@
 
 :: Sydney Shopping Centre
 <<set $outside to 0>><<set $location to "shopping_centre">><<effects>><<sydneySchedule>>
-당신은 시드니와 함께 쇼핑 센터 메인 층에 있다. 쇼핑객들로 붐빈다<<if $sydneyromance is 1>>, 그래서 떨어지지 않도록 <<him>>【와과】 팔짱을 낀다<</if>>.
+당신은 시드니와 함께 쇼핑센터 메인 층에 있다. 쇼핑객들로 붐빈다<<if $sydneyromance is 1>>, 그래서 떨어지지 않도록 <<him>>【와과】 팔짱을 낀다<</if>>.
 <br><br>
 <<if Time.schoolDay and $sydneyScience and ((Time.hour is 8 and Time.minute gte 44) or Time.hour is 9)>>
 	<<He>>【은는】 시간을 보여주는 커다란 전광판을 본다. "가야 해요. 과학 수업에 늦겠어요!"
@@ -295,18 +295,18 @@
 	<<link [[떠난다 (0:15)|Sydney Shopping Leave]]>><<pass 15>><</link>>
 <<elseif _sydney_location is "shop" and Time.hour gte 17>>
 	<<He>>【은는】 시간을 보여주는 커다란 전광판을 본다. "저 벌써 조금 늦었어요. <<nnpc_mum "Sirris">>께서 하시는 일을 도우러 가야 해요. 그래도 데려와줘서 고마워요! 재밌었어요."
-	<<if $sydneyromance is 1>><<He>>【은는】 쇼핑 센터를 떠나며 당신의 뺨에 키스하고 손을 흔든다.<<else>><<He>>【은는】 쇼핑 센터를 떠나며 당신에게 손을 흔든다.<</if>>
+	<<if $sydneyromance is 1>><<He>>【은는】 쇼핑센터를 떠나며 당신의 뺨에 키스하고 손을 흔든다.<<else>><<He>>【은는】 쇼핑센터를 떠나며 당신에게 손을 흔든다.<</if>>
 	<br><br>
 	<<link [[다음|Shopping Centre]]>><<unset $exit>><<endevent>><<set $eventskip to 1>><</link>>
 <<elseif Time.hour gte 21>>
 	<<He>>【은는】 시간을 보여주는 커다란 전광판을 본다. "곧 문 닫을 시간이네요. 이제 정말 집에 가야겠어요. 데려와줘서 고마워요! 재밌었어요."
-	<<if $sydneyromance is 1>><<He>>【은는】 쇼핑 센터를 떠나며 당신의 뺨에 키스하고 손을 흔든다.<<else>><<He>>【은는】 쇼핑 센터를 떠나며 당신에게 손을 흔든다.<</if>>
+	<<if $sydneyromance is 1>><<He>>【은는】 쇼핑센터를 떠나며 당신의 뺨에 키스하고 손을 흔든다.<<else>><<He>>【은는】 쇼핑센터를 떠나며 당신에게 손을 흔든다.<</if>>
 	<br><br>
 	<<link [[다음|Shopping Centre]]>><<unset $exit>><<endevent>><<set $eventskip to 1>><</link>>
 <<elseif $phase is 1 and C.npc.Sydney.love lt 30>>
 	"우리... 이제 돌아가는 게 좋겠어요."
 	<br><br>
-	<<link [[쇼핑 센터를 떠난다 (0:15)|Sydney Shopping Leave]]>><<pass 15>><</link>>
+	<<link [[쇼핑센터를 떠난다 (0:15)|Sydney Shopping Leave]]>><<pass 15>><</link>>
 	<br>
 <<else>>
 	<<if $phase is 1>>
@@ -329,14 +329,14 @@
 		<br>
 	<</if>>
 	<br>
-	<<link [[쇼핑 센터를 떠난다 (0:15)|Sydney Shopping Leave]]>><<pass 15>><</link>>
+	<<link [[쇼핑센터를 떠난다 (0:15)|Sydney Shopping Leave]]>><<pass 15>><</link>>
 	<br>
 <</if>>
 
 :: Sydney Shopping Glasses
 <<set $outside to 0>><<set $location to "shopping_centre">><<effects>>
 <<set $daily.sydney.shopGlasses to true>>
-당신은 시드니를 데리고 쇼핑 센터 위층에 도착한다.
+당신은 시드니를 데리고 쇼핑센터 위층에 도착한다.
 <<if $sydneySeen.includes("glasses")>>
 	무엇을 찾아야 하는지 알고 있으니 안경점을 훨씬 빨리 찾는다.
 <<else>>
@@ -411,7 +411,7 @@
 	<<case "contacts">>
 		"안경 쓰는 게 조금 그립긴 했어요. 고마워요!" <<He>>【은는】 <<his>> 오래된 안경을 카운터 직원에게 밀어준다.
 <</switch>>
-안경사는 새 안경을 쓴 시드니에게 간단한 시력 검사를 해준다. 잘 끝나고, 당신들은 쇼핑 센터로 다시 나온다. <<trauma -3>><<ltrauma>><<npcincr Sydney love 1>><<glove>>
+안경사는 새 안경을 쓴 시드니에게 간단한 시력 검사를 해준다. 잘 끝나고, 당신들은 쇼핑센터로 다시 나온다. <<trauma -3>><<ltrauma>><<npcincr Sydney love 1>><<glove>>
 <br><br>
 <<link [[떠난다 (0:01)|Sydney Shopping Centre]]>><<pass 1>><<set $sydney.glasses to "playerbought">><</link>>
 <br>
@@ -454,7 +454,7 @@
 	<<case "contacts">>
 		<<He>>【은는】 혼란스럽게 당신을 본다. "저 이미... 지금도 끼고..." 당신은 더 설명하지 않고 어쨌든 구매한다.
 <</switch>>
-안경사는 새 콘택트렌즈를 낀 시드니에게 간단한 시력 검사를 해준다. 잘 끝나고, 당신들은 쇼핑 센터로 다시 나온다. <<trauma -3>><<ltrauma>><<npcincr Sydney love 1>><<glove>>
+안경사는 새 콘택트렌즈를 낀 시드니에게 간단한 시력 검사를 해준다. 잘 끝나고, 당신들은 쇼핑센터로 다시 나온다. <<trauma -3>><<ltrauma>><<npcincr Sydney love 1>><<glove>>
 <br><br>
 <<link [[떠난다 (0:01)|Sydney Shopping Centre]]>><<pass 1>><<set $sydney.glasses to "contacts">><</link>>
 <br>
@@ -622,7 +622,7 @@
 	시드니는 당신이 자리에서 일어나자 미소 짓는다. "멋져요! 다음에는 역시 제 머리도 해보는 게 좋겠네요."
 <</if>>
 <<unset $sydneyDye>><<unset $sydneyDyeRemove>><<unset $sydneyHairDone>><<unset $sydneyStyle>><<unset $playerHairDone>>
-두 사람은 쇼핑 센터로 다시 나온다.
+두 사람은 쇼핑센터로 다시 나온다.
 <br><br>
 <<link [[다음 (0:01)|Sydney Shopping Centre]]>><</link>>
 <br>
@@ -725,10 +725,10 @@
 			<<set _accept to true>>
 		<<else>>
 			<<if $sydneyromance is 1 or _sydneyStatus.includes("Lust")>>
-				<<His>> 얼굴이 새빨개진다. "이, 이건... 너무... 너무 작고, 드러나고, 그리고..." <<He>>【은는】 침을 삼킨다. "이걸... 이걸 정말 입어도 되는 건가요?" 당신은 시간을 들여 시드니를 안심시킨다.
+				<<His>> 얼굴이 새빨개진다. "이-이건... 너무... 너무 작고, 드러나고, 그리고..." <<He>>【은는】 침을 삼킨다. "이걸... 이걸 정말 입어도 되는 건가요?" 당신은 시간을 들여 시드니를 안심시킨다.
 				<<set _accept to true>>
 			<<else>>
-				<<His>> 얼굴이 새빨개진다. "이, 이런 건 절대 못 입어요! 너무 드러나잖아요! 미안하지만 사양할게요."
+				<<His>> 얼굴이 새빨개진다. "이-이런 건 절대 못 입어요! 너무 드러나잖아요! 미안하지만 사양할게요."
 			<</if>>
 		<</if>>
 	<<case "crossdress">>
@@ -740,7 +740,7 @@
 				<<if _sydneyStatus.includes("corrupt")>>
 					<<He>>【은는】 믿기지 않는다는 듯 그것을 본다. "미안한데, 음... 제가 아래쪽이 좀... 많이 발달해서 이건 안 될 것 같아요." <<He>>【은는】 <<his>> 바지를 <<his>> 사타구니에 눌러댄다. "재밌는 생각이긴 하지만요."
 				<<else>>
-					<<His>> 얼굴이 새빨개진다. "그, 그건 여자애들 거잖아요! 모두가 제... 너무... 미안해요, 못 해요."
+					<<His>> 얼굴이 새빨개진다. "그-그건 여자애들 거잖아요! 모두가 제... 너무... 미안해요, 못 해요."
 				<</if>>
 			<<else>>
 				<<if $sydneySeen.includes("swimcross")>>
@@ -757,7 +757,7 @@
 						<<set _convince to true>>
 					<</if>>
 				<<else>>
-					당신이 비키니를 <<him>>의 앞에 들자 <<He>>【은는】 침을 삼킨다. "그, 그런데 그건 여자애들 거잖아요! 저는... 그런 걸 못 입어요. 이... 입어도... 되나요...?"
+					당신이 비키니를 <<him>>의 앞에 들자 <<He>>【은는】 침을 삼킨다. "그-그런데 그건 여자애들 거잖아요! 저는... 그런 걸 못 입어요. 이... 입어도... 되나요...?"
 					<<if $sydneyromance is 1 or _sydneyStatus.includes("Lust")>>
 						<<He>>【은는】 잠깐 생각한다. "당신이... 당신이 제가 그걸 입길 원한다면, 입을게요." <<He>>【은는】 <<his>> 얼굴을 가린다.
 						<<set _accept to true>>
@@ -789,7 +789,7 @@
 						<<set _convince to true>>
 					<</if>>
 				<<else>>
-					당신이 보드 쇼츠를 <<him>>의 앞에 들자 <<He>>【은는】 침을 삼킨다. "그, 그런데 그건 남자애들 거잖아요! 드러나고, 모두가 제... 저는... 그런 걸 못 입어요. 이... 입어도... 되나요...?"
+					당신이 보드 쇼츠를 <<him>>의 앞에 들자 <<He>>【은는】 침을 삼킨다. "그-그런데 그건 남자애들 거잖아요! 드러나고, 모두가 제... 저는... 그런 걸 못 입어요. 이... 입어도... 되나요...?"
 					<<if $sydneyromance is 1 or _sydneyStatus.includes("Lust")>>
 						<<He>>【은는】 잠깐 진지하게 생각하는 것 같다. "당신이... 당신이 제가 그걸 입길 원한다면, 입을게요." <<He>>【은는】 <<his>> 얼굴을 가린다.
 						<<set _accept to true>>
@@ -1131,7 +1131,7 @@
 	<<ejaculation>>
 	<<if $corruptionRollover is 1>>
 		<<unset $corruptionRollover>>
-		"정, 정말 굉장했어요." <<he>>【은는】 중얼거린다. "또... 또 하고 싶어요. 그리고... 또." <<He>>【은는】 당신의 눈을 바라본다. <span class="lewd">"마치 완전히 새로운 세계가 열린 것 같아요."</span>
+		"정-정말 굉장했어요." <<he>>【은는】 중얼거린다. "또... 또 하고 싶어요. 그리고... 또." <<He>>【은는】 당신의 눈을 바라본다. <span class="lewd">"마치 완전히 새로운 세계가 열린 것 같아요."</span>
 	<<else>>
 		<<switch _sydneyStatus>>
 			<<case "pure" "pureLust">>
@@ -1154,7 +1154,7 @@
 <<elseif $enemyhealth lte 0>>
 	<<if $corruptionRollover is 1>>
 		<<unset $corruptionRollover>>
-		시드니는 아픈 듯 신음을 흘리고, 재빨리 <<his>> 입을 가려 그 소리를 억누른다. "그, 그건..." <<He>>【은는】 당신의 눈을 바라본다. "당신이 저를 거칠게 다룰 때 좋은 것 같아요. <span class="lewd">마치 완전히 새로운 세계가 열린 것 같아요.</span>"
+		시드니는 아픈 듯 신음을 흘리고, 재빨리 <<his>> 입을 가려 그 소리를 억누른다. "그-그건..." <<He>>【은는】 당신의 눈을 바라본다. "당신이 저를 거칠게 다룰 때 좋은 것 같아요. <span class="lewd">마치 완전히 새로운 세계가 열린 것 같아요.</span>"
 	<<else>>
 		<<switch _sydneyStatus>>
 			<<case "pure" "pureLust">>
@@ -1223,7 +1223,7 @@
 	<</switch>>
 	<br><br>
 <</if>>
-시드니는 당신 앞에서 옷을 다 입는다. 당신은 탈의실 칸에서 나가고, 시드니는 의심을 사지 않도록 몇 분 기다린 뒤 따라 나온다. 두 사람은 쇼핑 센터의 메인 구역으로 다시 나온다.
+시드니는 당신 앞에서 옷을 다 입는다. 당신은 탈의실 칸에서 나가고, 시드니는 의심을 사지 않도록 몇 분 기다린 뒤 따라 나온다. 두 사람은 쇼핑센터의 메인 구역으로 다시 나온다.
 <br><br>
 <<link [[떠난다 (0:01)|Sydney Shopping Centre]]>><<unset $select>><</link>>
 <br>
@@ -1271,7 +1271,7 @@
 	<<link [[다음|Science Classroom]]>><<endevent>><<set $daily.sydney.scienceWalk to 1>><</link>>
 	<br>
 <<elseif _sydney_location is "shop" or _sydney_location is "home">>
-	당신은 시드니와 함께 쇼핑 센터를 나선다. <<if $sydneyromance is 1>><<if _sydneyStatus.includes("corrupt")>><<He>>【은는】 <<hers>> 손으로 당신의 손을 잡는다<<else>>당신은 <<his>> 손을 잡는다<</if>>. <<takeHandholdingVirginity "Sydney" "romantic">><</if>>
+	당신은 시드니와 함께 쇼핑센터를 나선다. <<if $sydneyromance is 1>><<if _sydneyStatus.includes("corrupt")>><<He>>【은는】 <<hers>> 손으로 당신의 손을 잡는다<<else>>당신은 <<his>> 손을 잡는다<</if>>. <<takeHandholdingVirginity "Sydney" "romantic">><</if>>
 	<br><br>
 	"저 이제 가야 해요. 거기 데려가줘서 고마워요!" <<He>>【은는】 <<if $sydneyromance is 1>>당신의 뺨에 키스하고 <</if>><<he>>【이가】 엘크 가로 걸어가는 동안 손을 흔든다.
 	<br><br>
@@ -1279,16 +1279,16 @@
 	<br>
 <<elseif $exit is "library">>
 	<<set $outside to 0>><<updatesidebarimg>><<set $location to "school">><<set $bus to "schoollibrary">><<schooleffects>>
-	당신은 시드니와 함께 쇼핑 센터를 나와 옥스포드 가 쪽으로 걸어간다. 도서관에 도착하자 <<He>>【은는】 다시 <<his>> 자리에 앉는다. "데려가줘서 고마워요! 재밌었어요."
+	당신은 시드니와 함께 쇼핑센터를 나와 옥스포드 가 쪽으로 걸어간다. 도서관에 도착하자 <<He>>【은는】 다시 <<his>> 자리에 앉는다. "데려가줘서 고마워요! 재밌었어요."
 	<br><br>
 	<<sydneyOptions>>
 <<elseif $exit is "temple">>
 	<<set $location to "temple">><<set $bus to "wolf">>
-	당신은 시드니와 함께 쇼핑 센터를 나와 울프 가 쪽으로 걸어간다. 당신들은 별일 없이 신전에 도착한다. "데려가줘서 고마워요! 재밌었어요."
+	당신은 시드니와 함께 쇼핑센터를 나와 울프 가 쪽으로 걸어간다. 당신들은 별일 없이 신전에 도착한다. "데려가줘서 고마워요! 재밌었어요."
 	<br><br>
 	<<sydneyOptions>>
 <<else>>
-	당신은 시드니와 함께 쇼핑 센터를 나선다. "데려가줘서 고마워요! 이제 신전에 가야 해요. <<if $sydneyromance is 1>>저기... 거기까지 같이 걸어가주실래요?<<else>>할 일이 많아요. 같이 가실래요?<</if>>"
+	당신은 시드니와 함께 쇼핑센터를 나선다. "데려가줘서 고마워요! 이제 신전에 가야 해요. <<if $sydneyromance is 1>>저기... 거기까지 같이 걸어가주실래요?<<else>>할 일이 많아요. 같이 가실래요?<</if>>"
 	<br><br>
 	<<link [[시드니를 신전까지 바래다준다 (0:25)|Sydney Leave Temple]]>><<pass 25>><<npcincr Sydney love 1>><<stress -3>><</link>><<glove>><<lstress>>
 	<br>
@@ -1522,7 +1522,7 @@
 			시드니가 <<his>> 팔을 붙잡자 <<Hes>> 말이 끊긴다. <<Hes>> 끌려와 시드니와 얼굴을 몇 센티미터 앞에 두고 마주한다. "내 거야. 더러운 죄인은 나 말고 <<phim>>한테 손대면 안 돼." 시드니는 몇 분처럼 느껴질 만큼 <<him>>【을를】 바라보다가 놓아준다. 군중은 물러난다.
 		<<else>>
 			<<He>>【은는】 시드니가 자신을 똑바로 바라보고 있다는 것을 깨닫고 말을 멈춘다. 당신은 <<person1>><<hes>> <<person2>><<person>>에게 보내는 눈빛을 정확히 설명할 수 없지만, 그것은 <<him>>【을를】 제자리에 얼어붙게 만들었다. 군중의 소음은 빠르게 잦아든다.
-			시드니는 다가가, 당신 어깨에 얹힌 그 <<persons>> 손을 떼어내 더러운 걸레처럼 옆으로 던진다. "역겹군요. 바다에서 죄를 씻어내 보시는 게 어떻습니까. 적어도 지나가는 고래에게는 좋은 먹이가 될지도 모르니까요. 사라지세요, 음욕에 찌든 하찮은 자여."
+			시드니는 다가가, 당신 어깨에 얹힌 그 <<persons>> 손을 떼어내 더러운 걸레처럼 옆으로 던진다. "역겹네요. 바다에서 죄를 씻어내 보시는 게 어떻습니까. 적어도 지나가는 고래에게는 좋은 먹이가 될지도 모르니까요. 사라지세요, 음욕에 찌든 하찮은 인간."
 		<</if>>
 		<br><br>
 		시드니는 당신의 팔을 잡고 계속 걸어간다.
@@ -1829,7 +1829,7 @@
 <<elseif $sydney.swim is "crossdress" and !$sydneySeen.includes("lemonadecross")>>
 	<<set $sydneySeen.pushUnique("lemonadecross")>>
 	당신은 로빈이 <<his>> 레모네이드 가판대 뒤에 서 있는 것을 본다. <<Hes>> 레모네이드를 마시다가, 시드니를 보자 곧바로 뿜는다.
-	"아, 시, 시드니! 너... 입은 게, 어..."
+	"아, 시-시드니! 너... 입은 게, 어..."
 	<br>
 	<<if _sydneyStatus.includes("corrupt")>>
 		"알아요." 시드니는 무표정하게 <<him>>【을를】 바라본다.
@@ -1840,7 +1840,7 @@
 	<<if _robin.crossdress isnot undefined and _robin.cdquest is 0>>
 		"설마. <<pshe>>【이가】 시킨 거야...?" 로빈은 당신을 가리킨다.
 		<br>"네." 시드니는 <<if _sydneyStatus.includes("corrupt")>>담담하게 말한다<<else>>쥐어짜듯 말한다<</if>>.
-		<br>"아." 잠시 침묵이 흐른다. "그게, <<pshe>>【이가】 나한테도..." 로빈은 아래를 내려다본다. "아, 아무튼! 오늘은 둘에게 뭘 해줄까?"
+		<br>"아." 잠시 침묵이 흐른다. "그게, <<pshe>>【이가】 나한테도..." 로빈은 아래를 내려다본다. "아-아무튼! 오늘은 둘에게 뭘 해줄까?"
 	<<elseif _robin.crossdressing is 2>>
 		<br>로빈은 시드니에게 따뜻하게 미소 짓는다. "시간이 지나면 익숙해져." <<person2>><<he>>【은는】 <<his>> 차림을 가리키며 말한다.
 		<<if _sydneyStatus.includes("corrupt")>>
@@ -1848,7 +1848,7 @@
 			<<if _robin.dom gte 40>>
 				<br>로빈은 레모네이드 한 잔을 따른다. "아무튼, 한 잔 마실래?"
 			<<else>>
-				<br>로빈은 당황해서 말을 더듬는다. "아, 아무튼 레모네이드 좀 마실래?"
+				<br>로빈은 당황해서 말을 더듬는다. "아-아무튼 레모네이드 좀 마실래?"
 			<</if>>
 		<<else>>
 			시드니는 로빈의 말에 조금 기운을 낸 듯하다.
@@ -2263,7 +2263,7 @@
 <<elseif ["heavyPrecipitation", "storm", "thunderstorm"].includes(Weather.name)>>
 	"이런 날씨에 밖으로 나가는 건 현명하지 않은 것 같아요. 다른 날에 가요." 시드니가 안심시키는 듯 미소 짓는다.<<set _walk to false>>
 <<elseif $temple_rank is undefined or $temple_rank is "prospective">>
-	시드니가 들뜬 표정이다. "좋아요! <<nnpc_brother "Jordan">> 조던 형님께 다녀오겠다고 말씀드리고 올게요."
+	시드니가 들뜬 표정이다. "좋아요! <<nnpc_brother "Jordan">> 조던님께 다녀오겠다고 말씀드리고 올게요."
 	<br><br>
 	<<He>>【이가】 서둘러 달려가더니, 몇 분 뒤 돌아온다. "준비됐어요."<<set _walk to true>><<pass 2>>
 <<elseif $temple_garden gte 50 or $temple_quarters gte 50>>
@@ -2357,7 +2357,7 @@
 	당신은 시드니와 사소한 것들에 대해 대화를 나눈다.
 	<br><br>
 	<<if !$sydneySeen?.includes("favouriteFlower")>><<set $sydneySeen.pushUnique("favouriteFlower")>>
-		"저는 언제나 흰 장미를 좋아해요," <<he>>【이가】 말한다. "당신은 어떤 꽃을 좋아하시는지 궁금하네요."
+		"저는 언제나 흰 장미를 좋아해요." <<he>>【이가】 말한다. "당신은 어떤 꽃을 좋아하시는지 궁금하네요."
 		<br><br>
 		<<link [[가장 좋아하는 꽃을 시드니에게 말한다|Sydney Temple Garden Favourite Flower]]>><<set $phase to 1>><</link>>
 		<br>
@@ -2413,7 +2413,7 @@
 		<<promiscuity1>>
 
 		<<if $sydneyFriendZoned>>
-			기쁘면서도 망설이는 기색으로 시드니가 묻는다. "저, 저에게 하신 키스... 진심이셨나요?" <<He>>【이가】 기대에 찬 눈으로 당신을 본다.
+			기쁘면서도 망설이는 기색으로 시드니가 묻는다. "저-저에게 하신 키스... 진심이셨나요?" <<He>>【이가】 기대에 찬 눈으로 당신을 본다.
 			<br><br>
 
 			<<link [[진심이라고 말한다|Sydney Temple Garden Friendzone]]>><<set $phase to "loveInterest">><<npcincr Sydney love 5>><</link>><<gglove>>
@@ -2448,11 +2448,11 @@
 	<<unset $sydneyFriendZoned>>
 	<<set $sydneySeen.pushUnique("friendzone")>>
 	<<if $speech_attitude is "meek">>
-		"진심이야, 맹세할게—"
+		"진심이에요, 맹세할게요—"
 	<<elseif $speech_attitude is "bratty">>
 		"당연히 진심이—"
 	<<else>>
-		"내 뜻은—"
+		"제 뜻은—"
 	<</if>>
 	<br><br>
 	시드니가 당신의 말을 가로막고, 당신의 미소 짓는 입술 위로 자신의 입술을 계속해서 맞춘다.<<stress -6>><<trauma -6>><<lstress>><<ltrauma>>
@@ -2479,13 +2479,13 @@
 <<elseif $phase is 2>>
 	<<switch $speech_attitude>>
 		<<case "meek">>"당, 당신이요."
-		<<case "bratty">>"시드니야. 들어본 적 있을지도 모르겠네."
-		<<default>>"내가 가장 좋아하는 꽃은 너야, 시드니."
+		<<case "bratty">>"시드니예요. 들어본 적 있을지도 모르겠네요."
+		<<default>>"제가 가장 좋아하는 꽃은 당신이에요, 시드니."
 	<</switch>>
 	<br><br>
 	"그렇군요." <<His>> 뺨이 부드러운 분홍빛으로 물든다.
 <<else>>
-	"없으십니까? 그럼 당신을 위한 꽃을 찾아드려야겠군요." 시드니는 당신의 마음에 드는 것이 있는지 찾아보려는 듯, 다음 몇 분 동안 꽃 이름들을 줄줄이 읊는다.
+	"없으세요? 그럼 당신을 위한 꽃을 찾아드려야겠네요." 시드니는 당신의 마음에 드는 것이 있는지 찾아보려는 듯, 다음 몇 분 동안 꽃 이름들을 줄줄이 읊는다.
 <</if>>
 <br><br>
 

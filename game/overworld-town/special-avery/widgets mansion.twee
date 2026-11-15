@@ -1,7 +1,7 @@
 :: Widgets Avery Mansion [widget]
 
 <<widget "avery_mansion_variables_debug">>
-	렌트 시간: $renttime<br>
+	렌트 시간: $rentTime<br>
 	/*Avery card gift: <<print $avery_card_gift>><br>*/
 	<<if $avery_mansion>>
 	저택 부재 일수: <<print $avery_mansion.days_absent>><br>
@@ -229,18 +229,18 @@
 	<<avery_food_select>>
 	<<if $avery_mansion.food is $avery_mansion.food_last>>
 		<<if $avery_mansion.rage.dinner_wrong>>
-			"다시 생각해 보니, 방금 건 아주 맛있었어," 에이버리가 말한다. <span class="gold">"다음에도 <<recipe_name $avery_mansion.food "article">>【을를】 원해."</span>
+			"다시 생각해 보니, 방금 건 아주 맛있었어." 에이버리가 말한다. <span class="gold">"다음에도 <<recipe_name $avery_mansion.food "article">>【을를】 원해."</span>
 		<<else>>
 			"늘 먹던 게 좋겠어. <span class="gold">또 <<recipe_name $avery_mansion.food "article">>【을를】 해 줘.</span>"
 		<</if>>
 	<<elseif setup.foodstuff[$avery_mansion.food].food.tags.includes("seafood")>>
-		"다음엔 해산물이 좋겠군," 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
+		"다음엔 해산물이 좋겠군." 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
 	<<elseif setup.foodstuff[$avery_mansion.food].food.tags.includes("sweet")>>
-		"다음엔 달콤한 게 좋겠군," 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
+		"다음엔 달콤한 게 좋겠군." 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
 	<<elseif setup.foodstuff[$avery_mansion.food].food.tags.includes("spicy")>>
-		"다음엔 매콤한 게 좋겠군," 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
+		"다음엔 매콤한 게 좋겠군." 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
 	<<else>>
-		"다음엔 든든한 게 좋겠군," 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
+		"다음엔 든든한 게 좋겠군." 에이버리가 말한다. <span class="gold">"<<recipe_name $avery_mansion.food "article">>【이가】 딱 맞을 것 같아."</span>
 	<</if>>
 	<br><br>
 	<i>지배도가 높아지면 에이버리가 더 복잡한 요리를 요구할 것이다.</i>
@@ -801,7 +801,7 @@
 <<widget "avery_rage_assess">>
 	<<avery_mansion_seen>>
 
-	<<if $debug is 1>>
+	<<if $debug>>
 		<br>
 		<i>수영장 무질서도:</i> <<print $avery_mansion.pool>>
 		<br>
@@ -826,50 +826,50 @@
 	<</if>>
 	<<if $avery_mansion.kneel is "refuse" and $avery_mansion.jobs.includes("knees")>>
 		<<set $avery_mansion.rage.assess += 1>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>무릎 꿇지 않음</i><br>
 		<</if>>
 	<<elseif !$avery_mansion.bow and $avery_mansion.jobs.includes("bow")>>
 		<<set $avery_mansion.rage.assess += 1>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>인사하지 않음</i><br>
 		<</if>>
 	<</if>>
 	<<if $avery_mansion.jobs.includes("meek") and !$speech_attitude_avery and $speech_attitude isnot "meek">>
 		<<set $avery_mansion.rage.assess += 1>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>태도 불량</i><br>
 		<</if>>
 	<</if>>
 	<<if $avery_mansion.jobs.includes("maid") and !$worn.upper.type.includes("maid") and !$worn.lower.type.includes("maid") and !$worn.head.type.includes("maid")>>
 		<<set $avery_mansion.rage.assess += 1>>
 		<<set _avery_mansion_maid_failed to true>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>메이드복 안 입음</i><br>
 		<</if>>
 	<</if>>
 	<<if !$avery_mansion.jobs.includes("maid") and $avery_mansion.jobs.includes("formal") and !$worn.upper.type.includes("formal") and !$worn.lower.type.includes("formal")>>
 		<<set $avery_mansion.rage.assess += 1>>
 		<<set _avery_mansion_formal_failed to true>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>정장 안 입음</i><br>
 		<</if>>
 	<</if>>
 	<<if $avery_mansion.jobs.includes("hairstyle") and $hairtype isnot "neat">>
 		<<set $avery_mansion.rage.assess += 1>>
 		<<set $avery_mansion_hairstyle_failed to true>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>머리 스타일 틀림</i><br>
 		<</if>>
 	<</if>>
 	<<if $avery_mansion.jobs.includes("hairlength") and $hairlength gte 400>>
 		<<set $avery_mansion.rage.assess += 1>>
 		<<set $avery_mansion_hairlength_failed to true>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<i>머리가 너무 김</i><br>
 		<</if>>
 	<</if>>
-	<<if $debug is 1>>
+	<<if $debug>>
 		<i>총 분노 평가치:</i> <<print $avery_mansion.rage.assess>>
 		<br>
 	<</if>>
@@ -926,7 +926,7 @@
 	<<if $avery_mansion.rage.apologetic is true>>
 		<<set $avery_mansion.rage.apologetic to false>>
 		<<set $averySeen.pushUnique("rage_apology")>>
-		<<He>>【이가】 한 손을 등 뒤로 숨긴 채 긴장한 미소를 짓더니, 장미꽃 다발을 드러낸다. "미안해," 꽃을 내밀며 <<he>>【이가】 말한다. "진짜 너무 미안해. 내가 너무 화를 내서 그래, 하지만 네 잘못이 아니야." <<He>>【이가】 계속 말을 이으려 입을 열었지만, 이내 시선을 돌려버린다.<<lllarage>><<npcincr Avery rage -9>>
+		<<He>>【이가】 한 손을 등 뒤로 숨긴 채 긴장한 미소를 짓더니, 장미꽃 다발을 드러낸다. "미안해." 꽃을 내밀며 <<he>>【이가】 말한다. "진짜 너무 미안해. 내가 너무 화를 내서 그래, 하지만 네 잘못이 아니야." <<He>>【이가】 계속 말을 이으려 입을 열었지만, 이내 시선을 돌려버린다.<<lllarage>><<npcincr Avery rage -9>>
 		<br><br>
 
 		<<link [[꽃을 받는다|Mansion Return Flowers Accept]]>><<npcincr Avery love 3>><</link>><<gglove>>
@@ -963,9 +963,9 @@
 			<br><br>
 
 			<<if _args[0] is "work">>
-				"일이 끔찍했어," <<he>>【이가】 말한다. "여느 때처럼 말이지."
+				"일이 끔찍했어." <<he>>【이가】 말한다. "여느 때처럼 말이지."
 			<<else>>
-				"여기 있었네," <<he>>【이가】 말한다. "보고 싶었어."
+				"여기 있었네." <<he>>【이가】 말한다. "보고 싶었어."
 			<</if>>
 			<br><br>
 
@@ -994,11 +994,14 @@
 			<br>
 			<<link [[도망친다|Mansion Chase Run]]>><</link>>
 			<br>
-		<<else>>
-			"긴 하루였어," <<he>>【이가】 억지로 희미한 미소를 지으며 말한다.
+		<<elseif Time.weekDay isnot 1 and Time.weekDay isnot 7 and Time.hour gt 9>>
+			"긴 하루였어." <<he>>【이가】 억지로 희미한 미소를 지으며 말한다.
 
 			<<avery_mansion_rage_party "normal">>
 			<<avery_mansion_dom_events>>
+		<<else>>
+			<<avery_mansion_rage_party "normal">>
+			<<avery_mansion_end_links>>
 		<</if>>
 	<</if>>
 	<br><br>
@@ -1113,7 +1116,7 @@
 			<<if $speech_attitude is "meek" or $speech_attitude_avery>>
 				"'주인님'이라고 했나? 흠. 좋아. 아주 좋아, <<pcpetname "Avery">>."
 			<</if>>
-			<<He>>【이가】 당신의 턱을 쥔다. "내가<<if $speech_attitude is "meek" or $speech_attitude_avery>><<else>>그게<</if>> 얼마나 필요한 거지? 말해봐."
+			<<He>>【이가】 당신의 턱을 쥔다. "<<if $speech_attitude is "meek" or $speech_attitude_avery>>내가<<else>>그게<</if>> 얼마나 필요한 거지? 말해봐."
 			<br><br>
 
 			"당—" 당신은 헐떡인다. "당신이 생각하는 것보다
@@ -1145,7 +1148,7 @@
 			<br>
 		<</if>>
 	<<elseif $avery_tower.progress gte 25 and $avery_tower.stage is 0>>
-		"잠깐 바람 좀 쐬러 가지," <<he>>【이가】 말한다. "내가 짓는 건물 쪽에 다녀올 거야. 진척 상황을 보여주고 싶군."
+		"잠깐 바람 좀 쐬러 가지." <<he>>【이가】 말한다. "내가 짓는 건물 쪽에 다녀올 거야. 진척 상황을 보여주고 싶군."
 		<br><br>
 		<<if $exposed gte 2>>
 			<<link [[에이버리와 함께 간다|Skyscraper Foundation Naked]]>><<set $avery_tower.stage to 1>><</link>>
@@ -1160,7 +1163,7 @@
 		<<link [[거절한다|Skyscraper Foundation Refuse]]>><<set $avery_tower.stage to 1>><</link>>
 		<br>
 	<<elseif $avery_tower.progress gte 60 and $avery_tower.stage is 1>>
-		"내 마천루가 거의 완공돼 가," <<he>>【이가】 말한다. "이리 와. 구경시켜 줄게."
+		"내 마천루가 거의 완공돼 가." <<he>>【이가】 말한다. "이리 와. 구경시켜 줄게."
 		<br><br>
 		<<if $exposed gte 2>>
 			<<link [[에이버리와 함께 간다|Skyscraper Structure Naked]]>><<set $avery_tower.stage to 2>><</link>>
@@ -1207,7 +1210,7 @@
 		<br>
 	<<elseif C.npc.Avery.dom gte 70 and !$avery_mansion.jobs.includes("display")>>
 		<<set $avery_mansion.jobs.push("display")>>
-		"전시실 먼지 좀 털어줬으면 좋겠군," 에이버리가 말한다. "조심해. 그 안의 물건들은 너보다 훨씬 비싸니까."
+		"전시실 먼지 좀 털어줬으면 좋겠군." 에이버리가 말한다. "조심해. 그 안의 물건들은 너보다 훨씬 비싸니까."
 		<br><br>
 
 		<span class="gold">에이버리는 당신이 앞으로 전시실을 청결하게 유지해주길 바랍니다.</span>
@@ -1578,7 +1581,7 @@
 				<br>
 			<</if>>
 		<<elseif $rng is 4>>
-			"뉴스에 꼭 봐야 할 게 있어," 에이버리가 말한다. "옆에 좀 있어 줘."
+			"뉴스에 꼭 봐야 할 게 있어." 에이버리가 말한다. "옆에 좀 있어 줘."
 			<br><br>
 			<<link [[에이버리와 함께 앉는다 (0:30)|Mansion Return Sit]]>><<pass 30>><<npcincr Avery love 1>><</link>><<glove>>
 			<br>
@@ -1589,7 +1592,7 @@
 				<br>
 			<</if>>
 		<<elseif $rng is 5>>
-			"온수 목욕 좀 했으면 좋겠군," <<he>>【이가】 미소 지으며 말한다. "어때?"
+			"온수 목욕 좀 했으면 좋겠군." <<he>>【이가】 미소 지으며 말한다. "어때?"
 			<br><br>
 
 			<<link [[에이버리와 함께 목욕한다 (0:30)|Mansion Return Bathe]]>><<pass 10>><<npcincr Avery love 1>><</link>><<glove>>
@@ -1601,7 +1604,7 @@
 				<br>
 			<</if>>
 		<<elseif $rng is 6>>
-			"드라이브나 좀 할까," <<he>>【이가】 말한다. "스포츠카로 말이야. 나랑 같이 갈래?"
+			"드라이브나 좀 할까." <<he>>【이가】 말한다. "스포츠카로 말이야. 나랑 같이 갈래?"
 			<br><br>
 
 			<<link [[에이버리와 함께 차를 탄다 (0:30)|Mansion Return Ride]]>><<pass 10>><</link>>
@@ -1613,7 +1616,7 @@
 				<br>
 			<</if>>
 		<<elseif $rng is 7>>
-			"옷 갈아입을 시간 좀 줘," <<he>>【이가】 말한다. "그러고 나서 배드민턴이나 한두 게임 치지."
+			"옷 갈아입을 시간 좀 줘." <<he>>【이가】 말한다. "그러고 나서 배드민턴이나 한두 게임 치지."
 			<br><br>
 
 			<<link [[배드민턴을 친다 (0:30)|Mansion Return Badminton]]>><<pass 10>><</link>>
@@ -1625,7 +1628,7 @@
 				<br>
 			<</if>>
 		<</if>>
-		<<if $debug is 1>>
+		<<if $debug>>
 			<br><br>
 			''디버그 전용''
 			<br><br>
@@ -2209,13 +2212,13 @@
 			<<case 10>>
 				"어디 찾기만 해 봐,"
 			<<case 9>>
-				"나를 존중하는 게 어떤 건지 뼈저리게 가르쳐 주마,"
+				"나를 존중하는 게 어떤 건지 뼈저리게 가르쳐 줄 거야,"
 			<<case 8>>
 				"마을 사람 아무한테나 다리를 벌리고 다니겠지. 모두가 내 뒤에서 비웃고 있다고,"
 			<<case 7>>
-				"네 본모습인 창녀처럼 대해 주마,"
+				"네 본모습인 창녀처럼 대해 줄 거야,"
 			<<case 6>>
-				"네가 누구 소유인지 확실히 상기시켜 줄 테다,"
+				"네가 누구 소유인지 확실히 상기시켜 줄 거야,"
 			<<case 5>>
 				"당장 나와 이 쓸모없는 걸레년아,"
 			<<case 4>>
@@ -2227,7 +2230,7 @@
 			<<default>>
 				"씨발 딱 기다려,"
 		<</switch>>
-		<span class="blue"><<print ({lounge:"응접실",dining:"식당",display:"전시실",kitchen:"부엌",garden:"정원",pool:"수영장",bedroom:"침실",bathroom:"욕실",study:"서재",garage:"차고",dungeon:"지하 감옥",hallway_1:"아트리움",hallway_1_w:"1층 서쪽 복도",hallway_1_e:"1층 동쪽 복도",hallway_2:"계단참",hallway_2_w:"2층 서쪽 복도",hallway_2_e:"2층 동쪽 복도",hallway_3:"3층 복도"})[_args[0]] || _args[0]>></span>에서 <<he>>【이가】 소리친다.
+		<span class="blue"><<print ({lounge:"라운지",dining:"식당",display:"전시실",kitchen:"부엌",garden:"정원",pool:"수영장",bedroom:"침실",bathroom:"욕실",study:"서재",garage:"차고",dungeon:"지하 감옥",hallway_1:"아트리움",hallway_1_w:"1층 서쪽 복도",hallway_1_e:"1층 동쪽 복도",hallway_2:"계단참",hallway_2_w:"2층 서쪽 복도",hallway_2_e:"2층 동쪽 복도",hallway_3:"3층 복도"})[_args[0]] || _args[0]>></span>에서 <<he>>【이가】 소리친다.
 		<<switch _args[0]>>
 			<<case "lounge">>
 				<<if random(0, 1)>>
@@ -2418,25 +2421,25 @@
 	<<rng 10>>
 	<<switch $rng>>
 		<<case 10>>
-			"널 시궁창에 처박아 둘 수도 있어," <<he>>【이가】 말한다. "아무도 신경 쓰지 않겠지."
+			"널 시궁창에 처박아 둘 수도 있어." <<he>>【이가】 말한다. "아무도 신경 쓰지 않겠지."
 		<<case 9>>
 			"네가 감히 날 피해 숨을 수 있을 거라 생각했어?" <<he>>【이가】 말한다. "내 생각보다 훨씬 멍청하네."
 		<<case 8>>
 			"내가 너한테 해준 게 얼마나 많은데," <<he>>【이가】 말한다. "이렇게 보답을 해."
 		<<case 7>>
-			"넌 내 맘대로 할 수 있는 내 거란 말이야," <<he>>【이가】 말한다. "증명해 줄 때가 됐군."
+			"넌 내 맘대로 할 수 있는 내 거란 말이야." <<he>>【이가】 말한다. "증명해 줄 때가 됐군."
 		<<case 6>>
 			"베일리의 쓰레기들과 함께 진흙탕에 버려줬으면 해?" <<he>>【이가】 묻는다. "그게 네가 바라는 거야?"
 		<<case 5>>
 			"네가 뭐 특별한 줄 알아?" <<he>>【이가】 말한다. "너보다 더 괜찮은 <<girl>>들도 수도 없이 먹고 버렸어."
 		<<case 4>>
-			"어쩌면 널 팔아버릴지도 모르지," <<he>>【이가】 말한다. "너 같은 닳고 닳은 장난감을 사갈 사람이 있다면 말이야."
+			"어쩌면 널 팔아버릴지도 모르지." <<he>>【이가】 말한다. "너 같은 닳고 닳은 장난감을 사갈 사람이 있다면 말이야."
 		<<case 3>>
 			"네가 나한테 뭐라도 되는 줄 알아?" <<he>>【이가】 말한다. "넌 그냥 흔해빠진 벌레 새끼일 뿐이야."
 		<<case 2>>
 			"난 원하는 누구든 가질 수 있다고," <<he>>【이가】 말한다. "은혜도 모르는 걸레년아."
 		<<default>>
-			"넌 얼마든지 대체될 수 있어," <<he>>【이가】 말한다. "하찮은 고아 새끼들이 내 것이 되려고 줄을 서니까."
+			"넌 얼마든지 대체될 수 있어." <<he>>【이가】 말한다. "하찮은 고아 새끼들이 내 것이 되려고 줄을 서니까."
 	<</switch>>
 	<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
 	<br><br>
@@ -2544,6 +2547,12 @@
 
 	<span class="green">지금은, 안전하다.</span>
 	<br><br>
+
+	<<if $transformationParts.traits.chase isnot "disabled">>
+		심장이 뛴다. <span class="green">추격의 스릴이 당신에게 활기를 불어넣는다.</span> <<lstress>><<garousal>><<stress -8>><<arousal 200>><<transform fox 1>>
+	<</if>>
+	<br><br>
+	
 	<<set $avery_mansion.away_timer to 7>>
 	<<set $avery_mansion.schedule to "away">>
 	<<endevent>>
@@ -2659,7 +2668,7 @@
 			<<generate5>><<generate6>>
 			에이버리가 당신을 아트리움으로 데려가자, 헝클어진 옷차림을 한 고용인이 <<person1>><<him>>에게 서둘러 다가온다.
 			<br><br>
-			"신전에서 <<monks_and_nuns>> 무리가 왔습니다," <<person5>><<he>>【이가】 말한다. "자신들도 초대장이 있다고 우기고 있습니다."
+			"신전에서 <<monks_and_nuns>> 무리가 왔습니다." <<person5>><<he>>【이가】 말한다. "자신들도 초대장이 있다고 우기고 있습니다."
 			<br>
 			"그런 초대한 적은 없는데," 에이버리가 말한다. "시장은 어디 있지?"
 			<br>
@@ -2677,7 +2686,7 @@
 
 			"에이버리!" 퀸은 악수를 청하며 말한다. "초대해줘서 고마워. 와인은 어딨지? 아!" <<He>>【은는】 에이버리의 하인이 건네는 잔을 받는다. "수영장은 이용할 수 있나?"
 			<br><br>
-			"물론이지," 에이버리가 말한다. "편하게 쉬다 가."
+			"물론이지." 에이버리가 말한다. "편하게 쉬다 가."
 			<br><br>
 			퀸은 <<person2>><<his>> 재킷을 벗기 시작하더니, 수영장 방향으로 걸어간다. <<His>> 동행자들은 아트리움을 나서기도 전에 옷을 벗어던지며 수영복 차림을 드러낸다.
 			<br><br>
@@ -2705,7 +2714,7 @@
 		<<set $remySeen.pushUnique("avery_mansion")>>
 		에이버리가 당신을 아트리움으로 이끈다. 고용인들이 양옆으로 한 줄씩 늘어서, 방 중앙으로 이어지는 길을 만들어 놓았다. 문이 활짝 열려 있고, 첫 손님이 도착하는 소리가 들린다.
 		<br><br>
-		"행동 조심해," 에이버리가 말한다. "레미는 뼈대 있는 집안 출신이니까.
+		"행동 조심해." 에이버리가 말한다. "레미는 뼈대 있는 집안 출신이니까.
 		<<if $averyragerevealed gte 1>>
 			오늘 저녁 한 번만이라도 네 근본이 그렇게 천박하지 않은 척 좀 해 봐."
 		<<else>>
@@ -2715,9 +2724,9 @@
 		레미가 문 앞에 나타나자 방 안의 긴장감이 고조된다. <<person2>><<He>>【이가】 안으로 들어와 에이버리에게 다가간다.
 		<br><br>
 
-		"어서 와, 레미," 에이버리가 말한다. "와줘서 고마워. 네가 와주니 기쁘군."
+		"어서 와, 레미." 에이버리가 말한다. "와줘서 고마워. 네가 와주니 기쁘군."
 		<br>
-		"나야말로 영광이지," 레미가 말한다. 그러고는 <<he>>【은는】 당신을 살펴본다.
+		"나야말로 영광이지." 레미가 말한다. 그러고는 <<he>>【은는】 당신을 살펴본다.
 		<br><br>
 
 		<<link [[인사한다|Mansion Party Remy Greet]]>><</link>>
@@ -2729,22 +2738,22 @@
 	<<elseif $avery_mansion.guest is "Briar">>
 		<<if C.npc.Briar.init is 1>>
 			<<npc "Briar" 2>><<generate3>><<generate4>><<generate5>><<generate6>>
-			에이버리가 당신을 아트리움으로 이끈다. "브라이어는 평민이라는 걸 명심해," <<person1>><<he>>【이가】 말한다. "나쁜 버릇 같은 게 드러나게 놔두지 마. 예의를 갖춰."
+			에이버리가 당신을 아트리움으로 이끈다. "브라이어는 평민이라는 걸 명심해." <<person1>><<he>>【이가】 말한다. "나쁜 버릇 같은 게 드러나게 놔두지 마. 예의를 갖춰."
 			<br><br>
 			두 고용인이 문을 연다. 가장 먼저 들어온 건 브라이어다. <<person2>><<He>>【은는】 방 한가운데로 백조처럼 걸어와,
 			<<if $pronoun is "f">>커시를 하며<<else>>절을 하며<</if>> 에이버리에게 인사한다.
 			<br><br>
-			"내 저택에 온 걸 환영해," 에이버리가 말한다. "부디 편하게 있다 가."
+			"내 저택에 온 걸 환영해." 에이버리가 말한다. "부디 편하게 있다 가."
 			<br>
 			"오, 그럴게." 브라이어가 당신을 보며 미소를 짓는다. "언제나 기쁘게 해주는군."
 		<<else>>
 			<<npc "Briar" 2>><<generate3>><<generate4>><<generate5>><<generate6>>
-			에이버리가 당신을 아트리움으로 이끈다. "브라이어는 평민이라는 걸 명심해," <<person1>><<he>>【이가】 말한다. "나쁜 버릇 같은 게 드러나게 놔두지 마. 예의를 갖춰."
+			에이버리가 당신을 아트리움으로 이끈다. "브라이어는 평민이라는 걸 명심해." <<person1>><<he>>【이가】 말한다. "나쁜 버릇 같은 게 드러나게 놔두지 마. 예의를 갖춰."
 			<br><br>
 			두 고용인이 문을 연다. 가장 먼저 들어온 건 브라이어다. <<person2>><<He>>【은는】 방 한가운데로 백조처럼 걸어와,
 			<<if $pronoun is "f">>커시를 하며<<else>>절을 하며<</if>> 에이버리에게 인사한다.
 			<br><br>
-			"내 저택에 온 걸 환영해," 에이버리가 말한다. "부디 편하게 있다 가."
+			"내 저택에 온 걸 환영해." 에이버리가 말한다. "부디 편하게 있다 가."
 			<br>
 			"오, 그럴게." 브라이어가 당신을 향해 웃는다. "당신이 그 소문 자자한 아이로군. 내 무릎을 거치지 않고 이런 높은 곳까지 올라갔다니 그게 참 아쉽네."
 		<</if>>
@@ -2755,7 +2764,7 @@
 		<br>
 	<<elseif $avery_mansion.guest is "Harper">>
 		<<npc "Harper" 2>><<generate3>><<generateyv4>><<generateyv5>><<generateyv6>>
-		에이버리가 당신을 아트리움으로 이끈다. "의사의 뼈대는 형편없어," 에이버리가 말한다. "하지만 높이 올라왔지. 예의 바르게 행동해."
+		에이버리가 당신을 아트리움으로 이끈다. "의사의 뼈대는 형편없어." 에이버리가 말한다. "하지만 높이 올라왔지. 예의 바르게 행동해."
 		<br><br>
 		아트리움 문이 열리고 첫 손님들이 도착한다. 하퍼는 그 사이에 없지만, 에이버리가 도착하는 이들을 맞이하는 동안 당신은 <<his>> 팔에 매달려 있다.
 		<br><br>
@@ -3104,7 +3113,7 @@
 			<<set $avery_valentines.ready to true>>
 			<<npc "Avery">><<person1>>
 
-			에이버리가 최고급 옷을 차려입고 당신을 향해 미소 짓는다. "당신이 준비되면 나도 준비됐어." <<he>>【이가】 말한다. "<span class="gold">발렌타인</span> 데이트를 위해 말이야. 차고에서 기다리고 있을게."
+			에이버리가 최고급 옷을 차려입고 당신을 향해 미소 짓는다. "네가 준비되면 나도 준비됐어." <<he>>【이가】 말한다. "<span class="gold">발렌타인</span> 데이트를 위해 말이야. 차고에서 기다리고 있을게."
 			<br><br>
 
 			<<link [[다음|$passage]]>><<endevent>><</link>>
@@ -3124,7 +3133,7 @@
 			<<avery_housework_assess>>
 		<<elseif _avery_interrupt is "work">>
 			정문이 덜컥거리며 열리는 소리가 들리더니, 차 한 대가 들어온다. 차는 차고 안으로 들어가고, 쾅 하고 차 문 닫히는 소리가 난다.
-			<<if Time.weekDay isnot 1>>
+			<<if Time.weekDay isnot 1 and Time.weekDay isnot 7>>
 				에이버리가 퇴근하고 돌아왔다.
 			<<else>>
 				에이버리가 집에 돌아왔다.
@@ -3167,7 +3176,7 @@
 			<<set $avery_mansion.date_ready to true>>
 			<<npc "Avery">><<person1>>
 
-			에이버리는 가장 멋진 옷을 차려입고 당신을 향해 미소 짓는다. "자기가 준비되면 난 언제든 좋아요." <<he>>【이가】 말한다. "데이트 말이에요. 차고에서 기다리고 있을게요."
+			에이버리는 가장 멋진 옷을 차려입고 당신을 향해 미소 짓는다. "당신이 준비되면 난 언제든 좋아요." <<he>>【이가】 말한다. "데이트 말이에요. 차고에서 기다리고 있을게요."
 			<br><br>
 
 			<<link [[다음|$passage]]>><<endevent>><</link>>
@@ -3181,7 +3190,7 @@
 		<<elseif _avery_interrupt is "skyscraper_approach">>
 			<<set $avery_tower.stage to 3>>
 			<<npc Avery>><<person1>>
-			방금 연락받았어. 에이버리가 말한다. <<Hes>> 웃고 있다. <span class="gold">"내 마천루가 드디어 완공됐대."</span>
+			"방금 연락받았어." 에이버리가 말한다. <<Hes>> 웃고 있다. <span class="gold">"내 마천루가 드디어 완공됐대."</span>
 			<br><br>
 			<<skyscraper_time>>
 			<<if _skyscraper_time is "now">>
@@ -3219,7 +3228,7 @@
 		<<elseif _avery_interrupt is "skyscraper_ready">>
 			<<npc "Avery">><<person1>>
 			<<if $worn.upper.type.includes("formal") and $worn.lower.type.includes("formal")>>
-				에이버리는 당신의 옷을 훑어보고 미소를 짓는다. "좋아," <<he>>【이가】 팔짱을 끼며 말한다. "와. 레미와 하퍼가 여기로 올 거야. 우리 같이 마천루로 가는 거야."
+				에이버리는 당신의 옷을 훑어보고 미소를 짓는다. "좋아." <<he>>【이가】 팔짱을 끼며 말한다. "와. 레미와 하퍼가 여기로 올 거야. 우리 같이 마천루로 가는 거야."
 				<br><br>
 				<<link [[에이버리와 함께 간다|Mansion Skyscraper Formal]]>><</link>>
 				<br>
@@ -3238,7 +3247,7 @@
 			저택에 벨소리가 울려 퍼진다. 정문에 누군가 있다.
 			<br><br>
 			<<if $avery_mansion.schedule isnot "work" and $avery_mansion.schedule isnot "sleep" and $avery_mansion.schedule isnot "away">>
-				가서 문 좀 열어줄래? 에이버리가 외친다. "중요한 손님은 없을 테니까."
+				"가서 문 좀 열어줄래?" 에이버리가 외친다. "중요한 손님은 없을 테니까."
 				<br><br>
 			<</if>>
 			<<if $exposed gte 1>>
@@ -3507,7 +3516,7 @@
 			<<if $bus is "avery_bathroom">>
 				<<if $avery_mansion.schedule is "bath">>
 					<<if !$daily.avery.morning_bath>>
-						<<if !$daily.avery.bathroom_peek and !["Mansion Bathroom", "Mansion Bathe", "Mansion Brush", "Mansion Talk Chat 2", "Mansion Talk Leave"].includes($passagePrev) and random(1, 4) is 4>>
+						<<if !$daily.avery.bathroom_peek and !["Mansion Bathroom", "Mansion Bathe", "Mansion Brush", "Mansion Talk Chat 2", "Mansion Talk Leave", "Mansion Talk Flirt"].includes($passagePrev) and random(1, 4) is 4>>
 							<<set _hide_links to 1>>
 							<<npc "Avery">><<person1>>
 							<<set $daily.avery.bathroom_peek to true>>
@@ -3608,7 +3617,7 @@
 						<br><br>
 						<<link [[예|Mansion Breakfast Avery Bite]]>><<set $phase to 1>><</link>>
 						<br>
-						<<link [[아니오|Mansion Breakfast Avery Bite]]>><<set $phase to 2>><</link>>
+						<<link [[아니요|Mansion Breakfast Avery Bite]]>><<set $phase to 2>><</link>>
 						<br>
 					<<elseif _avery_breakfast_event is "coffee">>
 						식당에 들어서자 에이버리가 물었다. "<<= $averyragerevealed and C.npc.Avery.rage gte 20 ? "커피 좀 타와요" : "커피 좀 타주겠어요">>?<<if $averySeen.includes("lewd_coffee")>> 아까처럼 똑같이 말이죠,<</if>>" <<He>>【은는】 피곤한 기색이다.
@@ -3691,7 +3700,7 @@
 			<</if>>
 
 			<<if $bus is "avery_garage">>
-				<<if $avery_valentines and $avery_valentines.ready and !$avery_valentines.done and Time.monthDay is 14>>
+				<<if $avery_valentines?.ready and !$avery_valentines.done and Time.monthDay is 14>>
 					<<icon "avery-car.png">><<link [[발렌타인 데이트|Avery Valentines]]>><<endevent>><</link>>
 					<br><br>
 				<<elseif $avery_mansion.date_ready is true and Time.hour lte 21 and $averydatedone isnot 1>>
@@ -3742,7 +3751,7 @@
 					<<endevent>>
 				<<elseif $avery_mansion.study_unlocked is 1 and Time.hour is 23 and $_avery_present>>
 					<<npc "Avery">><<person1>>
-					문이 열리고 에이버리가 서재에 들어온다. "오늘 밤은 서재 문을 잠가야겠어," <<he>>【이가】 말한다. "내일 아침에 다시 읽도록 해."
+					문이 열리고 에이버리가 서재에 들어온다. "오늘 밤은 서재 문을 잠가야겠어." <<he>>【이가】 말한다. "내일 아침에 다시 읽도록 해."
 					<br><br>
 					당신이 나가자, <<he>>【이가】 찰칵 소리를 내며 문을 잠그고 돌아선다.
 					<br><br>
@@ -3817,14 +3826,14 @@
 					<<link [[태도|Attitudes]]>><<set $attitudesExitPassage to $passage>><</link>>
 				<</if>>
 				<br><br>
-				<<if $debug is 1>>
+				<<if $debug>>
 					''DEBUG ONLY''
 					<br><br>
 
-					Basics:
+					기본:
 					<br>
 
-					<<link [[에이버리의 저택 복귀로 건너뛰기|Mansion Enter]]>><<set $avery_mansion.schedule = "work">>
+					<<link [[에이버리의 저택 복귀로 건너뛴다|Mansion Enter]]>><<set $avery_mansion.schedule = "work">>
 					<<debug_avery_skip_to_return>>
 					<</link>><br>
 
@@ -3882,7 +3891,7 @@
 					<<link [[에이버리의 저택을 파괴한다|Danube Street]]>><<set $avery_mansion_fire_time to 3>><<if !$wardrobe_residential_alleys>><<set $wardrobe_residential_alleys to 1>><</if>><<avery_antiques_end>><<set $avery_fate to "fallen">><<dismissAvery "hard">><</link>> (이 작업은 되돌릴 수 없습니다)
 
 					<br><br>
-					Valentines:
+					발렌타인데이:
 					<br>
 
 					<<link [[발렌타인데이 시작|Mansion Enter]]>><<run Time.timeTravel(new DateTime(Time.year + ((Time.month < 2 || (Time.month === 2 && Time.day <= 12)) ? 0 : 1), 2, 12, 7, 0))>><</link>>
@@ -3893,7 +3902,7 @@
 					<<link [['구원받은 에이버리'로 발렌타인데이 시작|Mansion Enter]]>><<set $avery_fate to "saved">><<set $avery_injury to false>><<set $avery_mansion.injury_timer to 90>><<set $avery_mansion.injury_stage to "sling">><<npcincr Avery dom -9>><<run Time.timeTravel(new DateTime(Time.year + ((Time.month < 2 || (Time.month === 2 && Time.day <= 12)) ? 0 : 1), 2, 12, 7, 0))>><<npcincr Avery rage -39>><<set $avery_mansion.rage.timer to 30>><</link>>
 
 					<br><br>
-					Miscellaneous:
+					기타:
 					<br>
 
 					<<link [[에이버리 섹스 시작|Mansion Sleep Sex]]>><<endcombat>><<set $sexstart to 1>><<npc Avery>><<person1>><</link>><br>
@@ -3914,7 +3923,7 @@
 
 <<widget "avery_mansion_contents_party">>
 	<<if $worn.upper.type.includes("formal") and $worn.lower.type.includes("formal")>>
-		에이버리가 당신의 옷차림을 살펴보고, 미소를 짓는다. "좋아," <<he>>【이가】 당신과 팔짱을 끼며 말한다. "이리 와. 맞이해야 할 손님들이 있다고."
+		에이버리가 당신의 옷차림을 살펴보고, 미소를 짓는다. "좋아." <<he>>【이가】 당신과 팔짱을 끼며 말한다. "이리 와. 맞이해야 할 손님들이 있다고."
 		<br><br>
 
 		<<avery_mansion_party_start_links>>
@@ -3929,7 +3938,7 @@
 <</widget>>
 
 <<widget "avery_mansion_contents_party_prepare">>
-	"거기 있었군," 에이버리가 말한다. "손님들이 곧 도착할 거야." <<He>>【은는】 당신의 옷차림을 살펴본다.
+	"거기 있었군." 에이버리가 말한다. "손님들이 곧 도착할 거야." <<He>>【은는】 당신의 옷차림을 살펴본다.
 	<<if $worn.upper.type.includes("formal") and $worn.lower.type.includes("formal")>>
 		<<if Time.hour is 17>>
 			<<pass `60-Time.minute`>>
@@ -3969,11 +3978,11 @@
 
 	<<if $possessed>>
 		<<set _avery_interrupt to false>>
-	<<elseif $_avery_present is true and $avery_valentines and $avery_valentines.invite and !$avery_valentines.ready and Time.monthName is "February" and Time.monthDay is 14 and Time.hour gte 21>>
+	<<elseif $_avery_present is true and $avery_valentines?.invite and !$avery_valentines.ready and Time.monthName is "February" and Time.monthDay is 14 and Time.hour gte 21>>
 		<<set _avery_interrupt to "valentines_ready">>
 	<<elseif $_avery_present is true and $avery_injury>>
 		<<set _avery_interrupt to "injury">>
-	<<elseif $_avery_present is true and $avery_mansion.schedule is "return" and !($avery_valentines and $avery_valentines.invite and Time.monthName is "February" and Time.monthDay is 14 and Time.hour gte 21)>>
+	<<elseif $_avery_present is true and $avery_mansion.schedule is "return" and !($avery_valentines?.invite and Time.monthName is "February" and Time.monthDay is 14 and Time.hour gte 21)>>
 		<<set _avery_interrupt to "work">>
 	<<elseif $_avery_present is true and $avery_valentines_missed>>
 		<<set _avery_interrupt to "valentines_missed">>
@@ -4119,7 +4128,7 @@
 		<<npc "Avery">><<person1>>
 		<br><br>
 
-		"앉아," 당신이 라운지를 청소하는 동안 에이버리가 말한다. <<He>>【이가】 테이블에 두 번째 잔을 놓고 비싼 양주를 따른 뒤, 당신 쪽으로 밀어준다.
+		"앉아." 당신이 라운지를 청소하는 동안 에이버리가 말한다. <<He>>【이가】 테이블에 두 번째 잔을 놓고 비싼 양주를 따른 뒤, 당신 쪽으로 밀어준다.
 		<br><br>
 
 		<<if playerIsPregnant() and playerAwareTheyArePregnant()>>
@@ -4169,7 +4178,7 @@
 
 		에이버리는 당신이 없는 것처럼 아침을 먹지만, 이따금씩 당신을 쳐다보며, 당신이 상상했을지도 모를 만큼 빠르게 <<his>> 음식을 향해 시선을 돌린다.
 		<br><br>
-		"부엌에서 크림 좀 가져와," <<pcpetname Avery">>." <<he>>【이가】 말한다. "디저트에 곁들이고 싶어."
+		"부엌에서 크림 좀 가져와, <<pcpetname "Avery">>." <<he>>【이가】 말한다. "디저트에 곁들이고 싶어."
 		<br><br>
 
 		<<link [[크림을 가져온다 (0:03)|Mansion Housework Cream]]>><<pass 3>><</link>>
@@ -4220,7 +4229,7 @@
 		<<He>>【이가】 한때 <<print formatList(_items)>>【이가】 놓여 있던 진열장에 다다른다. <<He>>【은는】 그것을 잠시 빤히 응시한다.
 		<br><br>
 
-		"내 <<pluralise _items.length "골동품" "골동품">>," 당신을 향해 돌아서며 <<he>>【이가】 말한다. "$_pronoun【을를】 어디다 뒀지?"
+		"내 <<pluralise _items.length "골동품" "골동품">>." 당신을 향해 돌아서며 <<he>>【이가】 말한다. "$_pronoun【을를】 어디다 뒀지?"
 		<br><br>
 
 		<<link [[$_pronoun【을를】 가져가지 않았다고 말한다 (거짓말)|Mansion Housework Antiques Lie]]>><</link>>
@@ -4263,7 +4272,7 @@
 
 				<<link [[다음|Mansion Housework Bedroom Rape]]>><<set $molestationstart to 1>><</link>>
 			<<else>>
-				"자는 동안 성가시게 하지 말라고 했을 텐데," <<he>>【이가】 으르렁거린다. "당장 씨발 꺼져."
+				"자는 동안 성가시게 하지 말라고 했을 텐데." <<he>>【이가】 으르렁거린다. "당장 씨발 꺼져."
 				<br><br>
 
 				<<link [[순종한다|Mansion Housework Bedroom Comply]]>><</link>>
@@ -4336,7 +4345,7 @@
 		<<npc "Avery">><<person1>>
 		<br><br>
 
-		에이버리는 정원을 어슬렁거리며 잎사귀 하나하나를 천천히 다듬고, 궂은일은 당신에게 맡긴다. "이건 아주 아름답군," 호랑가시나무 덤불을 가리키며 <<he>>【이가】 말한다.
+		에이버리는 정원을 어슬렁거리며 잎사귀 하나하나를 천천히 다듬고, 궂은일은 당신에게 맡긴다. "이건 아주 아름답군." 호랑가시나무 덤불을 가리키며 <<he>>【이가】 말한다.
 		<br><br>
 		에이버리는 <<his>> 전지가위로 섬세하게 다듬고, 자주 뒤로 물러나 자신의 솜씨에 감탄한다.
 		<<if currentSkillValue('tending') gte 600>>
@@ -4419,7 +4428,7 @@
 			<<case "chase">>
 				"그 빌어먹을 파티에 네가 빠졌잖아.
 			<<case "revealed">>
-				"파티에 안 왔더군," <<he>>【이가】 말한다.
+				"파티에 안 왔더군." <<he>>【이가】 말한다.
 			<<case "revealed chase">>
 				"파티에 오지 않았더군.
 		<</switch>>
@@ -4498,69 +4507,69 @@
 				<<switch $_dialog_type>>
 					<<case "normal">>
 						<<if random(0,1)>>
-							<span class="gold"><<this_sunday>>에 시장이 올 거다.</span> 꼭 참석하도록 해. <<nnpc_He "Quinn">>도 꽤 다루기 힘든 부류니까."
+							<span class="gold"><<this_sunday>>에 시장이 올 거야.</span> 꼭 참석하도록 해. <<nnpc_He "Quinn">>도 꽤 다루기 힘든 부류니까."
 						<<else>>
-							<span class="gold">시장은 다음 주에 참석할 거다.</span> 분명히 <<nnpc_he Quinn>>도 네 안부를 물어볼 테지. 꼭 참석하도록 해."
+							<span class="gold">시장은 다음 주에 참석할 거야.</span> 분명히 <<nnpc_he Quinn>>도 네 안부를 물어볼 테지. 꼭 참석하도록 해."
 						<</if>>
 					<<case "chase">>
 						<span class="gold"><<this_sunday>>에 시장이 올 거다.</span>
 						<<if random(0,1)>>
-							"반드시 기어나오는 게 좋을 거다."
+							"반드시 기어나오는 게 좋을 거야."
 						<<else>>
 							"다시는 내게 굴욕을 주지 마."
 						<</if>>
 					<<case "revealed">>
-						<span class="gold">시장이 <<this_sunday>>에 참석할 거다.</span> 날 또 우습게 만들지 마. 꼭 와."
+						<span class="gold">시장이 <<this_sunday>>에 참석할 거야.</span> 날 또 우습게 만들지 마. 꼭 와."
 					<<case "revealed chase">>
 						<<if random(0,1)>>
-							<span class="gold">시장이 <<this_sunday>>에 이곳에 올 거다.</span> 감히 날 <<nnpc_him Quinn>>【와과】 단둘이 남겨둘 생각일랑 마."
+							<span class="gold">시장이 <<this_sunday>>에 이곳에 올 거야.</span> 감히 날 <<nnpc_him Quinn>>【와과】 단둘이 남겨둘 생각일랑 마."
 						<<else>>
-							<span class="gold">시장이 <<this_sunday>>에 참석할 거다. 감히 날 <<nnpc_him Quinn>>【와과】 단둘이 남겨둘 생각일랑 마."</span>
+							<span class="gold">시장이 <<this_sunday>>에 참석할 거야. 감히 날 <<nnpc_him Quinn>>【와과】 단둘이 남겨둘 생각일랑 마."</span>
 						<</if>>
 				<</switch>>
 			<<case "Remy">>
 				<<switch $_dialog_type>>
 					<<case "normal">>
-						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거다.</span> 내 친구지. 네가 올 수 있기를 바라."
+						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거야.</span> 내 친구지. 네가 올 수 있기를 바라."
 					<<case "chase">>
-						<span class="gold">농부 레미가 <<this_sunday>>에 올 거다.</span> 또 나를 망신시킨다면, 후회하게 될 거다."
+						<span class="gold">농부 레미가 <<this_sunday>>에 올 거야.</span> 또 나를 망신시킨다면, 후회하게 될 거야."
 					<<case "revealed">>
-						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거다.</span> 다시는 나를 이런 난처한 상황에 빠뜨리지 마."
+						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거야.</span> 다시는 나를 이런 난처한 상황에 빠뜨리지 마."
 					<<case "revealed chase">>
-						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거다.</span> 꼭 와. 다시 날 모욕했다간 가만두지 않겠다."
+						<span class="gold">농부 레미가 <<this_sunday>>에 참석할 거야.</span> 꼭 와. 다시 날 모욕했다간 가만두지 않을 거야."
 				<</switch>>
 			<<case "Briar">>
 				<<switch $_dialog_type>>
 					<<case "normal">>
-						<span class="gold">이 지역의 사업가인 브라이어가 <<this_sunday>>에 참석할 거다.</span> 꼭 오도록 해."
+						<span class="gold">이 지역의 사업가인 브라이어가 <<this_sunday>>에 참석할 거야.</span> 꼭 오도록 해."
 					<<case "chase">>
-						<span class="gold"><<this_sunday>>에 그 뚜쟁이 놈, 브라이어 앞에 나타나지 않는다면,</span> 후회하게 될 거다."
+						<span class="gold"><<this_sunday>>에 그 뚜쟁이 놈, 브라이어 앞에 나타나지 않는다면,</span> 후회하게 될 거야."
 					<<case "revealed">>
-						<span class="gold">이 지역의 사업가인 브라이어가 <<this_sunday>>에 참석할 거다.</span> 날 바보로 만들지 마. 참석해라."
+						<span class="gold">이 지역의 사업가인 브라이어가 <<this_sunday>>에 참석할 거야.</span> 날 바보로 만들지 마. 참석해."
 					<<case "revealed chase">>
-						<span class="gold">그 지역의 뚜쟁이, 브라이어가 <<this_sunday>>에 참석할 거다.</span> 네 상스러운 수준에 더 잘 맞을 테니, 잊지 말고 꼭 참석해."
+						<span class="gold">그 지역의 뚜쟁이, 브라이어가 <<this_sunday>>에 참석할 거야.</span> 네 상스러운 수준에 더 잘 맞을 테니, 잊지 말고 꼭 참석해."
 				<</switch>>
 			<<case "Harper">>
 				<<switch $_dialog_type>>
 					<<case "normal">>
-						<span class="gold">이 지역의 의사인 <<nnpc_hes "Harper">>【이가】 다음 주에 참석할 거다.</span> 지역 사회의 기둥치고는 무척 젊은 편이지. 꼭 오도록 해."
+						<span class="gold">이 지역의 의사인 하퍼가 다음 주에 참석할 거야.</span> <<nnpc_Hes "Harper">> 지역 사회의 기둥치고는 무척 젊은 편이지. 꼭 오도록 해."
 					<<case "chase">>
-						<span class="gold">의사 하퍼가 <<this_sunday>>에 올 거다.</span> 나타나지 않으면 후회할 줄 알아."
+						<span class="gold">의사 하퍼가 <<this_sunday>>에 올 거야.</span> 나타나지 않으면 후회할 줄 알아."
 					<<case "revealed">>
-						<span class="gold">의사 하퍼가 <<this_sunday>>에 참석할 거다.</span> 꽤 중요한 인물이고, 나는 또다시 네 안부에 대해 추궁당하는 건 피하고 싶군. 반드시 오도록 해."
+						<span class="gold">의사 하퍼가 <<this_sunday>>에 참석할 거야.</span> 꽤 중요한 인물이고, 나는 또다시 네 안부에 대해 추궁당하는 건 피하고 싶군. 반드시 오도록 해."
 					<<case "revealed chase">>
-					<span class="gold">의사 하퍼가 <<this_sunday>>에 참석할 거다.</span> 씨발 잊지 말고 쳐 기어나와."
+					<span class="gold">의사 하퍼가 <<this_sunday>>에 참석할 거야.</span> 씨발 잊지 말고 쳐 기어나와."
 				<</switch>>
 			<<case "Jordan">>
 				<<switch $_dialog_type>>
 					<<case "normal">>
-						<span class="gold">조던이 다음 주에 참석할 거다.</span> 필시 무리를 잔뜩 대동하고 올 테지. 나 혼자서 그들을 상대하는 일은 없었으면 좋겠군."
+						<span class="gold">조던이 다음 주에 참석할 거야.</span> 필시 무리를 잔뜩 대동하고 올 테지. 나 혼자서 그들을 상대하는 일은 없었으면 좋겠군."
 					<<case "chase">>
-						<span class="gold">조던이 <<this_sunday>>에 올 거다.</span> 혼자는 아니겠지. 난 네가 그곳에 필요하고, 네 신상에 이로울 길을 안다면 꼭 참석해라."
+						<span class="gold">조던이 <<this_sunday>>에 올 거야.</span> 혼자는 아니겠지. 난 네가 그곳에 필요하고, 네 신상에 이로울 길을 안다면 꼭 참석해."
 					<<case "revealed">>
 						<span class="gold">조던이 <<this_sunday>>에 참석할 거다.</span> 날 <<nnpc_his "Jordan">> 무리와 단둘이 남겨두지 마."
 					<<case "revealed chase">>
-						<span class="gold">조던이 <<this_sunday>>에 참석할 거다.</span> 반드시 오도록 해."
+						<span class="gold">조던이 <<this_sunday>>에 참석할 거야.</span> 반드시 오도록 해."
 				<</switch>>
 		<</switch>>
 		<<if $avery_tower.stage lte 2>>
@@ -4865,7 +4874,7 @@
 	<<unset $avery_valentines_virginity>>
 	<<unset $avery_valentines_steal_virginity>>
 	<<unset $avery_valentines_vow>>
-	<<unset $speechfallentransform>>
+	<<unset $speechFallenTransform>>
 
 	<<if $avery_mansion and Time.monthName is "February" and Time.monthDay is 14>>
 		<<set $avery_mansion.rage.dinner_done to 1>>
@@ -4877,11 +4886,11 @@
 <<set $daily.avery.morning_change to true>>
 <<He>>【이가】 당신을 바라본다,
 <<if $rng gte 76 and C.npc.Avery.dom gte 40>>
-	그리고 묻는다. "너 안 바쁘지? 나 좀 따라와요." <<He>>【은는】 <<his>> 옷장을 향해 고갯짓을 한다.
+	그리고 묻는다. "너 안 바쁘지? 나 좀 따라와." <<He>>【은는】 <<his>> 옷장을 향해 고갯짓을 한다.
 	<<if $avery_mansion.morning_change_count gte 1>>
 		<<he>>【은는】 당신이 다시 오늘 하루 입을 옷을 챙겨주길 바라는 눈치다.
 	<<else>>
-		"옷 입는 것 좀 도와줘요."
+		"옷 입는 것 좀 도와줘."
 	<</if>>
 	<br><br>
 	<<link [[요구대로 한다 (0:15)|Mansion Bedroom Avery Dress]]>><<set $phase to 1>><<npcincr Avery dom 1>><<pass 15>><</link>><<gdom>>

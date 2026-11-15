@@ -22,7 +22,7 @@
 <<if $livestock.intro is undefined>>
 	<<livestock_init>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 
 		우리에 갇힌 가축들이 줄지어 여물통의 곡물을 먹고 있다. 더 가까이 끌려가서야 그것들이 소가 아니라 소의 귀와 꼬리를 단 사람들이라는 사실을 깨닫는다. 그들은 이따금 터져 나오는 음메 소리를 빼면 그저 여물통의 여물을 먹는 데 열중할 뿐이다.
 
@@ -48,7 +48,7 @@
 <<else>>
 	<<livestock_obey -10>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 
 		우리에 갇힌 가축들이 줄지어 여물통의 곡물을 먹고 있다. 더 가까이 끌려가서야 그것들이 소가 아니라 소의 귀와 꼬리를 단 사람들이라는 사실을 깨닫는다. 그들은 이따금 터져 나오는 음메 소리를 빼면 그저 여물통의 여물을 먹는 데 열중할 뿐이다.
 		<br><br>
@@ -208,7 +208,7 @@
 <<saveNPC 2 "remy_farmhand_2">>
 <<endevent>>
 
-<<if random(1) and $settings.horsesEnabled>>
+<<if random(1) and beastSexEnabledForType("horse")>>
 	<<set _phase to 2>>
 	<<beastNEWinit 1 horse>>
 <<else>>
@@ -217,7 +217,7 @@
 <</if>>
 
 <!-- Modified for Monster People -->
-<<if _phase is 2 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<if _phase is 2 and beastSexEnabledForType("horse", $monster is 1)>>
 	<<clearNPC "remy_farmhand_1">><<clearNPC "remy_farmhand_2">>
 	문이 다시 한번 열리고, 다른 발소리와 함께 말발굽 소리가 들린다. 레미가 시야에 들어온다,
 	<<if $monster is 1>>
@@ -227,7 +227,7 @@
 	<</if>>
 	<br><br>
 
-	"너와는 달리," 레미가 <<beasttypes>> 머리카락을 쓰다듬으며 말한다. "이 <<bboy>>【은는】 착했지. 그러니 너의 벌이 <<bhis>> 상이다."
+	"너와는 달리." 레미가 <<beasttypes>> 머리카락을 쓰다듬으며 말한다. "이 <<bboy>>【은는】 착했지. 그러니 너의 벌이 <<bhis>> 상이다."
 	<<if $NPCList[0].penis isnot "none">>
 		더 많은 농장 인부들이 당신 양옆에 쭈그리고 앉아 다리를 단단히 고정시킨다<<if $monster is 1>>. 하지만 당신의 눈은 켄타우로스에게, <<bhers>> 눈은 당신에게 고정되어 있다. 헝클어지고 야성적인 <<horseHairKr $NPCList[0].hair>> 머리카락이 <<bhis>> 머리 주위와 <<if $NPCList[0].pronoun is "m">>탄탄한 가슴<<else>>커다란 가슴<</if>> 위로 쏟아져 내린다, 거의 <<bhis>> 다리에 닿을 정도다<</if>>.
 		<br><br>
@@ -250,7 +250,7 @@
 
 	<<link [[다음|Livestock Return Horse Molestation]]>><<set $molestationstart to 1>><</link>>
 	<br>
-<<elseif _phase is 1 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<elseif _phase is 1 and beastSexEnabledForType("dog", $monster is 1)>>
 	<<clearNPC "remy_farmhand_1">><<clearNPC "remy_farmhand_2">>
 
 	문이 다시 한번 열리고, 당신은
@@ -261,7 +261,7 @@
 	<</if>>
 	<br><br>
 
-	"너와는 달리," 레미가 <<beasttypes>> 머리를 쓰다듬으며 말한다. "이 <<bboy>>【은는】 착했지. 그러니 너의 벌이 <<bhis>> 상이다." 다른 농장 인부들이 당신 주위로 모여들자 레미가 목줄을 당긴다. 그들 중 둘이 당신의 다리와 목을 풀어준다. <<beasttype>>【이가】 당신 위로 올라타는 순간, 당신은 몸을 돌린다.
+	"너와는 달리." 레미가 <<beasttypes>> 머리를 쓰다듬으며 말한다. "이 <<bboy>>【은는】 착했지. 그러니 너의 벌이 <<bhis>> 상이다." 다른 농장 인부들이 당신 주위로 모여들자 레미가 목줄을 당긴다. 그들 중 둘이 당신의 다리와 목을 풀어준다. <<beasttype>>【이가】 당신 위로 올라타는 순간, 당신은 몸을 돌린다.
 	<<unbind>>
 	<br><br>
 
@@ -281,7 +281,7 @@
 	<br>
 <</if>>
 
-/* <<if ($settings.monsterChance gte random(1, 100) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly) or $settings.bestialityEnabled) and $settings.horsesEnabled>>
+/* <<if beastSexEnabledForType("horse", monsterChanceForType("horse") gte random(1, 100) and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("horse")))>>
 	<<if maleChance() lt random(1, 100)>>
 		<<if $settings.femaleNPCPenisChance gte 1>>
 			The doors open once more, and you hear the clomp of hooves alongside other footsteps. Remy walks into view, holding a tall woman by a bridle tied around her face. A moment later you realise she's only a woman above the waist. <span class="lewd">The rest of her body is that of a horse.</span>
@@ -349,8 +349,8 @@
 		<<link [[Brace yourself (0:05)|Livestock Return Whip Brace]]>><<pass 5>><</link>>
 		<br>
 	<</if>>
-<<elseif $settings.bestialityEnabled>>
-	<<if beastMaleChance() gte 1 and $settings.horsesEnabled>>
+<<elseif animalSexEnabledForType("horse")>>
+	<<if beastMaleChanceForType("horse") gte 1>>
 		The doors open once more, and you hear the clomp of hooves alongside other footsteps. Remy walks into view, holding a horse by a bridle tied around its face.
 		<br><br>
 		"Unlike you," Remy says, stroking the horse. "This boy has been good. So your punishment is his reward." More farmhands crouch on either side of you, ensuring that your legs are clamped firm.
@@ -362,7 +362,7 @@
 		<<endevent>>
 		<<link [[Next|Livestock Return Horse Rape]]>><<set $molestationstart to 1>><</link>>
 		<br>
-	<<elseif random(1, 2) is 2 and $settings.horsesEnabled>>
+	<<elseif random(1, 2) is 2>>
 		The doors open once more, and you hear the clomp of hooves alongside other footsteps. Remy walks into view, holding a horse by a bridle tied around its face.
 		<br><br>
 		"Unlike you," Remy says, stroking the horse. "This girl has been good. So your punishment is her reward." Two of the farmhands release your legs and neck, then spin you around.<<unbind>>
@@ -938,7 +938,7 @@
 <<effects>>
 <<npc Remy>><<person1>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	레미가 당신을 축사 중간쯤으로 이끈다. 칸막이 안에는 수십 마리의 "소"들이 있다.
 <<else>>
 	레미가 당신을 축사 중간쯤으로 이끈다. 칸막이 안에는 수십 마리의 소들이 있다.
@@ -946,7 +946,7 @@
 <<He>>【이가】 한 칸 옆에 멈춰 선다. 비어 있다.
 <br><br>
 
-"이번에는," <<he>>【이가】 문을 열며 말한다. "얌전히 구는 게 좋을 거야, <<girl>>." <<He>>【은는】 당신의 목줄을 목 가까이 바짝 잡고, <<him>>【을를】 지나 우리 안으로 당신을 끌어당긴다. <<He>>【은는】 당신 뒤로 문을 닫는다.
+"이번에는." <<he>>【이가】 문을 열며 말한다. "얌전히 구는 게 좋을 거야, <<girl>>." <<He>>【은는】 당신의 목줄을 목 가까이 바짝 잡고, <<him>>【을를】 지나 우리 안으로 당신을 끌어당긴다. <<He>>【은는】 당신 뒤로 문을 닫는다.
 <br><br>
 
 <<link [[다음|Livestock Cell]]>><<endevent>><</link>>
@@ -1135,7 +1135,7 @@
 당신은 세게 물어뜯는다. <<His>> 눈빛이 번뜩이고 <<he>>【은는】 물러나지만, 비명은 지르지 않는다. <<if $transformationParts.traits.fangs isnot "disabled">><span class="red"><<his>> 피맛이 느껴진다.</span><<ltrauma>><<trauma -6>><</if>>
 <br><br>
 
-<<He>>【은는】 당신의 목줄을 붙잡는다. "처리해 두지," <<he>>【이가】 흡족한 듯 말한다. "일주일 안에 온순한 무리 하나가 더 생길 거야."
+<<He>>【은는】 당신의 목줄을 붙잡는다. "처리해 두지." <<he>>【이가】 흡족한 듯 말한다. "일주일 안에 온순한 무리 하나가 더 생길 거야."
 <br><br>
 
 <<if $exposed lte 1 or $worn.head.name isnot "naked" or $worn.face.name isnot "naked" or $worn.legs.name isnot "naked" or $worn.feet.name isnot "naked" or $worn.hands.name isnot "naked" or $worn.over_upper.name isnot "naked" or $worn.over_lower.name isnot "naked" or $worn.over_head.name isnot "naked">>
@@ -1238,7 +1238,7 @@
 <<effects>>
 <<npc Remy>><<person1>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	레미가 당신을 축사 중간쯤으로 이끈다. 칸막이 안에는 수십 마리의 "소"들이 있다.
 <<else>>
 	레미가 당신을 축사 중간쯤으로 이끈다. 칸막이 안에는 수십 마리의 소들이 있다.
@@ -1358,7 +1358,7 @@
 
 "이 불쌍한 것들이 널 찾느라 몇 시간을 보냈지." 레미가 당신 앞에 쭈그려 앉아 장난스럽게 <<beasttypes>> 머리를 문지르며 말한다. 다른 녀석들은 굶주린 듯 당신 주위를 맴돈다. "널 찾기 위해 이렇게 열심히 일했으니,
 
-<<if $monster is 1 or $settings.bestialityEnabled>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	그 노고에 대한 보상을 받는 게 당연하지 않겠어?"
 	<br><br>
 
@@ -1531,7 +1531,7 @@
 <br><br>
 <<if $livestock.intro is undefined>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		우리에 갇힌 가축들이 줄지어 여물통의 곡물을 먹고 있다. 더 가까이 끌려가서야 그것들이 소가 아니라 소의 귀와 꼬리를 단 사람들이라는 사실을 깨닫는다. 그들은 이따금 터져 나오는 음메 소리를 빼면 그저 여물통의 여물을 먹는 데 열중할 뿐이다.
 	<<else>>
 		우리에 갇힌 암소들이 줄지어 여물통의 곡물을 먹고 있다. 이따금 터져 나오는 음메 소리만이 먹이를 먹는 적막을 깰 뿐이다.
@@ -1548,7 +1548,7 @@
 	<</if>>
 <<else>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		우리에 갇힌 가축들이 줄지어 여물통의 곡물을 먹고 있다. 더 가까이 끌려가서야 그것들이 소가 아니라 소의 귀와 꼬리를 단 사람들이라는 사실을 깨닫는다. 그들은 이따금 터져 나오는 음메 소리를 빼면 그저 여물통의 여물을 먹는 데 열중할 뿐이다.
 	<<else>>
 		우리에 갇힌 암소들이 양옆으로 줄지어 서 있다.
@@ -1681,7 +1681,7 @@
 <<else>>
 	<<livestock_obey -10>>
 	<<if $livestock.obey lte 10>>
-		"걱정 마, 금방 집으로 돌아갈 테니까." 조련사가 킥킥거린다. "하지만 그전에 보스가 널 위해 특별한 걸 준비했어." <<stress 6>><<gstress>>
+		"걱정 마, 금방 집으로 돌아갈 테니까," 조련사가 킥킥거린다. "하지만 그전에 보스가 널 위해 특별한 걸 준비했어." <<stress 6>><<gstress>>
 		<br><br>
 
 		<<link [[다음|Livestock Return Kennel]]>><<endevent>><</link>>

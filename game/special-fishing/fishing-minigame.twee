@@ -22,7 +22,7 @@
 <</widget>>
 
 <<widget "debugFishingMinigameInfo">>
-	<<if V.debug === 1>>
+	<<if V.debug>>
 		(디버그) | 체력: $fishingMinigame.fishStamina / $fishingMinigame.maxStamina
 		| 거리: $fishingMinigame.fishDistance
 		| 팔 피로도: $fishingMinigame.armFatigue

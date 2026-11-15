@@ -50,7 +50,7 @@
 		<<if $exposed gte 1 and $syndromeeden is 1 and random(1,2) is 2>>
 			<<link [[다음|Eden Passout Lake Rescue]]>><</link>>
 		<<elseif C.npc.Mason.init is 1 and !Time.schoolDay and Weather.precipitation is "rain" and Time.dayState is "day" and random(1,2) is 1>>
-			<<link [[모든 것이 어둠 속으로 희미해진다...|Mason CPR]]>><</link>>
+			<<link [[모든 것이 어둠 속으로 사라진다...|Mason CPR]]>><</link>>
 		<<elseif dangerEvent()>>
 			<<if $laketeenspresent is 1 and !Weather.isSnow>>
 				<<link [[다음|Lake Mermaid]]>><</link>>
@@ -79,7 +79,7 @@
 	<<bHe>>【은는】 조금 떨어진 곳에 서서 지켜본다.
 	<br><br>
 	<!-- Modified for Monster People -->
-	<<if hasSexStat("deviancy", 2) and ($monster is 1 or $settings.bestialityEnabled)>>
+	<<if hasSexStat("deviancy", 2) and beastSexEnabledForType("wolf", $monster is 1)>>
 		<<link [[<<bhim>>【와과】 상대한다|Lake Wolf Sex]]>><<set $sexstart to 1>><</link>><<deviant2>><<status 2>><<gcool>>
 		<br>
 	<</if>>
@@ -131,7 +131,7 @@
 			<br>
 		<</if>>
 	<<else>>
-		<<if $rng gte 91 and Weather.precipitation is "rain" and $settings.bestialityEnabled and $settings.voreEnabled and $hallucinations gte 2 and $controlled is 0>>
+		<<if $rng gte 91 and Weather.precipitation is "rain" and $settings.voreEnabled and $hallucinations gte 2 and $controlled is 0>>
 		발밑의 물속에서 무언가 커다란 것이 솟구쳐 오른다. 크게 벌어진 아가리가 당신의 허벅지를 콱 움켜쥔다.
 		<br><br>
 
@@ -266,7 +266,7 @@
 		<<beastNEWinit 1 boar>>
 		당신은 나무 밑동에서 쓰레기를 뒤지고 있는 <<beasttype>>【을를】 본다. <<bHe>>【이가】 당신을 발견한다.
 		<br><br>
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("boar", $monster is 1)>>
 			<<link [[물러서지 않는다|Lake Boar Stand]]>><</link>>
 			<br>
 			<<link [[도망친다|Lake Boar Run]]>><</link>><<athleticsdifficulty>>

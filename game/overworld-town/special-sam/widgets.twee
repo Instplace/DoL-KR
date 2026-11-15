@@ -4,12 +4,12 @@
 		<<if (Time.hour is 6 and Time.minute gte 55) or (Time.dayState is "dawn" and Time.hour gt 6)>>
 			/* (Time.weekDay gte 2 and Time.weekDay lte 6 and (Time.hour is 15 and Time.minute gte 55) or Time.hour gt 15) */ /*Addition block of condition if Sam ever take a break from the cafe at 3pm to 4pm */
 			<<if $chef_rework gt 0 or $chef_state is 7 or $chef_state is 8>>
-				"슬슬 가봐야겠네," 샘이 말한다. "<<if $chef_state is 8>>카페를 다시 열려면 <<else>>카페가 공사중이라 <</if>>할 일이 아직 많거든. 나중에 봐!"
+				"슬슬 가봐야겠네." 샘이 말한다. "<<if $chef_state is 8>>카페를 다시 열려면 <<else>>카페가 공사중이라 <</if>>할 일이 아직 많거든. 나중에 봐!"
 				<br><br>
 
 				<<link [[작별 인사를 한다|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
 			<<else>>
-				"슬슬 가봐야겠네," 샘이 말한다. "출근 늦고 싶지 않거든."
+				"슬슬 가봐야겠네." 샘이 말한다. "출근 늦고 싶지 않거든."
 				<br><br>
 
 				<<link [[작별 인사를 한다|Park]]>><<endevent>><<set $eventskip to 1>><</link>>

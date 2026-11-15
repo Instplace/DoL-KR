@@ -132,7 +132,7 @@ Groups littermates by pregnancyId.*/
 <</silently>><<if $_text_output>><<print $_text_output>><</if>><</widget>>
 
 /*args[0] - childId in an array*/
-<<widget "childInteratedWith">><<silently>>
+<<widget "childInteractedWith">><<silently>>
 	<<if _args[0] isnot undefined>>
 		<<set $_id to _args[0]>>
 	<<elseif $childSelected isnot undefined>>
@@ -359,7 +359,7 @@ Groups littermates by pregnancyId.*/
 			<</if>>
 		<</if>>
 		<<if $_brothers gte 1 and $_sisters gte 1>>
-			<<set $_text_output += " and ">>
+			<<set $_text_output += "와 ">>
 		<</if>>
 		<<if $_sisters gte 1>>
 			<<set $_text_output += "sister">>
@@ -413,7 +413,7 @@ Groups littermates by pregnancyId.*/
 			<</if>>
 		<</if>>
 		<<if $_sons gte 1 and $_daughters gte 1>>
-			<<set $_text_output += " and ">>
+			<<set $_text_output += "와 ">>
 		<</if>>
 		<<if $_daughters gte 1>>
 			<<set $_text_output += "daughter">>
@@ -593,6 +593,7 @@ Groups littermates by pregnancyId.*/
 	<<if _args[0] and _args[0].childId isnot undefined>>
 		<<if !(_args[0].species is "wolf" && _args[0].features.monster && _args[0].gender isnot "h")>>
 			<<switch _args[0].gender>>
+				<!-- TODO: as discussed, replace with sprites for ♂, ♀, and ☿ or ⚥, use characters in text-only version -->
 				<<case "m">><<set $_text_output to "♂ ">>
 				<<case "f">><<set $_text_output to "♀ ">>
 				<<case "h">><<set $_text_output to "⚥ ">>
@@ -772,7 +773,7 @@ Groups littermates by pregnancyId.*/
 	<<capture _args>>
 		<div class="childItem m-0 childName">
 			<div>
-				<label><div><<childrenicon _args[0]>></div><div>Name:</div> <div><<textbox "$childRecords[_args[0]].name" `$childRecords[_args[0]].name`>></div></label>
+				<label><div><<childrenicon _args[0]>></div><div>이름:</div> <div><<textbox "$childRecords[_args[0]].name" `$childRecords[_args[0]].name`>></div></label>
 			</div>
 		</div>
 		<div class="childItem m-0 childDetails">
@@ -854,7 +855,7 @@ Groups littermates by pregnancyId.*/
 					<<replace `"#child-" + _args[0]`>><<childViewerElement _args[0] true>><</replace>>
 				<</link>>
 			</span>
-			<<if $debug is 1>>
+			<<if $debug>>
 				<br>
 				<small>
 					ChildId: <<print $childRecords[_args[0]].childId>> |

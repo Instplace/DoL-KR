@@ -363,6 +363,9 @@ statDisplay.create("gggbaton", () => statDisplay.statChange("봉 숙련도", 3, 
 statDisplay.create("gwhip", () => statDisplay.statChange("채찍 숙련도", 1, "green"));
 statDisplay.create("ggwhip", () => statDisplay.statChange("채찍 숙련도", 2, "green"));
 statDisplay.create("gggwhip", () => statDisplay.statChange("채찍 숙련도", 3, "green"));
+statDisplay.create("gpickaxe", () => statDisplay.statChange("곡괭이 숙련도", 1, "green"));
+statDisplay.create("ggpickaxe", () => statDisplay.statChange("곡괭이 숙련도", 2, "green"));
+statDisplay.create("gggpickaxe", () => statDisplay.statChange("곡괭이 숙련도", 3, "green"));
 
 statDisplay.create("lsecurity", () => statDisplay.statChange("보안", -1, "green"));
 statDisplay.create("llsecurity", () => statDisplay.statChange("보안", -2, "green"));
@@ -436,6 +439,20 @@ statDisplay.create("gggphysique", () => statDisplay.statChange("체격", 3, "gre
 statDisplay.create("gtanned", () => statDisplay.statChange("태닝", 1, "green"));
 statDisplay.create("ggtanned", () => statDisplay.statChange("태닝", 2, "green"));
 statDisplay.create("gggtanned", () => statDisplay.statChange("태닝", 3, "green"));
+
+statDisplay.create("lresearch", () => statDisplay.statChange("Research", -1, "red"));
+statDisplay.create("llresearch", () => statDisplay.statChange("Research", -2, "red"));
+statDisplay.create("lllresearch", () => statDisplay.statChange("Research", -3, "red"));
+statDisplay.create("gresearch", () => statDisplay.statChange("Research", 1, "green"));
+statDisplay.create("ggresearch", () => statDisplay.statChange("Research", 2, "green"));
+statDisplay.create("gggresearch", () => statDisplay.statChange("Research", 3, "green"));
+
+statDisplay.create("lcalligraphy", () => statDisplay.statChange("Calligraphy", -1, "red"));
+statDisplay.create("llcalligraphy", () => statDisplay.statChange("Calligraphy", -2, "red"));
+statDisplay.create("lllcalligraphy", () => statDisplay.statChange("Calligraphy", -3, "red"));
+statDisplay.create("gcalligraphy", () => statDisplay.statChange("Calligraphy", 1, "green"));
+statDisplay.create("ggcalligraphy", () => statDisplay.statChange("Calligraphy", 2, "green"));
+statDisplay.create("gggcalligraphy", () => statDisplay.statChange("Calligraphy", 3, "green"));
 
 // Conditions that modify variables like this should preferably not be in the same widget as text output
 statDisplay.create("lcorruption", threat => {
@@ -881,3 +898,7 @@ statDisplay.create("gggwarmth", () => statDisplay.statChange("보온성", 3, "or
 statDisplay.create("lwarmth", () => statDisplay.statChange("보온성", -1, "teal"));
 statDisplay.create("llwarmth", () => statDisplay.statChange("보온성", -2, "teal"));
 statDisplay.create("lllwarmth", () => statDisplay.statChange("보온성", -3, "teal"));
+statDisplay.create("gthuganger", () => statDisplay.statChange("깡패 분노", 1, "red", () => V.rentThug));
+statDisplay.create("lthuganger", () => statDisplay.statChange("깡패 분노", -1, "green", () => V.rentThug));
+statDisplay.create("llthuganger", () => statDisplay.statChange("깡패 분노", -2, "green", () => V.rentThug));
+statDisplay.create("lllthuganger", () => statDisplay.statChange("깡패 분노", -3, "green", () => V.rentThug));

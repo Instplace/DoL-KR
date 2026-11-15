@@ -46,7 +46,11 @@
 	<</if>>
 <<elseif Weather.dayState is "night">>
 	<<if !Weather.isOvercast>>
-		모닥불 주위에 모여 술을 마시는 한 무리의 학생들을 제외하면 텅 빈 것 같다.
+		<<if Weather.bloodMoon>>
+			붉은 달이 나뭇잎 사이로 빛을 내리쬔다.
+		<<else>>
+			모닥불 주위에 모여 술을 마시는 한 무리의 학생들을 제외하면 텅 빈 것 같다.
+		<</if>>
 	<<else>>
 		텅 빈 것 같다.
 	<</if>>
@@ -176,6 +180,9 @@
 	<<elseif _robin_location is "beach" and $balloonStand.open is true and $balloonStand.robin.status is "unaffected">>
 		<<balloonRobinIntro>>
 	<<else>>
+		<<if Weather.bloodMoon and !Weather.isOvercast>>
+			<<bloodmoonTouristBeach>>
+		<</if>>
 		<<if Time.weekDay is 1 and Time.hour is 9 and !Weather.isOvercast>> /* 9-10 */
 			자원봉사자 무리가 해변을 청소하고 있다.
 			<<if C.npc.Doren.state is "active">>
@@ -210,7 +217,7 @@
 			<br>
 		<</if>>
 		<<if $exposed lte 0 or Time.dayState is "night">>
-			<<swimicon>><<link [[수영하러 가기 (0:02)|Sea Beach]]>><<pass 2>><</link>>
+			<<swimicon>><<link [[수영하러 간다 (0:02)|Sea Beach]]>><<pass 2>><</link>>
 			<<swim_check>> <<if _swim_check isnot 1 and !$settings.blindStatsEnabled>> | <span class="purple">수영복을 입고 있지 않습니다!</span> <</if>>
 			<br>
 		<</if>>
@@ -299,20 +306,20 @@
 <<location "beach">><<effects>>
 학생들에게 다가간다. 몇몇은 임시로 만든 무대 위 모닥불 근처에서 춤을 추고 있고, 다른 학생들은 술을 마시며 잡담을 나누고 있다.
 <br><br>
-<<socialiseicon "party">><<link [[어울리기 (0:10)|Beach Party Chat]]>><<pass 10>><<stress -2>><<status 1>><<set $phase to 0>><</link>><<gcool>><<lstress>>
+<<socialiseicon "party">><<link [[어울린다 (0:10)|Beach Party Chat]]>><<pass 10>><<stress -2>><<status 1>><<set $phase to 0>><</link>><<gcool>><<lstress>>
 <br>
-<<socialiseicon "dance">><<link [[춤추기 (0:05)|Beach Party Dance]]>><<danceinit>><<set $dancing to 1>><<set $venuemod to 1>><<stress -4>><<tiredness 4>><</link>><<lstress>><<gtiredness>>
+<<socialiseicon "dance">><<link [[춤춘다 (0:05)|Beach Party Dance]]>><<danceinit>><<set $dancing to 1>><<set $venuemod to 1>><<stress -4>><<tiredness 4>><</link>><<lstress>><<gtiredness>>
 <br><br>
-<<getouticon>><<link [[떠나기|Beach]]>><</link>>
+<<getouticon>><<link [[떠난다|Beach]]>><</link>>
 
 :: Beach Volleyball
 <<location "beach">><<effects>>
 <<generatey1>><<generatey2>><<generatey3>><<generatey4>><<generatey5>>
 배구를 하는 무리에게 다가간다. <<person1>><<person>> 한 명이 모래 위에 앉아 <<his>> 친구 네 명이 경기하는 것을 지켜보고 있다.
 <br><br>
-<<socialiseicon "volleyball">><<link [[참가하기 (0:30)|Beach Volleyball Play]]>><<athletics 4>><<physique 1>><<pass 30>><<stress -6>><<tiredness 6>><<status 1>><</link>><<gcool>><<gathletics>><<lstress>><<gtiredness>>
+<<socialiseicon "volleyball">><<link [[참가한다 (0:30)|Beach Volleyball Play]]>><<athletics 4>><<physique 1>><<pass 30>><<stress -6>><<tiredness 6>><<status 1>><</link>><<gcool>><<gathletics>><<lstress>><<gtiredness>>
 <br>
-<<getouticon>><<link [[떠나기|Beach]]>><<endevent>><</link>>
+<<getouticon>><<link [[떠난다|Beach]]>><<endevent>><</link>>
 
 :: Beach Volleyball Play
 <<location "beach">><<effects>>
@@ -909,7 +916,7 @@
 <<exhibitionism5>>
 
 <<flaunting>> 당신은 해변을 따라 거닐며, 가는 곳마다 시선을 끈다.
-<<if $player.penisExist and $player.vaginaExist and !$worn.genitals.type.includesAll("chastity", "hidden") and $rng % 2 == 0>>많은 시선이 당신의 독특함에 경외하며 당신의 성기에 고정된다.
+<<if $player.penisExist and $player.vaginaExist and !$worn.genitals.type.includesAll("chastity", "hidden") and $rng % 2 == 0 and $settings.nudeGenderPerception !== 0>>많은 시선이 당신의 독특함에 경외하며 당신의 성기에 고정된다.
 <<elseif $player.breastsize gte 6 and $rng % 2 == 0>>많은 시선이 당신의 <<breasts>>에 쏠린다.
 <<elseif $player.penisExist and $player.penissize gte 5 and !$worn.genitals.type.includesAll("chastity", "hidden")>>많은 시선이 당신의 <<penis>>에 고정된다.
 <<elseif $beauty gte (($beautymax / 7) * 5) and $rng % 3>>몇몇은 그저 입을 벌린 채, 당신의 벌거벗은 아름다움에 넋을 잃고 쳐다본다.
@@ -990,7 +997,7 @@
 
 <<else>>
 
-"아-아-안돼요." <<he>>【은는】 말을 더듬으며 당신에게서 물러난다. "ㅈ-지금 옷 입어요, 안 그러면 경찰 부를 거예요!"
+"아-아-안돼요." <<he>>【은는】 말을 더듬으며 당신에게서 물러난다. "지-지금 옷 입어요, 안 그러면 경찰 부를 거예요!"
 <br><br>
 
 <<link [[따른다|Beach Strip Comply]]>><</link>>
@@ -1376,7 +1383,7 @@
 	<br>
 <<else>>
 
-	당신은 거의 <<him>>【을를】 잡을 뻔했다고 생각하지만, 아케이드 밖에서 <<he>>【은는】 인파 속으로 미끄러져 사라진다. 당신은 <<him>>【을를】 찾으려 인파를 지나 달려가지만, <<him>>【이】나 당신의 옷은 보이지 않는다.
+	당신은 거의 <<him>>【을를】 잡을 뻔했다고 생각하지만, 오락실 밖에서 <<he>>【은는】 인파 속으로 미끄러져 사라진다. 당신은 <<him>>【을를】 찾으려 인파를 지나 달려가지만, <<him>>【이】나 당신의 옷은 보이지 않는다.
 	<br><br>
 
 	당신은 도둑이 어느 방향으로 갔는지 필사적으로 찾으려 잠시 노력하지만, 더 이상 많은 사람들 사이에서 <<him>>【을를】 분간할 수 없다. 그동안, 모두가 당신의 완전히 노출된 <<genitals>><<if $player.breastsize gte 3>>, <<breasts>>,<</if>> 그리고 <<bottom>>【을를】 볼 수 있다. 수백 장의 사진이 찍혔을 것이고, 더 많은 사람들이 나타나 휴대폰을 꺼내고 있다. 당신은 탈출할 방법을 찾으려 애쓴다.

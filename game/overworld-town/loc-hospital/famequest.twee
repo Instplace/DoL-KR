@@ -148,14 +148,14 @@
 <</if>>
 <<effects>>
 <<effectsman>>
-<<if !$speechsteal>>
+<<if !$speechSteal>>
 	<<man>>
 <</if>>
 <<stateman>>
 <br><br>
 <<actionsman>>
 
-<<if _combatend or $speechsteal is 1>>
+<<if _combatend or $speechSteal is 1>>
 	<span id="next"><<link [[다음|Hospital Keycard Seduce Sex Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[다음|Hospital Keycard Seduce Sex]]>><</link>></span><<nexttext>>
@@ -370,7 +370,7 @@
 <<skulduggerycheck>>
 <<if $skulduggerysuccess is 1>>
 	<<if $speech_attitude is "meek">>
-		"실례합니다," 당신은 정중하게 묻는다. "제 친구 중 한 명이 많이 아파서 치료를 받으러 왔어요. <<pShe>> 약을 먹고 상태가 더 나빠졌어요. 관리자나 더 높은 분과 몇 가지 여쭤보고 싶은데, 가능할까요?"
+		"실례합니다." 당신은 정중하게 묻는다. "제 친구 중 한 명이 많이 아파서 치료를 받으러 왔어요. <<pShe>> 약을 먹고 상태가 더 나빠졌어요. 관리자나 더 높은 분과 몇 가지 여쭤보고 싶은데, 가능할까요?"
 	<<elseif $speech_attitude is "bratty">>
 		당신은 카운터에 손을 내리친다. "제 친구가 열이 나서 여기 왔어요. <<pShe>> 알레르기가 있다고 말했는데도, 두드러기가 나는 약을 줬잖아요! 당장 관리자 나오라고 해요!"
 	<<else>>
@@ -381,7 +381,7 @@
 	<<if $NPCList[0].skills.security gte 700>>
 		<<person>>【은는】 눈을 깜빡이며, 허를 찔린 듯한 표정을 짓는다. "저... 죄송합니다, <<psir>>. 가서 모셔오겠습니다."
 	<<elseif $NPCList[0].skills.security lte 300>>
-		"아, 젠장," <<person>>【이가】 숨을 죽이며 중얼거린다. "네, 네. 5분만요."
+		"아, 젠장." <<person>>【이가】 숨을 죽이며 중얼거린다. "네, 네. 5분만요."
 	<<else>>
 		<<person>>【은는】 얼굴을 찌푸린다. "아, 바로요. 잠시만 기다려주세요."
 	<</if>>
@@ -397,11 +397,11 @@
 	<<link [[다음|Hospital Foyer]]>><<clearNPC "pubfame_receptionist">><<clearNPC "pubfame_nurse">><<endevent>><</link>>
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"저기, 음," 당신은 말한다. "안쪽 좀... 확인해 주실 수 있나요? 누가... 침입하는 소리를 들은 것 같아서요."
+		"저기, 음." 당신은 말한다. "안쪽 좀... 확인해 주실 수 있나요? 누가... 침입하는 소리를 들은 것 같아서요."
 	<<elseif $speech_attitude is "bratty">>
 		"맙소사!" 당신은 <<him>> 뒤를 가리키며 소리친다. "벽에 불이 붙었어요!"
 	<<else>>
-		"저기, 음," 당신은 말한다. "캐비닛이... 넘어지고 있어요. 당신 뒤에 있는 거요."
+		"저기, 음." 당신은 말한다. "캐비닛이... 넘어지고 있어요. 당신 뒤에 있는 거요."
 	<</if>>
 	<br><br>
 
@@ -417,7 +417,7 @@
 			<br>
 			<<link [[포기한다|Hospital Keycard Caught]]>><<set $phase to 1>><</link>>
 		<<elseif $NPCList[0].skills.security lte 300>>
-			<<person>>【은는】 혼란스러운 듯 눈을 깜빡이고는 돌아선다. 당신은 카운터 너머로 손을 뻗으려 하지만, <<he>>【이가】 너무 빨리 다시 돌아보는 바람에 팔을 거둬들일 수밖에 없다. "이상하네," <<he>>【이가】 중얼거린다. "못 봤나 보네."
+			<<person>>【은는】 혼란스러운 듯 눈을 깜빡이고는 돌아선다. 당신은 카운터 너머로 손을 뻗으려 하지만, <<he>>【이가】 너무 빨리 다시 돌아보는 바람에 팔을 거둬들일 수밖에 없다. "이상하네." <<he>>【이가】 중얼거린다. "못 봤나 보네."
 			<br><br>
 
 			<<link [[유혹한다|Hospital Keycard Seduce]]>><<set $pubfame.hospital.seduce to 1>><</link>><<skulduggerydifficulty>>
@@ -433,9 +433,9 @@
 		<</if>>
 	<<else>>
 		<<if $NPCList[0].skills.security gte 700>>
-			"그렇겠죠," <<person>>【은는】 비꼬는 듯한 미소를 지으며 말한다. "자, 그래서 여기 온 용건이 있긴 한가요?"
+			"그렇겠죠." <<person>>【은는】 비꼬는 듯한 미소를 지으며 말한다. "자, 그래서 여기 온 용건이 있긴 한가요?"
 		<<elseif $NPCList[0].skills.security lte 300>>
-			<<person>>【은는】 혼란스러운 듯 눈을 깜빡이고는 돌아선다. 당신은 카운터 너머로 손을 뻗으려 하지만, <<he>>【이가】 너무 빨리 다시 돌아보는 바람에 팔을 거둬들일 수밖에 없다. "이상하네," <<he>>【이가】 중얼거린다. "못 봤나 보네."
+			<<person>>【은는】 혼란스러운 듯 눈을 깜빡이고는 돌아선다. 당신은 카운터 너머로 손을 뻗으려 하지만, <<he>>【이가】 너무 빨리 다시 돌아보는 바람에 팔을 거둬들일 수밖에 없다. "이상하네." <<he>>【이가】 중얼거린다. "못 봤나 보네."
 		<<else>>
 			<<person>>【은는】 얼굴을 찌푸린다. "그냥 장난치러 온 거면, 여기서 나가."
 		<</if>>

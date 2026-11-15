@@ -109,7 +109,7 @@
 				<</switch>>
 
 			<<elseif $NPCList[_nn].vagina is "vagina" and playerChastity("vagina")>>
-				<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "그거 정말 딱딱하네," <<he>>【이가】 말한다.
+				<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "그거 정말 딱딱하네." <<he>>【이가】 말한다.
 
 			<<elseif $NPCList[_nn].vagina is "vagina">>
 				<<switch random(1, 5)>>
@@ -136,7 +136,7 @@
 
 			<!-- following appear to be Male PC to Female Antagonist only? -->
 			<<elseif $NPCList[_nn].vagina is "otheranus" and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "그거 정말 딱딱하네," <<he>>【이가】 말한다.
+				<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "그거 정말 딱딱하네." <<he>>【이가】 말한다.
 
 			<<elseif $NPCList[_nn].vagina is "otheranus">>
 				<<switch random(1, 5)>>

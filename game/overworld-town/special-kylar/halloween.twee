@@ -31,7 +31,7 @@
 	<<else>>
 		"해피 할로윈." <<he>>【이가】 말한다. <<he>>【이가】 한껏 흥분한 것 같다. "너한테 보여주고 싶은 게 있어. 이쪽이야."
 		<br><br>
-		<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 10>><</link>><<glove>>
+		<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 60>><</link>><<glove>>
 		<br>
 		<<link [[거절한다|Kylar Halloween Refuse]]>><<npcincr Kylar love -1>><</link>><<llove>>
 		<br>
@@ -99,7 +99,7 @@
 	<<lowerwear "mummy skirt">>
 <</if>>
 
-<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 10>><</link>><<glove>>
+<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 60>><</link>><<glove>>
 <br>
 <<link [[거절한다|Kylar Halloween Refuse]]>><<npcincr Kylar love -1>><</link>><<llove>>
 <br>
@@ -131,7 +131,7 @@
 "너-너한테 보여주고 싶은 게 있어." <<he>>【이가】 말한다. "이쪽이야."
 <br><br>
 
-<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 10>><</link>><<glove>>
+<<link [[카일라와 함께 간다 (1:00)|Kylar Halloween]]>><<npcincr Kylar love 1>><<pass 60>><</link>><<glove>>
 <br>
 <<link [[거절한다|Kylar Halloween Refuse]]>><<npcincr Kylar love -1>><</link>><<llove>>
 <br>
@@ -142,7 +142,7 @@
 당신은 카일라와 함께 숲으로 들어간다. 어둠 속에서는 길이 보이지 않지만, <<he>>【은는】 <<hes>> 어디로 가는지 아는 듯하다.
 <br><br>
 
-나무들은 점점 빽빽해지다가, 갑자기 물러나며 공동묘지를 드러낸다. 카일라는 미소 짓는다. "할로윈에 특별한 걸 하고 싶었어," <<he>>【이가】 언덕 위 저택을 가리키며 말한다. "아무도 들어갈 용기가 없어. 분명 보물이 있을 거야." <<He>>【은는】 당신의 팔을 붙잡고 앞으로 나아간다.
+나무들은 점점 빽빽해지다가, 갑자기 물러나며 공동묘지를 드러낸다. 카일라는 미소 짓는다. "할로윈에 특별한 걸 하고 싶었어." <<he>>【이가】 언덕 위 저택을 가리키며 말한다. "아무도 들어갈 용기가 없어. 분명 보물이 있을 거야." <<He>>【은는】 당신의 팔을 붙잡고 앞으로 나아간다.
 <br><br>
 
 <<link [[계속한다|Kylar Halloween Continue]]>><</link>>
@@ -163,7 +163,7 @@
 <</if>>
 <br><br>
 
-카일라는 <<his>> 발을 내려다본다. "미-미안," <<he>>【이가】 말한다. "우-우리 둘만 있고 재밌는 걸 할 수 있을 줄 알았어."
+카일라는 <<his>> 발을 내려다본다. "미-미안." <<he>>【이가】 말한다. "우-우리 둘만 있고 재밌는 걸 할 수 있을 줄 알았어."
 <br><br>
 
 <<link [[저택으로 걸어간다|Kylar Halloween Continue Walk]]>><<npcincr Kylar love 1>><</link>><<glove>>
@@ -191,7 +191,7 @@
 
 <<link [[예|Kylar Halloween Yes]]>><<npcincr Kylar love 1>><<npcincr Kylar rage -5>><</link>><<glove>><<llksuspicion>>
 <br>
-<<link [[아니오|Kylar Halloween No]]>><<npcincr Kylar love -1>><<npcincr Kylar rage 5>><</link>><<llove>><<ggksuspicion>>
+<<link [[아니요|Kylar Halloween No]]>><<npcincr Kylar love -1>><<npcincr Kylar rage 5>><</link>><<llove>><<ggksuspicion>>
 <br>
 
 :: Kylar Halloween Yes
@@ -300,7 +300,7 @@
 	<<He>>【은는】 흐트러진 의상 차림으로 당신 옆의 땅에 누워 있다. <<tearful>> 당신은 몸을 일으킨다.
 	<<if $orgasmcurrent is 0 and !playerChastity()>>
 		<<if _kylarStatus.includes("Rage")>>
-			카일라는 무릎을 꿇고 당신의 <<genitals>> 쪽을 향한다. "넌 사정하지 못했어," <<he>>【이가】 중얼거린다. "내가... 부족했어?" <<He>>【은는】 격하게 고개를 젓는다. "만회할게. 보여 줄게."
+			카일라는 무릎을 꿇고 당신의 <<genitals>> 쪽을 향한다. "넌 못 느꼈구나." <<he>>【이가】 중얼거린다. "내가... 부족했어?" <<He>>【은는】 격하게 고개를 젓는다. "만회할게. 보여 줄게."
 		<<else>>
 			카일라가 <<his>> 무릎을 꿇고 당신의 <<genitals>>【을를】 마주 본다. "너는 가지 못했잖아." <<he>>【이가】 중얼거린다. "그건 너한테 불공평해. 네가 날 가게 해준 뒤인데. 자, 내가 보상해 줄게."
 		<</if>>
@@ -384,10 +384,10 @@
 카일라는 <<his>> 휴대폰을 조명으로 삼아 내부를 밝힌다. 걸음을 옮길 때마다 먼지구름이 일어난다. 왼쪽과 오른쪽에는 더 깊은 방으로 이어지는 문들이 있고, 계단은 다음 층으로 이어진다.
 <br><br>
 
-"이쪽," 카일라가 말하며 확신에 찬 걸음으로 왼쪽으로 향한다. 당신은 가구를 가린 회색 천들을 지나 다음 방으로, 다시 또 다른 방으로 따라간다. 한때 부엌이었던 곳 같다.
+"이쪽." 카일라가 말하며 확신에 찬 걸음으로 왼쪽으로 향한다. 당신은 가구를 가린 회색 천들을 지나 다음 방으로, 다시 또 다른 방으로 따라간다. 한때 부엌이었던 곳 같다.
 <br><br>
 
-카일라는 쭈그리고 앉아 먼지 쌓인 바닥을 더듬는다. "여기!" <<He>>【은는】 함정문을 벌컥 열고, <<his>> 빛을 아래로 비춘다. "사다리가 있어," <<he>>【이가】 말하며 돌아서서 발로 더듬는다. <<He>>【은는】 아래로 내려가고, 부엌은 어둠에 잠긴다.
+카일라는 쭈그리고 앉아 먼지 쌓인 바닥을 더듬는다. "여기!" <<He>>【은는】 함정문을 벌컥 열고, <<his>> 빛을 아래로 비춘다. "사다리가 있어." <<he>>【이가】 말하며 돌아서서 발로 더듬는다. <<He>>【은는】 아래로 내려가고, 부엌은 어둠에 잠긴다.
 <br><br>
 
 이전 방에서 마룻바닥이 삐걱거리는 소리를 듣고, 당신은 카일라를 따라 아래로 내려간다.<<gstress>><<stress 6>>
@@ -455,15 +455,15 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"기분이 이상해," 당신은 그 자리에서 휘청이며 말한다. 당신은 카일라를 바라본다. "너 정말 <<if $pronoun is "m">>잘생겼어<<else>>예뻐<</if>>!"
+	"기분이 이상해." 당신은 그 자리에서 휘청이며 말한다. 당신은 카일라를 바라본다. "너 정말 <<if $pronoun is "m">>잘생겼어<<else>>예뻐<</if>>!"
 <<elseif $speech_attitude is "bratty">>
-	"이거 독한데." 당신은 비틀거리며 말한다. 당신은 카일라를 쳐다본다. "젠장. 너 원래 이렇게 섹시했어?"
+	"이거 독한데," 당신은 비틀거리며 말한다. 당신은 카일라를 쳐다본다. "젠장. 너 원래 이렇게 섹시했어?"
 <<else>>
-	"기분이 이상해," 당신은 그 자리에서 휘청이며 말한다. 당신은 카일라를 바라본다. "오늘 밤 너 정말 <<if $pronoun is "m">>잘생겨 보여<<else>>예뻐 보여<</if>>."
+	"기분이 이상해." 당신은 그 자리에서 휘청이며 말한다. 당신은 카일라를 바라본다. "오늘 밤 너 정말 <<if $pronoun is "m">>잘생겨 보여<<else>>예뻐 보여<</if>>."
 <</if>>
 <br><br>
 
-카일라의 숨이 가빠진다. "효, 효과가 있었어." <<he>>【이가】 말한다. "내, 내 말은... 키, 키스할래?"
+카일라의 숨이 가빠진다. "효-효과가 있었어." <<he>>【이가】 말한다. "내, 내 말은... 키-키스할래?"
 <br><br>
 
 <<link [[따른다|Kylar Halloween Known Go]]>><<npcincr Kylar love 3>><<npcincr Kylar rage -2>><</link>><<promiscuous1>><<gglove>><<lksuspicion>>
@@ -525,7 +525,7 @@
 	<<tearful>> 당신은 몸을 일으킨다.
 	<<if $orgasmcurrent is 0 and !playerChastity()>>
 		<<if _kylarStatus.includes("Rage")>>
-			카일라는 <<his>> 무릎을 꿇고 일어나 당신의 <<genitals>> 앞에 마주한다. "넌 사정 안 했잖아," <<he>>【이가】 중얼거린다. "날 사랑하지 않는 거야?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 만회할게. 보여줄게."
+			카일라는 <<his>> 무릎을 꿇고 일어나 당신의 <<genitals>> 앞에 마주한다. "넌 못 느꼈잖아." <<he>>【이가】 중얼거린다. "날 사랑하지 않는 거야?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 만회할게. 보여줄게."
 		<<else>>
 			카일라가 <<his>> 무릎을 꿇고 당신의 <<genitals>>【을를】 마주 본다. "너는 가지 못했잖아." <<he>>【이가】 중얼거린다. "그건 너한테 불공평해. 네가 날 가게 해준 뒤인데. 자, 내가 보상해 줄게."
 		<</if>>
@@ -585,7 +585,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"키, 키스?" 당신은 빈 병을 움켜쥐고 웃는다. 당신은 마치 내려치려는 듯 병을 머리 위로 들어 올린다. "그걸론 부족해. 우린 영원히 함께할 거야!"
+	"키-키스?" 당신은 빈 병을 움켜쥐고 웃는다. 당신은 마치 내려치려는 듯 병을 머리 위로 들어 올린다. "그걸론 부족해. 우린 영원히 함께할 거야!"
 <<elseif $speech_attitude is "bratty">>
 	"엿이나 먹어." 당신은 빈 병을 움켜쥐고 웃는다. 당신은 마치 내려치려는 듯 병을 머리 위로 들어 올린다. "우린 영원히 함께할 거야."
 <<else>>
@@ -596,7 +596,7 @@
 당신이 앞으로 다가서자 카일라는 뒷걸음질 친다. <<his>> 얼굴에는 공포와 갈망이 뒤섞여 있다. "어디 가는 거야, 내 사랑?" 당신은 계속 말한다. "무서워할 필요 없어!"
 <br>
 
-카일라가 침을 꿀꺽 삼킨다. "우, 우린 함께할 거야." <<he>>【이가】 말한다. "그, 그냥 병 좀 내려놔."
+카일라가 침을 꿀꺽 삼킨다. "우-우린 함께할 거야." <<he>>【이가】 말한다. "그-그냥 병 좀 내려놔."
 <br>
 "그걸론 부족해." 당신은 앞으로 달려든다. 카일라는 뒤로 비틀거리다, 허둥지둥 <<his>> 발로 일어서서 사다리를 향해 달린다.
 <br><br>
@@ -706,7 +706,7 @@
 <<elseif $speech_attitude is "bratty">>
 	"무서웠어?" 당신은 말한다. "꼴좋다. 감히 나한테 약을 먹이려고 하다니."
 <<else>>
-	"날 약 먹이려 한 벌이야," 당신이 말한다.
+	"날 약 먹이려 한 벌이야." 당신이 말한다.
 <</if>>
 <br><br>
 
@@ -750,7 +750,7 @@
 	카일라는 뒤로 나자빠져 더 거칠게 헐떡인다. <<tearful>> 당신은 몸을 일으킨다.
 	<<if $orgasmcurrent is 0 and !playerChastity()>>
 		<<if _kylarStatus.includes("Rage")>>
-			카일라는 <<his>> 무릎을 꿇고 일어나 당신의 <<genitals>> 앞에 마주한다. "넌 사정 안 했잖아," <<he>>【이가】 중얼거린다. "날 사랑하지 않는 거야?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 만회할게. 보여줄게."
+			카일라는 <<his>> 무릎을 꿇고 일어나 당신의 <<genitals>> 앞에 마주한다. "넌 못 느꼈잖아." <<he>>【이가】 중얼거린다. "날 사랑하지 않는 거야?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 만회할게. 보여줄게."
 		<<else>>
 			카일라가 <<his>> 무릎을 꿇고 당신의 <<genitals>>【을를】 마주 본다. "너는 가지 못했잖아." <<he>>【이가】 중얼거린다. "그건 너한테 불공평해. 네가 날 가게 해준 뒤인데. 자, 내가 보상해 줄게."
 		<</if>>
@@ -805,7 +805,7 @@
 	"저게 뭔지 알아." 당신은 말한다. "내가 널 믿었다니 믿을 수가 없어."
 <</if>>
 <br>
-카일라가 <<his>> 고개를 젓는다. "아, 아니야." <<he>>【이가】 말한다. "그게 아니라—"
+카일라가 <<his>> 고개를 젓는다. "아-아니야." <<he>>【이가】 말한다. "그게 아니라—"
 <br>
 <<if $speech_attitude is "meek">>
 	"꽤 비싼 거였을 텐데." 당신은 덧붙인다. "근데 네가 코르크를 따버렸잖아."
@@ -912,7 +912,7 @@
 <<if C.npc.Whitney.init is 1 and C.npc.Whitney.state isnot "dungeon">>
 	당신은 카일라가 정문을 열려고 애쓰는 것을 발견한다. 문은 잠겨 있다.
 
-	<<Hes>> 위층에서 들려온 커다란 삐걱거림에 말을 끊긴다. "우-우리 가야 해," <<he>>【이가】 손에 열쇠를 쥔 채 다시 문으로 돌아서며 말한다. 열쇠는 안으로 들어가지도 않는다.
+	<<Hes>> 위층에서 들려온 커다란 삐걱거림에 말을 끊긴다. "우-우리 가야 해." <<he>>【이가】 손에 열쇠를 쥔 채 다시 문으로 돌아서며 말한다. 열쇠는 안으로 들어가지도 않는다.
 	<br><br>
 
 	"이상한데," <<he>>【이가】 말한다. "들어올 때는 됐었어. 다-다른 방법을 찾아보자." <<He>>【은는】 자물쇠 앞에 웅크리고 <<his>> 빛을 안으로 비춘다.
@@ -938,7 +938,7 @@
 :: Kylar Halloween Exit 2
 <<effects>>
 
-<<He>>【은는】 몇 분 동안 이리저리 살피다 말한다. "안 돼," <<he>>【이가】 답답한 듯 말한다. "이런 자물쇠는 처음 봐." <<He>>【은는】 홀 가장자리로 <<his>> 빛을 비추며 창문을 찾는다. 전부 잠겨 있다.
+<<He>>【은는】 몇 분 동안 이리저리 살피다 말한다. "안 돼." <<he>>【이가】 답답한 듯 말한다. "이런 자물쇠는 처음 봐." <<He>>【은는】 홀 가장자리로 <<his>> 빛을 비추며 창문을 찾는다. 전부 잠겨 있다.
 <br><br>
 
 "아마 위층일 거야." <<he>>【이가】 제안한다. 또 다른 삐걱거리는 소리가 <<him>>에게 대답한다.
@@ -980,7 +980,7 @@
 :: Kylar Halloween Skulduggery
 <<effects>>
 
-당신과 카일라는 붉은 달빛을 받으며 저택을 탈출한다. <<He>>【은는】 킥킥 웃기 시작한다. "재밌었어," <<he>>【이가】 말한다. "우리 다음에도 또 이러—" 무언가가 <<his>> 발에 걸려 <<he>>【은는】 거의 넘어질 뻔한다. 그리고 <<he>>【은는】 비명을 지른다.
+당신과 카일라는 붉은 달빛을 받으며 저택을 탈출한다. <<He>>【은는】 킥킥 웃기 시작한다. "재밌었어." <<he>>【이가】 말한다. "우리 다음에도 또 이러—" 무언가가 <<his>> 발에 걸려 <<he>>【은는】 거의 넘어질 뻔한다. 그리고 <<he>>【은는】 비명을 지른다.
 <br><br>
 
 <span class="red">창백한 손 하나가 흙 밖으로 튀어나와,</span> 카일라의 발목을 움켜쥔다. <<He>>【은는】 그것을 떨쳐내지만, 또 다른 손이 솟구쳐 <<him>>【을를】 더듬는다.<<ggawareness>><<awareness 12>>
@@ -1030,7 +1030,7 @@
 
 당신은 몸을 뗀다.
 <<if $speech_attitude is "meek">>
-	"지, 지금은 안 돼." 당신은 말한다. "아직 너무 무서워."
+	"지-지금은 안 돼." 당신은 말한다. "아직 너무 무서워."
 <<elseif $speech_attitude is "bratty">>
 	"정말?" 당신은 묻는다. "지금? 방금 그런 일이 있었는데?"
 <<else>>
@@ -1051,7 +1051,7 @@
 당신은 계단 위, 어둠 속을 들여다본다. 카일라가 <<his>> 불빛을 위로 비추자, 벽을 따라 늘어선 더 많은 회색 천들이 드러난다. 그림을 덮고 있는 것일지도 모른다.
 <br><br>
 
-"내, 내가 먼저 갈게." 카일라가 말한다. <<He>>【은는】 불안하기보다는 거의 흥분한 것처럼 들린다.
+"내-내가 먼저 갈게." 카일라가 말한다. <<He>>【은는】 불안하기보다는 거의 흥분한 것처럼 들린다.
 <br><br>
 
 당신은 삐걱대는 계단을 따라 <<him>>의 뒤를 쫓아 올라가 가장 가까운 방으로 들어간다. 벽을 따라 키 큰 가구들이 여럿 놓여 있다. 창가 근처에는 커다란 사주식 침대가 서 있다. 다른 가구와 달리 그 위에는 회색 시트가 덮여 있지 않지만, 시트 하나가 침대 옆 바닥에 놓여 있다.
@@ -1175,10 +1175,10 @@
 카일라는 당신을 <<him>>의 뒤로 끌어당기고, 당신의 팔을 붙잡은 채 둘이서 출구로 향한다. <<person2>><<person>> 하나가 길을 막지만, 카일라가 스프레이를 앞으로 들이밀자 <<he>>【은는】 물러선다.
 <br><br>
 
-"병신 같은 겁쟁이들," 휘트니가 가까이 다가오며 말한다. 카일라가 스프레이를 눌러보지만, <span class="red">아무것도 나오지 않는다.</span> 휘트니는 카일라의 목에 팔을 감고, <<person1>> <<him>>【을를】 땅에서 들어 올린다.
+"병신 같은 겁쟁이들." 휘트니가 가까이 다가오며 말한다. 카일라가 스프레이를 눌러보지만, <span class="red">아무것도 나오지 않는다.</span> 휘트니는 카일라의 목에 팔을 감고, <<person1>> <<him>>【을를】 땅에서 들어 올린다.
 <br><br>
 
-"도, 도망..." 카일라가 간신히 말한다.
+"도-도망..." 카일라가 간신히 말한다.
 <br><br>
 
 <<link [[달아난다|Kylar Halloween Kneel Run]]>><<sub 1>><</link>>
@@ -1193,6 +1193,7 @@
 :: Kylar Halloween Kneel Run
 <<effects>>
 <<pass 15>>
+<<set $whitneySeen.delete("halloweenWhitneyWon")>><<set $whitneySeen.pushUnique("halloweenKylarWon")>>
 <<endevent>><<npc Whitney>><<person1>>
 당신은 돌아서서 달린다. 휘트니는 카일라를 잡고 있던 <<his>> 손을 놓고 쫓으려 하지만, 카일라가 <<him>>의 발을 건다.
 <br><br>
@@ -1211,10 +1212,10 @@
 <<pass 15>>
 <<endevent>><<npc Whitney>><<person1>>
 <<if $physiqueSuccess>>
-	당신은 휘트니의 팔을 붙잡고, <span class="green"><<him>>【을를】 카일라에게서 떼어낸다.</span> 당신들은 함께 계단을 내려가, 이제 열린 현관문을 지나 붉은 달빛 속으로 탈출한다. 당신은 숲으로 달려 들어간다.<<ldom>><<npcincr Whitney dom -1>>
+	당신은 휘트니의 팔을 붙잡고, <span class="green"><<him>>【을를】 카일라에게서 떼어낸다.</span> 당신들은 함께 계단을 내려가, 이제 열린 현관문을 지나 붉은 달빛 속으로 탈출한다. 당신은 숲으로 달려 들어간다.<<ldom>><<npcincr Whitney dom -1>><<set $whitneySeen.delete("halloweenWhitneyWon")>><<set $whitneySeen.pushUnique("halloweenKylarWon")>>
 	<br><br>
 	<<endevent>><<npc Kylar>><<person1>>
-	카일라는 나무에 기대 잠시 헐떡이다가, 갑자기 앞으로 달려들어 <<his>> 팔을 당신에게 둘러 안는다. "위험을 감수하면 안 됐어," <<he>>【이가】 말한다.<<glove>><<llksuspicion>><<npcincr Kylar love 1>><<npcincr Kylar rage -5>>
+	카일라는 나무에 기대 잠시 헐떡이다가, 갑자기 앞으로 달려들어 <<his>> 팔을 당신에게 둘러 안는다. "위험을 감수하면 안 됐어." <<he>>【이가】 말한다.<<glove>><<llksuspicion>><<npcincr Kylar love 1>><<npcincr Kylar rage -5>>
 	<br><br>
 
 	<<link [[키스한다|Kylar Halloween Skulduggery Kiss]]>><<npcincr Kylar love 3>><<npcincr Kylar lust 10>><</link>><<promiscuous1>><<gglove>><<gglust>>
@@ -1238,10 +1239,10 @@
 <<endevent>><<npc Whitney>><<person1>><<wearProp "pepper spray">>
 당신은 카일라의 머리 위로 페퍼 스프레이를 겨누고, 휘트니의 눈에 분사한다. <<He>>【은는】 <<his>> 얼굴을 감싸 쥐며 뒤로 비틀거린다.
 
-카일라는 당신의 손을 붙잡고, 둘은 함께 계단을 내려가 이제 열린 현관문을 지나 붉은 달빛 속으로 탈출한다. <<takeHandholdingVirginity "Kylar" "romantic" null true>> 당신은 숲으로 달려 들어간다.<<ldom>><<npcincr Whitney dom -1>>
+카일라는 당신의 손을 붙잡고, 둘은 함께 계단을 내려가 이제 열린 현관문을 지나 붉은 달빛 속으로 탈출한다. <<takeHandholdingVirginity "Kylar" "romantic" null true>> 당신은 숲으로 달려 들어간다.<<ldom>><<npcincr Whitney dom -1>><<set $whitneySeen.delete("halloweenWhitneyWon")>><<set $whitneySeen.pushUnique("halloweenKylarWon")>>
 <br><br>
 <<endevent>><<npc Kylar>><<person1>>
-카일라는 나무에 기대 잠시 헐떡이다가, 갑자기 앞으로 달려들어 <<his>> 팔을 당신에게 둘러 안는다. "위험을 감수하면 안 됐어," <<he>>【이가】 말한다.<<glove>><<llksuspicion>><<npcincr Kylar love 1>><<npcincr Kylar rage -5>>
+카일라는 나무에 기대 잠시 헐떡이다가, 갑자기 앞으로 달려들어 <<his>> 팔을 당신에게 둘러 안는다. "위험을 감수하면 안 됐어." <<he>>【이가】 말한다.<<glove>><<llksuspicion>><<npcincr Kylar love 1>><<npcincr Kylar rage -5>>
 <br><br>
 
 <<link [[키스한다|Kylar Halloween Skulduggery Kiss]]>><<npcincr Kylar love 3>><<npcincr Kylar lust 10>><</link>><<promiscuous1>><<gglove>><<gglust>>
@@ -1361,7 +1362,7 @@
 "마지막으로 묻는 거야." 휘트니가 말한다. "일 시작해."
 <br><br>
 
-카일라의 표정이 멍해진다. "ㅎ-하지 마."
+카일라의 표정이 멍해진다. "하-하지 마."
 <br><br>
 
 <<link [[휘트니 말대로 한다|Kylar Halloween Lick]]>><<set $phase to 0>><</link>>
@@ -1371,11 +1372,12 @@
 
 :: Kylar Halloween Lick Refuse 2
 <<effects>>
+<<set $whitneySeen.delete("halloweenKylarWon")>><<set $whitneySeen.pushUnique("halloweenWhitneyWon")>>
 <<person1>>
-당신은 고개를 젓는다. "진심이냐, 씨발?" 휘트니가 말한다. "좋아, 씨발." <<He>>【은는】 당신을 바닥에 밀쳐 넘어뜨리고 카일라에게 성큼성큼 다가간다. "그거 줘," <<he>>【이가】 <<person2>><<person>>에게 말한다. <<person1>><<He>>【은는】 칼을 보더니, <span class="green">그것을 내던진다.</span><<llstress>><<stress -12>>
+당신은 고개를 젓는다. "진심이냐, 씨발?" 휘트니가 말한다. "좋아, 씨발." <<He>>【은는】 당신을 바닥에 밀쳐 넘어뜨리고 카일라에게 성큼성큼 다가간다. "그거 줘." <<he>>【이가】 <<person2>><<person>>에게 말한다. <<person1>><<He>>【은는】 칼을 보더니, <span class="green">그것을 내던진다.</span><<llstress>><<stress -12>>
 <br><br>
 
-대신 <<he>>【은는】 <<his>> 손을 뒤로 젖혔다가 카일라의 코를 후려친다. 카일라는 뒤로 쓰러져 움직이지 않는다. "여기까지다," 휘트니가 말한다. <<He>>【은는】 방을 나가고, <<his>> 친구들도 뒤따른다.<<lldom>><<npcincr Whitney dom -3>>
+대신 <<he>>【은는】 <<his>> 손을 뒤로 젖혔다가 카일라의 코를 후려친다. 카일라는 뒤로 쓰러져 움직이지 않는다. "여기까지야." 휘트니가 말한다. <<He>>【은는】 방을 나가고, <<his>> 친구들도 뒤따른다.<<lldom>><<npcincr Whitney dom -3>>
 <br><br>
 
 <<link [[다음|Kylar Halloween End]]>><<endevent>><</link>>
@@ -1473,7 +1475,7 @@
 <<set $outside to 0>><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	<<His>> 친구들이 비명을 지르며 환호하고, 카일라를 마룻바닥에 밀쳐 넘어뜨린다. 휘트니는 사주식 침대에 기대 선다. "특별한 밤이잖아," <<he>>【이가】 말한다. "내 친구들도 한 번 즐기게 해주는 건 어때?" 비명 같은 환호가 더 거세진다.
+	<<His>> 친구들이 비명을 지르며 환호하고, 카일라를 마룻바닥에 밀쳐 넘어뜨린다. 휘트니는 사주식 침대에 기대 선다. "특별한 밤이잖아." <<he>>【이가】 말한다. "내 친구들도 한 번 즐기게 해주는 건 어때?" 비명 같은 환호가 더 거세진다.
 	<br><br>
 	<<tearful>> 당신은 몸을 일으킨다. 더 어떻게 할 틈도 없다. 여러 손이 당신의 어깨를 붙잡고 침대 위로 밀쳐 넣는다.
 	<br><br>
@@ -1511,7 +1513,7 @@
 <br><br>
 <<He>>【은는】 방을 나가 <<his>> 휴대폰 불빛을 계단 아래로 비춘다.
 <<endevent>><<npc Kylar>><<person1>>
-"문은 닫혀 있어. <<Hes>> 아직 여기 있다. <<him>>【을를】 찾아내는 놈은 내 걸레랑 한 번 더 하게 해주지."
+"문은 닫혀 있어. <<Hes>> 아직 여기 있어. <<him>>【을를】 찾아내는 놈은 내 걸레랑 한 번 더 하게 해주지."
 <br><br>
 
 <<link [[다음|Kylar Halloween Bed 2]]>><</link>>
@@ -1521,10 +1523,10 @@
 <<effects>>
 
 <<endevent>><<npc Whitney>><<person1>>
-<<his>> 친구들이 카일라를 찾아 저택 곳곳으로 흩어지는 동안, 휘트니는 당신 옆 침대에 앉는다. "기다리게 해서 미안하다," 휘트니가 말한다. "하지만 다 같이 윤간당하면 기분이 더..."
+<<his>> 친구들이 카일라를 찾아 저택 곳곳으로 흩어지는 동안, 휘트니는 당신 옆 침대에 앉는다. "기다리게 해서 미안해." 휘트니가 말한다. "하지만 다 같이 윤간당하면 기분이 더..."
 <br><br>
 
-<span class="red">비명이 <<him>>【을를】 끊어버린다.</span> 휘트니는 당신의 팔을 붙잡고 일으켜 세운다. "널 혼자 두진 않을 거야," <<he>>【이가】 말하며 당신을 방 밖으로 끌고 간다.
+<span class="red">비명이 <<him>>【을를】 끊어버린다.</span> 휘트니는 당신의 팔을 붙잡고 일으켜 세운다. "널 혼자 두진 않을 거야." <<he>>【이가】 말하며 당신을 방 밖으로 끌고 간다.
 <br><br>
 
 <<generatey2>><<person2>>
@@ -1538,7 +1540,7 @@
 <<effects>>
 
 <<generatey3>><<person3>>
-"이-이제 그만할래," 한 <<person>>【이가】 <<his>> 목소리를 떨며 말한다. "여기 귀신 들렸다고들 하잖아—"
+"이-이제 그만할래." 한 <<person>>【이가】 <<his>> 목소리를 떨며 말한다. "여기 귀신 들렸다고들 하잖아—"
 <br>
 휘트니가 <<him>>의 얼굴을 후려쳐 말을 끊는다. "쫄보 새끼처럼 굴지 마,"<<person1>>
 <<he>>【이가】 시체처럼 누운 몸 옆에 웅크리며 말한다. "그냥 저 변태가 그림자에 숨어서 훔친 진정제나 쏘는 거야." <<He>>【은는】 <<person2>><<persons>> 목을 만져본다. "<<Hes>> 멀쩡해. 누가 <<him>>【을를】 좀 일으켜."
@@ -1605,10 +1607,11 @@
 :: Kylar Halloween Escape
 <<effects>>
 <<pass 15>>
+<<set $whitneySeen.delete("halloweenWhitneyWon")>><<set $whitneySeen.pushUnique("halloweenKylarWon")>>
 카일라는 <<his>> 발로 벌떡 일어나 당신의 팔을 붙잡는다. 당신은 휘트니가 힘없이 뻗은 손을 피하고, 함께 계단을 내려가 붉은 달빛 속으로 탈출한다.
 <br><br>
 
-숲에 도착한 뒤에도 계속 달리다가, 카일라가 나무에 기대 쉬려고 멈춘다. <<His>> 옷과 머리는 엉망이지만, <<hes>> 웃고 있다. "내-내가 이겼어," <<he>>【이가】 말하며 <<his>> 팔을 당신에게 두른다. "넌 전부 내 거야."<<lllksuspicion>><<npcincr Kylar rage -20>>
+숲에 도착한 뒤에도 계속 달리다가, 카일라가 나무에 기대 쉬려고 멈춘다. <<His>> 옷과 머리는 엉망이지만, <<hes>> 웃고 있다. "내-내가 이겼어." <<he>>【이가】 말하며 <<his>> 팔을 당신에게 두른다. "넌 전부 내 거야."<<lllksuspicion>><<npcincr Kylar rage -20>>
 <br><br>
 
 <<link [[카일라의 속임수에 대해 묻는다|Kylar Halloween Tricks]]>><</link>>
@@ -1630,7 +1633,7 @@
 <</if>>
 <br><br>
 
-카일라의 표정은 변하지 않는다. "그건 내가 한 게 아니야," <<he>>【이가】 말한다. "난 그냥 내 진정제를 썼어."<<gstress>><<stress 6>>
+카일라의 표정은 변하지 않는다. "그건 내가 한 게 아니야." <<he>>【이가】 말한다. "난 그냥 내 진정제를 썼어."<<gstress>><<stress 6>>
 <br><br>
 
 <<He>>【은는】 아무렇지도 않은 듯 당신을 더 가까이 끌어당긴다.
@@ -1643,6 +1646,7 @@
 
 :: Kylar Halloween Warn
 <<effects>>
+<<set $whitneySeen.delete("halloweenKylarWon")>><<set $whitneySeen.pushUnique("halloweenWhitneyWon")>>
 
 <<endevent>><<npc Kylar>><<person1>>
 "뒤에!" 당신이 소리친다. 휘트니는 <<he>>【이가】 앞으로 달려드는 순간에 맞춰 돌아서서 카일라의 팔을 붙잡는다. 휘트니가 팔을 뒤로 꺾자 비명이 터져 나온다. 마취 다트가 바닥에 쨍그랑 소리를 내며 떨어진다.
@@ -1680,9 +1684,9 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"집, 집까지 바래다줄 수 있어?" 당신이 묻는다. "무서운 밤이잖아."
+	"집-집까지 바래다줄 수 있어?" 당신이 묻는다. "무서운 밤이잖아."
 <<elseif $speech_attitude is "bratty">>
-	"같이 걸어 돌아가자," 당신이 말한다.
+	"같이 걸어 돌아가자." 당신이 말한다.
 <<else>>
 	"같이 돌아갈래?" 당신이 묻는다.
 <</if>>
@@ -1715,13 +1719,13 @@
 <<if $speech_attitude is "meek">>
 	"날 돌봐줘서 고마워." 당신이 말한다. "숲은 무서워."
 <<elseif $speech_attitude is "bratty">>
-	"같이 와줘서 고마워," 당신이 말한다.
+	"같이 와줘서 고마워." 당신이 말한다.
 <<else>>
 	"같이 걸어줘서 고마워." 당신이 말한다. "밤의 숲은 위험하잖아."
 <</if>>
 <br><br>
 
-"됐어," 휘트니가 말한다. "갈 데가 있어. 일단 그 겁쟁이 새끼들부터 한소리 해야지." <<He>>【은는】 망설이다가 앞으로 몸을 기울여 당신에게 키스한다. <<takeKissVirginity "Whitney" `($whitneyromance is 1?"loveInterest":"romantic")`>>
+"됐어." 휘트니가 말한다. "갈 데가 있어. 일단 그 겁쟁이 새끼들부터 한소리 해야지." <<He>>【은는】 망설이다가 앞으로 몸을 기울여 당신에게 키스한다. <<takeKissVirginity "Whitney" `($whitneyromance is 1?"loveInterest":"romantic")`>>
 <br><br>
 당신은 <<him>>【을를】 더 가까이 붙잡으려 하지만, <<he>>【은는】 뒤로 물러나 시선을 피한다. <<He>>【은는】 <<his>> 입을 열어 무언가 말하려 하지만, 대신 몸을 돌려 마을로 성큼성큼 걸어간다.
 <br><br>
@@ -1733,11 +1737,11 @@
 <<effects>>
 <<pass 15>>
 <<if $speech_attitude is "meek">>
-	"무, 무슨 일이야?" 당신이 묻는다. "나한테 말해도 돼."
+	"무-무슨 일이야?" 당신이 묻는다. "나한테 말해도 돼."
 <<elseif $speech_attitude is "bratty">>
 	"무슨 일 있지." 당신이 말한다. "척 보면 알아."
 <<else>>
-	"무슨 일 있어요?" 당신이 묻는다.
+	"무슨 일 있어?" 당신이 묻는다.
 <</if>>
 <br><br>
 
@@ -1770,7 +1774,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"미, 미안해." 당신이 더듬거린다. "화나게 하려던 건 아니었어."
+	"미-미안해." 당신이 더듬거린다. "화나게 하려던 건 아니었어."
 <<elseif $speech_attitude is "bratty">>
 	"과민반응 좀 하지 마." 당신이 말한다. "미안하다고, 됐어?"
 <<else>>

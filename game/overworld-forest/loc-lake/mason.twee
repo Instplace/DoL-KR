@@ -48,7 +48,7 @@
 	<span class="green">좋은 생각이 떠오른다.</span> 당신은 물속으로 뛰어들어 숨을 참고, 메이슨의 경로 바로 앞에서 기다린다. 흐릿한 물속에서 <<his>> 형체가 나타나기를 기다렸다가 물 밖으로 나온다. <<He>>【은는】 당신과 거의 부딪힐 뻔한다.
 	<br><br>
 
-	"여-여기서 학생을 볼 줄은 몰랐는데." <<he>>【이가】 당신이 눈에서 물을 닦아내는 동안 말한다. <<He>>【은는】 이상한 자세로 팔을 몸에 붙여 물 아래에 두고 있다. "그래도 방과 후에도 연습하는 걸 보니 기쁘군."
+	"여-여기서 학생을 볼 줄은 몰랐는데," <<he>>【이가】 당신이 눈에서 물을 닦아내는 동안 말한다. <<He>>【은는】 이상한 자세로 팔을 몸에 붙여 물 아래에 두고 있다. "그래도 방과 후에도 연습하는 걸 보니 기쁘군."
 	<br><br>
 
 	빗물에 흐려진 물속을 내려다보니, <<his>> 행동의 이유를 알게 된다. <span class="lewd"><<He>>【은는】 알몸이다.</span> 당신의 표정에서 무언가 드러났는지, <<his>> 얼굴이 새빨개진다.
@@ -205,7 +205,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"무-무례하게 굴려는 건 아닌데," 당신이 말한다. "볼 수 있을까? 아무도 모를 거야."
+	"무-무례하게 굴려는 건 아닌데." 당신이 말한다. "볼 수 있을까? 아무도 모를 거야."
 <<elseif $speech_attitude is "bratty">>
 	"내숭 떨지 마." 당신이 말한다. "넌 사람들이 보길 원하잖아. 몸도 좋은데, 자랑하고 싶은 건 당연하지. 그러니까 보여줘."
 <<else>>
@@ -261,9 +261,9 @@
 
 	<<if $exposed gte 2>>
 		<<if hasSexStat("exhibitionism", 5)>>
-			<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><</if>>
+			<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><<set $phase to "in">><</if>>
 			<br>
-			<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><</if>>
+			<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist5>><<set $phase to "beside">><</if>>
 			<br>
 		<<else>>
 			<<covered>> 이런 차림으로 메이슨에게 당신의 존재를 알릴 수는 없다!
@@ -271,18 +271,18 @@
 		<</if>>
 	<<elseif $exposed gte 1>>
 		<<if hasSexStat("exhibitionism", 3)>>
-			<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><</if>>
+			<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><<set $phase to "in">><</if>>
 			<br>
-			<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><</if>>
+			<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond Naked]]>><</link>><<if $daily.ex.mason isnot 1>><<exhibitionist3>><<set $phase to "beside">><</if>>
 			<br>
 		<<else>>
 			<<covered>> 이런 차림으로 메이슨에게 당신의 존재를 알릴 수는 없다!
 			<br><br>
 		<</if>>
 	<<else>>
-		<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond]]>><</link>>
+		<<icon "actions/swim.png">><<link [[연못에 앉는다|Mason In Pond]]>><<set $phase to "in">><</link>>
 		<br>
-		<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond]]>><</link>>
+		<<icon "actions/perch-get-up.png">><<link [[연못 옆에 앉는다|Mason Beside Pond]]>><<set $phase to "beside">><</link>>
 		<br>
 	<</if>>
 	<br>
@@ -341,7 +341,7 @@
 	당신은 메이슨 맞은편으로 연못에 들어간다. 첨벙이는 소리에 <<he>>【은는】 <<His>> 눈을 뜬다.
 	<br><br>
 
-	"날 찾아줘서 기뻐," <<he>>【이가】 말한다. "여기 물도 좋고, 아주 외진 곳이거든."
+	"날 찾아줘서 기뻐." <<he>>【이가】 말한다. "여기 물도 좋고, 아주 외진 곳이거든."
 	<<if _swim_check isnot 1>>
 		<<He>>【은는】 당신의 옷을 본다. "옷이 다 젖었잖아! 나중에 옷을 보관할 곳이 필요하면 호숫가에 작은 은신처가 있어."
 	<</if>>
@@ -385,7 +385,7 @@
 
 <<else>><<set $mason_count to 3>>
 
-	"여-여기서 날 찾아줘서 기뻐," <<he>>【이가】 말한다. "하지만 옷 좀 입어줄 수 있을까?"
+	"여-여기서 날 찾아줘서 기뻐." <<he>>【이가】 말한다. "하지만 옷 좀 입어줄 수 있을까?"
 	<br><br>
 
 	<<mason_actions>>
@@ -427,7 +427,7 @@
 
 <<else>><<set $mason_count to 3>>
 
-	"여-여기서 날 찾아줘서 기뻐," <<he>>【이가】 말한다. "하지만 옷 좀 입어줄 수 있을까?"
+	"여-여기서 날 찾아줘서 기뻐." <<he>>【이가】 말한다. "하지만 옷 좀 입어줄 수 있을까?"
 	<br><br>
 
 	<<mason_actions>>
@@ -436,6 +436,10 @@
 
 :: Mason Pond Chat
 <<effects>>
+
+<<if $phase is "in">>
+	<<water>><<waterbr 2>>
+<</if>>
 
 당신은 메이슨과 대화한다.
 
@@ -460,6 +464,10 @@
 
 :: Mason Pond Flirt
 <<effects>>
+
+<<if $phase is "in">>
+	<<water>><<waterbr 2>>
+<</if>>
 
 <<if $exposed gte 1>>
 	당신은 메이슨과 대화하며 노출된 몸으로 시선을 끈다. <<He>>【은는】 보지 않으려 애쓰지만, 그럼에도 가끔 힐끗거린다. <<He>>【은는】 불편해 보인다.
@@ -486,25 +494,25 @@
 당신은 별일 없이 다뉴브 가에 도착한다. 메이슨은 당신을 고아원까지 바래다주어야 한다고 고집한 뒤, 손을 흔들어 작별 인사를 한다.
 <br><br>
 
-<<link [[다음|Domus Street]]>><<set $eventskip to 1>><<endevent>><</link>>
+<<link [[다음|Domus Street]]>><<set $eventskip to 1>><<unset $phase>><<endevent>><</link>>
 <br>
 
 :: Mason Walk Refuse
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"폐를 끼치고 싶지 않아요," 당신은 말한다. "괜찮을 거예요."
+	"폐를 끼치고 싶지 않아요." 당신은 말한다. "괜찮을 거예요."
 <<elseif $speech_attitude is "bratty">>
 	"제가 어둠을 무서워하는 것처럼 보이나요?" 당신은 묻는다. "괜찮을 거예요."
 <<else>>
-	"괜찮아요," 당신은 말한다. "숲길은 잘 알아요."
+	"괜찮아요." 당신은 말한다. "숲길은 잘 알아요."
 <</if>>
 <br><br>
 
 메이슨은 확신이 없는 듯 보이지만, 고개를 끄덕인다. "정 그렇다면. 조심해." <<He>>【은는】 수건으로 <<himself>> 몸을 닦으며 숲속으로 걸어 들어간다.
 <br><br>
 
-<<link [[다음|Lake Waterfall]]>><<endevent>><</link>>
+<<link [[다음|Lake Waterfall]]>><<unset $phase>><<endevent>><</link>>
 <br>
 
 :: Widgets Mason [widget]
@@ -540,34 +548,34 @@
 		<br>
 		<<brothelicon>><<link [[추파를 던진다 (0:30)|Mason Pond Flirt]]>><<pass 30>><<npcincr Mason love -1>><<npcincr Mason lust 1>><</link>><<promiscuous1>><<llove>><<glust>>
 		<br>
-		<<getouticon>><<link [[떠난다|Lake Waterfall]]>><<endevent>><</link>>
+		<<getouticon>><<link [[떠난다|Lake Waterfall]]>><<unset $phase>><<endevent>><</link>>
 		<br>
 	<</if>>
 <</widget>>
 
 <<widget "mason_greet">>
 	<<if C.npc.Mason.love gte 30>>
-		"만나서 반갑군," <<he>>【이가】 미소 지으며 말한다. "누가 와주니까 덜 심심하고 좋네."
+		"만나서 반갑군." <<he>>【이가】 미소 지으며 말한다. "누가 와주니까 덜 심심하고 좋네."
 	<<elseif C.npc.Mason.love gte 10>>
-		"네가 와줬으면 했어," <<he>>【이가】 말한다.
+		"네가 와줬으면 했어." <<he>>【이가】 말한다.
 	<<elseif C.npc.Mason.love gte -10>>
-		"여어," <<he>>【이가】 말한다.
+		"여어." <<he>>【이가】 말한다.
 	<<elseif C.npc.Mason.love gte -30>>
 		"뭐 하러 왔어?" <<he>>【이가】 묻는다.
 	<<else>>
-		"제발 방해 좀 하지 마," <<he>>【이가】 말한다.
+		"제발 방해 좀 하지 마." <<he>>【이가】 말한다.
 	<</if>>
 <</widget>>
 
 <<widget "mason_greet_lust">>
 	<<if C.npc.Mason.lust gte 30>>
-		"제, 제발 옷 좀 입어," <<he>>【이가】 뭔가를 숨기려는 듯이 몸을 뒤척이며 말한다.
+		"제-제발 옷 좀 입어." <<he>>【이가】 뭔가를 숨기려는 듯이 몸을 뒤척이며 말한다.
 	<<elseif C.npc.Mason.lust gte 10>>
-		"옷을 좀 입지 그래," <<he>>【이가】 말한다. "사람들이 이런 꼴을 보면 오해하기 딱 좋다고."
+		"옷을 좀 입지 그래." <<he>>【이가】 말한다. "사람들이 이런 꼴을 보면 오해하기 딱 좋다고."
 	<<elseif C.npc.Mason.lust gte -10>>
-		"옷을 좀 입는 게 어때," <<he>>【이가】 말한다.
+		"옷을 좀 입는 게 어때." <<he>>【이가】 말한다.
 	<<elseif C.npc.Mason.lust gte -30>>
-		"선생 앞에서 그게 무슨 꼴이야," <<he>>【이가】 말한다.
+		"선생 앞에서 그게 무슨 꼴이야." <<he>>【이가】 말한다.
 	<<else>>
 		<<He>>【은는】 체념한 듯 한숨을 내쉰다.
 	<</if>>
@@ -577,11 +585,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"거-걱정 마세요," 당신은 말한다. "조심할게요."
+	"거-걱정 마세요." 당신은 말한다. "조심할게요."
 <<elseif $speech_attitude is "bratty">>
-	"제 몸은 제가 챙길 수 있어요," 당신은 말한다. "어차피 저 아래가 여기보다 더 따뜻해요."
+	"제 몸은 제가 챙길 수 있어요." 당신은 말한다. "어차피 저 아래가 여기보다 더 따뜻해요."
 <<else>>
-	"제 걱정은 마세요," 당신은 말한다. "조심할게요."
+	"제 걱정은 마세요." 당신은 말한다. "조심할게요."
 <</if>>
 <br><br>
 <<if $swimmingSuccess>>
@@ -589,9 +597,9 @@
 	메이슨은 잠시 당신을 지켜보다가, <span class="green">체념한 듯 한숨을 쉰다.</span>
 
 	<<if $worn.upper.type.includes("diving") and $worn.lower.type.includes("diving")>>
-		"적어도 옷은 제대로 입었네," <<he>>【이가】 말한다. "조심만 해, 알았지?"
+		"적어도 옷은 제대로 입었네." <<he>>【이가】 말한다. "조심만 해, 알았지?"
 	<<else>>
-		"적어도 옷이라도 제대로 입어," <<he>>【이가】 말한다. "마을에 다이빙 장비 팔잖아."
+		"적어도 옷이라도 제대로 입어." <<he>>【이가】 말한다. "마을에 다이빙 장비 팔잖아."
 	<</if>>
 	<<He>>【은는】 얼음 구멍 위로 <<his>> 다리를 넘겨 아래로 떨어진다.<<glove>><<npcincr Mason love 1>>
 	<br><br>
@@ -603,7 +611,7 @@
 	<<if $worn.upper.type.includes("diving") and $worn.lower.type.includes("diving")>>
 		"옷은 제대로 입었을지 몰라도," <<he>>【이가】 말한다. "얼음은 위험해."
 	<<else>>
-		"제대로 된 다이빙 장비도 없잖아," <<he>>【이가】 말한다. "얼어 죽을 거야."
+		"제대로 된 다이빙 장비도 없잖아." <<he>>【이가】 말한다. "얼어 죽을 거야."
 	<</if>>
 	<<He>>【은는】 얼음 구멍 위로 <<his>> 다리를 넘겨 아래로 떨어진다.<<llove>><<npcincr Mason love -1>>
 	<br><br>
@@ -623,7 +631,7 @@
 	당신은 메이슨에게 고마워한다.
 <</if>>
 
-<<He>>【은는】 미소 짓는다. "문제없어," <<he>>【이가】 얼음 구멍 위로 <<his>> 다리를 넘기며 말한다. "가서 몸 좀 녹여." <<He>>【은는】 물속으로 사라진다.
+<<He>>【은는】 미소 짓는다. "문제없어." <<he>>【이가】 얼음 구멍 위로 <<his>> 다리를 넘기며 말한다. "가서 몸 좀 녹여." <<He>>【은는】 물속으로 사라진다.
 <br><br>
 
 <<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -633,15 +641,15 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"일-일부러 저 아래 있었던 거예요," 당신은 말한다.
+	"일-일부러 저 아래 있었던 거예요." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"제 일에 간섭하지 마세요," 당신은 말한다.
+	"제 일에 간섭하지 마세요." 당신은 말한다.
 <<else>>
-	"일부러 저 아래 있었던 거예요," 당신은 말한다.
+	"일부러 저 아래 있었던 거예요." 당신은 말한다.
 <</if>>
 <br><br>
 
-메이슨은 <<his>> 고개를 젓는다. "모른 척할 수는 없어," <<he>>【이가】 말한다. "네가 고마워하지 않아도 상관없어. 수업 시간에 계속 열심히 하면, 언젠가는 충분히 뛰어난 다이버가 될 거야." <<He>>【은는】 얼음 구멍 위로 <<his>> 다리를 넘겨 물 아래로 사라진다.
+메이슨은 <<his>> 고개를 젓는다. "모른 척할 수는 없어." <<he>>【이가】 말한다. "네가 고마워하지 않아도 상관없어. 수업 시간에 계속 열심히 하면, 언젠가는 충분히 뛰어난 다이버가 될 거야." <<He>>【은는】 얼음 구멍 위로 <<his>> 다리를 넘겨 물 아래로 사라진다.
 <br><br>
 
 <<link [[다음|Lake Depths Ice]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -693,10 +701,10 @@
 
 :: Mason Chastity Decline
 <<effects>>
-"괜찮아요," 당신은 $worn.genitals.name【을를】 조금 가리려 몸을 움직이며 말한다.
+"괜찮아요." 당신은 $worn.genitals.name【을를】 조금 가리려 몸을 움직이며 말한다.
 <br><br>
 
-"알겠어," 메이슨이 얼굴을 붉히며 말한다. "그냥 제안해 본 거야." <<He>>【은는】 고개를 돌리기 전에 당신의 $worn.genitals.name【을를】 한 번 더 힐끗 쳐다볼 수밖에 없다. <<npcincr Mason lust 1>><<glust>>
+"알겠어." 메이슨이 얼굴을 붉히며 말한다. "그냥 제안해 본 거야." <<He>>【은는】 고개를 돌리기 전에 당신의 $worn.genitals.name【을를】 한 번 더 힐끗 쳐다볼 수밖에 없다. <<npcincr Mason lust 1>><<glust>>
 <br><br>
 <<if $location is "pool">> /* Exit to Pool */
 	<<link [[수업에 다시 참여한다|Swimming Lesson]]>><<endevent>><</link>>
@@ -732,7 +740,7 @@
 <<switch C.npc.Mason.chastityRemoved>>
 	<<case 0>>
 		<<if $speech_attitude is "meek">>
-			"ㅁ-맞을 것 같으면요..." 당신은 얼굴을 붉히고 눈을 피하며 말한다.
+			"마-맞을 것 같으면요..." 당신은 얼굴을 붉히고 눈을 피하며 말한다.
 		<<elseif $speech_attitude is "bratty">>
 			"분명 맞을 거예요." 당신은 웃으며 유혹하듯 고개를 기울인다.
 		<<else>>
@@ -740,7 +748,7 @@
 		<</if>>
 	<<case 1>>
 		<<if $speech_attitude is "meek">>
-			"ㄷ-다시 한번 훔쳐보고 싶은 건 아니고요?" 당신은 얼굴을 붉히고 눈을 피하며 묻는다.
+			"다-다시 한번 훔쳐보고 싶은 건 아니고요?" 당신은 얼굴을 붉히고 눈을 피하며 묻는다.
 		<<elseif $speech_attitude is "bratty">>
 			"분명 다시 한번 훔쳐보고 싶으신 거죠." 당신은 웃으며 유혹하듯 고개를 기울인다.
 		<<else>>
@@ -748,7 +756,7 @@
 		<</if>>
 	<<default>>
 		<<if $speech_attitude is "meek">>
-			"ㄷ-다시 훔쳐봐도 괜찮아요. ㅇ-원한다면 만져봐도 되고요." 당신은 얼굴을 붉히고 눈을 피하며 말한다.
+			"다-다시 훔쳐봐도 괜찮아요. 워-원한다면 만져봐도 되고요." 당신은 얼굴을 붉히고 눈을 피하며 말한다.
 		<<elseif $speech_attitude is "bratty">>
 			"그냥 다시 한번 훔쳐보려는 거 아니에요? 좋다면 만지게 해줄 수도 있는데." 당신은 웃으며 유혹하듯 고개를 기울인다.
 		<<else>>

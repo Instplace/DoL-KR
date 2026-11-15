@@ -177,7 +177,7 @@
 :: Dance Job Party
 <<set $outside to 0>><<effects>>
 
-"좋아," 찰리가 말한다. "내가 데려다줄게. 5분 정도는 수업에 문제없을 거야."
+"좋아." 찰리가 말한다. "내가 데려다줄게. 5분 정도는 수업에 문제없을 거야."
 <br><br>
 
 당신은 찰리를 따라 밖으로 나와 스튜디오 옆을 돌아 대기 중인 차에 올라탄다. 엔진이 굉음을 내고, <<he>>【이가】 차를 몰아 도로로 나선다.
@@ -188,7 +188,7 @@
 짧은 이동 끝에, 당신은 곧 고아원에서 그리 멀지 않은 도무스 가의 한 집 옆에 도착한다. <<person>>【이가】 당신을 맞이하기 위해 건물에서 나온다. <<him>> 뒤편에서 음악 소리가 들린다.
 <br><br>
 
-"안녕, 찰리," <<he>>【이가】 말한다. "고마워." <<He>>【은는】 당신을 본다. "당신이 오늘의 스타로군. 어서 들어와. 음료랑 간식은 마음껏 먹어."
+"안녕, 찰리." <<he>>【이가】 말한다. "고마워." <<He>>【은는】 당신을 본다. "당신이 오늘의 스타로군. 어서 들어와. 음료랑 간식은 마음껏 먹어."
 <br><br>
 
 당신이 건물로 들어가는 동안 <<He>>【은는】 찰리와 이야기를 나눈다.
@@ -215,12 +215,12 @@
 찰리의 친구가 이 파티의 주최자인 모양이다. 그들이 이야기를 나누는 동안 당신은 잠시 혼자만의 시간을 가질 수 있을 것 같다.
 <br><br>
 
-<<socialiseicon>><<link [[어울리기|Dance Job Party Socialise]]>><<trauma -6>><</link>><<ltrauma>>
+<<socialiseicon>><<link [[어울린다|Dance Job Party Socialise]]>><<trauma -6>><</link>><<ltrauma>>
 <br>
-<<foodicon "eat">><<link [[뷔페 습격하기|Dance Job Party Buffet]]>><<stress -6>><</link>><<lstress>>
+<<foodicon "eat">><<link [[뷔페를 습격한다|Dance Job Party Buffet]]>><<stress -6>><</link>><<lstress>>
 <br>
 <<if !(playerIsPregnant() and playerAwareTheyArePregnant())>>
-	<<foodicon "beerbottle">><<link [[술 찾기|Dance Job Party Booze]]>><<trauma -6>><<stress -6>><<drunk 120>><</link>><<ltrauma>><<lstress>><<ggdrunk>>
+	<<foodicon "beerbottle">><<link [[술을 찾는다|Dance Job Party Booze]]>><<trauma -6>><<stress -6>><<drunk 120>><</link>><<ltrauma>><<lstress>><<ggdrunk>>
 	<br>
 <</if>>
 
@@ -234,11 +234,11 @@
 그들은 당신이 여흥을 담당한다는 것을 알게 되자 호기심을 보이며, 온갖 종류의 질문을 던진다. 당신이 어디에 사는지도 포함해서.
 <br><br>
 
-<<link [[사적인 질문에 대답 거부하기|Dance Job Party Refuse]]>><<stress 6>><</link>><<gstress>>
+<<link [[사적인 질문에 대답을 거부한다|Dance Job Party Refuse]]>><<stress 6>><</link>><<gstress>>
 <br>
-<<link [[진실을 왜곡하기|Dance Job Party Bend]]>><<trauma 6>><</link>><<gtrauma>>
+<<link [[진실을 왜곡한다|Dance Job Party Bend]]>><<trauma 6>><</link>><<gtrauma>>
 <br>
-<<link [[있는 그대로의 진실을 말하기|Dance Job Party Truth]]>><<trauma -12>><<stress 12>><</link>><<ggstress>><<lltrauma>>
+<<link [[있는 그대로의 진실을 말한다|Dance Job Party Truth]]>><<trauma -12>><<stress 12>><</link>><<ggstress>><<lltrauma>>
 <br>
 
 :: Dance Job Party Refuse
@@ -268,7 +268,7 @@
 	<<link [[그들을 떨쳐낸다|Dance Job Party 3]]>><</link>>
 	<br>
 	<<if $trauma gte $traumamax * 0.6>>
-		<<link [[화내기|Dance Job Party Angry]]>><<trauma -12>><<stress -12>><</link>><<lltrauma>><<llstress>>
+		<<link [[화낸다|Dance Job Party Angry]]>><<trauma -12>><<stress -12>><</link>><<lltrauma>><<llstress>>
 		<br>
 	<</if>>
 <</if>>
@@ -277,9 +277,9 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"무, 무례하게 굴지 마세요," 당신이 쏘아붙인다. "ㅇ, 이야기하고 싶지 않아요!"
+	"무-무례하게 굴지 마세요." 당신이 쏘아붙인다. "이-이야기하고 싶지 않아요!"
 <<elseif $speech_attitude is "bratty">>
-	"꺼져," 당신이 쏘아붙인다. "이런 취급까지 참아줄 필요는 없지."
+	"꺼져." 당신이 쏘아붙인다. "이런 취급까지 참아줄 필요는 없지."
 <<else>>
 	"이야기하고 싶지 않아요!" 당신이 쏘아붙인다. "그만 좀 귀찮게 굴어요."
 <</if>>
@@ -300,15 +300,15 @@
 	당신이 말하는 동안 그들의 얼굴에 공포가 번진다.
 	<br><br>
 
-	"전혀 몰랐어요," <<person>>【이가】 질겁하며 말한다. "이런 일에 엮이고 싶지 않아요." 파티 참석자들은 조용히 동의하며 웅성거린다.
+	"전혀 몰랐어요." <<person>>【이가】 질겁하며 말한다. "이런 일에 엮이고 싶지 않아요." 파티 참석자들은 조용히 동의하며 웅성거린다.
 	<br><br>
 
 	<<link [[돈이 필요하다고 말한다|Dance Job Party Money]]>><</link>><<difficulty 50>>
 	<br>
-	<<link [[일찍 떠나기|Dance Job Party Leave]]>><</link>>
+	<<link [[일찍 떠난다|Dance Job Party Leave]]>><</link>>
 	<br>
 	<<if $submissive gte 1500>>
-		<<link [[애원하기|Dance Job Party Beg]]>><</link>><<submissivetext>>
+		<<link [[애원한다|Dance Job Party Beg]]>><</link>><<submissivetext>>
 		<br>
 	<</if>>
 <<else>>
@@ -367,7 +367,7 @@
 <<timeTrackingEndDanceJobs>>
 찰리는 아직 밖에 있으며, <<nnpc_his Charlie>> 차 트렁크를 뒤지고 있다. <<nnpc_He Charlie>>【이가】 고개를 든다.
 <br><br>
-"이건 안 되겠네요," <<person>>【이가】 말한다. "그래도 <<girl>>【은는】 사랑스러워요. <<pher>> 잘못은 아니죠." <<He>>【은는】 다시 안으로 들어간다.
+"이건 안 되겠네요." <<person>>【이가】 말한다. "그래도 <<girl>>【은는】 사랑스러워요. <<pher>> 잘못은 아니죠." <<He>>【은는】 다시 안으로 들어간다.
 <br><br>
 <<endevent>><<npc Charlie>><<person1>>
 
@@ -375,7 +375,7 @@
 	"스튜디오까지 태워다 줄까? 아니면 여기서 괜찮아?"
 	<br><br>
 
-	<<socialiseicon "ask">><<link [[태워달라고 부탁하기|Dance Job Party Lift]]>><</link>>
+	<<socialiseicon "ask">><<link [[태워달라고 부탁한다|Dance Job Party Lift]]>><</link>>
 	<br>
 	<<link [["여기서 괜찮다고 말하기"|Dance Job Party Okay]]>><</link>>
 	<br>
@@ -385,24 +385,24 @@
 	<br><br>
 
 	<<if $trauma gte $traumamax * 0.6>>
-		<<link [[무너지기|Dance Job Party Break]]>><<set $charlie_breakdown to 1>><<npcincr Charlie love 20>><<trauma -12>><<stress 12>><</link>><<ggstress>><<lltrauma>><<gglove "Charlie">>
+		<<link [[무너진다|Dance Job Party Break]]>><<set $charlie_breakdown to 1>><<npcincr Charlie love 20>><<trauma -12>><<stress 12>><</link>><<ggstress>><<lltrauma>><<gglove "Charlie">>
 		<br>
-		<<link [[감정을 억누르기|Dance Job Party Bottle]]>><</link>>
+		<<link [[감정을 억누른다|Dance Job Party Bottle]]>><</link>>
 		<br>
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"ㅈ, 전 괜찮아요," 당신이 더듬거린다.
+			"저-전 괜찮아요," 당신이 더듬거린다.
 		<<elseif $speech_attitude is "bratty">>
-			"아무 일도 없어," 당신이 말한다.
+			"아무 일도 없어." 당신이 말한다.
 		<<else>>
-			"괜찮아요," 당신이 말한다.
+			"괜찮아요." 당신이 말한다.
 		<</if>>
 		<br><br>
 
 		"스튜디오까지 태워다 줄까? 아니면 여기서 괜찮아?"
 		<br><br>
 
-		<<link [[태워달라고 부탁하기|Dance Job Party Lift]]>><</link>>
+		<<link [[태워달라고 부탁한다|Dance Job Party Lift]]>><</link>>
 		<br>
 		<<link [["여기서 괜찮다고 말하기"|Dance Job Party Okay]]>><</link>>
 		<br>
@@ -414,7 +414,7 @@
 <<pass 10>>
 말이 폭포수처럼 쏟아져 나온다. 각 요점과 이야기가 다음 이야기로 이어진다. 당신은 베일리에 대해, 그리고 매일 마주하는 위험에 대해 이야기한다. 이야기가 끝날 무렵, 찰리는 당신을 팔로 감싸 안고 있다.
 <br><br>
-"미안해," <<he>>【이가】 말한다. <<He>>【은는】 두 집 사이의 틈으로 보이는 고아원을 바라본다. "정말 미안해. 난—" <<He>>【은는】 말을 멈춘다. "자. 앉아. 물 좀 가져다줄게."
+"미안해." <<he>>【이가】 말한다. <<He>>【은는】 두 집 사이의 틈으로 보이는 고아원을 바라본다. "정말 미안해. 난—" <<He>>【은는】 말을 멈춘다. "자. 앉아. 물 좀 가져다줄게."
 <br><br>
 찰리가 트렁크에서 물병을 가져오는 동안 당신은 차에 앉아 있는다. <<He>>【은는】 당신 옆에 앉아, 당신이 진정될 때까지 함께 기다려준다.
 <br><br>
@@ -424,7 +424,7 @@
 "스튜디오까지 태워다 줄까, 아니면 여기서 괜찮겠어?"
 <br><br>
 
-<<link [[태워달라고 부탁하기|Dance Job Party Lift]]>><</link>>
+<<link [[태워달라고 부탁한다|Dance Job Party Lift]]>><</link>>
 <br>
 <<link [["여기서 괜찮다고 말하기"|Dance Job Party Okay]]>><</link>>
 <br>
@@ -433,18 +433,18 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ, 저는," 당신이 겨우 말한다. "괜찮아요."
+	"저-저는." 당신이 겨우 말한다. "괜찮아요."
 <<elseif $speech_attitude is "bratty">>
-	"내 걱정은 마," 당신이 말한다.
+	"내 걱정은 마." 당신이 말한다.
 <<else>>
-	"괜찮아," 당신이 말한다.
+	"괜찮아." 당신이 말한다.
 <</if>>
 <br><br>
 
 찰리는 고개를 끄덕이지만, 납득한 것 같지는 않다. "스튜디오까지 태워다 줄까? 아니면 여기서 괜찮아?"
 <br><br>
 
-<<link [[태워달라고 부탁하기|Dance Job Party Lift]]>><</link>>
+<<link [[태워달라고 부탁한다|Dance Job Party Lift]]>><</link>>
 <br>
 <<link [["여기서 괜찮다고 말하기"|Dance Job Party Okay]]>><</link>>
 <br>
@@ -471,7 +471,7 @@
 :: Dance Job Party Beg
 <<effects>>
 
-당신은 무릎을 꿇는다. "제, 제발 안 돼요," 당신이 말한다. "ㅈ, 정말 돈이 필요해요. 저를 돌려보내지 마세요!"
+당신은 무릎을 꿇는다. "제-제발 안 돼요." 당신이 말한다. "저-정말 돈이 필요해요. 저를 돌려보내지 마세요!"
 <br><br>
 
 "괜찮아요!" <<person>>【이가】 말한다. "돈은 지불할게요. 제발 울지 마세요." <<He>>【은는】 <<his>> 주머니를 뒤져 <<his>> <<wallet>>【을를】 꺼낸다. 당신은 <<printmoney 30000>><<money 30000 "partyDanceJob">>【을를】 번다.
@@ -483,7 +483,7 @@
 :: Dance Job Party 3
 <<effects>>
 
-<<person>>【이가】 방으로 들어와, <<his>> 시선이 당신에게 꽂힐 때까지 주위를 훑어본다. "아," <<he>>【이가】 말한다. "공연자시군요. 저 테이블을 즉석 무대로 치워뒀습니다. 준비되면 시작하세요."
+<<person>>【이가】 방으로 들어와, <<his>> 시선이 당신에게 꽂힐 때까지 주위를 훑어본다. "아." <<he>>【이가】 말한다. "공연자시군요. 저 테이블을 즉석 무대로 치워뒀습니다. 준비되면 시작하세요."
 <br><br>
 
 <<link [[다음|Dance Job Party Start]]>><<endevent>><</link>>
@@ -535,13 +535,13 @@
 	<<link [[다음|Dance Job Party Arousal]]>><</link>>
 <<elseif $danceevent is 0>>
 	<<if $exposed gte 2 and !hasSexStat("exhibitionism", 5) and $forceddance isnot 1 and !$danceStudio.job.exposed>>
-		<<runicon>><<link [[도망치기|Dance Job Party Change]]>><<clotheson>><<endevent>><</link>>
+		<<runicon>><<link [[도망친다|Dance Job Party Change]]>><<clotheson>><<endevent>><</link>>
 	<<elseif $exposed gte 1 and !hasSexStat("exhibitionism", 3) and $forceddance isnot 1 and !$danceStudio.job.exposed and !$worn.under_lower.type.includes("dance")>>
-		<<runicon>><<link [[도망치기|Dance Job Party Change]]>><<clotheson>><<endevent>><</link>>
+		<<runicon>><<link [[도망친다|Dance Job Party Change]]>><<clotheson>><<endevent>><</link>>
 	<<elseif $timer lte 1>>
 		<<link [[다음|Dance Job Party Timeout]]>><<endevent>><</link>>
 	<<else>>
-		<<link [[멈추기|Dance Job Party Stop]]>><<endevent>><</link>>
+		<<link [[그만둔다|Dance Job Party Stop]]>><<endevent>><</link>>
 	<</if>>
 <</if>>
 
@@ -551,15 +551,15 @@
 다른 파티 참석자들이 <<him>>【을를】 가로막고, 잠시 실랑이를 벌인 후, <<him>>【을를】 건물 밖으로 쫓아낸다.
 <br><br>
 
-"미안해요," <<person2>><<person>>【이가】 말한다. "숨 좀 돌려요."
+"미안해요." <<person2>><<person>>【이가】 말한다. "숨 좀 돌려요."
 <<endevent>>
 <br><br>
 
 <<if $exposed gte 2 and hasSexStat("exhibitionism", 5)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -567,9 +567,9 @@
 	<</if>>
 <<elseif $exposed gte 1 and hasSexStat("exhibitionism", 3)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -597,9 +597,9 @@
 	당신은 달리 입을 만한 것이 없다.
 	<br><br>
 
-	<<link [[다른 것을 달라고 요청하기|Dance Job Party Change Ask]]>><</link>>
+	<<link [[다른 것을 달라고 요청한다|Dance Job Party Change Ask]]>><</link>>
 	<br>
-	<<link [[입기|Dance Job Party Change 2]]>><<dance_job_interest 5>><</link>><<ginterest>>
+	<<link [[입는다|Dance Job Party Change 2]]>><<dance_job_interest 5>><</link>><<ginterest>>
 	<br>
 <<else>>
 	당신은 옷을 정돈하고, 얼굴의 홍조가 가라앉기를 기다렸다가 파티로 돌아간다.
@@ -612,7 +612,7 @@
 :: Dance Job Party Change Ask
 <<effects>>
 
-"그게 전부입니다," <<personsimple>>【이가】 대답한다. "수건 같은 것도 없어요." 당신은 <<him>>【을를】 믿어야 할지 확신이 서지 않는다.
+"그게 전부입니다." <<personsimple>>【이가】 대답한다. "수건 같은 것도 없어요." 당신은 <<him>>【을를】 믿어야 할지 확신이 서지 않는다.
 <br><br>
 
 <span class="clothes-black"><<icon "clothes/bunny-leotard.png">></span><<link [[레오타드를 입는다|Dance Job Party Change 2]]>><<dance_job_interest 5>><</link>><<ginterest>>
@@ -645,18 +645,18 @@
 	<<lowerstrip>>
 <</if>>
 
-당신은 토끼 레오타드를 입는다. "오," <<personsimple>>【이가】 말한다. "이것도 잊지 마세요." <<He>>【은는】 틈새로 토끼 귀 한 쌍을 밀어 넣는다.
+당신은 토끼 레오타드를 입는다. "오." <<personsimple>>【이가】 말한다. "이것도 잊지 마세요." <<He>>【은는】 틈새로 토끼 귀 한 쌍을 밀어 넣는다.
 <br><br>
 
-<<link [[착용하기|Dance Job Party Change Ears]]>><<dance_job_interest 5>><</link>><<ginterest>>
+<<link [[착용한다|Dance Job Party Change Ears]]>><<dance_job_interest 5>><</link>><<ginterest>>
 <br>
-<<link [[거절하기|Dance Job Party Ears Refuse]]>><</link>>
+<<link [[거절한다|Dance Job Party Ears Refuse]]>><</link>>
 <br>
 
 :: Dance Job Party Change Ears
 <<effects>>
 <<headwear "bunny ears">>
-당신은 토끼 귀를 쓰고 화장실을 나선다. <<person>>【이가】 당신을 맞이한다. "좋네요," <<he>>【이가】 말한다. "그걸 입고 춤추는 걸 볼 수 있으면 좋겠네요."
+당신은 토끼 귀를 쓰고 화장실을 나선다. <<person>>【이가】 당신을 맞이한다. "좋네요." <<he>>【이가】 말한다. "그걸 입고 춤추는 걸 볼 수 있으면 좋겠네요."
 <br><br>
 
 당신은 아래층으로 걸어 내려간다. 당신의 복장이 수줍은 시선들을 끈다.
@@ -723,9 +723,9 @@
 
 <<if $exposed gte 2 and hasSexStat("exhibitionism", 5)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -733,9 +733,9 @@
 	<</if>>
 <<elseif $exposed gte 1 and hasSexStat("exhibitionism", 3)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -749,14 +749,14 @@
 :: Dance Job Party Timeout
 <<effects>>
 
-"일단은 여기까지," 한 목소리가 외친다. "우리 <<girl>>에게 휴식을 줍시다."<<ginterest>><<dance_job_interest 5>>
+"일단은 여기까지." 한 목소리가 외친다. "우리 <<girl>>에게 휴식을 줍시다."<<ginterest>><<dance_job_interest 5>>
 <br><br>
 
 <<if $exposed gte 2 and hasSexStat("exhibitionism", 5)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 2>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist5>><<gginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -764,9 +764,9 @@
 	<</if>>
 <<elseif $exposed gte 1 and hasSexStat("exhibitionism", 3)>>
 	<<if $carried.upper.name isnot "naked" or $carried.lower.name isnot "naked" or $carried.under_upper.name isnot "naked" or $carried.under_lower.name isnot "naked">>
-		<<link [[옷을 입고 내려오기|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
+		<<link [[옷을 입고 내려온다|Dance Job Party Intermission]]>><<set $phase to 0>><<clotheson>><</link>>
 		<br>
-		<<link [[그냥 내려오기|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
+		<<link [[그냥 내려온다|Dance Job Party Intermission]]>><<set $phase to 1>><</link>><<if !$danceStudio.job.exhibitionism>><<exhibitionist3>><<ginterest>><</if>>
 		<br>
 	<<else>>
 		<<link [[다음|Dance Job Party Intermission]]>><<set $phase to 0>><</link>>
@@ -799,7 +799,7 @@
 		<span class="green">"특별히 좀 더 챙겨드렸어요."</span> <<He>>【이가】 윙크한다. 당신은 <<printmoney 50000>><<money 50000 "partyDanceJob">>【을를】 벌었다.
 		<<earnFeat "Life of the Party">>
 	<<else>>
-		You make <<printmoney 30000>><<money 30000 "partyDanceJob">>.
+		당신은 <<printmoney 30000>><<money 30000 "partyDanceJob">>【을를】 번다.
 	<</if>>
 	<br><br>
 
@@ -848,7 +848,7 @@
 		<<set $danceStudio.job.bunny to true>>
 		<<generate1>><<person1>><<person>>【이가】 당신에게 다가온다. <<He>>【은는】 얼굴을 붉히고 있다. <<He>>【은는】 시선을 피하다가도 당신의 몸을 쳐다본다. 결국 <<he>>【은는】 눈을 감아버린다.
 		<br><br>
-		"저, 저기, 이걸로 가리세요." <<he>>【이가】 말한다. "괜찮으시다면요." <<He>>【은는】 옷가지를 내민다. 바니걸 레오타드와 토끼 귀 장식이 달린 머리띠다.
+		"저-저기, 이걸로 가리세요." <<he>>【이가】 말한다. "괜찮으시다면요." <<He>>【은는】 옷가지를 내민다. 바니걸 레오타드와 토끼 귀 장식이 달린 머리띠다.
 		<br><br>
 
 		<span class="clothes-black"><<icon "clothes/bunny-leotard.png">></span><<link [[레오타드를 입는다|Dance Job Party Leotard]]>><<dance_job_interest 3>><</link>><<ginterest>>
@@ -930,7 +930,7 @@
 :: Dance Job Party Put
 <<effects>>
 
-당신은 술잔을 내려놓는다. "인생 좀 즐겨," <<person>>【이가】 말하며 병째로 술을 들이켠다.
+당신은 술잔을 내려놓는다. "인생 좀 즐겨." <<person>>【이가】 말하며 병째로 술을 들이켠다.
 <br><br>
 
 <<link [[다음|Dance Job Party Intermission End]]>><<endevent>><</link>>
@@ -1443,7 +1443,7 @@
 
 <<if $phase is 1>>
 	<<if $speech_attitude is "meek">>
-		"하-하지만 조명이," 당신이 말한다. "관객들이 모든 걸 다 볼 수 있어요!"
+		"하-하지만 조명이." 당신이 말한다. "관객들이 모든 걸 다 볼 수 있어요!"
 	<<elseif $speech_attitude is "bratty">>
 		"이딴 옷이나 입히고, 엿 먹어!" 당신이 말한다.
 	<<else>>
@@ -1726,12 +1726,12 @@
 	진열장은 잠겨 있고, 경보 장치가 설치되어 있을지도 모른다.
 	<br><br>
 	<<set $skulduggerydifficulty to 1000>>
-	<<link [[보석 훔치기|Dance Job Stage Explore Jewelry]]>><<set $skulduggerydifficulty to 1000>><</link>><<skulduggerydifficulty>><<crime "thievery">>
+	<<link [[보석을 훔친다|Dance Job Stage Explore Jewelry]]>><<set $skulduggerydifficulty to 1000>><</link>><<skulduggerydifficulty>><<crime "thievery">>
 	<br>
 	<<set $skulduggerydifficulty to 600>>
-	<<link [[골동품 훔치기|Dance Job Stage Explore Antique]]>><<set $skulduggerydifficulty to 600>><</link>><<skulduggerydifficulty>><<crime "thievery">>
+	<<link [[골동품을 훔친다|Dance Job Stage Explore Antique]]>><<set $skulduggerydifficulty to 600>><</link>><<skulduggerydifficulty>><<crime "thievery">>
 	<br>
-	<<link [[파티로 돌아가기|Dance Job Stage Explore End]]>><</link>>
+	<<link [[파티로 돌아간다|Dance Job Stage Explore End]]>><</link>>
 	<br>
 <</addinlineevent>>
 
@@ -1739,9 +1739,9 @@
 	그림과 태피스트리 옆을 지나간다. 값비싸 보이지만 훔치기에는 너무 크다.
 	<br><br>
 	<<set $skulduggerydifficulty to 1300>>
-	<<link [[더 자세히 살펴보기|Dance Job Stage Explore Look]]>><</link>><<skulduggerydifficulty>>
+	<<link [[더 자세히 살펴본다|Dance Job Stage Explore Look]]>><</link>><<skulduggerydifficulty>>
 	<br>
-	<<link [[파티로 돌아가기|Dance Job Stage Explore End]]>><<stress -6>><</link>><<lstress>>
+	<<link [[파티로 돌아간다|Dance Job Stage Explore End]]>><<stress -6>><</link>><<lstress>>
 	<br>
 <</addinlineevent>>
 
@@ -1752,9 +1752,9 @@
 	안에는 아무도 보이지 않는다. 열린 찬장 안에 금고가 무방비하게 놓여 있다.
 	<br><br>
 	<<set $skulduggerydifficulty to 400>>
-	<<link [[금고 열기|Dance Job Stage Explore Safe]]>><</link>><<skulduggerydifficulty>><<crime "thievery">>
+	<<link [[금고를 연다|Dance Job Stage Explore Safe]]>><</link>><<skulduggerydifficulty>><<crime "thievery">>
 	<br>
-	<<link [[파티로 돌아가기|Dance Job Stage Explore End]]>><</link>>
+	<<link [[파티로 돌아간다|Dance Job Stage Explore End]]>><</link>>
 	<br>
 <</addinlineevent>>
 
@@ -1762,13 +1762,13 @@
 	주방으로 들어간다. 천장을 따라 김이 피어오르고, 몇몇 요리사들이 분주하게 오간다.
 	<br><br>
 	<<generate1>><<person1>>
-	"너," 한 <<person>>【이가】 다가오며 말한다. "앞치마는 어디 갔어? 됐어. 여기." <<He>>【은는】 당신의 손에 당근이 담긴 쟁반을 쥐여준다. "일 시작해. 지금도 늦었으니까!"
+	"너." 한 <<person>>【이가】 다가오며 말한다. "앞치마는 어디 갔어? 됐어. 여기." <<He>>【은는】 당신의 손에 당근이 담긴 쟁반을 쥐여준다. "일 시작해. 지금도 늦었으니까!"
 	<br><br>
 
 	/*homemaking skill */
 	<<link [[설명하려고 시도한다|Dance Job Stage Explore Explain]]>><</link>>
 	<br>
-	<<link [[당근 썰기 (0:05)|Dance Job Stage Explore Carrots]]>><<pass 5>><</link>>
+	<<link [[당근을 썬다 (0:05)|Dance Job Stage Explore Carrots]]>><<pass 5>><</link>>
 	<br>
 <</addinlineevent>>
 
@@ -1779,7 +1779,7 @@
 	한 <<fullGroup>>【이가】 알몸으로 수영하고 있다. 그들은 키스하느라 바빠서 당신을 눈치채지 못한다.
 	<br><br>
 
-	<<link [[귀중품을 찾기 위해 소지품 뒤지기|Dance Job Stage Explore Pool]]>><</link>><<crime "petty">><<skulduggerydifficulty 1 800>>
+	<<link [[귀중품을 찾기 위해 소지품을 뒤진다|Dance Job Stage Explore Pool]]>><</link>><<crime "petty">><<skulduggerydifficulty 1 800>>
 	<br>
 	<<link [[떠난다|Dance Job Stage Explore End]]>><<endevent>><</link>>
 	<br>
@@ -1950,7 +1950,7 @@
 <<if $speech_attitude is "meek">>
 	"무-무서워하지 마세요." 당신이 말한다. "도와주러 왔어요."
 <<elseif $speech_attitude is "bratty">>
-	"쉿," 당신이 말한다. "구하러 왔어요."
+	"쉿." 당신이 말한다. "구하러 왔어요."
 <<else>>
 	"괜찮아요." 당신이 말한다. "도와주러 왔어요."
 <</if>>
@@ -2087,7 +2087,7 @@
 <</if>>
 
 <<if $temple_rank is "initiate">>
-	"당신은 아직 준비가 되지 않았습니다, 수련자여."
+	"당신은 아직 준비가 되지 않았습니다, 입문자여."
 <<elseif $temple_rank is "monk">>
 	"잘했습니다. 이제부턴 저희가 맡겠습니다."
 <<elseif $temple_rank is "priest">>
@@ -2116,7 +2116,7 @@
 
 	<<skulduggeryuse>>
 
-	<<link [[파티로 돌아가기|Dance Job Stage Explore End]]>><</link>>
+	<<link [[파티로 돌아간다|Dance Job Stage Explore End]]>><</link>>
 	<br>
 
 <<else>>
@@ -2216,7 +2216,7 @@
 "그럼 돈 못 받아." <<person>>【이가】 대답한다. "나가든지, 아니면 내가 이 난장판을 치울 수 있게 비켜."
 <br><br>
 
-<<link [[파티로 돌아가기|Dance Job Stage Explore Exposed 2]]>><<trauma 12>><<stress 18>><<dance_job_interest 20>><</link>><<ggtrauma>><<gggstress>><<ggginterest>>
+<<link [[파티로 돌아간다|Dance Job Stage Explore Exposed 2]]>><<trauma 12>><<stress 18>><<dance_job_interest 20>><</link>><<ggtrauma>><<gggstress>><<ggginterest>>
 <br>
 <<link [[떠난다|Dance Job Stage Leave]]>><<endevent>><</link>>
 <br>
@@ -2240,7 +2240,7 @@
 입을 열어 말하려 하지만, <<person>>【이가】 당신의 말을 자른다. "듣지 않겠어! 당근이나 썰어."
 <br><br>
 
-<<link [[당근 썰기 (0:05)|Dance Job Stage Explore Carrots]]>><<pass 5>><</link>>
+<<link [[당근을 썬다 (0:05)|Dance Job Stage Explore Carrots]]>><<pass 5>><</link>>
 <br>
 
 :: Dance Job Stage Explore Carrots
@@ -2391,7 +2391,7 @@
 
 	당신은 깨진 잔해를 밟지 않도록 조심하며 상자 안으로 손을 뻗어 돈을 꺼낸다.
 	<<if $danceStudio.job.interest gte 100>>
-		<<printmoney 500000>>【을를】 획득했다<<money 500000 "danubeDanceJob">>.
+		<<printmoney 300000>>【을를】 획득했다<<money 300000 "danubeDanceJob">>.
 	<<else>>
 		<<printmoney 200000>>【을를】 획득했다<<money 200000 "danubeDanceJob">>.
 	<</if>>
@@ -2435,7 +2435,7 @@
 <<effects>>
 <<endevent>>
 <<beastNEWinit 1 horse>>
-<<if $settings.horsesEnabled and ($monster is 1 or $settings.bestialityEnabled) and random(1, 2) is 2>>
+<<if beastSexEnabledForType("horse", $monster is 1) and random(1, 2) is 2>>
 	"그럴 가치가 있나?" 가면 쓴 손님 중 한 명이 유리창 너머로 당신을 들여다보며 묻는다. "고작 그 돈 때문에 말을 상대하다니." 당신의 <<bottom>>에 털이 눌리는 것이 느껴진다.
 	<br><br>
 

@@ -1,6 +1,6 @@
 :: Prison Beach
 <<location "prison_beach">><<set $outside to 1>><<effects>><<effects_prison>>
-당신은 교도소 밖 비밀 해변에 있다. 파도가 거세다.
+당신은 감옥 밖 비밀 해변에 있다. 파도가 거세다.
 <<if $prison.watchers_friend is 2>>
 
 <<elseif $prison.schedule is "revolt">>
@@ -72,10 +72,10 @@
 			<br><br>
 		<<else>>
 			<<if $prison.schedule isnot "revolt">>
-				<<swimicon "back">><<link [[수영 연습하기 (1:00)|Prison Beach Swim]]>><<pass 60>><<stress -6>><<tiredness 6>><</link>><<gtiredness>><<gswimming>><<lstress>>
+				<<swimicon "back">><<link [[수영을 연습한다 (1:00)|Prison Beach Swim]]>><<pass 60>><<stress -6>><<tiredness 6>><</link>><<gtiredness>><<gswimming>><<lstress>>
 				<br>
 			<</if>>
-			<<swimicon>><<link [[섬에서 헤엄쳐 멀어지기 (0:05)|Prison Beach Escape]]>><<pass 5>><<water>><</link>>
+			<<swimicon>><<link [[섬에서 헤엄쳐 멀어진다 (0:05)|Prison Beach Escape]]>><<pass 5>><<water>><</link>>
 			<br><br>
 		<</if>>
 		<<if $prison.yard_door is 1>>
@@ -156,12 +156,12 @@
 	<</if>>
 
 	<<if $prison.kylar is "active">>
-		<<getinicon>><<link [[혼자 탈출하기 (0:30)|Prison Wren Escape]]>><<prison_end>><<prisoncrimeUp>><<pass 30>><<prison_guards -40>><</link>><<gggcrime>><<gggsuspicion>>
+		<<getinicon>><<link [[혼자 탈출한다 (0:30)|Prison Wren Escape]]>><<prison_end>><<prisoncrimeUp>><<pass 30>><<prison_guards -40>><</link>><<gggcrime>><<gggsuspicion>>
 		<br>
-		<<getinicon>><<link [[카일라와 함께 탈출하기 (0:40)|Prison Kylar Escape]]>><<prison_end>><<prisoncrimeUp "kylar">><<pass 40>><<prison_guards -40>><<npcincr Kylar rage -60>><<npcincr Kylar love 20>><</link>><<gggcrime "obstruction">><<gggsuspicion>><<ggglove>><<lllksuspicion>>
+		<<getinicon>><<link [[카일라와 함께 탈출한다 (0:40)|Prison Kylar Escape]]>><<prison_end>><<prisoncrimeUp "kylar">><<pass 40>><<prison_guards -40>><<npcincr Kylar rage -60>><<npcincr Kylar love 20>><</link>><<gggcrime "obstruction">><<gggsuspicion>><<ggglove>><<lllksuspicion>>
 		<br>
 	<<else>>
-		<<getinicon>><<link [[탈출하기 (0:30)|Prison Wren Escape]]>><<prison_end>><<prisoncrimeUp>><<pass 30>><<prison_guards -40>><</link>><<gggcrime>><<gggsuspicion>>
+		<<getinicon>><<link [[탈출한다 (0:30)|Prison Wren Escape]]>><<prison_end>><<prisoncrimeUp>><<pass 30>><<prison_guards -40>><</link>><<gggcrime>><<gggsuspicion>>
 		<br>
 	<</if>>
 
@@ -180,7 +180,7 @@
 :: Prison Kylar Escape
 <<effects>>
 <<npc Kylar 2>><<person2>>
-당신은 서둘러 교도소 안으로 돌아간다.
+당신은 서둘러 감옥 안으로 돌아간다.
 <<if $prison.schedule is "revolt">>
 	무정부 상태 속에서 카일라가 직원실에 침입하려는 것을 발견한다.
 	<br><br>
@@ -193,17 +193,17 @@
 		<<else>>
 			당신은 문을 여는 시늉을 하고, 손 위로 손가락을 걷게 한다. 카일라가 숨을 헐떡인다.
 		<</if>>
-		"ㅌ-탈출할 방법을 찾았어?" <<he>>【이가】 묻는다. "내 물건 좀 챙길게."
+		"타-탈출할 방법을 찾았어?" <<he>>【이가】 묻는다. "내 물건 좀 챙길게."
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"나갈 방법을 찾았어." 당신이 말한다. "ㅈ-제발 같이 가줘."
+			"나갈 방법을 찾았어." 당신이 말한다. "제-제발 같이 가줘."
 		<<elseif $speech_attitude is "bratty">>
 			"나 이 거지 같은 곳 떠날 거야." 당신이 말한다. "같이 갈래?"
 		<<else>>
 			"나갈 방법을 찾았어." 당신이 말한다. "나랑 같이 갈래?"
 		<</if>>
 		<br><br>
-		"너랑 같이? ㅁ-물론이지." 카일라가 말한다. "내 물건 좀 챙길게."
+		"너랑 같이? 무-물론이지." 카일라가 말한다. "내 물건 좀 챙길게."
 	<</if>>
 	<br><br>
 
@@ -220,17 +220,17 @@
 		<<else>>
 			당신은 문을 여는 시늉을 하고, 손 위로 손가락을 걷게 한다. 카일라가 숨을 헐떡인다.
 		<</if>>
-		"ㅌ-탈출할 방법을 찾았어?" <<he>>【이가】 묻는다. "내 물건 좀 챙길게."
+		"타-탈출할 방법을 찾았어?" <<he>>【이가】 묻는다. "내 물건 좀 챙길게."
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"나갈 방법을 찾았어." 당신이 말한다. "ㅈ-제발 같이 가줘."
+			"나갈 방법을 찾았어." 당신이 말한다. "제-제발 같이 가줘."
 		<<elseif $speech_attitude is "bratty">>
 			"나 이 거지 같은 곳 떠날 거야." 당신이 말한다. "같이 갈래?"
 		<<else>>
 			"나갈 방법을 찾았어." 당신이 말한다. "나랑 같이 갈래?"
 		<</if>>
 		<br><br>
-		카일라가 몸을 일으킨다. "너랑 같이? ㅁ-물론이지. 내 물건 좀 챙길게."
+		카일라가 몸을 일으킨다. "너랑 같이? 무-물론이지. 내 물건 좀 챙길게."
 	<</if>>
 	<br><br>
 
@@ -256,7 +256,7 @@
 <br><br>
 <<prison_bondage_removal>>
 <<if _punishments_removed is true>>
-	<<he>>【은는】 키를 잠시 놓고 짐칸 밑을 뒤적거리더니 공구함 하나를 꺼내 든다. "가만히 있어," <<he>>【이가】 말한다. "이딴 걸 차고 있는 널 태우고 갈 순 없지. 가다가 물에 빠지기라도 하면 평생 자책할 테니까." <<he>>【은는】 이내 구속구들을 모두 풀어준다.
+	<<he>>【은는】 키를 잠시 놓고 짐칸 밑을 뒤적거리더니 공구함 하나를 꺼내 든다. "가만히 있어." <<he>>【이가】 말한다. "이딴 걸 차고 있는 널 태우고 갈 순 없지. 가다가 물에 빠지기라도 하면 평생 자책할 테니까." <<he>>【은는】 이내 구속구들을 모두 풀어준다.
 	<br><br>
 <</if>>
 
@@ -550,18 +550,18 @@
 
 <<link [[탈출 (0:30)|Prison Escape]]>><<prison_end>><<prisoncrimeUp>><<pass 30>><<prison_guards -40>><</link>><<gggcrime>><<gggsuspicion>>
 <br>
-<<link [[교도소로 헤엄쳐 돌아간다 (0:05)|Prison Beach]]>><<pass 5>><</link>>
+<<link [[감옥으로 헤엄쳐 돌아간다 (0:05)|Prison Beach]]>><<pass 5>><</link>>
 <br>
 
 :: Prison Escape
 <<effects>>
 <<badEndTrackingEnd "Prison" { reason: "prisonSwimming" }>>
 <<earnFeat "Not Meant to be Caged">>
-당신은 섬과 그 교도소를 뒤로하고 헤엄쳐 나간다. 안개 속에서 바위들이 불쑥 솟아 있다. 배에게는 위험하지만, 당신에게는 아니다.
+당신은 섬과 그 감옥을 뒤로하고 헤엄쳐 나간다. 안개 속에서 바위들이 불쑥 솟아 있다. 배에게는 위험하지만, 당신에게는 아니다.
 
 <<prison_bondage_removal>>
 <<if _punishments_removed is true>>
-	당신은 뾰족한 모서리를 이용해 교도소의 구속구를 잘라내기까지 한다.
+	당신은 뾰족한 모서리를 이용해 감옥의 구속구를 잘라내기까지 한다.
 <</if>>
 <br><br>
 

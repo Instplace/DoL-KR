@@ -1,53 +1,285 @@
 :: Widgets Mines [widget]
-<<widget "mines_init">>
-<<set $mines_crystals to 10>>
-<<if $prof.pickaxe is undefined>>
-	<<set $prof.pickaxe to 0>>
-<</if>>
-<<set $mines_suspicion to 61>>
-<<set $mines_guards_dig to 0>>
-<</widget>>
-
-<<widget "mines_end">>
-<<unset $mines_crystals>>
-<<unset $mines_suspicion>>
-<</widget>>
-
-<<widget "mines_crystals">>
-<<number $mines_crystals "silent">>
-<<set $_color to ["red","pink","purple","purple","blue","blue","lblue","lblue","teal","teal","green"][Math.clamp($mines_crystals,0,10)]>>
-<<set $_count to $mines_crystals gte 1 ? _text_output : "0">>
-<<set $_crystals to "수정">>
-당신은 <span @class="$_color">$_count</span>개의 $_crystals【을를】 가지고 있다.
-<</widget>>
-
-<<widget "passout_mines">>
-<<passout>>
-<<link [[다음|Mines Passout]]>><</link>>
-<br>
-<</widget>>
-
-<<widget "mines_suspicion_text">>
-<<if $mines_suspicion gte 100>>
-	<span class="red">경비원들이 당신에게서 눈을 떼지 않는다.</span>
-<<elseif $mines_suspicion gte 80>>
-	<span class="pink">경비원들이 샅샅이 뒤지는 듯한 시선을 당신 쪽으로 던진다.</span>
-<<elseif $mines_suspicion gte 60>>
-	<span class="purple">경비원들이 경계하는 눈초리로 당신을 살핀다.</span>
-<<elseif $mines_suspicion gte 40>>
-	<span class="blue">경비원들이 당신을 주시하고 있다.</span>
-<<elseif $mines_suspicion gte 20>>
-	<span class="lblue">경비원들은 당신에게 거의 신경을 쓰지 않는다.</span>
-<<elseif $mines_suspicion gte 1>>
-	<span class="teal">경비원들은 당신에게 전혀 신경을 쓰지 않는다.</span>
-<<else>>
-	<span class="green">경비원들의 무관심함을 보면, 당신은 아예 투명 인간이나 다름없는 것 같다.</span>
-<</if>>
-<</widget>>
-
-<<widget "mines_suspicion">>
-	<<if _args[0] and $statFreeze isnot true>>
-		<<set $mines_suspicion += (_args[0])>>
-		<<set $mines_suspicion to Math.clamp($mines_suspicion, 0, 100)>>
+<<widget "mine_init">>
+	<<if $prof.pickaxe is undefined>>
+		<<set $prof.pickaxe to 0>>
 	<</if>>
+	<<if !$mine>>
+		<<set $mine to { hope: 0 }>>
+		<<set $mine.bomb to { parts: 0 }>>
+		<<set $mine.job to { list: [] }>>
+		<<set $mine.job.mining to { shackle: 8 }>>
+		<<set $mine.job.cleaning to {}>>
+		<<set $mine.favor to {}>>
+		<<set $mine.favor.job to {}>>
+		<<set $mine.distraction to {}>>
+		<<set $mine.setup to {}>>
+		<<set $mine.tunnel to {}>>
+		<<set $mine.gemPool to []>>
+
+		<<if $foundMineGem>>
+			<<unset $foundMineGem>>
+			<<set $mine.heldGem to "small gem">>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "mine_job">>
+	<<if $mine.job.list.length is 0>>
+		<<set $mine.job.list to ["mining", "minecarts", "cleaning"]>>
+	<</if>>
+	<<set $mine.job.current to $mine.job.list.pluck()>>
+
+	<<switch $mine.job.current>>
+		<<case "mining">>
+			<<He>>【은는】 동굴들을 지나 당신을 커다란 노예 무리에게로 데려간다. 모두 암벽에 곡괭이를 휘두르고 있다.
+			<br><br>
+			<<link [[다음|Mine Job Mining Intro]]>><</link>>
+		<<case "minecarts">>
+			<<He>>【은는】 동굴들을 지나 당신을 광차 선로로 데려간다. 올려다보니 암석 천장에 터널을 따라 이어진 레일이 있다.
+			<br><br>
+			<<link [[다음|Mine Job Minecarts Intro]]>><</link>>
+		<<case "cleaning">>
+			<<He>>【은는】 동굴들을 지나 경비원들로 가득한 커다란 동굴로 당신을 데려간다. 한쪽에는 이층 침상들이 늘어서 있고, 몇몇에는 사람들이 자고 있다. 반대쪽에는 탁자들이 가득하다.
+			<br><br>
+			<<link [[다음|Mine Job Cleaning Intro]]>><</link>>
+		<<default>>
+			이 오류를 Degrees of Lewdity 디스코드 서버의 #bug-reports 채널에 제보해 주십시오
+	<</switch>>
+<</widget>>
+
+<<widget "mine_job_link">>
+	<<set _job_link to `Mine Job ${$mine.job.current.toLocaleUpperFirst()} Intro`>>
+
+	<<if $mine.job.current is "mining">>
+		<<set _job_link to `Mine Job Mining Return`>>
+	<</if>>
+
+	<<link [[다음|_job_link]]>><</link>>
+<</widget>>
+
+<<widget "mine_distract_links">>
+	<<if Time.hour lt 6>>
+		<<set _today to true>>
+	<</if>>
+
+	<<link [[<<print _today ? "Today" : "Tomorrow">>|_args[0]]]>><<set $phase to _today ? 0 : 1>><</link>>
+	<br>
+	<<link [[<<print _today ? "Tomorrow" : "In two days">>|_args[0]]]>><<set $phase to _today ? 1 : 2>><</link>>
+	<br>
+	<<link [[<<print _today ? "In two days" : "In three days">>|_args[0]]]>><<set $phase to _today ? 2 : 3>><</link>>
+	<br>
+	<<link [[<<print _today ? "In three days" : "In four days">>|_args[0]]]>><<set $phase to _today ? 3 : 4>><</link>>
+	<br>
+	<<link [[관둔다|_args[0]]]>><<set $phase to "no">><</link>>
+<</widget>>
+
+<<widget "mine_distract_time">>
+	<<if Time.hour lt 6>>
+		<<set _today to true>>
+	<</if>>
+
+	<<switch $phase>>
+		<<case 0>>
+			<<set _time to "오늘">>
+		<<case 1>>
+			<<set _time to "내일">>
+		<<case 2>>
+			<<set _time to "이틀 뒤">>
+		<<case 3>>
+			<<set _time to "사흘 뒤">>
+		<<case 4>>
+			<<set _time to "나흘 뒤">>
+	<</switch>>
+
+	<<print _time>>
+<</widget>>
+
+<<widget "mine_distract_check">>
+	<<set _distraction_count to 0>>
+	<<if $mine.distraction.minecarts is 0>><<set _distraction_count += 1>><</if>>
+	<<if $mine.distraction.mining is 0>><<set _distraction_count += 1>><</if>>
+	<<if $mine.distraction.night is 0>><<set _distraction_count += 1>><</if>>
+<</widget>>
+
+<<widget "mine_night_task">>
+	<<set $mine.distraction.night to "inprogress">>
+	<<switch random(1,3)>>
+		<<case 1>>
+			<<set $mine.favor.job.night to "gem">>
+			"보석이든 수정이든 상관없으니까, 하나 필요해."
+		<<case 2>>
+			<<set $mine.favor.job.night to "note">>
+			<<He>>【은는】 당신에게 종이 한 장을 건넨다. "이걸 다이아몬드가 그려진 작업복을 입은 사람에게 전해 줘."
+		<<case 3>>
+			<<set $mine.favor.job.night to "firework">>
+			<<He>>【은는】 당신에게 폭죽을 건넨다. "이 폭죽을 경비원 옆에서 터뜨려 줘. 터질 때 그 얼굴을 볼 수 있으면 좋을 텐데. 이걸 어디서 구했는지는 묻지 마."
+		<<default>>
+			"Degrees of Lewdity 디스코드 서버의 버그 제보 채널에 제보 좀 해 줘." <<he>>【이가】 말한다. "스크린샷이랑 세이브 파일도 꼭 첨부하고,"
+			<<he>>【은는】 걸어가려다 무언가 떠올린 듯 멈춘다. "한 가지만 더. 반드시 최신 버전인지 확인해. 제임스한테 안부 전해 줘."
+	<</switch>>
+<</widget>>
+
+<<widget "mine_hope">>
+	<<if !isNaN(T.args[0])>>
+		<<set $mine.hope to Math.clamp(V.mine.hope + _args[0], 0, 50)>>
+	<</if>>
+<</widget>>
+
+<<widget "mine_pregnancy">>
+	당신은 비틀거리며 출구로 향하지만, 간신히 거리에 닿자마자 쓰러지고 의식이 흐려진다.
+	<br><br>
+	<<link [[다음|Pregnancy Birth Hospital]]>><<set $stress -= 5000>><<endevent>><<set $phase to 1>><</link>>
+<</widget>>
+
+<<widget "mine_passout">>
+	너무 무리했다.
+	<br><br>
+
+	<<passout>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|Mine Passout]]>><<endevent>><</link>>
+<</widget>>
+
+<<widget "mine_gem">>
+	<<if $mine.gemPool.length is 0>>
+		<<run
+			for (let i = 0; i < 9; i++) V.mine.gemPool.push(1);
+
+			let gem_count = 6;
+			if (V.prof.pickaxe < 300) gem_count = 8;
+			for (let i = 0; i < gem_count; i++) V.mine.gemPool.push(2);
+
+			gem_count = 3;
+			if (V.prof.pickaxe < 650) gem_count = 5;
+			for (let i = 0; i < gem_count; i++) V.mine.gemPool.push(3);
+		>>
+	<</if>>
+
+	<<set _gem to $mine.gemPool.pluck()>>
+	<<set _gem_diff_min to [0, 300, 650][_gem-1]>>
+	<<set _gem_diff_max to [299, 649, 1000][_gem-1]>>
+<</widget>>
+
+<<widget "mine_gem_collect">>
+	<<mine_gem_check _args[0]>>
+	<<set _gemType to either("gem", "crystal")>>
+	<<set $mine.heldGem to `${_gemSize} ${_gemType}`>>
+	$mine.heldGem【이】다. 암시장에서 값이 좀 나갈지도 모른다.
+	<<mine_gem_value>>
+	<<set $blackmoney += _gem_value>>
+<</widget>>
+
+<<widget "mine_gem_value">>
+	<<set _gem_value to 0>>
+	<<if $mine.heldGem.includes("small")>>
+		<<set _gem_value to 400>>
+	<<elseif $mine.heldGem.includes("medium")>>
+		<<set _gem_value to 800>>
+	<<elseif $mine.heldGem.includes("large")>>
+		<<set _gem_value to 1600>>
+	<</if>>
+<</widget>>
+
+<<widget "mine_gem_check">>
+	<<switch _args[0]>>
+		<<case 1>>
+			<<set _gemSize to "small">>
+		<<case 2>>
+			<<set _gemSize to "medium">>
+		<<case 3>>
+			<<set _gemSize to "large">>
+	<</switch>>
+<</widget>>
+
+<<widget "mine_pit">>
+	<<set _pits to ["Nothing"]>>
+	<<set _coveredPits to 0>>
+	<<if $settings.slimesEnabled and $hallucinations gte 1>>
+		<<set _pits.push("Slimes")>>
+	<<else>>
+		<<set _coveredPits++>>
+	<</if>>
+	<<if $settings.tentaclesEnabled and $hallucinations gte 2>>
+		<<set _pits.push("Tentacles")>>
+	<<else>>
+		<<set _coveredPits++>>
+	<</if>>
+	<<if $settings.swarmsEnabled and $settings.spidersEnabled>>
+		<<set _pits.push("Spiders")>>
+	<<else>>
+		<<set _coveredPits++>>
+	<</if>>
+<</widget>>
+
+<<widget "mine_punishment_end">>
+	<<if isPregnancyEnding()>>
+		"이 아래서 교훈 좀 얻었길 바—" <<He>>【은는】 당신이 진통을 겪고 있다는 것을 알아차린다. <<He>>【은는】 당신을 붙잡아 안아 올리고, 당신은 의식을 잃어 간다.
+		<br><br>
+		<<link [[다음|Mine Birth]]>><</link>>
+	<<else>>
+		"이 아래서 교훈 좀 얻었길 바라." <<he>>【은는】 낄낄 웃더니 당신을 끌고 간다.
+		<br><br>
+		<<if Time.hour lte 5 or Time.hour gte 21>>
+			<<He>>【은는】 당신을 숙소로 끌고 간다. 그 앞을 지키던 경비원이 문을 연다. <<person>>【이가】 당신을 안으로 밀어 넣는다. 문이 쾅 닫히며 잠긴다.
+			<br><br>
+			<<link [[다음|Mine Night]]>><<endevent>><</link>>
+		<<else>>
+			<<He>>【은는】 당신을 다른 경비원 앞으로 끌고 간다. "이 쓰레기 좀 처리해." <<he>>【이가】 말한다.
+			<br><br>
+			<<mine_job_link>>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "mine_maze_map">>
+	<<for _i to 0; _i lt MineMaze.MAZE_SIZE; _i++>>
+		<<for _j to 0; _j lt MineMaze.MAZE_SIZE; _j++>>
+			<<if $mine.maze.PC.x is _j and $mine.maze.PC.y is _i>>
+				<<print "P ">>
+			<<elseif $mine.maze.Exit.x is _j and $mine.maze.Exit.y is _i>>
+				<<print "E ">>
+			<<else>>
+				<<set _guard_count to 0>>
+				<<for _k to 0; _k lt $mine.maze.Guards.length; _k++>>
+					<<if $mine.maze.Guards[_k].Location.x is _j and $mine.maze.Guards[_k].Location.y is _i>>
+						<<set _guard_count++>>
+					<</if>>
+				<</for>>
+				<<if _guard_count isnot 0>>
+					<<print `${_guard_count} `>>
+				<<else>>
+					<<print "_ ">>
+				<</if>>
+			<</if>>
+		<</for>>
+		<br>
+	<</for>>
+<</widget>>
+
+<<widget "mine_unshackle">>
+	<<set $mine.job.mining.shackle to 8>>
+	<<unbind>>
+<</widget>>
+
+<<widget "mine_shackle_text">>
+	<<if $mine.job.mining.shackle gte 7>>
+		<span class="red">당신의 족쇄는 아주 튼튼하다.</span>
+	<<elseif $mine.job.mining.shackle gte 4>>
+		<span class="blue">당신의 족쇄는 찌그러져 있다.</span>
+	<<elseif $mine.job.mining.shackle gte 2>>
+		<span class="blue">당신의 족쇄에 금이 가 있다.</span>
+	<<else>>
+		<span class="blue">당신의 족쇄는 당장이라도 부서질 것 같다.</span>
+	<</if>>
+<</widget>>
+
+<<widget "mine_orgasm">>
+	<br><br>
+	<<orgasm>>
+	당신의 신음 소리가 터널에 메아리친다.
+<</widget>>
+
+<<widget "mine_links">>
+	<<icon "actions/explore.png">><<link [[계속 탐색한다 (0:30)|Mine Explore]]>><<pass 30>><<endevent>><</link>>
+	<br>
+	<<icon "get-out.png">><<link [[입구로 돌아간다|Mine]]>><<endevent>><</link>>
 <</widget>>

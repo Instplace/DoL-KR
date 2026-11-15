@@ -81,7 +81,7 @@
 					<<He>>【은는】 구슬이 무엇인지, 어디에 쓰는지, 어떻게 넣는지 세세하게 설명해 준다. 태도가 놀랄 만큼 진지해서, 설명을 다 듣고 나니 마치 학교에서 강의를 들은 것 같은 기분이 든다.
 					<br><br>
 
-					"질문 있으면 언제든 말해," <<he>>【이가】 목소리를 낮추며 덧붙인다. "기꺼이 시범을 보여줄 테니까."<<arousal 100>><<awareness 1>><<npcincr Sydney lust 1>><<garousal>><<gawareness>><<gslust>>
+					"질문 있으면 언제든 말해." <<he>>【이가】 목소리를 낮추며 덧붙인다. "기꺼이 시범을 보여줄 테니까."<<arousal 100>><<awareness 1>><<npcincr Sydney lust 1>><<garousal>><<gawareness>><<gslust>>
 					<br><br>
 
 					<<link [[다음|Adult Shop]]>><<endevent>><</link>>
@@ -194,7 +194,7 @@
 	돌아보니 휘트니가 딜도 한 움큼을 쥐고 당신을 지나쳐 가며 장난기 어린 미소를 짓고 있다.
 	<br><br>
 	<<link [[시드니에게 다가간다|Adult Shop Dildo Thief Approach Sydney]]>><<set $phase to 0>><</link>>
-	<<if $speech_attitude is "bratty" or $debug is 1>>
+	<<if $speech_attitude is "bratty" or $debug>>
 		<br>
 		<<link [[휘트니를 쫓는다|Adult Shop Dildo Thief Chase 1]]>><</link>>
 	<</if>>
@@ -203,7 +203,7 @@
 <<set $location to "adult_shop">><<set $outside to 0>><<effects>><<run statusCheck("Sydney")>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ, 지금은 못 도와줄 것 같아. 미안." 당신은 <<his>> 뺨에 키스한다.
+	"지-지금은 못 도와줄 것 같아. 미안." 당신은 <<his>> 뺨에 키스한다.
 <<elseif $speech_attitude is "bratty">>
 	"네가 직접 해." 당신은 쳐다보지도 않고 하던 일을 계속하기 위해 돌아선다.
 <<else>>
@@ -245,7 +245,7 @@
 <<set $location to "adult_shop">><<set $outside to 0>><<effects>><<run statusCheck("Sydney")>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ, 지금은 못 도와줄 것 같아. 미안." 당신은 <<his>> 뺨에 키스한다.
+	"지-지금은 못 도와줄 것 같아. 미안." 당신은 <<his>> 뺨에 키스한다.
 <<elseif $speech_attitude is "bratty">>
 	"네가 직접 해." 당신은 쳐다보지도 않고 하던 일을 계속하기 위해 돌아선다.
 <<else>>
@@ -266,7 +266,7 @@
 <<set $location to "adult_shop">><<set $outside to 0>><<effects>><<run statusCheck("Sydney")>>
 
 <<if $speech_attitude is "meek">>
-	"ㅇ, 알았어." 당신이 말한다. "어디 있는지 보여줄래?"
+	"아-알았어." 당신이 말한다. "어디 있는지 보여줄래?"
 <<elseif $speech_attitude is "bratty">>
 	"물론, 도와줄게." 당신이 말한다. "어디야?"
 <<else>>
@@ -292,9 +292,9 @@
 <<if random(1, 100) gte 35>>
 	시드니가 당신 밑에서 흔들리기 시작한다.
 	<<if _sydneyStatus.includes("corrupt")>>
-		"젠장," <<he>>【이가】 쉭 소리를 낸다. "잠깐만. ㄴ, 나 이거 할 수 있어. 그냥—"
+		"젠장," <<he>>【이가】 쉭 소리를 낸다. "잠깐만. 나-나 이거 할 수 있어. 그냥—"
 	<<else>>
-		"잠깐!" <<he>>【이가】 외친다. "ㄷ, 다시 내려놔! 아, 아니, 들고 있어! 내 말은—"
+		"잠깐!" <<he>>【이가】 외친다. "다-다시 내려놔! 아-아니, 들고 있어! 내 말은—"
 	<</if>>
 	<br><br>
 
@@ -322,7 +322,7 @@
 	<br><br>
 
 	<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
-		"걱정 마," <<he>>【이가】 속삭인다. <<He>>【이가】 다가와 당신의 치마 끝자락을 집는다. "안 훔쳐봤어."<<arousal 200>><<npcincr Sydney love 3>><<npcincr Sydney lust 1>><<garousal>><<glove>><<glust>>
+		"걱정 마." <<he>>【이가】 속삭인다. <<He>>【이가】 다가와 당신의 치마 끝자락을 집는다. "안 훔쳐봤어."<<arousal 200>><<npcincr Sydney love 3>><<npcincr Sydney lust 1>><<garousal>><<glove>><<glust>>
 		<br><br>
 
 		당신이 의심스러운 눈초리로 쳐다보자 <<he>>【이가】 말한다. "왜?" <<He>>【은는】 팔짱을 끼고 코를 치켜든다. "난 내 일에 진지하다고." <<He>>【은는】 엄한 눈으로 당신을 쳐다보다가 웃음을 터뜨린다.
@@ -420,7 +420,7 @@
 			<<link [[일어난다|Sydney Backroom Lifted Up]]>><</link>>
 			<br>
 		<<default>>
-			"ㅁ, 미안." <<he>>【이가】 중얼거린다. <<He>>【은는】 고개를 홱 돌리지만, 힐끗거리는 것을 멈추지 못한다.
+			"미-미안." <<he>>【이가】 중얼거린다. <<He>>【은는】 고개를 홱 돌리지만, 힐끗거리는 것을 멈추지 못한다.
 			<br><br>
 			<<if hasSexStat("promiscuity", 3)>>
 				<<link [[<<him>>【을를】 부추긴다|Sydney Backroom Lifted Encourage]]>><<npcincr Sydney purity -1>><</link>><<promiscuous3>><<lspurity>><<sydneyWarning>>
@@ -460,7 +460,7 @@
 <<if _sydneyStatus.includes("corrupt")>>
 	"에이," <<he>>【이가】 칭얼거린다. "장단 좀 맞춰줘. 내 엉덩이를 박살 낸 대가로는 최소한이지." <<He>>【은는】 입을 삐죽 내밀고 방을 둘러본다. "이거 네가 치우는 거야, 참고로."
 <<else>>
-	"고마워," <<he>>【이가】 한숨을 쉰다. "음, 미안해, 내가..." <<He>>【은는】 아래를 흘끗 보고 얼굴을 붉힌 다음, 시선을 돌린다. "ㅇ, 아무것도 아니야. 그냥 치우자."
+	"고마워," <<he>>【이가】 한숨을 쉰다. "음, 미안해, 내가..." <<He>>【은는】 아래를 흘끗 보고 얼굴을 붉힌 다음, 시선을 돌린다. "아-아무것도 아니야. 그냥 치우자."
 <</if>>
 <br><br>
 
@@ -514,7 +514,7 @@
 <<set $outside to 0>><<set $location to "adult_shop">><<effects>><<run statusCheck("Sydney")>>
 
 <<if $speech_attitude is "meek">>
-	당신은 손과 무릎을 꿇는다. "ㅈ, 제가 대신 들어 올릴 수 있을 것 같아요. 그래도 될까요?"
+	당신은 손과 무릎을 꿇는다. "제-제가 대신 들어 올릴 수 있을 것 같아요. 그래도 될까요?"
 <<elseif $speech_attitude is "bratty">>
 	당신은 쪼그리고 앉아 등을 두드린다. "자. 내가 태워줄게."
 <<else>>
@@ -639,7 +639,7 @@
 		<<His>> 얼굴이 당신을 아래에 두고 빨개진다.
 		<br><br>
 
-		"ㅇ, 일부러 이렇게 된 거 아니야, 정말로! 나... 나..." <<He>>【은는】 열에 들뜬 사과를 더듬거린다. 일어나지는 않고.
+		"이-일부러 이렇게 된 거 아니야, 정말로! 나... 나..." <<He>>【은는】 열에 들뜬 사과를 더듬거린다. 일어나지는 않고.
 	<<else>>
 		<<He>>【은는】 당신을 아래에 두고 웃음을 참지 못한다.
 		<br><br>
@@ -1029,7 +1029,7 @@
 	<<if _sydneyStatus.includes("corrupt")>>
 		"잘됐네." <<he>>【이가】 <<his>> 무릎을 꿇고 주저앉으며 투덜거린다. "네가... 일하는 게 얼마나 힘든지 알아?" <<He>>【은는】 한숨을 쉬고 <<his>> 머리를 흔든다. "됐어. 청소나 도와줘."
 	<<else>>
-		"ㄱ-괜찮아." <<he>>【이가】 웅크려 앉으며 더듬거린다. "내가 치울 수 있어. 다른 데 정신을 좀 팔아야..." <<He>>【은는】 얼굴을 붉히고 <<his>> 머리를 흔든다. "아무것도 아니야."
+		"괘-괜찮아." <<he>>【이가】 웅크려 앉으며 더듬거린다. "내가 치울 수 있어. 다른 데 정신을 좀 팔아야..." <<He>>【은는】 얼굴을 붉히고 <<his>> 머리를 흔든다. "아무것도 아니야."
 	<</if>>
 	<<npcincr Sydney lust 1>><<glust>>
 <<else>>
@@ -1072,7 +1072,7 @@
 <br><br>
 "진정, 진정하세요! 모두 물건을 받을 수 있으니, 질서 있게 줄을 서 주세요!" <<nnpc_He Sirris>>【이가】 열광하는 군중에게 쾌활하게 외친다.
 <br><br>
-<<link [[시리스 돕기 (0:50)|Sirris Shop Assistant 2]]>><<pass 50>><<stress 5>><<tiredness 5>><</link>><<gtiredness>><<gstress>><<glove "Sirris">>
+<<link [[시리스를 돕는다 (0:50)|Sirris Shop Assistant 2]]>><<pass 50>><<stress 5>><<tiredness 5>><</link>><<gtiredness>><<gstress>><<glove "Sirris">>
 <br>
 <<link [[시리스를 군중의 자비에 맡기고 떠난다 (0:01)|Sirris Shop Assistant Leave]]>><<pass 1>><<npcincr Sirris love -1>><</link>><<llove "Sirris">>
 
@@ -1114,7 +1114,7 @@
 /* NPC1 brandishes the flog. NPC2 pulls a dildo out of their pocket */
 <<set $NPCList[1].lefthand to "hair">><<giveNPCsextoy 1 dildo "right">><<giveNPCsextoy 0 flog>>
 <<link [[다음|Sirris Shop Assistant Refuse Creeps Rape]]>><<set $molestationstart to 1>><<set $phase to 1>><</link>>
-<<if $debug is 1>>
+<<if $debug>>
 	<br>
 	<<link [[디버그 퇴장|Adult Shop]]>><</link>>
 <</if>>
@@ -1500,9 +1500,9 @@
 
 	<span class="red">발소리에 <<He>>【이가】 입을 다문다.</span> "별일 없니?" 밖에서 목소리가 들려온다. 시리스다.
 	<br>
-	시드니의 눈이 휘둥그레지고, <<he>>【은는】 허둥지둥 일어선다. "저, 저희는 괜찮아요! 아니, 저는 괜찮아요! 그리고 혼자에요. 여기 뒤엔 아무도 없어요."
+	시드니의 눈이 휘둥그레지고, <<he>>【은는】 허둥지둥 일어선다. "저-저희는 괜찮아요! 아니, 저는 괜찮아요! 그리고 혼자에요. 여기 뒤엔 아무도 없어요."
 	<br>
-	잠시 침묵이 흐른 뒤 시리스가 대답한다. "알겠단다," <<nnpc_he "Sirris">>【이가】 말한다. "그냥 확인해 본 거란다." 시리스가 떠나자 시드니는 안도의 한숨을 내쉰다.
+	잠시 침묵이 흐른 뒤 시리스가 대답한다. "알겠단다." <<nnpc_he "Sirris">>【이가】 말한다. "그냥 확인해 본 거란다." 시리스가 떠나자 시드니는 안도의 한숨을 내쉰다.
 	<br><br>
 
 	시드니가 얼굴을 붉히며 당신에게 돌아선다. <<his>> 욕정에 찬 허세는 익숙한 다정함으로 바뀌어 있다. "저... 이게... 유익했으면 좋겠네요." <<He>>【이가】 헛기침을 한다. "나중에 수업을 계속할 수도 있어요... 원하신다면요."
@@ -1532,7 +1532,7 @@
 <<set $outside to 0>><<set $location to "adult_shop">><<effects>>
 
 <<if $speech_attitude is "meek">>
-	당신은 시드니에게서 몸을 비틀어 피한다. "다, 다음에 하자."
+	당신은 시드니에게서 몸을 비틀어 피한다. "다-다음에 하자."
 <<elseif $speech_attitude is "bratty">>
 	당신은 시드니를 밀어낸다. "안 해."
 <<else>>
@@ -1545,7 +1545,7 @@
 <<his>> 고집에도 불구하고 당신은 단호하게 버틴다. <<He>>【은는】 한숨을 쉬며 포기하고, 비즈를 어깨너머로 던져버린다. "너 정말 사람 애태우는 거 알아? 날 이렇게 흥분시켜 놓고, 이제 와서 조금도 즐기게 해주지 않다니."
 <br><br>
 
-어깨너머로 힐끗 쳐다본 <<he>>【은는】 당신의 뒤통수를 잡고 가까이 끌어당긴다. 당신의 귓가에 <<his>> 숨결이 느껴진다. "언젠가는," <<he>>【이가】 속삭인다, "네가 말뿐이 아니란 걸 증명해야 할 거야."<<npcincr Sydney lust 1>><<gslust>>
+어깨너머로 힐끗 쳐다본 <<he>>【은는】 당신의 뒤통수를 잡고 가까이 끌어당긴다. 당신의 귓가에 <<his>> 숨결이 느껴진다. "언젠가는." <<he>>【이가】 속삭인다, "네가 말뿐이 아니란 걸 증명해야 할 거야."<<npcincr Sydney lust 1>><<gslust>>
 <br><br>
 
 <<He>>【이가】 당신의 귓가에 킥킥 웃으며, 당신을 가볍게 밀치고는 일터로 돌아간다.
@@ -1572,25 +1572,25 @@
 	"저, 정말요?" <<He>>【이가】 침을 꿀꺽 삼킨다. "거기에요? 당신의... 하지만... 그리고..." <<He>>【은는】 말을 끊고 고개를 젓는다. "아니, 아니, 아니. 됐어요." <<He>>【은는】 마치 전염병이라도 되는 듯 비즈를 쳐다보다가, 조심스럽게 상자 안에 다시 넣는다.
 	<br><br>
 
-	<<He>>【이가】 당신에게 어색한 미소를 짓는다. "알, 알려주셔서... 감사합니다." <<He>>【은는】 내내 혼잣말을 중얼거리며 일터로 돌아간다.
+	<<He>>【이가】 당신에게 어색한 미소를 짓는다. "알-알려주셔서... 감사합니다." <<He>>【은는】 내내 혼잣말을 중얼거리며 일터로 돌아간다.
 <<elseif $phase is 1>>
 	<<set $sydneySeen.pushUnique("pureBeads")>>
 	<<endevent>><<npc Sirris>><<person1>>
 	당신은 계산대에 있는 시리스를 찾아가 이상한 묵주를 보여준다. <<He>>【은는】 멍한 표정으로 그것을 쳐다보다가, 이내 웃음을 터뜨린다. 시드니는 어리둥절한 표정으로 당신을 쳐다본다.
 	<br><br>
 
-	시리스가 진정하는 데는 시간이 좀 걸렸다. "묵주라니," <<he>>【이가】 눈물을 닦으며 킥킥 웃는다. "재밌네요."
+	시리스가 진정하는 데는 시간이 좀 걸렸다. "묵주라니." <<he>>【이가】 눈물을 닦으며 킥킥 웃는다. "재밌네요."
 	<br><br>
 
 	<<He>>【은는】 계산대에 표지판을 놓고 당신을 뒷방으로 안내한다. <<He>>【은는】 소위 "묵주"라는 것이 무엇인지 설명하고, 그 사용법에 대해 끔찍할 정도로 자세히 설명한다. 시드니에게는 너무 과한 설명이었는지, <<nnpc_his "Sydney">> 얼굴이 상기된 채 중간에 자리를 뜬다.<<lspurity>>
 	<br><br>
 
-	시리스가 고개를 젓는다. "저 <<nnpc_gendery "Sydney">>도 언젠가는 배워야죠," <<he>>【이가】 중얼거린다. <<He>>【은는】 당신의 어깨에 손을 얹고 미소 짓는다. "어쨌든, 이걸로 궁금증이 풀렸으면 좋겠네요. 궁금한 게 있으면 언제든 물어보세요. 호기심은 미덕이니까요!"
+	시리스가 고개를 젓는다. "저 <<nnpc_gendery "Sydney">>도 언젠가는 배워야죠." <<he>>【이가】 중얼거린다. <<He>>【은는】 당신의 어깨에 손을 얹고 미소 짓는다. "어쨌든, 이걸로 궁금증이 풀렸으면 좋겠네요. 궁금한 게 있으면 언제든 물어보세요. 호기심은 미덕이니까요!"
 <<else>>
 	시드니는 묵주를 상자 안에 다시 넣는다.
 	<br><br>
 
-	"<<nnpc_Mum "Sirris">>【이가】 직접 찾게 놔둘래요. <<nnpc_him "Sirris">>【을를】 당황하게 하고 싶지 않아요," <<he>>【이가】 킥킥 웃는다. "<<nnpc_He "Sirris">>【은는】 가끔 너무 덜렁거린다니까요."
+	"<<nnpc_Mum "Sirris">>【이가】 직접 찾게 놔둘래요. <<nnpc_him "Sirris">>【을를】 당황하게 하고 싶지 않아요." <<he>>【이가】 킥킥 웃는다. "<<nnpc_He "Sirris">>【은는】 가끔 너무 덜렁거린다니까요."
 <</if>>
 <br><br>
 
@@ -1660,14 +1660,14 @@
 	<<elseif $speech_attitude is "bratty">>
 		당신은 믿을 수 없다는 듯 고개를 젓는다. "알았어, 인정할게. 배짱 두둑하네."
 	<<else>>
-		당신은 믿을 수 없다는 듯 쳐다본다. "용감하네," 당신이 말한다. "아니면 미쳤거나."
+		당신은 믿을 수 없다는 듯 쳐다본다. "용감하네." 당신이 말한다. "아니면 미쳤거나."
 	<</if>>
 	<br><br>
 
 	<<if _sydneyStatus.includes("corrupt")>>
 		시드니가 <<his>> 팔짱을 낀다. "너 완전히 날 의심했지, 안 그래?" <<He>>【이가】 웃으며 의기양양한 미소를 짓는다. "이제 나 그렇게 고지식하지 않지, 안 그래?"
 	<<else>>
-		시드니가 당신의 말에 기운을 차린다. <<He>>【은는】 여전히 긴장하고 있지만, <<his>> 미소는 좀 더 진심이 담겨 있다. "네가 날 이렇게 설득할 줄은 몰랐어," <<he>>【이가】 킥킥 웃는다.
+		시드니가 당신의 말에 기운을 차린다. <<He>>【은는】 여전히 긴장하고 있지만, <<his>> 미소는 좀 더 진심이 담겨 있다. "네가 날 이렇게 설득할 줄은 몰랐어." <<he>>【이가】 킥킥 웃는다.
 	<</if>>
 	<br><br>
 
@@ -1676,15 +1676,15 @@
 	<<if $speech_attitude is "meek">>
 		당신은 걱정스럽게 주위를 둘러본다. "정말 이래도 괜찮겠어?" 당신이 중얼거린다. "곤란해질 수도 있어."
 	<<elseif $speech_attitude is "bratty">>
-		당신은 시드니의 손목을 잡고 <<him>>【을를】 눈에 띄지 않는 한적한 골방으로 끌고 간다. "이 바보야," 당신이 쏘아붙인다. "스스로 곤경에 처하려고 작정한 거야?"
+		당신은 시드니의 손목을 잡고 <<him>>【을를】 눈에 띄지 않는 한적한 골방으로 끌고 간다. "이 바보야." 당신이 쏘아붙인다. "스스로 곤경에 처하려고 작정한 거야?"
 	<<else>>
-		당신은 시드니에게 걱정스러운 표정을 짓는다. "이건 나쁜 생각이야," 당신이 말한다. "넌 곤란해질 거야."
+		당신은 시드니에게 걱정스러운 표정을 짓는다. "이건 나쁜 생각이야." 당신이 말한다. "넌 곤란해질 거야."
 	<</if>>
 	<br><br>
 
 	<<if $purityRollover is 1>>
 		<<unset $purityRollover>>
-		<<He>>【이가】 움찔한다. "네 말이 맞아," <<he>>【이가】 아래를 내려다보며 한숨 쉰다. "어리석은 생각이었어."
+		<<He>>【이가】 움찔한다. "네 말이 맞아." <<he>>【이가】 아래를 내려다보며 한숨 쉰다. "어리석은 생각이었어."
 		<br><br>
 
 		잠시 침묵이 흐른 후 시드니가 당신을 마주본다. <<He>>【은는】 부끄러워 보인다. 한동안 <<him>>에게서 보지 못했던 표정이다. "미안해. 난 그냥..." <<He>>【이가】 훌쩍인다. "요즘 내가 이상하게 행동하고 있어. 뭐, 이런 짓 같은 거 말이야." <<He>>【이가】 구슬 끈을 들어 올린다. "이거."
@@ -1730,9 +1730,9 @@
 		<</if>>
 		<br><br>
 
-		<<link [[장단 맞춰주기|Adult Shop Sydney Cuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
+		<<link [[장단을 맞춰준다|Adult Shop Sydney Cuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
 		<br>
-		<<link [[그냥 풀어주기|Adult Shop Sydney Cuffs Free]]>><<set $phase to 1>><<npcincr Sydney purity 1>><</link>><<gspurity>>
+		<<link [[그냥 풀어준다|Adult Shop Sydney Cuffs Free]]>><<set $phase to 1>><<npcincr Sydney purity 1>><</link>><<gspurity>>
 		<br>
 	<<else>>
 		<<His>> 팔이 선반에 연결된 분홍색 털 수갑에 의해 <<him>> 앞에서 묶여 있다.
@@ -1749,9 +1749,9 @@
 		<</if>>
 		<br><br>
 
-		<<link [[놀리기|Adult Shop Sydney Cuffs Tease]]>><<if $sydneyromance isnot 1>><<npcincr Sydney love -1>><</if>><<npcincr Sydney lust 1>><<npcincr Sydney purity -1>><</link>><<if $sydneyromance isnot 1>><<llove>><</if>><<gslust>><<lspurity>>
+		<<link [[놀린다|Adult Shop Sydney Cuffs Tease]]>><<if $sydneyromance isnot 1>><<npcincr Sydney love -1>><</if>><<npcincr Sydney lust 1>><<npcincr Sydney purity -1>><</link>><<if $sydneyromance isnot 1>><<llove>><</if>><<gslust>><<lspurity>>
 		<br>
-		<<link [[풀어주기|Adult Shop Sydney Cuffs Free]]>><<set $phase to 0>><<npcincr Sydney love 1>><</link>><<glove>>
+		<<link [[풀어준다|Adult Shop Sydney Cuffs Free]]>><<set $phase to 0>><<npcincr Sydney love 1>><</link>><<glove>>
 		<br>
 	<</if>>
 <<else>>
@@ -1771,7 +1771,7 @@
 	남은 근무 시간은 별일 없이 지나간다.
 	<<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.<<npcincr Sirris love 1>><<glove "Sirris">>
 	<br><br>
-	<<link [[돌아가기|Adult Shop]]>><<endevent>><</link>>
+	<<link [[돌아간다|Adult Shop]]>><<endevent>><</link>>
 <</if>>
 
 :: Adult Shop Sydney Cuffs Free
@@ -1790,9 +1790,9 @@
 		"어려운 방법으로 하고 싶어요?" <<He>>【은는】 <<his>> 입술을 핥는다. "전 좋아요."
 		<br><br>
 
-		<<link [[굴복하기|Adult Shop Sydney Uncuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
+		<<link [[굴복한다|Adult Shop Sydney Uncuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
 		<br>
-		<<link [[저항하기|Adult Shop Sydney Cuffs Struggle]]>><<stress 4>><<npcincr Sydney love -1>><<npcincr Sydney purity 1>><</link>><<gstress>><<llove>><<gspurity>>
+		<<link [[저항한다|Adult Shop Sydney Cuffs Struggle]]>><<stress 4>><<npcincr Sydney love -1>><<npcincr Sydney purity 1>><</link>><<gstress>><<llove>><<gspurity>>
 		<br>
 	<<else>>
 		<<if _sydneyStatus.includes("corrupt")>>
@@ -1854,9 +1854,9 @@
 	"말은 잘하네요. 그걸 실행에 옮기기엔 너무 겁쟁이라는 게 안타깝지만." <<He>>【은는】 당신을 도발하며 <<his>> 엉덩이를 당신 쪽으로 흔든다.
 	<br><br>
 
-	<<link [[굴복하기|Adult Shop Sydney Cuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
+	<<link [[굴복한다|Adult Shop Sydney Cuffed Sex]]>><<set $sexstart to 1>><<npcincr Sydney purity -1>><</link>><<promiscuous1>><<lspurity>>
 	<br>
-	<<link [[그냥 풀어주기|Adult Shop Sydney Cuffs Free]]>><<set $phase to 1>><<npcincr Sydney purity 1>><</link>><<gspurity>>
+	<<link [[그냥 풀어준다|Adult Shop Sydney Cuffs Free]]>><<set $phase to 1>><<npcincr Sydney purity 1>><</link>><<gspurity>>
 	<br>
 <<else>>
 	<<if $sydneyromance is 1>>
@@ -1991,7 +1991,7 @@
 	<<if _sydneyStatus.includes("corrupt")>>
 		"진심이야? 묶여있는 <<personsimple>>【을를】 때리다니?"
 	<<else>>
-		"ㅎ-헤이! 너무 거칠잖아!"
+		"헤-헤이! 너무 거칠잖아!"
 	<</if>>
 	<<he>>【이가】 얼굴을 붉히는 것을 알아차리지 않을 수 없다.<<npcincr Sydney lust 1>><<glust>>
 	<br><br>
@@ -2137,7 +2137,7 @@
 <br><br>
 
 <<if _sydneyStatus.includes("corrupt")>>
-	"이봐요," 시드니가 허스키한 목소리로 속삭인다. "그 작은 걸로 만족할 수 있을 것 같아요?"
+	"이봐요." 시드니가 허스키한 목소리로 속삭인다. "그 작은 걸로 만족할 수 있을 것 같아요?"
 	<br>
 	"그 수에 안 넘어가." <<person>>【이가】 쏘아붙이며 중얼거린다. "더 큰 것들은 너무 비싸."
 	<br>
@@ -2284,7 +2284,7 @@
 	그냥 다시 일이나 하자."
 <<else>>
 	<<if $speech_attitude is "meek">>
-		당신은 얼굴을 붉힌다. "저, 저기, 사실은..."
+		당신은 얼굴을 붉힌다. "저-저기, 사실은..."
 		<br><br>
 
 		시드니가 <<person1>><<his>> 미간을 찌푸린다. "'사실은'? 사실은, 뭔데?" 당신은 조용히 무릎을 내려다본다. 시드니가 당신의 팔을 잡고 칭얼거린다. "어서, 말해줘!"
@@ -2292,7 +2292,7 @@
 		당신은 씩 웃는다. "이런 거에 되게 관심 많네."
 		<br><br>
 
-		시드니가 숨을 헉 들이마신다. <<person1>><<He>>【은는】 모욕당한 것처럼 보인다. "아, 아니! 그냥 궁금해서 그래, 그뿐이야. <<nnpc_Mum "Sirris">> 님은 호기심이 미덕이라고 하셨어..."
+		시드니가 숨을 헉 들이마신다. <<person1>><<He>>【은는】 모욕당한 것처럼 보인다. "아-아니! 그냥 궁금해서 그래, 그뿐이야. <<nnpc_Mum "Sirris">> 님은 호기심이 미덕이라고 하셨어..."
 	<<else>>
 		당신은 어깨를 으쓱한다. "놀랄걸."
 		<br><br>
@@ -2307,7 +2307,7 @@
 <br><br>
 <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.<<npcincr Sirris love 1>><<glove "Sirris">><<npcincr Sydney love 1>><<glove "Sydney">>
 <br><br>
-<<link [[돌아가기|Adult Shop]]>><<endevent>><</link>>
+<<link [[돌아간다|Adult Shop]]>><<endevent>><</link>>
 
 
 :: Adult Shop Sydney Bartering Ignore
@@ -3032,7 +3032,7 @@
 		<br><br>
 		남은 근무 시간은 별일 없이 지나간다. <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.
 		<br><br>
-		<<link [[돌아가기|Adult Shop]]>><</link>>
+		<<link [[돌아간다|Adult Shop]]>><</link>>
 	<<else>>
 		<<if hasSexStat("promiscuity", 4) and $sydneyromance gte 1>>
 			<span class="lewd">_toy【을를】 보며 킥킥거리는 웃음을 참는다.</span> "정말 그렇죠. 나중에 한번 써보실래요? 괜찮으시다면 제가 도와드릴 수도 있고요."
@@ -3044,7 +3044,7 @@
            <<set $tip += _wage*100>>
 	<<He>>【은는】 당신에게 팁을 남긴다. <<tipreceive "adultShop">>
 			<br><br>
-			<<link [[돌아가기|Adult Shop]]>><</link>>
+			<<link [[돌아간다|Adult Shop]]>><</link>>
 		<<else>>
 			<<person2>>
 			당신은 포장을 보며, <span class="lewd">내용물을 살피며 미소 짓는다.</span> 당신은 시드니의 귀에 속삭인다. "맞아요. 그 용도로 쓰는 거예요."
@@ -3053,7 +3053,7 @@
 			<br><br>
 			남은 근무 시간은 별일 없이 지나간다. <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.
 			<br><br>
-			<<link [[돌아가기|Adult Shop]]>><</link>>
+			<<link [[돌아간다|Adult Shop]]>><</link>>
 		<</if>>
 	<</if>>
 
@@ -3072,7 +3072,7 @@
 	<br><br>
 	남은 근무 시간은 별일 없이 지나간다. <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.
 	<br><br>
-	<<link [[돌아가기|Adult Shop]]>><</link>>
+	<<link [[돌아간다|Adult Shop]]>><</link>>
 
 <<else>>
 	<<if $awareness lt 200>>
@@ -3083,7 +3083,7 @@
 		<br><br>
 		남은 근무 시간은 별일 없이 지나간다. <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.
 		<br><br>
-		<<link [[돌아가기|Adult Shop]]>><</link>>
+		<<link [[돌아간다|Adult Shop]]>><</link>>
 
 	<<else>>
 		당신은 포장을 보며, <span class="lewd">내용물을 살피며 미소 짓는다.</span> 당신은 <<his>> 귀에 속삭인다. "맞아요. 신제품 중 하나이기도 하고요."
@@ -3093,7 +3093,7 @@
 		<br><br>
 		남은 근무 시간은 별일 없이 지나간다. <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.
 		<br><br>
-		<<link [[돌아가기|Adult Shop]]>><</link>>
+		<<link [[돌아간다|Adult Shop]]>><</link>>
 
 	<</if>>
 

@@ -6,19 +6,19 @@
 	<br>
 <</if>>
 <<if $sciencelichentemple is 1 and $sciencelichentempleready lt 1>>
-	<<scienceicon "pink lichen">><<link [[분홍 이끼 추가하기 (3:00)|Science Project Lichen]]>><<set $phase to 0>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
+	<<scienceicon "pink lichen">><<link [[분홍 이끼를 추가한다 (3:00)|Science Project Lichen]]>><<set $phase to 0>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
 	<br>
 <</if>>
 <<if $sciencelichenpark is 1 and $sciencelichenparkready lt 1>>
-	<<scienceicon "white lichen">><<link [[하얀 이끼 추가하기 (3:00)|Science Project Lichen]]>><<set $phase to 1>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
+	<<scienceicon "white lichen">><<link [[하얀 이끼를 추가한다 (3:00)|Science Project Lichen]]>><<set $phase to 1>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
 	<br>
 <</if>>
 <<if $sciencelichendrain is 1 and $sciencelichendrainready lt 1>>
-	<<scienceicon "violet lichen">><<link [[보라 이끼 추가하기 (3:00)|Science Project Lichen]]>><<set $phase to 2>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
+	<<scienceicon "violet lichen">><<link [[보라 이끼를 추가한다 (3:00)|Science Project Lichen]]>><<set $phase to 2>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
 	<br>
 <</if>>
 <<if $sciencelichenlake is 1 and $sciencelichenlakeready lt 1>>
-	<<scienceicon "purple lichen">><<link [[자주색 이끼 추가하기 (3:00)|Science Project Lichen]]>><<set $phase to 3>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
+	<<scienceicon "purple lichen">><<link [[자주색 이끼를 추가한다 (3:00)|Science Project Lichen]]>><<set $phase to 3>><<pass 3 hours>><<scienceskill 18>><</link>><<gggscience>>
 	<br>
 <</if>>
 <<if $scienceshroomknown is 1>>
@@ -31,11 +31,11 @@
 	<br>
 <</if>>
 <<if $scienceshroomheart gt $scienceshroomheartready>>
-	<<foodstufficon "mushroom">><<link [[하트 버섯 추가하기 (1:00)|Science Project Shroom]]>><<set $phase to 0>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
+	<<foodstufficon "mushroom">><<link [[하트 버섯을 추가한다 (1:00)|Science Project Shroom]]>><<set $phase to 0>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
 	<br>
 <</if>>
 <<if $scienceshroomwolf gt $scienceshroomwolfready>>
-	<<foodstufficon "wolfshroom">><<link [[늑대 버섯 추가하기 (1:00)|Science Project Shroom]]>><<set $phase to 1>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
+	<<foodstufficon "wolfshroom">><<link [[늑대 버섯을 추가한다 (1:00)|Science Project Shroom]]>><<set $phase to 1>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
 	<br>
 <</if>>
 <<if $sciencephallusknown is 1>>
@@ -43,7 +43,7 @@
 	당신은 남근 크기에 대한 프로젝트를 진행 중입니다. 박람회에서 우승할 확률은 <<print ($sciencephallusready * 10)>>%입니다.
 	<br>
 	<<if $sciencephallus gt $sciencephallusready>>
-		<<icon "project-science.png">><<link [[남근 추가하기 (1:00)|Science Project Phallus]]>><<set $phase to 0>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
+		<<icon "project-science.png">><<link [[남근을 추가한다 (1:00)|Science Project Phallus]]>><<set $phase to 0>><<pass 1 hour>><<scienceskill 6>><</link>><<ggscience>>
 		<br>
 	<</if>>
 <</if>>
@@ -54,11 +54,11 @@
 <</if>>
 
 <<if $location is "home">>
-	<<getouticon>><<link [[그만두기|Bedroom]]>><</link>>
+	<<getouticon>><<link [[그만둔다|Bedroom]]>><</link>>
 <<elseif $location is "avery_mansion">>
-	<<getouticon>><<link [[그만두기|Mansion Study]]>><</link>>
+	<<getouticon>><<link [[그만둔다|Mansion Study]]>><</link>>
 <<else>>
-	<<getouticon>><<link [[그만두기|School Library]]>><</link>>
+	<<getouticon>><<link [[그만둔다|School Library]]>><</link>>
 <</if>>
 <br>
 
@@ -224,20 +224,20 @@
 <br><br>
 
 <<if $sciencelichenknown is 1>>
-	<<scienceicon "white lichen">><<link [[이끼 프로젝트 출품하기 (3:00)|Science Fair Lichen]]>><<pass 3 hour>><</link>><<note "$sciencelichenchance% 확률로 우승" "gold">>
+	<<scienceicon "white lichen">><<link [[이끼 프로젝트를 출품한다 (3:00)|Science Fair Lichen]]>><<pass 3 hour>><</link>><<note "$sciencelichenchance% 확률로 우승" "gold">>
 	<br>
 <</if>>
 <<if $scienceshroomknown is 1>>
-	<<foodstufficon "mushroom">><<link [[버섯 프로젝트 출품하기 (3:00)|Science Fair Mushroom]]>><<pass 3 hour>><</link>><<note "$scienceshroomchance% 확률로 우승" "gold">>
+	<<foodstufficon "mushroom">><<link [[버섯 프로젝트를 출품한다 (3:00)|Science Fair Mushroom]]>><<pass 3 hour>><</link>><<note "$scienceshroomchance% 확률로 우승" "gold">>
 	<br>
 <</if>>
 <<if $sciencephallusknown is 1>>
-	<<icon "project-science.png">><<link [[남근 프로젝트 출품하기 (3:00)|Science Fair Phallus]]>><<pass 3 hour>><</link>><<note "$sciencephalluschance% 확률로 우승" "gold">>
+	<<icon "project-science.png">><<link [[남근 프로젝트를 출품한다 (3:00)|Science Fair Phallus]]>><<pass 3 hour>><</link>><<note "$sciencephalluschance% 확률로 우승" "gold">>
 	<br>
 <</if>>
-<<scienceicon>><<link [[구경만 하기 (3:00)|Science Fair Watch]]>><<pass 3 hour>><</link>>
+<<scienceicon>><<link [[구경만 한다 (3:00)|Science Fair Watch]]>><<pass 3 hour>><</link>>
 <br><br>
-<<getouticon>><<link [[나가기 (0:05)|Cliff Street]]>><<pass 5>><<endevent>><</link>>
+<<getouticon>><<link [[나간다 (0:05)|Cliff Street]]>><<pass 5>><<endevent>><</link>>
 <br>
 
 :: Science Fair Lichen
@@ -262,9 +262,9 @@
 <br><br>
 
 <<set $skulduggerydifficulty to 400>>
-<<link [[<<him>>【을를】 방해하기|Science Fair Sabotage]]>><<set $science_sabotage to true>><</link>><<skulduggerydifficulty>><<note "$sciencelichenchance% 확률로 우승" "gold">>
+<<link [[<<him>>【을를】 방해한다|Science Fair Sabotage]]>><<set $science_sabotage to true>><</link>><<skulduggerydifficulty>><<note "$sciencelichenchance% 확률로 우승" "gold">>
 <br>
-<<link [[정정당당하게 하기|Science Fair Fair]]>><</link>>
+<<link [[정정당당하게 한다|Science Fair Fair]]>><</link>>
 <br>
 
 :: Science Fair Mushroom
@@ -289,9 +289,9 @@
 <br><br>
 
 <<set $skulduggerydifficulty to 400>>
-<<link [[<<him>>【을를】 방해하기|Science Fair Sabotage]]>><</link>><<skulduggerydifficulty>><<note "+ 성공 확률" "gold">>
+<<link [[<<him>>【을를】 방해한다|Science Fair Sabotage]]>><</link>><<skulduggerydifficulty>><<note "+ 성공 확률" "gold">>
 <br>
-<<link [[정정당당하게 하기|Science Fair Fair]]>><</link>>
+<<link [[정정당당하게 한다|Science Fair Fair]]>><</link>>
 <br>
 
 :: Science Fair Phallus
@@ -316,9 +316,9 @@
 <br><br>
 
 <<set $skulduggerydifficulty to 400>>
-<<link [[<<him>>【을를】 방해하기|Science Fair Sabotage]]>><</link>><<skulduggerydifficulty>><<note "+ 성공 확률" "gold">>
+<<link [[<<him>>【을를】 방해한다|Science Fair Sabotage]]>><</link>><<skulduggerydifficulty>><<note "+ 성공 확률" "gold">>
 <br>
-<<link [[정정당당하게 하기|Science Fair Fair]]>><</link>>
+<<link [[정정당당하게 한다|Science Fair Fair]]>><</link>>
 <br>
 
 :: Science Fair Sabotage
@@ -404,9 +404,9 @@
 <</if>>
 <br><br>
 
-<<link [[레이튼에게 추파 던지기|Science Fair Flirt]]>><<set $science_leighton_flirt to true>><</link>><<promiscuous1>><<note "+ 우승 확률" "gold">>
+<<link [[레이튼에게 추파를 던진다|Science Fair Flirt]]>><<set $science_leighton_flirt to true>><</link>><<promiscuous1>><<note "+ 우승 확률" "gold">>
 <br>
-<<link [[프로젝트 설명하기|Science Fair Explain]]>><</link>>
+<<link [[프로젝트를 설명한다|Science Fair Explain]]>><</link>>
 <br>
 
 :: Science Fair Flirt
@@ -573,7 +573,7 @@
 		당신은 무대로 올라가 대기 중인 사진사를 향해 미소 짓는 레이튼과 악수를 나눈다. <<takeHandholdingVirginity "Leighton">> <<He>>【은는】 당신에게 트로피를 건넨다. 그 안에는 <<printmoney 50000>>이 들어 있다. 관객들이 환호하며 박수를 보낸다.
 		<br><br>
 		<<if $sciencephalluschance is 0>>
-			<<person2>><<person>>【은는】 언짢아 보인다. <<His>> 주먹이 꽉 쥐어진다. "말도 안 돼," <<he>>【이가】 외친다. "인정 못 해. 저 녀석은 그냥 거시기 몇 개 끄적였을 뿐이잖아." <<He>>【은는】 무대로 올라온다. "그 트로피 내놔!" <<He>>【은는】 당신의 손에서 트로피를 빼앗으려 한다.
+			<<person2>><<person>>【은는】 언짢아 보인다. <<His>> 주먹이 꽉 쥐어진다. "말도 안 돼." <<he>>【이가】 외친다. "인정 못 해. 저 녀석은 그냥 거시기 몇 개 끄적였을 뿐이잖아." <<He>>【은는】 무대로 올라온다. "그 트로피 내놔!" <<He>>【은는】 당신의 손에서 트로피를 빼앗으려 한다.
 			<br><br>
 
 			<<link [[<<him>>【이가】 가져가게 둔다|Science Fair Take]]>><</link>>
@@ -604,7 +604,7 @@
 		당신은 무대로 올라가 대기 중인 사진사를 향해 미소 짓는 레이튼과 악수를 나눈다. <<takeHandholdingVirginity "Leighton">> <<He>>【은는】 당신에게 트로피를 건넨다. 그 안에는 <<printmoney 50000>>이 들어 있다. 관객들이 환호하며 박수를 보낸다.
 		<br><br>
 		<<if $sciencephalluschance is 0>>
-			<<person2>><<person>>【은는】 언짢아 보인다. <<His>> 주먹이 꽉 쥐어진다. "말도 안 돼," <<he>>【이가】 외친다. "인정 못 해. 저 녀석은 그냥 거시기 몇 개 끄적였을 뿐이잖아." <<He>>【은는】 무대로 올라온다. "그 트로피 내놔!" <<He>>【은는】 당신의 손에서 트로피를 빼앗으려 한다.
+			<<person2>><<person>>【은는】 언짢아 보인다. <<His>> 주먹이 꽉 쥐어진다. "말도 안 돼." <<he>>【이가】 외친다. "인정 못 해. 저 녀석은 그냥 거시기 몇 개 끄적였을 뿐이잖아." <<He>>【은는】 무대로 올라온다. "그 트로피 내놔!" <<He>>【은는】 당신의 손에서 트로피를 빼앗으려 한다.
 			<br><br>
 
 			<<link [[<<him>>【이가】 가져가게 둔다|Science Fair Take]]>><</link>>

@@ -507,7 +507,7 @@
 
 밖에서 급한 발소리가 들리더니, 윈터가 들이닥친다. <<nnpc_His Winter>> 시선이 바닥에 찌그러진 책으로 향했다가, <<person>>에게 멈춘다.
 <br><br>
-"나가," <<nnpc_he Winter>>【이가】 말한다. "학교 기물을 파손하는 건 용납 못 한다."
+"나가." <<nnpc_he Winter>>【이가】 말한다. "학교 기물을 파손하는 건 용납 못 한다."
 <br><br>
 <<person>>【이가】 반박하려 하지만, 윈터는 들으려 하지 않는다. <<He>>【은는】 방을 나가면서 <<his>> 머리를 문지른다.
 <br><br>
@@ -689,7 +689,7 @@
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
 	<<if $speech_attitude is "meek">>
-		"이, 이건 제 사역마 목걸이에요." 당신은 말한다. "저는 펫이에요."
+		"이-이건 제 사역마 목걸이에요." 당신은 말한다. "저는 펫이에요."
 	<<elseif $speech_attitude is "bratty">>
 		"제 사역마 목걸이에요. 선물받은 거예요." 당신은 말한다.
 	<<else>>
@@ -700,7 +700,7 @@
 	"사역마라, 확실히 이 디자인을 전에 본 것 같은 기분이 드는군." <<He>>【은는】 틈새로 손가락을 넣어 잡아당긴다. 당신이 <<him>>에게 경고하려 움직이지만, 아무 일도 일어나지 않는다. "꽤 꽉 끼는군, 안 그런가?
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"이, 이건 제 목걸이에요." 당신은 말한다.
+		"이-이건 제 목걸이에요." 당신은 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"목걸이잖아요. 무슨 상관인데요?" 당신은 말한다.
 	<<else>>
@@ -723,7 +723,7 @@
 :: History Lesson Horns
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<if $speech_attitude is "meek">>
-	"머, 머리에 자라난 거예요, <<sir>>. 뿔처럼요."
+	"머-머리에 자라난 거예요, <<sir>>. 뿔처럼요."
 <<elseif $speech_attitude is "bratty">>
 	"저는 죄인이에요, <<sir>>. 그래서 뿔이 자라요."
 <<else>>
@@ -741,7 +741,7 @@
 :: History Lesson Ears
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<if $speech_attitude is "meek">>
-	"죄, 죄송해요. 이건 제 귀예요, <<sir>>. 이렇게 자라요."
+	"죄-죄송해요. 이건 제 귀예요, <<sir>>. 이렇게 자라요."
 <<elseif $speech_attitude is "bratty">>
 	"제 귀가 마음에 드세요, <<sir>>? 야생적으로 변하면 이렇게 자랄 수 있어요."
 <<else>>
@@ -759,7 +759,7 @@
 :: History Lesson Excuse
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<if $speech_attitude is "meek">>
-	"아, 아무것도 아니에요." 당신은 말한다. "그냥 바, 바보 같은 장난이었어요."
+	"아-아무것도 아니에요." 당신은 말한다. "그냥 바-바보 같은 장난이었어요."
 	<br>
 <<elseif $speech_attitude is "bratty">>
 	"코스튬이에요." 당신은 말한다. "독특하잖아요. 재밌고. 유머 감각도 없어요?"
@@ -779,7 +779,7 @@
 <<effects>><<person1>>
 
 <<if $speech_attitude is "meek">>
-	"로, 로빈은 결백해요." 당신은 항의한다.
+	"로-로빈은 결백해요." 당신은 항의한다.
 <<elseif $speech_attitude is "bratty">>
 	당신은 로빈의 팔에 손을 얹어 <<him>>【을를】 일어서지 못하게 막고 윈터를 쏘아본다. "그걸 믿으실 거예요?" 당신이 묻는다. "멍청한 분인 줄은 몰랐네요."
 <<else>>
@@ -882,7 +882,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아, 아니." 당신은 말한다. "우린 커플 아니야."
+	"아-아니." 당신은 말한다. "우린 커플 아니야."
 <<elseif $speech_attitude is "bratty">>
 	"무슨 그런 생각을 해?" 당신이 묻는다. "당연히 안 사귀지."
 <<else>>
@@ -940,7 +940,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아, 아니." 당신은 말한다. "우린 커플 아니야."
+	"아-아니." 당신은 말한다. "우린 커플 아니야."
 <<elseif $speech_attitude is "bratty">>
 	"무슨 그런 생각을 해?" 당신이 묻는다. "당연히 안 사귀지."
 <<else>>
@@ -961,19 +961,19 @@
 		교과서가 책상에 쿵 하고 부딪힌다. 그 <<person>>【이가】 고개를 들자 윈터의 꿰뚫는 듯한 시선이 <<him>>【을를】 향해 있다. <<He>>【은는】 <<his>> 의자에 주저앉는다.
 		<br><br>
 	<<else>>
-		"나, 나도 더 나아지려고 노력하고 있어." <<he>>【이가】 말한다. <<He>>【은는】 눈물을 참는 것처럼 보인다.
+		"나-나도 더 나아지려고 노력하고 있어." <<he>>【이가】 말한다. <<He>>【은는】 눈물을 참는 것처럼 보인다.
 		<br><br>
 		"너희 둘 관계에 문제가 좀 있나 보네." <<person2>>그 <<person>>【이가】 끼어든다. "너희끼리 해결해." <<He>>【은는】 <<his>> 자리로 슬그머니 돌아간다.
 		<br><br>
 	<</if>>
 <<else>>
-	"뭐, 뭐라고?" 로빈이 떨리는 목소리로 말한다. "그, 그건 사실이 아니야!" <<He>>【은는】 말을 더듬다가 시선을 돌려버린다.
+	"뭐-뭐라고?" 로빈이 떨리는 목소리로 말한다. "그-그건 사실이 아니야!" <<He>>【은는】 말을 더듬다가 시선을 돌려버린다.
 	<br><br>
 	"너희 둘, 관계에 좀 문제가 있나 보네." <<person2>><<person>>【이가】 말한다. "난 빠져줄게." <<He>>【은는】 슬그머니 자기 자리로 돌아간다.
 	<br><br>
 <</if>>
 <<if $robin.timer.hurt is 0>>
-	<<set $robin.hurtReason to "you denying you're dating">><<set $robin.timer.hurt to 1>>
+	<<set $robin.hurtReason to "you saying that you two aren't a couple">><<set $robin.timer.hurt to 1>>
 <</if>>
 <<link [[로빈에게 사과한다|History Robin Apologise]]>><<npcincr Robin love 1>><</link>><<glove>>
 <br>
@@ -984,7 +984,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"미, 미안해." 당신은 로빈에게 말한다. "그냥 주, 주목받고 싶지 않았어."
+	"미-미안해." 당신은 로빈에게 말한다. "그냥 주-주목받고 싶지 않았어."
 <<elseif $speech_attitude is "bratty">>
 	"그런 뜻이 아니었어." 당신은 로빈에게 말한다. "그냥 주목받고 싶지 않았을 뿐이야."
 <<else>>

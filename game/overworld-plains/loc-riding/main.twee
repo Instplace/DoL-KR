@@ -8,7 +8,7 @@
 		<<wearProp "lockpick">>
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:10)|Riding School]]>><<pass 10>><<crimeUp 20 "trespassing">><</link>><<crime "trespassing">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:10)|Riding School]]>><<pass 10>><<crimeUp 20 "trespassing">><</link>><<crime "trespassing">>
 		<br>
 	<</if>>
 <<else>>
@@ -131,13 +131,18 @@
 			<</if>>
 		<</for>>
 
-		<<if $money gte 2500>>
-			<<animalicon "horse-pick">><<link [[승마 수업 듣기 (£25 1:00)|Riding School Lesson]]>><<set $riding_lesson to 0>><<money -2500 "ridingLessons">><<thighskill _riding>><</link>><<gtiredness>><<gthighskill>>
+		<<if $exposed lte 0>>
+			<<if $money gte 2500>>
+				<<animalicon "horse-pick">><<link [[승마 수업을 듣는다 (£25 1:00)|Riding School Lesson]]>><<set $riding_lesson to 0>><<money -2500 "ridingLessons">><<thighskill _riding>><</link>><<gtiredness>><<gthighskill>>
+				<br>
+			<</if>>
+		<<else>>
+			<<steedicon>><span class="blue">너무 노출이 심해서 승마 학교에 갈 수 없습니다!</span>
 			<br>
 		<</if>>
 
 		<<if isPubfameTaskAccepted("remy")>>
-			<<investigateicon>><<link [[랜드리의 연락책 찾기 (0:20)|Riding School Contact]]>><<pass 20>><</link>>
+			<<investigateicon>><<link [[랜드리의 연락책을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><</link>>
 			<br>
 		<</if>>
 
@@ -156,7 +161,7 @@
 		<br><br>
 	<</if>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if monsterCanAppearForType("horse")>>
 		<<if maleChance() lt random(1, 100)>>
 			레미가 당신에게 켄타우로스 한 마리를 배정해준다. 당신이 안장에 <<thightext>> 오르는 것을 켄타우로스가 지켜본다.
 			<<set $steed to "female">>
@@ -165,7 +170,7 @@
 			<<set $steed to "male">>
 		<</if>>
 	<<else>>
-		<<if beastMaleChance() lt random(1, 100)>>
+		<<if beastMaleChanceForType("horse") lt random(1, 100)>>
 			레미가 당신에게 암말 한 마리를 배정해준다. 당신은 <<thightext>> 안장에 오른다.
 			<<set $steed to "mare">>
 		<<else>>
@@ -204,11 +209,11 @@
 	<<rng>>
 
 	<<if dangerEvent()>>
-		<<if $rng gte 81 and $settings.horsesEnabled>>
+		<<if $rng gte 81>>
 			레미가 당신을 탁 트인 들판으로 이끈다. 말들은 뛰놀고 싶어 안달이 나서 통제하기가 더 어려워진다.
 			<br><br>
 			<!-- Modified for Monster People -->
-			<<if $steed isnot "mare" and $steed isnot "stallion" or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("horse", $steed isnot "mare" and $steed isnot "stallion")>>
 				<<if currentSkillValue("thighskill") gte 200>>
 					당신의 <<steed_text>>【이가】 갑자기 달리기 시작한다. 당신은 안장에서 자세를 유지하지만, 어떤 수를 써도 말을 멈추게 할 수 없다.
 				<<else>>
@@ -220,7 +225,7 @@
 				<<steed_He>>【이가】 당신을 향해 돌아선다. <<steed_his>> 눈에는 사나움이 번뜩인다.
 				<br><br>
 
-				<<link [[<<steed_him>> 진정시키기|Riding School Lesson Calm]]>><</link>><<tendingdifficulty 600 1200>>
+				<<link [[<<steed_him>>【을를】 진정시킨다|Riding School Lesson Calm]]>><</link>><<tendingdifficulty 600 1200>>
 				<br>
 				<<link [[몸을 방어한다|Riding School Lesson Brace]]>><</link>>
 				<br>
@@ -520,7 +525,7 @@
 <br><br>
 
 <<npc Remy>><<person1>>
-레미에게 도착했을 때 당신은 얼굴이 새빨갛게 달아올라 있다. <<He>>【이가】 재미있다는 듯 당신을 바라본다. "쓸 만한 게 있을 것 같은데." <<he>>【이가】 <<his>> 말 옆에 묶인 가방을 뒤지며 말한다. "여기 있군." <<He>>【이가】 당신에게 수건을 건네준다. 당신은 최대한 빨리 허리에 수건을 두른다.
+레미에게 도착했을 때 당신은 얼굴이 새빨갛게 달아올라 있다. <<He>>【이가】 재미있다는 듯 당신을 바라본다. "쓸 만한 게 있을 것 같은데," <<he>>【이가】 <<his>> 말 옆에 묶인 가방을 뒤지며 말한다. "여기 있군." <<He>>【이가】 당신에게 수건을 건네준다. 당신은 최대한 빨리 허리에 수건을 두른다.
 <br><br>
 
 <<towelup>>
@@ -565,7 +570,7 @@
 <br><br>
 
 <!-- Modified for Monster People -->
-	<<if $settings.horsesEnabled and $settings.analingusReceivingEnabled and ($steed isnot "mare" and $steed isnot "stallion" or $settings.bestialityEnabled)>>
+	<<if $settings.analingusReceivingEnabled and beastSexEnabledForType("horse", $steed isnot "mare" and $steed isnot "stallion")>>
 		벽을 밀며 엉덩이를 꿈틀거린다. 조금씩 나아가고 있는데, 그때 무언가 축축한 것이 당신의 <<bottom>>에 닿는다. 혀다.
 
 		<<if $steed is "male" or $steed is "female">>
@@ -595,7 +600,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"그-그만," 당신이 말한다. "간지러워."
+	"그-그만." 당신이 말한다. "간지러워."
 <<elseif $speech_attitude is "bratty">>
 	"꺼져, 안 그러면 코뼈가 부러질 줄 알아." 당신이 말한다.
 <<else>>
@@ -779,9 +784,9 @@
 <br><br>
 
 <<set $skulduggerydifficulty to 300>>
-<<link [[옷 벗기기|Riding School Lesson Strip]]>><</link>><<skulduggerydifficulty>>
+<<link [[옷을 벗긴다|Riding School Lesson Strip]]>><</link>><<skulduggerydifficulty>>
 <br>
-<<link [[밀치기|Riding School Lesson Shove]]>><</link>><<physiquedifficulty 1 12000>>
+<<link [[밀친다|Riding School Lesson Shove]]>><</link>><<physiquedifficulty 1 12000>>
 <br>
 
 :: Riding School Lesson Strip
@@ -1096,7 +1101,7 @@
 <br><br>
 
 <<generate1>><<person1>>
-한 <<person>>【이가】 당신의 눈길을 끈다. <<print either("울타리에 기대어 있거나","마구간에 기대어 있거나","<<his>> 휴대폰을 만지작거리거나","한가롭게 원을 그리며 걷고 있다")>>. "실례합니다," 당신은 <<him>>에게 다가가며 말한다. "꽃은 어디서 피나요?"
+한 <<person>>【이가】 당신의 눈길을 끈다. <<print either("울타리에 기대어 있거나","마구간에 기대어 있거나","<<his>> 휴대폰을 만지작거리거나","한가롭게 원을 그리며 걷고 있다")>>. "실례합니다." 당신은 <<him>>에게 다가가며 말한다. "꽃은 어디서 피나요?"
 <br><br>
 
 <<rng>>
@@ -1130,9 +1135,9 @@
 	<br><br>
 
 	<<if Time.hour isnot $closinghour>>
-		<<investigateicon>><<link [[다른 사람 찾기 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
+		<<investigateicon>><<link [[다른 사람을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
 		<br>
-		<<getouticon>><<link [[일단 포기하기|Riding School]]>><<endevent>><</link>>
+		<<getouticon>><<link [[일단 포기한다|Riding School]]>><<endevent>><</link>>
 	<<else>>
 		폐장 시간이다. <<steed_type>>들은 마구간으로 몰리고, 손님들은 마당에서 쫓겨난다. <<if $exposed gte 1>>당신은 누군가 당신의 <<lewdness>>【을를】 보기 전에 슬그머니 자리를 뜬다.<</if>>
 		<br><br>
@@ -1150,9 +1155,9 @@
 	<</if>>
 	<br><br>
 
-	<<link [[<<him>>【을를】 따라가기|Riding School Contact Follow]]>><</link>>
+	<<link [[<<him>>【을를】 따라간다|Riding School Contact Follow]]>><</link>>
 	<br>
-	<<link [[떠나기|Riding School Contact Leave]]>><<set $phase to Math.ceil($phase / 2)>><</link>>
+	<<link [[떠난다|Riding School Contact Leave]]>><<set $phase to Math.ceil($phase / 2)>><</link>>
 <</if>>
 
 :: Riding School Contact Leave
@@ -1166,9 +1171,9 @@
 <br><br>
 
 <<if Time.hour isnot $closinghour>>
-	<<investigateicon>><<link [[다른 사람 찾기 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
+	<<investigateicon>><<link [[다른 사람을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
 	<br>
-	<<getouticon>><<link [[일단 포기하기|Riding School]]>><<endevent>><</link>>
+	<<getouticon>><<link [[일단 포기한다|Riding School]]>><<endevent>><</link>>
 <<else>>
 	마감 시간이다. <<steed_type>>들은 마구간으로, 손님들은 밖으로 향하고 있다. <<if $exposed gte 1>>당신은 누군가 당신의 <<lewdness>>【을를】 보기 전에 슬그머니 자리를 뜬다.<</if>>
 	<br><br>
@@ -1196,13 +1201,13 @@
 
 		<<link [[다음|Riding School]]>><<endevent>><</link>>
 	<<case 2>>
-		<<He>>【은는】 몇 초간 서 있다가, 갑자기 <span class="red">당신에게 달려들어 건초 더미로 넘어뜨린다</span>. "네가 무슨 소리를 하는지 모르겠군," <<he>>【이가】 웃는다. "그리고 신경 안 써."
+		<<He>>【은는】 몇 초간 서 있다가, 갑자기 <span class="red">당신에게 달려들어 건초 더미로 넘어뜨린다</span>. "네가 무슨 소리를 하는지 모르겠군." <<he>>【이가】 웃는다. "그리고 신경 안 써."
 		<br><br>
 
 		<<link [[다음|Riding School Contact Rape]]>><<set $molestationstart to 1>><</link>>
 	<<case 3>>
 		<<generate2>><<generate3>>
-		<<He>>【은는】 몇 초간 서 있다가, 갑자기 당신에게 달려들어 팔을 붙잡고 옆구리에 고정시킨다. "네가 무슨 소리를 하는지 모르겠군," <<he>>【이가】 웃는다. "하지만 네 장단에 맞춰주면, 쉽게 널 얻을 수 있을 거라 생각했지."
+		<<He>>【은는】 몇 초간 서 있다가, 갑자기 당신에게 달려들어 팔을 붙잡고 옆구리에 고정시킨다. "네가 무슨 소리를 하는지 모르겠군." <<he>>【이가】 웃는다. "하지만 네 장단에 맞춰주면, 쉽게 널 얻을 수 있을 거라 생각했지."
 		<br><br>
 
 		<<person2>><<person>>【와과】 <<person3>><<person>>【이가】 당신을 향해 걸어온다. <<person2>><<person>>【은는】 천과 병을 들고 있다. <<He>>【은는】 히죽거리며 당신에게 다가온다.
@@ -1213,7 +1218,7 @@
 		<<link [[굴복한다|Riding School Contact Give]]>><</link>>
 	<<case 4>>
 		<<generate2>><<generate3>>
-		<<He>>【은는】 잠시 건초 더미를 뒤지더니, 손바닥만 한 작은 검은 상자를 꺼낸다. <<He>>【은는】 잠시 그것을 살피더니, <span class="red">옆으로 던져버리고 당신에게 달려든다</span>. <<He>>【은는】 당신의 팔을 붙잡아 옆구리에 고정시킨다. "어떤 다리는 불태울 가치가 있지, 충분한 보상이 있다면 말이야," <<he>>【이가】 웃는다. "랜드리에게 <<nnpc_he "Landry">> 엿이나 먹으라고 전해."
+		<<He>>【은는】 잠시 건초 더미를 뒤지더니, 손바닥만 한 작은 검은 상자를 꺼낸다. <<He>>【은는】 잠시 그것을 살피더니, <span class="red">옆으로 던져버리고 당신에게 달려든다</span>. <<He>>【은는】 당신의 팔을 붙잡아 옆구리에 고정시킨다. "어떤 다리는 불태울 가치가 있지, 충분한 보상이 있다면 말이야." <<he>>【이가】 웃는다. "랜드리에게 <<nnpc_he "Landry">> 엿이나 먹으라고 전해."
 		<br><br>
 
 		<<person2>><<person>>【와과】 <<person3>><<person>>【이가】 당신을 향해 걸어온다. <<person2>><<person>>【은는】 천과 병을 들고 있다. <<He>>【은는】 히죽거리며 당신에게 다가온다.
@@ -1280,9 +1285,9 @@
 <<endcombat>>
 
 <<if Time.hour isnot $closinghour>>
-	<<investigateicon>><<link [[다른 사람 찾기 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
+	<<investigateicon>><<link [[다른 사람을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
 	<br>
-	<<getouticon>><<link [[일단 포기하기|Riding School]]>><<endevent>><</link>>
+	<<getouticon>><<link [[일단 포기한다|Riding School]]>><<endevent>><</link>>
 <<else>>
 	마감 시간이다. <<steed_type>>들은 마구간으로, 손님들은 밖으로 향하고 있다. <<if $exposed gte 1>>당신은 누군가 당신의 <<lewdness>>【을를】 보기 전에 슬그머니 자리를 뜬다.<</if>>
 	<br><br>
@@ -1333,10 +1338,12 @@
 
 	<<endcombat>><<clotheson>>
 
-	<<if Time.hour isnot $closinghour>>
-		<<investigateicon>><<link [[다른 사람 찾기 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
+	<<if $pubfame.detail is "remyBetray">>
+		<<link [[다음|Riding School]]>><<endevent>><</link>>
+	<<elseif Time.hour isnot $closinghour>>
+		<<investigateicon>><<link [[다른 사람을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
 		<br>
-		<<getouticon>><<link [[일단 포기하기|Riding School]]>><<endevent>><</link>>
+		<<getouticon>><<link [[일단 포기한다|Riding School]]>><<endevent>><</link>>
 	<<else>>
 		폐장 시간이다. <<steed_type>>들은 마구간으로 몰리고, 손님들은 마당에서 쫓겨난다. <<if $exposed gte 1>>당신은 누군가 당신의 <<lewdness>>【을를】 보기 전에 슬그머니 자리를 뜬다.<</if>>
 		<br><br>
@@ -1353,9 +1360,9 @@
 	<<if $pubfame.detail is "remyBetray">>
 		<<link [[다음|Riding School]]>><<endevent>><</link>>
 	<<elseif Time.hour isnot $closinghour>>
-		<<investigateicon>><<link [[다른 사람 찾기 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
+		<<investigateicon>><<link [[다른 사람을 찾는다 (0:20)|Riding School Contact]]>><<pass 20>><<endevent>><</link>>
 		<br>
-		<<getouticon>><<link [[일단 포기하기|Riding School]]>><<endevent>><</link>>
+		<<getouticon>><<link [[일단 포기한다|Riding School]]>><<endevent>><</link>>
 	<<else>>
 		폐장 시간이다. <<steed_type>>들은 마구간으로 몰리고, 손님들은 마당에서 쫓겨난다. <<if $exposed gte 1>>당신은 누군가 당신의 <<lewdness>>【을를】 보기 전에 슬그머니 자리를 뜬다.<</if>>
 		<br><br>
@@ -1380,11 +1387,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"예쁜 가면이네요," 당신이 말한다. "가장 무도회라도 있나요?"
+	"예쁜 가면이네요." 당신이 말한다. "가장 무도회라도 있나요?"
 <<elseif $speech_attitude is "bratty">>
-	"멋진 가면이네요," 당신이 말한다. "뭘 숨기고 있나요?"
+	"멋진 가면이네요." 당신이 말한다. "뭘 숨기고 있나요?"
 <<else>>
-	"예쁜 가면이네요," 당신이 말한다. "왜 쓰고 있는 건가요?"
+	"예쁜 가면이네요." 당신이 말한다. "왜 쓰고 있는 건가요?"
 <</if>>
 <br><br>
 
@@ -1399,7 +1406,7 @@
 :: Riding School Silent
 <<effects>>
 
-"다시 만나서 반갑군," <<beasttype 1>>【이가】 멈춰 서자 <<he>>【이가】 말한다. "우리가 도움이 되길 바라네."
+"다시 만나서 반갑군." <<beasttype 1>>【이가】 멈춰 서자 <<he>>【이가】 말한다. "우리가 도움이 되길 바라네."
 <br><br>
 
 <<person1>><<He>>【은는】 <<his>> <<beasttype 1>>【을를】 박차 속보로 달리게 하여, 말을 타고 떠나버린다.

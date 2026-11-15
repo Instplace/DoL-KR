@@ -45,7 +45,12 @@
 	<<socialiseicon>><<link [[카일라의 부모를 달랜다 (1:00)|Manor Parents Room Soothe]]>><<set $daily.manorParents to 1>><<kylar_parents_trust 1>><<stress 6>><<pass 60>><</link>><<gstress>><<gtrust>>
 	<br><br>
 <</if>>
-
+/*
+<<if $kylar_altar_research and $kylar_altar_research.includes("tape") and !$kylar_altar_research.includes("pages")>>
+	<<link [[Show Kylar's parents the pages you found at the temple (0:10)|Manor Pages Room]]>><<set $kylar_altar_research.pushUnique("pages")>><<pass 10>><</link>>
+	<br>
+<</if>>
+ */
 <<getouticon>><<link [[떠난다|Manor Hall]]>><</link>>
 <br>
 
@@ -148,6 +153,17 @@
 <br><br>
 
 <<set _kylar to statusCheck("Kylar")>>
+<<if $kylar_altar_research and $kylar_altar_research.includes("temple") and !$kylar_altar_research.includes("tape")>>
+	<<if _kylar.state isnot "prison" and (Time.hour gte 18 or Time.hour lte 6)>>
+		카일라의 컴퓨터에는 신비로운 방법으로 비디오 플레이어가 연결되어 있다. 신전에서 찾은 테이프를 재생할 수 있을 것 같다.
+		<br><br>
+	<<else>>
+		카일라의 컴퓨터에는 신비로운 방법으로 비디오 플레이어가 연결되어 있다. 신전에서 찾은 테이프를 재생할 수 있을 것 같지만, <span class="blue">작동시키려면 카일라가 곁에 있어야 한다.</span>
+		<br><br>
+	<</if>>
+<</if>>
+
+<<set _kylar to statusCheck("Kylar")>>
 <<if _kylar.state isnot "prison">>
 	<<if Time.hour gte 18>>
 		카일라가 <<nnpc_his "Kylar">> 컴퓨터 앞에 앉아 있다.
@@ -166,8 +182,270 @@
 	<</if>>
 <</if>>
 
+<<if _kylar.state isnot "prison" and $kylar_altar_research and $kylar_altar_research.includes("temple") and !$kylar_altar_research.includes("tape")>>
+	<<if Time.hour lte 6>>
+		<<ind>><<link [[신전에서 찾은 비디오테이프를 틀어 달라고 카일라에게 부탁한다 (0:30)|Manor Tape Wake]]>><<pass 30>><<set $kylar_altar_research.pushUnique("tape")>><</link>>
+		<br>
+	<<elseif Time.hour gte 18>>
+		<<ind>><<link [[신전에서 찾은 비디오테이프를 틀어 달라고 카일라에게 부탁한다 (0:30)|Manor Tape Ask]]>><<pass 30>><<set $kylar_altar_research.pushUnique("tape")>><</link>>
+		<br>
+	<</if>>
+<</if>>
 <<getouticon>><<link [[떠난다 (0:01)|Manor Hall]]>><<pass 1>><</link>>
 <br>
+
+:: Manor Tape Wake
+<<effects>>
+
+<<npc Kylar>><<person1>>
+"카일라." 당신이 말한다. <<His>> 눈이 곧바로 떠진다.
+
+<<if $speech_attitude is "meek">>
+	"깨워서 미안해. 이 영상 틀어줄 수 있어?"
+<<elseif $speech_attitude is "bratty">>
+	"이 영상 틀어 줘."
+<<else>>
+	"깨워서 미안. 이 영상 좀 틀어줄래?"
+<</if>>
+<br><br>
+
+카일라는 고개를 끄덕이고 이불을 걷어차며 비틀비틀 <<his>> 컴퓨터로 간다. <<He>>【은는】 정글처럼 엉킨 케이블을 이리저리 연결했다 뺐다 하더니, 테이프를 더 오래된 플레이어에 끼워 넣는다.
+<br><br>
+
+<<link [[다음|Manor Tape]]>><</link>>
+<br>
+
+
+:: Manor Tape Ask
+<<effects>>
+
+<<npc Kylar>><<person1>>
+"카일라." 당신이 말한다. <<He>>【은는】 의자를 돌려 당신을 마주 본다.
+<br>
+"무슨 일이야, <<kylar_pet_name>>?"
+<br>
+<<if $speech_attitude is "meek">>
+	"여기 비디오테이프가 있어. 번거롭지 않다면, 틀어줄 수 있어?"
+<<elseif $speech_attitude is "bratty">>
+	"이 테이프 틀어 줘."
+<<else>>
+	"이 비디오테이프 좀 틀어줄래?"
+<</if>>
+<br><br>
+
+카일라는 고개를 끄덕이고, 테이프를 받다가 하마터면 떨어뜨릴 뻔한다. 모니터 하나를 들어 올리려면 당신의 도움이 필요하고, 그 뒤 <<he>>【이가】 책상 뒤쪽으로 손을 뻗어 정글처럼 엉킨 케이블을 이리저리 연결했다 뺐다 한다. <<He>>【은는】 몸을 옆으로 기울여 낡은 플레이어에 테이프를 끼워 넣는다.
+<br><br>
+
+<<link [[다음|Manor Tape]]>><</link>>
+<br>
+
+:: Manor Tape
+<<effects>>
+
+영상이 켜진다. 빽빽한 관객석에 앉은 누군가의 시점으로 무대가 보인다. 시청임을 알아본다.
+<br><br>
+
+카일라는 불안해 보이다가, 작은 형체 몇이 무대로 걸어 나오자 공포에 질린다. 그중 하나가 유난히 긴장해 보인다. <span class="blue">어린 시절의 카일라다.</span> <<His>> 의상은 멋지지만 머리카락은 헝클어져 있고 눈은 빨갛다.
+<br><br>
+
+당신 곁에 앉아 있던 카일라가 휘청거린다. 기절할 듯 휘청이더니 반쯤 쓰러지고 반쯤 비틀거리며 의자에서 내려온다. <<He>>【은는】 허둥지둥 <<his>> 침대 시트 속으로 파고든다.<br><br>
+
+<<link [[카일라에게 같이 보자고 부탁한다|Manor Tape Stay]]>><</link>>
+<br>
+<<link [[<<him>>【을를】 내버려 둔다|Manor Tape Leave]]>><</link>>
+<br>
+
+:: Manor Tape Stay
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"제발 있어 줘." 당신이 말한다. "싫은 거 알지만, 나랑 같이 봐 주면 정말 큰 의미가 될 거야."
+<<elseif $speech_attitude is "bratty">>
+	"겁쟁이처럼 굴지 마." 당신이 말한다. "그냥 영상일 뿐이잖아."
+<<else>>
+	"싫은 거 알아." 당신이 말한다. "그래도 제발 남아서 나랑 같이 봐."
+<</if>>
+<br><br>
+
+작은 흐느낌이 들리더니, 카일라가 이불 속에서 나와 <<his>> 의자로 돌아가 눈을 화면에 고정한다.
+<br><br>
+
+영상 속에서 카일라가 다른 아이들과 나란히 선다. 아이들이 차례로 연습한 대사를 읊기 시작하지만, 무언가가 아이들의 주의를 흐트러뜨린다. 객석 앞쪽에서 웅성거리는 소리가 들린다. 무대 위의 한 아이가 코를 막는다.
+<br><br>
+
+<<link [[다음|Manor Tape 2]]>><<set $phase to 1>><</link>>
+<br>
+
+:: Manor Tape Leave
+<<effects>>
+
+영상 속에서 카일라가 다른 아이들과 나란히 선다. 아이들이 차례로 연습한 대사를 읊기 시작하지만, 무언가가 아이들의 주의를 흐트러뜨린다. 객석 앞쪽에서 웅성거리는 소리가 들린다. 무대 위의 한 아이가 코를 막는다.
+<br><br>
+
+<<link [[다음|Manor Tape 2]]>><<set $phase to 0>><</link>>
+<br>
+
+:: Manor Tape 2
+<<effects>>
+
+카일라가 말할 차례다. <<His>> 목소리가 떨리고, 끊겼다 이어지기를 반복한다.
+<br><br>
+
+"카일라잖아." 화면 밖에서 어린 목소리가 외친다. 웅성거림이 커지고 웃음소리도 섞인다. 카일라 양옆의 아이들이 물러선다. 코를 막는 아이도 한둘이 아니다.
+<br><br>
+
+영상 속 카일라는 대사를 이어가지만, 점점 더 떨고 훌쩍인다. 화질 거친 필름으로도 감출 수 없을 만큼 <<he>>【이가】 심하게 떤다.
+<<if $phase is 1>>
+	당신 옆의 카일라도 똑같이 몸을 떨고, <<his>> 얼굴 위로 눈물이 줄줄 흐른다. <<He>>【은는】 기이하게 울부짖는 소리를 내더니 다시 침대 시트 속으로 숨는다.
+<<else>>
+	침대 시트도 똑같이 떨린다.
+<</if>>
+<br><br>
+
+<<link [[테이프를 계속 본다|Manor Tape 3]]>><</link>>
+<br>
+<<link [[먼저 카일라를 달랜다|Manor Tape 2 Comfort]]>><</link>>
+<br>
+
+:: Manor Tape 2 Comfort
+<<effects>>
+
+당신은 카일라에게 손을 얹고 달래는 말을 건네지만, <<hes>> 자기만의 악몽에 갇혀 있다.
+<br><br>
+
+당신은 다시 테이프로 시선을 돌린다.
+<br><br>
+
+<<link [[다음|Manor Tape 3]]>><</link>>
+<br>
+
+:: Manor Tape 3
+<<effects>>
+
+테이프가 끝나고 되감겨 다시 재생된다. 카일라와 다른 아이들이 무대로 걸어 나오는데, 이번에는 다른 것이 눈에 띈다. 검은 소매를 입은 손 하나가 커튼에서 카일라 옆으로 나온다. 그 손은 <<his>> 주머니에 들어갔다가 빠져나간다.
+<br><br>
+
+당신은 잘못 본 건가 싶어 테이프를 다시 재생한다. 아니었다. 나머지 부분도 끝까지 본다. 놓친 다른 게 있을지도 모른다.
+<br><br>
+
+<<link [[다음|Manor Tape 4]]>><</link>>
+<br>
+
+:: Manor Tape 4
+<<effects>>
+<<earnFeat "Sancta Vexatio">>
+몇 번 더 되감은 끝에, 관객들 사이를 움직이는 형체가 눈에 들어온다. 신전의 몇몇 사람들처럼 검은 옷을 입고 있다. 그 형체는 관객들에게 몸을 기울여 귓속말을 하고는 지나간다.
+<br><br>
+
+반응하지 않는 이들도 있고, 냉소를 짓거나 인상을 찌푸리는 이들도 있다. 그 형체는 목소리가 카일라의 이름을 부른 직후 화면 오른쪽으로 사라진다.
+<br><br>
+
+<<link [[다음|Manor Tape 5]]>><</link>>
+<br>
+
+:: Manor Tape 5
+<<effects>>
+
+소리가 들리기도 전에 기척이 먼저 느껴진다. 카일라의 부모가 당신 뒤에 서서 화면을 보고 있다. 둘은 카일라 쪽으로 돌아서서 떨고 있는 <<his>> 몸에 다가간다. 발톱 달린 손가락이 <<him>>에게 뻗지만, 마치 두려운 듯 닿기 직전에 머뭇거린다. 카일라가 뒤척이자 둘은 소리 없이 방에서 튀어나간다.
+<br><br>
+이불 밑에서 카일라의 얼굴이 나타나고, 붉은 눈이 당신에게 머문다. <<He>>【은는】 손을 내민다.
+<br><br>
+
+<<link [[<<his>> 손을 잡는다|Manor Tape Hand]]>><<npcincr Kylar love 1>><</link>><<glove>>
+<br>
+<<link [[<<him>>【을를】 끌어안는다|Manor Tape Hug]]>><<npcincr Kylar love 3>><</link>><<gglove>>
+<br>
+<<link [[꼼짝하지 않는다|Manor Tape Motionless]]>><</link>>
+<br>
+
+
+:: Manor Tape Hand
+<<effects>>
+
+당신은 카일라의 손을 잡는다. <<He>>【은는】 감각이 무뎌질 만큼 세게 손을 움켜쥐고, 눈을 돌리면 세상이 끝나기라도 할 것처럼 당신에게서 시선을 떼지 않는다.
+<br><br>
+
+<<link [[방금 본 것에 대해 묻는다|Manor Tape Ask 2]]>><</link>>
+<br>
+<<link [[침묵한다|Manor Tape Silent]]>><</link>>
+<br>
+
+:: Manor Tape Hug
+<<effects>>
+
+당신은 카일라의 손을 잡고 그대로 <<him>>【을를】 끌어안는다. <<Hes>> 여전히 떨고 있다. 곧 당신의 가슴팍이 <<his>> 눈물로 흠뻑 젖는다.
+<<upperwet 20>>
+<br><br>
+
+<<link [[방금 본 것에 대해 묻는다|Manor Tape Ask 2]]>><</link>>
+<br>
+<<link [[침묵한다|Manor Tape Silent]]>><</link>>
+<br>
+
+:: Manor Tape Motionless
+<<effects>>
+
+당신은 꼼짝하지 않는다. 카일라는 손을 거두고 다시 얼굴을 가린다. "미안 미안 미안해." <<he>>【이가】 말한다. "미안해."
+<br><br>
+
+<<link [[방금 본 것에 대해 묻는다|Manor Tape Ask 2]]>><</link>>
+<br>
+<<link [[침묵한다|Manor Tape Silent]]>><</link>>
+<br>
+
+:: Manor Tape Ask 2
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"캐묻는 건 아니었으면 좋겠어." 당신이 말한다. "그래도 그 영상에 대해 얘기해 줄 수 있어?"
+<<elseif $speech_attitude is "bratty">>
+	"방금 내가 본 게 뭐야? 꽤 오래전 일 같던데."
+<<else>>
+	"영상에서 무슨 일이 있었어?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+카일라는 말하려고 입을 열지만 이내 몸이 굳고 눈물이 줄줄 흐른다. "미안해." <<he>>【이가】 겨우 말한다.
+<br><br>
+
+<<link [[카일라를 달랜다 (0:20)|Manor Tape Comfort]]>><<npcincr Kylar love 1>><<pass 20>><</link>><<glove>>
+<br>
+<<link [[떠난다|Manor Tape 6]]>><</link>>
+<br>
+
+:: Manor Tape Silent
+<<effects>>
+
+당신은 침묵한다. 카일라는 평소보다 더 작아 보이도록 몸을 뒤로 물린다.
+<br><br>
+
+<<link [[카일라를 달랜다 (0:20)|Manor Tape Comfort]]>><<npcincr Kylar love 1>><<pass 20>><</link>><<glove>>
+<br>
+<<link [[떠난다|Manor Tape 6]]>><</link>>
+<br>
+
+
+:: Manor Tape Comfort
+<<effects>>
+
+당신은 한동안 카일라 곁에 머문다. <<He>>【은는】 바람에 당신이 날려 갈까 봐 두려운 듯 매달리며 당신에게 기댄다. 당신은 <<his>> 떨림이 가라앉을 때까지 <<him>>【을를】 안고 있는다.
+<br><br>
+
+"고마워." <<he>>【이가】 한참 뒤에 몸을 떼며 말하고, 숭배하는 눈으로 당신을 바라본다. 그러다 기운을 한 방울도 남김없이 쓴 듯 쓰러지듯 잠에 빠진다. 당신은 <<him>>【을를】 침대에 눕혀 주고 방을 나온다.
+<br><br>
+
+<<link [[다음|Manor Tape 6]]>><</link>>
+<br>
+
+:: Manor Tape 6
+<<effects>>
+
+밖에서 누군가의 기척이 느껴진다. 좌우를 둘러보지만 아무것도 보이지 않는다. 그때 위를 올려다본다. 두 쌍의 눈이 당신을 꿰뚫듯 노려본다. 그러다 사라진다.
+<br><br>
+
+<<link [[다음|Manor Hall]]>><<endevent>><</link>>
+<br>
+
 
 :: Manor Kylar
 <<effects>><<set $bus to "kylarmanor">>
@@ -178,7 +456,7 @@
 당신이 다가가자 카일라는 본능적으로 <<his>> 창을 모두 최소화한 다음, <<his>> 의자를 돌려 당신을 마주 본다.
 <br><br>
 
-<<kylaroptions>>
+<<kylarOptions>>
 
 :: Manor Kylar Word
 <<effects>>
@@ -195,7 +473,7 @@
 카일라는 부끄러워 보인다. "내-내가 어지른 건 내가 치워." <<he>>【은는】 말한다. "조금 밀리긴 했지만. 부-부모님이 많이 어지르셔서."
 <br><br>
 
-<<kylaroptions>>
+<<kylarOptions>>
 <br>
 
 :: Manor Kylar Word 2
@@ -203,7 +481,7 @@
 
 "나-나는..." <<Hes>> 당신을 쳐다보려 애쓴다. "모르겠어. 어느 날 밤 부모님이 엄청 신나셨어. 나를 일찍 재우셨지. 그러다 창문 깨지는 소리가 들렸어. 나-나는 이불 밑에 숨었어. 아침에 일어나니, 이렇게 되어 있었어."
 <br><br>
-<<kylaroptions>>
+<<kylarOptions>>
 
 :: Manor Kylar Secret
 <<effects>>
@@ -228,7 +506,7 @@
 당신은 카일라를 아래층으로, 실험실 안으로 이끈다. <<him>>에게 어떻게 하는지 보여주고 싶어서다. <span class="red">도착하자 이미 그곳에 무언가가 기다리고 있다.</span>
 <br><br>
 
-카일라의 부모 중 하나가 테이블 위에 웅크리고 앉아, 당신을 똑바로 바라보고 있다. "우-우리 나중에 다시 오자," 카일라가 말한다. <<He>>【은는】 돌아서다가 <<his>> 다른 부모와 거의 부딪힐 뻔한다. 둘을 구분할 만한 차이는 거의 없다. 그들을 덮은 검은 누더기마저 비슷하다.
+카일라의 부모 중 하나가 테이블 위에 웅크리고 앉아, 당신을 똑바로 바라보고 있다. "우-우리 나중에 다시 오자." 카일라가 말한다. <<He>>【은는】 돌아서다가 <<his>> 다른 부모와 거의 부딪힐 뻔한다. 둘을 구분할 만한 차이는 거의 없다. 그들을 덮은 검은 누더기마저 비슷하다.
 <br><br>
 
 "무-무슨 일이야?" 카일라가 묻는다. <<He>>【은는】 당신을 구석으로 밀어 넣고, 보호하려는 듯 당신 앞에 선다. "행동이 이상해."
@@ -261,7 +539,7 @@
 	당신은 어둠 속으로 계단을 오른다. 먼지 때문에 거의 기침이 날 지경이다. 카일라가 뒤따라온다. <<He>>【이가】 기침한다.
 	<br><br>
 <<else>>
-	카일라가 계단을 오른다. "아무것도 안-"— <<He>>【은는】 기침을 한다. "아무것도 안 보여." 꼭대기에 다다르자 당신도 먼지 때문에 기침이 나올 뻔한다.
+	카일라가 계단을 오른다. "아무것도 안—" <<He>>【은는】 기침을 한다. "아무것도 안 보여." 꼭대기에 다다르자 당신도 먼지 때문에 기침이 나올 뻔한다.
 	<br><br>
 <</if>>
 눈이 어둠에 익숙해진다. 손이 닿는 곳에 당김 스위치가 있다. 당신이 잡아당기자, 전등이 윙 하고 켜진다.
@@ -276,7 +554,7 @@
 	<span class="green">당신은 역사 수업에서 본 것을 알아본다.</span> "성찬용 빵을 담는 그릇이야." 당신은 설명한다. <span class="gold">"이건 신전에서 더 잘 알지도 몰라."</span>
 	<br><br>
 <<else>>
-	<span class="red">당신도 확실히는 잘 모른다.</span> "종교적인 물건 같은데." 당신은 말한다. <span class="gold">"아마 신전에서 더 잘 알 거야."</span>
+	<span class="red">당신도 확실히는 잘 모른다.</span> "종교적인 물건 같은데," 당신은 말한다. <span class="gold">"아마 신전에서 더 잘 알 거야."</span>
 	<br><br>
 <</if>>
 
@@ -286,7 +564,7 @@
 :: Manor Kylar Secret 5
 <<effects>>
 
-"우리 부모님이 종교적인 줄은 몰랐는데." 당신이 실험실로 돌아오자 카일라가 말한다. "왜 우리한테 이걸 보여주셨을까? 왜 지금?" <<He>>【은는】 불편해 보인다.
+"우리 부모님이 종교적인 줄은 몰랐는데," 당신이 실험실로 돌아오자 카일라가 말한다. "왜 우리한테 이걸 보여주셨을까? 왜 지금?" <<He>>【은는】 불편해 보인다.
 <br><br>
 
 당신은 카일라의 침실로 돌아온다. <<He>>【은는】 그 수수께끼를 <<him>> 뒤로 밀어두고 싶어 하는 듯하다.
@@ -365,7 +643,7 @@
 <</if>>
 <br><br>
 
-카일라는 당신을 올려다보고 고개를 끄덕인다. 당신은 <<him>>【을를】 <<his>> 발로 일으킨다. "거기서는 더 자면 안 돼," <<he>>【이가】 말한다. "안전하지 않아. 그-그래도 방문은 해도 돼! 제-제발 그만 오지는 마."
+카일라는 당신을 올려다보고 고개를 끄덕인다. 당신은 <<him>>【을를】 <<his>> 발로 일으킨다. "거기서는 더 자면 안 돼." <<he>>【이가】 말한다. "안전하지 않아. 그-그래도 방문은 해도 돼! 제-제발 그만 오지는 마."
 <br><br>
 
 <<link [[다음|Manor Sleep Abduction 5]]>><</link>>
@@ -447,9 +725,9 @@
 	<br><br>
 	<<if $orgasmcurrent is 0 and !playerChastity()>>
 		<<if _kylarStatus.includes("Rage")>>
-			몇 초 뒤, <<he>>【은는】 <<hes>> 당신의 <<genitals>> 쪽을 향할 때까지 뒤로 물러난다. "넌 사정하지 않았어," <<he>>【이가】 중얼거린다. "내가... 부족했어?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 갚을게. 보여줄게."
+			몇 초 뒤, <<he>>【은는】 <<hes>> 당신의 <<genitals>> 쪽을 향할 때까지 뒤로 물러난다. "넌 사정하지 않았어." <<he>>【이가】 중얼거린다. "내가... 부족했어?" <<He>>【은는】 <<his>> 머리를 격하게 젓는다. "내가 만회할게. 보여줄게."
 		<<else>>
-			몇 초 뒤, <<he>>【은는】 <<hes>> 당신의 <<genitals>> 쪽을 향할 때까지 뒤로 물러난다. "넌 사정하지 못했어," <<he>>【이가】 중얼거린다. "그건 너한테 불공평해. 네가 날 초대한 건데. 자, 내가 갚을게."
+			몇 초 뒤, <<he>>【은는】 <<hes>> 당신의 <<genitals>> 쪽을 향할 때까지 뒤로 물러난다. "넌 사정하지 못했어." <<he>>【이가】 중얼거린다. "그건 너한테 불공평해. 네가 날 초대한 건데. 자, 내가 만회할게."
 		<</if>>
 		<br><br>
 		<<kylarFinish>>
@@ -658,6 +936,7 @@
 <<link [[다음|Manor Parents Room]]>><</link>>
 <br>
 
+
 :: Manor Kylar Invite
 <<effects>>
 
@@ -683,7 +962,7 @@
 당신은 함께 저택으로 걸어간다. 카일라는 <<his>> 컴퓨터에 앉기 전에 당신을 안아준다.
 <br><br>
 
-<<kylaroptions>>
+<<kylarOptions>>
 
 :: Manor Kylar Wallpaper
 <<effects>>
@@ -711,7 +990,7 @@
 
 당신은 카일라가 작품의 줄거리와 등장인물을 설명하는 동안 계속 듣는다. <<He>>【은는】 한동안 주제를 이리저리 건너뛰며 장황하게 떠든다. 따라가기 어렵다. <<hes>> 끝내자 <<He>>【은는】 당신에게 미소 짓는다.
 <br><br>
-<<kylaroptions>>
+<<kylarOptions>>
 
 :: Manor Kylar Tease
 <<effects>>
@@ -757,4 +1036,4 @@
 	카일라의 눈이 당신의 입술로 향하지만, 당신이 일어서자 <<he>>【은는】 재빨리 <<his>> 시선을 피한다.
 <</if>>
 <br><br>
-<<kylaroptions>>
+<<kylarOptions>>

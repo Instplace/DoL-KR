@@ -1,0 +1,162 @@
+:: Mine Birth
+<<effects>><<set $first_birth to !$pregnancyStats.humanToysUnlocked>>
+<<if $mine.birth isnot 1>>
+	<<generate2>>
+	<<set $mine.birth to 1>>
+	<<saveNPC 1 "mine_doctor">><<person2>>
+	어둠 속을 채우는 두 목소리와 함께 당신은 정신을 되찾는다. "저는 의사가 아니에요. 작은 부상을 돌보고 진통제를 주는 것 말고는 해 본 적이 없어요." <<male>> 목소리가 말한다. "상관없어. 네가 우리가 가진 최고니까," <<person1>><<male>> 목소리가 대답한다.
+<<else>>
+	<<loadNPC 1 "mine_doctor">><<person1>>
+	어둠 속을 채우는 두 목소리와 함께 당신은 정신을 되찾는다. "환자나 돌봐, 의사 양반." <<male>> 목소리가 말한다. "계속 말씀드리잖아요, 저는 의사가 아니라고요." <<person2>><<male>> 목소리가 대답한다. 코웃음 치는 소리가 들린다.
+<</if>>
+<br><br>
+눈을 뜨자 경비원 두 명이 당신을 내려다보고 서 있다. <<person2>><<person>>【이가】 당신의 팔에 바늘을 찌른다. "긴장을 풀어요. 금방 끝나요. 그냥 정신을 놓아요. 깨어나면 다 괜찮을 거예요." 당신의 의식이 다시 흐려지는 사이 <<he>>【이가】 말한다.
+
+<br><br>
+<<wash>><<undress "mine_birth">>
+<<link [[다음|Mine Birth 2]]>><</link>>
+
+
+
+
+:: Mine Birth 2
+<<effects>>
+
+<<set _timeCalc to birthLaborTime()>>
+
+<<switch playerNormalPregnancyType()>>
+	<<case "human">>
+		<<set $phase to 0>>
+		머릿속에서 목소리가 울린다. "머리가 나오고 있어요. 좋아요."
+	<<case "wolf">>
+		<<set $phase to 1>>
+		머릿속에서 목소리가 울린다. "정상은 아닌 것 같은데, 머리는 잘 나오고 있어요."
+<</switch>>
+
+<br><br>
+목소리가 계속 힘을 주라고 되풀이하는 것이 들린다. 할 수 있을지 모르겠지만, 어쨌든 해 본다.
+<br><br>
+<<link [[다음 (<<print getTimeString(_timeCalc)>>)|Mine Birth 3]]>><<run setPlayerLitterBorn()>><<pass _timeCalc>><</link>>
+
+
+
+:: Mine Birth 3
+<<effects>><<set $litter_size to getLabouringLitter("pc").length>><<person1>>
+
+당신은 어두운 동굴에서 깨어난다.
+
+<<if $litter_size is 1>>
+	<<person>>【이가】 당신이 깨어난 것을 알아챈다. "놀라지 마세요. 아이는 안전해요.
+	<<if $phase is 0>>
+		아이는 고아원으로 보내졌어요."
+	<<elseif $phase is 1>>
+		새끼는 스스로 살아갈 수 있게 되면 숲으로 보내질 거예요."
+	<</if>>
+<<else>>
+	<<person>>【이가】 당신이 깨어난 것을 알아챈다. "놀라지 마세요, 아이들은 안전해요.
+	<<if $phase is 0>>
+		아이들은 고아원으로 보내졌어요."
+	<<elseif $phase is 1>>
+		새끼들은 스스로 살아갈 수 있게 되면 숲으로 보내질 거예요."
+	<</if>>
+<</if>>
+<br><br>
+
+<<set $bornChildrenIds to []>>
+<<run getLabouringLitter("pc").forEach(child => $bornChildrenIds.push(child.childId))>>
+
+<<setBabyIntro "pc" "Bailey">>
+<<birthUi "pc" "mine" "home" "Mine Birth 4" 120>>
+
+
+
+:: Mine Birth 4
+<<effects>>
+
+<<person>>【이가】 당신이 일어서는 것을 돕는다. 당신은 옷을 다시 입는다. <<storeon "mine_birth">>
+
+<<if $first_birth or playerNormalPregnancyTotal() is 0>>
+	일어서자 내장이 쏟아지는 듯한 느낌이 들지만, <<he>>【은는】 그게 정상이라고 안심시킨다.
+	<br><br>
+
+통증에도 불구하고, 출산 전보다 훨씬 편하게 걸을 수 있다. 몸속에
+	<<if $phase is 0>>
+		사람이
+	<<elseif $phase is 1>>
+		새끼들이
+	<</if>>
+	들어 있지 않으면 움직이기가 얼마나 쉬운지 잊고 있었다.
+	<br><br>
+
+	조산사가 옷 입는 것을 도와준다.
+<<elseif between(playerNormalPregnancyTotal(), 1, 2)>>
+	일어서자 몸속이 쑥 꺼지는 듯한 느낌이 든다. 지난 출산 때도 느꼈던 감각이라 정상이라는 걸 안다.
+	<br><br>
+
+	통증에도 불구하고, 출산 전보다 훨씬 편하게 걸을 수 있다. 몸속에
+	<<if $phase is 0>>
+		사람이
+	<<elseif $phase is 1>>
+		새끼들이
+	<</if>>
+	들어 있지 않으면 움직이기가 얼마나 쉬운지 잊고 있었다.
+	<br><br>
+
+	조산사가 옷 입는 것을 도와준다.
+<<elseif between(playerNormalPregnancyTotal(), 3, 7)>>
+	일어서자 몸속이 쑥 꺼지는 듯한 느낌이 든다. 아직 이 느낌에는 익숙해지지 않았다.
+	<br><br>
+
+	문제없이 다시 걷기 시작한다. 조금 어색하지만, 예전만큼 적응하기 힘들지는 않다. 그래도 여전히 몸속에
+	<<if $phase is 0>>
+		사람이
+	<<elseif $phase is 1>>
+		새끼들이
+	<</if>>
+	들어 있지 않을 때 움직이기가 더 편하다.
+	<br><br>
+
+	조산사는 여전히 옷 입는 것을 도와주겠다고 고집한다.
+<<elseif between(playerNormalPregnancyTotal(), 8, 19)>>
+	별 탈 없이 일어선다. 이제는 느낌에 별 차이가 없지만, 몸이 훨씬 가벼워진 것은 확실히 느껴진다.
+	<br><br>
+
+	<<He>>【은는】 당신의 움직임에 감탄한 얼굴이지만, 넘어지지 않게 한 팔을 당신에게 두르고 있다. "이렇게 빨리 일어나는 사람은 별로 못 봤어요. 정말 튼튼하신가 봐요!"
+	<br><br>
+
+	조산사는 여전히 옷 입는 것을 도와주겠다고 고집한다.
+<<elseif playerNormalPregnancyTotal() gte 20>>
+	도움 없이 일어서자, 속이 텅 빈 느낌이 든다. 벌써 임신했던 느낌이 그립다.
+	<br><br>
+
+	<<He>>【은는】 입을 떡 벌린 채 당신을 바라본다. 당신은 아무 도움 없이 걸어간다. 당신은 옷을 대충 걸쳐 입는다.
+	<br><br>
+
+	"가-가보셔도 될 것 같아요." <<he>>【이가】 말한다.
+<</if>>
+<br><br>
+<<person2>><<person>>【이가】 동굴 안으로 걸어 들어온다. "따라와." <<he>>【이가】 말한다. 당신은 <<him>>【을를】 따라 걷는다.<<if playerNormalPregnancyTotal() lte 7>> <<person1>><<person>>【이가】 당신이 혼자 걸을 수 있을 때까지 부축해 준다.<<person2>><</if>>
+
+<<if Time.hour lte 5 or Time.hour gte 21>>
+	<<person>>【이가】 당신을 사람들로 가득한 동굴로 데려간다. 문가의 경비원이 문을 열고, 당신이 들어가자 뒤에서 닫는다.
+	<br><br>
+	<<link [[다음|Mine Night]]>><<endevent>><</link>>
+	<<exit>>
+<</if>>
+
+<<switch $mine.job.current>>
+	<<case "mining">>
+		<<person>>【이가】 당신을 노예들이 모인 곳으로 데려간다. <<He>>【은는】 당신을 나머지 노예들과 한데 사슬로 묶고는 자리를 뜬다.
+		<br><br>
+		<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+	<<case "minecarts">>
+		<<person>>【이가】 당신을 광차 선로로 데려가 천장 레일에 매달린 사슬을 당신의 족쇄에 연결하고는 자리를 뜬다.
+		<br><br>
+		<<link [[다음|Mine Job Minecarts]]>><<endevent>><</link>>
+	<<case "cleaning">>
+		<<person>>【이가】 당신을 경비원 숙소로 데려간다. "가서 일해." <<he>>【이가】 의자에 앉으며 말한다.
+		<br><br>
+		<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+	<<default>>
+		이 오류를 디스코드 서버의 #bug-reports 채널에 보고해 주세요.
+<</switch>>

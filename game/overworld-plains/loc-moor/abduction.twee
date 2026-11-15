@@ -200,13 +200,13 @@
 <<else>>
 
 	<<if $moor_binding gte 1>>
-		<<link [[결박 풀기 (1:00)|Moor Abduction Tent Loosen]]>><<pass 60>><</link>>
+		<<link [[결박을 푼다 (1:00)|Moor Abduction Tent Loosen]]>><<pass 60>><</link>>
 		<br>
 	<<else>>
 		<<link [[탈출한다|Moor Abduction Escape]]>><</link>>
 		<br>
 	<</if>>
-	<<link [[잠자기|Moor Abduction Sleep]]>><</link>>
+	<<link [[잔다|Moor Abduction Sleep]]>><</link>>
 	<br>
 <</if>>
 
@@ -217,7 +217,7 @@
 <<set $moor -= 5>><<pass 60>>
 <<if $moor lte 10 or $moor is undefined>>
 	높은 울타리에 도착한다. 창살 너머로 풀을 뜯는
-	<<if $settings.monsterChance gte 1 and $hallucinations gte 1 or $settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly or !$settings.bestialityEnabled>>
+	<<if monsterCanAppearForType("cow")>>
 		<<if $settings.maleVictimChance is 100>>
 			불보이들이 보인다.
 		<<elseif $settings.maleVictimChance is 0>>
@@ -229,7 +229,7 @@
 			소들이 보인다.
 	<</if>>
 	<br><br>
-	문 앞에 도착한다. 그 옆의 표지판에는 <span class="red">"레미의 사유지"</span>라고 쓰여 있다.
+	문 앞에 도착한다. 그 옆의 표지판에는 <span class="red">"레미의 저택"</span>라고 쓰여 있다.
 	<br><br>
 
 	<<link [[다음|Moor Abduction Remy]]>><<end_moor_captive>><</link>>
@@ -341,7 +341,7 @@
 			불량배들이 무기를 꽉 쥐고 하늘을 쳐다보며 더 가까이 모여든다.
 			<br><br>
 
-			<<link [[비명 지르기 (0:20)|Moor Abduction Bird Screech]]>><<pass 20>><</link>><<harpy>>
+			<<link [[비명을 지른다 (0:20)|Moor Abduction Bird Screech]]>><<pass 20>><</link>><<harpy>>
 			<br>
 			<<link [[기다린다|Moor Abduction Bird Wait]]>><</link>>
 			<br>
@@ -424,6 +424,8 @@
 
 <<person3>><<if $settings.pregnancySpeechEnabled>>"씨받이?"<<else>>"개인적으로는,"<</if>> <<person>>【이가】 끼어든다. "난 생산물 쪽에 더 관심이 많아. 한몫 단단히 챙기겠어." <<He>>【이가】 손에 금속 사슬과 목줄을 들고 당신에게 다가온다.
 <br><br>
+
+<<set $phase to "riding">>
 
 <<link [[항의한다|Street Van Protest]]>><<def 1>><<stress 6>><<trauma -6>><</link>><<gstress>><<ltrauma>>
 <br>
@@ -830,7 +832,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㄴ-내버려 둬." 당신은 용기를 내어 말한다.
+	"내-내버려 둬." 당신은 용기를 내어 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"더러운 손 치워." 당신이 말한다.
 <<else>>
@@ -869,7 +871,7 @@
 <<if $rng gte 91>>
 	달고, 걸쭉하다. <<person>>【이가】 씨익 웃는다.
 	<br><br>
-	음란한 열기가 속에서 차오르는 것을 느끼며 당신은 몸을 뺀다. 세상이 빙빙 돌고, 정신을 차려보니 당신은 땅바닥에 쓰러져 있다. 당신의 <<genitals>>【이가】 욱신거리며 갈망한다.<<gggarousal>><<arousal 1800>><<drugs 240>>
+	음란한 열기가 속에서 차오르는 것을 느끼며 당신은 몸을 뺀다. 세상이 빙빙 돌고, 정신을 차려보니 당신은 땅바닥에 쓰러져 있다. 당신의 <<genitals>>【이가】 <<if $player.penisExist and $player.vaginaExist>>욱신거리고 애타게 갈망한다<<else>>욱신거리며 갈망한다<</if>>.<<gggarousal>><<arousal 1800>><<drugs 240>>
 	<br><br>
 	거친 손이 당신의 어깨를 잡자, 몸에 전율이 흐른다. 당신은 억지로 일으켜 세워진다. "아직 갈 길이 멀어." <<person>>【이가】 말한다. "도착할 때쯤이면 아주 제대로 달아올라 있겠군."
 <<elseif $rng gte 51 and !playerIsPregnant()>>
@@ -1018,7 +1020,7 @@
 <<if currentSkillValue('skulduggery') gte $lock>>
 	<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 	<br><br>
-	<<link [[우리 열기 (0:20)|Moor Abduction Lock]]>><<pass 20>><<stress 6>><</link>><<gstress>>
+	<<link [[우리를 연다 (0:20)|Moor Abduction Lock]]>><<pass 20>><<stress 6>><</link>><<gstress>>
 	<br>
 <<else>>
 	<span class="blue">자물쇠는 당신의 능력으로는 딸 수 없을 것 같다.</span><<skulduggeryrequired>>
@@ -1085,7 +1087,7 @@
 
 	당신은 텐트 옆으로 재빨리 돌지만, <span class="red">밧줄에 걸려 넘어진다.</span> 땅으로 굴러떨어진다.
 	<br><br>
-	당신이 몸을 추스르기도 전에 <<person>>【이가】 덮친다. "못된 <<girl>> 같으니," <<he>>【이가】 당신의 팔을 붙잡으며 말한다. "하마터면 놓칠 뻔했잖아." <<His>> 눈이 당신의 몸을 훑는다.
+	당신이 몸을 추스르기도 전에 <<person>>【이가】 덮친다. "못된 <<girl>> 같으니." <<he>>【이가】 당신의 팔을 붙잡으며 말한다. "하마터면 놓칠 뻔했잖아." <<His>> 눈이 당신의 몸을 훑는다.
 	<br><br>
 	<<skulduggeryuse>>
 
@@ -1154,12 +1156,12 @@
 	당신의 비명 소리에 이끌려 <<person1>><<persons>> 동료들이 텐트에서 나온다. 그들은 피곤해 보이며, 소란에 짜증이 난 듯하다.
 	<br><br>
 	<<generate2>><<person2>>
-	"<<phim>>【을를】 <<pher>> 텐트 안에 둬야지," 한 <<person>>【이가】 말한다. "여기 밖에서 온 캠프를 깨우게 놔두지 말고."
+	"<<phim>>【을를】 <<pher>> 텐트 안에 둬야지." 한 <<person>>【이가】 말한다. "여기 밖에서 온 캠프를 깨우게 놔두지 말고."
 	<br>
-	"고마워해야 할걸," <<person1>><<person>>【이가】 대답한다. "<<pShe>>【이가】 밧줄을 풀었어. 내 잘못이 아니라고."
+	"고마워해야 할걸." <<person1>><<person>>【이가】 대답한다. "<<pShe>>【이가】 밧줄을 풀었어. 내 잘못이 아니라고."
 	<br>
 	<<generate3>><<person3>>
-	한 <<person>>【이가】 앞으로 나선다. "내 생각엔 이 <<girl>>한테는 교훈이 필요해," <<he>>【이가】 말한다. 동의하는 중얼거림이 들린다.
+	한 <<person>>【이가】 앞으로 나선다. "내 생각엔 이 <<girl>>한테는 교훈이 필요해." <<he>>【이가】 말한다. 동의하는 중얼거림이 들린다.
 	<br><br>
 	불량배들이 다가오자 당신은 텐트에 등을 대고 물러선다.
 	<br><br>
@@ -1217,7 +1219,7 @@
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<generate1>><<person1>>"<<girl>> 하나도 제압 못 하다니," 한 <<person>>【이가】 웃는다.
+	<<generate1>><<person1>>"<<girl>> 하나도 제압 못 하다니." 한 <<person>>【이가】 웃는다.
 	<br>
 	"아가리 닥쳐."
 	<br>
@@ -1261,7 +1263,7 @@
 <<else>>
 
 	<<if random(1, 2) is 2>>
-		<span class="red">손이 당신의 뒤통수를 때린다.</span> "꼼지락거리지 마," <<generate1>><<person1>><<person>>【이가】 말한다. "우리가 가라는 곳으로 가게 될 거야."<<gpain>><<gstress>><<stress 6>><<pain 4>>
+		<span class="red">손이 당신의 뒤통수를 때린다.</span> "꼼지락거리지 마." <<generate1>><<person1>><<person>>【이가】 말한다. "우리가 가라는 곳으로 가게 될 거야."<<gpain>><<gstress>><<stress 6>><<pain 4>>
 	<<else>>
 		<span class="red">"꼼지락거리지 마!"</span> 뒤에서 목소리가 외친다. "얻어맞고 싶지 않으면 말이야."<<ggstress>><<stress 12>>
 	<</if>>
@@ -1338,7 +1340,7 @@
 <</if>>
 
 <<if $monster is 1>>
-	"골칫거리도 아니군," <<bhe>>【이가】 말한다. "가자, <<wife>>." 당신은 <<bhis>> 손을 잡고, 함께 하늘로 날아오른다. <<takeHandholdingVirginity "Great Hawk" "romantic">>
+	"골칫거리도 아니군." <<bhe>>【이가】 말한다. "가자, <<wife>>." 당신은 <<bhis>> 손을 잡고, 함께 하늘로 날아오른다. <<takeHandholdingVirginity "Great Hawk" "romantic">>
 <<else>>
 	당신은 <<bhis>> 등에 올라타 하늘로 날아오른다.
 <</if>>
@@ -1356,7 +1358,7 @@
 	당신은 황야 위를 날아오른다. 당신의 날개는 금방 지친다. <<beasttype>>【이가】 그것을 알아채고 당신 뒤로 이동하여, <<bhis>> 팔로 당신의 가슴을 감싸 안고 남은 길을 데려다준다.
 	<br><br>
 
-	탑에 도착할 때쯤 <<bHe>>【은는】 숨을 헐떡인다. "혼자 있을 땐 조심해," <<bhe>>【이가】 말한다. "그들이 널 땅의 집으로 데려갈 거야. 우리에겐 어울리지 않는 곳이야."
+	탑에 도착할 때쯤 <<bHe>>【은는】 숨을 헐떡인다. "혼자 있을 땐 조심해." <<bhe>>【이가】 말한다. "그들이 널 땅의 집으로 데려갈 거야. 우리에겐 어울리지 않는 곳이야."
 <<else>>
 	당신은 <<beasttype>>의 등 위에서 황야를 날아오른다. <<bHe>>【은는】 당신의 체중을 지탱하기 힘들어하지만, 당신의 날개가 할 수 있는 한 돕는다.
 	<br><br>
@@ -1378,7 +1380,7 @@
 
 또 다른 비명 소리가 당신을 오싹하게 하지만, 이번 것은 더 멀리서 들려온다. 불량배들은 긴장을 푼다.
 <br><br>
-<<generate1>><<person1>>"서성거리지 마," 한 <<person>>【이가】 <<his>> 목소리의 공포를 거의 억누르며 외친다. "할 일이 있어." 당신의 일행은 다시 움직인다.
+<<generate1>><<person1>>"서성거리지 마." 한 <<person>>【이가】 <<his>> 목소리의 공포를 거의 억누르며 외친다. "할 일이 있어." 당신의 일행은 다시 움직인다.
 <br><br>
 
 <<endevent>>

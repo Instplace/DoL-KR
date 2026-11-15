@@ -8,7 +8,7 @@
 
 <<if $prison.punishment_intro is 0>>
 	<<set $prison.punishment_intro to 1>>
-	경비원이 당신을 이끌고 교도소 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
+	경비원이 당신을 이끌고 감옥 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
 	<br><br>
 	"경고했을 텐데." <<he>>【이가】 말한다. "소장님께서 내게 벌을 내릴 권한을 주셨지—"
 	<br>
@@ -25,12 +25,12 @@
 	<<methodical_guard 0 cap>><<person1>>【이가】 한숨을 쉰다. "알았어." <<He>>【은는】 책상 아래로 손을 뻗는다.
 	<br><br>
 <<elseif $prison.active_punishments.length gte 1>>
-	경비원이 당신을 이끌고 교도소 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
+	경비원이 당신을 이끌고 감옥 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
 	<br><br>
 	"벌이 부족했나?" <<he>>【이가】 보이지 않는 곳으로 손을 뻗으며 말한다. 다른 경비원들이 옆으로 비켜선다.
 	<br><br>
 <<else>>
-	경비원이 당신을 이끌고 교도소 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
+	경비원이 당신을 이끌고 감옥 수감동을 지나, 한쪽에 커다란 구멍이 뚫린 방으로 다시 들어간다. 다른 경비원들은 이미 와 있다. <<methodical_guard 0 cap>><<person1>>【이가】 책상 뒤에 앉아 있다.
 	<br><br>
 	한숨을 쉬며, <<he>>【은는】 보이지 않는 곳으로 손을 뻗는다. 다른 경비원들이 옆으로 비켜선다.
 	<br><br>
@@ -200,7 +200,7 @@
 <<outfitChecks>>
 <<switch $prison_punishment>>
 	<<case "free use">>
-		"오, 이런 <<girl>>," <<veteran_guard 3>>【이가】 낄낄거린다. "죄수들이 좋아하겠군."
+		"오, 이런 <<girl>>." <<veteran_guard 3>>【이가】 낄낄거린다. "죄수들이 좋아하겠군."
 		<br><br>
 
 		<<methodical_guard 0 cap>>【이가】 다시 한번 책상 밑을 뒤적인다. 삐죽삐죽한 금속이 책상 위로 쨍그랑 소리를 내며 떨어진다. 한쪽에 기괴한 문구가 녹아 붙어 있는 금속 목걸이다. <span class="red">"무료 변소."</span>
@@ -242,7 +242,7 @@
 		<<else>>
 			<<facewear "blindfold">>
 		<</if>>
-		"발 조심해야 할 거다," <<methodical_guard 0>><<person1>>【이가】 말한다. 뒤에서 발소리가 들리지만, 돌아보기도 전에 천 조각이 시야를 가린다. <span class="purple">안대로 눈이 가려졌다.</span>
+		"발 조심해야 할 거다." <<methodical_guard 0>><<person1>>【이가】 말한다. 뒤에서 발소리가 들리지만, 돌아보기도 전에 천 조각이 시야를 가린다. <span class="purple">안대로 눈이 가려졌다.</span>
 		<br><br>
 
 		<<link [[다음|Prison Punishment Blindfold]]>><<prison_punishment_init>><</link>>
@@ -302,7 +302,7 @@
 		<<link [[다음|Prison Punishment Cuffs]]>><<prison_punishment_init>><</link>>
 		<br>
 	<<case "bottomless">>
-		<<methodical_guard 0 cap>><<person1>>【이가】 <<his>> 안경을 고쳐 쓴다. "넌 징벌을 받아야 한다," <<he>>【이가】 말한다.
+		<<methodical_guard 0 cap>><<person1>>【이가】 <<his>> 안경을 고쳐 쓴다. "넌 징벌을 받아야 한다." <<he>>【이가】 말한다.
 		<<if $worn.lower.name is "naked" and $worn.under_lower.name is "naked">>
 			"<span class="blue">허리 아래로는 어떤 옷도 허용되지 않는다.</span> 우리보다 앞서가는 것 같군."
 		<<else>>
@@ -334,13 +334,13 @@
 		<<link [[다음|Prison Punishment Bindings]]>><<prison_punishment_init>><</link>>
 		<br>
 	<<case "rut">>
-		<<veteran_guard 3 cap>><<person4>>【이가】 웃는다. "잘 가라," <<he>>【이가】 말하며, 당신을 책상 맞은편의 벌어진 구멍으로 민다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+		<<veteran_guard 3 cap>><<person4>>【이가】 웃는다. "잘 가라." <<he>>【이가】 말하며, 당신을 책상 맞은편의 벌어진 구멍으로 민다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
 		<br>
 		"만약 <<pshe>>【이가】 가치 있는 걸 가져오면," <<anxious_guard 2>>【이가】 말한다, "다시 올려보내 주는 거죠, 그렇죠?"<<lstress>><<stress -6>>
 		<br>
-		"그렇지," <<veteran_guard 3>>【이가】 대답한다. "하지만 러트는 오래전에 싹 다 털렸어."<<gstress>><<stress 6>>
+		"그렇지." <<veteran_guard 3>>【이가】 대답한다. "하지만 러트는 오래전에 싹 다 털렸어."<<gstress>><<stress 6>>
 		<br>
-		"어떤 죄수들은 스스로 올라오기도 해," <<relaxed_guard 1>>【이가】 덧붙인다.<<lstress>><<stress -6>>
+		"어떤 죄수들은 스스로 올라오기도 해." <<relaxed_guard 1>>【이가】 덧붙인다.<<lstress>><<stress -6>>
 		<br>
 		"자주는 아니지만." <<veteran_guard 3 cap>>【이가】 <<his>> 장화로 당신의 등을 걷어차고, 당신은 어둠 속으로 떨어진다.<<gtrauma>><<ggstress>><<trauma 6>><<stress 12>>
 		<br><br>

@@ -113,13 +113,18 @@
 <</if>>
 <<if $stress gte $stressmax>>
 	<<passouthome>>
-<<elseif $exposed gte 1 and Time.hour lt 22 and Time.hour gt 6>>
+<<elseif $exposed gte 1 and Time.hour lt 22 and Time.hour gte 6>>
 	<<exhibitionismgarden>>
 	이런 모습을 누군가에게 들킬지도 모른다는 생각에 견딜 수 없다. 당신은 서둘러 침실로 향한다.
-		<br><br>
-		<<link [[다음|Bedroom]]>><</link>>
-	<<elseif !$weekly.gardenBirdRobin and Weather.precipitation is "none" and getRobinLocation() is "orphanage" and C.npc.Robin.trauma lte 25 and C.npc.Robin.dom lte 60 and $rng gte 81>>
-		<<set $weekly.gardenBirdRobin to true>>
+	<br><br>
+	<<if $rentTime lte 0>>
+		<<set $bus to "home">>
+		<<link [[다음|Bedroom Bailey]]>><</link>>
+	<<else>>
+		<<bedroomEntryEvent "forced">>
+	<</if>>
+<<elseif !$weekly.gardenBirdRobin and Weather.precipitation is "none" and getRobinLocation() is "orphanage" and C.npc.Robin.trauma lte 25 and C.npc.Robin.dom lte 60 and $rng gte 81>>
+	<<set $weekly.gardenBirdRobin to true>>
 
 		<<npc Robin>><<person1>>
 		울타리가 쳐진 정원으로 들어서자, 누군가가 눈에 띈다. <span class="gold">로빈이다.</span>
@@ -166,7 +171,7 @@
 	<<link [[내 식물은 내가 물 줄 수 있다고 말한다|Robin Watering Berate]]>><<npcincr Robin dom -1>><<control 10>><</link>><<ldom "Robin">><<gcontrol>>
 	<br>
 
-<<elseif !$weekly.gardenCropTheft and $orphan_hope lte -10 and $plots.garden and $plots.garden.some(p => p.stage >= 5) and $rng gte 81>>
+<<elseif !$weekly.gardenCropTheft and $orphan_hope lte -10 and $plots.garden?.some(p => p.stage >= 5) and $rng gte 81>>
 
 	<<set $weekly.gardenCropTheft to true>>
 	<<set $cropTheft to {}>>
@@ -219,7 +224,7 @@
 	<br><br>
 	"이거 기억나." <<person>>【이가】 말한다. "몇 년 동안 덮여 있었을 텐데."
 	<br>
-	"위험해 보이는데." <<person2>><<person>>【이가】 대답한다.
+	"위험해 보이는데," <<person2>><<person>>【이가】 대답한다.
 	<br><br>
 
 	당신은 덤불 가장자리를 따라 돌아간다. 두 부하는 허벅지 높이 정도 되는 둥근 돌무더기 곁에 서 있다. 한가운데에 구멍이 뚫려 있다. 우물처럼 보인다.
@@ -245,7 +250,7 @@
 
 	<<if !Weather.isOvercast and Time.dayState is "day">>
 		<<set _tanning to Skin.getTanningFactor()>>
-		<<baskicon>><<link [[햇볕 쬐기 (0:10)|Bask]]>><<pass 10>><<set $stress -= 5>><</link>><<lstress>><<tanningGainOutput _tanning.result 10>>
+		<<baskicon>><<link [[햇볕을 쬔다 (0:10)|Bask]]>><<pass 10>><<set $stress -= 5>><</link>><<lstress>><<tanningGainOutput _tanning.result 10>>
 		<br>
 		<</if>>
 
@@ -257,7 +262,7 @@
 	<<if $exposed gte 1>>
 		<<set _ex to ($exposed >= 2 ? (Time.dayState == "night" ? 4 : 5) : (Time.dayState == "night" ? 2 : 3))>>
 		<<if hasSexStat("exhibitionism", _ex)>>
-			<<fenceicon>><<link [[울타리 넘기 (0:05)|Garden Fence]]>><<pass 5>><</link>>
+			<<fenceicon>><<link [[울타리를 넘는다 (0:05)|Garden Fence]]>><<pass 5>><</link>>
 			<<if $daily.ex.fence isnot 1>>
 				<<switch _ex>>
 					<<case 2>>
@@ -273,7 +278,7 @@
 		<</if>>
 		<br>
 	<<else>>
-		<<fenceicon>><<link [[울타리 넘기 (0:01)|Garden Fence]]>><<pass 1>><</link>>
+		<<fenceicon>><<link [[울타리를 넘는다 (0:01)|Garden Fence]]>><<pass 1>><</link>>
 		<br>
 	<</if>>
 
@@ -331,7 +336,7 @@
 		고아원 아이들은 일어나 옷을 고쳐 입는다.
 		<br><br>
 
-		"알았어," <<person1>><<person>>【이가】 으르렁거린다. "따라갈게, 그리고 내가 얼마나 고마워하는지 똑똑히 보여주지."
+		"알았어." <<person1>><<person>>【이가】 으르렁거린다. "따라갈게, 그리고 내가 얼마나 고마워하는지 똑똑히 보여주지."
 		<br><br>
 
 	<<case 2>>
@@ -339,7 +344,7 @@
 		커플은 황홀한 망각에 빠진 채 계속해서 몸을 부딪친다. 마침내, 그들의 신음이 절정에 달하고, 몸이 경련하며 뒤틀린다. 잠시 멈췄다가, 서로에게서 떨어진다. 거친 숨을 몰아쉬며, 그들은 서로를 보며 미소 짓는다.
 		<br><br>
 
-		"재밌었어," <<person1>><<person>>【이가】 말한다. "다음에 또 하자."
+		"재밌었어." <<person1>><<person>>【이가】 말한다. "다음에 또 하자."
 		<br><br>
 
 		<<person2>><<person>>【이가】 만족스럽게 고개를 끄덕인다. "물론이지. 이제 기분이 훨씬 나아졌어. 이제 편안하게 목욕이나 해야겠다."
@@ -374,7 +379,7 @@
 	고아원 아이들이 깜짝 놀라 주위를 살핀다.
 	<br><br>
 
-	"무슨 소리 들었어?" <<person1>><<person>>【이가】 묻는다. "나도 들은 것 같아," <<person2>><<person>>【이가】 대답한다. "어서 뜨는 게 좋겠어."
+	"무슨 소리 들었어?" <<person1>><<person>>【이가】 묻는다. "나도 들은 것 같아." <<person2>><<person>>【이가】 대답한다. "어서 뜨는 게 좋겠어."
 	<br><br>
 
 	그 말을 끝으로, 고아원 아이들은 서둘러 옷을 추스르고 안으로 사라진다.
@@ -388,12 +393,12 @@
 	베일리가 얼굴을 찌푸린다. "이쪽에서 이상한 소리가 들린다 싶었지. 네가 여기 있을 줄 알았어야 했는데. 이제 괜찮다면, 이웃들이 이 장소에 대해 이상한 생각을 하기 전에, 네 볼일은 안에서 보도록 해."
 	<br><br>
 
-	그 말을 남기고, 베일리는 씩씩거리며 가버린다. 당신이 다시 돌아봤을 때, 커플은 사라지고 없었다.
+	그 말을 남기고, 베일리는 씩씩거리며 가버린다. 당신이 다시 돌아보면, 커플은 사라지고 없다.
 	<br><br>
 
 <<else>>
 
-	마지막 한숨과 함께, 커플은 서로에게서 떨어진다. 그들은 옷을 추스르기 전에 만족스럽게 몸을 편다. "정말 좋았어," <<person1>><<person>>【이가】 말한다. "기회가 되면 또 하자."
+	마지막 한숨과 함께, 커플은 서로에게서 떨어진다. 그들은 옷을 추스르기 전에 만족스럽게 몸을 편다. "정말 좋았어." <<person1>><<person>>【이가】 말한다. "기회가 되면 또 하자."
 	<br><br>
 
 	"동감이야," <<person2>><<person>>【이가】 미소 짓는다. "하지만 다음번엔, 역할을 바꾸는 거야!"
@@ -478,7 +483,7 @@
 	<br><br>
 <</if>>
 
-<<if $tutorial is 0 and $debug is 0>>
+<<if $tutorial is 0 and !$debug>>
 	<<generate1>><<person1>><<= $exposed gte 1 ? "그렇게 조심했음에도 불구하고, 당신은" : "당신은">> 지나가던 <<person>>【와과】 부딪힌다. <<He>>【은는】 비틀거리며 뒤로 물러서더니 화난 눈으로 당신을 쳐다보지만, 당신을 보자 <<his>> 분노는 음탕함으로 바뀐다. "이번 주에 본 것 중에 제일 귀엽네! 이리 와."
 	<br><br>
 
@@ -525,7 +530,7 @@
 		힘없이 미소 짓는다. <<His>> 눈이 빨갛다.
 		<br><br>
 
-		"안녕," <<he>>【이가】 말한다.
+		"안녕." <<he>>【이가】 말한다.
 		<<if _time_to_pass lt 5>>
 			"이제 막 끝내려던 참이야."
 		<<elseif Time.minute lt 25>>
@@ -535,11 +540,11 @@
 		<</if>>
 		<br><br>
 
-		<<link [[안아주기 (0:05)|Garden Robin Hug]]>><<pass 5>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<trauma -6>><</link>><<ltrauma>><<glove>><<lrtrauma>>
+		<<link [[안아준다 (0:05)|Garden Robin Hug]]>><<pass 5>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<trauma -6>><</link>><<ltrauma>><<glove>><<lrtrauma>>
 		<br>
 		<<link [["로빈을 도와 물 주기 (" + _time_to_display + ")"|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass _time_to_pass>><</link>><<ltrauma>><<lstress>><<glove>>
 		<br>
-		<<link [[그냥 지나가는 길이라고 말하기|Garden Robin Finished]]>><</link>>
+		<<link [[그냥 지나가는 길이라고 말한다|Garden Robin Finished]]>><</link>>
 		<br>
 	<<else>>
 		손을 흔든다.
@@ -557,28 +562,17 @@
 
 		<<link [["로빈을 도와 물 주기 (" + _time_to_display + ")"|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass _time_to_pass>><</link>><<ltrauma>><<lstress>><<glove>>
 		<br>
-		<<link [[그냥 지나가는 길이라고 말하기|Garden Robin Finished]]>><</link>>
+		<<link [[그냥 지나가는 길이라고 말한다|Garden Robin Finished]]>><</link>>
 		<br>
 	<</if>>
 <<elseif $phase is 1>>
 	<<set $phase to 0>>
-	/* TODO: eventpool */
-	<<if $rng gte 61 and ($hallucinations gte 2 or $backgroundTraits.includes("plantlover"))>>
-		무언가 다리를 스친다. 당신은 벌레려니 하고 털어내지만, 다시 한번 같은 일이 일어난다. 아래를 내려다보니 줄기 하나가 발목을 감싸고 있다.
-		<br><br>
-
-		<<link [[털어내기|Garden Stem Shake]]>><</link>>
-		<br>
-		<<link [[자세히 보기|Garden Stem Look]]>><</link>>
-		<br>
-	<<else>>
-		<<hallucinogen 60>>
-		물을 주자 식물에서 이상한 향기가 피어오른다. 머리가 어질어질하다. <<ghallucinogens>><<if $backgroundTraits.includes("plantlover")>><<arousal 6>><<garousal>><</if>>
-		<br><br>
-
-		<<link [[다음|Garden Flowers]]>><</link>>
-		<br>
+	<<cleareventpool>>
+	<<if $hallucinations gte 2 or $backgroundTraits.includes("plantlover")>>
+		<<addevent "gardenStem" 2>>
 	<</if>>
+	<<addevent "gardenScent" 3>>
+	<<runeventpool>>
 <<elseif $phase2 is "watered" and $rng lte (C.npc.Robin.love - 50) and _robin_location is "orphanage" and _robin.trauma lt 80 and Weather.precipitation isnot "rain" and (Weather.precipitation isnot "snow" or $alex_greenhouse gte 3) and $daily.robin.tending isnot 1>>
 	<<set $daily.robin.tending to 1>><<set $phase to 1>><<set $phase2 to 0>>
 	<<npc Robin>><<person1>>
@@ -586,35 +580,35 @@
 		풀밭을 스치는 부드러운 발소리가 들린다. 로빈이다.
 		<br><br>
 
-		"실례가 아니었으면 좋겠네," <<he>>【이가】 말한다. <<He>>【은는】 빨개진 눈으로 당신이 물 주는 것을 지켜본다. "밖에서 누가 물 주는 소리가 들려서 너일 거라고 생각했어."
+		"실례가 아니었으면 좋겠네." <<he>>【이가】 말한다. <<He>>【은는】 빨개진 눈으로 당신이 물 주는 것을 지켜본다. "밖에서 누가 물 주는 소리가 들려서 너일 거라고 생각했어."
 		<br><br>
 
-		<<link [[안아주기 (0:05)|Garden Robin Hug]]>><<pass 5>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<trauma -6>><</link>><<ltrauma>><<glove>><<lrtrauma>>
+		<<link [[안아준다 (0:05)|Garden Robin Hug]]>><<pass 5>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<trauma -6>><</link>><<ltrauma>><<glove>><<lrtrauma>>
 		<br>
-		<<link [[로빈이 돕게 하기 (0:10)|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass 10>><</link>><<ltrauma>><<lstress>><<glove>>
+		<<link [[로빈이 돕게 한다 (0:10)|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass 10>><</link>><<ltrauma>><<lstress>><<glove>>
 		<br>
-		<<link [[다 끝났다고 말하기|Garden Robin Finished]]>><</link>>
+		<<link [[다 끝났다고 말한다|Garden Robin Finished]]>><</link>>
 		<br>
 	<<else>>
 		풀밭을 스치는 부드러운 발소리가 들린다. 로빈이다.
 		<br><br>
 
-		"네가 여기 있을 줄 알았어," <<he>>【이가】 가까이 다가오며 말한다. "도와줄까?"
+		"네가 여기 있을 줄 알았어." <<he>>【이가】 가까이 다가오며 말한다. "도와줄까?"
 		<br><br>
 
-		<<link [[로빈이 돕게 하기 (0:10)|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass 10>><</link>><<ltrauma>><<lstress>><<glove>>
+		<<link [[로빈이 돕게 한다 (0:10)|Garden Robin Help]]>><<npcincr Robin love 1>><<trauma -6>><<stress -6>><<pass 10>><</link>><<ltrauma>><<lstress>><<glove>>
 		<br>
-		<<link [[다 끝났다고 말하기|Garden Robin Finished]]>><</link>>
+		<<link [[다 끝났다고 말한다|Garden Robin Finished]]>><</link>>
 		<br>
 	<</if>>
 <<else>>
 	<<display_plot garden>>
 	<<if !$plants_known.includes("daisy")>>
-		<<foodstufficon "daisy">> <<link [[씨앗 찾기 (0:30)|Garden Flowers Seeds]]>><<set $plants_known.push("daisy")>><<pass 30>><</link>>
+		<<foodstufficon "daisy">> <<link [[씨앗을 찾는다 (0:30)|Garden Flowers Seeds]]>><<set $plants_known.push("daisy")>><<pass 30>><</link>>
 		<br>
 	<</if>>
 	<br>
-	<<getouticon>><<link [[떠나기|Garden]]>><<endevent>><</link>>
+	<<getouticon>><<link [[떠난다|Garden]]>><<endevent>><</link>>
 	<br>
 <</if>>
 
@@ -623,7 +617,7 @@
 
 당신은 경작할 만한 것이 있는지 풀밭과 덤불 아래, 나무줄기 옆을 뒤진다.
 <br><br>
-뒤쪽 울타리 근처의 야생초 덤불 속에서 씨앗을 맺은 데이지 몇 송이를 발견했다.
+뒤쪽 울타리 근처의 야생초 덤불 속에서 씨앗을 맺은 데이지 몇 송이를 발견한다.
 <br><br>
 
 <span class="gold">이제 <<foodstufficon "daisy">> 데이지를 재배할 수 있습니다.</span>
@@ -631,7 +625,7 @@
 <<specialClothesUnlock "item" "daisy">>
 
 <<if $worn.head.name is "naked">>
-	풀밭에서 몸을 일으키자 머리카락에 데이지 한 송이가 붙어있는 것을 발견했다.
+	풀밭에서 몸을 일으키자 머리카락에 데이지 한 송이가 붙어있는 것을 발견한다.
 	<br><br>
 	<<headwear "daisy">>
 <</if>>
@@ -645,7 +639,7 @@
 <<covered>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저기요?" 당신은 말한다. "기분 나쁘셨다면 죄송해요. 제 옷 좀 돌려주세요."
+	"저-저기요?" 당신은 말한다. "기분 나쁘셨다면 죄송해요. 제 옷 좀 돌려주세요."
 <<elseif $speech_attitude is "bratty">>
 	"거기 있는 거 알아요." 당신은 말한다. "모습을 보여요."
 <<else>>
@@ -686,7 +680,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"제, 제발요..." 당신은 애원한다. <<He>>【은는】 당신을 불쌍히 여겨 옷을 던져준다. 당신은 덤불 뒤로 달려가 옷을 입는다. <<he>>【이가】 이 일에 대해 아무에게도 말하지 않기를 바라지만, 그럴 리 없다는 것을 안다.
+	"제-제발요..." 당신은 애원한다. <<He>>【은는】 당신을 불쌍히 여겨 옷을 던져준다. 당신은 덤불 뒤로 달려가 옷을 입는다. <<he>>【이가】 이 일에 대해 아무에게도 말하지 않기를 바라지만, 그럴 리 없다는 것을 안다.
 <<elseif $speech_attitude is "bratty">>
 	<<he>>【이가】 당신의 몸에 얼마나 넋이 나갔는지 깨닫고, 당신은 <<him>>에게서 옷을 낚아채 덤불 뒤로 걸어가 옷을 입는다. <<he>>【이가】 이 일에 대해 아무에게도 말하지 않기를 바라지만, 그럴 리 없다는 것을 안다.
 <<else>>
@@ -837,7 +831,7 @@
 	<br><br>
 <</if>>
 
-<<link [[다음|Bedroom]]>><</link>>
+<<bedroomEntryEvent "forced">>
 <br>
 
 :: Bask Sneak Wait
@@ -846,7 +840,7 @@
 당신은 <<lewdness>>【을를】 드러낸 채 덤불 아래에 숨어 고아들이 지루해져 떠날 때까지 기다린다. 아무도 없게 되자, 당신은 정원을 가로질러 침실 창문을 통해 안전한 곳으로 달려간다.
 <br><br>
 
-<<link [[다음|Bedroom]]>><</link>>
+<<bedroomEntryEvent "forced">>
 <br>
 
 :: Garden Shove
@@ -1094,12 +1088,12 @@
 	당신은 긴장을 풀고 평화로운 분위기를 즐기며 거의 꾸벅꾸벅 졸 뻔하다가, 로빈이 경쾌하게 말하는 소리를 듣는다. "다 됐다!"
 	<br><br>
 	당신은 눈을 비비고 머리카락을 살펴본다.
-	<<set _target to either("twin fishtails","left fishtail","right fishtail")>>
+	<<set _target to either("twin fishtails","fishtail left","fishtail right")>>
 	<<if $hairtype isnot _target>>
 		<<set $hairtype to _target>>
 		아름답다.
 	<<else>>
-		똑같지만, 더 부드러워졌다.
+		똑같지만, 더 부드럽다.
 	<</if>>
 	<<stress -6>><<lstress>>
 	<br><br>
@@ -1280,7 +1274,7 @@
 	처음에는 머리 위 나뭇가지 사이로 부는 밤바람 외에는 아무런 반응이 없다. 하지만 그때 정원 울타리가 삐걱거리는 소리와 함께 쿵 하는 소리가 들린다.
 	<br><br>
 
-	"이런," <<personssimple>> 목소리가 말한다. "고아 중 하나가 <<pherself>> 완전히 얽혔네." 한 <<person>>【이가】 당신 앞에 웅크리고 앉아 음흉한 눈으로 당신을 바라본다. "고아원 안에는 들어오면 안 된다고들 하던데, 넌 고아원 안에 있는 게 아니잖아, 그렇지?" <<He>>【은는】 당신 위에 올라타 더 쉽게 접근하기 위해 구속하는 새싹들을 찢어버린다.
+	"이런." <<personssimple>> 목소리가 말한다. "고아 중 하나가 <<pherself>> 완전히 얽혔네." 한 <<person>>【이가】 당신 앞에 웅크리고 앉아 음흉한 눈으로 당신을 바라본다. "고아원 안에는 들어오면 안 된다고들 하던데, 넌 고아원 안에 있는 게 아니잖아, 그렇지?" <<He>>【은는】 당신 위에 올라타 더 쉽게 접근하기 위해 구속하는 새싹들을 찢어버린다.
 	<br><br>
 
 	<<link [[다음|Garden Stem Rape]]>><<set $molestationstart to 1>><</link>>
@@ -1469,21 +1463,21 @@
 :: Garden Crop Theft Agree
 <<effects>>
 <<if $speech_attitude is "meek">>
-	"아-알았어," 당신은 작게 고개를 끄덕이며 말했다. "가져가도 좋아."
+	"아-알았어." 당신은 작게 고개를 끄덕이며 말한다. "가져가도 좋아."
 <<elseif $speech_attitude is "bratty">>
-	"좋아," 당신은 팔짱을 끼며 말했다. "가져가."
+	"좋아." 당신은 팔짱을 끼며 말한다. "가져가."
 <<else>>
-	"알았어," 당신이 고개를 끄덕였다. "가져가도록 해."
+	"알았어," 당신이 고개를 끄덕인다. "가져가도록 해."
 <</if>>
 <br><br>
 
-당신의 말에 <<person1>><<person>>의 입술이 파르르 떨렸다. <<He>>【은는】 허리를 숙여 한 팔에 <<print $cropTheft.crop.plural>>【을를】 한가득 안아 들더니, 당신에게 종종걸음으로 다가와 남은 팔로 어설프게 안아주었다.<<clear_plot garden $cropTheft.index>>
+당신의 말에 <<person1>><<person>>의 입술이 파르르 떨린다. <<He>>【은는】 허리를 숙여 한 팔에 <<print $cropTheft.crop.plural>>【을를】 한가득 안아 들더니, 당신에게 종종걸음으로 다가와 남은 팔로 어설프게 안아준다.<<clear_plot garden $cropTheft.index>>
 <br><br>
 
-"정말 고마워," <<he>>【이가】 말했다. "이 은혜는 잊지 않을게."<<hope 1>><<ghope>><<stress -6>><<lstress>>
+"정말 고마워." <<he>>【이가】 말한다. "이 은혜는 잊지 않을게."<<hope 1>><<ghope>><<stress -6>><<lstress>>
 <br><br>
 
-<<He>>【은는】 당신을 놔주고 고아원 안으로 종종걸음 쳤다.
+<<He>>【은는】 당신을 놔주고 고아원 안으로 종종걸음 친다.
 <br><br>
 
 <<unset $cropTheft>>
@@ -1492,18 +1486,18 @@
 :: Garden Crop Theft Refuse
 <<effects>>
 <<if $speech_attitude is "meek">>
-	"내, 내가 기른 <<print $cropTheft.crop.category>>【을를】 그냥 훔쳐가게 둘 수는 없어," 당신이 미안한 듯 말했다. "나한테도 필요하거든."
+	"내-내가 기른 <<print $cropTheft.crop.category>>【을를】 그냥 훔쳐가게 둘 수는 없어." 당신이 미안한 듯 말한다. "나한테도 필요하거든."
 <<elseif $speech_attitude is "bratty">>
-	"내가 기른 <<print $cropTheft.crop.category>>【을를】 훔쳐가게 놔둘 순 없어!" 당신이 고아 쪽으로 한 걸음 다가가며 말했다. "얼마나 힘들게 키웠는데!"
+	"내가 기른 <<print $cropTheft.crop.category>>【을를】 훔쳐가게 놔둘 순 없어!" 당신이 고아 쪽으로 한 걸음 다가가며 말한다. "얼마나 힘들게 키웠는데!"
 <<else>>
-	"내 <<print $cropTheft.crop.category>>【을를】 그냥 훔쳐갈 순 없어," 당신이 말했다. "이건 내 거니까."
+	"내 <<print $cropTheft.crop.category>>【을를】 그냥 훔쳐갈 순 없어." 당신이 말한다. "이건 내 거니까."
 <</if>>
 <br><br>
 
-"제-제발!" <<person1>><<person>>【이가】 두 손을 모아 쥐며 다시 애원했다. "뭐든지 할게. 네, 네가 원한다면 기분 좋게 해 줄 수도 있어."
+"제-제발!" <<person1>><<person>>【이가】 두 손을 모아 쥐며 다시 애원한다. "뭐든지 할게. 네-네가 원한다면 기분 좋게 해 줄 수도 있어."
 <br><br>
 
-<<He>>【은는】 당신에게 더 가까이 다가와 손을 뻗어 당신의 팔을 어루만졌다.
+<<He>>【은는】 당신에게 더 가까이 다가와 손을 뻗어 당신의 팔을 어루만진다.
 <br><br>
 
 <<if hasSexStat("promiscuity", 2)>>
@@ -1521,7 +1515,7 @@
 	<<set $sexstart to 0>>
 	<<consensual>><<set $consensual to 1>>
 	<<neutral 1>><<maninit>><<set $enemytrust += 100>>
-	<<He>>【은는】 눈에 띄게 침을 꿀꺽 삼키더니 당신을 끌어안았다. <<His>> 두 손이 당신의 온몸을 더듬었다.
+	<<He>>【은는】 눈에 띄게 침을 꿀꺽 삼키더니 당신을 끌어안는다. <<His>> 두 손이 당신의 온몸을 더듬는다.
 	<<promiscuity2>>
 <</if>>
 <<effects>><<effectsman>><<man>><<stateman>>
@@ -1538,18 +1532,18 @@
 :: Garden Crop Theft Sex Finish
 <<effects>>
 <<if $enemyhealth lte 0>>
-	<<person1>><<person>>【이가】 당신에게서 펄쩍 뛰어 물러나더니, 울음을 터뜨렸다. <<He>>【은는】 뒤도 돌아보지 않고 고아원 안으로 달려갔다.<<hope -1>><<lhope>><<stress 6>><<gstress>>
+	<<person1>><<person>>【이가】 당신에게서 펄쩍 뛰어 물러나더니, 울음을 터뜨린다. <<He>>【은는】 뒤도 돌아보지 않고 고아원 안으로 달려간다.<<hope -1>><<lhope>><<stress 6>><<gstress>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	<<person1>><<person>>【은는】 안도의 한숨을 내쉬었다.
+	<<person1>><<person>>【은는】 안도의 한숨을 내쉰다.
 	<br><br>
 
-	"고-고마워," <<person1>><<person>>【이가】 당신에게 말하더니, <<print $cropTheft.crop.plural>>【을를】 한 움큼 집어 들고 고아원 안으로 달려갔다.<<clear_plot garden $cropTheft.index>><<hope 1>><<ghope>><<stress -6>><<lstress>>
+	"고-고마워," <<person1>><<person>>【이가】 당신에게 말하더니, <<print $cropTheft.crop.plural>>【을를】 한 움큼 집어 들고 고아원 안으로 달려간다.<<clear_plot garden $cropTheft.index>><<hope 1>><<ghope>><<stress -6>><<lstress>>
 	<br><br>
 
-	<<tearful>> 당신은 뜰에 홀로 섰다.
+	<<tearful>> 당신은 뜰에 홀로 선다.
 <<else>>
-	<<person1>><<person>>【은는】 잠시 어리둥절한 표정을 지었다. 그러더니, <<he>>【은는】 재빨리 <<print $cropTheft.crop.plural>>【을를】 한 움큼 집어 들고 고아원 안으로 달려갔다.<<clear_plot garden $cropTheft.index>><<hope 1>><<ghope>><<stress -6>><<lstress>>
+	<<person1>><<person>>【은는】 잠시 어리둥절한 표정을 짓는다. 그러더니, <<he>>【은는】 재빨리 <<print $cropTheft.crop.plural>>【을를】 한 움큼 집어 들고 고아원 안으로 달려간다.<<clear_plot garden $cropTheft.index>><<hope 1>><<ghope>><<stress -6>><<lstress>>
 <</if>>
 <<clotheson>>
 <<endcombat>>
@@ -1560,15 +1554,15 @@
 <<effects>>
 <<person1>>
 <<if $speech_attitude is "meek">>
-	"미-미안해," 당신이 <<his>> 손에서 한 걸음 물러나며 말했다. "이러면 안 돼."
+	"미-미안해." 당신이 <<his>> 손에서 한 걸음 물러나며 말한다. "이러면 안 돼."
 <<elseif $speech_attitude is "bratty">>
-	"어림없는 소리," 당신이 <<his>> 손을 뿌리치며 말했다. "저리 가."
+	"어림없는 소리." 당신이 <<his>> 손을 뿌리치며 말한다. "저리 가."
 <<else>>
-	"싫어," 당신이 팔에서 <<his>> 손을 치우며 말했다. "이럴 순 없어."
+	"싫어." 당신이 팔에서 <<his>> 손을 치우며 말한다. "이럴 순 없어."
 <</if>>
 <br><br>
 
-<<person1>><<person>>의 얼굴이 일그러졌다. <<He>>【은는】 흙투성이 손등으로 눈을 훔치고는 뒤돌아 빈손으로 고아원 안을 향해 터덜터덜 걸어갔다.<<hope -1>><<lhope>><<stress 6>><<gstress>>
+<<person1>><<person>>의 얼굴이 일그러진다. <<He>>【은는】 흙투성이 손등으로 눈을 훔치고는 뒤돌아 빈손으로 고아원 안을 향해 터덜터덜 걸어간다.<<hope -1>><<lhope>><<stress 6>><<gstress>>
 <br><br>
 
 <<unset $cropTheft>>
@@ -1577,21 +1571,21 @@
 :: Garden Crop Theft Relent
 <<effects>>
 <<if $speech_attitude is "meek">>
-	"미-미안, 그렇게까지 상황이 안 좋은 줄은 몰랐어," 당신이 말했다. "가져가."
+	"미-미안, 그렇게까지 상황이 안 좋은 줄은 몰랐어." 당신이 말한다. "가져가."
 <<elseif $speech_attitude is "bratty">>
-	"뭐, 그렇게까지 절박하다면야 가져가도 좋아," 당신이 말했다. "이번 한 번뿐이야."
+	"뭐, 그렇게까지 절박하다면야 가져가도 좋아." 당신이 말한다. "이번 한 번뿐이야."
 <<else>>
-	"알았어, 가져가," 당신이 말했다. "나보단 네게 더 필요해 보이네."
+	"알았어, 가져가." 당신이 말한다. "나보단 네게 더 필요해 보이네."
 <</if>>
 <br><br>
 
-<<person1>><<person>>의 얼굴이 안도감으로 환해졌다. <<He>>【은는】 허리를 숙여 한 팔에 <<print $cropTheft.crop.plural>>【을를】 한가득 안아 들더니, 당신에게 종종걸음으로 다가와 남은 팔로 어설프게 안아주었다.<<clear_plot garden $cropTheft.index>>
+<<person1>><<person>>의 얼굴이 안도감으로 환해진다. <<He>>【은는】 허리를 숙여 한 팔에 <<print $cropTheft.crop.plural>>【을를】 한가득 안아 들더니, 당신에게 종종걸음으로 다가와 남은 팔로 어설프게 안아준다.<<clear_plot garden $cropTheft.index>>
 <br><br>
 
-"마음을 바꿔줘서 고마워," <<he>>【이가】 말했다. "정말 큰 도움이 될 거야."<<hope 1>><<ghope>><<stress -6>><<lstress>>
+"마음을 바꿔줘서 고마워." <<he>>【이가】 말한다. "정말 큰 도움이 될 거야."<<hope 1>><<ghope>><<stress -6>><<lstress>>
 <br><br>
 
-<<He>>【은는】 당신을 놔주고 고아원 안으로 종종걸음 쳤다.
+<<He>>【은는】 당신을 놔주고 고아원 안으로 종종걸음 친다.
 <br><br>
 
 <<unset $cropTheft>>

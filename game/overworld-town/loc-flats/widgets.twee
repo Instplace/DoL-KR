@@ -67,7 +67,7 @@
 
 <<widget "flats_canal_defeat">>
 <<if $flats_canal gte 50>>
-	"괜찮아," <<person1>><<person>>【이가】 분노가 서린 목소리로 말한다. "다른 방법으로 갚으면 되니까. <span class="red">우리 각자에게 빚진 거 잊지 마.</span>"
+	"괜찮아." <<person1>><<person>>【이가】 분노가 서린 목소리로 말한다. "다른 방법으로 갚으면 되니까. <span class="red">우리 각자에게 빚진 거 잊지 마.</span>"
 	<br><br>
 	<<generate2>><<generate3>><<generate4>><<generate5>><<generate6>>
 	<<link [[다음|Flats Canal Rape]]>><<set $molestationstart to 1>><</link>>
@@ -75,7 +75,7 @@
 <<else>>
 	그들이 당신을 놓아주더니, 이내 몸 위로 폭풍 같은 발길질이 쏟아진다. 당신은 몸을 웅크린다.<<ggpain>><<gtrauma>><<gstress>><<pain 4>><<trauma 6>><<stress 6>>
 	<br><br>
-	구타가 멈춘다. <<person>>【이가】 당신의 머리채를 거머쥐고, 당신을 무릎 꿇게 만든다. "괜찮아," <<he>>【이가】 분노가 서린 목소리로 말한다. "다른 방법으로 갚으면 되니까."
+	구타가 멈춘다. <<person>>【이가】 당신의 머리채를 거머쥐고, 당신을 무릎 꿇게 만든다. "괜찮아." <<he>>【이가】 분노가 서린 목소리로 말한다. "다른 방법으로 갚으면 되니까."
 	<br><br>
 
 	<<link [[다음|Flats Canal Oral]]>><<set $molestationstart to 1>><</link>>
@@ -97,7 +97,7 @@
 <<widget "passout_flats">>
 <<passout>>
 
-<<if dangerEvent()>>
+<<if dangerEvent() and $mine?.freed isnot 1>>
 	<<link [[다음|Flats Auction]]>><</link>>
 	<br>
 <<else>>

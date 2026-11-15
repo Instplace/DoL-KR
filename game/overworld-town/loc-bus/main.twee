@@ -23,7 +23,7 @@
 	상업 지구
 	<br>
 
-	<<highicon>><<link [[하이 가(쇼핑 센터)행 표 구매|Bus seat]]>><<set $bus to "high">><<money -100 "bus">><</link>>
+	<<highicon>><<link [[하이 가(쇼핑센터)행 표 구매|Bus seat]]>><<set $bus to "high">><<money -100 "bus">><</link>>
 	<br>
 
 	<<connudatusicon>><<link [[콘누다투스 가(클럽)행 표 구매|Bus seat]]>><<set $bus to "connudatus">><<money -100 "bus">><</link>>
@@ -90,6 +90,51 @@
 <br><br>
 <<if $stress gte $stressmax>>
 	<<passoutbus>>
+<<elseif $rentThug and isBaileyLookingForPlayer() and $rentThug.anger gt 0 and $rng gte 100 - ($rentThug.anger * 10)>>
+	<<if $rentThug.anger lte 3>>
+		<<generate1>><<generate2>>
+		수상쩍은 두 사람이 버스에 올라타는 것이 보인다. <<person1>><<person>>과 <<person2>><<person>>이다. 그들은 빈 좌석 몇 개를 지나치더니 다른 승객들을 차근차근 훑어본다.
+		<br><br>
+		베일리의 불량배들이 당신을 찾고 있다는 사실을 떠올리자, 편집증적인 불안이 파도처럼 밀려온다.<<stress 4>><<gstress>>
+		<br><br>
+		<<link [[내린다|Bus Thug Inspection Leave]]>><</link>>
+		<br>
+		<<link [[누군가의 뒤에 숨는다|Bus Thug Inspection Hide]]>><</link>>
+		<br>
+		<<link [[눈에 띄지 않게 행동한다|Bus Thug Inspection Still]]>><</link>>
+		<br>
+	<<else>>
+		<<if Time.dayState is "night">>
+			<<generate1>><<generateNPC 2 a n n `random(16,19)`>><<generate3>><<set $NPCList[0].traits.push("unforgiving")>> /* person 1 is unforgiving, while person 2 is very strong */
+			버스가 승객을 더 태우려고 다시 멈추자, 수상쩍은 세 사람이 올라타는 것이 보인다. 그중 <<person3>><<person>> 한 명이 운전사에게 뭔가를 슬쩍 건넨다. <span class="red">갑자기 모든 문이 닫힌다.</span>
+			내리려던 승객 몇이 운전사에게 소리를 지르지만, 운전사는 무시한다.
+			<br><br>
+			불길한 예감이 든다. 그들이 무엇을 노리는지는 모르겠지만, 직감이 그게 당신일지도 모른다고 말한다.<<stress 6>><<gstress>>
+			<br><br>
+			당신이 뭔가 하기도 전에, 그들 중 또 다른 한 명인 <<person1>><<person>>【이가】 모두의 주의를 끌려고 <<his>> 손뼉을 크게 친다.
+			<br><br>
+			"신사 숙녀 여러분! 방해해서 죄송합니다만, 버스를 잠깐 확인해야 합니다. 용무가 끝날 때까지 가만히 계십시오." <<he>>【이가】 말한다.
+			<br><br>
+			말을 마치자 그들은 승객들을 하나하나 훑어보기 시작한다. 누군가 항의하려 하면, 세 번째 사람인 <<person2>><<person>>의 위협적인 눈빛에 금세 입을 다문다. 그들은 천천히, 점점 당신 쪽으로 다가온다.
+			<br><br>
+			<<link [[가만히 있는다|Bus Thug Extreme 2]]>><<set $phase to 0>><</link>>
+			<br>
+			<<link [[물러난다|Bus Thug Extreme 2]]>><<set $phase to 1>><</link>>
+			<br>
+		<<else>>
+			<<generate1>><<generate2>>
+			수상쩍은 두 사람이 버스에 올라타는 것이 보인다. <<person1>><<person>>과 <<person2>><<person>>이다. 버스는 붐비지만, 그들은 앉을 자리를 찾는 대신 다른 승객들을 훑어보고 있다.
+			<br><br>
+			그들은 각자 한쪽씩 맡아 승객들을 살펴보기 시작한다. 그 방식은 숙련되고 조직적이다. 베일리와 <<nnpc_his "Bailey">> 불량배들을 얼마나 오래 피해 왔는지 떠올리자, 편집증적인 불안이 파도처럼 밀려온다.<<stress 6>><<gstress>>
+			<br><br>
+			<<link [[내린다|Bus Thug Shakedown Leave]]>><</link>>
+			<br>
+			<<link [[누군가의 뒤에 숨는다|Bus Thug Shakedown Hide]]>><</link>>
+			<br>
+			<<link [[눈에 띄지 않게 행동한다|Bus Thug Shakedown Still]]>><</link>>
+			<br>
+		<</if>>
+	<</if>>
 <<elseif $tiredness gte (C.tiredness.max / 5) * 4 and $stress gte (($stressmax / 5) * 4) and !isPregnancyEnding()>>
 	얼마 지나지 않아, 당신은 눈을 뜨고 있기 힘들어졌다. 지치고 긴장했던 몸이 서서히 이완되고, 머리가 푹 숙여지며 불안한 선잠에 빠져들기 시작한다.
 	<br><br>
@@ -97,159 +142,29 @@
 	<br>
 	<<link [[깨어있으려 애쓴다|Passout bus]]>><<set $phase2 to 1>><</link>><<willpowerdifficulty 1 $willpowermax>>
 	<br>
-<<elseif playerBellyVisible() and $rng gte 76 and playerAwareTheyArePregnant()>>
-	/* event is only possible if the player knows they are pregnant, and their belly is visible */
-	옆자리의 <<generate1>><<person1>><<person>>【이가】 당신의 배를 힐끔힐끔 쳐다본다.
-	<br><br>
-	<<link [[<<him>>【이가】 배를 만지게 한다|Bus Pregnancy Touch]]>><</link>>
-	<br>
-	<<link [[정류장까지 그냥 기다린다|Bus Pregnancy Wait]]>><</link>>
-	<br>
 <<else>>
-	/* TODO: replace with eventpool */
+	<<cleareventpool>>
+	<<if playerBellyVisible() and playerAwareTheyArePregnant()>>
+		<<addevent "busSitPregnancy" 10>>
+	<</if>>
 	<<if dangerEvent()>>
-		<<set $dangerbus to random(1, 2)>>
-		<<if $wraith.hunt and Time.isBloodMoon() and $dangerbus is 1>>
-			당신은 붉은 달빛에 흠뻑 젖은 창밖 풍경을 바라본다. 유난히 창백한 사람이 멈춰 서서 창문을 통해 당신을 쳐다보는 것을 발견한다.
-			<br><br>
-			1분도 채 지나지 않아, 길 반대편에서 그것을 다시 본다. 그리고 다음 정류장에서 또. 당신이 눈을 깜빡이자, 그것은 사라졌다.
-			<br><br>
-			당신은 어깨너머로 돌아본다. 그것이 버스 뒷자리에 앉아 있다.
-			<br><br>
-			버스가 목적지에 도착하자, 당신은 자리에서 허둥지둥 일어난다. <<stress 12>><<ggstress>>
-			<<set $wraith.hunt++>>
-			<<destination5>>
-		<<elseif $dangerbus is 1>>
-			<<generate1>>한 <<person1>><<person>>【이가】 당신 옆에 앉아 다리 위에 손을 올린다.
-			<br><br>
-			<<if $rng gte 71 - ($allure/100)>>
-				<<link [[움직인다|Bus move]]>><<set $molestationstart to 1>><</link>><<gharass>>
-				<br>
-			<<else>>
-				<<link [[자리를 옮긴다|Bus move Safe]]>><</link>><<gharass>>
-				<br>
-			<</if>>
-			<<if $rng gte 91 - ($allure/100)>>
-				<<link [[움직이지 않는다|Bus Chikan Start]]>><</link>><<gtrauma>><<gstress>>
-				<br><br>
-			<<else>>
-				<<link [[움직이지 않는다|Bus endure safe]]>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>>
-				<br><br>
-			<</if>>
-		<<elseif $dangerbus is 2>>
-			<<if Time.hour gte 7 and Time.hour lte 8 and Time.schoolDay>>
-				<<outfitChecks>>
-				몇몇 불량배들이 인기가 없는 학생들을 괴롭히고 있다.
-				<br><br>
-				<<if $cool lt 80>>
-					<<generatey1>><<generatey2>><<generatey3>><<person1>>그들 중 한 명인 <<person>>【이가】 당신 옆에 앉는다. <<his>> 친구 두 명, <<person2>><<person>>【와과】 <<person3>><<person>>【은는】 당신 앞에 앉아 좌석 등받이에 기댄다.
-					<br><br>
-					"우리 버스를 써도 된다고 한 적 없는데." <<person1>><<person>>【이가】 말한다.
-					<br>
-					"<<pShe>>【은는】 아마 너무 멍청해서 잘 모를 거야." <<person2>><<person>>【이가】 끼어든다.
-					<br>
-					<<if $player.gender_appearance is "m" and _topless>>
-						"그럴지도. <<pShe>>【은는】 심지어 <<pher>> 셔츠도 잊어버렸잖아."
-						<br>
-						"아니면 <<pshe>>【은는】 옷 입는 걸 아예 싫어하는지도 모르지. 우리가 옷 벗는 걸 도와주면 좋아할지도."
-						<br><br>
-						<<if $speech_attitude is "bratty">>
-							"꺼져." 당신은 괴롭힘당하지 않으리라 다짐하며 말한다.
-						<<elseif $speech_attitude is "meek">>
-							당신은 무릎을 내려다보며 고개를 젓는다.
-						<<else>>
-							"저리 가," 당신이 말한다.
-						<</if>>
-						<br><br>
-						"사양 말고." <<person1>><<person>>【이가】 당신의 _bottom.name【을를】 잡으며 말한다.
-						<br><br>
-						<<link [[다음|Bus School Strip]]>><<set $molestationstart to 1>><</link>>
-						<br>
-					<<else>>
-						<<person3>><<person>>【이가】 당신을 보며 씩 웃는다. "알겠어." <<he>>【이가】 말한다. "네 _top.name【을를】 <<pullup>>하는 건 어때? 살 좀 보자고."
-						<br><br>
-						<<link [[응한다|Bus Comply]]>><<trauma 6>><<stress 6>><<sub 1>><</link>><<gtrauma>><<gstress>>
-						<br>
-						<<link [[거절한다|Bus Refuse]]>><<def 1>><</link>>
-						<br>
-					<</if>>
-				<<else>>
-					버스가 목적지에 도착한다.
-					<<destination5>>
-				<</if>>
-			<<elseif Time.hour is 15 and Time.schoolDay>>
-				<<outfitChecks>>
-				몇몇 불량배들이 인기가 없는 학생들을 괴롭히고 있다.
-				<br><br>
-				<<if $cool lt 80>>
-					<<generatey1>><<generatey2>><<generatey3>><<person1>>그들 중 한 명인 <<person>>【이가】 당신 옆에 앉는다. <<his>> 친구 두 명, <<person2>><<person>>【와과】 <<person3>><<person>>【은는】 당신 앞에 앉아 좌석 등받이에 기댄다.
-					<br><br>
-					"우리 버스를 써도 된다고 한 적 없는데." <<person1>><<person>>【이가】 말한다.
-					<br>
-					"<<pShe>>【은는】 아마 너무 멍청해서 잘 모를 거야." <<person2>><<person>>【이가】 끼어든다.
-					<br>
-					<<if $player.gender_appearance is "m" and _topless>>
-						"그럴지도. <<pShe>>【은는】 심지어 <<pher>> 셔츠도 잊어버렸잖아."
-						<br>
-						"아니면 <<pshe>>【은는】 옷 입는 걸 아예 싫어하는지도 모르지. 우리가 옷 벗는 걸 도와주면 좋아할지도."
-						<br><br>
-
-						<<if $speech_attitude is "bratty">>
-							"꺼져," 기죽지 않겠다는 마음으로 당신이 쏘아붙인다.
-						<<elseif $speech_attitude is "meek">>
-							당신은 무릎을 내려다보며 고개를 젓는다.
-						<<else>>
-							"저리 가," 당신이 말한다.
-						<</if>>
-						<br><br>
-						"사양 말고." <<person1>><<person>>【이가】 당신의 _bottom.name【을를】 잡으며 말한다.
-						<br><br>
-						<<link [[다음|Bus School Strip]]>><<set $molestationstart to 1>><</link>>
-						<br>
-					<<else>>
-						<<person3>><<person>>【이가】 당신을 보며 씩 웃는다. "알겠어." <<he>>【이가】 말한다. "네 _top.name【을를】 <<pullup>>하는 건 어때? 살 좀 보자고."
-						<br><br>
-						<<link [[응한다|Bus Comply]]>><<trauma 6>><<stress 6>><<sub 1>><</link>><<gtrauma>><<gstress>>
-						<br>
-						<<link [[거절한다|Bus Refuse]]>><<def 1>><</link>>
-						<br>
-					<</if>>
-				<<else>>
-					버스가 목적지에 도착한다.
-					<<destination5>>
-				<</if>>
-			<<else>>
-				<<if $rng gte 81>>
-					당신이 버스 뒷자리에 앉아 있을 때, 버스가 갑자기 멈춰 선다.
-					<br><br>
-					버스 기사가 욕을 하며 앞문으로 나간다. 엔진이 고장 난 것 같다. 버스가 다시 출발하기를 기다리는 동안, 주위 사람들이 술렁이기 시작한다.
-					<br><br>
-
-					<<link [[기다린다 (0:15)|Bus Engine Breakdown]]>><<pass 15>><</link>>
-					<br>
-					<<link [[떠난다|Bus Engine Breakdown End]]>><<set $phase to 1>><</link>>
-					<br>
-				<<else>>
-					<<generate1>><<generate2>>버스 안의 <<people>>【이가】 당신 주위로 몰려드는 것 같다. 몇몇은 더 가까이 오려고 자리를 옮기기까지 한다.
-					<br><br>
-					<<if Time.dayState is "night" and !isPregnancyEnding()>>
-						버스가 목적지에 가까워지지만 속도를 줄이지 않는다. 당신이 기사에게 말하려고 일어서자, <<person1>><<person>>【이가】 길을 막는다. "벌써 가려고?" <<person2>><<person>>【이가】 뒤에서 당신을 붙잡는다. "밤에 돌아다니면 안 된다는 걸 알아야지."
-						<br><br>
-						<<link [[다음|Bus Seat Rape]]>><<set $molestationstart to 1>><</link>>
-						<br>
-					<<else>>
-						버스가 목적지에 도착한다. 당신이 통로를 걸어 내려가자 <<person1>><<person>>【이가】 당신의 팔을 잡는다. "아직 가지 마, 같이 있어 줘." 당신이 뿌리치자 <<he>>【이가】 말한다. <<catcall>> 당신이 버스에서 내리자 그들이 웃는다.
-						<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
-						<<endevent>>
-						<<destination5>>
-					<</if>>
-				<</if>>
-			<</if>>
+		<<if $wraith.hunt and Time.isBloodMoon()>>
+			<<addevent "busSitWraith" 15>>
+		<<else>>
+			<<addevent "busSitGrope" 15>>
+		<</if>>
+		<<if Time.hour gte 7 and Time.hour lte 8 and Time.schoolDay>>
+			<<addevent "busSitDelinquentMorning" 15>>
+		<<elseif Time.hour is 15 and Time.schoolDay>>
+			<<addevent "busSitDelinquentAfternoon" 15>>
+		<<else>>
+			<<addevent "busSitBreakdown" 3>>
+			<<addevent "busSitCrowd" 12>>
 		<</if>>
 	<<else>>
-		버스가 목적지에 도착한다.
-		<<destination5>>
+		<<addevent "busSitSafe" 30>>
 	<</if>>
+	<<runeventpool>>
 <</if>>
 
 :: Stripped Bus
@@ -399,7 +314,7 @@
 <<set $outside to 0>><<effects>>
 당신이 _top.name【을를】 <<pullup>> 당신의 <<undertop>>【을를】 드러내자, 그들의 굶주린 시선이 느껴진다.
 <<if $player.gender_appearance is "m">>
-	"부끄러워하지 마," <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 젖꼭지를 꼬집는다.
+	"부끄러워하지 마." <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 젖꼭지를 꼬집는다.
 <<elseif $player.perceived_breastsize is 0>>
 	"그딴 한심한 걸 가슴이라고 부르냐?" <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 젖꼭지를 꼬집는다.
 	<<insecurity "breasts_small" 10>><<ginsecurity "breasts_small">>
@@ -407,10 +322,10 @@
 	"그 작은 걸 가슴이라고 부르냐?" <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 젖꼭지를 꼬집는다.
 	<<insecurity "breasts_small" 5>><<ginsecurity "breasts_small">>
 <<elseif $player.perceived_breastsize lte 7>>
-	"네 가슴이 예쁠 줄 알았어," <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 가슴을 움켜쥔다.
+	"네 가슴이 예쁠 줄 알았어." <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 가슴을 움켜쥔다.
 	<<insecurity "breasts_big" 5>><<ginsecurity "breasts_big">>
 <<else>>
-	"저 크기 좀 봐," <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 가슴을 움켜쥔다.
+	"저 크기 좀 봐." <<person1>><<person>>【이가】 말하며 손을 뻗어 당신의 오른쪽 가슴을 움켜쥔다.
 	<<insecurity "breasts_big" 5>><<ginsecurity "breasts_big">>
 <</if>>
 다른 두 명도 당신의 드러난 가슴을 괴롭히는 데 동참한다. 구석에 갇힌 당신은 다른 사람이 당신의 굴욕을 보지 않기를 바라며 견디는 것 외에는 아무것도 할 수 없다.
@@ -423,16 +338,16 @@
 :: Bus Refuse
 <<set $outside to 0>><<effects>>
 <<if $speech_attitude is "bratty">>
-	"꺼져," 당신은 괴롭힘당하지 않기로 결심하며 말한다.
+	"꺼져." 당신은 괴롭힘당하지 않기로 결심하며 말한다.
 	<br><br>
 <<elseif $speech_attitude is "meek">>
 	당신은 무릎을 내려다보며 고개를 젓는다.
 	<br><br>
 <<else>>
-	"나 좀 내버려 둬," 당신은 말한다.
+	"나 좀 내버려 둬." 당신은 말한다.
 	<br><br>
 <</if>>
-"꼭 그래야겠어," <<person1>><<person>>【이가】 당신의 _top.name【을를】 잡으며 말한다.
+"꼭 그래야겠어." <<person1>><<person>>【이가】 당신의 _top.name【을를】 잡으며 말한다.
 <br><br>
 <<link [[다음|Bus School Strip]]>><<set $molestationstart to 1>><</link>>
 <br>
@@ -467,7 +382,7 @@
 
 :: Bus School Strip Finish
 <<if $enemyhealth lte 0>>
-	<<person1>><<person>>【은는】 통로로 쓰러지고 다른 두 명은 당신에게서 물러난다. "가자," <<he>>【이가】 말한다. "이 미친놈은 그럴 가치도 없어."
+	<<person1>><<person>>【은는】 통로로 쓰러지고 다른 두 명은 당신에게서 물러난다. "가자." <<he>>【이가】 말한다. "이 미친놈은 그럴 가치도 없어."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -489,7 +404,7 @@
 	버스는 곧 당신의 목적지에 도착한다.
 	<<destination5>>
 <<elseif $timer lte 0>>
-	버스가 멈춘다. "우리 여기서 내려야 해," <<person2>><<person>>【이가】 말한다.
+	버스가 멈춘다. "우리 여기서 내려야 해." <<person2>><<person>>【이가】 말한다.
 	<<if $upperoff is 0 and $loweroff is 0 and $underloweroff is 0 and $underupperoff is 0>>
 	<<else>>
 		그들은 버스를 떠나며, <span class="red">당신의 옷을 가져간다.</span>
@@ -515,7 +430,7 @@
 		<<destination5>>
 	<</if>>
 <<else>>
-	"훨씬 낫네," <<person1>><<person>>【이가】 말한다. "이제 모두가 널 볼 수 있겠어." 버스가 멈춘다. "우리 정류장이야. 나중에 보자, 이 걸레야." 그들은 당신의 옷을 가지고 간다.
+	"훨씬 낫네." <<person1>><<person>>【이가】 말한다. "이제 모두가 널 볼 수 있겠어." 버스가 멈춘다. "우리 정류장이야. 나중에 보자, 이 걸레야." 그들은 당신의 옷을 가지고 간다.
 	<br><br>
 	<<set $stealtextskip to 1>>
 	<<stealclothes>>
@@ -543,7 +458,7 @@
 <<set $outside to 0>><<effects>>
 몸을 낮춘 채, 당신은 통로로 살금살금 다가가 <<generatey1>><<person1>><<person>>의 팔을 쿡 찌르고 자리로 돌아온다. <<He>>【은는】 어깨너머로 돌아본다.
 <<if $speech_attitude is "meek">>
-	"수-수건이 필요해요. 제발 도와주세요," 당신은 눈을 마주치지 못하고 말한다.
+	"수-수건이 필요해요. 제발 도와주세요." 당신은 눈을 마주치지 못하고 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"수건 좀 줘. 빨리," 당신은 요구한다.
 <<else>>
@@ -645,9 +560,9 @@
 <<if $enemyhealth lte 0>>
 	당신은 <<person1>><<person>>【을를】 쓰러뜨려 탈출로를 확보한다. <<tearful>> 당신은 버스 앞으로 달려간다.
 	<<if $speech_attitude is "bratty">>
-		"내리게 해줘, 안 그러면 너도 망가뜨려 버릴 거야," 당신은 말한다,
+		"내리게 해줘, 안 그러면 너도 망가뜨려 버릴 거야." 당신은 말한다,
 	<<elseif $speech_attitude is "meek">>
-		"제-제발 버스 좀 세워주세요," 당신은 말한다,
+		"제-제발 버스 좀 세워주세요." 당신은 말한다,
 	<<else>>
 		"내리게 해줘!" 당신은 말한다,
 	<</if>>
@@ -657,8 +572,8 @@
 	<br><br>
 	<<link [[뛰어내린다|Bus Seat Rape Jump]]>><</link>>
 	<br>
-	<<if $submissive lte 500>>
-		<<link [[운전사를 때린다|Bus Seat Rape Punch]]>><<crimeUp 100 "assault">><<crimeUp 100 "destruction">><<def 3>><</link>><<defianttext>><<crimes "assault" "destruction">>
+	<<if displayDefiantOption(500)>>
+		<<link [[운전사를 때린다|Bus Seat Rape Punch]]>><<crimeUp 100 "assault">><<crimeUp 100 "destruction">><<def 3>><<wolfDefiant 500>><</link>><<defianttext 500>><<crimes "assault" "destruction">>
 		<br>
 	<</if>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
@@ -969,11 +884,11 @@
 <<effects>>
 당신은 <<person>>에게 참을성 있는 미소를 지으며 당신의 임신한 배를 토닥인다.
 <<if $speech_attitude is "meek">>
-	"괜찮아요, 만-만져봐도 돼요," 당신은 말한다.
+	"괜찮아요, 만-만져봐도 돼요." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"만져보고 싶어 하는 거 알아요. 어서요," 당신은 말한다.
+	"만져보고 싶어 하는 거 알아요. 어서요." 당신은 말한다.
 <<else>>
-	"괜찮아요, 만져봐도 돼요," 당신은 말한다.
+	"괜찮아요, 만져봐도 돼요." 당신은 말한다.
 <</if>>
 <br><br>
 
@@ -1019,7 +934,7 @@
 	<br><br>
 	밖에서는 버스 운전사가 도움을 요청하기 위해 전화를 꺼낸다. 버스가 다시 움직이기까지는 시간이 좀 걸릴 수 있다.
 	<br><br>
-	"음, 아무것도 할 일 없이 외딴곳에 갇힌 것 같네," <<generate1>><<person1>><<person>>【이가】 당신의 귓가에 속삭인다. "동의하지 않아?" <<He>>【은는】 당신의 어깨에 손을 얹는다.
+	"음, 아무것도 할 일 없이 외딴곳에 갇힌 것 같네." <<generate1>><<person1>><<person>>【이가】 당신의 귓가에 속삭인다. "동의하지 않아?" <<He>>【은는】 당신의 어깨에 손을 얹는다.
 	<br><br>
 
 	<<if hasSexStat("promiscuity", 3)>>
@@ -1166,7 +1081,7 @@
 	<<elseif $speech_attitude is "meek">>
 		"제발... 살살해 줄래요?" 당신은 속삭인다.
 	<<elseif $speech_attitude is "bratty">>
-		"빨리 끝내. 갈 데가 있으니까." 당신은 눈을 굴리며 말한다.
+		"빨리 끝내. 갈 데가 있으니까," 당신은 눈을 굴리며 말한다.
 	<<else>>
 		"천천히 해. 한 번에 한 명씩." 당신은 말한다.
 	<</if>>

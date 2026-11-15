@@ -30,7 +30,7 @@
 :: Underground Cell Molestation Finish
 <<if $enemyhealth lte 0>>
 	<<person>>【은는】 고통에 몸을 움츠리며 <<he>>【이가】 들어왔던 곳으로 절뚝거리며 다가간다. <<He>>【은는】 <<his>> 주먹으로 문을 내리친다.
-	"내보내 줘," <<he>>【이가】 소리친다. "미친놈이랑 같이 가둬 놨잖아." 문이 열리고 <<he>>【은는】 나간다.
+	"내보내 줘." <<he>>【이가】 소리친다. "미친놈이랑 같이 가둬 놨잖아." 문이 열리고 <<he>>【은는】 나간다.
 	<br><br>
 
 	<<endevent>>
@@ -107,7 +107,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"착한 <<girl>>," <<he>>【이가】 말한다. "수도를 다시 틀어 주지. 이번엔 교훈을 배웠길 바란다."
+	"착한 <<girl>>." <<he>>【이가】 말한다. "수도를 다시 틀어 주지. 이번엔 교훈을 배웠길 바란다."
 	<<set $undergroundbrothel.water to 0>>
 <</if>>
 <<him>>의 등 뒤로 문이 쾅 닫히고, 당신은 어둠 속에 잠긴다.
@@ -169,7 +169,7 @@
 
 	<<person>>【은는】 비틀거리며 당신에게서 물러난다.
 	<<if $undergroundbrothel.water gte 1>>
-		"넌 결국 굴복하게 될 거야," <<he>>【이가】 말한다. "안 그러면 맞서 싸울 힘도 없을 만큼 약해질 테고. 왜 스스로 더 힘들게 만들어?" <<He>>【은는】 문을 쾅 닫는다.
+		"넌 결국 굴복하게 될 거야." <<he>>【이가】 말한다. "안 그러면 맞서 싸울 힘도 없을 만큼 약해질 테고. 왜 스스로 더 힘들게 만들어?" <<He>>【은는】 문을 쾅 닫는다.
 	<<else>>
 		"그래, 그렇게 나오겠다 이거야?" <<he>>【이가】 실망한 얼굴로 말한다. "좋아. 물 없이 네가 얼마나 고집을 부리나 보자." <<He>>【은는】 문을 쾅 닫는다.
 		<<set $undergroundbrothel.water to 1>>
@@ -272,9 +272,9 @@
 
 군중이 야유를 보내기 시작한다. <<generate1>><<person1>><<person>> 한 명이 무대 위로 달려온다. "정말 죄송합니다." <<he>>【은는】 당신의 목줄을 집어 들며 말한다.
 
-<<if $rng gte 51 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<if $rng gte 51 and beastSexEnabledForType("pig", $monster is 1)>>
 	<<endevent>>
-	<<beastNEWinit 1 pig>>
+	<<generateBeastVictim 1 pig>>
 	"예정된 쇼 대신, 특별한 볼거리를 준비했습니다." 당신 뒤의 금속 셔터가 열리며 거대한 <<beasttype>>【이가】 모습을 드러낸다.
 	<br><br>
 
@@ -479,10 +479,10 @@
 
 :: Underground Stage Intro
 <<set $outside to 0>><<set $location to "underground">><<effects>>
-<<beastNEWinit 1 pig>>
+<<generateBeastVictim 1 pig>>
 당신은 다시 무대로 이끌려 나간다. 그곳에는 군중이 기다리고 있다. <<covered>>
 
-<<if $rng gte 51 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<if $rng gte 51 and beastSexEnabledForType("pig", $monster is 1)>>
 	그곳에 도착하자 당신 뒤에서 금속 셔터가 덜컹거리며 열리고, 거대한 <<beasttype>>【이가】 걸어 나온다. 관객들이 <<bhim>>【을를】 응원한다.
 	<br><br>
 
@@ -507,11 +507,11 @@
 당신은 네 명의 <<victimgirls>>【이가】 고개를 숙인 채 줄지어 서 있는 무대로 끌려간다. 모두 당신 것과 비슷한 목걸이를 차고 있다.
 당신이 그들 사이에 자리를 잡자마자, 한 쌍의 커다란 나무 문이 열리고 <<person1>><<person>> 한 명이 방으로 성큼성큼 걸어 들어온다.
 <<He>>의 옆에는 따라잡으려 애쓰는 <<person2>><<person>>【이가】 붙어 있다.
-"오늘은 괜찮은 물건들을 준비했습니다, <<person1>><<sir>>. 딱 취향에 맞으실 겁니다," <<person2>><<person>>【이가】 말한다.
+"오늘은 괜찮은 물건들을 준비했습니다, <<person1>><<sir>>. 딱 취향에 맞으실 겁니다." <<person2>><<person>>【이가】 말한다.
 <br><br>
 
-"직접 보지," <<person1>><<person>>【이가】 대답한다. <<He>>【은는】 무대 앞에 멈춰 서서 당신을 포함한 <<victimgirls>>을 훑어본다. <<covered>>
-"이건 뼈밖에 없군," <<he>>【이가】 당신과 가장 먼 쪽의 <<victimgirl>>【을를】 가리키며 말한다. "<<pShe>>【은는】 금방이라도 쓰러질 것 같아."
+"직접 보지." <<person1>><<person>>【이가】 대답한다. <<He>>【은는】 무대 앞에 멈춰 서서 당신을 포함한 <<victimgirls>>을 훑어본다. <<covered>>
+"이건 뼈밖에 없군." <<he>>【이가】 당신과 가장 먼 쪽의 <<victimgirl>>【을를】 가리키며 말한다. "<<pShe>>【은는】 금방이라도 쓰러질 것 같아."
 <br><br>
 
 "저희 <<victimgirls>>은 모두 제대로 먹이고—"
@@ -698,7 +698,7 @@
 
 	<<link [[다음|Forest]]>><<set $forest to 1>><</link>>
 <<else>>
-	<<if $rng gte 51 and ($monster is 1 or $settings.bestialityEnabled)>><!-- Modified for BeastPeople -->
+	<<if $rng gte 51 and beastSexEnabledForType("dog", $monster is 1)>><!-- Modified for BeastPeople -->
 		뒤쪽 풀숲에서 무언가 달려오는 소리가 들리고, <span class="red">당신은 등에 닿는 <<print ($monster is 1 ? "손" : "발")>>【을를】 느끼며 무릎을 꿇린다</span>.
 		<<beasttype 0>>【이가】 올라타 허리를 흔들기 시작한다<<if $NPCList[0].penis isnot "none">>. <<bhis 0>> 자지가 당신의 <<bottom>>【을를】 찌르는 게 느껴진다<</if>>.
 		<br><br>
@@ -985,7 +985,7 @@
 	카메라가 땅에 떨어져 산산조각 난다. "이 멍청아." <<person2>><<person>>【이가】 말한다.
 	<br><br>
 
-	<<person1>><<person>>【은는】 간신히 <<his>> 발로 일어선다. "닥쳐," <<he>>【이가】 말한다. "<<pshe>>【이가】 달아나기 전에."
+	<<person1>><<person>>【은는】 간신히 <<his>> 발로 일어선다. "닥쳐." <<he>>【이가】 말한다. "<<pshe>>【이가】 달아나기 전에."
 	하지만 당신은 이미 그들보다 훨씬 앞서 있다. 당신은 복도를 달려 감옥을 지나 텅 빈 극장으로 들어간다.
 	당신은 저편에 있는 계단을 향해 달려가 최대한 빨리 올라간다. 발밑에서 발소리가 천둥처럼 울린다.
 	숲으로 나온 당신은 여전히 추격당하고 있다는 것을 알면서도 무작정 달린다.
@@ -1069,7 +1069,7 @@
 <<if $machine_tattoo_success>>
 	"잊지 말라고," 기계가 조용해지자 <<person>>【이가】 말한다.
 <<else>>
-	"이거 제법 발버둥치네," 기계가 조용해지자 <<person>>【이가】 말한다.
+	"이거 제법 발버둥치네." 기계가 조용해지자 <<person>>【이가】 말한다.
 <</if>>
 당신을 붙잡고 있던 자들이 기계를 가지고 방을 나간다. 당신은 다시 한번 어둠 속에 잠긴다.
 <br><br>
@@ -1226,7 +1226,7 @@
 		<br><br>
 
 		<<if $undergroundbrothel.water gte 1>>
-			<<He>>【은는】 당신의 감옥에 도착해 문을 열고 당신을 안으로 던진다. "넌 결국 굴복하게 될 거야," <<he>>【이가】 말한다.
+			<<He>>【은는】 당신의 감옥에 도착해 문을 열고 당신을 안으로 던진다. "넌 결국 굴복하게 될 거야." <<he>>【이가】 말한다.
 			"굴복하지 않으면, 싸울 힘도 없을 만큼 약해질 거야. 왜 스스로 힘들게 만들어?" <<He>>【은는】 문을 쾅 닫는다.
 		<<else>>
 			<<He>>【은는】 당신의 감옥에 도착해 문을 열고 당신을 안으로 던진다. "그래, 그렇게 나오겠다 이거야?" <<he>>【이가】 실망한 얼굴로 말한다.
@@ -1335,7 +1335,7 @@
 	<<insufficientStat "deviancy" "그런 제안에 동의하기에는">>
 <</if>>
 <br>
-<<link [[아니오|Underground Plant Escape 4]]>><</link>>
+<<link [[아니요|Underground Plant Escape 4]]>><</link>>
 
 :: Underground Plant Escape 4
 <<location "forest">><<effects>>
@@ -1389,7 +1389,7 @@
 <<endevent>><<generate2>><<generate3>><<generate4>>
 "정말 <<pshe>>【이가】 처녀 맞아?" <<person2>><<person>>【이가】 묻는다.
 <br><br>
-"맞아야지. 아니면 <<pshe>>【은는】 후회하게 될 거다," <<person3>><<person>>【이가】 투덜거린다.
+"맞아야지. 아니면 <<pshe>>【은는】 후회하게 될 거다." <<person3>><<person>>【이가】 투덜거린다.
 <br><br>
 "어느 쪽이든, 우리가 <<phim>>【을를】 끝장내고 나면 <<pshe>>【은는】 그렇게 되지 못할 거야." <<person4>><<person>>【이가】 덧붙인다. 군중이 잔인하게 웃는다.
 <br><br>
@@ -1445,7 +1445,7 @@
 			"이런 씨발 <<bitch>>." <<he>>【이가】 소리친다. <<He>>【은는】 <<himself>> 몸을 일으켜 무대에서 절뚝거리며 내려간다.
 			<br><br>
 			<<if $player.virginity.penile isnot true or $player.virginity.vaginal isnot true>>
-				"그래도 할 만했네," <<he>>【이가】 중얼거린다. "적어도 <<pher>> 처녀는 내가 땄으니까."
+				"그래도 할 만했네." <<he>>【이가】 중얼거린다. "적어도 <<pher>> 처녀는 내가 땄으니까."
 			<<else>>
 				"<<pshe>>【이가】 정말로 <<pher>> 순결을 잃고 싶지 않은가 보네." 누군가 말한다.
 				<br><br>

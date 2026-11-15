@@ -917,7 +917,7 @@
 당신의 몸은 그윌란의 말을 한 귀로 흘려듣는다. 어떻게든 정상적으로 걷는 시늉을 하려 애쓴다. 묘한 기분이다. 당신이 그것에 끌려가는 것이 아니라, 마치 그것이 당신을 따라 맞춰주는 것만 같다. <span class="purple">그것은 때를 기다리고 있다.</span>
 <br><br>
 
-당신은 그윌란과 함께 숲 상점으로 돌아온다. <<He>>【은는】 당신을 작은 탁자로 안내한 뒤 어두운 방 안으로 들어간다.
+당신은 그윌란과 함께 숲속 상점으로 돌아온다. <<He>>【은는】 당신을 작은 탁자로 안내한 뒤 어두운 방 안으로 들어간다.
 <br><br>
 
 당신의 시선이 천천히 방 안을 훑다 이내 주변에 놓인 잡동사니들에 머문다. "갈매기의 둥지가 비었구나." 당신의 몸이 말한다. "남은 건 너뿐이네."
@@ -1289,7 +1289,7 @@
 							<<set $unbind to 1>>
 						<</if>>
 					<<else>>
-						<<if $phaseWraith lt 1 and $container and $container.home and $container.home.count gte 1 and !$wraithPaleVisit>>
+						<<if $phaseWraith lt 1 and $container?.home?.count gte 1 and !$wraithPaleVisit>>
 							<<for _i to 0; _i lt Object.keys($container.home.creatures).length; _i++>>
 								<<if $container.home.creatures[_i] isnot null and $container.home.creatures[_i].creature.includes("Pale")>>
 									<<set $wraithPaleVisit to "home">>
@@ -1542,7 +1542,7 @@
 					<<set $wraith.exit to "lake">>
 				<<case "Lake Waterfall">>
 					<<pass 5>>
-					<<if $phaseWraith lt 1 and $container and $container.lake and $container.lake.count gte 1 and !$wraithPaleVisit>>
+					<<if $phaseWraith lt 1 and $container?.lake?.count gte 1 and !$wraithPaleVisit>>
 						<<for _i to 0; _i lt Object.keys($container.lake.creatures).length; _i++>>
 							<<if $container.lake.creatures[_i] isnot null and $container.lake.creatures[_i].creature.includes("Pale")>>
 								<<set $wraithPaleVisit to "lake">>
@@ -1561,7 +1561,7 @@
 					<</if>>
 				<<case "Lake Shore">>
 					<<pass 5>>
-					<<if $phaseWraith lt 1 and $container and $container.lake and $container.lake.count gte 1 and !$wraithPaleVisit>>
+					<<if $phaseWraith lt 1 and $container?.lake?.count gte 1 and !$wraithPaleVisit>>
 						<<for _i to 0; _i lt $container.lake.count; _i++>>
 							<<if $container.lake.creatures[_i].creature.includes("Pale")>>
 								<<set $wraithPaleVisit to "lake">>

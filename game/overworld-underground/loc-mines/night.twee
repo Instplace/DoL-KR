@@ -1,0 +1,302 @@
+:: Mine Night
+<<effects>>
+
+당신은 작은 동굴 안에 있다. 벽은 맨살 그대로다. 다른 사람들까지 다 들어차 있어서 꽤 비좁다.
+<<if $exposed gte 1>>
+	사람들은 당신의 <<lewdness>>【을를】 못 본 체한다.
+<</if>>
+<br><br>
+<<if $arousal gte $arousalmax>>
+	<<orgasm>>
+	당신은 몸을 떨며 신음한다. 몇몇 노예가 당신을 쳐다보지만, 나머지는 신경 쓰지 않는다.
+	<br><br>
+<</if>>
+
+<<if isPregnancyEnding()>>
+	<<generate1>>
+	당신은 배를 움켜쥐고 무릎을 꿇는다. <<person1>><<person>>【이가】 문 너머로 안을 들여다보다 당신을 알아챈다. <<He>>【이가】 문을 열고 서둘러 당신 곁으로 온다. <<he>>【이가】 당신을 들어 올리자 당신은 의식을 잃는다.
+	<br><br>
+	<<link [[다음|Mine Birth]]>><</link>>
+<<elseif $stress gte $stressmax>>
+	너무 무리했다.
+	<br><br>
+
+	<<link [[모든 것이 어둠 속으로 사라진다...|Mine Night Passout]]>><<passout>><<endevent>><</link>>
+<<elseif Time.hour gte 6 and Time.hour lte 20>>
+	<<generate1>><<person1>>
+	경비원 한 명이 쇠문을 연다. "좋아, 다들 일하러 나가!" <<person>>【이가】 소리친다. 당신은 다른 사람들과 함께 나간다.
+	<br><br>
+	<<link [[다음|Mine Job Intro]]>><<endevent>><</link>>
+<<else>>
+	<span class="clothes-brown"><<icon "clothes/boiler-suit.png">></span><<link [[보일러 슈트를 집어 든다|Mine Night Suit]]>><</link>>
+	<br>
+
+	<<if $mine.bomb.progress gte 10>>
+		<span class="blue">폭탄이 준비되었다.</span>
+		<br>
+	<<elseif $mine.bomb.progress isnot undefined>>
+		<<if $mine.bomb.parts gt 0>>
+			<<icon "wrench.png">><<link [[폭탄을 만든다 (0:20)|Mine Bomb Work]]>><<pass 20>><<set $mine.bomb.parts-->><</link>>
+		<<else>>
+			<span class="blue">폭탄 작업을 계속하려면 부품이 필요하다.</span>
+		<</if>>
+		<br>
+	<</if>>
+	<<icon "socialise.png">><<link [[다른 노예들과 대화한다 (0:20)|Mine Night Talk]]>><<pass 20>><</link>>
+	<br>
+	<<if $mine.distraction.night is "complete" or $mine.favor.night is 1>>
+		<<icon "socialise.png">><<link [[시선을 끌어 달라고 부탁한다|Mine Night Distraction]]>><</link>>
+		<br>
+	<</if>> 
+
+	<<bedicon "zzz">><<link [[잔다|Mine Rest]]>><<set $phase to 0>><</link>>
+	<br>
+<</if>>
+
+
+
+:: Mine Bomb Work
+<<effects>>
+
+<<if $mine.bomb.progress is 0>>
+	당신은 폭탄 부품 하나를 집어 쓸 만한 토대로 만들어 보려 한다.
+<<else>>
+	당신은 폭탄 부품 하나를 집어 토대에 덧붙여 보려 한다.
+<</if>>
+<br><br>
+<<if random(100, 200) lte (currentSkillValue('science'))>>
+	<<if $mine.bomb.progress is 0>>
+		<span class="green">부품을 토대로 쓸 수 있게 손보는 데 성공한다.</span>
+		<<set $mine.bomb.progress++>>
+	<<else>>
+		<span class="green">부품을 토대에 맞게 손보는 데 성공한다.</span>
+		<<set $mine.bomb.progress++>>
+	<</if>>
+<<else>>
+	부품을 끼워 맞추다가 <span class="red">손안에서 부품이 부러진다.</span>
+	<<scienceskill>>
+<</if>>
+
+<<if $mine.bomb.progress gte 10>>
+	마지막 부품이 딸깍 하고 제자리에 들어간다. <span class="green">폭탄이 완성되었다.</span>
+<</if>>
+<br><br>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Night Distraction
+<<effects>>
+<<loadNPC 0 "mine_night">>
+당신은 <<person1>><<person>>에게 다가간다. "호의를 갚을 준비 됐어?" <<he>>【이가】 묻는다.
+<br><br>
+<<if $speech_attitude is "meek">>
+	당신은 고개를 끄덕인다. "경비원들 좀 따돌려 줄 수 있어요?"
+<<elseif $speech_attitude is "bratty">>
+	"그럼." 당신이 대답한다. "경비원들을 따돌려 줘야겠어."
+<<else>>
+	"네." 당신이 대답한다. "경비원들을 따돌려 줘."
+<</if>>
+<<He>>【은는】 낄낄 웃으며 당신을 큰 무리 뒤쪽으로 데려간다.
+<br><br>
+"언제 하면 되는데?" <<he>>【이가】 묻는다.
+<br><br>
+<<mine_distract_links "Mine Night Distraction Set">>
+
+
+
+:: Mine Night Distraction Set
+<<effects>>
+
+<<if $phase isnot "no">>
+	<<set $mine.distraction.night to $phase>><<unset $mine.favor.night>>
+
+	당신은 <<him>>에게 <<mine_distract_time>> 소란이 일어났으면 한다고 말한다. <<He>>【은는】 고개를 끄덕인다. "<<mine_distract_time>> 중에 일어날 거야. 뭘 꾸미고 있든 행운을 빌게."
+	<br><br>
+	<<He>>【은는】 문을 흘끗 보더니 인파 속으로 슬금슬금 사라진다.
+<<else>>
+	당신은 <<him>>에게 마음이 바뀌었다고 말한다. <<he>>【은는】 고개를 끄덕이고 인파 속으로 슬금슬금 사라진다.
+<</if>>
+
+<<endevent>>
+<br><br>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Job Intro
+<<effects>><<generate1>>
+
+<<person1>><<person>>【이가】 당신에게 다가온다.
+<br><br>
+<<mine_job>>
+
+
+
+:: Mine Night Talk
+<<effects>>
+당신은 다른 노예들과 이야기를 나눠 보려 하지만, 대부분은 응하지 않는다.
+<br><br>
+<<cleareventpool>>
+
+<<addinlineevent "out_of_towner">>
+	<<generate1>>
+	당신은 <<person1>><<person>>에게 말을 건다. "우리가 지금 무슨 나라에 있는지 알아?" <<he>>【이가】 묻는다. "여러 사람한테 물어봤는데 대답이 다 제각각이야."
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Mine Night]]>><</link>>
+<</addinlineevent>>
+
+<<if !["complete","inprogress"].includes($mine.favor.night) and $mine.distraction.night is undefined>>
+	<<addinlineevent "request">>
+		<<if $mine.favor.night is undefined>>
+			<<generate1>>
+			<<saveNPC 0 "mine_night">>
+			당신은 <<person1>><<person>>에게 다가가지만, 입을 떼기도 전에 <<he>>【이가】 먼저 말한다. "넌 <<print $player.gender_appearance is "m" ? "자기 자신" : "자기 자신">>【을를】 챙길 줄 아는 사람처럼 보이는군." <<he>>【이가】 말한다. "부탁이 하나 있어. 해 줄 수 있겠어?"
+			<br><br>
+			당신은 다시 입을 열려 하지만 <<he>>【이가】 또 말을 끊는다. "좋아. 물론 끝나면 내가 신세를 지지."
+			<br><br>
+			<<mine_night_task>>
+			<br><br>
+			<<He>>【은는】 당신이 한마디 끼어들 틈도 주지 않고 가 버린다.
+		<<else>>
+			<<loadNPC 0 "mine_night">>
+			<<person1>><<person>>【이가】 당신에게 다가온다. "또 부탁이 필요한가 보네?" <<he>>【이가】 묻는다. "잘됐네, 나도 필요하거든."
+			<br><br>
+			<<mine_night_task>>
+			<br><br>
+			<<He>>【은는】 당신이 한마디 끼어들 틈도 주지 않고 가 버린다.
+		<</if>>
+		<br><br>
+		<<endevent>>
+		<<link [[다음|Mine Night]]>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<addinlineevent "nothing">>
+	아무도 당신과 이야기하고 싶어 하지 않는 것 같다.
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Mine Night]]>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "cheer">>
+	<<generatey1>>
+	당신은 구석에 앉아 있는 <<person1>><<person>>【을를】 본다. <<He>>【은는】 의기소침해 보인다.
+	<br><br>
+	<<link [[추파를 던진다|Mine Night Flirt]]>><</link>><<promiscuous1>>
+	<br>
+	<<link [[무시한다|Mine Night]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "escape_plan">>
+	<<generate1>><<generatey2>>
+	당신은 <<people>>【이가】 탈출 계획을 이야기하는 것을 우연히 듣는다. "그러니까 우리 둘 다 채굴 일을 맡게 되면, 쇠사슬을 끊고 경비원 하나를 제압해서 인질로 잡는 거야."
+	<<person1>><<person>>【이가】 말한다. "그럼 놈들이 우리를 풀어 줄 수밖에 없지! 천재적이야!" <<person2>><<person>>【이가】 말한다.
+	<<person1>><<person>>【이가】 <<person2>><<him>>에게 조용히 하라고 쉿 한다. <<mine_hope 2>><<gghope>>
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Mine Night]]>><</link>>
+<</addinlineevent>>
+
+<<if !$weekly.mine_eavesdrop>>
+	<<addinlineevent "eavesdrop">>
+		<<set $weekly.mine_eavesdrop to true>>
+		아무도 당신과 이야기하고 싶어 하지 않는 것 같다. 포기하려는 참에 동굴 밖에서 희미하게 대화 소리가 들려온다.
+		<br><br>
+		<<link [[엿듣는다|Mine Night Eavesdrop]]>><</link>>
+		<br>
+		<<link [[무시한다|Mine Night]]>><<endevent>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<addinlineevent "gems">>
+	<<generate1>><<generate2>><<generatey3>>
+	당신은 <<enumeratedGroup>>의 대화를 엿듣는다. "나는 수년간 보석과 수정을 다뤄 왔는데, 여기 있는 것 같은 건 본 적이 없어." <<person1>><<person>>【이가】 말한다.
+	<br><br>
+	"엄청 값이 나가는 게 틀림없어. 이 사업을 감당할 수 있는 것도 아마 그래서겠지." <<person2>><<person>>【이가】 추측한다.
+	<br><br>
+	"내 생각엔 음모가 있어. 비밀 조직이 불순한 목적으로 그것들을 긁어모으고 있는 거야." <<person3>><<person>>【이가】 말한다. 나머지 둘이 <<him>>에게 이상하다는 눈길을 보낸다.
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Mine Night]]>><</link>>
+<</addinlineevent>>
+
+<<runeventpool>>
+
+
+
+:: Mine Night Flirt
+<<effects>>
+
+당신은 <<person>>에게 다가가 옆에 앉는다. 팔로 <<his>> 허리를 감싸 몸을 바짝 붙인다. <<He>>【이가】 당신을 쳐다보는데 <<his>> 얼굴이 새빨갛다. 당신은 <<his>> 귓가에 속삭인다. "슬퍼하지 마, 내가 다 괜찮게 해 줄게."
+<<promiscuity1>>
+<<He>>【은는】 더듬거리며 무슨 말을 하려 하지만 말이 나오지 않는다. 당신은 <<his>> 관심이 다른 데로 옮겨 간 것에 만족하며 <<him>>에게서 몸을 뗀다. <<mine_hope 2>><<gghope>>
+
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Night Eavesdrop
+<<effects>>
+
+당신은 밖의 경비원들에게 보이지 않는 곳에서 문 가까이 최대한 다가간다. 대화의 토막만 겨우 들린다.
+<br><br> 
+"–<<nnpc_his "Quinn">> 몫…물건은 준비됐…엘크…부품 요청…마을 밖…꽤 많이 써 버려서–"
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Night Suit
+<<effects>><<upperruined true>><<lowerruined true>><<upperwear "boiler suit">>
+
+당신은 구석의 통에서 작업복을 꺼내 몸에 걸친다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Rest
+<<effects>>
+
+당신은 바위 위에 눕는다. 딱딱하지만 쉬어야 한다. 당신은 눈을 감고 잠을 청한다.
+<br><br>
+<<link [[다음|Mine Sleep]]>><</link>>
+
+
+
+:: Mine Sleep
+<<effects>>
+
+<<set _autosavehere to true>>
+<<if Time.hour is 21>>
+	<<set _mine_sleep to 9>>
+<<elseif Time.hour is 22>>
+	<<set _mine_sleep to 8>>
+<<elseif Time.hour is 23>>
+	<<set _mine_sleep to 7>>
+<<else>>
+	<<set _mine_sleep to (6 - Time.hour)>>
+<</if>>
+<<for _l to 0; _l lt _mine_sleep; _l++>>
+	<<pass 60>>
+	<<set $sleepStat++>>
+	<<set $tiredness -= 200>>
+	<<if !($sleeptrouble is 1 and $controlled is 0 and !$hypnosis_traits.slumber)>>
+		<<set $tiredness -= 50>>
+	<</if>>
+	<<if $hypnosis_traits.slumber>>
+		<<set _traumaToSleep to Math.floor($trauma / 100)>>
+		<<set $tiredness -= _traumaToSleep>>
+	<</if>>
+<</for>>
+
+눈을 뜨자 다른 노예들이 몸을 추스르고 있다. 등이 쑤신다. <<pain 3>><<gpain>>
+
+<br><br>
+<<link [[일어난다|Mine Night]]>><</link>>

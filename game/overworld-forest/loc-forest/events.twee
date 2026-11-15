@@ -645,7 +645,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<beastejaculation>>
 	<<if $combatTrain.length gt 0>>
-		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>> 【이가】 자기 차례를 맞이한다.
+		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>>【이가】 자기 차례를 맞이한다.
 		<<wolfpacktrust>>
 		<<combatTrainAdvance>>
 		<br><br>
@@ -689,7 +689,7 @@
 <<if dangerEvent($forestmod) and $eventskip is 0>>
 	<!-- Modified for monster people -->
 	<<beastNEWinit 1 lizard>>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("lizard", $monster is 1)>>
 		거대한 <<beasttype>>【이가】 물 밖으로 솟구쳐 오른다!
 		<br><br>
 
@@ -1131,7 +1131,7 @@
 		"<<pPackbrother>>. 만나서 반갑다."
 		<br><br>
 	<</if>>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("wolf", $monster is 1)>>
 		<<if $phase is 1>>
 			<<if hasSexStat("deviancy", 3)>>
 				<<link [[짝짓기한다|Forest Wolf Sex2]]>><<set $phase to 2>><<set $sexstart to 1>><</link>><<deviant3>>
@@ -1321,7 +1321,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<beastejaculation>>
 	<<if $combatTrain.length gt 0>>
-		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>> 【이가】 자기 차례를 맞이한다.
+		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>>【이가】 자기 차례를 맞이한다.
 		<<wolfpacktrust>>
 		<<combatTrainAdvance>>
 		<br><br>
@@ -1370,7 +1370,7 @@
 :: Forest Cutter Exhibitionism
 <<location "forest">><<effects>>
 
-<<flaunting>> 당신은 당신의 <<lewdness>>【을를】 자랑스럽게 드러내며 숨어 있던 곳에서 나와 <<person>>에게 다가간다. 당신을 본 <<He>>【은는】 <<his>> 도끼를 떨어뜨리고 입을 떡 벌린 뒤, <<his>> 눈을 비빈다. "버섯을 너무 많이 먹었나 보군," <<he>>【이가】 중얼거린다.
+<<flaunting>> 당신은 당신의 <<lewdness>>【을를】 자랑스럽게 드러내며 숨어 있던 곳에서 나와 <<person>>에게 다가간다. 당신을 본 <<He>>【은는】 <<his>> 도끼를 떨어뜨리고 입을 떡 벌린 뒤, <<his>> 눈을 비빈다. "버섯을 너무 많이 먹었나 보군." <<he>>【이가】 중얼거린다.
 
 <<if $exposed gte 2>>
 	<<exhibitionism5>>
@@ -1378,10 +1378,10 @@
 	<<exhibitionism3>>
 <</if>>
 
-<<link [[과시하기|Forest Cutter Flaunt]]>><<arousal 600>><<trauma -6>><<stress -12>><</link>><<garousal>><<ltrauma>><<lstress>>
+<<link [[과시한다|Forest Cutter Flaunt]]>><<arousal 600>><<trauma -6>><<stress -12>><</link>><<garousal>><<ltrauma>><<lstress>>
 <br>
 <<if hasSexStat("promiscuity", 2)>>
-	<<link [[유혹하기|Forest Cutter Seduce]]>><</link>><<promiscuous2>>
+	<<link [[유혹한다|Forest Cutter Seduce]]>><</link>><<promiscuous2>>
 	<br>
 <</if>>
 
@@ -1391,10 +1391,10 @@
 <<person>>【이가】 <<his>> 도끼를 나무에 박고 거기에 기댄다. "여긴 어쩐 일이지?" <<he>>【이가】 묻는다.
 <br><br>
 
-<<link [[대화하기 (0:30)|Forest Cutter Chat]]>><<stress -6>><<trauma -3>><<pass 30>><</link>><<ltrauma>><<lstress>>
+<<link [[대화한다 (0:30)|Forest Cutter Chat]]>><<stress -6>><<trauma -3>><<pass 30>><</link>><<ltrauma>><<lstress>>
 <br>
 <<if hasSexStat("promiscuity", 2)>>
-	<<link [[유혹하기|Forest Cutter Seduce]]>><</link>><<promiscuous2>>
+	<<link [[유혹한다|Forest Cutter Seduce]]>><</link>><<promiscuous2>>
 	<br>
 <</if>>
 
@@ -1411,7 +1411,7 @@
 <</if>>
 
 <<if $rng gte 81>>
-	"수상한 놈들을 보거든," 어느 순간 <<he>>【이가】 말한다. "가까이 가지 마. 범죄자들이 가끔 이 숲을 통해 밀거래를 하거든. 마을에 들여선 안 될 물건들을 말이야."
+	"수상한 놈들을 보거든." 어느 순간 <<he>>【이가】 말한다. "가까이 가지 마. 범죄자들이 가끔 이 숲을 통해 밀거래를 하거든. 마을에 들여선 안 될 물건들을 말이야."
 <<elseif $rng gte 61>>
 	"신전 사람들이 가끔 의식을 치르러 여기 오는데," 어느 순간 <<he>>【이가】 말한다. "나는 그들을 피해. 섬뜩한 놈들이야."
 <<elseif $rng gte 41>>
@@ -1462,7 +1462,7 @@
 
 당신은 <<him>>에게 다가가면서 천천히 한 바퀴 돌아, <<he>>【이가】 다른 각도에서도 당신을 볼 수 있게 한다. <<He>>【은는】 얼굴을 붉히며 시선을 피한다. "부끄러워하지 마." 당신이 나른하게 속삭인다. "원하는 만큼 봐도 돼." 이제 당신은 <<him>>에게 아주 가까이 다가가, <<he>>【은는】 당신을 보지 않으려면 고개를 들어야 할 정도다. <<He>>【은는】 돌아선다.
 
-"ㅇ-이걸로 몸을 가리는 게 좋겠어." <<he>>【이가】 나무 그루터기에 놓인 가방에서 수건 몇 장을 꺼내며 말한다. "그런 옷차림으로는 나쁜 놈들이 꼬일지도 몰라." <<He>>【은는】 여전히 당신에게서 등을 돌린 채 나무들 사이를 살핀다. "제발 일하게 내버려 둬. 누가 우리를 보면 오해할 거야."
+"이-이걸로 몸을 가리는 게 좋겠어." <<he>>【이가】 나무 그루터기에 놓인 가방에서 수건 몇 장을 꺼내며 말한다. "그런 옷차림으로는 나쁜 놈들이 꼬일지도 몰라." <<He>>【은는】 여전히 당신에게서 등을 돌린 채 나무들 사이를 살핀다. "제발 일하게 내버려 둬. 누가 우리를 보면 오해할 거야."
 <br><br>
 
 <<endevent>>
@@ -1641,7 +1641,7 @@
 	"길 잃었어?" <<person1>><<person>>【이가】 묻는다.
 	<br><br>
 
-	"저, 저를..." 당신은 말한다. "저를 가져주세요."
+	"저-저를..." 당신은 말한다. "저를 가져주세요."
 	<br><br>
 
 	두 사람은 히죽 웃는다. "기꺼이 그러지." <<he>>【이가】 더 가까이 다가오며 말한다.
@@ -1700,7 +1700,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	그들은 웃으며 당신에게서 물러난다. "이 숲에 요정이 산다고 하던데," <<person1>><<person>>【이가】 말한다. "이렇게 밝히는 년들일 줄은 몰랐네." 그들은 웃으며 가던 길을 간다.
+	그들은 웃으며 당신에게서 물러난다. "이 숲에 요정이 산다고 하던데." <<person1>><<person>>【이가】 말한다. "이렇게 밝히는 년들일 줄은 몰랐네." 그들은 웃으며 가던 길을 간다.
 	<br><br>
 
 	슬라임의 영향력이 사라지자 다리에 힘이 풀린다. <<tearful>> 당신은 몸을 가눈다.
@@ -2619,7 +2619,7 @@
 	<<promiscuity1>>
 
 	<<person>>【이가】 정신을 차리고는, 당신을 덩굴로 감싼다. 거의 장난치듯 부드럽게 밀어, <<he>>【은는】 당신을 숲 바닥에 넘어뜨리고 그 위에 눕는다.
-	"그렇게 좋아하는 줄 알았더라면," <<he>>【이가】 속삭인다, "키스보다 더한 걸 제안했을 텐데. 훨씬 더한 걸 말이야."
+	"그렇게 좋아하는 줄 알았더라면..." <<he>>【이가】 속삭인다. "키스보다 더한 걸 제안했을 텐데. 훨씬 더한 걸 말이야."
 	<br><br>
 
 	<<link [[다음|Forest Plant Sex]]>><<set $molestationstart to 1>><<set $phase to 0>><</link>>
@@ -2982,7 +2982,7 @@
 	<br><br>
 <</if>>
 
-<<link [[둥지 수색하기|Forest Nest Search]]>><</link>>
+<<link [[둥지를 수색한다|Forest Nest Search]]>><</link>>
 <br>
 <<if $forest_nest.fox is 2 and !$NPCList[0].traits.includesAny("cowardly","clumsy")>>
 	<<link [[여우를 기다린다 (0:20)|Forest Nest Ambushed]]>><</link>><<note "알 감소" "red">>
@@ -3009,7 +3009,7 @@
 	재빨리 세어보니, <span class="blue"><<number $forest_nest.eggs>></span>개의 팔 만한 새 알이 보인다. 하지만 확실히 하려면 하나씩 세어봐야 한다.
 	<br><br>
 
-	<<link [[알 줍기|Forest Nest Search Eggs]]>><</link>><<tendingdifficulty 100 500>>
+	<<link [[알을 줍는다|Forest Nest Search Eggs]]>><</link>><<tendingdifficulty 100 500>>
 	<br>
 	<<link [[여우를 유인해 본다 (0:05)|Forest Nest Bait]]>><<set $forest_nest.eggs -= 3>><<pass 5>><</link>><<note "알 감소" "red">>
 	<br>
@@ -3129,7 +3129,7 @@
 <br><br>
 
 <<if $NPCList[0].traits.includesAny("territorial","clever")>>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if $monster is 1>>
 			<<bHe>>【은는】 팔짱을 낀 채 의기양양하게 당신 위에 올라탄다. "어설펐어. 너무 쉽게 들켰잖아, <<foxnickname>>."
 			<br><br>
@@ -3369,9 +3369,9 @@
 
 	<<skulduggeryuse>>
 
-	<<link [[쓰다듬기|Forest Fox Nest Pet]]>><</link>><<tendingdifficulty _tendingMin _tendingMax>><<llstress>>
+	<<link [[쓰다듬는다|Forest Fox Nest Pet]]>><</link>><<tendingdifficulty _tendingMin _tendingMax>><<llstress>>
 	<br>
-	<<link [[놀래키기|Forest Fox Nest Scare]]>><<trauma -10>><</link>><<lltrauma>>
+	<<link [[놀래킨다|Forest Fox Nest Scare]]>><<trauma -10>><</link>><<lltrauma>>
 	<br>
 <<else>>
 	당신은 절반쯤 갔을 때, <span class="red">나뭇가지를 밟고 만다. 나뭇가지가 큰 소리를 내며 부러진다.</span>
@@ -3390,7 +3390,7 @@
 		<br><br>
 
 		<<if $forest_nest.eggs gte 1>>
-			<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+			<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 			<br>
 		<</if>>
 		<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3400,7 +3400,7 @@
 		<br><br>
 
 		<<bHe>>【은는】 비교적 작은 덩치에도 불구하고 당신을 쉽게 넘어뜨린다.
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("fox", $monster is 1)>>
 			<<if $monster is 1>>
 				<<bHe>>【이가】 당신의 양팔을 짓누른다.
 				<<if $fox gte 6>>
@@ -3450,7 +3450,7 @@
 		<br><br>
 
 		<<if $forest_nest.eggs gte 1>>
-			<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+			<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 			<br>
 		<</if>>
 		<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3465,10 +3465,10 @@
 		<<set $forest_nest.eggs to 0>>
 		<br><br>
 
-		<<link [[쓰다듬기|Forest Fox Nest Pet]]>><<set $phase2 to 1>><</link>><<tendingdifficulty 1 200>><<llstress>>
+		<<link [[쓰다듬는다|Forest Fox Nest Pet]]>><<set $phase2 to 1>><</link>><<tendingdifficulty 1 200>><<llstress>>
 		<br>
-		<<if $fox gte 6 and $monster is 1>>
-			<<link [[<<bhim>>【을를】 핥아서 깨끗하게 해주기|Forest Fox Nest Lick]]>><<set $phase2 to 1>><</link>><<deviant1>><<fox>>
+		<<if $fox gte 6 and $monster is 1 and monsterSexEnabledForType("fox")>>
+			<<link [[<<bhim>>【을를】 핥아서 깨끗하게 해준다|Forest Fox Nest Lick]]>><<set $phase2 to 1>><</link>><<deviant1>><<fox>>
 			<br>
 		<</if>>
 		<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3479,7 +3479,7 @@
 		<br><br>
 
 		<<if $forest_nest.eggs gte 1>>
-			<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+			<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 			<br>
 		<</if>>
 		<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3538,7 +3538,7 @@
 
 	<<link [[쓰다듬는다|Forest Fox Chase Pet]]>><</link>><<tendingdifficulty _tendingMin _tendingMax>><<llstress>>
 	<br>
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if hasSexStat("deviancy", 2)>>
 			<<link [[교미 자세를 취한다|Forest Fox Nest Mate]]>><<set $phase to 1>><</link>><<deviant2>>
 			<br>
@@ -3558,7 +3558,7 @@
 		<br><br>
 
 		바로 그 <<beasttype>>【이가】 이제 당신 위에 올라타 있다.
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("fox", $monster is 1)>>
 			<<if $monster is 1>>
 				<<bHe>>【은는】 당신의 양팔을 짓누른다.
 				<<if $fox gte 6>>
@@ -3708,7 +3708,7 @@
 
 	<<link [[쓰다듬는다|Forest Fox Nest Pet]]>><<set $phase2 to 1>><</link>><<tendingdifficulty 1 200>><<llstress>>
 	<br>
-	<<if $fox gte 6 and $monster is 1>>
+	<<if $fox gte 6 and $monster is 1 and monsterSexEnabledForType("fox")>>
 		<<link [[<<bhim>>【을를】 핥아서 깨끗하게 해준다|Forest Fox Nest Lick]]>><<set $phase2 to 1>><</link>><<deviant1>><<fox>>
 		<br>
 	<</if>>
@@ -3723,7 +3723,7 @@
 	<br><br>
 
 	<<if $forest_nest.eggs gte 1>>
-		<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+		<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 		<br>
 	<</if>>
 	<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3747,7 +3747,7 @@
 		<br><br>
 
 		<<if $forest_nest.eggs gte 1>>
-			<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+			<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 			<br>
 		<</if>>
 		<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3759,7 +3759,7 @@
 				"내 영역에서 감히 도전하는 거냐?" <<bHe>>【이가】 비웃는다. "본때를 보여줘야겠군."
 			<</if>>
 			<<beasttype>>【이가】 당신에게 돌진한다!
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("fox", $monster is 1)>>
 				<br><br>
 
 				<<link [[다음|Forest Fox Nest Rape]]>><<set $molestationstart to 1>><<set $position to "missionary">><<set $NPCList[0].stance to "top">><</link>>
@@ -3790,7 +3790,7 @@
 			<br><br>
 
 			<<if $forest_nest.eggs gte 1>>
-				<<link [[하나 묻기|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
+				<<link [[하나를 묻는다|Forest Nest Bury]]>><<trauma -3>><<transform fox 1>><<set $foodstuff.bird_egg.amount -= 1>><</link>><<ltrauma>><<note "- 알" "red">>
 				<br>
 			<</if>>
 			<<link [[떠난다|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $forest_nest>><</link>>
@@ -3857,7 +3857,7 @@
 	<<elseif $NPCList[0].traits.includes("friendly")>>
 		<span class="green"><<bHe>>【은는】 즉시 몸을 뒤집는다</span>, 당신에게 <<bhis>> 배를 드러낸다.
 		<<if $monster is 1>>
-			<<bHe>> 잠시 멈춰 당신을 쳐다본다. "미, 미안. 어쩔 수 없었어. 계속해 줘."
+			<<bHe>> 잠시 멈춰 당신을 쳐다본다. "미-미안. 어쩔 수 없었어. 계속해 줘."
 		<<else>>
 			<<bHe>> 마치 계속해달라는 듯이 낮은 낑낑 소리를 낸다.
 		<</if>>
@@ -3882,7 +3882,7 @@
 		<</if>>
 		당신은 <<bhis>> 꼬리에 더 신경을 써주며, 부드럽게 쓰다듬고 털을 골라준다. <<bHe>>【은는】 배를 보이며 눕는다.
 		<<if $monster is 1>>
-			"이, 이봐, 그만해!" <<bHe>>【은는】 화난 척하지만, <<bhes>> 웃고 있다.
+			"이-이봐, 그만해!" <<bHe>>【은는】 화난 척하지만, <<bhes>> 웃고 있다.
 		<<else>>
 			당신의 관심에 <<bhim>>【이가】 가르랑거린다.
 		<</if>>
@@ -3894,7 +3894,7 @@
 		<br><br>
 	<</if>>
 
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if hasSexStat("deviancy", 2)>>
 			<<link [[교미 자세를 취한다|Forest Fox Nest Mate]]>><<set $phase to 2>><</link>><<deviant2>>
 			<br>
@@ -3911,7 +3911,7 @@
 		<<bHe>> 즉시 당신에게 달려들어, 꼼짝 못하게 짓누른다.
 		<br><br>
 
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("fox", $monster is 1)>>
 			<<if $monster is 1>>
 				<<bHe>>【은는】 <<bhis>> 맨 <<print window.KR.getBreastSizeKr($NPCList[0].breastsdesc)>> 위로 팔짱을 낀 채, 의기양양하게 당신 위에 올라탄다.
 				<<if $fox gte 6>>
@@ -4034,14 +4034,14 @@
 		<</if>>
 		당신은 <<bhis>> 꼬리를 더 신경 써서 부드럽게 쓰다듬고 매만져준다.
 		<<if $monster is 1>>
-			"이, 이봐, 그만해!" <<bHe>>【은는】 화난 척하지만, <<bhes>> 웃고 있다.
+			"이-이봐, 그만해!" <<bHe>>【은는】 화난 척하지만, <<bhes>> 웃고 있다.
 		<<else>>
 			당신의 관심에 <<bhim>>【이가】 가르랑거린다.
 		<</if>>
 	<</if>>
 	<br><br>
 
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if hasSexStat("deviancy", 2)>>
 			<<link [[짝짓기 자세를 취한다|Forest Fox Nest Mate]]>><<set $phase to 3>><</link>><<deviant2>>
 			<br>
@@ -4101,7 +4101,7 @@
 
 <<if $NPCList[0].traits.includes("territorial")>>
 	<<if $phase is 2>>
-		<<if $monster is 1>>
+		<<if $monster is 1 and monsterSexEnabledForType("fox")>>
 			<<bHe>>【은는】 완전히 가만히 있다. <<bHes>> 당신을... 애타게 쳐다보고 있다?
 			<br><br>
 
@@ -4113,7 +4113,7 @@
 
 			<<link [[다음|Forest Fox Nest Rape]]>><<set $molestationstart to 1>><<set $position to "missionary">><<set $NPCList[0].stance to "top">><</link>>
 			<br>
-		<<elseif $settings.bestialityEnabled>>
+		<<elseif animalSexEnabledForType("fox")>>
 			<span class="red"><<bHe>>【은는】 기회를 틈타 당신에게 다시 달려든다</span>. 당신이 <<bhim>>【을를】 흥분시킨 모양이다. <<bHe>>【은는】 당신을 넘어뜨려 꼼짝 못하게 짓누른다.
 			<br><br>
 
@@ -4128,7 +4128,7 @@
 		<</if>>
 	<<else>>
 		<<if $monster is 1>>
-			<<bHe>>【은는】 잠시 혼란스러운 듯 당신을 쳐다보다가, 황급히 달아난다. "더 많은 걸 바랐는데." <<bhe>>【이가】 당신에게 소리친다.
+			<<bHe>>【은는】 잠시 혼란스러운 듯 당신을 쳐다보다가, 황급히 달아난다. "더 많은 걸 바랐는데," <<bhe>>【이가】 당신에게 소리친다.
 		<<else>>
 			<<bHe>>【은는】 뒤도 돌아보지 않고 당신에게서 달아난다.
 		<</if>>
@@ -4495,12 +4495,14 @@
 		당신은 <<bhim>>에게 왜 도와줬는지 묻는다. <<bHe>>【은는】 당신을 보며 눈을 깜빡인다. "내가 왜 안 도와주겠어?"
 		<br><br>
 
-		<<if hasSexStat("deviancy", 2)>>
-			<<link [[감사를 표한다|Forest Fox Nest Sex]]>><<set $sexstart to 1>><<set $phase2 to 1>><</link>><<deviant2>>
-			<br>
-		<<else>>
-			<<insufficientStat "deviancy" "감사를 표하기에는">>
-			<br>
+		<<if monsterSexEnabledForType("fox")>>
+			<<if hasSexStat("deviancy", 2)>>
+				<<link [[감사를 표한다|Forest Fox Nest Sex]]>><<set $sexstart to 1>><<set $phase2 to 1>><</link>><<deviant2>>
+				<br>
+			<<else>>
+				<<insufficientStat "deviancy" "감사를 표하기에는">>
+				<br>
+			<</if>>
 		<</if>>
 		<<link [[감사 인사를 하고 떠난다|Forest]]>><<endevent>><<unset $forest_nest>><<set $eventskip to 1>><<stress -3>><</link>><<lstress>>
 		<br>
@@ -4514,7 +4516,7 @@
 		덤불 속으로 돌아오자, 희미한 쉭쉭거리는 소리가 들린다. 둥지 쪽을 돌아보니, <span class="red">거대한 뱀</span>이 보인다 주변을 조사한다. 그건 전혀 새 둥지가 아니었고, 이 <<beasttype>>【이가】 방금 당신을 구해준 것이다. <<bHe>>【은는】 당신을 향해 한 번 짖고는 몸을 돌려 떠나려 한다.
 		<br><br>
 
-		<<if $settings.bestialityEnabled and hasSexStat("deviancy", 2)>>
+		<<if animalSexEnabledForType("fox") and hasSexStat("deviancy", 2)>>
 			<<link [[감사를 표한다|Forest Fox Nest Sex]]>><<set $sexstart to 1>><<set $phase2 to 1>><</link>><<deviant2>>
 			<br>
 		<<else>>
@@ -4534,7 +4536,7 @@
 	다리에 숨결이 느껴진다.
 	<br><br>
 
-	<<if $settings.voreEnabled>>
+	<<if $settings.voreEnabled and animalSexEnabledForType("snake")>>
 		<<link [[다음|Forest Nest Snake Vore 2]]>><<endevent>><<unset $forest_nest>><<set $molestationstart to 1>><</link>>
 	<<else>>
 		당신은 벌떡 일어나 최대한 빨리 달린다.<<beastescape>>
@@ -4603,7 +4605,7 @@
 	뱀이 당신에게서 벗어나려 하는 것이 느껴진다. 당신은 뱀의 움직임에 맞춰, 뱀을 멀리 던져버린다. 뱀은 당신이 상대하기 벅찬 존재라는 것을 재빨리 깨닫고 덤불 속으로 다시 후퇴한다.
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if $monster is 1>>
 			무언가 당신의 팔을 붙잡는 것이 느껴진다. <<beasttype>>【이】다. <<bhe>>【은는】 얼굴을 붉히며 당신에게 몸을 비벼온다.
 			<<if $NPCList[0].traits.includes("territorial")>>
@@ -4653,7 +4655,7 @@
 		<br>
 	<<else>>
 		<<beasttype>>【이가】 숲속으로 재빨리 달아나는 것이 보인다. 적어도 <<bhim>>【이가】 도망칠 시간은 벌어준 셈이다.
-		<<if $settings.voreEnabled>>
+		<<if $settings.voreEnabled and animalSexEnabledForType("snake")>>
 			뱀은 먹이를 놓쳐 짜증이 난 듯, 다시 입을 쩍 벌리고 당신에게 스르르 다가온다.
 			<br><br>
 
@@ -4876,7 +4878,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<beastejaculation>>
 	<<if $combatTrain.length gt 0>>
-		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>> 【이가】 자기 차례를 맞이한다.
+		만족한 <<beasttype>>【이가】 비켜서자, 다른 <<print window.KR.getBeastTypeKr($combatTrain.beastTypes[1])>>【이가】 자기 차례를 맞이한다.
 		<<combatTrainAdvance>>
 		<br><br>
 
@@ -4928,7 +4930,7 @@
 		당신은 다시 일어서지만, 반응할 틈도 없이 몇몇 학생들이 당신 머리 위 나뭇가지에 걸쳐 당신의 $worn.under_lower.name에 연결된 밧줄을 당기기 시작한다. <<if $worn.under_lower.plural isnot 1>>그것이<<else>>그것들이<</if>> 살짝 찢어지기 시작하고, 반 친구들은 당신을 땅에서 1미터가량 들어 올린다. 천이 당신의 엉덩이 골 사이와 <<genitals>>에 단단히 파고든다. 아프지만 약간 흥분되기도 한다. <<ggstress>><<stress 12>><<garousal>><<arousal 100>><<gpain>><<pain 10>>
 		<br><br>
 		<<if $worn.lower.name isnot 'naked'>>
-			십대들이 당신 주위에 원을 그리고 모여들어 자기들의 작품을 감상한다. "뭔가 빠진 것 같은데." <<person>>【이가】 말하며 당신에게 다가온다.
+			십대들이 당신 주위에 원을 그리고 모여들어 자기들의 작품을 감상한다. "뭔가 빠진 것 같은데," <<person>>【이가】 말하며 당신에게 다가온다.
 			<br><br>
 			<<if $submissive lte 850>>
 				<<link [[발로 찬다|Forest Bully Kick]]>><</link>><<physiquedifficulty 1 16650>>
@@ -4942,7 +4944,7 @@
 			<<link [[다음|Forest Bully Skip Lower]]>><</link>>
 		<</if>>
 	<<else>>
-		몇몇 학생들이 당신 뒤로 와서 땅에 넘어뜨리는 동안, 다른 십대들이 당신의 팔을 붙잡는다. 당신은 그들이 옷을 벗기거나 더 심한 짓을 할 거라고 예상했지만, 대신 두 쌍의 손이 <<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>치마 속으로 들어오거나 <<else>>허리춤으로 파고들기<</if>> 전에 멈춘다. "어, <<pshe>> 속옷 안 입었는데." 그들 중 하나가 말한다.
+		몇몇 학생들이 당신 뒤로 와서 땅에 넘어뜨리는 동안, 다른 십대들이 당신의 팔을 붙잡는다. 당신은 그들이 옷을 벗기거나 더 심한 짓을 할 거라고 예상했지만, 대신 두 쌍의 손이 <<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>치마 속으로 들어오거나 <<else>>허리춤으로 파고들기<</if>> 전에 멈춘다. "어, <<pshe>> 속옷 안 입었는데," 그들 중 하나가 말한다.
 		<br><br>
 		"진짜?" <<person>>【이가】 믿을 수 없다는 듯 묻더니, 이내 명령한다. "됐어, <<phim>>【을를】 보내줘. 다음에 지나가는 멍청이나 잡자고."
 		<br><br>
@@ -5009,9 +5011,9 @@
 	<br><br>
 	아직 공중에 매달린 채다. 다시 시도하거나 도움을 요청해야 한다.
 	<br><br>
-	<<link [[기어오르기|Forest Bully Climb]]>><</link>>
+	<<link [[기어오른다|Forest Bully Climb]]>><</link>>
 	<br>
-	<<link [[도움 요청하기|Forest Bully Help]]>><</link>>
+	<<link [[도움을 요청한다|Forest Bully Help]]>><</link>>
 
 <<else>>
 	기어오르기 시작했지만, 절반쯤 올라갔을 때 팔이 떨리기 시작하며 손아귀에 힘이 풀렸다. 짧게 추락하다가 $worn.under_lower.name【이가】 몸을 붙잡는다. $worn.under_lower.name의 천이 이전보다 더 팽팽하게 <<print ($player.ballsExist ? "고환을 조여오며" : "음순 사이를 파고들며")>> 새로운 고통의 물결을 일으킨다. <<gpain>><<ggstress>><<pain 25>><<stress 50>>
@@ -5049,7 +5051,7 @@
 	몇 분을 기다리자, 소리에 이끌린 <<beasttype>> 한 마리가 나무들 사이에서 나타나는 것이 보인다. <<bHe>>【은는】 으르렁거리더니 당신의 발목을 물어버린다! 그 무게에 당신의 $worn.under_lower.name【이가】 고통스럽게 <<print ($player.ballsExist ? "당신의 고환에 맞닿으며" : "음순 사이로 파고들며")>> 당겨지다가, 마침내 속옷이 몸에서 찢어져 나간다. <<gpain>><<ggstress>><<pain 25>><<stress 50>><<set $worn.under_lower.integrity to 0>>.
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("wolf", $monster is 1)>>
 		당신은 땅에 쓰러져 고통스럽게 가랑이를 움켜쥔다. 당신이 무방비 상태인 것을 본 <<beasttype>>【은는】 당신 위로 뛰어오른다!
 		<br><br>
 		<<link [[다음|Forest Wolf]]>><<set $molestationstart to 1>><</link>>
@@ -5068,9 +5070,9 @@
 		<br><br>
 		여전히 공중에 매달려 있는 당신은 다시 시도하거나 도움을 요청해야 한다.
 		<br><br>
-		<<link [[기어오르기|Forest Bully Climb]]>><</link>>
+		<<link [[기어오른다|Forest Bully Climb]]>><</link>>
 		<br>
-		<<link [[도움 요청하기|Forest Bully Help]]>><</link>>
+		<<link [[도움을 요청한다|Forest Bully Help]]>><</link>>
 	<<else>>
 		고요함은 이따금 당신의 $worn.under_lower.name에서 들려오는 찢어지는 소리에 의해 깨진다. 마침내, 천이 버티지 못하고 당신을 땅으로 떨어뜨린다!
 		<br><br>
@@ -5258,7 +5260,7 @@
 		메아리치던 당신의 외침이 잦아들자 숲은 섬뜩할 정도로 조용해진다. 당신은 대답을 기다리며 귀를 기울이다, 막 두 번째로 소리치려던 참에 들려온 목소리에 깜짝 놀란다.
 		<br><br>
 
-		"이런이런," <<he>>【이가】 말한다. "내 사냥감이 자연이 파놓은 함정에 스스로 빠졌군."
+		"이런이런." <<he>>【이가】 말한다. "내 사냥감이 자연이 파놓은 함정에 스스로 빠졌군."
 		<br><br>
 
 		돌아보니 <span class="red">사냥용 소총을 든</span> <<personsimple>> 한 명이 보인다. <<He>>【이가】 거대한 몸집으로 눈을 손쉽게 헤치며 당신에게 똑바로 걸어온다.
@@ -5314,7 +5316,7 @@
 		<</if>>
 		<br><br>
 
-		<<if $monster is 1 or $settings.bestialityEnabled is true>>
+		<<if beastSexEnabledForType("bear", $monster is 1)>>
 			<<link [[다음|Forest Snow Bear Molestation]]>><<set $molestationstart to 1>><</link>>
 		<<else>>
 			당신은 제때 몸을 피했지만, 얼굴에 눈을 뒤집어쓴다. 당신은 재빨리 정신을 차리고 앞으로 나아간다. 당신이 탈출하는 동안 <<beasttype>>【은는】 <<bhis>> 발톱으로 당신을 할퀴는데,
@@ -5342,7 +5344,7 @@
 	계속해서 도움을 요청했지만 아무도 오지 않는다. 당신은 혼자서 탈출을 시도할 수밖에 없다.<<gstress>><<stress 4>>
 	<br><br>
 
-	<<link [[탈출 시도하기|Forest Snow Escape]]>><</link>>
+	<<link [[탈출을 시도한다|Forest Snow Escape]]>><</link>>
 <<else>>
 	<<generate1>><<person1>>
 	한 <<person>>【이가】 당신의 목소리를 듣고 달려온다.
@@ -5663,9 +5665,9 @@
 			<<silently>><<clotheson>><<endcombat>><</silently>>
 
 			<<if _gwylanStatus.includes("aurigaScarConfront")>>
-				<<link [[모든 것이 암전된다...|Forest Shop Nowhere Passout]]>><<set $forest to 0>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<set $forest to 0>><<pass 1 hour>><<endevent>><</link>>
 			<<else>>
-				<<link [[모든 것이 암전된다...|Forest Shop Taken Start]]>><<set $forest to 0>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Taken Start]]>><<set $forest to 0>><<pass 1 hour>><<endevent>><</link>>
 			<</if>>
 		<<else>>
 			<<He>>【은는】 당신이 일어서는 것을 돕는다. "갑자기 덮쳐서 미안. 어쩔 수 없었어. 널 다시 보니까... 흥분해서. 나랑 같이 가게로 돌아갈래?"
@@ -5757,7 +5759,7 @@
 		<br>
 	<<elseif $exposed gte 2>>
 		그윌란이 당신 위에 엎드려 <<him>> 뒤로 <<his>> 다리를 찬다. "옷이 필요한지 물어보려고 했어." <<he>>【은는】 미소 지으며 말한다. "숲속을 그렇게... 훤히 드러내고 돌아다니면 안 돼.
-		<<if $settings.bestialityEnabled and $rng gte 51>>
+		<<if animalSexEnabledForType("wolf") and $rng gte 51>>
 			늑대들을 자극할 거야.
 		<<else>>
 			감기에 걸릴 거야.
@@ -5835,9 +5837,9 @@
 			<<silently>><<clotheson>><<endcombat>><</silently>>
 
 			<<if _gwylanStatus.includes("aurigaScarConfront")>>
-				<<link [[모든 것이 암전된다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
 			<<else>>
-				<<link [[모든 것이 암전된다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
 			<</if>>
 		<<else>>
 			당신은 <<him>>【이가】 일어서는 것을 돕는다. "갑자기 쫓아가서 미안, 어쩔 수가 없었어. 널 다시 보니까... 흥분해서. 나랑 같이 가게로 돌아갈래?"
@@ -5916,7 +5918,7 @@
 		<br>
 	<<elseif $exposed gte 2>>
 		그윌란은 당신 아래에 누워, 이 자세를 개의치 않는 듯하다. "옷이 필요한지 물어보려고." <<he>>【이가】 웃으며 말한다. "숲을 그렇게... 훤히 드러내놓고 돌아다니면 안 돼.
-		<<if $settings.bestialityEnabled and $rng gte 51>>
+		<<if animalSexEnabledForType("wolf") and $rng gte 51>>
 			늑대들을 자극하게 될 거야.
 		<<else>>
 			감기에 걸릴 거야.
@@ -6940,7 +6942,7 @@
 		"물론 <<pshe>>`【은는】 ` 저와 함께 가고 싶어 하죠," 그윌란이 당신의 목덜미에 부드럽게 손을 얹으며 말을 가로챈다. <<person2>><<His>> 손가락이 당신의 목걸이를 스친다. "<span class="witch">그렇지 않니? 어서, <<person1>><<him>>에게 말해줘.</span>"
 		<br><br>
 
-		<<hypnosisText "목구멍까지 올라왔던 말이 다른 말로 대체된다.">> "맞아요," 당신은 에덴을 빤히 쳐다보며 말한다. "저는 그윌란과 함께 가고 싶어요."
+		<<hypnosisText "목구멍까지 올라왔던 말이 다른 말로 대체된다.">> "맞아요." 당신은 에덴을 빤히 쳐다보며 말한다. "저는 그윌란과 함께 가고 싶어요."
 		<br><br>
 
 		에덴의 시선이 당신을 꿰뚫는다. "그건 네 말이 아니야."
@@ -6955,13 +6957,13 @@
 		<<link [[다음|Forest Gwylan Eden Shop]]>><<pass 15>><<set $phase to "kidnap">><</link>>
 		<br>
 	<<else>>
-		"에덴과 함께 가고 싶어요," 당신은 말한다. <<person1>>"<<His>> 말이 맞아요. 너무 오래 떨어져 있었어요. 당신도 다치지 않았으면 좋겠어요."
+		"에덴과 함께 가고 싶어요." 당신은 말한다. <<person1>>"<<His>> 말이 맞아요. 너무 오래 떨어져 있었어요. 당신도 다치지 않았으면 좋겠어요."
 		<br><br>
 
 		<<He>>【은는】 그윌란에게서 눈을 떼지 않은 채 손을 내민다. 당신은 서둘러 <<his>> 곁의 비교적 안전한 곳으로 간다. <<He>>【은는】 당신에게 팔을 두르기 전까지 뻣뻣하게 굳어 있다. 당신의 허리에 닿은 <<His>> 손이 떨린다.
 		<br><br>
 
-		<<person2>>그윌란이 당신 둘을 지켜본다. 당신이 착각했을지도 모를 만큼 빠르게 <<his>> 얼굴에 짜증이 스쳐 지나간다. "물론이죠," <<he>>【이가】 말한다. "당신을 가둬 둘 생각은 없어요." <<He>>【은는】 에덴에게로 시선을 휙 돌린다. "하지만, 에덴? 숲에는 눈이 달려 있어." <<He>>【은는】 당신 둘 사이를 본다. 잠시 동안, 당신은 <<he>>【이가】 다른 무언가, 혹은 다른 누군가를 보고 있다고 생각한다. "무사히 집으로 돌아가길."
+		<<person2>>그윌란이 당신 둘을 지켜본다. 당신이 착각했을지도 모를 만큼 빠르게 <<his>> 얼굴에 짜증이 스쳐 지나간다. "물론이죠." <<he>>【이가】 말한다. "당신을 가둬 둘 생각은 없어요." <<He>>【은는】 에덴에게로 시선을 휙 돌린다. "하지만, 에덴? 숲에는 눈이 달려 있어." <<He>>【은는】 당신 둘 사이를 본다. 잠시 동안, 당신은 <<he>>【이가】 다른 무언가, 혹은 다른 누군가를 보고 있다고 생각한다. "무사히 집으로 돌아가길."
 		<br><br>
 
 		<<He>>【은는】 몸을 돌려 덤불 속으로 향한다. 당신은 <<he>>【이가】 가는 것을 지켜본다. <<he>>【이가】 사라지고 나서야 에덴은 약간 긴장을 푼다. <<person1>><<He>>【이가】 당신에게 몸을 돌리자, <<his>> 표정이 굳어진다. "이걸로 끝났다고 생각하지 마."
@@ -6990,7 +6992,7 @@
 		당신의 목줄이 그윌란의 손에 나타난다. <<hypnosisText "에덴과 함께 가겠다는 생각은 온데간데없이 사라진다.">> <<He>>【이가】 부드럽게 그것을 당긴다. "이리 와."
 		<br><br>
 
-		<<person1>><<he>>【이가】 걸린 <<his>> 소총을 고치려고 애쓰는 동안 에덴의 얼굴이 어두워진다. "<<phim>>`【을를】` 강요하고 있잖아," <<he>>【이가】 으르렁거린다.
+		<<person1>><<he>>【이가】 걸린 <<his>> 소총을 고치려고 애쓰는 동안 에덴의 얼굴이 어두워진다. "<<phim>>`【을를】` 강요하고 있잖아." <<he>>【이가】 으르렁거린다.
 		<br><br>
 
 		그윌란은 대답하지 않고, 당신을 덤불 속으로 끌고 간다.
@@ -7055,7 +7057,7 @@
 	<</if>>
 	<br><br>
 
-	그윌란이 당신의 손목을 잡아당긴다. "이게 <<him>>【을를】 오래 붙잡아두진 못할 거야," <<person2>><<he>>【이가】 소리친다. "어서!"
+	그윌란이 당신의 손목을 잡아당긴다. "이게 <<him>>【을를】 오래 붙잡아두진 못할 거야." <<person2>><<he>>【이가】 소리친다. "어서!"
 	<br><br>
 
 	<<He>>【은는】 당신을 뒤에 매달고 <<his>> 가게를 향해 달리기 시작해, 당신이 안으로 들어갈 때까지 멈추지 않는다. 뒤에서 에덴의 무거운 발소리가 들려오지만, <<he>>【이가】 따라잡기 전에 문이 쾅 닫힌다.
@@ -7074,12 +7076,12 @@
 	<</if>>
 	<br><br>
 
-	그윌란이 당신의 손목을 잡아당긴다. "이게 <<person1>><<him>>【을를】 영원히 붙잡아두진 못할 거야," <<person2>><<he>>【이가】 소리친다. "어서!"
+	그윌란이 당신의 손목을 잡아당긴다. "이게 <<person1>><<him>>【을를】 영원히 붙잡아두진 못할 거야." <<person2>><<he>>【이가】 소리친다. "어서!"
 	<br><br>
 
 	<<He>>【은는】 다시 <<his>> 가게를 향해 달리기 시작하고, 당신을 뒤에 매달고 안으로 들어간다. 에덴의 무거운 발소리가 뒤따르지만, <<he>>【이가】 도착하기 전에 문이 쾅 닫힌다.
 <<else>>
-	곧 등 뒤의 숲에서 발소리가 들려온다. "<<phim>>`【와과】`는 어디도 못 가," 에덴이 으르렁거린다.
+	곧 등 뒤의 숲에서 발소리가 들려온다. "<<phim>>`【와과】`는 어디도 못 가." 에덴이 으르렁거린다.
 	<br><br>
 
 	<<person1>><<He>>【이가】 당신의 팔을 붙잡는다. 그윌란이 휙 돌아서서 어떤 녹색 가루를 던진다. 당신은 그 가루를 약간 들이마신다. 시야가 뒤틀린다.
@@ -7214,9 +7216,9 @@
 		<<silently>><<clotheson>><<endcombat>><</silently>>
 
 		<<if _gwylanStatus.includes("aurigaScarConfront")>>
-			<<link [[모든 것이 암흑 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
+			<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
 		<<else>>
-			<<link [[모든 것이 암흑 속으로 사라진다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
+			<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
 		<</if>>
 	<<else>>
 		<<He>>【은는】 마지막으로 숲 경계선을 돌아본다. "나랑 같이 상점까지 걸어갈래? 같이 가면 더 안전할 거야."
@@ -7224,7 +7226,7 @@
 
 		<<link [[예|Forest Gwylan Walk Shop]]>><<set $phase to 1>><<npcincr Gwylan dom 1>><</link>><<handholdingvirginitywarning>><<gyearning>>
 		<br>
-		<<link [[아니오|Forest Gwylan Walk Shop]]>><<set $phase to 2>><</link>>
+		<<link [[아니요|Forest Gwylan Walk Shop]]>><<set $phase to 2>><</link>>
 		<br>
 	<</if>>
 <<else>>
@@ -7233,6 +7235,88 @@
 
 	<<link [[예|Forest Gwylan Walk Shop]]>><<set $phase to 1>><<npcincr Gwylan dom 1>><</link>><<handholdingvirginitywarning>><<gyearning>>
 	<br>
-	<<link [[아니오|Forest Gwylan Walk Shop]]>><<set $phase to 2>><</link>>
+	<<link [[아니요|Forest Gwylan Walk Shop]]>><<set $phase to 2>><</link>>
 	<br>
 <</if>>
+
+:: Forest Trail Encounter
+<<location "forest">><<effects>>
+
+<<switch $phase>>
+	<<case "truth">>
+		<<if $speech_attitude is "meek">>
+			당신은 머뭇거리며 호수 쪽을 가리키고,
+		<<elseif $speech_attitude is "bratty">>
+			당신은 태연하게 호수 쪽을 가리키고,
+		<<else>>
+			당신은 호수가 있는 방향을 가리키고,
+		<</if>>
+		탐험하다 찾아낸 지름길을 알려 준다.
+		<br><br>
+
+		<<He>>【은는】 꽤 감탄한 얼굴이다. 이야기를 들을수록 시큰둥하던 표정이 풀어진다.
+		<br><br>
+
+		"전문가를 만나다니 운이 좋았네." <<he>>【이가】 고개를 끄덕이며 배낭 끈을 고쳐 메고 당신의 어깨를 토닥인다. "도와줘서 고마워, 이만 가볼게."
+		<br><br>
+
+		길을 찾도록 도와줬다는 생각에 조금 뿌듯하다. <<ltrauma>><<trauma -6>>
+	<<case "trick">>
+		당신이 미처 막기도 전에, 손이 호수의 반대 방향을 가리킨다.
+		<br><br>
+
+		<<if $speech_attitude is "meek">>
+			"아, 그— 그쪽으로 몇 분만 가면 돼요."
+		<<elseif $speech_attitude is "bratty">>
+			"눈썰미가 별로네? 호수는 저쪽으로 몇 미터만 가면 있어."
+		<<else>>
+			"저쪽으로 몇 분만 가면 호숫가가 바로 나와요."
+		<</if>>
+		<br><br>
+
+		"방금 저쪽에서 왔는데," <<person>>【이가】 혼란스러운 듯 중얼거린다. "못 보고 지나쳤나 보네. 고마워, 일단은."
+		<br><br>
+
+		그렇게 말하고 <<he>>【은는】 떠난다. 다른 사람을 속였다는 데서 묘한 만족감이 밀려온다. <<gcontrol>><<control 10>>
+	<<case "unsure">>
+		<<if $speech_attitude is "meek">>
+			"죄송해요, 저도 잘 모르겠어요." 당신이 중얼거린다.
+		<<elseif $speech_attitude is "bratty">>
+			"내가 알 것처럼 생겼어요?" 당신이 한숨을 쉰다.
+		<<else>>
+			"잘 모르겠어요." 당신이 짧게 어깨를 으쓱하며 대답한다.
+		<</if>>
+		<br><br>
+
+		<<person>>【이가】 신음하며 손에 얼굴을 묻는다.
+		<br><br>
+
+		"그래. 어쨌든 고마워." <<he>>【이가】 투덜거리며 아무 방향으로나 걸어간다. 안도감이 밀려온다. 더 화를 낼 줄 알았다.
+	<<case "run">>
+		<<if $athleticsSuccess>>
+			<<unset $athleticsSuccess>>
+			 당신은 달려서 도망친다. <span class="green">낯선 사람을 성공적으로 따돌린다</span>. 숲은 다시, 당분간은, 조용해진다.
+		<<else>>
+			당신은 달려서 도망치려 하지만, <span class="red"><<person>>의 손이 당신의 팔을 아프게 움켜쥔다</span>. <<gpain>><<pain 6>>
+			<br><br>
+
+			"질문했잖아." <<he>>【이가】 어이없다는 듯 버럭 말한다. "대체 왜 도망치는 거야?"
+			<br><br>
+
+			<<He>>【은는】 격렬한
+			<<if !$worn.upper.type.includes("naked")>>
+				몸싸움 끝에 당신을 놓아주고, <span class="red">그 과정에서 당신의 <<print $worn.upper.name>>【이가】 찢어진다</span>. <<set $worn.upper.integrity -= 10>><<integritycheck>>
+			<<elseif !$worn.under_upper.type.includes("naked")>>
+				몸싸움 끝에 당신을 놓아주고, <span class="red">그 과정에서 당신의 <<print $worn.under_upper.name>>【이가】 찢어진다</span>. <<set $worn.under_upper.integrity -= 10>><<integritycheck>>
+			<<else>>
+				몸싸움 끝에 당신을 놓아준다.
+			<</if>>
+			<br><br>
+
+			다리에 힘이 풀린 채 그 자리를 벗어난다. <<gstress>><<gtrauma>><<stress 6>><<trauma 6>>
+		<</if>>
+<</switch>>
+<br><br>
+
+<<link [[다음|Forest]]>><<endevent>><<set $eventskip to 1>><<unset $phase>><</link>>
+<br>

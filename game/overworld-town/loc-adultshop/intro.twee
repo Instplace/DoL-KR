@@ -75,7 +75,7 @@
 
 	<<elkicon>><<link [[떠난다|Elk Street]]>><</link>>
 	<br>
-	<<if $debug is 1>>
+	<<if $debug>>
 		<br>
 		<i>디버그. 시드니의 스탯 변경 사항은 이 씬 이후에도 유지됩니다.</i>
 		<br><br>
@@ -86,7 +86,7 @@
 		<br>
 		<<link [[15로 변경|$passage]]>><<set $adultshopprogress to 15>><</link>>
 		<br><br>
-		<<link [[가게 개점 돕기|Dilapidated Help]]>><<npc Sirris>><<npc Sydney 2>><<person2>><<set $adultshopprogress += 1>><<set $adultshopcontribution += 1>><<set $adultshophelped to 1>><<pass 60>><<npcincr Sirris love 1>><<npcincr Sydney love 1>><</link>><<glove>>
+		<<link [[가게 개점을 돕는다|Dilapidated Help]]>><<npc Sirris>><<npc Sydney 2>><<person2>><<set $adultshopprogress += 1>><<set $adultshopcontribution += 1>><<set $adultshophelped to 1>><<pass 60>><<npcincr Sirris love 1>><<npcincr Sydney love 1>><</link>><<glove>>
 		<br><br>
 		<<link [[개점 (순결한 시드니)|Adult Shop Opening]]>><<npc Sydney>><<person1>><<endevent>><<set C.npc.Sydney.purity to 100>><<set C.npc.Sydney.corruption to 0>><</link>>
 		<br>
@@ -95,7 +95,7 @@
 		<<link [[개점 (타락한 시드니)|Adult Shop Opening]]>><<npc Sydney>><<person1>><<endevent>><<set C.npc.Sydney.purity to 0>><<set C.npc.Sydney.corruption to 100>><</link>>
 		<br><br>
 	<</if>>
-	<<if $cheatsEnabled is true or $debug is 1>>
+	<<if $cheatsEnabled is true or $debug>>
 		<<lockicon "unlock">><<link [[가게 잠금 해제|Elk Street]]>><<set $adultshopunlocked to true>><</link>> | <i>치트 옵션</i> <!-- Appears even with blind stats enabled. Intentional -->
 		<br>
 	<</if>>
@@ -116,15 +116,15 @@
 	시드니가 가게에서 나온다.
 <</if>>
 <<run statusCheck("Sydney")>>
-<<He>>【은는】 당신을 보며 미소 짓는다. "안녕," <<he>>【이가】 말한다. "만나서 반가워. 난 그냥 여기서 돕고 있어."
+<<He>>【은는】 당신을 보며 미소 짓는다. "안녕." <<he>>【이가】 말한다. "만나서 반가워. 난 그냥 여기서 돕고 있어."
 <br>
 "네 동급생에게 우리를 도와줄 의향이 있는지 물어봤단다."
 <br>
 <<if _sydneyStatus.includes("corrupt")>>
-	시드니의 미소가 더 넓어진다. "재미있는 일이야," <<he>>【이가】 말한다. "많은 걸 배우고 있어."
+	시드니의 미소가 더 넓어진다. "재미있는 일이야." <<he>>【이가】 말한다. "많은 걸 배우고 있어."
 	<br>
 	<<person1>>
-	시리스가 고개를 끄덕인다. "부끄러워할 일은 전혀 아니란다," <<he>>【이가】 말한다. "그래도, <<phim>>에게 달렸단다." <<He>>【은는】 당신에게 다시 몸을 돌린다. "우리는 금요일 오후마다 여기 있을 거예요. 모든 걸 준비하려면 몇 주가 걸릴 거고요."
+	시리스가 고개를 끄덕인다. "부끄러워할 일은 전혀 아니란다." <<he>>【이가】 말한다. "그래도, <<phim>>에게 달렸단다." <<He>>【은는】 당신에게 다시 몸을 돌린다. "우리는 금요일 오후마다 여기 있을 거예요. 모든 걸 준비하려면 몇 주가 걸릴 거고요."
 	<br><br>
 <<elseif _sydneyStatus.includes("pure")>>
 	시드니는 몹시 당황한 표정이다. "<<phim>>에게 보여주고 싶지 않아요—"
@@ -445,7 +445,7 @@
 당신은 낮게 으르렁거리며 시드니의 목을 향해 달려든다! 당신의 이빨이 <<his>> 부드러운 살을 파고들고, 당신은 <<him>>【을를】 장난스럽게 깨문다.
 <br><br>
 
-"나, 나쁜 강아지!" <<he>>【이가】 말한다. "앉아!" 당신은 명령을 무시하고 <<him>>【을를】 다시 깨문다. <<He>>【은는】 쾌감에 몸을 떨며 웃는다. "당신을 길들이려 한 대가네요." <<he>>【이가】 말한다. <<He>>【은는】 당신을 마주 깨물고는 목줄을 풀어준다. "다시 일하러 가죠."
+"나-나쁜 강아지!" <<he>>【이가】 말한다. "앉아!" 당신은 명령을 무시하고 <<him>>【을를】 다시 깨문다. <<He>>【은는】 쾌감에 몸을 떨며 웃는다. "당신을 길들이려 한 대가네요." <<he>>【이가】 말한다. <<He>>【은는】 당신을 마주 깨물고는 목줄을 풀어준다. "다시 일하러 가죠."
 <br><br>
 
 <<if $sydneyromance gte 1>>
@@ -461,7 +461,7 @@
 :: Dilapidated Collar Lick
 <<effects>>
 
-당신은 이해하지 못한다는 듯 고개를 갸웃거리더니, <<his>> 얼굴을 핥아댄다. "그, 그만." <<he>>【이가】 웃으며, 아니, 킥킥거리며 말한다. "일하러 돌아가야 해요." <<He>>【은는】 당신의 목줄을 풀어준다.
+당신은 이해하지 못한다는 듯 고개를 갸웃거리더니, <<his>> 얼굴을 핥아댄다. "그-그만." <<he>>【이가】 웃으며, 아니, 킥킥거리며 말한다. "일하러 돌아가야 해요." <<He>>【은는】 당신의 목줄을 풀어준다.
 <br><br>
 
 <<if $sydneyromance gte 1>>
@@ -565,7 +565,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"그, 그랬으면 좋겠어요." 당신이 말한다. "제가 잘했으면 좋겠네요."
+	"그-그랬으면 좋겠어요." 당신이 말한다. "제가 잘했으면 좋겠네요."
 	<br><br>
 	<<He>>【은는】 당신을 재빨리 껴안는다. "물론이죠. 갑자기 그런 일을 시켜서 미안해요. 하지만 좋은 기회 같았어요."
 <<elseif $speech_attitude is "bratty">>
@@ -586,7 +586,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"사, 사람들이 제가 당신을 목줄로 끌고 다니는 걸 보면..." 당신이 말한다. "오해할지도 몰라요."
+	"사-사람들이 제가 당신을 목줄로 끌고 다니는 걸 보면..." 당신이 말한다. "오해할지도 몰라요."
 <<elseif $speech_attitude is "bratty">>
 	"아니요, 괜찮아요." 당신이 말한다. "사람들이 우릴 이상하게 생각할 거예요."
 <<else>>
@@ -653,7 +653,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 전 그냥 보는 게 좋아요." 당신이 말한다. "죄, 죄송해요."
+	"저, 전 그냥 보는 게 좋아요." 당신이 말한다. "죄-죄송해요."
 <<elseif $speech_attitude is "bratty">>
 	"아뇨." 당신이 말한다. "당신이 낑낑대는 걸 보고 싶어요."
 <<else>>
@@ -769,7 +769,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"어, 어쩌면 우리가 열어봐야 할지도 몰라요." 당신이 말한다. "상품을 확인할 수 있게요. 시리스에게 더 많은 일을 맡기고 싶지 않아요."
+	"어-어쩌면 우리가 열어봐야 할지도 몰라요." 당신이 말한다. "상품을 확인할 수 있게요. 시리스에게 더 많은 일을 맡기고 싶지 않아요."
 <<elseif $speech_attitude is "bratty">>
 	"우리가 직접 열어봐야 해요." 당신이 말한다. "상품을 확인해야죠. 시리스는 충분히 바쁘잖아요."
 <<else>>
@@ -1040,7 +1040,7 @@
 	<br>
 	"안에 무슨 일 있나요?" 시리스가 뒷방에서 묻는다.
 	<br>
-	"ㄴ-네!" 시드니가 똑바로 서며 대답한다. "아무 문제 없습니다."
+	"네-네!" 시드니가 똑바로 서며 대답한다. "아무 문제 없습니다."
 	<br><br>
 	"힘이 세시네요." 시드니가 낮은 목소리로 말한다. "하지만 전 이것보다 더한 벌을 받아야 해요. 전 정말 죄인이거든요."
 <<elseif currentSkillValue('physique') gte 9000>>
@@ -1074,7 +1074,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-저희가 상품을 사용하면 안 될 것 같아요." 당신은 승마 채찍을 상자에 다시 넣으며 말한다.
+	"저-저희가 상품을 사용하면 안 될 것 같아요." 당신은 승마 채찍을 상자에 다시 넣으며 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"어림없어요, 변태." 당신은 승마 채찍을 상자에 다시 넣으며 말한다.
 <<else>>
@@ -1185,7 +1185,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-저희 가게 준비하러 돌아가요." 당신이 말한다. "들키기 전에요."
+	"저-저희 가게 준비하러 돌아가요." 당신이 말한다. "들키기 전에요."
 <<elseif $speech_attitude is "bratty">>
 	"가게 준비하러 돌아가요." 당신이 말한다. "제가 직접 채찍을 찾아서, 다음엔 당신이 벌받을 차례가 될지도 모르죠."
 <<else>>
@@ -1202,7 +1202,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-저희가 직접 장난감을 쓰면 안 돼요." 당신이 말한다.
+	"저-저희가 직접 장난감을 쓰면 안 돼요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"지금은 안 돼요." 당신이 말한다. "일해야 한단 말이에요."
 <<else>>
@@ -1256,7 +1256,7 @@
 당신은 검지와 엄지로 동그라미를 만들어 시드니가 볼 수 있도록 들어 올린 다음, 구슬을 하나씩 구멍으로 밀어 넣는다.
 <br><br>
 
-시드니는 얼굴을 붉히며 시선을 피한다. "ㅅ-시범 보여주셔서 감사해요." <<he>>【이가】 말한다. "하지만 들키기 전에 치우는 게 좋겠어요." 당신은 그렇게 하고 일하러 돌아간다.
+시드니는 얼굴을 붉히며 시선을 피한다. "시-시범 보여주셔서 감사해요." <<he>>【이가】 말한다. "하지만 들키기 전에 치우는 게 좋겠어요." 당신은 그렇게 하고 일하러 돌아간다.
 <br><br>
 
 <<link [[다음|Dilapidated End]]>><</link>>
@@ -1283,7 +1283,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㄱ-그거 위생적인가요?" 당신이 묻는다.
+	"그-그거 위생적인가요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"그걸 입에 넣진 않을 거예요." 당신이 말한다. 사용하지 않았든 아니든.
 <<else>>
@@ -1386,7 +1386,7 @@
 <<effects>><<wearProp "dildo">>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-제가 좀 봐도 될까요?" 당신이 묻는다. "ㄱ-그냥 궁금해서요."
+	"제-제가 좀 봐도 될까요?" 당신이 묻는다. "그-그냥 궁금해서요."
 <<elseif $speech_attitude is "bratty">>
 	"이리 줘요." 당신은 손을 내밀며 말한다.
 <<else>>
@@ -1444,7 +1444,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-저한테 어떻게 하는 건지 보여주실 수 있나요?" 당신이 묻는다.
+	"저-저한테 어떻게 하는 건지 보여주실 수 있나요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"뭐예요?" 당신이 묻는다. "직접 핥기는 무서워요?"
 <<else>>
@@ -1543,7 +1543,7 @@
 	"두려워할 거 없어요." 당신은 상자 안으로 손을 뻗어 딜도를 들어 올리며 말한다. "그냥 움직이지 않는 물건일 뿐이에요." 당신이 시드니에게 그것을 흔들자, <<he>>【은는】 얼굴을 붉힌다. "아니면 신전에서는 이걸 불경하다고 여기나요?"
 <</if>>
 <br><br>
-"ㄱ-그런 게 아니에요." 시드니가 시선을 피하며 말한다. "그냥 상자에 다시 넣어주세요. 할 일이 많아요."
+"그-그런 게 아니에요." 시드니가 시선을 피하며 말한다. "그냥 상자에 다시 넣어주세요. 할 일이 많아요."
 <br><br>
 
 <<link [[다음|Dilapidated End]]>><</link>>

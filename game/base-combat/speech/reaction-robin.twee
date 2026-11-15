@@ -1,0 +1,67 @@
+:: Widgets reaction-Robin [widget]
+
+/* PC lines (plead / demand / moan). */
+
+<<widget "pc-line-robin-plead">>
+	<<addSpeechLine "plead">>
+		"로빈, 제발 그만해!"
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-robin-demand">>
+	<<addSpeechLine "demand">>
+		"로빈, 그만해! 난 이거 원하지 않아!"
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-robin-moan">>
+	<<if !$robinmist and !$robinMetal>>
+		<<if C.npc.Robin.dom gte 70>>
+			<<addPairedSpeechLine "Robin" "moan">>
+				<<pcLine>>"넌 날 어떻게 흥분시키는지 정확히 알아."
+			<<npcLine>>
+				<<if C.npc.Robin.trauma gte 20>>
+					<<He>>【이가】 숨을 헐떡인다. "나한텐 오직 너만이 소중하니까."
+					<<set _moanHeal to true>>
+				<<else>>
+					<<print either(
+						`<<He>>【이가】 키득거린다. "널 위해서라면 뭐든지."`,
+						`<<He>>【은는】 자랑스러움과 기쁨으로 얼굴을 활짝 밝히며 미소 짓는다.`
+					)>>
+				<</if>>
+				<<if !$robinUniqueComments.includes("moanDom")>>
+					<<set $robinUniqueComments.pushUnique("moanDom")>>
+					<<npcincr Robin dom 1>><<gdom>>
+				<</if>>
+				<<if _moanHeal and !$robinUniqueComments.includes("moanHeal")>>
+					<<set $robinUniqueComments.pushUnique("moanHeal")>>
+					<<npcincr Robin trauma -1>><<lrtrauma>>
+				<</if>>
+			<</addPairedSpeechLine>>
+		<<else>>
+			<<addPairedSpeechLine "Robin" "moan">>
+				<<pcLine>>"녹아내릴 것 같아, 네가 날 너무 행복하게 해."
+			<<npcLine>>
+				<<if C.npc.Robin.trauma gte 60>>
+					<<His>> 눈가가 촉촉해진다. "나도 네가 내 곁에 있어줘서 정말 기뻐."
+					<<set _moanHeal to true>>
+				<<elseif C.npc.Robin.trauma gte 20>>
+					<<He>>【이가】 메마른 웃음을 터뜨린다. "저, 정말 그래? 너 덕분에 나도 정말 행복해."
+					<<set _moanHeal to true>>
+				<<elseif C.npc.Robin.dom lte 30>>
+					"나-나도 너 때문에 행복해." 양 볼을 붉히며 <<he>>【이가】 말한다.
+				<<else>>
+					"어휴. 완전히 녹아내려 웅덩이가 돼도 어디 안 휩쓸려가게 꽉 잡아줄게." <<he>>【이가】 쿡쿡 웃는다.
+				<</if>>
+				<<if !$robinUniqueComments.includes("moanDom")>>
+					<<set $robinUniqueComments.pushUnique("moanDom")>>
+					<<npcincr Robin dom 1>><<gdom>>
+				<</if>>
+				<<if _moanHeal and !$robinUniqueComments.includes("moanHeal")>>
+					<<set $robinUniqueComments.pushUnique("moanHeal")>>
+					<<npcincr Robin trauma -1>><<lrtrauma>>
+				<</if>>
+			<</addPairedSpeechLine>>
+		<</if>>
+	<</if>>
+<</widget>>

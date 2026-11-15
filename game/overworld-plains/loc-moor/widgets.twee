@@ -1,13 +1,32 @@
 :: Moor Widgets [widget]
 <<widget "eventsmoorlow">>
 	<<if random(1, 8) is 8 or ($moormove is "quick_search" or $moormove is "normal_search" or $moormove is "careful_search" or $moormove is "fly_search") and random(1, 4) is 4>>
-		<<rng 3>>
-		<<if $rng is 3>>
+		<<rng 4>>
+		<<if $rng is 4>>
 			<<wearProp "antique bullet">>
 			당신은 길가 가장자리에 총알 한 발이 놓여 있는 것을 발견한다. 꽤 오래되어 보인다. 수집가라면 이것에 돈을 지불할지도 모른다.
 			<br><br>
 			<<set $antiquemoney += 50>><<museumAntiqueStatus "antiquebullet" "found">>
 			<<link [[다음|Moor]]>><<handheldon>><<set $eventskip to 1>><</link>>
+			<br>
+		<<elseif $rng is 3 and Time.season isnot "winter">>
+			넝쿨에 달린 커다란 잎사귀 무더기가 나타난다.
+			<br><br>
+			<<if currentSkillValue('tending') gte 400>>
+				호박이다. 꽃 아래를 뒤져 보니 주황색 채소가 있다.
+				<br><br>
+				<<if pcAreArmsBound("both")>>
+					<span class="red">두 팔이 묶여 있어</span>, 호박을 수확할 수 없다.
+					<br>
+				<<else>>
+					<<foodstufficon "pumpkin">> <<link [[호박을 딴다 (0:30)|Moor Pumpkin]]>><<pass 30>><</link>><<tendingdifficulty 300 600>>
+					<br>
+				<</if>>
+			<<else>>
+				<span class="blue">이것들을 식별하려면 더 높은 관리 스킬이 필요하다.</span>
+				<br><br>
+			<</if>>
+			<<mooricon>><<link [[계속한다|Moor]]>><<set $eventskip to 1>><</link>>
 			<br>
 		<<elseif $rng is 2>>
 			헤더 꽃밭 사이에 작은 노란 꽃들이 뭉쳐서 자라고 있다.
@@ -90,7 +109,7 @@
 				<br>
 			<</if>>
 		<<case 2>>
-			<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+			<<if $settings.lurkersEnabled>>
 				무언가가 당신을 향해 달려오자 헤더 숲이 갈라진다. 그것이 도착하기도 전에 등 뒤에서 바스락거리는 소리가 들린다. 당신이 고개를 돌리기도 전에 무언가 당신의 <<bottom>>에 내려앉는다.
 				<br><br>
 
@@ -199,14 +218,14 @@
 			<<moor_fox>>
 		<<case 9>>
 			<<beastNEWinit 1 horse>>
-			당신은 황무지 평원에서 휴식을 취하고 있는 <<beasttype>>【을를】 발견한다. <<bHe>>【은는】 아직 당신을 보지 못한 것 같다.
+			당신은 황야 평원에서 휴식을 취하고 있는 <<beasttype>>【을를】 발견한다. <<bHe>>【은는】 아직 당신을 보지 못한 것 같다.
 			<br><br>
 
 			<<link [[탈것으로 이용하려 시도한다|Moor Horse]]>><<set $phase to 0>><</link>><<skill_difficulty `currentSkillValue("thighskill")` "허벅지 스킬" 1 1200>>
 			<br>
 			<<link [[조심스럽게 접근해 탑승한다|Moor Horse]]>><<set $phase to 1>><</link>><<tendingdifficulty 1 1200>>
 			<br>
-			<<if hasSexStat("deviancy", 5) and ($settings.bestialityEnabled or $monster is 1) and $settings.horsesEnabled>>
+			<<if hasSexStat("deviancy", 5) and beastSexEnabledForType("horse", $monster is 1)>>
 				<<link [[<<bhim>>에게 올라타게 둔다|Moor Horse]]>><<set $phase to 2>><</link>><<deviant5>>
 				<br>
 			<</if>>
@@ -318,7 +337,7 @@
 			당신의 목 뒤로 소름이 돋는다. 돌아보니 <<print either("헤이즐넛 색", "노란색", "초록색", "파란색")>> 눈을 번뜩이며 커다란 <<beasttype>>【이가】 당신을 향해 전력 질주해오고 있다.
 			<br><br>
 
-			<<if $settings.bestialityEnabled>>
+			<<if animalSexEnabledForType("cat")>>
 				<<link [[다음|Moor Cat]]>><<set $molestationstart to 1>><</link>>
 				<br>
 			<<else>>
@@ -331,7 +350,7 @@
 			당신 옆에 있는 높은 바위에서 자갈이 굴러 떨어진다. 당신은 위를 올려다본다. 정상에서 뭔가 반짝인다. 다리를 길게 펴며 그것이 당신을 향해 뛰어내린다.
 			<br><br>
 
-			<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+			<<if $settings.lurkersEnabled>>
 				<<dancedifficulty 1 1000 true>>
 				<<if $danceSuccess>>
 					<span class="green">당신은 옆으로 피하고,</span> 괴물은 당신 옆 바닥에 착지한다.
@@ -438,7 +457,7 @@
 			<<link [[무시한다|Moor]]>><<set $eventskip to 1>><</link>>
 			<br>
 		<<case 9 10>>
-			<<if $bird and $bird.injured gt 1>>
+			<<if $bird?.injured gt 1>>
 				<<moor_fox>>
 			<<else>>
 				<<moor_hunt_start>>
@@ -602,9 +621,9 @@
                당신은 틈을 피해 발걸음을 옮기며, 여정을 계속할 준비를 한다. 지하로 이어지는 통로가 보인다.
 				<br><br>
 
-               <<link [[들어가기 (0:20)|Moor Crack Passage]]>><<set $outside to 0>><<pass 20>><</link>>
+               <<link [[들어간다 (0:20)|Moor Crack Passage]]>><<set $outside to 0>><<pass 20>><</link>>
                <br>
-               <<link [[무시하기|Moor]]>><<set $eventskip to 1>><</link>>
+               <<link [[무시한다|Moor]]>><<set $eventskip to 1>><</link>>
 				<br>
 			<<else>>
 				옆으로 뛰어오르려 했지만, <span class="red">땅이 너무 많이 흔들린다.</span> 당신은 갈라진 틈 속으로 떨어진다.
@@ -625,7 +644,7 @@
 				당신은 발을 헛디디지 않게 조심한다.
 			<</if>>
 			<br><br>
-			<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+			<<if $settings.lurkersEnabled>>
 				수면 위로 기포가 터지는 소리가 들린다. 갑자기 깊은 곳에서 여러 생물체들이 튀어나온다. 그 중 하나가 얼굴에 날아와 착지하면서 당신은 비틀거린다. 또 다른 하나는 당신의 <<bottom>>에 내려앉는다.
 				<br><br>
 
@@ -716,7 +735,7 @@
 				<<link [[다음|Moor]]>><<set $eventskip to 1>><</link>>
 			<</if>>
 		<<case 8 9>>
-			<<if $bird and $bird.injured gt 1>>
+			<<if $bird?.injured gt 1>>
 				<<moor_fox>>
 			<<else>>
 				<<moor_hunt_start>>
@@ -1090,4 +1109,57 @@
 	<<else>>
 		<<link [[_linkText|Moor]]>><<= _contents>><</link>>
 	<</if>>
+<</widget>>
+
+<<widget "moorTravel">>
+	<<travelSpeedInfo>>
+	<<switch _speedNow>>
+		<<case "quickly">><<set $forestmod to 3>><<set _huntGain to 0.5>><<set _move to "quick">><<set _searchMove to "quick_search">>
+		<<case "normally">><<set $forestmod to 1>><<set _huntGain to 1>><<set _move to "normal">><<set _searchMove to "normal_search">>
+		<<case "carefully">><<set $forestmod to 0.5>><<set _huntGain to 2>><<set _move to "careful">><<set _searchMove to "careful_search">>
+	<</switch>>
+	<<switch _args[0]>>
+		<<case "search">><<set _move to _searchMove>>
+		<<case "deeper">><<set $moor += 5>>
+		<<case "coast">><<set $moor -= 5>>
+	<</switch>>
+	<<set $moormove to _move>>
+	<<bird_pass _travelTime>>
+	<<if $moor_hunt gte 1>><<set $moor_hunt += _huntGain>><</if>>
+<</widget>>
+
+<<widget "moorShortcuts">>
+	<<if $harpy gte 6 and $birdFly gte 1 and !$plucked>>
+		지름길
+		<br>
+		<<if $moor lt 100>>
+			<<glideicon>><<link `'황야 깊숙이 날아간다 (' + getTimeString(_hoursPassed, _minutesPassed) + ')'` "Moor">><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTime>><<bird_pass _flightTime>><<set $moor += 5>><<set $forestmod to 1>><<set $moormove to "fly">><</link>><<flight_text>><<gtiredness>>
+			<br>
+		<</if>>
+		<<glideicon>><<link `'날아서 근처를 수색한다 (' + getTimeString(_hoursPassedSearch, _minutesPassedSearch) + ')'` "Moor">><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTimeSearch>><<bird_pass _flightTimeSearch>><<set $forestmod to 0.5>><<set $moormove to "fly_search">><</link>><<flight_text>><<gtiredness>><<lharass>>
+		<br>
+		<<if $moor gt 0>>
+			<<glideicon>><<link `'해안 쪽으로 날아간다 (' + getTimeString(_hoursPassed, _minutesPassed) + ')'` "Moor">><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTime>><<bird_pass _flightTime>><<set $moor -= 5>><<set $forestmod to 1>><<set $moormove to "fly">><</link>><<flight_text>><<gtiredness>>
+			<br>
+		<</if>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget "moorTravelIcon">>
+	<<if $moor lte 0>>
+		<<set _depth to "plain">>
+	<<elseif $moor lte 20>>
+		<<set _depth to "heather">>
+	<<elseif $moor lte 50>>
+		<<set _depth to "bushes">>
+	<<elseif $moor lte 99>>
+		<<set _depth to "wetland">>
+	<<else>>
+		<<set _depth to "castle">>
+	<</if>>
+	<<if Time.season is "winter">>
+		<<set _depth to _depth + "-winter">>
+	<</if>>
+	<<icon `_args[0] + "-" + _depth + ".png"`>>
 <</widget>>

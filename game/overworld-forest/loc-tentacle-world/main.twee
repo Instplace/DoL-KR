@@ -4,7 +4,7 @@
 		<<pregnancyPassout "tentacleworld">>
 	<<else>>
 		<<passout>>
-		<<link [[모든 것이 어둠에 잠긴다...|Passout Tentacle World]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Passout Tentacle World]]>><</link>>
 	<</if>>
 <</widget>>
 

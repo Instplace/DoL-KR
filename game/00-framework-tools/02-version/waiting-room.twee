@@ -1,7 +1,7 @@
 :: Upgrade Waiting Room
 Degrees of Lewdity <<print StartConfig.version>><<if StartConfig.versionName>> <<print StartConfig.versionName>><</if>>에 오신 것을 환영합니다. 최신 버전에 맞춰 게임 데이터를 일부 조정하고 있습니다.
 
-게임이 정상적으로 작동한다면 세이브 파일도 다시 저장해 업데이트해 주세요.
+게임이 정상적으로 작동한다면 세이브 파일도 다시 저장해 업데이트해 주십시오.
 
 <<silently>>
 <<variablesVersionUpdate>>
@@ -11,7 +11,7 @@ Degrees of Lewdity <<print StartConfig.version>><<if StartConfig.versionName>> <
 <<set $runWardrobeSanityChecker to true>>
 <</silently>>
 
-벌써 끝났네요.
+벌써 끝났습니다.
 
 <<link [[계속하기|$navigation.stack.last()]]>><<run $navigation.stack.pop()>><</link>>
 
@@ -22,4 +22,4 @@ Degrees of Lewdity <<- StartConfig.version>><<if StartConfig.versionName>> <<pri
 <br><br>
 <<link [[확인|$passagePrev]]>><</link>>
 <br>
-<span class="red">문제가 생기는 것을 피하려면 최신 버전으로 돌아가세요.</span>
+<span class="red">문제가 생기는 것을 피하려면 최신 버전으로 돌아가십시오.</span>

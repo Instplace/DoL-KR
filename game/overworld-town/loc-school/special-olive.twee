@@ -161,7 +161,7 @@
 사악하고 추잡한 행동에, 더 추잡한 행동이 뒤따랐다. <<personname>>의 마음은 상상할 수 있는 온갖 쓰레기로 넘쳐나는 쓰레기 더미다.
 <br><br>
 
-<<He>>【은는】 힘겹게 탑으로 돌아와 스스로에게 만족한다. 해가 떠오르자, <<he>>【은는】 눈물과 조롱을 예상했지만, 대신 노래를 듣고 충격에 빠진다. 그냥 노래가 아니라, <<he>>【이가】 결코 잊지 못할 노래였다.
+<<He>>【은는】 힘겹게 탑으로 돌아와 스스로에게 만족한다. 해가 떠오르자, <<he>>【은는】 눈물과 조롱을 예상했지만, 대신 노래를 듣고 충격에 빠진다. 그냥 노래가 아니라, <<he>>【이가】 결코 잊지 못할 노래다.
 <br><br>
 
 <<if $location is "avery_mansion">>
@@ -185,7 +185,7 @@
 	<br><br>
 	<<link [[다음|$oliveExitPassage]]>><<unset $oliveExitPassage>><<pinchEnd>><</link>>
 <<else>>
-	<<his>> 중대한 실수를 깨달은 <<he>>【은는】 훔친 선물을 돌려주기 위해 훨씬 더 명랑한 발걸음으로 마을로 달려간다. 하지만 마을 사람들은 친애하는 <<personname>>에게 다른 생각을 품고 있었다.
+	<<his>> 중대한 실수를 깨달은 <<he>>【은는】 훔친 선물을 돌려주기 위해 훨씬 더 명랑한 발걸음으로 마을로 달려간다. 하지만 마을 사람들은 친애하는 <<personname>>에게 다른 생각을 품고 있다.
 	<br><br>
 
 	그곳에서 <<he>>【은는】 크리스마스의 가장 소중한 교훈을 배운다. 그리고 그날 <<him>>의 어떤 부분이 세 배 이상 커졌다고 전해지는 곳이 바로 그곳이다.
@@ -282,7 +282,7 @@
 <span class="black"><<his>> 거대하고 음침한 첨탑에서, <<he>>【은는】 투덜거리며 불평했어요.</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 2]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 2]]>><</link>>
 <br>
 
 :: Olive Book Full 2
@@ -329,7 +329,7 @@
 <span class="black">그리고 <<he>>【은는】 지체 없이 마을로 돌진했어요.</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 3]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 3]]>><</link>>
 <br>
 
 :: Olive Book Full 3
@@ -353,7 +353,7 @@
 클라우스 씨가 할 수 있다면, <<personname>>도 할 수 있었죠!
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 4]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 4]]>><</link>>
 <br>
 
 :: Olive Book Full 4
@@ -382,7 +382,7 @@
 <span class="black"><<his>> 어깨에 메고, <<his>> 전리품을 자랑스러워하며!</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 5]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 5]]>><</link>>
 <br>
 
 :: Olive Book Full 5
@@ -416,7 +416,7 @@
 <span class="black">금방 다시 가져다줄게, 눈 깜짝할 사이에!"</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 6]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 6]]>><</link>>
 <br>
 
 :: Olive Book Full 6
@@ -449,7 +449,7 @@
 <span class="black">마을의 모든 즐거움이, 불명예로 바뀌었죠!</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 7]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 7]]>><</link>>
 <br>
 
 :: Olive Book Full 7
@@ -558,7 +558,7 @@
 	<span class="black">깨끗하고 순수한, 모두가 좋아하는 것이죠.</span>
 	<br><br>
 
-	<<link [[계속 읽기|Olive Book Full 8]]>><<set $phase to 0>><</link>>
+	<<link [[계속 읽는다|Olive Book Full 8]]>><<set $phase to 0>><</link>>
 	<br>
 <</if>>
 
@@ -571,7 +571,7 @@
 	<<molested>>
 	<<maninit>>
 	<<set $pinchSpeech to 1>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<hand_gag 0 left>>
 <</if>>
 <<effects>>
@@ -660,7 +660,7 @@
 
 <<silently>><<endcombat>><</silently>>
 
-<<link [[계속 읽기|Olive Book Full 8]]>><<set $phase to 1>><</link>>
+<<link [[계속 읽는다|Olive Book Full 8]]>><<set $phase to 1>><</link>>
 <br>
 
 :: Olive Book Full 8
@@ -697,7 +697,7 @@
 <span class="black">그러자 핀치는 끔찍한 미소를 지었다.</span>
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 9]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 9]]>><</link>>
 <br>
 
 :: Olive Book Full 9
@@ -729,7 +729,7 @@
 선물 하나 없이 - 노래를 부르고 있었어요!
 <br><br>
 
-<<link [[계속 읽기|Olive Book Full 10]]>><</link>>
+<<link [[계속 읽는다|Olive Book Full 10]]>><</link>>
 <br>
 
 :: Olive Book Full 10
@@ -913,7 +913,7 @@
 	<<neutral 1>>
 	<<molested>>
 	<<maninit>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<set $pinchSong to 3>>
 	<br>
 
@@ -1094,7 +1094,7 @@
 <</if>>
 사건들을 되짚어보자 몸이 떨린다.<<arousal _pinchArousal>><<garousal>>
 <br><br>
-당신은 그게 마음에 들었다.
+당신은 그게 마음에 든다.
 <<if _phase is 1>>
 	<b>원래 이야기는 다르게 진행된다는 것</b>을 알면서도 말이다.
 <<else>>
@@ -1327,7 +1327,7 @@
 		<<unfreezePlayerStats>>
 		<<set $christmas_book_read to $_cbook_read>>
 	<</if>>
-	<<if ($studyBooks and $studyBooks.rented isnot "Pinch" and $studyBooks.stolen isnot "Pinch") or $studyBooks is undefined>>
+	<<if $studyBooks is undefined or ($studyBooks.rented isnot "Pinch" and $studyBooks.stolen isnot "Pinch")>>
 		<<clearNPC "pinch">>
 	<</if>>
 	<<endcombat>>

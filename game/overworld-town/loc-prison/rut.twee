@@ -1,6 +1,6 @@
 :: Prison Rut
 <<location "underground">><<set $outside to 0>><<effects>>
-당신은 교도소 아래, 러트 구덩이에 있다.
+당신은 감옥 아래, 러트 구덩이에 있다.
 <<if $rut gte 100>>
 	<span class="green">대리석 계단을 발견했다.</span> 당신의 발이 닿자 어둠이 물러나고, 분홍빛 안개에 휩싸인 계단이 드러난다. 꼭대기로 올라가니 꽃무늬 조각으로 장식된 돌 상자가 있고, 가운데에는 감은 눈이 새겨져 있다. 잠겨 있지는 않은 것 같다.
 	<br><br>
@@ -66,7 +66,7 @@
 	밧줄은 당신이 떠난 곳에 감겨 있다. 당신은 빛을 향해 올라간다.
 	<br><br>
 
-	<<link [[다음|Prison Spire]]>><<endevent>><<rut_end>><<location "prison">><</link>>
+	<<link [[다음|Prison Yard]]>><<endevent>><<rut_end>><<location "prison">><</link>>
 	<br>
 <<else>>
 	당신이 빠졌던 웅덩이는 여전히 그곳에 있고, 이제 저 멀리 위에 있는 처벌 명판이 보인다.
@@ -180,7 +180,7 @@
 	<</if>>
 	발소리와 함께 낮은 쉭쉭거리는 소리가 들린다. 이름 모를 생물이 당신 위로 뛰어올라 땅바닥으로 밀어 넘어뜨린다.<<gpain>><<pain 4>>
 	<br><br>
-	<<if $settings.bestialityEnabled>>
+	<<if isBestialityOnForAnyCreature()>>
 		<<link [[다음|Prison Beast]]>><<set $molestationstart to 1>><</link>>
 		<br>
 	<<else>>

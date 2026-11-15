@@ -229,7 +229,7 @@
 :: Events Swimming Stalk Confront
 <<set $outside to 0>><<set $location to "pool">><<schooleffects>><<effects>>
 
-당신은 <<person>>에게 바로 헤엄쳐 가서, 내버려 두라고 말한다. "ㅁ-미안," <<he>>【은는】 <<his>> 발을 쳐다보며 말한다.<<endevent>><<npc Mason>><<person1>> 당신이 돌아서자, 메이슨이 못마땅한 듯 당신을 쳐다보고 있는 것이 보인다. "다시는 다른 학생들 괴롭히는 거 보고 싶지 않아." <<he>>【은는】 말한다. <<He>>【은는】 당신의 이야기는 들으려 하지 않는다.
+당신은 <<person>>에게 바로 헤엄쳐 가서, 내버려 두라고 말한다. "미-미안." <<he>>【은는】 <<his>> 발을 쳐다보며 말한다.<<endevent>><<npc Mason>><<person1>> 당신이 돌아서자, 메이슨이 못마땅한 듯 당신을 쳐다보고 있는 것이 보인다. "다시는 다른 학생들 괴롭히는 거 보고 싶지 않아." <<he>>【은는】 말한다. <<He>>【은는】 당신의 이야기는 들으려 하지 않는다.
 <br><br>
 <<link [[다음|Swimming Lesson]]>><<endevent>><</link>>
 <br>
@@ -707,7 +707,7 @@
 		"알았어, 알았어. 젠장. 그냥 궁금해서 그랬어." <<personsimple>>【은는】 당신을 이상하게 쳐다보고는 헤엄쳐 가버린다.
 
 	<<case "Wiggle">>
-		당신은 도발적으로 엉덩이를 흔든다. "이봐, 내 엉덩이는 놓쳤잖아," 당신이 나른하게 말한다. "여깄어." 당신은 꼬리로 <<personssimple>> 손을 감아 가까이 끌어당긴다. <<garousal>><<arousal 200 "bottom">>
+		당신은 도발적으로 엉덩이를 흔든다. "이봐, 내 엉덩이는 놓쳤잖아." 당신이 나른하게 말한다. "여깄어." 당신은 꼬리로 <<personssimple>> 손을 감아 가까이 끌어당긴다. <<garousal>><<arousal 200 "bottom">>
 		<br><br>
 
 		<<personssimple>> 눈에 욕정이 번뜩이고, <<he>>【은는】 열렬히 당신의 <<bottom>>【을를】 더듬는다. 당신은 <<his>> 손에 몸을 밀착시키며 수영장 가장자리를 붙잡는다. 어깨너머로 보니 <<his>> 뺨이 흥분으로 붉어져 있다.
@@ -728,3 +728,34 @@
 
 <br><br>
 <<link [[다음|Swimming Lesson]]>><<endevent>><</link>>
+
+:: Events Swimming Freed
+<<set $outside to 0>><<set $location to "pool">><<schooleffects>><<effects>>
+
+당신은 수영장 가장자리로 헤엄쳐 가서 몸을 돌린다. 메이슨이 무릎을 꿇고 당신의 결박을 끊어준다. "자. 다른 학생이 이런 짓을 한 게 아니었으면 좋겠군." <<He>>【은는】 물러선다.
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Swimming Lesson]]>><</link>>
+<br>
+
+:: Events Swimming Freed Refuse
+<<set $outside to 0>><<set $location to "pool">><<schooleffects>><<effects>>
+
+<<if $speech_attitude is "meek">>
+	"아-아니요." 당신은 말한다. "계속 묶여 있어야 해요."
+<<elseif $speech_attitude is "bratty">>
+	"제가 도와달라고 했나요?" 당신은 선생님을 쏘아보며 말한다.
+<<else>>
+	"전 괜찮아요. 고마워요." 당신은 말한다.
+<</if>>
+<br><br>
+
+메이슨은 혼란스러워 보인다. "네가 그렇다면야. 수영 중에 <<= pcAreArmsBound("any") ? "팔" : "사지">>【을를】 묶는 걸 금지하는 규칙은 없는 것 같으니. 조심하기나 해, 알았지?"
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Swimming Lesson]]>><</link>>
+<br>

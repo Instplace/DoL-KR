@@ -30,7 +30,7 @@
 	<!-- Subsequent hunts -->
 	당신은 <<bhim>> 옆에 선다.
 	<<if $speech_attitude is "meek">>
-		"저, 저도 같이 갈게요." 당신은 말한다.
+		"저-저도 같이 갈게요." 당신은 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"날개를 좀 펴고 싶어요." 당신은 말한다. "같이 갈래요."
 	<<else>>
@@ -325,7 +325,7 @@
 			<<elseif Weather.precipitation isnot "none" or Weather.isOvercast>>
 				<span class="red">날씨가 맑지 않아 저택을 정찰할 수 없습니다.</span>
 			<<else>>
-				<<link [[저택 정찰하기 (2:00)|Bird Hunt Estate Scout]]>><<endevent>><</link>>
+				<<link [[저택을 정찰한다 (2:00)|Bird Hunt Estate Scout]]>><<endevent>><</link>>
 			<</if>>
 			<br>
 		<<elseif $bird.hunts.estate is "ready">>
@@ -373,7 +373,7 @@
 <<effects>>
 당신은 <<beasttype>>에게 돌아선다.
 <<if $speech_attitude is "meek">>
-	"ㄱ-같이 가줄 수 있어? 아직 혼자 사냥하는 건 불안해서..." 당신은 말한다.
+	"가-같이 가줄 수 있어? 아직 혼자 사냥하는 건 불안해서..." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"날개를 좀 펴고 싶어." 당신은 말한다. "가는 길에 럴커 한두 마리 잡을 수도 있고. 같이 갈래?"
 <<else>>
@@ -627,6 +627,7 @@
 		무언가 공중에서 당신을 붙잡는 것이 느껴지고, 다시 상승하기 시작하자 귀가 먹먹해진다.
 		<br><br>
 
+		<<passout>>
 		<<link [[다음 (?:??)|Bird Hunt Passout]]>><<bird_pass _returnTime>><</link>>
 		<br>
 	<</if>>
@@ -684,7 +685,7 @@
 			거대 매의 도움을 받아 그들에게서 물건을 훔칠 수도 있다. 둘이서 그들을 겁줘서 쫓아낼 수도 있다.
 			<br><br>
 
-			<<link [[물건 훔치기 (0:05)|Bird Hunt Tent Steal]]>><<bird_pass 5>><</link>><<crime "thievery">>
+			<<link [[물건을 훔친다 (0:05)|Bird Hunt Tent Steal]]>><<bird_pass 5>><</link>><<crime "thievery">>
 			<br>
 			<<if $remySeen?.includesAny("farm","livestock","manor") or $livestock.intro isnot undefined>>
 				<<link [[겁주고 괴롭힌다 (0:05)|Bird Hunt Tent Sabotage]]>><<bird_pass 5>><</link>>
@@ -694,7 +695,7 @@
 				<br>
 			<</if>>
 			<<if $bird.hunts.loot.lurkers gte 1>>
-				<<link [[머리 위로 럴커 떨어뜨리기 (0:05)|Bird Hunt Tent Lurker Drop]]>><<endevent>><<bird_pass 5>><</link>>
+				<<link [[머리 위로 럴커를 떨어뜨린다 (0:05)|Bird Hunt Tent Lurker Drop]]>><<endevent>><<bird_pass 5>><</link>>
 				<br>
 			<</if>>
 		<<else>>
@@ -702,10 +703,10 @@
 			<br><br>
 
 			<<set $skulduggerydifficulty to 500>>
-			<<link [[몰래 들어가 물건 훔치기 (0:05)|Bird Hunt Tent Steal Alone]]>><<crimeUp 10 "trespassing">><<bird_pass 5>><</link>><<skulduggerydifficulty>><<crimes "thievery" "trespassing">>
+			<<link [[몰래 들어가 물건을 훔친다 (0:05)|Bird Hunt Tent Steal Alone]]>><<crimeUp 10 "trespassing">><<bird_pass 5>><</link>><<skulduggerydifficulty>><<crimes "thievery" "trespassing">>
 			<br>
 			<<if $bird.hunts.loot.lurkers gte 1>>
-				<<link [[머리 위로 럴커 떨어뜨리기 (0:05)|Bird Hunt Tent Lurker Drop]]>><<endevent>><<bird_pass 5>><</link>>
+				<<link [[머리 위로 럴커를 떨어뜨린다 (0:05)|Bird Hunt Tent Lurker Drop]]>><<endevent>><<bird_pass 5>><</link>>
 				<br>
 			<</if>>
 		<</if>>
@@ -784,7 +785,7 @@
 		캠프장의 잔해가 눈에 띈다. 가져갈 만한 것이 남아 있을지도 모른다.
 		<br><br>
 
-		<<link [[지역 수색하기 (0:05)|Bird Hunt Camp]]>><<bird_pass 5>><</link>>
+		<<link [[지역을 수색한다 (0:05)|Bird Hunt Camp]]>><<bird_pass 5>><</link>>
 		<br>
 		<<link [[무시한다|Bird Hunt Ignore]]>><<endevent>><</link>>
 		<br>
@@ -852,7 +853,7 @@
 			두 개의 큰 바위 사이에 묶여 비를 피할 수 있는 큰 파란색 방수포가 눈에 띈다. 주변에는 아무도 없는 것 같다. 당신이 가져갈 수 있을 것이다.
 			<br><br>
 
-			<<link [[방수포 가져가기 (0:05)|Bird Hunt Tarp]]>><<bird_pass 5>><</link>>
+			<<link [[방수포를 가져간다 (0:05)|Bird Hunt Tarp]]>><<bird_pass 5>><</link>>
 			<br>
 			<<link [[무시한다|Bird Hunt Ignore]]>><<endevent>><</link>>
 			<br>
@@ -1010,8 +1011,8 @@
 					size: ["tiny", "small", "normal", "normal"][random(0, 3)],
 					eyeColour: ["purple", "dark blue", "light blue", "amber", "hazel", "green", "lime green", "red", "pink", "grey", "light grey"][random(0, 10)],
 					hairColour: ["white", "brown"][random(0,1)],
-					skinColour: random(1, 100) lte $settings.darkSkinChance ? "dark" : "light",
-					monster: ((V.settings.monsterChance >= random(1, 100) && (V.hallucinations >= 1 || !V.settings.monsterHallucinationsOnly)) || V.greathawkmonster === 2) ? "monster" : 0
+					skinColour: parentSkinColour(randomSkinTone()),
+					monster: resolveIfNamedBeastIsMonster("greathawk") ? "monster" : 0
 				},
 				conceivedDate: _conceivedTime.timeStamp,
 				laidDate: _laidTime.timeStamp,
@@ -1375,7 +1376,7 @@
 
 		<<link [[피한다|Bird Hunt Lurker Dodge]]>><</link>><<dancedifficulty 1 1200>>
 		<br>
-		<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+		<<if $settings.lurkersEnabled>>
 			<<if hasSexStat("deviancy", 4)>>
 				<<link [[가만히 있는다|Bird Hunt Lurker Stand Still]]>><</link>><<deviant4>>
 				<br>
@@ -1459,7 +1460,7 @@
 	<<link [[두 개를 가져가려 시도한다|Bird Hunt Sticks 2]]>><<set $phase to 3>><</link>><<athleticsdifficulty _athlDiffMin _athlDiffMax>>
 	<br>
 <<else>>
-	<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+	<<if $settings.lurkersEnabled>>
 		옆으로 피하려 하지만, <span class="red">제때 움직이지 못해 럴커가 당신의 얼굴에 내려앉는다.</span>
 		<br><br>
 
@@ -1699,7 +1700,7 @@
 		<<flight_hunt_return>>
 	<<else>>
 		<<beasttype>>【이가】 덮친다!
-		<<if $settings.bestialityEnabled>>
+		<<if animalSexEnabledForType("fox")>>
 			<br><br>
 
 			<<link [[다음|Bird Hunt Underbrush Rape]]>><<set $molestationstart to 1>><</link>>
@@ -2150,7 +2151,7 @@
 	각 럴커에 한 손만 쓸 수 있어, 안정적으로 있기가 어렵다. 당신은 첫 번째 것을 잡지만, 그것의 발버둥이 당신의 비행을 방해한다. 두 번째 것을 잡으려 할 때 당신의 팔이 땅에 부딪히면서, 균형을 잃고 <span class="red">당신은 굴러떨어진다</span>. <<pain 3>><<gpain>>
 	<br><br>
 
-	<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+	<<if $settings.lurkersEnabled>>
 		첫 번째 럴커가 당신의 손아귀에서 꿈틀거리는 동안 두 번째 럴커가 당신에게 덤벼든다!
 		<br><br>
 
@@ -2393,7 +2394,7 @@
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"ㅇ, 야, 저건 내가 잡고 싶었는데." 당신이 입을 삐죽이며 말한다.
+		"야-야, 저건 내가 잡고 싶었는데," 당신이 입을 삐죽이며 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"저건 내가 먼저 봤어! 돌아가면 럴커 한 마리 빚진 거야." 당신이 입을 삐죽이며 말한다.
 	<<else>>
@@ -2634,10 +2635,10 @@
 				<<if $worn[_random_slot].name isnot "naked">>
 					<<if $bird.upgrades.wardrobe is 1>>
 						<<link [[착용한다|Bird Hunt Shiny Clothes]]>><<set $phase to 1>><<flight_hunt_get "clothing" 1 _random_slot _random_index "wear" "damaged">><</link>>
-						<span class="blue">Your $worn[_random_slot].name will be replaced.</span>
+						<span class="blue">당신의 $worn[_random_slot].name【이가】 교체된다.</span>
 					<<else>>
 						<<link [[착용한다|Bird Hunt Shiny Clothes]]>><<set $phase to 1>><<generalRuined _random_slot>><<flight_hunt_get "clothing" 1 _random_slot _random_index "wear" "damaged">><<flight_hunt_get "fabric" 1>><</link>>
-						<span class="blue">Your $worn[_random_slot].name will be scrapped.</span>
+						<span class="blue">당신의 $worn[_random_slot].name【이가】 해체된다.</span>
 					<</if>>
 				<<else>>
 					<<link [[착용한다|Bird Hunt Shiny Clothes]]>><<set $phase to 1>><<flight_hunt_get "clothing" 1 _random_slot _random_index "wear" "damaged">><</link>>
@@ -2892,7 +2893,7 @@
 				<<link [[물건을 빼앗는다|Bird Hunt Fox Take]]>><</link>>
 				<br>
 			<</if>>
-			<<if ($settings.bestialityEnabled or $monster is 1) and hasSexStat("deviancy", 3)>>
+			<<if beastSexEnabledForType("fox", $monster is 1) and hasSexStat("deviancy", 3)>>
 				<<link [[밀어 넘어뜨린다|Bird Hunt Fox Sex]]>><<set $sexstart to 1>><</link>><<deviant3>>
 				<br>
 			<</if>>
@@ -2945,7 +2946,7 @@
 
 			<<flight_hunt_return>>
 		<<else>>
-			<<if $settings.bestialityEnabled>>
+			<<if animalSexEnabledForType("fox")>>
 				<<bhe>>【이가】 앞으로 튀어나오기 전에 도망칠 시간이 없다.
 				<br><br>
 
@@ -3017,7 +3018,7 @@
 <<wearProp _loot>>
 <br><br>
 
-<<if ($settings.bestialityEnabled or $monster is 1) and hasSexStat("deviancy", 3)>>
+<<if beastSexEnabledForType("fox", $monster is 1) and hasSexStat("deviancy", 3)>>
 	<<link [[보상한다|Bird Hunt Fox Sex]]>><<set $sexstart to 1>><</link>><<deviant3>>
 	<br>
 <</if>>
@@ -3325,7 +3326,7 @@
 <<if $NPCList[0].monster is "monster" and ($NPCList[0].traits.includes("territorial") or $NPCList[1].traits.includes("territorial"))>>
 	"내 굴로 돌아가. 네가 날 깨끗하게 해줘야겠어." 더 큰 쪽이 명령한다. 작은 쪽은 순종적으로 고개를 끄덕이며 따라간다.
 <<elseif $NPCList[0].monster is "monster">>
-	"ㄱ-굴로 돌아가자." 한쪽이 말한다. 다른 쪽은 고개를 끄덕이며 따라간다.
+	"구-굴로 돌아가자." 한쪽이 말한다. 다른 쪽은 고개를 끄덕이며 따라간다.
 <<else>>
 	그들은 서로 코를 비비고 함께 떠나간다.
 <</if>>
@@ -3540,12 +3541,12 @@
 	고맙게도 다른 사람은 아무도 없다. 뒤질 곳은 많지만, 시간이 얼마나 있을지 알 수 없다.
 	<br><br>
 
-	<<link [[옷 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><<crimeUp 10 "thievery">><</link>>
+	<<link [[옷을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><<crimeUp 10 "thievery">><</link>>
 	<br>
-	<<link [[귀중품 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><<crimeUp 10 "thievery">><</link>>
+	<<link [[귀중품을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><<crimeUp 10 "thievery">><</link>>
 	<br>
 	<<if $bird.upgrades.tools is 0 and !$bird.hunts.loot.tools>>
-		<<link [[도구 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 3>><<crimeUp 10 "thievery">><</link>>
+		<<link [[도구를 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 3>><<crimeUp 10 "thievery">><</link>>
 		<br>
 	<</if>>
 <<else>>
@@ -3774,12 +3775,12 @@
 		더 찾아볼 수도 있지만, <<person>>【이가】 언제 돌아올지는 모른다.
 		<br><br>
 
-		<<link [[옷 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><</link>><<dangerousText>>
+		<<link [[옷을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><</link>><<dangerousText>>
 		<br>
-		<<link [[귀중품 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><</link>><<dangerousText>>
+		<<link [[귀중품을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><</link>><<dangerousText>>
 		<br>
 		<<if $bird.upgrades.tools is 0 and !$bird.hunts.loot.tools>>
-			<<link [[도구 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 3>><</link>><<dangerousText>>
+			<<link [[도구를 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 3>><</link>><<dangerousText>>
 			<br>
 		<</if>>
 		<<set $skulduggerydifficulty to ($tentLootAmount * 100)>>
@@ -3818,9 +3819,9 @@
 		더 찾아볼 수도 있지만, <<person>>【이가】 언제 돌아올지는 모른다.
 		<br><br>
 
-		<<link [[옷 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><</link>><<dangerousText>>
+		<<link [[옷을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 1>><</link>><<dangerousText>>
 		<br>
-		<<link [[귀중품 훔치기|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><</link>><<dangerousText>>
+		<<link [[귀중품을 훔친다|Bird Hunt Tent Steal Alone 2]]>><<set $phase to 2>><</link>><<dangerousText>>
 		<br>
 		<<set $skulduggerydifficulty to ($tentLootAmount * 100)>>
 		<<link [[전리품을 가지고 떠난다|Bird Hunt Tent Steal Alone Leave]]>><</link>>
@@ -3929,7 +3930,7 @@
 <<seductionskilluse>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송해요! 길을 잃었는데 이 야영지를 보고... 찾고 있었어요... 죄송해요! 제가... 제가 보상하게 해주세요." 당신이 말한다.
+	"죄-죄송해요! 길을 잃었는데 이 야영지를 보고... 찾고 있었어요... 죄송해요! 제가... 제가 보상하게 해주세요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"오, 거기 있었군요. 누가 이 일로 절 벌해주길 기다리고 있었어요." 당신이 과시하며 말한다.
 <<else>>
@@ -4574,13 +4575,13 @@
 	쓰레기를 뒤지는 것은 즐거운 일이 아니지만, 당신의 <<if $monster is 1>><<nnpc_wife "Great Hawk">><<else>>파트너<</if>>【와과】 함께 찾는다면 더 빠를 것이다.
 	<br><br>
 
-	<<link [[뒤지기 (0:05)|Bird Hunt Scavenge]]>><<bird_pass 5>><</link>>
+	<<link [[뒤진다 (0:05)|Bird Hunt Scavenge]]>><<bird_pass 5>><</link>>
 	<br>
 <<else>>
 	쓰레기를 뒤지는 것은 즐거운 일이 아니다.
 	<br><br>
 
-	<<link [[뒤지기 (0:10)|Bird Hunt Scavenge]]>><<bird_pass 10>><</link>>
+	<<link [[뒤진다 (0:10)|Bird Hunt Scavenge]]>><<bird_pass 10>><</link>>
 	<br>
 <</if>>
 
@@ -4751,13 +4752,13 @@
 			<br><br>
 
 			<<if $bird.hunts.duo is true>>
-				<<link [[계속 찾기 (0:05)|Bird Hunt Scavenge]]>><<bird_pass 5>><</link>>
+				<<link [[계속 찾는다 (0:05)|Bird Hunt Scavenge]]>><<bird_pass 5>><</link>>
 				<br>
 			<<else>>
-				<<link [[계속 찾기 (0:10)|Bird Hunt Scavenge]]>><<bird_pass 10>><</link>>
+				<<link [[계속 찾는다 (0:10)|Bird Hunt Scavenge]]>><<bird_pass 10>><</link>>
 				<br>
 			<</if>>
-			<<link [[떠나기|Bird Hunt Scavenge Leave]]>><</link>>
+			<<link [[떠난다|Bird Hunt Scavenge Leave]]>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -5060,7 +5061,7 @@
 				<br>
 			<</if>>
 		<<else>>
-			<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+			<<if $settings.lurkersEnabled>>
 				일어서자, 당신은 근처 풀밭에서 움직임을 감지한다. 그쪽으로 몸을 돌리지만, 무언가 등 뒤로 뛰어올라 당신의 <<bottom>> 위에 올라탄다.
 				<br><br>
 
@@ -5106,7 +5107,7 @@
 
 <<person2>><<person>>【이가】 가까이 다가오자, 당신은 갑자기 <<his>> 손을 잡고 끌어당긴다.
 <<if $physiqueSuccess>>
-	<span class="green"><<He>>【은는】 뿌리치지 못한다.</span> 당신은 구덩이를 옆으로 피하며 <<him>>【을를】 바로 그곳으로 데려간다. "이걸 어렵게 만들지 마—" <<He>>【이가】 함정을 밟자 <<his>> 말은 끊기고, 비틀거리다 넘어진다. 당신은 이 기회를 틈타 재빨리 도망친다. <<person1>>【은는】 당신을 쫓지 않고, 대신 불운한 친구를 보고 웃는다.
+	<span class="green"><<Hes>> 뿌리치지 못한다.</span> 당신은 구덩이를 옆으로 피하며 <<him>>【을를】 바로 그곳으로 데려간다. "이걸 어렵게 만들지 마—" <<he>>【이가】 함정을 밟자 <<his>> 말은 끊기고, 비틀거리다 넘어진다. 당신은 이 기회를 틈타 재빨리 도망친다. <<person1>>【은는】 당신을 쫓지 않고, 대신 불운한 친구를 보고 웃는다.
 	<br><br>
 
 	당신은 시야에서 벗어난 것을 확인한 후, 날아오른다. 당신은 그들 위를 날며 두 사람이 떠날 때까지 기다렸다가, 다시 기둥 위로 착지한다. 함정이 망가졌으니, 떠나거나 함정 없이 매복을 시도할 수 있다.
@@ -5424,7 +5425,7 @@
 <<if $birdAmbushTrap is true>>
 	<!-- With trap -->
 	두 사람은 당신의 함정 속으로 곧장 걸어 들어온다. <<person1>><<person>>【이가】 한 걸음 내딛자, 엉성한 덮개가 무너지며 구멍 속으로 추락한다. 그 순간, 당신은 기둥에서 내려와 그들 바로 뒤에 착지한다. 당신이 큰 소리로 비명을 지르자 <<person2>><<person>>【이가】 깜짝 놀란다.
-	"뭐, 뭐야!?" <<he>>【이가】 소리친다.
+	"뭐-뭐야!?" <<he>>【이가】 소리친다.
 	<br><br>
 
 	<<if $bird.hunts.duo is true>>
@@ -5444,7 +5445,7 @@
 		<</if>>
 	<</if>>
 	<<switch $speech_attitude>>
-		<<case "meek">>"물, 물건을 내놓으면 보내주지!"
+		<<case "meek">>"물-물건을 내놓으면 보내주지!"
 		<<case "bratty">>"가진 거 전부 내놔, 안 그러면..."
 		<<default>>"귀중품을 내놔!"
 	<</switch>>
@@ -5483,7 +5484,7 @@
 	<<elseif $rng gte 41>>
 		<<if $bird.hunts.duo is true>>
 			<<person2>><<person>>【은는】 <<him>> 주위를 맴도는 <<beasttype 2>>【을를】 본다. "대체 어떻게 매를 길들인 거야?!" <<he>>【이가】 외친다. 당신은 요구를 반복한다.
-			"알았어! 진, 진정해, 이 미친놈아!" <<he>>【이가】 말한다. "그냥 내 배낭에서 원하는 거나 가져가고 우릴 내버려 둬." <<He>>【은는】 <<his>> 배낭을 당신 쪽으로 던진다.
+			"알았어! 진-진정해, 이 미친놈아!" <<he>>【이가】 말한다. "그냥 내 배낭에서 원하는 거나 가져가고 우릴 내버려 둬." <<He>>【은는】 <<his>> 배낭을 당신 쪽으로 던진다.
 			<br><br>
 
 			구멍 안의 <<person1>><<person>>【이가】 위로 소리친다. "이딴 일은 정말 지긋지긋해." <<He>>【은는】 <<his>> 배낭을 위로 던진다.
@@ -5498,7 +5499,7 @@
 				<<bHe 2>>【이가】 당신의 새 아이템들을 살핀다. <<bHe 2>>【은는】 당신이 얻은 것에 만족스러워 보인다.
 			<</if>>
 		<<else>>
-			"알았어! 진, 진정해, 이 미친놈아!" <<he>>【이가】 말한다. "그냥 내 배낭에서 원하는 거나 가져가고 우릴 내버려 둬." <<He>>【은는】 <<his>> 배낭을 당신 쪽으로 던진다.
+			"알았어! 진-진정해, 이 미친놈아!" <<he>>【이가】 말한다. "그냥 내 배낭에서 원하는 거나 가져가고 우릴 내버려 둬." <<He>>【은는】 <<his>> 배낭을 당신 쪽으로 던진다.
 			<br><br>
 
 			구멍 안의 <<person1>><<person>>【이가】 위로 소리친다. "<<pshe>>【이가】 원하는 걸 그냥 주지 마!"<br>
@@ -5588,7 +5589,7 @@
 		<</if>>
 	<</if>>
 	<<switch $speech_attitude>>
-		<<case "meek">>"물, 물건을 내놓으면 보내주지!"
+		<<case "meek">>"물-물건을 내놓으면 보내주지!"
 		<<case "bratty">>"가진 거 전부 내놔, 안 그러면..."
 		<<default>>"귀중품을 내놔!"
 	<</switch>>
@@ -5610,7 +5611,7 @@
 				<<bHe 2>>【이가】 당신의 새 아이템들을 살핀다. <<bHe 2>>【은는】 당신이 얻은 것에 만족스러워 보인다.
 			<</if>>
 		<<else>>
-			<<person1>><<person>>【이가】 마침내 입을 연다. "뭐, 뭐야!? 저렇게 높은 데서 뛰어내리다니, 어떤 미친놈이야?"<br>
+			<<person1>><<person>>【이가】 마침내 입을 연다. "뭐-뭐야!? 저렇게 높은 데서 뛰어내리다니, 어떤 미친놈이야?"<br>
 			"<<pShe>>【은는】 미친 게 틀림없어, 그냥 <<pshe>>【이가】 원하는 걸 주는 게 좋겠어." <<person2>><<person>>【이가】 말한다.<br>
 			<<person1>><<person>>【이가】 망설이는 듯하자, 당신은 다시 한번 큰 소리로 비명을 지른다. "아, 알았어! 그냥 원하는 거나 가져가고 우릴 내버려 둬!" <<he>>【이가】 말하며, 당신에게 <<his>> 배낭을 던진다. 당신은 그것을 뒤지기 시작한다.
 			<br><br>
@@ -5938,6 +5939,7 @@
 		<br><br>
 		<<flight_distance_check>>
 		<<flight_time_check _returnTime "silent">>
+		<<passout>>
 		<<link [[다음 (?:??)|Bird Hunt Passout]]>><<bird_pass _returnTime>><</link>>
 		<br>
 	<</if>>
@@ -5946,7 +5948,7 @@
 		<<endevent>>
 		<<npc "Great Hawk">><<person1>>
 		<<if $monster is 1>>
-			"다쳤군," <<your_bird_text>>【이가】 말한다. "즉시 집으로 돌아간다."
+			"다쳤군." <<your_bird_text>>【이가】 말한다. "즉시 집으로 돌아간다."
 		<<else>>
 			<<your_bird_text "cap">>【이가】 당신을 향해 울고는, <<bhis>> 날개를 당신에게 댄다. 당신은 고통에 움찔한다. 너무 다쳐서 사냥을 계속할 수 없다. 당신은 이륙하여 집으로 돌아간다.
 		<</if>>
@@ -6102,7 +6104,7 @@
 <<effects>>
 <<if $phase is 0>>
 	<<switch $speech_attitude>>
-		<<case "meek">>"ㄱ-괜찮아?!"
+		<<case "meek">>"괘-괜찮아?!"
 		<<case "bratty">>"잠깐만 가만히 있어 봐." 당신은 걱정을 숨기며 말한다.
 		<<default>>"괜찮아? 어디 다친 데는 없는지 확인해 볼게." 당신은 말한다.
 	<</switch>>
@@ -6131,7 +6133,7 @@
 <<switch $speech_attitude>>
 	<<case "meek">>"방금 그건 다 뭐였어?" 당신이 묻는다. "왜 저 <<beasttype>>【은는】 저렇게 난폭한 거야?"
 	<<case "bratty">>"그때 <<bhim 0>> 말고 너를 만난 게 다행이야." 당신이 말한다. "같은 종족끼리는 사이가 안 좋아?"
-	<<default>>"여기서 다른 <<beastsplural>>【은는】 본 적이 없는데." 당신이 말한다. "다른 녀석들도 다 저렇게 고약해?"
+	<<default>>"여기서 다른 <<beastsplural>>【은는】 본 적이 없는데," 당신이 말한다. "다른 녀석들도 다 저렇게 고약해?"
 <</switch>>
 <br><br>
 
@@ -6207,7 +6209,7 @@
 <<if $tendingSuccess>>
 	<span class="green"><<orphanHawkHe>>【은는】 경계하면서도 호기심을 보이는 것 같다.</span> <<orphanHawkHe>>【은는】 천천히 당신 쪽으로 다가오더니, 주저하면서도 부드럽게 지저귀며 당신의 품에 얼굴을 비벼댄다.
 <<else>>
-	<span class="red">당신의 노력에도 불구하고, <<orphanHawkhe>>【은는】 당신을 충분히 신뢰하지 않는 것 같다.</span> 다행히 당신의 <<if $monster is 1>><<nnpc_wife "Great Hawk">><<else>>파트너<</if>>【이가】 함께 있어 앞으로 나서서 시도한다. <<orphanHawktype>>【은는】 <<bhim>>【을를】 더 신뢰하는 듯하며, 거대한 매 쪽으로 천천히 다가가 마침내 <<bhis>> 거대한 날개가 만들어준 그늘 속에 자리를 잡는다.
+	<span class="red">당신의 노력에도 불구하고, <<orphanHawkhe>>【은는】 당신을 충분히 신뢰하지 않는 것 같다.</span> 다행히 당신의 <<if $monster is 1>><<nnpc_wife "Great Hawk">><<else>>파트너<</if>>【이가】 함께 있어 앞으로 나서서 시도한다. <<orphanHawktype>>【은는】 <<bhim>>【을를】 더 신뢰하는 듯하며, 거대 매 쪽으로 천천히 다가가 마침내 <<bhis>> 거대한 날개가 만들어준 그늘 속에 자리를 잡는다.
 	<<gdom>><<npcincr "Great Hawk" dom 2>>
 <</if>>
 <br><br>
@@ -6265,7 +6267,7 @@
 <<effects>>
 
 <<switch $speech_attitude>>
-	<<case "meek">>"가, 가자." 당신이 말한다. "<<orphanHawkHis>> 부모가 분명 근처 어딘가에 있을 거야."
+	<<case "meek">>"가-가자." 당신이 말한다. "<<orphanHawkHis>> 부모가 분명 근처 어딘가에 있을 거야."
 	<<case "bratty">>당신은 아무 말 없이 계속 날아가며 거대 매에게 따라오라고 손짓한다.
 	<<default>>"가자." 당신은 거대 매에게 따라오라고 손짓하며 말한다. "<<orphanHawkHis>> 부모가 분명 <<orphanHawkhim>>【을를】 찾고 있을 거야."
 <</switch>>
@@ -6683,7 +6685,7 @@
 	<</if>>
 	당신은 <<bhim>>의 머리를 쓰다듬으며 너무 걱정하지 말라고 말한다. <<bHe>> 마침내 당신의 안녕을 확신하고 고개를 끄덕인다.
 <<else>>
-	<<if $speech_attitude is "meek">>"도, 도움 필요 없어." 당신은 힘없이 대답한다.
+	<<if $speech_attitude is "meek">>"도-도움 필요 없어." 당신은 힘없이 대답한다.
 	<<elseif $speech_attitude is "bratty">>"말했잖아, 난 괜찮아." 당신이 대답한다.
 	<<else>>"정말 괜찮아." 당신이 대답한다.
 	<</if>>
@@ -7572,29 +7574,29 @@
 		<br>
 	<<else>>
 		<<if !_noForward>>
-			<<caveicon "north">><<link [[앞으로 이동하기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "forward">><</link>><<note "+ 전진" "green">>
+			<<caveicon "north">><<link [[앞으로 이동한다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "forward">><</link>><<note "+ 전진" "green">>
 			<br>
 		<<else>>
 			<span class="purple">이 상태로는 앞으로 나아갈 수 없을 것 같다.</span>
 			<br>
 		<</if>>
 		<<if !_onGuard>>
-			<<caveicon "west">><<link [[왼쪽으로 이동하기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "moveLeft">><</link>>
+			<<caveicon "west">><<link [[왼쪽으로 이동한다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "moveLeft">><</link>>
 			<br>
 		<</if>>
-		<<caveicon "left">><<link [[왼쪽으로 기어가기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "crawlLeft">><</link>><<note "은밀하지만 느림" "teal">>
+		<<caveicon "left">><<link [[왼쪽으로 기어간다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "crawlLeft">><</link>><<note "은밀하지만 느림" "teal">>
 		<br>
 		<<if !_onGuard>>
-			<<caveicon "east">><<link [[오른쪽으로 이동하기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "moveRight">><</link>>
+			<<caveicon "east">><<link [[오른쪽으로 이동한다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "moveRight">><</link>>
 			<br>
 		<</if>>
-		<<caveicon "right">><<link [[오른쪽으로 기어가기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "crawlRight">><</link>><<note "은밀하지만 느림" "teal">>
+		<<caveicon "right">><<link [[오른쪽으로 기어간다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "crawlRight">><</link>><<note "은밀하지만 느림" "teal">>
 		<br><br>
 
-		<<crimeicon>><<link [[숨기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "hide">><</link>>
+		<<crimeicon>><<link [[숨는다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "hide">><</link>>
 		<br>
 		<<if !_onGuard>>
-			<<crimeicon "mark">><<link [[엿보기|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "peek">><</link>>
+			<<crimeicon "mark">><<link [[엿본다|Bird Hunt Silver Sneak]]>><<set $birdSilverHunt.player.action to "peek">><</link>>
 			<br>
 		<<else>>
 			<span class="red">지금은 밖을 엿볼 수 없다.</span>
@@ -7896,7 +7898,7 @@
 	<br><br>
 
 	<<switch $speech_attitude>>
-		<<case "meek">>"저, 저기... 저... 떨어졌어요?" 당신은 최대한 순진하게 들리도록 노력하며 대답한다.
+		<<case "meek">>"저-저기... 저... 떨어졌어요?" 당신은 최대한 순진하게 들리도록 노력하며 대답한다.
 		<<case "bratty">>"네 그 멋진 가면 뒤에 뭐가 있는지 보러 내려왔지." 당신이 비꼬듯 말한다.
 		<<default>>"그냥 길을 좀 잃었을 뿐이에요." 당신은 최대한 순진하게 들리도록 노력하며 대답한다.
 	<</switch>>
@@ -7964,7 +7966,7 @@
 	<br><br>
 
 	<<if $monster is 1>>
-		<<bHe 4>>【이가】 거친 숨을 몰아쉰다. "ㅈ-집으로 가자, <<wife>>." <<bhe>>【이가】 간신히 말한다.
+		<<bHe 4>>【이가】 거친 숨을 몰아쉰다. "지-집으로 가자, <<wife>>." <<bhe>>【이가】 간신히 말한다.
 	<<else>>
 		<<bHe 4>>【이가】 울부짖으려 하지만, 찍찍거리는 소리만 나온다.
 	<</if>>

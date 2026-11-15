@@ -110,7 +110,7 @@
 <br><br>
 <<He>>【은는】 당신의 로브를 들어 올려 <span class="lewd">황금 정조대</span>를 드러낸다. <<He>>【은는】 욕을 내뱉지만, <<his>> 가면 아래로 미소가 번지는 것이 보인다. 반응하기도 전에 막대로 얻어맞는다.
 <br><br>
-<<link [[모든 것이 암전된다...|Schism Lichen Refuse 2]]>><<trauma 60>><<stress 60>><</link>>
+<<link [[모든 것이 어둠 속으로 사라진다...|Schism Lichen Refuse 2]]>><<trauma 60>><<stress 60>><</link>>
 <br>
 
 :: Schism Lichen Refuse 2
@@ -234,7 +234,7 @@
 	<<maninit>><<npcstrip>><<npcidlegenitals>>
 	힘없이 고개를 젓는다. <<He>>【은는】 창살을 쾅 내리치고는 문을 열고 안으로 들이닥친다. <<stress 24>><<ggstress>>
 	<br><br>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 <</if>>
 
 <<effectsman>>

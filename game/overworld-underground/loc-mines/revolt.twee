@@ -1,0 +1,213 @@
+:: Mine Revolt
+<<effects>><<mine_distract_check>><<person1>>
+
+<<switch _distraction_count>>
+	<<case 0>>
+		<<shackle_feet>>
+		당신은 <<person>>에게 부딪혀 <<him>>【을를】 넘어뜨린다. <<his>> 도움 요청에 달려온 경비원들에게 둘러싸이고, 맞서 싸우기엔 너무 많다. 그들은 당신을 제압해 발목에 족쇄를 채운다. <<person>>【이가】 당신을 터널로 끌고 간다. <<mine_hope -3>><<lllhope>>
+		<br><br>
+		<<link [[다음|Mine Punishment]]>><</link>>
+	<<case 1>>
+		<<generate2>><<generate3>><<generate4>>
+		당신은 <<person>>에게 부딪혀 <<him>>【을를】 넘어뜨린다. 다른 경비원 셋이 <<his>> 도움 요청에 달려온다.
+		<br><br>
+		<<link [[다음|Mine Revolt Fight]]>><<set $fightstart to 1>><<set $phase to 4>><</link>>
+	<<case 2>>
+		<<generate2>>
+		당신은 <<person>>에게 부딪혀 <<him>>【을를】 넘어뜨린다. 다른 경비원 하나가 <<his>> 도움 요청에 달려온다.
+		<br><br>
+		<<link [[다음|Mine Revolt Fight]]>><<set $fightstart to 1>><<set $phase to 2>><</link>>
+	<<case 3>>
+		당신은 버려진 삽을 집어 들어 <<him>>의 머리를 후려친다. <<He>>【은는】 정신을 잃고 바닥에 쓰러진다. <<mine_hope 3>><<ggghope>>
+		<br><br>
+		<<link [[다음|Mine Revolt Fight Victory]]>><<endevent>><</link>>
+	<<default>>
+		<<shackle_feet>>
+		당신은 버려진 삽을 집어 들어 <<him>>의 머리를 후려치려 하지만, 버그가 가로막는다. Degrees of Lewdity 디스코드 서버의 bug-reports 채널에 이 문제를 제보하고, 스크린샷과 세이브 파일을 반드시 첨부해 주십시오. 당신은 경비원들에게 둘러싸이고, 맞서 싸우기엔 너무 많다. 그들은 당신을 제압해 발목에 족쇄를 채운다. <<person>>【이가】 당신을 터널로 끌고 간다.
+		<br><br>
+		<<link [[다음|Mine Punishment]]>><</link>>
+<</switch>>
+
+
+
+:: Mine Revolt Fight
+
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<set $enemyno to $phase>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+	<<person1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[다음|Mine Revolt Fight End]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Mine Revolt Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+
+:: Mine Revolt Fight End
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	<<set $mine.job.mining.shackle to 8>>
+	<<tearful>> 당신은 그들을 바닥에 쓰러뜨린다.
+	<<clotheson>>
+	<<mine_hope 3>><<ggghope>>
+	<br><br>
+	<<link [[다음|Mine Revolt Fight Victory]]>><<endcombat>><</link>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<tearful>> 당신은 그들이 황홀경에 빠져 쓰러지는 것을 보며 뒤로 물러선다.
+	<<clotheson>>
+	<<mine_hope 3>><<ggghope>>
+	<br><br>
+	<<link [[다음|Mine Revolt Fight Victory]]>><<endcombat>><</link>>
+<<else>>
+	<<shackle_feet>>
+	"교훈은 얻었겠지, <<bitch>>." <<person1>><<person>>【이가】 당신의 발목에 족쇄를 채우며 말한다.
+	<<clotheson>>
+	<br><br>
+	<<tearful>> 당신은 붙잡혀 <<endcombat>><<generate1>><<person1>><<person>>에게 떠밀린다. <<person>>【이가】 당신을 터널로 끌고 간다. <<mine_hope -3>><<lllhope>>
+	<br><br>
+	<<link [[다음|Mine Punishment]]>><</link>>
+<</if>>
+
+
+
+:: Mine Revolt Fight Victory
+<<effects>><<generate1>><<person1>>
+
+당신은 경비원의 허리띠에서 열쇠를 낚아챈다.
+<<if $mine.song>>
+	당신은 노예들의 줄을 향해 돌아선다. 한 명이 외친다. "뒤를 봐!" 돌아보니 <<person>>【이가】 당신에게 덤벼들고 있다. <span class="green">하지만 당신은 제때 몸을 피한다.</span>
+	<br><br>
+	<<He>>【은는】 바닥에 고꾸라진다. 당신은 틈을 타 노예 한 명에게 열쇠를 던진다. 그가 다른 이들의 족쇄를 풀어 주기 시작한다. <<mine_hope 3>><<ggghope>>
+	<br><br>
+	<<link [[다음|Mine Revolt Free]]>><<endevent>><</link>>
+<<else>>
+	<<shackle_feet>>
+	당신은 노예들의 줄을 향해 돌아선다. 한 명이 당신 뒤를 쳐다보고 있다. 돌아보니 <<person>>【이가】 당신에게 덤벼들고 있다. <span class="red">당신은 피하려 하지만 <<he>>【이가】 당신을 바닥에 덮쳐 눕힌다.</span><<pain 10>><<ggpain>>
+	<br><br>
+	당신은 바닥에 고꾸라진다. <<He>>【은는】 틈을 타 당신에게 족쇄를 채운다. <<He>>【은는】 당신을 일으켜 세워 터널로 끌고 간다. <<mine_hope -3>><<lllhope>>
+	<br><br>
+	<<link [[다음|Mine Punishment]]>><</link>>
+<</if>>
+
+
+
+:: Mine Revolt Free
+<<effects>><<generate1>>
+
+경비원들이 터널로 쏟아져 들어오지만 <span class="blue">노예들에게 제압당한다.</span> 고함 소리가 소음을 가른다. 소리가 난 쪽을 보니 <<person1>><<person>>【이가】 경비원 여섯 명쯤을 거느리고 서 있다. 모두 총을 들고 있다.
+<br><br>
+"전원 족쇄를 다시 차라, 아니면 발포한다." <<person>>【이가】 소리친다. 터널에 정적이 내려앉는다.
+<br><br>
+<<if $mine.setup.weapons>>
+	<<link [[앞으로 나선다|Mine Revolt Gun Forward]]>><</link>>
+	<br>
+<</if>>
+<<link [[항복한다|Mine Revolt Gun Back]]>><</link>>
+
+
+
+:: Mine Revolt Gun Back
+<<effects>><<shackle_feet>>
+
+당신은 풀린 족쇄 더미로 걸어가 하나를 찬다. 나머지 노예들도 따라 한다. <<person>>【이가】 다가와 당신을 붙잡고 <<him>>【와과】 함께 끌고 간다. <<mine_hope -3>><<lllhope>>
+<br><br>
+<<link [[다음|Mine Punishment]]>><</link>>
+
+
+
+:: Mine Revolt Gun Forward
+<<effects>>
+
+당신이 앞으로 나선다. <<person>>【을를】 둘러싼 경비원들이 어리둥절한 얼굴로 서로를 쳐다본다. "좋아... 네가 선택한 거야." <<he>>【이가】 말한다. 정적을 가르는 딸깍 소리 하나가 들리고, 이어 다급한 딸깍 소리가 연달아 울린다. <span class="green">총이 작동하지 않는다.</span> 경비원들의 얼굴에 공포가 번진다. <<mine_hope 3>><<ggghope>>
+<br><br>
+경비원들이 터널 속으로 후퇴하고, 노예들이 그 뒤를 쫓는다.
+<<if $mine.setup.map>>
+	<span class="blue">경비원 숙소에 있던 지도가 떠오른다.</span> 그것을 쓰면 빠져나갈 길을 찾을 수 있다.
+	지체 없이 경비원 숙소로 달려가 지도를 챙긴 뒤 터널로 돌아온다.
+<</if>>
+<br><br>
+<<link [[따라간다|Mine Revolt Follow]]>><<endevent>><</link>>
+
+
+
+:: Mine Revolt Follow
+<<effects>>
+
+당신은 노예들을 따라 터널망으로 들어가고, 이내 경비원들을 따돌린다.
+<<if $mine.setup.map>>
+	당신은 지도를 꺼내 출구 쪽으로 길을 잡는다. 도중에 다른 노예들과 마주치는데, 그들은 총으로 경비원들을 두들겨 패고 있다. "날 따라와!" 당신이 외친다. <<mine_hope 3>><<ggghope>>
+	<br><br>
+	달리 무엇을 해야 할지 몰라, 노예들이 당신을 따라온다.
+	<br><br>
+	<<link [[출구를 찾는다|Mine Revolt Gate]]>><</link>>
+<<else>>
+	<<generate1>><<generate2>><<shackle_feet>>
+	구불구불한 터널을 이리저리 달리다가 경비원에게 불시에 습격당해 발목에 족쇄가 채워진다. "<<pShe>>【이가】 마지막이야." <<person1>><<person>>【이가】 <<person2>><<person>>에게 말한다.<<mine_hope -3>><<lllhope>><<pain 10>><<ggpain>>
+	<br><br>
+	<<person1>><<person>>【이가】 당신을 땅에서 들어 올려 터널 안으로 끌고 간다.
+	<br><br>
+	<<link [[다음|Mine Punishment]]>><</link>>
+<</if>>
+
+
+
+:: Mine Revolt Gate
+<<effects>><<generate1>>
+
+당신과 다른 이들은 단단히 방비된 문으로 다가간다. 문 뒤에는 경비원 둘이 서 있다. "그냥 포기하는 게 좋을 거야. 이 문은 못 뚫어." <<person1>><<person>>【이가】 소리치지만, <<his>> 떨리는 목소리가 속마음을 드러낸다. 하지만 <<Hes>> 틀린 말은 하지 않았다. 당신들의 힘을 전부 합쳐도 뚫을 수 없을 것이다.
+<br><br>
+<<if $mine.bomb.progress gte 10>>
+	<<link [[폭탄을 사용한다|Mine Revolt Bomb]]>><<endevent>><</link>>
+	<br>
+<</if>>
+<<link [[기다린다|Mine Revolt Gate Wait]]>><<endevent>><</link>>
+
+
+
+:: Mine Revolt Gate Wait
+<<effects>><<generate1>><<shackle_feet>>
+
+달리 어쩔 도리가 없어, 당신은 기다린다. 이내 진압 장비를 갖춘 경비원 무리가 문을 통과해 달려 나온다. 다른 노예들이 터널 속으로 흩어지기 시작한다. 당신도 그렇게 하려 하지만, <<person1>><<person>>【이가】 당신을 바닥에 쓰러뜨리고 발목에 족쇄를 채운다. <<He>>【은는】 당신을 일으켜 세워 터널 안으로 끌고 간다. <<mine_hope -3>><<lllhope>><<pain 10>><<ggpain>>
+<br><br>
+<<link [[다음|Mine Punishment]]>><</link>>
+
+
+
+:: Mine Revolt Bomb
+<<effects>><<earnFeat "Down Below">><<earnFeat "The Time is Now">>
+<<badEndTrackingEnd "Mines" { reason: "minesRevolt" }>><<set $mine.freed to 1>>
+
+<!-- Remove time spent in mine visit from rent time -->
+<<run V.rentTime += new DateTime(V.badEndStats.last().trackedStart).compareWith(new DateTime(V.badEndStats.last().trackedEnd)).days>>
+
+<<world_corruption "hard" -1>><<famegood 50>><<specialClothesUnlock "item" "mining helmet">>
+<<set $location to "town">><<set $outside to 1>>
+
+당신은 만들어 둔 폭탄을 꺼내 들고 문으로 걸어간다. 경비원들이 어리둥절한 얼굴로 당신을 바라보다가, 당신이 들고 있는 것이 무엇인지 깨닫고 얼굴이 하얗게 질린다.
+<br><br>
+당신은 문 바로 앞에 폭탄을 내려놓는다. 고개를 들자 경비원들은 이미 멀리 사라진 뒤다. 시간을 낭비하지 않고 폭탄을 작동시킨 뒤 몸을 숨기러 달린다. 다른 노예들은 당신보다 한참 앞서 있다. 몸을 웅크리고 귀를 막자, 요란한 폭음이 주변을 뒤흔든다.
+<br><br>
+피해를 살피려 돌아보니, <span class="green">문이 엄청난 양의 바위와 함께 날아가 있다.</span>
+<br><br>
+당신이 지나가기도 전에 사람들 무리가 곁을 스쳐 몰려가는 바람에 하마터면 넘어질 뻔한다. 당신도 망설이지 않고 뒤따른다. 철문으로 이어지는 계단에 이르러, 바브 가의 아파트 아래쪽으로 나온다.
+<br><br>
+<<link [[다음|Barb Street]]>><<endevent>><<set $eventskip to 1>><</link>>

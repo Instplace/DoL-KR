@@ -7,7 +7,7 @@
 <</if>>
 <br><br>
 
-<<link [[잠자기|Hospital Bed]]>><</link>>
+<<link [[잔다|Hospital Bed]]>><</link>>
 <br>
 
 :: Widgets Ambulance [widget]
@@ -41,7 +41,7 @@
 		<<orgasmLocation "hospital">>
 	<</if>>
 
-	<<getinicon>><<link [[병원 안으로 들어가기 (0:01)|Hospital Foyer]]>><<pass 1>><</link>>
+	<<getinicon>><<link [[병원 안으로 들어간다 (0:01)|Hospital Foyer]]>><<pass 1>><</link>>
 	<br>
 	<<entertownicon>><<link [[나이팅게일 가 (0:01)|Nightingale Street]]>><<pass 1>><</link>>
 	<br>
@@ -50,7 +50,7 @@
 :: Hospital Foyer
 <<set $outside to 0>><<set $location to "hospital">><<effects>>
 
-당신은 병원 로비에 있다. <<if $harper_appointments.enabled>>하퍼의 진료실로 가는 표지판이 보인다. <</if>>
+당신은 병원 로비에 있다. <<if $harper_appointments.enabled>>하퍼의 사무실로 가는 표지판이 보인다. <</if>>
 
 <<if Time.weekDay is 6 and $daily.harperVisit isnot 1 and $harper_appointments.enabled and $trauma gte ($traumamax / 10) * 9>>
 	<span class="red">진료 예약이 언제였는지 기억나지 않는다.</span>
@@ -91,10 +91,10 @@
 
 		<<if $harper_appointments.enabled and $daily.harperVisit isnot 1>>
 			<<if $trauma gte ($traumamax / 10) * 9>>
-				<<socialiseicon "ask">><<link [[하퍼 의사에게 응급 진료를 요청한다|Doctor Harper Emergency]]>><<set $daily.harperVisit to 1>><</link>><<note "이런 모습으로 닥터 하퍼에게 들키면, <<nnpc_he 'Harper'>>【이가】 개입할지도 모른다는 두려움이 든다" "red">>
+				<<socialiseicon "ask">><<link [[하퍼 의사에게 응급 진료를 요청한다|Doctor Harper Emergency]]>><<set $daily.harperVisit to 1>><</link>><<note "이런 모습으로 하퍼 의사에게 들키면, <<nnpc_he 'Harper'>>【이가】 개입할지도 모른다는 두려움이 든다" "red">>
 				<br>
 			<<elseif Time.weekDay is 6>>
-				<<officeicon>><<link [[하퍼 의사 진료실|Doctor Harper's Office]]>><<set $daily.harperVisit to 1>><</link>>
+				<<officeicon>><<link [[하퍼의 사무실|Doctor Harper's Office]]>><<set $daily.harperVisit to 1>><</link>>
 				<br>
 			<</if>>
 		<<elseif $schoolPsych and $daily.harperVisit isnot 1>>
@@ -114,7 +114,7 @@
 			<br>
 		<</if>>
 
-		<<if C.npc.Alex.pregnancy.sample is true and playerIsPregnant() and !isPregnancyEnding()>>
+		<<if C.npc.Alex.pregnancy.sample is true and playerIsPregnant() and !isPregnancyEnding() and (getPlayerPregnancy().donor is "Alex" or !knowsDonor(getPlayerPregnancy().pregnancyId, "pc"))>>
 			<<procedureicon "paternity">><<link [[친자 확인 검사에 대해 문의한다 (0:10)|Hospital Paternity Test]]>><<pass 10>><</link>>
 			<br><br>
 		<</if>>
@@ -189,8 +189,8 @@
 문을 지나 왼쪽으로 가면 아찔한 낭떠러지가 있다. 아래를 내려다보니 어두운 물이 흐르고 있다. 바닥에서부터 뻗어 나가는 넓은 터널이 어렴풋이 보인다. 오른쪽에는 긴 복도가 있다. 복도 다른 쪽 끝에는 문이 굳게 닫혀 있다. 정면 벽에는 작은 구멍이 있는데, 비집고 들어갈 수 있을지도 모른다.
 <br><br>
 
-<<beastNEWinit 2 wolf>>
-<<if $monster is 1 or $settings.bestialityEnabled>>
+<<generateBeastVictim 2 wolf>>
+<<if beastSexEnabledForType("wolf", $monster is 1)>>
 	<<link [[물가로 내려간다 (0:01)|Abduction Hospital Water]]>><<set $molestationstart to 1>><<pass 1>><</link>>
 	<br>
 <</if>>
@@ -382,7 +382,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "hospital">>
 	<<else>>
-		<<link [[모든 것이 어둠에 잠긴다...|Passout hospital]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Passout hospital]]>><</link>>
 	<</if>>
 <</widget>>
 
@@ -429,7 +429,7 @@
 
 		<<link [[기다린다|Hospital Wait]]>><<pass 10>><<endevent>><</link>><<ltiredness>>
 		<br>
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[지금 떠난다 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -443,7 +443,7 @@
 			<br>
 		<</if>>
 	<<else>>
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[다음 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -471,7 +471,7 @@
 
 		<<link [[기다린다|Hospital Wait]]>><<pass 10>><<endevent>><</link>><<ltiredness>>
 		<br>
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[지금 떠난다 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -485,7 +485,7 @@
 			<br>
 		<</if>>
 	<<else>>
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[다음 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -525,7 +525,7 @@
 		<<link [[기다린다|Hospital Wait]]>><<pass 10>><<endevent>><</link>><<ltiredness>>
 		<br>
 
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[지금 떠난다 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -539,7 +539,7 @@
 			<br>
 		<</if>>
 	<<else>>
-		<<if $renttime lte 0>>
+		<<if $rentTime lte 0>>
 			<<link [[다음 (0:10)|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 			<br>
 		<<elseif crimeSumCurrent() gte 1000>>
@@ -619,7 +619,7 @@
 육중한 문이 쾅 닫힌다. 당신은 어둠 속으로 이어지는 계단 꼭대기에 서 있다.
 <br><br>
 <<run statusCheck("Robin")>>
-<<if $robinfirstrentfight and ($baileypaychain lt 2 or $renttime lte -1) and ["orphanage","bath","sleep"].includes(_robin_location)>>
+<<if $robinfirstrentfight and ($baileypaychain lt 2 or $rentTime lte -1) and ["orphanage","bath","sleep"].includes(_robin_location)>>
 	<<rentduerobin 0>>
 <<else>>
 	<<rentdue 0>>
@@ -885,7 +885,7 @@
 간호사는 해가 뜰 때까지 당신이 대기실에 머물도록 해준다.
 <br><br>
 
-<<if $renttime lte 0>>
+<<if $rentTime lte 0>>
 	<<link [[다음|Hospital Rent]]>><<pass 10>><<endevent>><</link>>
 	<br>
 <<elseif crimeSumCurrent() gte 1000>>
@@ -1026,62 +1026,62 @@
 
 <<if $player.breastsize gte 12>>
 	<<set _breast12 to Math.round(($player.breastsize - 11) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 거대하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 11>><</link>> | <<printmoney _breast12>> <!-- Appears even with blind stats enabled. All are intentional -->
+	<<procedureicon "breast reduce">><<link [[가슴을 거대하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 11>><</link>> | <<printmoney _breast12>> <!-- Appears even with blind stats enabled. All are intentional -->
 	<br>
 <</if>>
 <<if $player.breastsize gte 11>>
 	<<set _breast11 to Math.round(($player.breastsize - 10) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 크게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 10>><</link>> | <<printmoney _breast11>>
+	<<procedureicon "breast reduce">><<link [[가슴을 크게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 10>><</link>> | <<printmoney _breast11>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 10>>
 	<<set _breast10 to Math.round(($player.breastsize - 9) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 육중하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 9>><</link>> | <<printmoney _breast10>>
+	<<procedureicon "breast reduce">><<link [[가슴을 육중하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 9>><</link>> | <<printmoney _breast10>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 9>>
 	<<set _breast9 to Math.round(($player.breastsize - 8) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 풍만하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 8>><</link>> | <<printmoney _breast9>>
+	<<procedureicon "breast reduce">><<link [[가슴을 풍만하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 8>><</link>> | <<printmoney _breast9>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 8>>
 	<<set _breast8 to Math.round(($player.breastsize - 7) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 크게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 7>><</link>> | <<printmoney _breast8>>
+	<<procedureicon "breast reduce">><<link [[가슴을 크게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 7>><</link>> | <<printmoney _breast8>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 7>>
 	<<set _breast7 to Math.round(($player.breastsize - 6) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 풍만하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 6>><</link>> | <<printmoney _breast7>>
+	<<procedureicon "breast reduce">><<link [[가슴을 풍만하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 6>><</link>> | <<printmoney _breast7>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 6>>
 	<<set _breast6 to Math.round(($player.breastsize - 5) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 적당하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 5>><</link>> | <<printmoney _breast6>>
+	<<procedureicon "breast reduce">><<link [[가슴을 적당하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 5>><</link>> | <<printmoney _breast6>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 5>>
 	<<set _breast5 to Math.round(($player.breastsize - 4) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 봉긋하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 4>><</link>> | <<printmoney _breast5>>
+	<<procedureicon "breast reduce">><<link [[가슴을 봉긋하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 4>><</link>> | <<printmoney _breast5>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 4>>
 	<<set _breast4 to Math.round(($player.breastsize - 3) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 작게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 3>><</link>> | <<printmoney _breast4>>
+	<<procedureicon "breast reduce">><<link [[가슴을 작게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 3>><</link>> | <<printmoney _breast4>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 3>>
 	<<set _breast3 to Math.round(($player.breastsize - 2) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 아주 작게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 2>><</link>> | <<printmoney _breast3>>
+	<<procedureicon "breast reduce">><<link [[가슴을 아주 작게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 2>><</link>> | <<printmoney _breast3>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 2>>
 	<<set _breast2 to Math.round(($player.breastsize - 1) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 몽우리만 남기기|Hospital Breast Reduction 2]]>><<set $phase to 1>><</link>> | <<printmoney _breast2>>
+	<<procedureicon "breast reduce">><<link [[가슴을 몽우리만 남긴다|Hospital Breast Reduction 2]]>><<set $phase to 1>><</link>> | <<printmoney _breast2>>
 	<br>
 <</if>>
 <<if $player.breastsize gte 1>>
 	<<set _breast1 to Math.round(($player.breastsize - 0) * 200000)>>
-	<<procedureicon "breast reduce">><<link [[가슴을 납작하게 만들기|Hospital Breast Reduction 2]]>><<set $phase to 0>><</link>> | <<printmoney _breast1>>
+	<<procedureicon "breast reduce">><<link [[가슴을 납작하게 만든다|Hospital Breast Reduction 2]]>><<set $phase to 0>><</link>> | <<printmoney _breast1>>
 	<br>
 <</if>>
 <br>
@@ -1197,62 +1197,62 @@
 
 <<if $player.breastsize lt 12>>
 	<<set _breast12 to Math.round((12 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 엄청나게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 12>><</link>> | <<printmoney _breast12>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 엄청나게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 12>><</link>> | <<printmoney _breast12>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 11>>
 	<<set _breast11 to Math.round((11 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 거대하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 11>><</link>> | <<printmoney _breast11>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 거대하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 11>><</link>> | <<printmoney _breast11>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 10>>
 	<<set _breast10 to Math.round((10 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 크게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 10>><</link>> | <<printmoney _breast10>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 크게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 10>><</link>> | <<printmoney _breast10>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 9>>
 	<<set _breast9 to Math.round((9 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 육중하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 9>><</link>> | <<printmoney _breast9>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 육중하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 9>><</link>> | <<printmoney _breast9>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 8>>
 	<<set _breast8 to Math.round((8 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 풍만하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 8>><</link>> | <<printmoney _breast8>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 풍만하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 8>><</link>> | <<printmoney _breast8>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 7>>
 	<<set _breast7 to Math.round((7 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 크게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 7>><</link>> | <<printmoney _breast7>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 크게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 7>><</link>> | <<printmoney _breast7>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 6>>
 	<<set _breast6 to Math.round((6 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 풍만하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 6>><</link>> | <<printmoney _breast6>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 풍만하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 6>><</link>> | <<printmoney _breast6>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 5>>
 	<<set _breast5 to Math.round((5 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 적당하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 5>><</link>> | <<printmoney _breast5>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 적당하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 5>><</link>> | <<printmoney _breast5>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 4>>
 	<<set _breast4 to Math.round((4 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 봉긋하게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 4>><</link>> | <<printmoney _breast4>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 봉긋하게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 4>><</link>> | <<printmoney _breast4>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 3>>
 	<<set _breast3 to Math.round((3 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 작게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 3>><</link>> | <<printmoney _breast3>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 작게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 3>><</link>> | <<printmoney _breast3>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 2>>
 	<<set _breast2 to Math.round((2 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 아주 작게 만들기|Hospital Breast Enlargement 2]]>><<set $phase to 2>><</link>> | <<printmoney _breast2>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 아주 작게 만든다|Hospital Breast Enlargement 2]]>><<set $phase to 2>><</link>> | <<printmoney _breast2>>
 	<br>
 <</if>>
 <<if $player.breastsize lt 1>>
 	<<set _breast1 to Math.round((1 - $player.breastsize) * 500000)>>
-	<<procedureicon "breast enlarge">><<link [[가슴을 몽우리만 남기기|Hospital Breast Enlargement 2]]>><<set $phase to 1>><</link>> | <<printmoney _breast1>>
+	<<procedureicon "breast enlarge">><<link [[가슴을 몽우리만 남긴다|Hospital Breast Enlargement 2]]>><<set $phase to 1>><</link>> | <<printmoney _breast1>>
 	<br>
 <</if>>
 <br>
@@ -1579,7 +1579,7 @@
 <<if $money gte 200000>>
 	<<for _active_bodypart range setup.bodyparts>>
 		<<if $skin[_active_bodypart].pen is "tattoo">>
-			<<capture _active_bodypart>><<link [[제거한다|Hospital Tattoo Removal 2]]>><<pass 2 hours>><<money -300000 "hospitalTattooRemoval">><<set $remove_tattoo to _active_bodypart>><</link>><</capture>> 당신의 <<bodypart _active_bodypart>>에 있는 <<tattoo _active_bodypart>> 문신.
+			<<capture _active_bodypart>><<link [[제거한다|Hospital Tattoo Removal 2]]>><<pass 3 hours>><<money -200000 "hospitalTattooRemoval">><<set $remove_tattoo to _active_bodypart>><</link>><</capture>> 당신의 <<bodypart _active_bodypart>>에 있는 <<tattoo _active_bodypart>> 문신.
 			<br>
 		<</if>>
 	<</for>>
@@ -1697,6 +1697,7 @@
 <</if>>
 <<set $player.virginity.temple to true>>
 <<set C.npc.Sydney.virginity.temple to true>>
+<<set $temple_chastity_timer to 30>>
 
 <<link [[잠든다|Hospital Bed Sydney]]>><</link>>
 <br>
@@ -1739,7 +1740,7 @@
 
 :: Hospital Bed Examination Sydney
 <<effects>>
-시드니가 하품하는 소리가 들린다. <<person2>><<His>> 눈이 깜빡이며 열리고, <<he>>【은는】 미소 짓는다. "눈뜨자마자 처음 보는 게 너라서 기쁘네." <<His>> 표정은 하퍼 박사를 보자마자 즉시 바뀐다. 둘은 서로를 쏘아본다. 둘 중 누구의 감정도 읽기 어렵다.
+시드니가 하품하는 소리가 들린다. <<person2>><<His>> 눈이 깜빡이며 열리고, <<he>>【은는】 미소 짓는다. "눈뜨자마자 처음 보는 게 너라서 기쁘네." <<His>> 표정은 하퍼 의사를 보자마자 즉시 바뀐다. 둘은 서로를 쏘아본다. 둘 중 누구의 감정도 읽기 어렵다.
 <br>
 "두 번째로 보는 게 저거라니 별로 기쁘진 않군."
 <br>
@@ -1754,7 +1755,7 @@
 <br><br>
 시드니가 당신을 지키려는 듯 당신 앞으로 나선다. "치료를 거부할 권리를 행사하겠습니다. 제 <<nnpc_mum "Sirris">>께서 서류를 처리해 주실 겁니다."
 <br><br>
-하퍼 박사가 한숨을 쉰다. "좋습니다. 하지만 <<pher>> 상태는 여전히 평가해야 합니다."
+하퍼 의사가 한숨을 쉰다. "좋습니다. 하지만 <<pher>> 상태는 여전히 평가해야 합니다."
 <<person1>>
 <<if $trauma lte ($traumamax / 10) * 2>>
 	<<He>>【은는】 당신의 가정생활, 학교생활, 그리고 당신의 안녕이 어떠한지에 관한 다양한 주제에 대해 부드럽게 질문한다. <<He>>【은는】 당신에게 <<he>>【이가】 아는 한 모든 것이 괜찮지만, 앞으로는 조심해야 한다고 알려준다.

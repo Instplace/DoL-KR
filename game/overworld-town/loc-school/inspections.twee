@@ -1,13 +1,13 @@
 :: Widgets Inspection [widget]
 <<widget "penisinspection">>
-	여학생들이 의자를 옮길 때, 당신은 레이튼이 카메라를 들고 있는 것을 알아차린다. "자 그럼," <<he>>【이가】 말한다. "오늘은 남학생들을 검사해서 다들 건강한지 확인할 거란다.
+	여학생들이 의자를 옮길 때, 당신은 레이튼이 카메라를 들고 있는 것을 알아차린다. "자 그럼." <<he>>【이가】 말한다. "오늘은 남학생들을 검사해서 다들 건강한지 확인할 거란다.
 	줄을 따라 이동할 텐데, 한 명씩 차례대로 반바지를 내리고 <span class="purple">우리가 볼 수 있게 자신의 자지를 보여주도록 해.</span>"
 	<br><br>
 
 	<<if maleChance() is 100>>
 		<<generateym4>><<generateym5>>여학생들은 숨을 들이켜며 낄낄거림을 터뜨린다. 남학생들은 불편한 듯 몸을 뒤척인다. 레이튼 곁에 서 있던 <<person3>><<person>>【은는】
 		얼굴이 창백해지더니, 당장이라도 울 듯한 표정을 짓는다. 문이 열리고 <<person4>><<person>>【와과】 <<person5>><<person>>【이가】 들어오는데, 둘 다 히죽거리고 있다.
-		"아," 레이튼이 말한다. "내 조수들이 도착했군."
+		"아." 레이튼이 말한다. "내 조수들이 도착했군."
 		<br><br>
 	<<else>>
 		<<generateyf4>><<generateyf5>>여학생들은 숨을 들이켜며 낄낄거림을 터뜨린다. 남학생들은 불편한 듯 몸을 뒤척인다. 레이튼 곁에 서 있던 <<person3>><<person>>【은는】
@@ -21,7 +21,7 @@
 	<<person5>><<person>>에게 말한다. "가서 클립보드랑 종이를 가져오렴."
 	<br><br>
 
-	"제가 줄자 쓸래요," <<he>>【이가】 말한다.
+	"제가 줄자 쓸래요." <<he>>【이가】 말한다.
 	<br><br>
 
 	"한 번만 더 말대꾸하면 넌 밖에서 기다려야 할 게야."
@@ -35,12 +35,12 @@
 	레이튼이 <<person3>><<person>> 쪽으로 몸을 돌린다. "네가 먼저다. 부끄러워할 것 없어. 이건 의학적 검사니까. 자, 반바지를 내리렴."
 	<br><br>
 
-	그 <<person>>【은는】 양옆으로 주먹을 꽉 쥔 채 꼼짝도 않고 발치만 응시한다. "약간의 도움이 필요한 모양이구나," 레이튼이 말하며 바지 밑단을 움켜잡는다.
+	그 <<person>>【은는】 양옆으로 주먹을 꽉 쥔 채 꼼짝도 않고 발치만 응시한다. "약간의 도움이 필요한 모양이구나." 레이튼이 말하며 바지 밑단을 움켜잡는다.
 	그 <<person>>【은는】 바지가 아래로 당겨지자 몸을 뻣뻣하게 굳힌다. <<his>> 자지 끝부분이 보이자 여학생들이 다시 흥분하여 수군거리기 시작하지만,
 	레이튼은 거기서 멈추지 않고, 전체가 다 드러날 때까지 <<his>> 반바지를 훅 끌어내린다.
 	<br><br>
 
-	<<person1>>"아주 좋구나," 레이튼이 뒤로 물러서며 말한다. "아름다운 자지를 가졌네. 왜 그렇게 부끄러워하는지 모르겠구나." <<He>>【이가】 카메라를 들어 올리더니
+	<<person1>>"아주 좋구나." 레이튼이 뒤로 물러서며 말한다. "아름다운 자지를 가졌네. 왜 그렇게 부끄러워하는지 모르겠구나." <<He>>【이가】 카메라를 들어 올리더니
 	사진을 찍는다. "기록을 위해서지." <<He>>【이가】 소년 앞에 무릎을 꿇고 클로즈업 사진을 찍는다. <<person3>>"내가 다음 차례를 볼 테니 이 아이 치수를 재도록 해라."
 	<br><br>
 
@@ -55,7 +55,7 @@
 		다음으로 <<person4>><<person>>【이가】 당신 앞에 쭈그리고 앉는다. <<He>>【은는】 당신의 크기에 매료된 듯하다. "이렇게까지 클 수 있는 줄은 몰랐어<<if $player.penisExist and $player.vaginaExist and !$player.ballsExist>>... 그 뒤에 있는 보지를 거의 다 가려버리잖아<</if>>."
 		<br><br>
 	<<elseif $player.penissize gte 4>>
-		다음으로 <<person4>><<person>>【이가】 당신 앞에 쭈그리고 앉더니, 숨을 헉 들이켠다. "지금까지 본 것 중에 제일 귀여워," <<he>>【이가】 말한다.
+		다음으로 <<person4>><<person>>【이가】 당신 앞에 쭈그리고 앉더니, 숨을 헉 들이켠다. "지금까지 본 것 중에 제일 귀여워." <<he>>【이가】 말한다.
 		<br><br>
 	<<elseif $player.penissize is 3>>
 		다음으로 <<person4>><<person>>【이가】 당신 앞에 쭈그리고 앉는다. <<He>>【은는】 능글맞게 웃고 있다. "마치 조그만 소시지 같네<<if $player.penisExist and $player.vaginaExist and !$player.ballsExist>>, 게다가 너무 작아서 뒤에 있는 보지를 가리지도 못하잖아<</if>>!"
@@ -76,7 +76,7 @@
 		"커지고 있어!" <<person4>><<person>>【이가】 탄성을 지른다. 여학생들이 다시 낄낄거리기 시작하고, 몇몇 남학생들은 앞으로 몸을 숙여 구경한다.
 		<br><br>
 
-		<<person5>>"내가 입김을 부니까 이렇게 됐어," <<person>>【이가】 말한다. <<He>>【은는】 숨을 들이마시더니 당신을 향해 입김을 분다. <<person4>><<person>>도 가세하자,
+		<<person5>>"내가 입김을 부니까 이렇게 됐어." <<person>>【이가】 말한다. <<He>>【은는】 숨을 들이마시더니 당신을 향해 입김을 분다. <<person4>><<person>>도 가세하자,
 
 		<<if playerChastity()>>
 			이내 당신은 $worn.genitals.name【을를】 압박할 정도로 발기하게 된다.
@@ -92,13 +92,13 @@
 		"안 커지는데!" <<person4>><<person>>【이가】 외친다. 여학생들의 낄낄거림이 멈추고, 몇몇 남학생들이 앞으로 몸을 숙여 들여다본다.
 		<br><br>
 
-		<<person5>>"입김을 불어도 아무 일도 안 일어나," <<person>>【이가】 말한다. <<He>>【은는】 숨을 들이마신 후 당신에게 입김을 분다. <<person4>><<person>>도 가세하지만, 당신을 흥분시키기에는 역부족이다.
+		<<person5>>"입김을 불어도 아무 일도 안 일어나." <<person>>【이가】 말한다. <<He>>【은는】 숨을 들이마신 후 당신에게 입김을 분다. <<person4>><<person>>도 가세하지만, 당신을 흥분시키기에는 역부족이다.
 	<</if>>
 	<br><br>
 <</widget>>
 
 <<widget "pussyinspection">>
-	레이튼이 <<person1>><<his>> 카메라를 꺼내자 여자아이들의 얼굴에 공포가 떠오른다. "우선," <<he>>【이가】 여자아이들에게 말한다. <span class="purple">"너희 속옷이 필요하다."</span> <<He>>【은는】
+	레이튼이 <<person1>><<his>> 카메라를 꺼내자 여자아이들의 얼굴에 공포가 떠오른다. "우선." <<he>>【이가】 여자아이들에게 말한다. <span class="purple">"너희 속옷이 필요하다."</span> <<He>>【은는】
 	<<person1>><<him>> 옆에 선 <<person2>><<person>>에게 <<his>> 빈손을 내민다. 그 <<person>>【은는】 굴욕감에 얼어붙은 표정이다.
 	<br><br>
 
@@ -112,13 +112,13 @@
 	<br><br>
 
 	"다음." 레이튼이 말한다. 그 <<person>>【은는】 치마를 내리고 책상에서 내려온다. <<He>>【은는】 떨리는 손으로 <<his>> 속옷에 손을 뻗지만,
-	레이튼은 닿지 않는 곳으로 그것을 들어 올린다. "이건 내가 보관하겠다," <<person1>><<he>>【이가】 말한다. "건강 문제 검사를 해야 하니까."
+	레이튼은 닿지 않는 곳으로 그것을 들어 올린다. "이건 내가 보관하겠다." <<person1>><<he>>【이가】 말한다. "건강 문제 검사를 해야 하니까."
 	<br><br>
 <</widget>>
 
 <<widget "pussyinspectionherm">>
 	<<if !$genderknown.includes("Leighton")>>
-		"어린 <<lady>>," 레이튼이 말한다. "우린 이미 자지 검사를 마쳤을 텐데-" <<He>>【은는】 말을 멈추더니,
+		"어린 <<lady>>." 레이튼이 말한다. "우린 이미 자지 검사를 마쳤을 텐데-" <<He>>【은는】 말을 멈추더니,
 		<<if $player.penissize lte 2>>
 			당신의 <<if playerChastity("cage")>>갇힌 <</if>><<penis>> 아래에 있는 <<pussy>>【을를】 알아차린다. <<he>>【이가】 당신을 더 더듬으며 살피자 당신은 얼굴을 찡그린다.
 		<<elseif $player.ballsExist>>
@@ -339,7 +339,7 @@
 						"꼴좋다, 변태 자식," 지나갈 때 누군가 쉿쉿거리며 비아냥댄다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
 					<<elseif $schoolrep.herm gte 4>>
 						<br>
-						"괴물 서커스 구경 한번 해보고 싶었는데 말이야," 지나갈 때 누군가 비웃는다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+						"괴물 서커스 구경 한번 해보고 싶었는데 말이야." 지나갈 때 누군가 비웃는다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
 					<<else>>
 						반 아이들은 어리둥절한 표정으로 지켜본다. 그들은 당신을 그저 또 다른 여학생이라고 생각한다.
 					<</if>>
@@ -536,7 +536,7 @@
 			<<if $schoolrep.crossdress gte 4>>
 				"꼴좋다, 변태 자식," 지나갈 때 누군가 쉿쉿거리며 비아냥댄다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
 			<<elseif $schoolrep.herm gte 4>>
-				"괴물 서커스 구경 한번 해보고 싶었는데 말이야," 지나갈 때 누군가 비웃는다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
+				"괴물 서커스 구경 한번 해보고 싶었는데 말이야." 지나갈 때 누군가 비웃는다.<<trauma 6>><<stress 6>><<gtrauma>><<gstress>>
 			<<else>>
 				나머지 학생들은 어리둥절한 표정으로 지켜본다. 그들은 당신을 그저 또 다른 남학생이라고 생각한다.
 			<</if>>
@@ -882,7 +882,7 @@
 
 <<person4>><<person>>【은는】 줄의 이전 남학생에게 시선이 고정된 채, 주의를 기울이지 않고 있다. <<He>>【은는】 당신 앞에 무릎을 꿇고 나서야 고개를 돌려 쳐다본다. <<He>>【은는】 당신의 <<genitals>>【을를】 보고는 숨을 헉 들이마시며 뒤로 넘어진다.
 
-"어린 <<lady>>," 레이튼이 말한다. <<person1>><<his>> 목소리는 단호하다. "넌 지금 온갖 규칙을 어기고 있다. 자리에 앉아라."
+"어린 <<lady>>." 레이튼이 말한다. <<person1>><<his>> 목소리는 단호하다. "넌 지금 온갖 규칙을 어기고 있다. 자리에 앉아라."
 <br><br>
 
 <<if $speech_attitude is "meek">>
@@ -1100,7 +1100,7 @@
 				<<He>>【은는】 음흉한 미소를 지으며 당신을 바라본다. "설마 내가 너의... 그 특이한 물건을 잊었을 거라고 생각한 건 아니겠지?"
 				<<He>>【은는】 당신을 '검사'하고 싶어 안달이 난 것 같다.
 			<<elseif $player.sex is "m" and $inspection.gender_appearance is "f">>
-				<<His>> 표정은 <<his>> 경멸을 감추지 못한다. "자, 그럼," <<he>>【이가】 말한다. "너의 그 하찮은... 취향은 제쳐두고, 누구도 건강 검진을 건너뛸 수는 없어. 너도, 그 누구도 말이야."
+				<<His>> 표정은 <<his>> 경멸을 감추지 못한다. "자, 그럼." <<he>>【이가】 말한다. "너의 그 하찮은... 취향은 제쳐두고, 누구도 건강 검진을 건너뛸 수는 없어. 너도, 그 누구도 말이야."
 			<</if>>
 			<br><br>
 		<</if>>
@@ -1239,7 +1239,7 @@
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<fameexhibitionism 50 "pic">>
 <<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
-	<<if $worn.under_lower.type.includes("naked")>>
+	<<if $worn.under_lower.name is "naked">>
 		시간을 낭비하지 않고, 당신은 책상 위로 올라가 치마를 턱까지 들어 올린다.
 		당신은 고개를 갸웃거린다. "팬티 안 입었는데요." 당신은 미안한 척하며 말한다.
 		당신은 뒤로 기대 다리를 벌려 반 전체가 볼 수 있도록 한다.
@@ -1250,7 +1250,7 @@
 		당신은 뒤로 기대 다리를 벌려 반 전체가 볼 수 있도록 한다.
 	<</if>>
 <<else>>
-	<<if $worn.under_lower.type.includes("naked")>>
+	<<if $worn.under_lower.name is "naked">>
 		당신은 고개를 갸웃거리며 한쪽 발을 다른 쪽 발 위에 올린다. "팬티 안 입었는데요." 당신은 미안한 척하며 말한다.
 		그럼에도 불구하고 당신은 $worn.lower.name【을를】 벗어 <<if $worn.lower.plural>>그것들을<<else>>그것을<</if>> 한쪽에 둔다.
 		그러고 나서 당신은 책상 위로 올라가 다리를 벌려 반 전체가 볼 수 있도록 한다.
@@ -1305,12 +1305,12 @@
 <<set _crotchlessPantiesId to 17>>
 <<if $worn.under_lower.type.includes("naked") and $worn.under_lower.index isnot _crotchlessPantiesId>>
 	<<if $speech_attitude is "bratty">>
-		"팬티 안 입었는데요," 당신은 경솔하게 말한다. 몇몇 학생들이 킥킥거린다. 레이튼은 당신에게서 시선을 떼고 교실을 훑어본다.
+		"팬티 안 입었는데요." 당신은 경솔하게 말한다. 몇몇 학생들이 킥킥거린다. 레이튼은 당신에게서 시선을 떼고 교실을 훑어본다.
 		<br><br>
 		"아주 좋아," 레이튼이 선언한다. "이번 한 번만 눈감아주지. 책상 위로 올라가."
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			당신은 발끝만 쳐다본다. "저... 팬티 안 입었어요," 당신은 속삭인다.
+			당신은 발끝만 쳐다본다. "저... 팬티 안 입었어요." 당신은 속삭인다.
 		<<else>>
 			"팬티를 안 입었습니다, <<sir>>," 당신은 인정한다. 레이튼은 눈썹을 치켜올리며 반응한다.
 		<</if>>
@@ -1337,7 +1337,7 @@
 <br><br>
 <<if !$player.penisExist and $leightonParasitePenisInspection and !playerChastity("hidden")>>
 	<<unset $leightonParasitePenisInspection>>
-	"이상하군," 레이튼이 웃는다. "이 반에서 반음양인 학생의 사진을 찍었던 기억이 있는데. 난 그게 너인 줄 알았지만, 다른 학생이었나 보군."
+	"이상하군." 레이튼이 웃는다. "이 반에서 반음양인 학생의 사진을 찍었던 기억이 있는데. 난 그게 너인 줄 알았지만, 다른 학생이었나 보군."
 	<br><br>
 <<elseif $player.penisExist and $player.vaginaExist and !playerChastity("hidden")>>
 	<<pussyinspectionherm>>
@@ -1355,7 +1355,7 @@
 	레이튼은 당신의 $worn.genitals.name에 대해 아무 말도 하지 않는다.
 <<elseif $player.bodyliquid.vagina.semen + $player.bodyliquid.vaginaoutside.semen gte 2>>
 	<br><br>
-	"이런, 이런, 저것 좀 봐," 레이튼이 웃는다. "질질 흘리고 있잖아. 친구들을 좀 사귀었나 보군.<<if playerBellyVisible() and $settings.pregnancySpeechEnabled>> 그 결과를 보여주는 배까지 하고 말이야.<</if>>"
+	"이런, 이런, 저것 좀 봐." 레이튼이 웃는다. "질질 흘리고 있잖아. 친구들을 좀 사귀었나 보군.<<if playerBellyVisible() and $settings.pregnancySpeechEnabled>> 그 결과를 보여주는 배까지 하고 말이야.<</if>>"
 	<br>
 	<<he>>【이가】 또 다른 사진을 찍자 당신은 뺨이 달아오르는 것을 느낀다.
 	<br><br>
@@ -1394,21 +1394,21 @@
 	당신은 책상에서 내려와 줄을 선다.
 <<elseif $inspection.gender_appearance is "m">>
 	<<if $player.penisExist and $player.vaginaExist>>
-		"네 옷차림 때문에 너의... 독특한 상황을 거의 간과할 뻔했구나," 레이튼이 말한다.
+		"네 옷차림 때문에 너의... 독특한 상황을 거의 간과할 뻔했구나." 레이튼이 말한다.
 		"스스로 나와서 다행이군. 하마터면 검사를 놓칠 뻔했어." <<He>>【은는】 웃으며 다음 학생에게 앞으로 나오라고 손짓한다.
 		<br>
 
 		당신은 책상에서 내려와 줄을 선다.
 	<<else>>
 		<<schoolrep_naked>>
-		"여학생이 그렇게 입는 건 흔치 않은 일이지, 알다시피," 레이튼이 말한다.
+		"여학생이 그렇게 입는 건 흔치 않은 일이지, 알다시피." 레이튼이 말한다.
 		"스스로 나와서 다행이군. 하마터면 검사를 놓칠 뻔했어." <<He>>【은는】 웃으며 다음 학생에게 앞으로 나오라고 손짓한다.
 		<br>
 
 		당신은 책상에서 내려와 줄을 선다. 몇몇 반 친구들이 이상한 눈초리로 당신을 쳐다본다.
 	<</if>>
 <<else>>
-	"좋아," 레이튼이 말한다. "다음." 당신은 책상에서 내려와 줄을 선다.
+	"좋아." 레이튼이 말한다. "다음." 당신은 책상에서 내려와 줄을 선다.
 <</if>>
 <br><br>
 
@@ -1419,7 +1419,7 @@
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<fameexhibitionism 50 "pic">>
 
-<<if $worn.under_lower.type.includes("naked")>>
+<<if $worn.under_lower.name is "naked">>
 	<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
 		당신은 치마 밑단을 잡고 레이튼에게 슬쩍 보여준다. "팬티 안 입었어요." 당신은 미안하다는 듯이 말한다.
 	<<else>>
@@ -1428,7 +1428,7 @@
 <</if>>
 
 시간을 낭비하지 않고, 당신은 책상 위로 올라가 다리에서 $worn.lower.name【을를】 벗어 한쪽에 둔다. 방해만 될 뿐이다.
-<<if !$worn.under_lower.type.includes("naked")>>
+<<if !$worn.under_lower.name is "naked">>
 	다음은 $worn.under_lower.name 차례다. 당신은 그것을 벗어 레이튼에게 건넨다.<<underlowerruined undefined "given">>
 <</if>>
 당신은 뒤로 기대 다리를 벌려 반 전체가 볼 수 있게 한다. <<exhibitionism4>>
@@ -1578,7 +1578,7 @@
 시리스는 가방을 쳐다보지만 레이튼이 나가는 동안 아무 말도 하지 않는다.
 <br><br>
 
-"자," 시리스가 반 학생들에게 말한다. "우리 어디까지 했죠?" 남학생들은 서로 이야기하며 웃는다. 여학생들은 거의 말이 없고,
+"자." 시리스가 반 학생들에게 말한다. "우리 어디까지 했죠?" 남학생들은 서로 이야기하며 웃는다. 여학생들은 거의 말이 없고,
 불편하게 다리를 움직인다.
 <br><br>
 
@@ -1836,7 +1836,7 @@
 
 <<endevent>><<npc Leighton>><<generatey2>><<person1>>
 
-학생들은 긴장을 풀기 시작하지만, 아직 끝나지 않았다. "한 가지 더," 레이튼이 말한다. <<He>>【은는】 <<person2>><<persons>> 어깨에 손을 얹고, 꽉 잡은 채 다른 학생들 앞으로 <<him>>【을를】 이끌어낸다. <<person1>>"혹을 확인하는 것은 중요하단다," 교장이 계속 말한다. <<He>>【은는】 <<person2>><<person>> 뒤에 서서 <<him>> 주위로 손을 뻗어 다시 <<his>> 셔츠 단추를 푼다. <<person>>【은는】 <<person1>><<him>>【을를】 막으려는 듯 손을 뻗지만, 생각을 고쳐먹고 <<person2>><<his>> 팔을 내린다. <<He>>【은는】 체념한 듯 보인다.
+학생들은 긴장을 풀기 시작하지만, 아직 끝나지 않았다. "한 가지 더." 레이튼이 말한다. <<He>>【은는】 <<person2>><<persons>> 어깨에 손을 얹고, 꽉 잡은 채 다른 학생들 앞으로 <<him>>【을를】 이끌어낸다. <<person1>>"혹을 확인하는 것은 중요하단다." 교장이 계속 말한다. <<He>>【은는】 <<person2>><<person>> 뒤에 서서 <<him>> 주위로 손을 뻗어 다시 <<his>> 셔츠 단추를 푼다. <<person>>【은는】 <<person1>><<him>>【을를】 막으려는 듯 손을 뻗지만, 생각을 고쳐먹고 <<person2>><<his>> 팔을 내린다. <<He>>【은는】 체념한 듯 보인다.
 <br><br>
 
 <<if $pronoun is "m">>

@@ -170,11 +170,11 @@
 
 <<covered>>
 <<if $speech_attitude is "meek">>
-	"제, 제발 쳐다보지 마세요." 당신이 말한다.
+	"제-제발 쳐다보지 마세요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"눈 깔아." 당신이 말한다.
 <<else>>
-	"쳐, 쳐다보지 마세요." 당신이 말한다.
+	"쳐-쳐다보지 마세요." 당신이 말한다.
 <</if>>
 당신의 목소리가 동굴 안에 울린다. 눈들이 깜빡이다 감긴다.
 <br><br>
@@ -253,7 +253,7 @@
 <</if>>
 <<garousal>><<arousal 600 "breasts">>
 <br><br>
-<<if random(1, 2) is 2 and $settings.bestialityEnabled and $settings.slugsEnabled>>
+<<if random(1, 2) is 2 and $settings.slugsEnabled>>
 	질척이는 소리가 들리고 촉수가 풀린다. 그것은 무언가를 보는 것처럼 물을 가리킨다. 형체 하나가 물속에서 튀어 오른다. 촉수는 완전히 풀리며 당신을 떨어뜨리고, 겁먹은 듯 움츠러든다.
 	<br><br>
 
@@ -320,7 +320,7 @@
 <<effects>>
 
 무언가의 존재가 가까워진다.
-<<if random(1, 2) is 2 and $settings.bestialityEnabled and $settings.slugsEnabled>>
+<<if random(1, 2) is 2 and $settings.slugsEnabled>>
 	질척이는 소리가 들리고, 형체 하나가 물속에서 튀어 올라 허벅지에 달라붙는다. 고양이만 한 민달팽이다. 또 하나가 합류해 밧줄을 감싼다. 그것은 불쾌할 만큼 빠르게 밧줄을 갉아 끊고, 당신은 물속으로 떨어진다.
 	<br><br>
 
@@ -407,7 +407,7 @@
 <<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"<<phim>>【을를】 데려가자," <<person1>><<person>>【이가】 말한다. "다른 놈들도 차례를 원할 거야." 뒤에서 눈가리개가 머리 위로 씌워져 시야를 가리고, 팔은 밧줄로 묶인다.
+	"<<phim>>【을를】 데려가자." <<person1>><<person>>【이가】 말한다. "다른 놈들도 차례를 원할 거야." 뒤에서 눈가리개가 머리 위로 씌워져 시야를 가리고, 팔은 밧줄로 묶인다.
 	<br><br>
 	<<facewear "blindfold">>
 	<<bind>>
@@ -513,7 +513,7 @@
 
 불안감을 무시하고 균열 옆을 지나간다.
 <<if $pursuit gt 0 and $rng gte (100 - ($pursuit * 15))>>
-	<<if $settings.bestialityEnabled and $settings.slugsEnabled and random(1, 2) is 2>>
+	<<if $settings.slugsEnabled and random(1, 2) is 2>>
 		<span class="red">지나가는 순간 민달팽이가 튀어나와,</span> 아슬아슬하게 빗나간다.<<set $pursuit += 1>>
 		<<if $pursuit gte 6>>
 			그것이 물속으로 떨어지자 달리기 시작하지만, <span class="red">다른 것들이 수면 위로 헤엄쳐 올라온다.</span> 포위당했다.
@@ -570,7 +570,7 @@
 	<br><br>
 
 	<<if $pursuit gte 6>>
-		<<if $settings.bestialityEnabled and $settings.slugsEnabled and random(1, 2) is 2>>
+		<<if $settings.slugsEnabled and random(1, 2) is 2>>
 			<span class="red">형체 하나가 물속에서 튀어 오른다.</span> 그것은 빗나가 뒤쪽 동굴 벽에 달라붙는다. 커다란 민달팽이다. 또 하나가 당신을 향해 헤엄쳐 온다.
 			<br><br>
 

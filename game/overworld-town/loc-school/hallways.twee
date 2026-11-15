@@ -106,7 +106,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "schoolHallways">>
 	<<else>>
-		<<link [[모든 것이 암전된다...|School Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 	<</if>>
 
 <<elseif !["early", "late", "earlynoschool", "latenoschool", "daynoschool"].includes($schoolstate) and dangerEvent() and $eventskip is 0>>
@@ -119,20 +119,20 @@
 	<<schoolperiod>>
 
 	<<if !["early", "late", "earlynoschool", "latenoschool", "daynoschool"].includes($schoolstate) and $exposed gte 1>>
-		<<schoolicon "courtyard">><<link [[뒤뜰로 몰래 가기 (0:05)|School Rear Courtyard]]>><<pass 5>><</link>>
+		<<schoolicon "courtyard">><<link [[뒤뜰로 몰래 간다 (0:05)|School Rear Courtyard]]>><<pass 5>><</link>>
 		<br>
-		<<swimmingicon>><<link [[수영장으로 몰래 가기 (0:03)|School Pool Entrance]]>><<pass 3>><</link>>
+		<<swimmingicon>><<link [[수영장으로 몰래 간다 (0:03)|School Pool Entrance]]>><<pass 3>><</link>>
 		<br>
-		<<schoolicon "library">><<link [[도서관으로 몰래 가기 (0:05)|School Library]]>><<pass 5>><</link>>
+		<<schoolicon "library">><<link [[도서관으로 몰래 간다 (0:05)|School Library]]>><<pass 5>><</link>>
 		<br>
-		<<bathroomicon "toilet">><<link [[화장실로 몰래 가기 (0:05)|School Toilets]]>><<pass 5>><</link>>
+		<<bathroomicon "toilet">><<link [[화장실로 몰래 간다 (0:05)|School Toilets]]>><<pass 5>><</link>>
 		<br>
 	<<else>>
 		<<if $schoolstate is "afternoon" and $detention gte 1 and $daily.school.detentionAttended isnot 1 and $pillory.tenant.special.name isnot "Leighton">>
-		<<schoolicon "headdesk">><<link [[방과 후 보충 수업 가기|School Detention]]>><</link>>
+		<<schoolicon "headdesk">><<link [[방과 후 보충 수업에 간다|School Detention]]>><</link>>
 		<br>
 			<<if $headdrive gte 1 and $headnodetention isnot 1 and $headmoney isnot 1 and $headphotoshoot isnot 1>>
-			<<schoolicon "headdesk">><<link [[레이튼 협박하기|Head's Office Blackmail]]>><<npc Leighton>><<person1>><<set $phase to 1>><</link>><<crime "coercion">>
+			<<schoolicon "headdesk">><<link [[레이튼을 협박한다|Head's Office Blackmail]]>><<npc Leighton>><<person1>><<set $phase to 1>><</link>><<crime "coercion">>
 			<br>
 			<</if>>
 		<br>
@@ -294,7 +294,7 @@
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
-		"ㅈ, 제발 옷 좀 돌려주세요. 추워요." 당신은 무릎을 꿇고 땅에 얼굴을 박으며 말한다.
+		"제-제발 옷 좀 돌려주세요. 추워요." 당신은 무릎을 꿇고 땅에 얼굴을 박으며 말한다.
 		<br><br>
 
 		"정말 한심하군." <<person1>><<person>>【이가】 말한다. "왜 스스로를 더 비하하는 거지?" <<He>>【은는】 당신의 옷을 당신 위로 떨어뜨린다. "가자, 이 불쌍한 녀석 때문에 기분 나빠졌어." <<tearful>> 당신은 옷을 움켜쥐고 옷을 입을 조용한 공간을 찾는다.
@@ -735,9 +735,9 @@
 <<effects>>
 
 <<if !$worn.upper.type.includes("naked")>>
-	당신은 <<person>>【을를】 향해 돌아서서 한 번의 동작으로, <span class="lewd">$worn.upper.name【을를】 <<pullup>> 당신의 <<breasts>> 드러낸다.</span> <<He>>【은는】 당신을 입을 벌리고 쳐다본다. "ㅁ, 만져." 당신이 말한다. "만져봐."
+	당신은 <<person>>【을를】 향해 돌아서서 한 번의 동작으로, <span class="lewd">$worn.upper.name【을를】 <<pullup>> 당신의 <<breasts>> 드러낸다.</span> <<He>>【은는】 당신을 입을 벌리고 쳐다본다. "마-만져." 당신이 말한다. "만져봐."
 <<else>>
-	당신은 <<person>> 향해 돌아서서 가슴을 내민다. "ㅁ, 만져." 당신이 말한다. "만져봐."
+	당신은 <<person>> 향해 돌아서서 가슴을 내민다. "마-만져." 당신이 말한다. "만져봐."
 <</if>>
 <br><br>
 
@@ -906,7 +906,7 @@
 	<<link [[다음|Hallways]]>><<set $eventskip to 1>><</link>>
 <<else>>
 	<<set $rescued += 1>>
-	복도 끝에 구경꾼들이 모여 지켜보고 있다. <<person>>【은는】 그것을 알아차리고 당신에게서 물러선다. "<<pShe>> ㄱ, 그냥 달라고 했어요." <<he>>【이가】 더듬거린다. "정말이에요." <<He>>【은는】 돌아서서 달린다.
+	복도 끝에 구경꾼들이 모여 지켜보고 있다. <<person>>【은는】 그것을 알아차리고 당신에게서 물러선다. "<<pShe>> 그-그냥 달라고 했어요." <<he>>【이가】 더듬거린다. "정말이에요." <<He>>【은는】 돌아서서 달린다.
 	<br><br>
 	슬라임이 반항에 대한 벌로 고통의 충격을 가하는 것을 느낀다.
 	<<corruption -1>><<pain 8>><<stress 6>><<trauma 6>><<def 1>><<lcorruption>><<ggpain>><<ggtrauma>><<ggstress>>
@@ -923,11 +923,11 @@
 당신은 돌아서서 <<person>>【을를】 노려본다. <<anticatcall>>
 <br><br>
 <<switch random(1,5)>>
-	<<case 1>>"이봐, 이봐! 그냥 친절하게 대한 것뿐이야. 칭찬 좀 받아들일 줄 알아야지," <<he>>【이가】 항복하듯 두 손을 들며 말한다. <<He>>【은는】 서둘러 자리를 뜬다.
-	<<case 2>>"그냥 농담이었어, 이 냉담한 <<bitch>> 같으니," <<he>>【이가】 당신의 눈을 피하며 중얼거린다. <<He>>【은는】 서둘러 도망친다.
-	<<case 3>>"하! ㄴ, 농담이었어." <<He>>【은는】 어색하게 웃어넘기려 한다. <<He>>【은는】 재빨리 서둘러 자리를 뜬다.
+	<<case 1>>"이봐, 이봐! 그냥 친절하게 대한 것뿐이야. 칭찬 좀 받아들일 줄 알아야지." <<he>>【이가】 항복하듯 두 손을 들며 말한다. <<He>>【은는】 서둘러 자리를 뜬다.
+	<<case 2>>"그냥 농담이었어, 이 냉담한 <<bitch>> 같으니." <<he>>【이가】 당신의 눈을 피하며 중얼거린다. <<He>>【은는】 서둘러 도망친다.
+	<<case 3>>"하! 노-농담이었어." <<He>>【은는】 어색하게 웃어넘기려 한다. <<He>>【은는】 재빨리 서둘러 자리를 뜬다.
 	<<case 4>>그 <<persons>> 얼굴이 창백해지더니, 고개를 떨군 채 서둘러 자리를 뜬다.
-	<<case 5>>"이 <<bitch>> 같으니," <<he>>【이가】 비웃는다. "칭찬 좀 해줬더니 이게 내가 받는 대접인가?" <<He>>【은는】 계속해서 당신을 노려보며 걸어간다.
+	<<case 5>>"이 <<bitch>> 같으니." <<he>>【이가】 비웃는다. "칭찬 좀 해줬더니 이게 내가 받는 대접인가?" <<He>>【은는】 계속해서 당신을 노려보며 걸어간다.
 <</switch>>
 <br><br>
 
@@ -961,9 +961,9 @@
 <<if $speech_attitude is "meek">>
 	"내가 귀엽다고 생각해?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
-	"말만 번지르르하네," 당신이 말한다. "내가 틀렸다는 걸 증명해볼래?"
+	"말만 번지르르하네." 당신이 말한다. "내가 틀렸다는 걸 증명해볼래?"
 <<else>>
-	"너도 괜찮아 보여," 당신이 말한다.
+	"너도 괜찮아 보여." 당신이 말한다.
 <</if>>
 <<promiscuity1>>
 
@@ -1003,11 +1003,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"미안해요," 당신이 말한다. "관심 없어요."
+	"미안해요." 당신이 말한다. "관심 없어요."
 <<elseif $speech_attitude is "bratty">>
-	"시도는 좋았어," 당신이 말한다. "꺼져."
+	"시도는 좋았어." 당신이 말한다. "꺼져."
 <<else>>
-	"넌 그렇게 대단하지 않아," 당신이 말한다.
+	"넌 그렇게 대단하지 않아." 당신이 말한다.
 <</if>>
 <br><br>
 
@@ -1018,7 +1018,7 @@
 
 	<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
 <<else>>
-	"아니, 넌 아니지," <<he>>【이가】 비웃는다. "난 네가 가지고 놀 수 있는 사람이 아니야." <<He>>【은는】 당신의 팔을 거칠게 잡아당긴다.
+	"아니, 넌 아니지." <<he>>【이가】 비웃는다. "난 네가 가지고 놀 수 있는 사람이 아니야." <<He>>【은는】 당신의 팔을 거칠게 잡아당긴다.
 	<<gpain>><<pain 1>><<gstress>><<stress 6>>
 	<br><br>
 
@@ -1031,7 +1031,7 @@
 :: Hallways Cupboard Refuse 2
 <<effects>>
 
-당신은 <<person>>【을를】 밀쳐낸다. "미친 새끼," <<he>>【이가】 말한다. "네가 날 밀었다고 <<nnpc_title "Leighton">>에게 이를 거야."
+당신은 <<person>>【을를】 밀쳐낸다. "미친 새끼." <<he>>【이가】 말한다. "네가 날 밀었다고 <<nnpc_title "Leighton">>에게 이를 거야."
 <br><br>
 
 <<endevent>>
@@ -1117,7 +1117,7 @@
 	<<set $rescued += 1>>
 	누군가 문을 두드린다. "안에서 무슨 일이야?" 힘 있는 목소리가 들린다. <<generateRandomTeacher 2>>【이】다.
 	<br><br>
-	<<person1>><<person>>【은는】 옷을 고쳐 입고 문을 연다. "난 아무 짓도 안 했어요," <<he>>【이가】 말한다. _teacher【은는】 속지 않는다. 그 <<person>>【은는】 팔을 붙잡혀 끌려간다.
+	<<person1>><<person>>【은는】 옷을 고쳐 입고 문을 연다. "난 아무 짓도 안 했어요." <<he>>【이가】 말한다. _teacher【은는】 속지 않는다. 그 <<person>>【은는】 팔을 붙잡혀 끌려간다.
 	<br><br>
 	<<tearful>> 당신은 벽장을 떠난다.
 	<br><br>
@@ -1168,7 +1168,7 @@
 	<<maninit>><<npcidlegenitals>>
 	<<set $enemytrust -= 100>>
 	<<set $enemyanger += 200>>
-	"넌 벗겨질 거야, <<bitch>>," 그 <<person>>【이가】 말한다. "네가 원하든 원하지 않든."
+	"넌 벗겨질 거야, <<bitch>>." 그 <<person>>【이가】 말한다. "네가 원하든 원하지 않든."
 	<br><br>
 <</if>>
 <<effects>>
@@ -1265,11 +1265,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ, 제발 보내주세요," 당신이 말한다.
+	"제-제발 보내주세요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"내 길에서 비켜," 당신이 말한다. "아니면 큰일 날 줄 알아."
+	"내 길에서 비켜." 당신이 말한다. "아니면 큰일 날 줄 알아."
 <<else>>
-	"제발 보내주세요," 당신이 말한다.
+	"제발 보내주세요." 당신이 말한다.
 <</if>>
 <br><br>
 
@@ -1322,7 +1322,7 @@
 <<effects>>
 
 <<if $phase is 1>>
-    "그 <<nnpc_gendery "Whitney">> 녀석," 도렌이 고개를 저으며 중얼거린다.
+    "그 <<nnpc_gendery "Whitney">> 녀석." 도렌이 고개를 저으며 중얼거린다.
  <<else>>
     "옷이 왜 그러니, <<lassie>>?" 도렌이 묻는다.
  <</if>>
@@ -1338,7 +1338,7 @@
 두 사람은 걸어가는 동안 이상한 시선을 받는다. 교무실은 작고, 중앙에 있는 테이블 주위로 의자 몇 개가 놓여 있다. 도렌은 찬장을 뒤지더니, 깔끔하게 개켜진 교복을 테이블 위에 올려놓는다.
 <br><br>
  
-"셔츠는 그냥 아무 데나 두렴," <<he>>【이가】 말한다. "여벌 옷이 있단다." <<He>>【은는】 당신이 옷을 입을 수 있도록 자리를 비켜준다.<<npcincr Doren dom 1>><<gdom "Doren">>
+"셔츠는 그냥 아무 데나 두렴." <<he>>【이가】 말한다. "여벌 옷이 있단다." <<He>>【은는】 당신이 옷을 입을 수 있도록 자리를 비켜준다.<<npcincr Doren dom 1>><<gdom "Doren">>
 <br><br>
  
 <<link [[다음|Hallways]]>>
@@ -1404,11 +1404,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"들켰네," 당신이 말한다. "난 더러운 변태야. 벌을 받아야겠지, 안 그래?"
+	"들켰네." 당신이 말한다. "난 더러운 변태야. 벌을 받아야겠지, 안 그래?"
 <<elseif $speech_attitude is "bratty">>
-	"너희 변태들 중에 누가 먼저 나설래," 당신이 말한다. "아니면 내가 다 해야 하나?"
+	"너희 변태들 중에 누가 먼저 나설래." 당신이 말한다. "아니면 내가 다 해야 하나?"
 <<else>>
-	"들켰네," 당신이 말한다. "이제 어쩔 건데?"
+	"들켰네." 당신이 말한다. "이제 어쩔 건데?"
 <</if>>
 <<promiscuity4>>
 
@@ -1642,11 +1642,11 @@
 	<<npc Leighton 3>>
 	주먹이 문을 두드린다.
 	<br><br>
-	"젠장," <<person1>><<person>>【이가】 말한다. "빨리, 어서—" <<he>>【이】나 <<his>> 친구가 다른 행동을 하기도 전에 문이 열리고 레이튼이 나타난다.
+	"젠장." <<person1>><<person>>【이가】 말한다. "빨리, 어서—" <<he>>【이】나 <<his>> 친구가 다른 행동을 하기도 전에 문이 열리고 레이튼이 나타난다.
 	<br><br>
-	"ㅅ, 설명할 수 있어요," <<person1>><<person>>【이가】 <<his>> 옷을 더듬으며 말한다. "우리는—"
+	"서-설명할 수 있어요." <<person1>><<person>>【이가】 <<his>> 옷을 더듬으며 말한다. "우리는—"
 	<br><br>
-	레이튼은 <<him>>【을를】 무시한다. "나가," <<person3>><<he>>【이가】 당신을 보며 말한다. <<tearful>> 당신은 <<him>>【을를】 슬금슬금 지나간다. <<person2>><<person>>【은는】 따라가려 하지만, 레이튼의 뻗은 팔에 막힌다. "너희 둘은 남아." 문이 당신 뒤에서 쿵 닫힌다.
+	레이튼은 <<him>>【을를】 무시한다. "나가." <<person3>><<he>>【이가】 당신을 보며 말한다. <<tearful>> 당신은 <<him>>【을를】 슬금슬금 지나간다. <<person2>><<person>>【은는】 따라가려 하지만, 레이튼의 뻗은 팔에 막힌다. "너희 둘은 남아." 문이 당신 뒤에서 쿵 닫힌다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -1664,9 +1664,9 @@
 <<if random(1, 2) is 2>>
 	당신은 몸을 빼내려 하지만, <span class="red">엉덩이가 끼어버린다.</span> 뒤에서 문이 열리는 소리와 함께 목소리들이 들린다.<<gstress>><<stress 6>>
 	<br><br>
-	"이게 뭐야," 한 <<personsimple>>【이가】 말한다. "이 바보 진짜 창문에 꼈나 봐?"
+	"이게 뭐야." 한 <<personsimple>>【이가】 말한다. "이 바보 진짜 창문에 꼈나 봐?"
 	<br><br>
-	"그래도 엉덩이는 예쁘네," 다른 사람이 대답한다.
+	"그래도 엉덩이는 예쁘네." 다른 사람이 대답한다.
 
 	<<if random(1, 2) is 2>>
 		더듬는 손이 당신의 <<bottom>>【을를】 만지고, 뒤에서 누군가 상자 위에 올라서는 소리가 들린다.
@@ -1677,7 +1677,7 @@
 	<<else>>
 		세게 한 대 맞자 당신은 앞으로 쏠린다.<<gpain>><<pain 4>>
 		<br><br>
-		"좋은 생각이야," 첫 번째 사람이 웃는다. "<<him>>【을를】 도와주자!" 또 한 대, 그리고 또 한 대, 마침내 당신은 반대편으로 밀려나간다.<<gpain>><<pain 4>><<gtrauma>><<trauma 6>><<gstress>><<stress 6>>
+		"좋은 생각이야." 첫 번째 사람이 웃는다. "<<him>>【을를】 도와주자!" 또 한 대, 그리고 또 한 대, 마침내 당신은 반대편으로 밀려나간다.<<gpain>><<pain 4>><<gtrauma>><<trauma 6>><<gstress>><<stress 6>>
 		<br><br>
 
 		<<link [[다음|School Rear Courtyard]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -1815,7 +1815,7 @@
 	<<person1>><<person>>【은는】 선반들을 훑어보더니 크리켓 배트 두 개를 꺼낸다. "우리 건 챙겼고," <<he>>【이가】 말한다. "너는..." <<He>>【은는】 계속해서 찾다가, 이번에는 웅크리고 앉아 판지 상자를 뒤적인다. <<person2>><<person>>【은는】 당신을 노골적으로 훑어본다.
 	<br><br>
 
-	"아하," <<person1>><<person>>【이가】 말한다. <<He>>【은는】 당신에게 수건 몇 장을 건네준다.<<towelup>>
+	"아하." <<person1>><<person>>【이가】 말한다. <<He>>【은는】 당신에게 수건 몇 장을 건네준다.<<towelup>>
 	<br><br>
 
 	"앞으로는 조심해," <<person2>><<person>>【이가】 웃으며 말하고는 두 사람은 떠나간다.
@@ -2074,7 +2074,7 @@
 	<<maninit>>
 	<<enableSchoolRescue "Whitney" "delinquency">>
 	<<set $leftarm to "grappled">><<set $rightarm to "grappled">><<set $NPCList[0].lefthand to "arms">><<set $NPCList[0].righthand to "arms">>
-	"걱정 마, 네 배는 조심할게," <<person2>><<person>>【이가】 말한다.
+	"걱정 마, 네 배는 조심할게." <<person2>><<person>>【이가】 말한다.
 <</if>>
 
 <<effects>>
@@ -2096,7 +2096,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"이 <<bitch>> 따먹는 거 진짜 쉬웠어," <<person3>><<person>>【이가】 말한다. "임신할 만도 하지!" 그들이 떠나면서 웃는 소리가 들린다. <<tearful>> 당신은 몸을 추스르고 일어선다.
+	"이 <<bitch>> 따먹는 거 진짜 쉬웠어." <<person3>><<person>>【이가】 말한다. "임신할 만도 하지!" 그들이 떠나면서 웃는 소리가 들린다. <<tearful>> 당신은 몸을 추스르고 일어선다.
 	<br><br>
 
 	<<clotheson>>
@@ -2186,9 +2186,9 @@
 <<if $speech_attitude is "meek">>
 	"하-하지만... 네 아기잖아!" 당신은 반박한다. "네가 돌봐야지!"
 <<elseif $speech_attitude is "bratty">>
-	"엿이나 먹어," 당신은 <<him>>에게 말한다. "이제 엄마가 되는 법을 배울 때가 된 것 같네, 행운을 빌어."
+	"엿이나 먹어." 당신은 <<him>>에게 말한다. "이제 엄마가 되는 법을 배울 때가 된 것 같네, 행운을 빌어."
 <<else>>
-	"저기, 정말 미안하게 생각해," 당신은 설명한다. "내 실수였지만, 지금은 도와줄 수가 없어."
+	"저기, 정말 미안하게 생각해." 당신은 설명한다. "내 실수였지만, 지금은 도와줄 수가 없어."
 <</if>>
 <br><br>
 
@@ -2204,7 +2204,7 @@
 "제발 안돼!" 당신은 애원한다. "전... 전 고아예요! 우리 보호자는 많은 돈을 내게 해요. <<nnpc_He "Bailey">>【은는】 정말 무서워서 하루를 버티려면 단 한 푼도 쓸 수가 없어요. 제발 이해해주세요!" 당신의 목소리가 떨리고 두려움에 차기 시작한다.
 <br><br>
 
-<<person1>><<person>>【은는】 걱정스럽게 당신을 쳐다보고, <<his>> 분노는 슬픔으로 바뀌기 시작한다. "그냥... 그냥 가," <<he>>【이가】 중얼거린다. "역겨워..." <<he>>【이가】 말하며 눈에 눈물이 고이기 시작한다. <<He>>【은는】 당신을 뒤로 밀치고 아무 말 없이 떠난다.
+<<person1>><<person>>【은는】 걱정스럽게 당신을 쳐다보고, <<his>> 분노는 슬픔으로 바뀌기 시작한다. "그냥... 그냥 가." <<he>>【이가】 중얼거린다. "역겨워..." <<he>>【이가】 말하며 눈에 눈물이 고이기 시작한다. <<He>>【은는】 당신을 뒤로 밀치고 아무 말 없이 떠난다.
 <br><br>
 
 <<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -2309,7 +2309,7 @@
 	<<if $speech_attitude is "meek">>
 		<<if $physique gte ($physiquesize / 7) * 5>>
 			<<addinlineevent "meek_intimidate">>
-				"ㅈ-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
+				"제-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
 				<br><br>
 				<<person1>><<person>>【이가】 당신을 쏘아보더니, 당신의 체격과 선명한 근육을 훑어본다. "어, 알았어." <<he>>【은는】 당신의 체격에 위축되었지만, 온순한 태도에 혼란스러워하며 말한다. "미... 미안?"
 				<br><br>
@@ -2324,13 +2324,13 @@
 				<<set _oops to either(500,500,500,500,1000,1000,1000,2000,2000)>>
 				<<he>>【이가】 지나갈 때, 당신은 몰래 <<his>> <<print _mineKr>>【을를】 훔친다. 당신은 다른 학생들 근처로 이동하여, <<him>>【와과】 거리를 좀 둔 뒤 목소리를 높인다.
 				<br><br>
-				"ㅈ-저기요." 당신이 소리친다. "저기요! 이거 떨어뜨리신 것 같아요." 당신은 <<person>>에게 <<print _mineKr>>【을를】 보여주고, <<he>>【은는】 재빨리 <<his>> 주머니를 확인한 후 얼굴을 찌푸리며 돌아선다. 당신은 움직이지 않고, <<him>>【이가】 당신에게 다시 걸어오도록 만든다.
+				"저-저기요." 당신이 소리친다. "저기요! 이거 떨어뜨리신 것 같아요." 당신은 <<person>>에게 <<print _mineKr>>【을를】 보여주고, <<he>>【은는】 재빨리 <<his>> 주머니를 확인한 후 얼굴을 찌푸리며 돌아선다. 당신은 움직이지 않고, <<him>>【이가】 당신에게 다시 걸어오도록 만든다.
 				<br><br>
 				"떨어지는 걸 봤어요." 당신은 <<print _mineKr>>【을를】 손안에서 뒤집으며 아직 돌려주지 않은 채 거짓말한다. "조심하셔야죠. 하지만 보세요! 운이 좋으시네요, 괜찮은 것 같아요."
 				<br><br>
 				"고마워." <<he>>【이가】 <<his>> 손을 내밀며 말한다. "돌려줄래?"
 				<br><br>
-				"망가졌을 줄 알았는데." 당신은 말한다. 멀리서 <<person2>><<person>>【이가】 모퉁이를 돌아 시야에서 사라지는 것이 보인다. 당신은 <<print _mineKr>>【을를】 내민다. "ㅇ-이번엔 제대로 챙기세요, 알았죠?"
+				"망가졌을 줄 알았는데," 당신은 말한다. 멀리서 <<person2>><<person>>【이가】 모퉁이를 돌아 시야에서 사라지는 것이 보인다. 당신은 <<print _mineKr>>【을를】 내민다. "이-이번엔 제대로 챙기세요, 알았죠?"
 				<br><br>
 				"그래, 물론이지. 고마워." <<person1>><<person>>【은는】 그것을 되찾아간 뒤, 돌아서서 <<person2>><<person>>【이가】 도망쳤다는 것을 깨닫는다. <<person1>><<He>>【은는】 잠시 멍한 표정을 짓다가, 결국 얼굴을 찌푸리고는 왔던 길로 되돌아간다.
 				<br><br>
@@ -2354,11 +2354,11 @@
 			<<addinlineevent "meek_trip">>
 				<<he>>【이가】 당신을 지나갈 때, 당신은 몰래 <<him>>의 발을 걸고 한 번에 <<his>> 가방 지퍼를 확 열어젖힌다. <<him>>【은는】 허우적거리며 바닥에 넘어지고 <<his>> 소지품이 사방에 흩어진다. 근처에 있던 학생이 웃는다.
 				<br><br>
-				"어머나, ㅈ-정말 죄송해요!" 당신은 더 많은 관심을 끌기 위해 큰 소리로 말한다. "ㅈ-제가 다 줍는 거 도와드릴게요. 가방이 왜 활짝 열려 있었어요? 물건이 사방에 다 흩어졌잖아요!"
+				"어머나, 저-정말 죄송해요!" 당신은 더 많은 관심을 끌기 위해 큰 소리로 말한다. "제-제가 다 줍는 거 도와드릴게요. 가방이 왜 활짝 열려 있었어요? 물건이 사방에 다 흩어졌잖아요!"
 				<br><br>
 				<<He>>【은는】 당신을 의심하면서도 확신이 없고, 무엇보다 점점 늘어나는 구경꾼들 앞에서 당황하며 얼굴을 찌푸린다. <<He>>【은는】 당신이 물건을 줍는 것을 돕기 시작해도 반대하지 않는다.
 				<br><br>
-				"ㅈ-잠깐만요." 당신은 무언가를 들어 올리며 모두가 들을 수 있을 만큼 큰 소리로 말한다. <<if $NPCList[0].penis isnot "none">>"이거 오나홀 아니에요?!"<<else>>"이거 임신 테스트기 아니에요?!"<</if>>
+				"자-잠깐만요." 당신은 무언가를 들어 올리며 모두가 들을 수 있을 만큼 큰 소리로 말한다. <<if $NPCList[0].penis isnot "none">>"이거 오나홀 아니에요?!"<<else>>"이거 임신 테스트기 아니에요?!"<</if>>
 				<br><br>
 				"뭐?! 아니야!" <<he>>【은는】 <<his>> 얼굴이 새빨개지며 말한다. "<<if $NPCList[0].penis isnot "none">>손전등이야! 그냥 손전등이라고!<<else>>계산기야! 말 그대로 계산기라고!<</if>>"
 				<br><br>
@@ -2369,7 +2369,7 @@
 		<<if $cool gte 240>>
 			<<addinlineevent "meek_popular">>
 				<<generates3>>
-				"ㅈ-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "나쁜 행동이잖아요."
+				"제-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "나쁜 행동이잖아요."
 				<br><br>
 				<<person1>><<person>>【이가】 당신을 노려보며 당신의 <<top>>【을를】 움켜쥔다. "그래? 그럼 네 빌어먹을 일에나 신경—"
 				<br><br>
@@ -2381,7 +2381,7 @@
 
 		<<if $delinquency lt 400>>
 			<<addinlineevent "meek_scream">>
-				"ㅈ-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
+				"제-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
 				<br><br>
 				<<person1>><<person>>【이가】 당신을 쏘아보며 당신의 <<top>>【을를】 잡는다. "그래? 그럼 네 일이나 신경 쓰시—"
 				<br><br>
@@ -2393,7 +2393,7 @@
 
 		<<if _eventpool.length lte 0>>
 			<<addinlineevent "meek_default">>
-				"ㅈ-제발 그만해요. 옳지 않아요." 당신은 <<him>>【와과】 <<his>> 희생자 사이에 끼어들며 말한다.
+				"제-제발 그만해요. 옳지 않아요." 당신은 <<him>>【와과】 <<his>> 희생자 사이에 끼어들며 말한다.
 				<br><br>
 				<<He>>【은는】 당신을 위아래로 훑어보더니 당신에게 달려든다.
 				<<if $physique gte ($physiquesize / 7) * 3>>
@@ -2411,7 +2411,7 @@
 		<br><br>
 		<<if $physique gte ($physiquesize / 7) * 5>>
 			<<addinlineevent "brat_intimidate">>
-				<<person1>><<person>>【이가】 당신을 위아래로 훑어본다. "ㅈ-죄송합니다. 그럴 의도는 아니었어요." <<His>> 눈이 당신을 피한다. "죄송합니다." <<He>>【은는】 돌아서서 다른 방향으로 서둘러 가버린다. 당신의 태도와 체격에 분명히 위협을 느낀 것이다. <<gcool>><<status 1>>
+				<<person1>><<person>>【이가】 당신을 위아래로 훑어본다. "죄-죄송합니다. 그럴 의도는 아니었어요." <<His>> 눈이 당신을 피한다. "죄송합니다." <<He>>【은는】 돌아서서 다른 방향으로 서둘러 가버린다. 당신의 태도와 체격에 분명히 위협을 느낀 것이다. <<gcool>><<status 1>>
 			<</addinlineevent>>
 		<</if>>
 
@@ -2470,7 +2470,7 @@
 
 		<<if $delinquency gte 600>>
 			<<addinlineevent "default_delinquent">>
-				"ㄱ-그래." <<person1>><<person>>【이가】 <<his>> 손을 들어 올린다. "<<person2>><<he>>【이가】 네 친구인 줄 몰랐어." <<person1>><<person>>【은는】 학교에서의 당신의 평판에 분명히 위협을 느끼고 물러선다.<<gcool>><<status 1>>
+				"그-그래." <<person1>><<person>>【이가】 <<his>> 손을 들어 올린다. "<<person2>><<he>>【이가】 네 친구인 줄 몰랐어." <<person1>><<person>>【은는】 학교에서의 당신의 평판에 분명히 위협을 느끼고 물러선다.<<gcool>><<status 1>>
 			<</addinlineevent>>
 		<</if>>
 
@@ -2525,7 +2525,7 @@
 		/* Other speech results are called in the above if-statements. Meek is the only one that doesn't
 		always print a verbal confrontation, since meek PCs have the option(?) to use more elaborate methods*/
 		<<if $speech_attitude is "meek">>
-			"ㅈ-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
+			"제-제발 <<person2>><<him>>【을를】 좀 내버려 둬요." 당신은 말한다. "좋지 않은 행동이에요."
 			<br><br>
 		<</if>>
 		<<person1>><<person>>【이가】 당신을 위아래로 훑어본다. "그래, 좋아." <<he>>【이가】 뒤틀린 미소를 지으며 말한다. <<He>>【은는】 당신에게 달려들어 당신의 <<top>>【을를】 잡고 가까이 끌어당긴다. "네가 <<person2>><<his>> 자리를 대신하면 되겠네."
@@ -2890,7 +2890,7 @@
 	<<if $cool gte 240>>
 		<<person1>><<person>>【와과】 <<person2>><<person>>【은는】 초조하게 달래는 듯한 미소를 지으며 당신을 돌아본다.
 		<br><br>
-		"오, 와, 네 말이 완전 맞네! 우리가 헷갈렸나 봐, 응? 이런," <<person1>><<person>>【이가】 진심인 척도 하지 않고 말한다.
+		"오, 와, 네 말이 완전 맞네! 우리가 헷갈렸나 봐, 응? 이런." <<person1>><<person>>【이가】 진심인 척도 하지 않고 말한다.
 		<br><br>
 		그래도 <<person2>><<person>>【은는】 야한 잡지를 사물함에 다시 넣고, <<person1>><<person>>【은는】 문을 닫고 잠근다. <<He>>【은는】 당신에게 열쇠를 던져주고, 둘 다 즉시 자리를 뜬다.
 		<br><br>
@@ -3009,7 +3009,7 @@
 <<effects>>
 무리를 무시하고 복도를 계속 걸어간다.
 
-<<if dangerEvent()>>
+<<if dangerEvent() and !$worn.under_lower.type.includes("naked")>>
 	<span class="red">소용없다.</span> 잠시 후, 무리가 당신을 둘러싼다.
 	<br><br>
 	<<if $phase is 0>>
@@ -3102,7 +3102,7 @@
 <<elseif $phase is 5>>
 	이런 일이 일어나게 둘 수는 없다. 당신은 아이들이 무슨 짓을 하기 전에, 또래들과 고아 <<person3>><<personsimple>> 사이에 끼어든다.
 	<<if $speech_attitude is "meek">>
-		"안 돼, ㅎ-하지 마! 그냥 <<him>>【을를】 내버려 둘 수도 있잖아." 당신이 말한다.
+		"안 돼, 하-하지 마! 그냥 <<him>>【을를】 내버려 둘 수도 있잖아." 당신이 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"너희들 대체 뭐가 문제야?" 당신은 허리에 손을 얹고 말한다. "그냥 <<him>>【을를】 내버려 둬."
 	<<else>>

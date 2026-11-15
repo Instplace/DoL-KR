@@ -44,7 +44,7 @@
 		<</if>>
 		<<if $lactating is 1 and _topless>>
 			<<addinlineevent "schoolChangingRoomBoysComment">>
-				"야," 그들 중 한 명이 말한다. "네 젖꼭지에서 나오는 거 우유냐?" 그는 병적으로 매료된 듯한 목소리다.
+				"야." 그들 중 한 명이 말한다. "네 젖꼭지에서 나오는 거 우유냐?" 그는 병적으로 매료된 듯한 목소리다.
 			<</addinlineevent>>
 		<</if>>
 	<</if>>
@@ -109,11 +109,11 @@
 		<<if playerBellyVisible()>>
 			<br><br>
 			몇몇 <<if $changingRoomGender is "boys">>남학생<<else>>여학생<</if>>【이가】 당신을 불편하게 쳐다본다. 대부분 당신의 <<print playerAwareTheyArePregnant() ? "임신한 배" : "임신한 것처럼 보이는 배">>【을를】 본다. 그들은 당신을 여자라고 생각하는 것이 분명하다. <<gstress>>
-		<<elseif $player.penisExist and $player.vaginaExist>>
+		<<elseif $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
 			<br><br>
 			<<generatesm1>><<person1>>
 			<<switch $schoolrep.herm>>
-				<<case 0>> 당신이 후타나리라는 사실을 모르는지, 아무도 당신을 두 번 쳐다보지 않는다.
+				<<case 0>> 당신의 독특한 성기를 모르는지, 아무도 당신을 두 번 쳐다보지 않는다.
 				<<case 1>> 한 <<person>>【이가】 당신의 가랑이를 힐끗 본다. <<He>>【이가】 <<his>> 친구에게 무언가 속삭이자, 친구는 <<print either("믿기지 않는다는 듯 고개를 젓는다", "회의적으로 고개를 젓는다", "의심스럽게 고개를 젓는다", "고개를 저으며 <<his>> 눈을 굴린다", "고개를 저으며 웃는다")>>. <span class="purple">당신의 성기에 대한 소문이 퍼지기 시작했다.</span>
 				<<case 2>> 한 <<person>>【이가】 당신의 가랑이를 힐끗 본다. <<He>>【이가】 <<his>> 친구에게 무언가 속삭이자, 친구는 <<print either("믿기지 않는다는 듯 고개를 젓는다", "설득된 듯 보인다", "생각에 잠겨 고개를 끄덕인다", "당신을 경계하며 쳐다본다", "킥킥거린다")>>. <span class="purple">당신의 성기에 대한 소문이 퍼지기 시작했다.</span>
 				<<case 3>> 몇몇이 당신의 가랑이를 힐끗 본다. 몇몇은 <<print either("당신을 가리키며 친구들에게 속삭인다", "무례한 손짓을 한다", "불편할 정도로 오랫동안 쳐다본다", "무언가 말하려는 듯 보이지만 조용히 있는다", "바지 속에 뭐가 들었는지 무례한 질문을 한다")>>. <span class="pink">그들은 소문을 들었다.</span>
@@ -121,7 +121,7 @@
 				<<case 5>> 많은 이들이 당신의 가랑이를 힐끗 보며, 노골적으로 속삭이고 당신을 가리킨다. 당신이 사물함으로 가는 길에 그들을 지나치자 몇몇은 <<print either("비꼬는 말을 한다", "웃는다", "야유한다", "당신을 조롱한다", "희롱한다")>>. <span class="red">그들은 소문을 들었고, 당신은 다른 모두도 들었을 것이라 의심한다.</span>
 			<</switch>>
 			<<endevent>>
-		<<elseif isCrossdressing()>>
+		<<elseif isCrossdressing() and $settings.nudeGenderPerception !== 0>>
 			<<if $schoolrep.crossdress gte 3>>
 				<br><br>
 				몇몇 <<if $changingRoomGender is "boys">>남학생<<else>>여학생<</if>>【이가】 당신을 불편하게 쳐다본다. 몇몇은 당신이 사물함으로 향하는 동안 계속해서 시선을 고정한다. <span class="pink">그들은 당신이 여장한다는 소문이 사실이라고 <<= $schoolrep.crossdress gte 5 ? "믿고" : "의심하고">> 있다.</span> <<gstress>>
@@ -304,11 +304,11 @@
 				<</if>>
 				당신의 지난 임신에 대한 온갖 소문 때문에.
 			<</if>>
-		<<elseif $player.penisExist and $player.vaginaExist>>
+		<<elseif $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
 			<br><br>
 			<<generatesf1>><<person1>>
 			<<switch $schoolrep.herm>>
-				<<case 0>> 아무도 당신의 양성구유에 대해 알지 못해 쳐다보지 않는다.
+				<<case 0>> 당신의 독특한 성기를 모르는지, 아무도 당신을 두 번 쳐다보지 않는다.
 				<<case 1>> 한 <<person>>【이가】 당신의 가랑이를 힐끗 본다. <<He>>【이가】 친구에게 무언가 속삭이자, 친구는<<print either (", 믿기지 않는다는 듯", " 회의적으로", " 의심스럽다는 듯", " 그리고 눈을 굴리며", " 그리고 웃으며")>> <<his>> 고개를 젓는다. <span class="purple">당신의 성기에 대한 소문이 퍼지기 시작했다.</span>
 				<<case 2>> 한 <<person>>【이가】 당신의 가랑이를 힐끗 본다. <<He>>【이가】 <<his>> 친구에게 무언가 속삭이자, 친구는 <<print either ("믿기지 않는다는 듯 고개를 젓는다", "수긍하는 듯 보인다", "생각에 잠겨 고개를 끄덕인다", "당신을 경계하며 쳐다본다", "킥킥거린다")>>. <span class="purple">당신의 성기에 대한 소문이 퍼지기 시작했다.</span>
 				<<case 3>> 몇몇이 당신의 가랑이를 힐끗 본다. 몇몇은 <<print either("당신을 가리키며 친구들에게 속삭인다", "무례한 손짓을 한다", "불편할 정도로 오랫동안 쳐다본다", "무언가 말하려는 듯 보이지만 입을 다문다", "바지 속에 뭐가 들었는지 무례한 질문을 던진다")>>. <span class="pink">그들은 소문을 들었다.</span>
@@ -316,7 +316,7 @@
 				<<case 5>> 많은 이들이 당신의 가랑이를 힐끗 보며, 노골적으로 속삭이고 당신을 가리킨다. 사물함으로 가는 길에 그들을 지나치자 몇몇은 <<print either("비꼬는 말을 던진다", "웃는다", "야유한다", "당신을 조롱한다", "희롱한다")>>. <span class="red">그들은 소문을 들었고, 다른 모든 이들도 들었을 거라는 생각이 든다.</span>
 			<</switch>>
 			<<endevent>>
-		<<elseif isCrossdressing()>>
+		<<elseif isCrossdressing() and $settings.nudeGenderPerception !== 0>>
 			<<if $schoolrep.crossdress gte 3 and $settings.forcedCrossdressingEnabled and $whitneyCrossdressSwimwear gte 1>>
 				<br><br>
 				몇몇 <<if $changingRoomGender is "boys">>남학생<<else>>여학생<</if>>들이 당신을 보고 낄낄거린다. <span class="red">그들은 당신이 억지로 이곳에서 옷을 갈아입고 있다는 것을 분명히 알고 있다.</span> <<gstress>>
@@ -455,7 +455,7 @@
 <br><br>
 몸집 작은 남자아이는 잠시 말을 더듬는다. 모든 시선이 그에게 쏠린다. 그가 수영복 위에 치마를 입자 당신은 킥킥거리는 웃음을 참는다. 남자아이 중 한 명이 그를 격려하고, 이어서 다른 아이도 합세한다. 방 안의 긴장감이 누그러진다.
 <br><br>
-"야, 너 그거 꽤 잘 어울리는데." 엉덩이를 찰싹 때리는 소리에 그의 얼굴이 더욱 붉어진다. 그는 문 쪽으로 밀쳐진다. "너, 너희들은 어쩔 건데?"
+"야, 너 그거 꽤 잘 어울리는데." 엉덩이를 찰싹 때리는 소리에 그의 얼굴이 더욱 붉어진다. 그는 문 쪽으로 밀쳐진다. "너-너희들은 어쩔 건데?"
 <br>
 "네가 망을 봐야지. 아무도 못 들어오게."
 <br><br>
@@ -600,9 +600,9 @@
 	<<if C.npc.Mason.pronoun is C.npc.Leighton.pronoun and (maleChance(C.npc.Mason.pronoun) is (C.npc.Mason.pronoun is "m" ? 0 : 100))>>
 		"학생이 지나갔습니까?" 메이슨이 묻는다.
 		<br>
-		"아니요," 레이튼이 대답한다. "바닥을 적시고 있군요."
+		"아니요." 레이튼이 대답한다. "바닥을 적시고 있군요."
 		<br>
-		"죄, 죄송합니다." 메이슨은 서둘러 수영장으로 돌아간다.
+		"죄-죄송합니다." 메이슨은 서둘러 수영장으로 돌아간다.
 		<br><br>
 	<<else>>
 		"학생이—" 메이슨이 말을 시작한다. <<He>>【은는】 레이튼의 음흉한 시선을 따라가 <<his>>
@@ -625,7 +625,7 @@
 	당신은 사물함에서 뛰쳐나와 출구로 질주한다. "멈춰!" 메이슨이 쫓아오는 소리가 들린다. <span class="red"><<He>>【은는】 빠르다,</span> 젖은 맨발임에도 불구하고, <span class="red">출구 앞에서 당신의 길을 막는다.</span>
 	<br><br>
 
-	당신은 <<him>>에게 달려들지만, <<he>>【은는】 탄탄한 팔로 당신을 붙잡는다. "잡았다," <<he>>【이가】 헐떡인다. "전설의 속옷 도둑이군. 뭐라고 변명할 거지?"<<ggdelinquency>><<detention 6>>
+	당신은 <<him>>에게 달려들지만, <<he>>【은는】 탄탄한 팔로 당신을 붙잡는다. "잡았다." <<he>>【이가】 헐떡인다. "전설의 속옷 도둑이군. 뭐라고 변명할 거지?"<<ggdelinquency>><<detention 6>>
 	<br><br>
 
 	<<if $exposed gte 1>>
@@ -645,30 +645,30 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송합니다," 당신이 말한다. "이제부터는 착하게 지낼게요."
+	"죄-죄송합니다." 당신이 말한다. "이제부터는 착하게 지낼게요."
 <<elseif $speech_attitude is "bratty">>
-	"잡혔네요," 당신이 말한다. "다시는 나쁜 짓 안 할게요."
+	"잡혔네요." 당신이 말한다. "다시는 나쁜 짓 안 할게요."
 <<else>>
-	"죄송해요," 당신이 말한다. "다시는 훔치지 않을게요."
+	"죄송해요." 당신이 말한다. "다시는 훔치지 않을게요."
 <</if>>
 <br><br>
 
-"교장 선생님께 말씀드려야겠어," 메이슨이 대답한다.
+"교장 선생님께 말씀드려야겠어." 메이슨이 대답한다.
 
 <<if $exposed gte 1>>
 	<<if $genderknown.includes("Mason")>>
 		<<if $player.sex is "m" and $changingRoomGender is "girls">>
-			"남, 남자 탈의실로 돌아가서 옷 입어."
+			"남-남자 탈의실로 돌아가서 옷 입어."
 		<<elseif $player.sex is "f" and $changingRoomGender is "boys">>
-			"여, 여자 탈의실로 돌아가서 옷 입어."
+			"여-여자 탈의실로 돌아가서 옷 입어."
 		<<else>>
 			"오, 옷 입어."
 		<</if>>
 	<<else>>
 		<<if $player.gender_appearance is "m" and $changingRoomGender is "girls">>
-			"남, 남자 탈의실로 돌아가서 옷 입어."
+			"남-남자 탈의실로 돌아가서 옷 입어."
 		<<elseif $player.gender_appearance is "f" and $changingRoomGender is "boys">>
-			"여, 여자 탈의실로 돌아가서 옷 입어."
+			"여-여자 탈의실로 돌아가서 옷 입어."
 		<<else>>
 			"오, 옷 입어."
 		<</if>>
@@ -702,9 +702,9 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아, 아무것도 안 훔쳤어요," 당신이 애원한다. "정, 정말이에요."
+	"아-아무것도 안 훔쳤어요." 당신이 애원한다. "정-정말이에요."
 <<elseif $speech_attitude is "bratty">>
-	"증거 없잖아요," 당신이 말한다.
+	"증거 없잖아요." 당신이 말한다.
 <<else>>
 	"제가 도둑인 줄 어떻게 아세요?" 당신이 말한다.
 <</if>>
@@ -713,19 +713,19 @@
 <<if $exposed gte 1>>
 	<<if $genderknown.includes("Mason")>>
 		<<if $player.sex is "m" and $changingRoomGender is "girls">>
-			"애, 애초에 여자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
+			"애-애초에 여자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
 		<<elseif $player.sex is "f" and $changingRoomGender is "boys">>
-			"애, 애초에 남자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
+			"애-애초에 남자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
 		<<else>>
-			"교, 교장 선생님께 말씀드려야겠어," <<he>>【이가】 대답한다. "옷이나 입어."
+			"교, 교장 선생님께 말씀드려야겠어." <<he>>【이가】 대답한다. "옷이나 입어."
 		<</if>>
 	<<else>>
 		<<if $player.gender_appearance is "m" and $changingRoomGender is "girls">>
-			"애, 애초에 여자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
+			"애-애초에 여자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
 		<<elseif $player.gender_appearance is "f" and $changingRoomGender is "boys">>
-			"애, 애초에 남자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
+			"애-애초에 남자 탈의실에 있으면 안 되지, 그런 옷차림은 더더욱 안 되고. 가서 옷 갈아입어."
 		<<else>>
-			"교, 교장 선생님께 말씀드려야겠어," <<he>>【이가】 대답한다. "옷이나 입어."
+			"교, 교장 선생님께 말씀드려야겠어." <<he>>【이가】 대답한다. "옷이나 입어."
 		<</if>>
 	<</if>>
 <<else>>
@@ -735,7 +735,7 @@
 		<<elseif $player.sex is "f" and $changingRoomGender is "boys">>
 			"애초에 남자 탈의실에 있으면 안 되지."
 		<<else>>
-			"교장 선생님께 말씀드려야겠어," <<he>>【이가】 대답한다. "<<nnpc_he Leighton>> 선생님이 너그럽게 봐주셨으면 좋겠네."
+			"교장 선생님께 말씀드려야겠어." <<he>>【이가】 대답한다. "<<nnpc_he Leighton>> 선생님이 너그럽게 봐주셨으면 좋겠네."
 		<</if>>
 	<<else>>
 		<<if $player.gender_appearance is "m" and $changingRoomGender is "girls">>
@@ -743,7 +743,7 @@
 		<<elseif $player.gender_appearance is "f" and $changingRoomGender is "boys">>
 			"다시는 남자 탈의실에서 만나지 말자."
 		<<else>>
-			"교장 선생님께 말씀드려야겠어," <<he>>【이가】 대답한다. "<<nnpc_he Leighton>> 선생님이 너그럽게 봐주셨으면 좋겠네."
+			"교장 선생님께 말씀드려야겠어." <<he>>【이가】 대답한다. "<<nnpc_he Leighton>> 선생님이 너그럽게 봐주셨으면 좋겠네."
 		<</if>>
 	<</if>>
 <</if>>
@@ -766,22 +766,22 @@
 <</if>>
 <br><br>
 
-"교장 선생님께 말씀드려야겠어," 메이슨이 말한다.
+"교장 선생님께 말씀드려야겠어." 메이슨이 말한다.
 
 <<if $exposed gte 1>>
 	<<if $genderknown.includes("Mason")>>
 		<<if $player.gender_appearance is "m" and $changingRoomGender is "girls">>
-			"남, 남자 탈의실로 돌아가서 옷 입어."
+			"남-남자 탈의실로 돌아가서 옷 입어."
 		<<elseif $player.gender_appearance is "f" and $changingRoomGender is "boys">>
-			"여, 여자 탈의실로 돌아가서 옷 입어."
+			"여-여자 탈의실로 돌아가서 옷 입어."
 		<<else>>
 			"오, 옷 입어."
 		<</if>>
 	<<else>>
 		<<if $player.gender_appearance is "m" and $changingRoomGender is "girls">>
-			"남, 남자 탈의실로 돌아가서 옷 입어."
+			"남-남자 탈의실로 돌아가서 옷 입어."
 		<<elseif $player.gender_appearance is "f" and $changingRoomGender is "boys">>
-			"여, 여자 탈의실로 돌아가서 옷 입어."
+			"여-여자 탈의실로 돌아가서 옷 입어."
 		<<else>>
 			"오, 옷 입어."
 		<</if>>
@@ -814,7 +814,7 @@
 :: School Pool Locker Ambush
 <<effects>>
 
-메이슨이 당신의 사물함을 활짝 열지만, 당신은 준비되어 있었다. "아하," <<he>>【이가】 말한다. "잡았—" 당신은 <<his>> 어깨를 잡고 당신 쪽으로 끌어당긴다. 문이 <<him>> 뒤에서 닫힌다.
+메이슨이 당신의 사물함을 활짝 열지만, 당신은 준비되어 있었다. "아하." <<he>>【이가】 말한다. "잡았—" 당신은 <<his>> 어깨를 잡고 당신 쪽으로 끌어당긴다. 문이 <<him>> 뒤에서 닫힌다.
 <<promiscuity2>>
 
 몸이 꽉 낀다.
@@ -898,7 +898,7 @@
 :: School Pool Locker End
 <<effects>>
 
-"이, 이건 용납할 수 없는 행동이야," <<he>>【이가】 얼굴을 붉히며 말한다. "훔치는 것만으로도 충분히 나빠."
+"이-이건 용납할 수 없는 행동이야." <<he>>【이가】 얼굴을 붉히며 말한다. "훔치는 것만으로도 충분히 나빠."
 <br><br>
 <<if $exposed gte 1>>
 	<<covered>> <<He>>【은는】 당신의 옷차림을 알아차린다. <<He>>【은는】 시선을 피하며 얼굴을 더 붉힌다.<<glust>><<npcincr Mason lust 5>>
@@ -915,7 +915,7 @@
 :: School Pool Locker Go
 <<effects>>
 
-당신은 메이슨 뒤에서 사물함 밖으로 나온다. "이, 이건 용납할 수 없는 행동이야," <<he>>【이가】 얼굴을 붉히며 말한다. "훔치는 것만으로도 충분히 나빠."
+당신은 메이슨 뒤에서 사물함 밖으로 나온다. "이-이건 용납할 수 없는 행동이야." <<he>>【이가】 얼굴을 붉히며 말한다. "훔치는 것만으로도 충분히 나빠."
 <br><br>
 <<if $exposed gte 1>>
 	<<covered>> <<He>>【은는】 당신의 옷차림을 알아차린다. <<He>>【은는】 시선을 피하며 얼굴을 더 붉힌다.<<glust>><<npcincr Mason lust 5>>
@@ -943,7 +943,7 @@
 <</if>>
 <br><br>
 
-"그, 그런 거 아니야," <<he>>【이가】 문고리를 더듬으며 말한다. <span class="pink">발소리가 들린다.</span> 메이슨이 얼어붙는다.
+"그-그런 거 아니야." <<he>>【이가】 문고리를 더듬으며 말한다. <span class="pink">발소리가 들린다.</span> 메이슨이 얼어붙는다.
 <br><br>
 
 <<link [[다음|School Pool Locker Penis 2]]>><</link>>
@@ -960,11 +960,11 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"<<he>>【이가】 당신이 학생을 성추행하는 걸 보면 뭐라고 생각할까?" 당신이 속삭인다. 그 <<person>>【은는】 당신의 사물함을 흘끗 보더니 옷을 계속 벗는다. "저, 저는 착하게 있을게요."
+	"<<he>>【이가】 당신이 학생을 성추행하는 걸 보면 뭐라고 생각할까?" 당신이 속삭인다. 그 <<person>>【은는】 당신의 사물함을 흘끗 보더니 옷을 계속 벗는다. "저-저는 착하게 있을게요."
 <<elseif $speech_attitude is "bratty">>
-	"착한 <<nnpc_gendery "Mason">>처럼 조용히 있는 게 좋을 거야," 당신이 속삭인다.
+	"착한 <<nnpc_gendery "Mason">>처럼 조용히 있는 게 좋을 거야." 당신이 속삭인다.
 <<else>>
-	"들키면 우리 둘 다 곤란해질 거예요," 당신이 속삭인다.
+	"들키면 우리 둘 다 곤란해질 거예요." 당신이 속삭인다.
 <</if>>
 
 <<if $swimall isnot 1 or (Time.hour lt 14 and $swimall is 1)>>
@@ -1008,14 +1008,14 @@
 		"<<if _unknownHerm>>제게 보지가 있는 거 아셨어요? <<if _isVirgin>>아직 써본 적도 없는데. 제 첫 상대가 되어주실래요?<</if>> <</if>>그러면 좋겠어요?
 		학생의 _virgin 자궁을 더럽히도록 강요당하는 거요<<if $NPCList[0].penissize gte 3>>, 선생님의 _huge 자지로<</if>>?"
 	<<else>>
-		"몸이 달아오르잖아요," 당신은 <<his>> 자지를 보지 쪽으로 향하며 말한다.
+		"몸이 달아오르잖아요." 당신은 <<his>> 자지를 보지 쪽으로 향하며 말한다.
 		<<if _visibleBalls>>당신은 불알을 들어 올려 메이슨에게 보지를 노출한다.<</if>>
 		"<<if _unknownHerm>>제게 보지가 있는 거 아셨어요? <<if _isVirgin>>아직 써본 적도 없는데. 제 첫 상대가 되어주실래요?<</if>> <</if>>언제든 제 엉덩이를 잡고
 		선생님의 _huge 자지를 제 _virgin 보지에 쑤셔 넣을 수 있다는 생각만으로도 <<print ($player.penisExist ? "엄청 발기돼요" : "미칠 것 같아요")>>."
 	<</if>>
 	<<if $exposed gte 2>>
 		<br><br>
-		"보세요," 당신은 <<his>> 자지 귀두를 보지에 대고 입술로 문지르며 말한다. 당신은 보지를 벌리고 입구에 <<his>> 자지를 갖다 댄다.
+		"보세요." 당신은 <<his>> 자지 귀두를 보지에 대고 입술로 문지르며 말한다. 당신은 보지를 벌리고 입구에 <<his>> 자지를 갖다 댄다.
 		<<print either(
 			`"지금 싸면, 바로 내 보지 안으로 들어갈 거야. 먼저 물어볼 필요도 없어."`,
 			`<<His>> 쿠퍼액이 <<his>> 끝에서 흘러나와 당신의 보지 안으로 떨어진다. "내 보지가 네 쿠퍼액을 어떻게 먹는지 봐. 더 줄 수는 없어?"`,
@@ -1055,7 +1055,7 @@
 <</if>>
 <br><br>
 
-"그, 그런 거 아니야," <<he>>【이가】 문고리를 더듬으며 말한다. <span class="pink">발소리가 들린다.</span> 메이슨이 얼어붙는다.
+"그-그런 거 아니야." <<he>>【이가】 문고리를 더듬으며 말한다. <span class="pink">발소리가 들린다.</span> 메이슨이 얼어붙는다.
 <br><br>
 
 <<link [[다음|School Pool Locker Pussy 2]]>><</link>>
@@ -1071,11 +1071,11 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"<<he>>【이가】 당신이 학생을 성추행하는 걸 보면 뭐라고 생각할까?" 당신이 속삭인다. 그 <<person>>【은는】 당신의 사물함을 흘끗 보더니 옷을 계속 벗는다. "저, 저는 착하게 있을게요."
+	"<<he>>【이가】 당신이 학생을 성추행하는 걸 보면 뭐라고 생각할까?" 당신이 속삭인다. 그 <<person>>【은는】 당신의 사물함을 흘끗 보더니 옷을 계속 벗는다. "저-저는 착하게 있을게요."
 <<elseif $speech_attitude is "bratty">>
-	"착한 <<nnpc_gendery "Mason">>처럼 조용히 있는 게 좋을 거야," 당신이 속삭인다.
+	"착한 <<nnpc_gendery "Mason">>처럼 조용히 있는 게 좋을 거야." 당신이 속삭인다.
 <<else>>
-	"들키면 우리 둘 다 곤란해질 거예요," 당신이 속삭인다.
+	"들키면 우리 둘 다 곤란해질 거예요." 당신이 속삭인다.
 <</if>>
 
 <<if $swimall isnot 1 or (Time.hour lt 14 and $swimall is 1)>>
@@ -1109,7 +1109,7 @@
 	<<elseif $speech_attitude is "bratty">>
 		"기분 어때요?" 당신이 말한다. "아니면 제대로 박히고 싶어요?"
 	<<else>>
-		"선생님 때문에 몸이 달아오르잖아요," 당신이 말한다. "언제든 제 자지를 받아들일 수 있다는 생각만으로도 미칠 것 같아요."
+		"선생님 때문에 몸이 달아오르잖아요." 당신이 말한다. "언제든 제 자지를 받아들일 수 있다는 생각만으로도 미칠 것 같아요."
 	<</if>>
 	<br><br>
 
@@ -1162,14 +1162,14 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"얌전한 <<girl>>【이가】 될게요," 당신이 말한다. "선생님이 얼마나 음란한지 아무에게도 말 안 할게요."
+	"얌전한 <<girl>>【이가】 될게요." 당신이 말한다. "선생님이 얼마나 음란한지 아무에게도 말 안 할게요."
 <<elseif $speech_attitude is "bratty">>
-	"이건 비밀로 하는 게 좋을 거예요," 당신이 말한다. "학교에 선생님이 얼마나 변태인지 알려지는 건 원치 않으실 테니까요."
+	"이건 비밀로 하는 게 좋을 거예요." 당신이 말한다. "학교에 선생님이 얼마나 변태인지 알려지는 건 원치 않으실 테니까요."
 <<else>>
-	"이건 우리끼리만 아는 걸로 하죠," 당신이 말한다. "제 도둑질도 포함해서요."
+	"이건 우리끼리만 아는 걸로 하죠." 당신이 말한다. "제 도둑질도 포함해서요."
 <</if>>
 <br><br>
-메이슨은 차마 당신의 시선을 마주하지 못한다. "넌 끔찍해," <<he>>【이가】 말한다. <<He>>【의】 목소리는 갈등으로 가득 차 있다. "경고만 하고 넘어가 주지." <<He>>【은는】<<if $swimall isnot 1 or (Time.hour lt 14 and $swimall is 1)>> <<his>> 수영복을 고쳐 입고 <</if>>수업으로 돌아간다.
+메이슨은 차마 당신의 시선을 마주하지 못한다. "넌 끔찍해." <<he>>【이가】 말한다. <<He>>【의】 목소리는 갈등으로 가득 차 있다. "경고만 하고 넘어가 주지." <<He>>【은는】<<if $swimall isnot 1 or (Time.hour lt 14 and $swimall is 1)>> <<his>> 수영복을 고쳐 입고 <</if>>수업으로 돌아간다.
 <br><br>
 
 <<endevent>>

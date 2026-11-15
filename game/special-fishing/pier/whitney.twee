@@ -7,7 +7,7 @@
 
 당신이 도착했을 때 휘트니는 이미 부두에 와 있었고, <<nnpc_him "Whitney">> 곁에는 애플 사이다 상자가 뜯겨 있었다. <<nnpc_his "Whitney">> 친구 세 명은 난간을 따라 흩어져 손에 캔을 든 채 낚싯대를 드리우고 있었다.
 <<if $exposed gte 1>>
-	당신이 다가오자 <<nnpc_he "Whitney">>【이가】 힐끗 보더니 씩 웃는다. "야," <<nnpc_his "Whitney">> 친구들이 쳐다볼 정도로 큰 목소리로 <<nnpc_he "Whitney">>【이가】 말한다. "이거 봐라," <<nnpc_he "Whitney">>【이가】 당신 <<lewdness>> 쪽으로 턱짓하며 말한다.
+	당신이 다가오자 <<nnpc_he "Whitney">>【이가】 힐끗 보더니 씩 웃는다. "야." <<nnpc_his "Whitney">> 친구들이 쳐다볼 정도로 큰 목소리로 <<nnpc_he "Whitney">>【이가】 말한다. "이거 봐라." <<nnpc_he "Whitney">>【이가】 당신 <<lewdness>> 쪽으로 턱짓하며 말한다.
 	<<fameexhibitionism 5>>
 	<br><br>
 <<else>>
@@ -17,7 +17,7 @@
 <</if>>
 <br><br>
 
-<<fishingRodIcon>><<link [[낚시하기|Fishing Pier Wait]]>><</link>> */
+<<fishingRodIcon>><<link [[낚시한다|Fishing Pier Wait]]>><</link>> */
 
 :: Fishing Pier Whitney Arrive
 <<effects>>
@@ -119,7 +119,7 @@
 
 	휘트니가 당신을 빤히 바라본다. "지금 장난해?" 질문이 아니다. <<npcincr Whitney love -2>><<llove>>
 	<br><br>
-	
+
 	<<nnpc_He "Whitney">>【이가】 당신의 손에서 물고기를 빼앗아 들고는, 차가운 경멸이 담긴 눈으로 당신을 내려다본다. "이리 와."
 	<br><br>
 
@@ -186,10 +186,10 @@
 
 	"입 다물어." 휘트니가 귀찮다는 듯 손을 휘저으며, 친구 중 한 명을 향해 턱짓한다. "가서 해라."
 	<br><br>
-	
+
 	<<person2>><<person>>【이가】 벌써 당신에게 다가오고 있다.
 	<br><br>
-	
+
 	<<if hasSexStat("promiscuity", 3)>>
 		<<link [[마지못해 응한다|Fishing Whitney Pier Friend Won Sex]]>><<set $molestationstart to 1>><</link>>
 		<br>
@@ -247,7 +247,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"후," 휘트니가 숨을 고르며 말한다. <<nnpc_He "Whitney">>【이가】 옷을 추스르며 한 손으로는 집착하듯 당신의 허리를 감싸쥔다. <<npcincr Whitney lust -20>><<llust>>
+	"후." 휘트니가 숨을 고르며 말한다. <<nnpc_He "Whitney">>【이가】 옷을 추스르며 한 손으로는 집착하듯 당신의 허리를 감싸쥔다. <<npcincr Whitney lust -20>><<llust>>
 	<br><br>
 
 	<<clotheson>>
@@ -259,7 +259,7 @@
 	<<if $speech_attitude is "meek">>
 		"미안..." 숨을 몰아쉬며 당신이 겨우 말한다.
 	<<elseif $speech_attitude is "bratty">>
-		"마음 바꿨어," 자세를 바로잡으며 당신이 말한다.
+		"마음 바꿨어." 자세를 바로잡으며 당신이 말한다.
 	<<else>>
 		"미안."
 	<</if>>
@@ -357,7 +357,7 @@
 	<<if $speech_attitude is "meek">>
 		"미안..." 시선을 내리깔며 당신이 말한다.
 	<<elseif $speech_attitude is "bratty">>
-		"마음 바꿨어," 퉁명스럽게 당신이 말한다.
+		"마음 바꿨어." 퉁명스럽게 당신이 말한다.
 	<<else>>
 		말없이 자세를 바로잡는다.
 	<</if>>
@@ -467,7 +467,7 @@
 	휘트니가 숨을 고르며 낮게 욕지거리를 내뱉는다. <<nnpc_He "Whitney">>【이가】 흐트러진 옷가지를 대충 추스르고 턱에 힘을 준 채 일어선다.
 	<br><br>
 
-	"오늘 볼일은 끝났어," 뒤돌아보지도 않은 채 휘트니가 친구들에게 말한다. "철수해."
+	"오늘 볼일은 끝났어." 뒤돌아보지도 않은 채 휘트니가 친구들에게 말한다. "철수해."
 	<br><br>
 
 	<<tearful>> 당신이 녀석들이 짐을 챙겨 부두 아래쪽으로 사라지는 것을 바라본다.
@@ -510,7 +510,7 @@
 <</if>>
 <br><br>
 
-휘트니가 말없이 당신을 잠시 바라보다가, 애플 사이다를 내려놓는다. <<nnpc_He "Whitney">>【이가】 한 걸음 다가와 잠시 당신의 시선을 똑바로 마주한다. "됐어." <<nnpc_He "Whitney">>【이가】 친구들을 향해 턱짓한다. "철수하자." 네 명은 불평 한마디 없이 짐을 챙겨, 호기심 어린 시선을 던지며 부두 아래쪽으로 걸어간다. 
+휘트니가 말없이 당신을 잠시 바라보다가, 애플 사이다를 내려놓는다. <<nnpc_He "Whitney">>【이가】 한 걸음 다가와 잠시 당신의 시선을 똑바로 마주한다. "됐어." <<nnpc_He "Whitney">>【이가】 친구들을 향해 턱짓한다. "철수하자." 네 명은 불평 한마디 없이 짐을 챙겨, 호기심 어린 시선을 던지며 부두 아래쪽으로 걸어간다.
 <br><br>
 
 <<set $daily.fishing.fishingPier.whitney.phase to "finished">>
@@ -589,7 +589,7 @@
 	<<npcincr Whitney dom -2>><<ldom>>
 	<br><br>
 
-	잠시 후, 휘트니가 자세를 바로잡는다. "오늘 볼일은 끝났어," 턱에 힘을 준 채 휘트니가 말한다. 휘트니가 친구들을 향해 턱짓하자, 그들은 말없이 짐을 챙긴다.
+	잠시 후, 휘트니가 자세를 바로잡는다. "오늘 볼일은 끝났어." 턱에 힘을 준 채 휘트니가 말한다. 휘트니가 친구들을 향해 턱짓하자, 그들은 말없이 짐을 챙긴다.
 	<<set $daily.fishing.fishingPier.whitney.phase to "finished">>
 	<br><br>
 
@@ -705,7 +705,7 @@
 "이게 끝이야?" <<nnpc_he "Whitney">>【이가】 말한다. "아 진짜 재미없네, 물고기 있는 데가 어딘지도 몰라? 내가 보여줄게." 휘트니가 그렇게 말하며 당신의 겨드랑이를 움켜잡고, <<nnpc_his "Whitney">> 친구 한 명의 도움을 받아 번쩍 들어 올려 바다에 던져버리려 한다!
 <br><br>
 
-<<link [[발버둥 친다|Fishing Whitney Pier Bet Fail Struggle]]>><<npcincr Whitney dom -1>><</link>><<athleticsdifficulty 300 1300>><<ldom>>
+<<link [[발버둥친다|Fishing Whitney Pier Bet Fail Struggle]]>><<npcincr Whitney dom -1>><</link>><<athleticsdifficulty 300 1300>><<ldom>>
 <br>
 <<link [[가만히 있는다|Fishing Whitney Pier Bet Fail Submit]]>><<npcincr Whitney dom 1>><</link>><<gdom>>
 
@@ -714,7 +714,7 @@
 :: Fishing Whitney Pier Bet Fail Struggle
 <<effects>>
 <<set $daily.fishing.fishingPier.whitney.phase to "finished">>
-세 방향에서 손들이 달려든다. 당신은 몸을 옆으로 던지며 팔을 붙잡는 손아귀를 비틀어 빼낸다. 
+세 방향에서 손들이 달려든다. 당신은 몸을 옆으로 던지며 팔을 붙잡는 손아귀를 비틀어 빼낸다.
 
 <<if $athleticsSuccess>>
 	<span class="green">당신은 악전고투 끝에 뿌리친다.</span> 팔꿈치로 누군가의 갈비뼈를 가격하고 손목을 붙잡힌 채 빠져나와, 녀석들이 다시 다가오기도 전에 부두를 따라 전력 질주한다.
@@ -815,7 +815,7 @@
 			휘트니와 <<nnpc_his "Whitney">> 친구들이 난간에 기대어 당신의 낚싯줄을 지켜본다.
 		<</addinlineevent>>
 		<<addinlineevent 1>>
-			휘트니가 당신의 귀에 가까이 다가온다. "너무 오래 기다리게 하지 마," <<nnpc_he "Whitney">>【이가】 낮게 속삭인다. "어떻게 되든, 이거 재미있어질 테니까."
+			휘트니가 당신의 귀에 가까이 다가온다. "너무 오래 기다리게 하지 마." <<nnpc_he "Whitney">>【이가】 낮게 속삭인다. "어떻게 되든, 이거 재미있어질 테니까."
 		<</addinlineevent>>
 		<<runeventpool>>
 	<</if>>
@@ -828,7 +828,7 @@
 <<if $exposed gte 1>>
 	<<nnpc_his "Whitney">> 시선이 당신의 <<lewdness>>【으로로】 향한다. "어디 가시려고?" 휘트니가 씩 웃으며 말한다. "그 꼴을 하고서? 안 되지."
 <<else>>
-	"어디도 못 가," 휘트니가 말한다.
+	"어디도 못 가." 휘트니가 말한다.
 <</if>>
 <<gstress>><<stress 4>>
 <br><br>
@@ -879,7 +879,7 @@
 	<<endevent>>
 <</link>>
 <br>
-<<link [[다시 놓아주기|Fishing Pier Wait]]>><<set $fishingAmbientOverride to "throwBack">><</link>>
+<<link [[다시 놓아준다|Fishing Pier Wait]]>><<set $fishingAmbientOverride to "throwBack">><</link>>
 
 
 /* Fishing Pier Whitney Catch Widgets */

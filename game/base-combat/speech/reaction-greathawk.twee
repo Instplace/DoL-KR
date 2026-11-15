@@ -1,0 +1,21 @@
+:: Widgets reaction-GreatHawk [widget]
+
+/* PC lines (plead / demand / moan). */
+
+<<widget "pc-line-greathawk-plead">>
+	<<addSpeechLine "plead">>
+		"너-너, 날 보살펴줄 거지, 그렇지?"
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-greathawk-demand">>
+	<<addSpeechLine "demand">>
+		"그만 쪼아!"
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-greathawk-moan">>
+	<<addSpeechLine "moan">>
+		"넌 공포가 아니야. 넌 내게 필요한 전부야."
+	<</addSpeechLine>>
+<</widget>>

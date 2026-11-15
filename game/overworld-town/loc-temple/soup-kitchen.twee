@@ -50,12 +50,12 @@
 "한 그릇 더 먹어도 돼요?" 고아원에서 본 적 있는 <<person2>><<person>>【이가】 끼어든다. <<He>>【은는】 빈 그릇을 카운터 위에 올려놓는다. 리버는 잠시 망설이다가 그릇을 채워준다. 그 <<person>>【은는】 종종걸음으로 사라진다.
 <br><br>
 <<person1>>
-"하지만." 리버가 말을 잇는다. "주방을 하나 더 만들 수는 있어. 여기도 이미 붐비니까. 비용은 <<printmoney 2000000>> 들 거야. 음식은 추가 비용 없이 보내줄게."
+"하지만," 리버가 말을 잇는다. "주방을 하나 더 만들 수는 있어. 여기도 이미 붐비니까. 비용은 <<printmoney 1000000>> 들 거야. 음식은 추가 비용 없이 보내줄게."
 <br><br>
 <i>주방이 있으면 고아들이 베일리의 눈을 피해 식사를 준비할 수 있고, 희망을 올리기가 더 쉬워질 것이다.</i>
 <br><br>
-<<if $money gte 2000000>>
-	<<link [[주방을 설치한다 (£20000 3:00)|River Loft 2]]>><<set $loft_river to 1>><<set $loftIngredients to {}>><<set $loft_upgrade += 1>><<money -2000000 "orphanageUpgrades">><</link>>
+<<if $money gte 1000000>>
+	<<link [[주방을 설치한다 (£10000 3:00)|River Loft 2]]>><<set $loft_river to 1>><<set $loftIngredients to {}>><<set $loft_upgrade += 1>><<money -1000000 "orphanageUpgrades">><</link>>
 	<br>
 <</if>>
 <<link [[떠난다|Soup Kitchen]]>><<endevent>><<endevent>><</link>>
@@ -181,7 +181,7 @@
 :: Soup Kitchen Intro
 
 <<set $outside to 0>><<set $location to "temple">><<effects>>
-리버는 파란 눈으로 당신을 꿰뚫어 본다. "여기서 널 보게 될 줄은 몰랐는데." <<he>>【은는】 수프 냄비를 저으며 말한다. "문제 일으키지 마."
+리버는 파란 눈으로 당신을 꿰뚫어 본다. "여기서 널 보게 될 줄은 몰랐는데," <<he>>【은는】 수프 냄비를 저으며 말한다. "문제 일으키지 마."
 <br><br>
 <<if $speech_attitude is "meek">>
 	"안 그럴게요." 당신이 말한다. "도움이 필요하다고 들었어요."
@@ -239,7 +239,7 @@
 		<br><br>
 		"도망칠 수 있을 줄 알았냐?" 쉰 듯한 <<personssimple>> 목소리가 말한다. "보스를 그렇게 속이고도 구덩이에 안 처박히면 운 좋은 줄 알아."
 		<br><br>
-		"사, 사고였어요." 다른 목소리가 더듬으며 대답한다. 세 번째 목소리가 웃는다.
+		"사-사고였어요." 다른 목소리가 더듬으며 대답한다. 세 번째 목소리가 웃는다.
 		<br><br>
 		<<link [[확인한다|Soup Kitchen Investigate]]>><</link>>
 		<br>
@@ -336,7 +336,7 @@
 
 				<<case 4>>당신에 대한 이야기를 나누었다.
 					<<if C.npc.River.love gte 40 and C.npc.Doren.love gte 50 and $monthly.volunteer and $monthly.soupKitchen>>
-			"<<pShe>> 여기서 많은 도움이 되네요," 리버가 <<= either("채소를 썰며","수프를 저으며")>> 말한다.
+			"<<pShe>> 여기서 많은 도움이 되네요." 리버가 <<= either("채소를 썰며","수프를 저으며")>> 말한다.
 						<br>
 			"<<pShes>> 나와 함께 봉사활동을 하고 있지. 참 착한 <<lassie>>란다!" 도렌이 <<= either("채소를 썰며","수프를 저으며")>> 미소 짓는다.
 					<<else>>
@@ -350,6 +350,33 @@
 
 			<<link [[다음|Soup Kitchen]]>><<endevent>><</link>>
 			<br>
+		<</addinlineevent>>
+	<</if>>
+	<<if C.npc.River.love gte 20>>
+		<<addinlineevent "soup_kitchen_teach_recipe" 0.2>>
+			<<set $soupKitchenTeachRecipe to ["porridge", "turnip_soup", "bread"].random()>>
+			<<npc River>><<person1>>
+			<<switch $soupKitchenTeachRecipe>>
+				<<case "porridge">>
+					리버가 당신을 부엌으로 불러, 곁의 탁자에 귀리 한 자루와 우유 한 병을 올려놓는다.
+					<br><br>
+					"먼저 죽 좀 만들어 놔라. <<he>>【이가】 말하고는 다시 스토브로 돌아간다.
+				<<case "turnip_soup">>
+					리버가 당신을 부엌으로 불러, 곁의 탁자에 순무와 감자, 양파를 올려놓는다.
+					<br><br>
+					"먼저 순무 수프 좀 만들어 놔라. <<he>>【이가】 말하고는 다시 스토브로 돌아간다.
+				<<case "bread">>
+					리버가 당신을 부엌으로 불러, 곁의 탁자에 밀가루 큰 자루와 소금, 식물성 기름을 올려놓는다.
+					<br><br>
+					"먼저 반죽 좀 만들어 놔라." <<he>>【이가】 말하고는 다시 스토브로 돌아간다.
+			<</switch>>
+
+			<br><br>
+			<<if $foodstuff[$soupKitchenTeachRecipe]?.knows_recipe is true>>
+				<<link [[일을 시작한다|Soup Kitchen Prepare Recipe]]>><</link>>
+			<<else>>
+				<<link [[레시피를 모른다고 말한다|Soup Kitchen Learn Recipe]]>><</link>>
+			<</if>>
 		<</addinlineevent>>
 	<</if>>
 <</if>>
@@ -487,7 +514,7 @@
 <<set $outside to 0>><<set $location to "temple">><<effects>>
 당신은 주방으로 돌아와 리버에게 다가간다.
 <<if $speech_attitude is "meek">>
-	"누, 누가 협박당하고 있어요." 당신이 말한다. "무서운 사람들 같아요."
+	"누-누가 협박당하고 있어요." 당신이 말한다. "무서운 사람들 같아요."
 <<elseif $speech_attitude is "bratty">>
 	"깡패 몇 놈이 누굴 괴롭히고 있어." 당신이 말한다.
 <<else>>
@@ -597,7 +624,7 @@
 	당신은 무료 급식소에 다가가지만, 문은 잠겨 있다. <<openinghours 18 21>>
 	<br><br>
 <</if>>
-<<if $debug is 1 and !Time.betweenHours(18, 20, 1)>>
+<<if $debug and !Time.betweenHours(18, 20, 1)>>
 	<<loitericon>><<link [[무료 급식소가 열리기를 기다린다 (DEBUG)|Soup Kitchen]]>><<passTimeUntil 18 1>><</link>>
 	<br>
 <</if>>
@@ -665,3 +692,39 @@
 	<<link [[떠난다|Soup Kitchen]]>><<kitchenExit>><</link>>
 	<br>
 <</if>>
+
+:: Soup Kitchen Prepare Recipe
+
+<<set $outside to 0>><<set $location to "temple">><<effects>>
+<<npc River>><<person1>>
+<<switch $soupKitchenTeachRecipe>>
+	<<case "porridge">>
+		당신은 귀리를 덜고 우유를 넣은 뒤 냄비를 불에 올려, 걸쭉해질 때까지 저어 준다.
+	<<case "turnip_soup">>
+		당신은 채소를 썰어 스토브에 냄비를 올리고, 손질이 끝난 채소부터 차례로 넣는다.
+	<<case "bread">>
+		당신은 밀가루와 기름, 소금을 섞는다. 되직해지기 시작하면 다 될 때까지 치댄다. 반죽을 한쪽에 두어 부풀게 한 뒤, 이미 준비된 반죽을 오븐에 넣는다.
+<</switch>>
+<br><br>
+다 끝내자 리버가 힐끗 쳐다본다. <<He>>【은는】 짧게 고개를 끄덕인다. "좋아."
+<br><br>
+
+<<unset $soupKitchenTeachRecipe>>
+<<endevent>>
+<<link [[다음|Soup Kitchen]]>><</link>>
+<br>
+
+:: Soup Kitchen Learn Recipe
+
+<<set $outside to 0>><<set $location to "temple">><<effects>>
+<<npc River>><<person1>>
+리버가 조리대로 다가선다. "내가 하는 걸 잘 봐." <<learn_recipe $soupKitchenTeachRecipe>>
+<br><br>
+
+<<He>>【은는】 <<if C.npc.River.love gte 40>>미소 짓는다. <<else>>고개를 끄덕인다. <</if>>"봤지? 이렇게만 하면 돼. 별로 어렵지 않아."
+<br><br>
+
+<<unset $soupKitchenTeachRecipe>>
+<<endevent>>
+<<link [[다음|Soup Kitchen]]>><</link>>
+<br>

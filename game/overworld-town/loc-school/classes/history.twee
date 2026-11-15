@@ -61,7 +61,7 @@
 					당신이 다가가지만, 도착하기 전에 한 <<person>>【이가】 그 자리에 앉는다.
 					<br><br>
 					<<if C.npc.Robin.dom gte 20>>
-						"실례합니다," 로빈이 말한다. "제 <<friend>>【이가】 거기 앉으려고 했어요." 
+						"실례합니다." 로빈이 말한다. "제 <<friend>>【이가】 거기 앉으려고 했어요." 
 						<br><br>
 						<<if random(1, 2) is 2>>
 							"내가 먼저 왔어." <<person2>><<person>>【이가】 꼼짝도 않고 대답한다.
@@ -198,10 +198,12 @@
 		<br>
 		<<historyicon>><<link [[수업 전에 휴식한다|History Classroom Study]]>><<set $phase to 0>><</link>><<lstress>>
 	<<else>>
-		<<historyicon>><<link [[역사 공부하기|History Classroom Study]]>><<set $phase to 1>><</link>><<gstress>><<ghistory>>
+		<<historyicon>><<link [[역사를 공부한다|History Classroom Study]]>><<set $phase to 1>><</link>><<gstress>><<ghistory>>
+		<br>
+		<<historyicon>><<link [[수업 전에 쉰다|History Classroom Study]]>><<set $phase to 0>><</link>><<lstress>>
 	<</if>>
 	<br>
-	<<getouticon>><<link [[나가기|Hallways]]>><</link>>
+	<<getouticon>><<link [[나간다|Hallways]]>><</link>>
 	<br>
 <<elseif $schoollesson is 1>>
 	<<lockerClothesAutoEquip>>
@@ -528,23 +530,23 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저기요." 당신이 말한다. "제가 거기 앉으려고 했는데요. ㅂ, 비켜줄 수 있나요?"
+	"저-저기요." 당신이 말한다. "제가 거기 앉으려고 했는데요. 비-비켜줄 수 있나요?"
 <<elseif $speech_attitude is "bratty">>
 	"내 자리야." 당신이 말한다.
 <<else>>
-	"내가 거기 앉으려고 했는데." 당신이 말한다. "좀 비켜줄래?"
+	"내가 거기 앉으려고 했는데," 당신이 말한다. "좀 비켜줄래?"
 <</if>>
 <br><br>
 
 <<if random(1, Math.round($coolmax)) gt $cool>>
-	"싫은데." <<person2>><<person>>【이가】 비웃는다. "어쩔 건데?"
+	"싫은데," <<person2>><<person>>【이가】 비웃는다. "어쩔 건데?"
 	<<if $submissive lte 500>>
 		당신은 주먹을 꽉 쥔다.
 	<</if>>
 	다른 학생들이 구경하려고 고개를 돌린다.
 	<br><br>
 
-	<<link [[다른 자리 찾기|History Robin New]]>><</link>>
+	<<link [[다른 자리를 찾는다|History Robin New]]>><</link>>
 	<br>
 	<<if $submissive gte 1500>>
 		<<link [[애원한다|History Robin Beg]]>><<sub 1>><</link>><<submissivetext>>
@@ -573,7 +575,7 @@
 :: History Robin Beg
 <<effects>>
 
-당신은 <<person2>><<persons>> 셔츠를 붙잡고 거의 무릎을 꿇을 뻔한다. "ㅈ, 제발." 당신은 말과 자세에 모든 것을 쏟아부으며 말한다. "로빈 옆에 앉아야 해요."
+당신은 <<person2>><<persons>> 셔츠를 붙잡고 거의 무릎을 꿇을 뻔한다. "제-제발." 당신은 말과 자세에 모든 것을 쏟아부으며 말한다. "로빈 옆에 앉아야 해요."
 <br><br>
 
 <<person>>【이가】 불편한 듯 몸을 뒤척인다. "알았어." <<he>>【이가】 말한다. "나한테서 떨어져." <<He>>【은는】 <<his>> 가방을 들고 다른 자리를 찾는다.
@@ -592,7 +594,7 @@
 <br><br>
 "내 자리에서 비켜." 당신이 말한다. 당신이 <<him>>【을를】 놓아주자, <<he>>【은는】 카펫 위로 거의 쓰러질 뻔한다.
 <br><br>
-"ㅇ, 알았어." <<he>>【은는】 <<his>> 가방을 챙기며 말한다. "미쳤네."
+"아-알았어." <<he>>【은는】 <<his>> 가방을 챙기며 말한다. "미쳤네."
 <br><br>
 <<person1>>당신이 <<him>> 옆에 앉자 로빈이 걱정스러운 표정으로 당신을 본다.
 <br><br>

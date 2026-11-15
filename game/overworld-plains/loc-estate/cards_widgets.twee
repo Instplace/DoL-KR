@@ -409,7 +409,7 @@ Coverage:
 		<<set $estatePersistent.suspicion to Math.clamp($estatePersistent.suspicion + $_susGain, 0, 100)>>
 	<</if>>
 
-	<<if $_susGain gt 0 and $estatePersistent and $estatePersistent.suspicion gte 100>>
+	<<if $_susGain gt 0 and $estatePersistent?.suspicion gte 100>>
 		<<set $blackjack.caughtType to $_caughtType>>
 	<</if>>
 <</widget>>
@@ -531,7 +531,7 @@ more suspicion if you actually lose the round. -->
 	<<set $estatePersistent.newDeckTimer to 0>>
 	<<if $estate.cards.state is "ride">>
 		<<if $estate.cards.position isnot "wren_lap">>
-			"오늘은 기분이 좋네," <<he>>【이가】 말한다. "그러니까 <span class="pink"><<nnpc_him "Remy">></span>에게 넘기는 대신 - 네가 진 걸로 쳐주지. 이제 내 전리품을 챙길 시간이네."<br><br>
+			"오늘은 기분이 좋네." <<he>>【이가】 말한다. "그러니까 <span class="pink"><<nnpc_him "Remy">></span>에게 넘기는 대신 - 네가 진 걸로 쳐주지. 이제 내 전리품을 챙길 시간이네."<br><br>
 			<br><br>
 			<<if $estate.cards.position is "pc_lap" or $estate.cards.position is "penile">>
 				<span class="blue">렌의 체중이 당신을 억눌러 도망치지 못하게 한다.</span>
@@ -544,13 +544,13 @@ more suspicion if you actually lose the round. -->
 			<br>
 		<<else>>
 			<!-- I'm not sure what this branch actually is and how it's reached, so I'll just go with this -->
-			"오늘은 기분이 좋네," <<he>>【이가】 말한다. "그러니까 <span class="pink"><<nnpc_him "Remy">></span>에게 넘기는 대신 - 네가 진 걸로 쳐주지."<br><br>
+			"오늘은 기분이 좋네." <<he>>【이가】 말한다. "그러니까 <span class="pink"><<nnpc_him "Remy">></span>에게 넘기는 대신 - 네가 진 걸로 쳐주지."<br><br>
 			<br><br>
 			<<link [[다음|Estate Cards Sex Safe]]>><</link>>
 			<br>
 		<</if>>
 	<<else>>
-		"얘는 좀 혼나야 정신을 차릴 것 같네," <<he>>【이가】 능글맞게 웃으며 말한다. "거기에 딱 맞는 <<nnpc_gender "Remy">>【을를】 하나 알고 있지."<br><br>
+		"얘는 좀 혼나야 정신을 차릴 것 같네." <<he>>【이가】 능글맞게 웃으며 말한다. "거기에 딱 맞는 <<nnpc_gender "Remy">>【을를】 하나 알고 있지."<br><br>
 		<<He>>【은는】 <<his>> 패거리들을 보며 당신을 향해 턱짓한다. 그들이 당신에게 다가오기 시작한다.
 		<br><br>
 		<<blackjackCaughtControls 1>>
@@ -663,7 +663,7 @@ more suspicion if you actually lose the round. -->
 	<<if _player_can_choose>>
 		<<for $_i to 0; $_i lt _consts__max_marked_see_depth; $_i++>>
 			<<set _c to $blackjack.cards[$_i]>>
-			<<if $estatePersistent.markedCards and $estatePersistent.markedCards.has(`${_c.name}${_c.suits[0]}`)>>
+			<<if $estatePersistent.markedCards?.has(`${_c.name}${_c.suits[0]}`)>>
 				<<set _seen_cards_deck.push(_c)>>
 				<<set _seen_cards_indexes.push($_i)>>
 				<<set _seen_cards_index_strings.push(ordinalSuffixOf($_i+1))>>
@@ -691,7 +691,7 @@ more suspicion if you actually lose the round. -->
 		<</if>>
 
 		<<set _c to $blackjack.dealerCards[1]>>
-		<<if $estatePersistent.markedCards and $estatePersistent.markedCards.has(`${_c.name}${_c.suits[0]}`)>>
+		<<if $estatePersistent.markedCards?.has(`${_c.name}${_c.suits[0]}`)>>
 			<<if !$blackjack.turnIsStale>>
 				<<if !$blackjack.seenMarkedCardsSoFar.has(`${_c.name}${_c.suits[0]}`);>>
 					<<set _seen_new_marked_card_this_turn to true>>
@@ -767,9 +767,9 @@ more suspicion if you actually lose the round. -->
 							<<case 1>>
 								렌 역시 딜러의 실수를 알아차리고 당신을 힐끗 보지만, 아무 말도 하지 않는다.
 							<<case 2>>
-								렌 역시 딜러의 실수를 알아차리고 당신을 힐끗 본다. "네 눈길이 자기 손에만 가 있었으면 좋겠네," <<he>>【이가】 말한다.
+								렌 역시 딜러의 실수를 알아차리고 당신을 힐끗 본다. "네 눈길이 자기 손에만 가 있었으면 좋겠네." <<he>>【이가】 말한다.
 							<<case 3>>
-								"아, 제발," 렌이 딜러에게 말한다. "카드를 돌릴 땐 좀 더 빨라야지." <<He>>【은는】 당신을 힐끗 보지만, 다른 말은 하지 않는다.
+								"아, 제발." 렌이 딜러에게 말한다. "카드를 돌릴 땐 좀 더 빨라야지." <<He>>【은는】 당신을 힐끗 보지만, 다른 말은 하지 않는다.
 						<</switch>>
 						<<gsuspicion>>
 					<<else>>
@@ -825,9 +825,9 @@ more suspicion if you actually lose the round. -->
 				<<if $speech_attitude is "meek">>
 					"죄-죄송해요, 보려고 한 건 아니었어요!" 당신이 말한다.
 				<<elseif $speech_attitude is "bratty">>
-					"훔쳐봐? 네 딜러가 허튼수작 부리는 건 아닌지 확인하는 것뿐이야," 당신이 말한다. "겁나?"
+					"훔쳐봐? 네 딜러가 허튼수작 부리는 건 아닌지 확인하는 것뿐이야." 당신이 말한다. "겁나?"
 				<<else>>
-					"훔쳐보지 않았어," 당신이 말한다.
+					"훔쳐보지 않았어." 당신이 말한다.
 				<</if>>
 				<br><br>
 				렌이 콧방귀를 뀐다. <<He>>【은는】 당신의 말을 믿지 않는 눈치다.
@@ -841,14 +841,14 @@ more suspicion if you actually lose the round. -->
 					렌이 잠시 당신을 응시하더니, 덱에서 카드를 집어든다. <<He>>【은는】 카드를 이리저리 살피다 - <span class="red">콧방귀를 뀐다</span>.
 				<</if>>
 				<br><br>
-				<<He>>【은는】 당신이 카드에 남긴 표시를 가리킨다. "잔머리 굴리긴," 렌이 말한다.
+				<<He>>【은는】 당신이 카드에 남긴 표시를 가리킨다. "잔머리 굴리긴." 렌이 말한다.
 				<br><br>
 				<<if $speech_attitude is "meek">>
 					"내-내가 한 거 아냐, 난 아무것도 안 했어!" 당신이 말한다.
 				<<elseif $speech_attitude is "bratty">>
-					"멍청하게 굴지 마," 당신이 말한다. "그냥 스크래치잖아. 우리가 아는 한 저건 딜러 잘못일 수도 있다고."
+					"멍청하게 굴지 마." 당신이 말한다. "그냥 스크래치잖아. 우리가 아는 한 저건 딜러 잘못일 수도 있다고."
 				<<else>>
-					"그건 그냥 스크래치야," 당신이 말한다. "고의로 한 것도 아닐뿐더러, 내가 했다는 뜻도 아니지."
+					"그건 그냥 스크래치야." 당신이 말한다. "고의로 한 것도 아닐뿐더러, 내가 했다는 뜻도 아니지."
 				<</if>>
 				<br><br>
 				렌이 콧방귀를 뀐다. <<He>>【은는】 당신의 말을 믿지 않는 눈치다.
@@ -910,7 +910,7 @@ more suspicion if you actually lose the round. -->
 			<<set _d to deck()>>
 			<<for _i to 0; _i lt _d.length; ++_i>>
 				<<set _c to _d[_i]>>
-				<<if $estatePersistent.markedCards and $estatePersistent.markedCards.has(`${_c.name}${_c.suits[0]}`)>>
+				<<if $estatePersistent.markedCards?.has(`${_c.name}${_c.suits[0]}`)>>
 					<div class="left"><<cardImage _c>></div>
 				<</if>>
 			<</for>>
@@ -1070,7 +1070,7 @@ more suspicion if you actually lose the round. -->
 
 	<<if !($worn.upper.type.includes("naked") and $worn.under_upper.type.includes("naked") and $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked"))>>
 		<<clothesruined>><<exposure>>
-		"<<phim>>【을를】 준비시켜," <<person2>><<person>>【이가】 말한다. 사방에서 손이 다가와 옷을 움켜쥐고 당기며 찢어발기더니, 당신의 몸을 완전히 노출시킨다. <<covered>>
+		"<<phim>>【을를】 준비시켜." <<person2>><<person>>【이가】 말한다. 사방에서 손이 다가와 옷을 움켜쥐고 당기며 찢어발기더니, 당신의 몸을 완전히 노출시킨다. <<covered>>
 		<br><br>
 	<</if>>
 	<<fameexhibitionism 7>>
@@ -1134,7 +1134,7 @@ more suspicion if you actually lose the round. -->
 	</ul>
 
 	<h3>설정</h3>
-	<<link [[저장 후 닫기|$passage]]>><<set $worn.handheld.colour to $cardcover.colour.replace("-", " ")>><</link>>
+	<<link [[저장 후 닫는다|$passage]]>><<set $worn.handheld.colour to $cardcover.colour.replace("-", " ")>><</link>>
 	<br><br>
 	카드 뒷면:
 	<br>
@@ -1408,7 +1408,7 @@ more suspicion if you actually lose the round. -->
 						"내 무릎 위에 앉아. 걱정 마. 나쁜 짓은 안 할 테니. 아직은."
 						<<set $estate.cards.desire to "wren_lap">>
 					<<else>>
-						<<He>>【이가】 당신의 $worn.genitals.name【을를】 바라본다. "거기 흥미로운 장치를 하고 있네," <<he>>【이가】 의자에 기대어 말한다. "<span class="blue">그 밑을 보고 싶긴 한데.</span> 하지만 지금으로선, 네게서 원하는 건 다 얻었어. 조심히 돌아가렴." <<His>> 친구들이 웃는다.
+						<<He>>【이가】 당신의 $worn.genitals.name【을를】 바라본다. "거기 흥미로운 장치를 하고 있네." <<he>>【이가】 의자에 기대어 말한다. "<span class="blue">그 밑을 보고 싶긴 한데.</span> 하지만 지금으로선, 네게서 원하는 건 다 얻었어. 조심히 돌아가렴." <<His>> 친구들이 웃는다.
 						<<set $estate.cards.desire to "chastity">>
 					<</if>>
 				<<else>>
@@ -1420,7 +1420,7 @@ more suspicion if you actually lose the round. -->
 						"내가 네 무릎 위에 앉을게. 걱정 마. 나쁜 짓은 안 할 테니. 아직은."
 						<<set $estate.cards.desire to "pc_lap">>
 					<<else>>
-						<<He>>【이가】 당신의 $worn.genitals.name【을를】 바라본다. "거기 흥미로운 장치를 하고 있네," <<he>>【이가】 의자에 기대어 말한다. "<span class="blue">그 밑을 보고 싶긴 한데.</span> 하지만 지금으로선, 네게서 원하는 건 다 얻었어. 조심히 돌아가렴." <<His>> 친구들이 웃는다.
+						<<He>>【이가】 당신의 $worn.genitals.name【을를】 바라본다. "거기 흥미로운 장치를 하고 있네." <<he>>【이가】 의자에 기대어 말한다. "<span class="blue">그 밑을 보고 싶긴 한데.</span> 하지만 지금으로선, 네게서 원하는 건 다 얻었어. 조심히 돌아가렴." <<His>> 친구들이 웃는다.
 						<<set $estate.cards.desire to "chastity">>
 					<</if>>
 				<</if>>
@@ -1704,7 +1704,7 @@ more suspicion if you actually lose the round. -->
 <</widget>>
 
 <<widget "estate_cards_finish">>
-	<<if $estate.cards.confiscatedClothes and $estate.cards.confiscatedClothes.length gt 0>>
+	<<if $estate.cards.confiscatedClothes?.length gt 0>>
 		<<for $_cloth_obj range $estate.cards.confiscatedClothes>>
 			<<generalRuined $_cloth_obj["type"]>>
 		<</for>>
@@ -1825,7 +1825,7 @@ more suspicion if you actually lose the round. -->
 	-->
 	<!-- to tweak these values, check calculateBlackjackLuckStats -->
 	<!-- the first 4 games will always be neutral -->
-	<<if $estate.cards.luckStats and $estate.cards.luckStats.total gte 5>>
+	<<if $estate.cards.luckStats?.total gte 5>>
 		/* pcts[ind][0] >= pcts[ind][1]*2 && pcts[ind][2] < .7 */
 		<<if $estate.cards.luckStats["winPct"] gte $estate.cards.luckStats["lossPct"] * 2.5 and $estate.cards.luckStats["tiePct"] lt 0.5>>
 			<<set $_luckFlow to "player">>
@@ -1844,18 +1844,18 @@ more suspicion if you actually lose the round. -->
 			<<if $_luckFlow is "neutral">>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"좋은 게임이었어," 렌은 패배에 연연하지 않는 듯이, $_money【을를】 한쪽으로 밀어 당신의 판돈 쪽으로 넘기며 말한다.
+						"좋은 게임이었어." 렌은 패배에 연연하지 않는 듯이, $_money【을를】 한쪽으로 밀어 당신의 판돈 쪽으로 넘기며 말한다.
 					<<case 2>>
 						렌은 미소 지으며 느릿느릿 당신의 $_money【을를】 당신의 판돈 쪽으로 밀어 넣는다. 좌절감을 느꼈다 하더라도, 아주 잘 숨기고 있다.
 					<<case 3>>
-						"뭐, 그래," 렌은 미소 지으며 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
+						"뭐, 그래." 렌은 미소 지으며 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
 				<</switch>>
 			<<elseif $_luckFlow is "wren">>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"매번 이길 순 없지," 렌은 패배에 연연하지 않는 듯이, $_money【을를】 한쪽으로 밀어 당신의 판돈 쪽으로 넘기며 말한다.
+						"매번 이길 순 없지." 렌은 패배에 연연하지 않는 듯이, $_money【을를】 한쪽으로 밀어 당신의 판돈 쪽으로 넘기며 말한다.
 					<<case 2>>
-						"행운의 여신이 드디어 네게 미소를 지은 것 같네," 렌은 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
+						"행운의 여신이 드디어 네게 미소를 지은 것 같네." 렌은 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
 					<<case 3>>
 						"꽤 잘 풀린다 싶었는데," 렌은 미소를 지으며 $_money【을를】 당신의 판돈 쪽으로 넘기며 말한다.
 				<</switch>>
@@ -1864,13 +1864,13 @@ more suspicion if you actually lose the round. -->
 					<<case 1>>
 						렌은 콧방귀를 뀌며 느릿하게 손을 휘저어 쌓인 $_money【을를】 당신의 판돈 쪽으로 밀어 넣는다.
 					<<case 2>>
-						"오늘 넌 기분 나쁠 정도로 운이 좋네," 렌이 약간의 짜증을 얼굴에 드러내며 $_money【을를】 당신의 판돈 쪽으로 넘기며 말한다.
+						"오늘 넌 기분 나쁠 정도로 운이 좋네." 렌이 약간의 짜증을 얼굴에 드러내며 $_money【을를】 당신의 판돈 쪽으로 넘기며 말한다.
 					<<case 3>>
 						렌이 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀도록 지시한다. 아주 짧은 순간이었지만, 당신은 짜증으로 이를 악무는 <<him>>【을를】 본 것 같다.
 					<<case 4>>
 						"오늘 내 앞길로 검은 고양이가 지나갔나 보네," 렌은 체념한 듯 씁쓸한 웃음을 지으며 $_money【을를】 당신의 판돈 쪽으로 밀어 넣는다.
 					<<case 5>>
-						"복권이라도 하나 사 봐," 렌이 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
+						"복권이라도 하나 사 봐." 렌이 <<his>> 부하들에게 눈짓해 $_money【을를】 당신의 판돈 쪽으로 밀게 하며 말한다.
 				<</switch>>
 			<</if>>
 		<<else>>
@@ -1881,7 +1881,7 @@ more suspicion if you actually lose the round. -->
 					<<case 2>>
 						렌은 느릿느릿 손을 뻗어 판돈이 된 $_money【을를】 챙겨 부하에게 넘겼고, <<his>> 얼굴엔 만족스러운 미소가 떠오른다.
 					<<case 3>>
-						"다음엔 운이 더 따라주길 바랄게," 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
+						"다음엔 운이 더 따라주길 바랄게." 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
 				<</switch>>
 			<<elseif $_luckFlow is "wren">>
 				<<switch random(1,3)>>
@@ -1890,7 +1890,7 @@ more suspicion if you actually lose the round. -->
 					<<case 2>>
 						"행운의 여신이 내게 미소를 지은 것 같네," 렌은 느릿느릿 손을 뻗어 판돈이 된 $_money【을를】 챙겨 부하에게 넘기며 말했고, <<his>> 얼굴엔 만족스러운 미소가 떠오른다.
 					<<case 3>>
-						"행운의 여신이 네게서 등을 돌렸나 봐," 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
+						"행운의 여신이 네게서 등을 돌렸나 봐." 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
 				<</switch>>
 			<<else>>
 				<<switch random(1,3)>>
@@ -1899,7 +1899,7 @@ more suspicion if you actually lose the round. -->
 					<<case 2>>
 						"네 연승도 영원히 갈 순 없지," 렌은 느릿느릿 손을 뻗어 판돈이 된 $_money【을를】 챙겨 부하에게 넘기며 말했고, <<his>> 얼굴엔 만족스러운 미소가 떠오른다.
 					<<case 3>>
-						"운도 이젠 끝난 것 같네," 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
+						"운도 이젠 끝난 것 같네." 렌은 미소 지으며 <<his>> 부하에게 눈짓해 $_money【을를】 가져가게 하며 말한다.
 				<</switch>>
 			<</if>>
 		<</if>>
@@ -1908,18 +1908,18 @@ more suspicion if you actually lose the round. -->
 			<<if $_luckFlow is "neutral">>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"좋은 게임이었어," 렌이 말한다.
+						"좋은 게임이었어." 렌이 말한다.
 					<<case 2>>
 						렌이 당신에게 가벼운 미소를 짓는다.
 					<<case 3>>
-						"뭐, 그래," 렌이 미소 지으며 말한다.
+						"뭐, 그래." 렌이 미소 지으며 말한다.
 				<</switch>>
 			<<elseif $_luckFlow is "wren">>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"매번 이길 순 없지," 렌이 의자에 등을 기대며 말한다.
+						"매번 이길 순 없지." 렌이 의자에 등을 기대며 말한다.
 					<<case 2>>
-						"행운의 여신이 드디어 네게 미소를 지은 것 같네," 렌이 말한다.
+						"행운의 여신이 드디어 네게 미소를 지은 것 같네." 렌이 말한다.
 					<<case 3>>
 						"꽤 잘 풀린다 싶었는데," 렌이 미소를 지으며 말한다.
 				<</switch>>
@@ -1928,13 +1928,13 @@ more suspicion if you actually lose the round. -->
 					<<case 1>>
 						렌이 콧방귀를 뀌며 의자에 등을 기댄다.
 					<<case 2>>
-						"오늘 넌 기분 나쁠 정도로 운이 좋네," 렌이 말한다.
+						"오늘 넌 기분 나쁠 정도로 운이 좋네." 렌이 말한다.
 					<<case 3>>
 						렌은 팔짱을 끼고 의자에 기대며 당신에게 체념한 미소를 보낸다.
 					<<case 4>>
-						"오늘 내 앞길로 검은 고양이가 지나갔나 보네," 렌이 체념한 듯 씁쓸한 웃음을 지으며 말한다.
+						"오늘 내 앞길로 검은 고양이가 지나갔나 보네." 렌이 체념한 듯 씁쓸한 웃음을 지으며 말한다.
 					<<case 5>>
-						"복권이라도 하나 사 봐," 렌이 말한다.
+						"복권이라도 하나 사 봐." 렌이 말한다.
 				<</switch>>
 			<</if>>
 		<<else>>
@@ -1945,25 +1945,25 @@ more suspicion if you actually lose the round. -->
 					<<case 2>>
 						렌이 똑바로 앉아 몸을 숙이며, <<his>> 얼굴에 만족스러운 웃음을 띤다.
 					<<case 3>>
-						"다음엔 운이 더 따라주길 바랄게," 렌이 미소를 지으며 말한다.
+						"다음엔 운이 더 따라주길 바랄게." 렌이 미소를 지으며 말한다.
 				<</switch>>
 			<<elseif $_luckFlow is "wren">>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"게임 아주 잘 굴러가네," 렌이 똑바로 앉아 몸을 숙이며 말한다.
+						"게임 아주 잘 굴러가네." 렌이 똑바로 앉아 몸을 숙이며 말한다.
 					<<case 2>>
-						"행운의 여신이 내게 미소를 지은 것 같네," 렌이 말한다.
+						"행운의 여신이 내게 미소를 지은 것 같네." 렌이 말한다.
 					<<case 3>>
-						"행운의 여신이 네게서 등을 돌렸나 봐," 렌이 미소를 지으며 말한다.
+						"행운의 여신이 네게서 등을 돌렸나 봐." 렌이 미소를 지으며 말한다.
 				<</switch>>
 			<<else>>
 				<<switch random(1,3)>>
 					<<case 1>>
-						"드디어, 좀 운이 따르네," 렌이 똑바로 앉아 몸을 숙이며 말한다.
+						"드디어, 좀 운이 따르네." 렌이 똑바로 앉아 몸을 숙이며 말한다.
 					<<case 2>>
-						"네 연승도 영원히 갈 순 없지," 렌이 몸을 앞으로 숙이며 말한다.
+						"네 연승도 영원히 갈 순 없지." 렌이 몸을 앞으로 숙이며 말한다.
 					<<case 3>>
-						"운도 이젠 끝난 것 같네," 렌이 미소를 지으며 말한다.
+						"운도 이젠 끝난 것 같네." 렌이 미소를 지으며 말한다.
 				<</switch>>
 			<</if>>
 		<</if>>
@@ -1971,7 +1971,7 @@ more suspicion if you actually lose the round. -->
 <</widget>>
 
 <<widget "cards_oral_options">>
-	<<if $estate.cards.clothesRebuyTerms and $estate.cards.clothesRebuyTerms.price gt $money>>
+	<<if $estate.cards.clothesRebuyTerms?.price gt $money>>
 		<span class="blue">거래를 받아들일 돈이 부족합니다.</span>
 		<br><br>
 	<<elseif hasSexStat("promiscuity", 4)>>
@@ -1991,7 +1991,7 @@ more suspicion if you actually lose the round. -->
 <<widget "cards_naked_end">>
 	<<covered>>
 	<<if $speech_attitude is "meek">>
-		"오-옷이 하나도 없잖아," 당신이 말한다. "뭐, 가릴 것 좀 주면 안 될까?"
+		"오-옷이 하나도 없잖아." 당신이 말한다. "뭐, 가릴 것 좀 주면 안 될까?"
 	<<elseif $speech_attitude is "bratty">>
 		"정말 이대로 발가벗겨둘 셈이야?" 당신이 묻는다. "적어도 수건 같은 거라도 줘."
 	<<else>>
@@ -1999,7 +1999,7 @@ more suspicion if you actually lose the round. -->
 	<</if>>
 	<br><br>
 
-	렌은 등 뒤로 손을 뻗어 서랍을 연다. <<He>>【은는】 안을 더듬거리더니, 작은 수건 하나를 꺼내 든다. "이걸 주지," <<he>>【이가】 말한다. "하지만 공짜는 아니야. 여기 있는 내 친구들도 즐길 권리가 있거든."
+	렌은 등 뒤로 손을 뻗어 서랍을 연다. <<He>>【은는】 안을 더듬거리더니, 작은 수건 하나를 꺼내 든다. "이걸 주지." <<he>>【이가】 말한다. "하지만 공짜는 아니야. 여기 있는 내 친구들도 즐길 권리가 있거든."
 	<br><br>
 
 	"네 입으로 녀석들을 만족시켜 줘." <<he>>【이가】 말을 잇는다. "그러면 수건을 두르게 해 주지."
@@ -2129,8 +2129,10 @@ more suspicion if you actually lose the round. -->
 			<<His>> <<print window.KR.getPenisDescKr($NPCList[0].penisdesc)>>【이가】 당신의 <<bottom>>【을를】 다시 한번 위협한다.
 		<</if>>
 		"우리가 어디까지 했더라?" <<he>>【이가】 짓궂게 묻는다.
+		<<estate_cards_bet>>
 	<<else>>
-
+		"우리가 어디까지 했더라?" 렌이 말한다.
+		<<estate_cards_bet>>
 	<</if>>
 <</widget>>
 
@@ -2221,7 +2223,7 @@ more suspicion if you actually lose the round. -->
 		<<else>>
 			보지를 가린다.
 		<</if>>
-		"그, 그럼 따라와," <<he>>【이가】 말한다.
+		"그-그럼 따라와." <<he>>【이가】 말한다.
 		<<set $estate.cards.wren_exposed_text to 2>>
 	<<elseif $estate.cards.wren_under_top is 0 and $NPCList[0].pronoun is "f" and $estate.cards.wren_exposed_text lt 1>>
 		렌은 팔로 <<his>> <<print window.KR.getBreastSizeKr($NPCList[0].breastsdesc)>>【을를】 가린 채 문으로 걸어간다. "이런 건 아무것도 아니야," <<he>>【이가】 거짓말을 한다. "해변에선 항상 상의를 벗고 다닌다고."

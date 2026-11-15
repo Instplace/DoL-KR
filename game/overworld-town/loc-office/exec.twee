@@ -26,7 +26,7 @@
 			<br>
 			<<link [[거절한다|Office Executive Refuse]]>><</link>>
 		<<else>>
-			"자네 같은 애들은 신발도 없이 돌아다니게 두는 모양이군. 흥미로워," <<he>>【은는】 당신의 발에 시선을 고정한 채 말한다. "이제 일하러 가 보게나, 어떤가?"
+			"자네 같은 애들은 신발도 없이 돌아다니게 두는 모양이군. 흥미로워." <<he>>【은는】 당신의 발에 시선을 고정한 채 말한다. "이제 일하러 가 보게나, 어떤가?"
 			<br><br>
 			<<link [[다음|Office Executive Work]]>><</link>>
 		<</if>>
@@ -95,7 +95,7 @@
 			<br>
 			<<link [[거절한다|Office Executive Refuse]]>><</link>>
 		<<else>>
-			"자네 같은 애들은 윗도리도 없이 돌아다니게 두는 모양이군. 흥미로워," <<he>>【은는】 당신의 <<chest>>【을를】 훑어보며 말한다. "이제 일하러 가 보게나, 어떤가?" <<garousal>>
+			"자네 같은 애들은 윗도리도 없이 돌아다니게 두는 모양이군. 흥미로워." <<he>>【은는】 당신의 <<chest>>【을를】 훑어보며 말한다. "이제 일하러 가 보게나, 어떤가?" <<garousal>>
 			<br><br>
 			<<link [[다음|Office Executive Work]]>><</link>>
 		<</if>>
@@ -356,7 +356,7 @@
 <<clotheson>>
 <<endcombat>>
 
-<<link [[로비로 돌아가기|Office Lobby]]>><</link>>
+<<link [[로비로 돌아간다|Office Lobby]]>><</link>>
 
 :: Office Executive Force Strip Finish
 <<effects>>
@@ -386,7 +386,7 @@
 <<clotheson>>
 <<endcombat>>
 <<if $exposed lte 1>>
-	<<link [[로비로 돌아가기|Office Lobby]]>><</link>>
+	<<link [[로비로 돌아간다|Office Lobby]]>><</link>>
 <<else>>
 	<<link [[다음|Office Streak]]>><</link>>
 <</if>>
@@ -459,7 +459,7 @@
 	<<set $skulduggerysuccess to 0>>
 	<<skulduggerycheck>>
 	<<if $skulduggerysuccess is 1>>
-		<<crimeUp 5 "thievery">>
+		<<set $blackmoney += 50>><<crimeUp 5 "thievery">>
 		서류철을 슬쩍 빼돌리는 동안 <<person1>><<person>>【은는】 당신 쪽을 쳐다보지도 않는다. <<lstress>>
 		<br><br>
 		<<link [[다음|Office Executive Work Finish]]>><</link>>
@@ -506,7 +506,7 @@
 		<<clotheson>>
 		<<endcombat>>
 		<<if $exposed lte 1>>
-			<<link [[로비로 돌아가기|Office Lobby]]>><</link>>
+			<<link [[로비로 돌아간다|Office Lobby]]>><</link>>
 		<<else>>
 			<<link [[다음|Office Streak]]>><</link>>
 		<</if>>
@@ -516,7 +516,7 @@
 		<<clotheson>>
 		<<person1>><<person>>【은는】 당신을 주시하며 책상의 버튼을 누른다. 곧이어 경비원이 사무실로 들어온다.
 		<br><br>
-		"좋아," 임원이 말한다. "이 말썽꾼 녀석을 제대로 처리해 주겠지."
+		"좋아." 임원이 말한다. "이 말썽꾼 녀석을 제대로 처리해 주겠지."
 		<<endcombat>>
 		경비원이 고개를 끄덕인다. <<set $officecomplaints += 1>>
 		<br><br>
@@ -537,7 +537,7 @@
 		<</if>>
 		<br><br><<set $officecomplaints += 1>>
 		<<endcombat>>
-		<<link [[로비로 돌아가기|Office Lobby]]>><</link>>
+		<<link [[로비로 돌아간다|Office Lobby]]>><</link>>
 	<</if>>
 
 
@@ -671,7 +671,7 @@
 	<<if $speech_attitude is "meek">>
 		당신은 $removedItem【을를】 벗기 전 뒤로 돌아, <<person1>><<person>>에게서 <<breasts>>【을를】 숨긴다.
 		<br>
-		등을 돌린 채 $removedItem【을를】 내밀었지만, <<he>>【은는】 받지 않는다. "돌아서서 내게 넘겨봐," <<he>>【이가】 말한다.
+		등을 돌린 채 $removedItem【을를】 내밀었지만, <<he>>【은는】 받지 않는다. "돌아서서 내게 넘겨봐." <<he>>【이가】 말한다.
 		<br>
 		<<if $stripCount gte 1>>
 			당신은 <<him>> 쪽으로 돌아서서 부끄러워하며 <<his>> 손에 $removedItem【을를】 떨어뜨리고, <<he>>【은는】 그걸 쌓여가는 옷 무더기에 보탠다.

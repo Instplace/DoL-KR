@@ -451,7 +451,15 @@ function initNpcClothes() {
 			"ritual robes":				{ name: "ritual robes",				integrity_max: 100, word: "", action:"lift"},
 			"vintage pantsuit":			{ name: "vintage pantsuit",			integrity_max: 100, word: "", action:"pull"},
 			"vintage skirtsuit":		{ name: "vintage skirtsuit",		integrity_max: 100, word: "", action:"lift"},
-			"winter jacket":			{ name: "winter jacket",			integrity_max: 100, word: "", action:"pull"}
+			"winter jacket":			{ name: "winter jacket",			integrity_max: 100, word: "", action:"pull"},
+			"boiler suit":				{ name: "boiler suit",				integrity_max: 100, word: "", action: "unzip" },
+			"tailored jacket":			{ name: "tailored jacket",			integrity_max: 100, word: "", action: "unbutton" },
+			"captain's jacket":			{ name: "captain's jacket",			integrity_max: 100, word: "", action: "unbutton" },
+			"oversized cardigan":		{ name: "oversized cardigan",		integrity_max: 100, word: "", action: "open" },
+			"embroidered vest":			{ name: "embroidered vest",			integrity_max: 100, word: "", action: "lift" },
+			"longline coat":			{ name: "longline coat",			integrity_max: 100, word: "", action: "open" },
+			"fur coat":					{ name: "fur coat",					integrity_max: 100, word: "", action: "open" },
+			"cowled robe":				{ name: "cowled robe",				integrity_max: 100, word: "", action: "open" },
 		},
 		"lower": {
 			"naked":					{ name: "naked",					integrity_max: 100, word: "", action: "none" },
@@ -541,6 +549,14 @@ function initNpcClothes() {
 			"vintage pants":			{ name: "vintage pants",			integrity_max: 100, word: "", action: "pull"},
 			"vintage skirt":			{ name: "vintage skirt",			integrity_max: 100, word: "", action: "lift"},
 			"black trousers":			{ name: "black trousers",			integrity_max: 100, word: "", action: "pull"},
+			"boiler suit trousers":		{ name: "boiler suit trousers",		integrity_max: 100, word: "", action: "unzip" },
+			"pressed trousers":			{ name: "pressed trousers",			integrity_max: 100, word: "", action: "unzip" },
+			"sailcloth trousers":		{ name: "sailcloth trousers",		integrity_max: 100, word: "", action: "pull" },
+			"corduroy trousers":		{ name: "corduroy trousers",		integrity_max: 100, word: "", action: "unzip" },
+			"dark skirt":				{ name: "dark skirt",				integrity_max: 100, word: "", action: "lift" },
+			"high-waisted trousers":	{ name: "high-waisted trousers",	integrity_max: 100, word: "", action: "unzip" },
+			"pencil skirt":				{ name: "pencil skirt",				integrity_max: 100, word: "", action: "lift" },
+			"habit skirt":				{ name: "habit skirt",				integrity_max: 100, word: "", action: "lift" },
 		},
 	};
 
@@ -653,9 +669,9 @@ function initNpcClothes() {
 		{ name: "Morgan",				type: "Morgan", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("ruined suit", "ruined trousers"), desc: "망가진 정장" },
 		{ name: "maleLandry",			type: "Landry", gender: "m", outfit: 0, clothes: npcAssignClothesToSet("grey sweater", "dark trousers"), desc: "회색 스웨터" },
 		{ name: "femaleLandry",			type: "Landry", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("grey cardigan", "dark trousers"), desc: "회색 가디건" },
-		{ name: "Whitney",				type: "Whitney", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("leather jacket", "torn jeans"), desc: "가죽 재킷" },
-		{ name: "AlexJorts",			type: "Alex", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("flannel", "jorts"), desc: "플란넬과 청반바지" },
-		{ name: "AlexSkirt",			type: "Alex", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("flannel", "skirt"), desc: "플란넬과 치마" },
+		{ name: "Whitney",				type: "town", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("leather jacket", "torn jeans"), desc: "가죽 재킷", namedNpcOnly: true },
+		{ name: "AlexJorts",			type: "wilds", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("flannel", "jorts"), desc: "플란넬과 청반바지", namedNpcOnly: true },
+		{ name: "AlexSkirt",			type: "wilds", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("flannel", "skirt"), desc: "플란넬과 치마", namedNpcOnly: true },
 		{ name: "maleAlexSleep",		type: "Alex", gender: "m", outfit: 0, clothes: npcAssignClothesToSet("t-shirt", "boxers"), desc: "티셔츠와 트렁크 팬티" },
 		{ name: "femaleAlexSleep",		type: "Alex", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("t-shirt", "boyshorts"), desc: "티셔츠와 보이쇼츠" },
 		/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -691,5 +707,19 @@ function initNpcClothes() {
 		/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
 		{ name: "maleDefault",			type: "default", gender: "m", outfit: 0, clothes: npcAssignClothesToSet("shirt", "trousers"), desc: "셔츠와 바지" },
 		{ name: "femaleDefault",		type: "default", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("shirt", "skirt"), desc: "셔츠와 치마" },
+		/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+		{ name: "mines",				type: "mines", gender: "n", outfit: 1, clothes: npcAssignClothesToSet("boiler suit", "boiler suit trousers"), desc: "작업복" },
+		/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+		{ name: "baileyJacket",			type: "town", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("tailored jacket", "pressed trousers"), desc: "맞춤 재킷", namedNpcOnly: true },
+		{ name: "Zephyr",				type: "Zephyr", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("captain's jacket", "sailcloth trousers"), desc: "선장 재킷", namedNpcOnly: true },
+		{ name: "samCardigan",			type: "town", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("oversized cardigan", "corduroy trousers"), desc: "오버사이즈 가디건", namedNpcOnly: true },
+		{ name: "maleWren",				type: "town", gender: "m", outfit: 0, clothes: npcAssignClothesToSet("embroidered vest", "dark trousers"), desc: "자수 조끼", namedNpcOnly: true },
+		{ name: "femaleWren",			type: "town", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("embroidered vest", "dark skirt"), desc: "자수 조끼", namedNpcOnly: true },
+		{ name: "nikiCoat",				type: "town", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("longline coat", "high-waisted trousers"), desc: "롱 코트", namedNpcOnly: true },
+		{ name: "quinnSuit",			type: "town", gender: "n", outfit: 0, clothes: npcAssignClothesToSet("business suit top", "business trousers"), desc: "비즈니스 정장", namedNpcOnly: true },
+		{ name: "quinnSkirtSuit",		type: "town", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("business suit top", "pencil skirt"), desc: "치마 정장", namedNpcOnly: true },
+		{ name: "quinnCoat",			type: "cold", gender: "m", outfit: 0, clothes: npcAssignClothesToSet("coat", "business trousers"), desc: "코트", namedNpcOnly: true },
+		{ name: "quinnFurCoat",			type: "cold", gender: "f", outfit: 0, clothes: npcAssignClothesToSet("fur coat", "pencil skirt"), desc: "모피 코트", namedNpcOnly: true },
+		{ name: "jordanHabit",			type: "temple", gender: "n", outfit: 1, clothes: npcAssignClothesToSet("cowled robe", "habit skirt"), desc: "수도복", namedNpcOnly: true },
 	];
 }

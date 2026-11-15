@@ -1,0 +1,21 @@
+:: Widgets reaction-Eden [widget]
+
+/* PC lines (plead / demand / moan). */
+
+<<widget "pc-line-eden-plead">>
+	<<addSpeechLine "plead">>
+		"너... 너무 거칠어, 에덴..."
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-eden-demand">>
+	<<addSpeechLine "demand">>
+		"오늘은 네 사냥감이 아니야, 날 내버려 둬."
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-eden-moan">>
+	<<addSpeechLine "moan">>
+		"난 네 것이고, 오직 너만의 것이야."
+	<</addSpeechLine>>
+<</widget>>

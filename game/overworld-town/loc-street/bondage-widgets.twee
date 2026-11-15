@@ -134,7 +134,7 @@
 		<<beastNEWinit 1 dog>>
 		<<beasttype>>【이가】 짖는 소리가 들린다.
 
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("dog", $monster is 1)>>
 			무거운 것이 등을 짓누르며 당신을 바닥으로 쓰러뜨린다. 무릎을 꿇고 벗어나려 발버둥쳐 보지만, <<beasttype>>【이가】 당신의 위로 올라타 꼼짝 못하게 억누른다.
 			<br><br>
 
@@ -216,7 +216,7 @@
 				재갈이 물려 있어 반박할 수 없다.
 			<<else>>
 				<<if $speech_attitude is "meek">>
-					"아니야," 당신이 말한다. "누가 나한테 이런 짓을 한 거라고."
+					"아니야." 당신이 말한다. "누가 나한테 이런 짓을 한 거라고."
 				<<elseif $speech_attitude is "bratty">>
 					"꺼져," 당신이 맞받아친다. "내가 지금 즐거워하는 걸로 보여?"
 				<<else>>
@@ -373,11 +373,11 @@
 	<<elseif $rng gte 31>>
 
 			<<beastNEWinit 3 dog>>
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("dog", $monster is 1)>>
 				여러 마리의 <<beastsplural>>【이가】 짖는 소리가 들린다. 빠르게 다가오더니 이내 당신을 포위한다.
 				<br><br>
 
-				누군가 웃는다. "주인이 녀석들 힘 좀 빼라고 하던데," 그 목소리가 말한다. "이 정도면 충분하겠군."
+				누군가 웃는다. "주인이 녀석들 힘 좀 빼라고 하던데." 그 목소리가 말한다. "이 정도면 충분하겠군."
 				<br><br>
 
 				<<beastsplural>> 중 한 마리가 당신을 바닥으로 밀친다.
@@ -389,7 +389,7 @@
 				여러 마리의 개가 짖는 소리가 들린다. 빠르게 다가오더니 이내 당신을 포위한다.
 				<br><br>
 
-				어떤 <<person>>【이가】 웃는다. "주인이 녀석들 힘 좀 빼라고 하던데," <<he>>【이가】 말한다. "이 정도면 충분하겠군."
+				어떤 <<person>>【이가】 웃는다. "주인이 녀석들 힘 좀 빼라고 하던데." <<he>>【이가】 말한다. "이 정도면 충분하겠군."
 				<br><br>
 
 				당신은 아무 방향으로나 달리고 개들이 발뒤꿈치를 물어뜯으려 든다. 다치긴 했지만 어찌저찌 탈출에 성공한다.<<beastescape>>
@@ -440,7 +440,7 @@
 
 		<<else>>
 
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("wolf", $monster is 1)>>
 				<<link [[다음|Bondage Two Wolf Rape]]>><<set $molestationstart to 1>><</link>>
 				<br>
 			<<else>>
@@ -492,7 +492,7 @@
 
 		<<else>>
 
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("wolf", $monster is 1)>>
 				그러고는 당신의 위로 올라탄다.
 				<br><br>
 				<<link [[다음|Bondage Wolf Rape]]>><<set $molestationstart to 1>><</link>>

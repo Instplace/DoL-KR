@@ -1,0 +1,462 @@
+:: Mine Job Cleaning Intro
+<<effects>>
+
+<<person>>【이가】 넝마 뭉치를 당신의 손에 떠넘긴다. "여기 청소해." <<he>>【이가】 말하고는 <<his>> 의자에 털썩 몸을 기댄다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+
+:: Mine Job Cleaning
+<<effects>>
+
+당신은 경비원 숙소에 있다. 거친 인상의 자들이 드나든다.
+<<if $exposed gte 1>>
+	그들은 노골적으로 당신의 <<lewdness>>【을를】 쳐다본다.
+<</if>>
+<<if isPregnancyEnding()>>
+	<<generate1>>
+	당신은 배를 움켜쥐고 무릎을 꿇는다. <<person1>><<person>>【이가】 알아챈다. <<He>>【은는】 서둘러 당신 곁으로 달려오고, 당신은 의식이 흐려지는 가운데 <<him>>【이가】 붙잡아 주는 것을 느낀다.
+	<br><br>
+	<<link [[다음|Mine Birth]]>><</link>>
+<<elseif $stress gte $stressmax>>
+	너무 무리했다.
+	<br><br>
+
+	<<passout>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|Mine Job Cleaning Passout]]>><<endevent>><</link>>
+	<br>
+<<elseif Time.hour lte 5 or Time.hour gte 21>>
+	<br><br>
+	<<link [[다음|Mine Job Cleaning End]]>><</link>>
+	<br>
+<<else>>
+	<br><br>
+	<<link [[청소에 집중한다 (1:00)|Mine Job Cleaning Events]]>><<pass 1 hours>><<set $phase to 0>><<tiredness 2>><</link>><<gtiredness>>
+	<br>
+	<<link [[청소하는 척한다 (1:00)|Mine Job Cleaning Events]]>><<pass 1 hours>><<set $phase to 1>><<stress 2>><</link>><<gstress>>
+	<br>
+<</if>>
+
+
+
+:: Mine Job Cleaning End
+<<effects>><<generate1>>
+
+<<person1>><<person>>【이가】 <<his>> 시계를 보더니 당신에게 다가온다. "오늘 일은 끝이야." <<he>>【이가】 말한다. <<He>>【은는】 당신을 동굴 밖으로 끌어내 노예 무리 속으로 떠민다.
+<br><br>
+당신은 그들과 함께 걷다가 작은 동굴로 이어지는 쇠문 앞에 이른다. 무리가 안으로 줄지어 들어가자 경비원이 문을 쾅 닫는다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Job Cleaning Events
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 청소에 집중한다.
+	<<if random(1,3) is 1>>
+		<span class="green">점점 요령이 붙는 것 같다.</span><<housekeeping 2>><<ghousekeeping>>
+		<br>
+	<</if>>
+	<<print either(
+		"굳어붙은 먼지를 박박 문질러 닦는다.",
+		"선반을 닦다가 먼지를 뒤집어쓴다. 먼지가 입과 눈에 들어가 기침이 난다. <<pain 10>><<ggpain>> ",
+		"바닥에 떨어진 깨진 병을 쓸어 담는다.",
+		"바닥의 물웅덩이를 닦아낸다.",
+		"탁자 위의 쓰레기를 치운다.",
+		"바닥의 군화 자국을 문질러 지운다."
+	)>>
+<<else>>
+	당신은 청소하는 척하며 경비원들의 눈에 띄지 않게 피한다. 경비원들이 눈치채지 못하기를 바란다.
+<</if>>
+<br><br>
+
+<<cleareventpool>>
+
+<<addinlineevent "dress_up">>
+	<<generate1>><<person1>>
+	방 한구석에서 경비원 한 명이 당신을 빤히 바라보는 것이 눈에 들어온다. 당신은 <<him>>【을를】 무시하고 하던 일을 계속한다.
+	<br><br>
+	<<He>>【은는】 일어나 침상으로 걸어가 쭈그려 앉더니, 그 아래에서 상자를 하나 끌어낸다.
+	<<if !$mine.job.cleaning.chemical>>
+		"어이, 너." <<he>>【이가】 상자를 열며 말한다. <span class="blue">옷더미 속에 검은 병이 하나 끼워져 있다.</span>
+		<br><br>
+	<<else>>
+		"어이, 너." <<he>>【이가】 상자를 열어 옷더미를 드러내며 말한다.
+	<</if>>
+	<<He>>【은는】 여름 원피스 한 벌을 꺼낸다. "이거 입어." <<he>>【이가】 호통친다.
+	<br><br>
+	<<set $skulduggerydifficulty to 400>>
+	<<if !$mine.job.cleaning.chemical>><<link [[병을 훔친다|Mine Job Cleaning Sundress]]>><<set $phase to 0>><</link>><<skulduggerydifficulty>><</if>>
+	<br>
+	<<link [[그냥 입는다|Mine Job Cleaning Sundress]]>><<set $phase to 1>><</link>>
+<</addinlineevent>>
+
+<<if !$mine.setup.food>>
+	<<addinlineevent "food_sabotage">>
+		<<generate1>>
+		<<person1>><<person>>【이가】 당신에게 소리친다. "어이! 수프 한 그릇 가져와."
+		<br><br>
+		당신은 솥으로 걸어간다.
+		<<if $mine.job.cleaning.chemical is 1>>
+			<span class="blue">문득 생각이 떠오른다. 찾아낸 약품을 솥에 부어 넣을 수 있겠다.</span>
+			<br><br>
+			<<link [[약품을 붓는다|Mine Job Cleaning Pot]]>><<set $phase to 0>><</link>>
+			<br>
+		<<else>>
+			<br><br>
+		<</if>>
+		<<link [[그릇을 채운다|Mine Job Cleaning Pot]]>><<set $phase to 1>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<addinlineevent "corner">>
+	<<generate1>><<person1>>
+	<<person>>【이가】 <<his>> 팔로 당신의 허리를 감싸고, 어두운 구석 쪽으로 이끌려 한다.
+	<br><br>
+	<<link [[조용히 따라간다|Mine Job Cleaning Corner]]>><<stress 4>><<set $phase to 0>><</link>><<gstress>>
+	<br>
+	<<link [[뿌리친다|Mine Job Cleaning Corner]]>><<set $phase to 1>><</link>><<physiquedifficulty 1 15000>>
+<</addinlineevent>>
+
+<<addinlineevent "kiss">>
+	<<generate1>>
+	당신은 입술에 시선을 고정한 채 지켜보는 <<person1>><<person>>【을를】 알아챈다. 모른 척하려 하지만, <<he>>【이가】 다가와 <<his>> 팔로 당신의 허리를 감싸고 몸을 숙여 입을 맞추려 한다.
+	<br><br>
+	<<link [[견딘다|Mine Job Cleaning Kiss]]>><<set $phase to 0>><<trauma 6>><<stress 4>><</link>><<kissvirginitywarning>><<gtrauma>><<gstress>>
+	<br>
+	<<link [[뿌리친다|Mine Job Cleaning Kiss]]>><<set $phase to 1>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "beer">>
+	<<generate1>><<generate2>>
+	<<if $skulduggery gte 300>>
+		경비원들이 다가오고, <<person1>><<person>>【이가】 당신을 붙잡으려 하는 것을 알아챈다. <span class="green">당신은 제때 몸을 피한다.</span> <<person>>【이가】 다른 경비원과 부딪친다.
+		<br><br>
+		"이 <<bitch>>【은는】 <<pher>> 약이 먹기 싫은 모양이네." <<person2>><<person>>【이가】 웃는다. 그들은 일단은 당신을 내버려 둔다.
+	<<else>>
+		<<person1>><<person>>【와과】 <<person2>><<person>>【이가】 당신에게 다가선다. 후자는 깔때기와 맥주병을 들고 있다.
+		<br><br>
+		"입 벌려. 약 먹을 시간이야." <<he>>【이가】 웃는다. 거친 손들이 억지로 당신의 입을 벌리고, <<person>>【이가】 깔때기를 입안으로 쑤셔 넣는다. 따뜻한 액체가 목구멍으로 쏟아지고, 당신은 간신히 전부 삼킨다. <<drunk 180>><<ggdrunk>>
+		<br><br>
+		그들이 깔때기를 빼내자 당신의 몸을 붙잡고 있던 손들도 물러난다. 경비원들이 하던 일로 돌아가는 동안, 당신은 바닥에 쓰러져 기침을 한다. <<pain 10>><<ggpain>>
+	<</if>>
+	<br><br>
+	<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<if !$mine.setup.map>>
+	<<addinlineevent "map">>
+		<<generate1>><<person1>>
+		<<person>>【이가】 방 건너편에서 당신을 지켜보기 시작한다. 당신은 시선을 피하고 하던 일을 계속하다가, 핀업 사진 뒤에 반쯤 가려진 종이 한 장을 발견한다.
+		<br><br>
+		<<if $history gte 300>>
+			<<set $mine.setup.map to 1>>
+			<span class="green">갱도의 오래된 지도다!</span> 경비원이 지켜보고 있어서 가져갈 수는 없다.
+		<<else>>
+			종이에 이상한 선들이 그려져 있지만, <span class="red">경비원이 지켜보고 있어서 더 자세히 볼 수는 없다.</span> <span class="blue">역사를 더 잘 알았다면 힐끗 보는 것만으로도 알아낼 수 있을지도 모른다.</span>
+		<</if>>
+		<br><br>
+		<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<addinlineevent "nothing" 1.5>>
+	당신은 방해받지 않고 계속한다.
+	<br><br>
+	<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "scream" 1.5>>
+	비명 소리가 갱도 전체에 울려 퍼진다. 경비원 한 명이 낄낄댄다. <<stress 7>><<trauma 5>><<ggstress>><<gtrauma>>
+	<br><br>
+	<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "explosion" 1.5>>
+	멀리서 울리는 폭발의 진동에 발밑이 흔들리지만, 당신은 간신히 서 있는다. <<stress 7>><<ggstress>>
+	<br><br>
+	<<link [[다음|Mine Job Cleaning]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<if $mine.favor.job.night is "firework" and $mine.favor.night isnot 1>>
+	<<addinlineevent "firework">>
+		<<generate1>>
+		<<person1>><<person>>【이가】 의자 등받이를 탁 친다. "이것 좀 고쳐. 덜덜거리잖아."
+		<br><br>
+		당신은 걸어가 짧은 다리 밑에 나무 조각을 끼워 균형을 맞춘다. <span class="blue">이제 폭죽을 터뜨릴 수 있다.</span>
+		<br><br>
+		<<link [[폭죽을 터뜨린다|Mine Job Cleaning Firework]]>><<set $mine.favor.night to 1>><</link>>
+		<br>
+		<<link [[그냥 떠난다|Mine Job Cleaning]]>><<endevent>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<runeventpool>>
+
+
+
+:: Mine Job Cleaning Sundress
+<<effects>>
+
+<<He>>【은는】 그것을 당신의 손에 떠민다.
+<<if $phase is 0>>
+	당신은 옷을 놓치는 척 서툴게 굴며 웅크려 앉아, 상자에서 병을 몰래 빼내려 한다. 병을 붙잡고,
+	<<silently>><<skulduggerycheck>><</silently>>
+	<<if $skulduggerysuccess is 1>>
+		<<set $mine.job.cleaning.chemical to 1>>
+		<span class="green">그것을 원피스 속에 밀어 넣는다.</span>
+		<br><br>
+		<<skulduggeryuse>>
+	<<else>>
+		<span class="red">하지만 경비원의 손이 당신의 손목을 붙잡는다.</span> 올려다보자 <<his>> 곤봉이 곧장 얼굴로 날아와, 당신은 바닥에 쓰러진다.<<pain 20>><<gggpain>>
+		<br><br>
+		<<skulduggeryuse>>
+		"입으라고!" <<he>>【이가】 고함친다.
+	<</if>>	
+<</if>>
+
+당신은 마지못해 옷을 벗고 원피스를 입는다.
+<<upperwear "sundress">>
+<br><br>
+<<person>>【이가】 당신을 음흉하게 훑어본다. <<He>>【은는】 당신을 붙잡아 탁자 쪽으로 끌고 간다. "올라가." <<he>>【이가】 말한다. "더 잘 좀 보게."
+<br><br>
+<<link [[오른다|Mine Job Cleaning Sundress Climb]]>><<trauma 6>><<stress 4>><</link>><<gtrauma>><<gstress>>
+<br>
+<<link [[거절한다|Mine Job Cleaning Sundress Refuse]]>><</link>>
+
+
+
+:: Mine Job Cleaning Sundress Climb
+<<effects>><<generate2>><<generate3>><<generate4>><<generate5>><<generate6>>
+
+당신은 시킨 대로 탁자 위에 올라간다. 경비원들이 당신을 둘러싸고 눈으로 몸을 훑으며, 당신의 몸매를 굴욕적일 만큼 자세히 품평한다.
+<br><br>
+"엉덩이도 괜찮군." <<person1>><<person>>【이가】 말하며, 앞으로 손을 뻗어 당신을 한 대 때린다.<<gpain>><<pain 4>>
+<br><br>
+"그 정도면 됐다, 걸레야." <<he>>【이가】 이어 말하며 당신에게 내려오라고 손짓한다. 당신은 그렇게 하지만, 그들의 시선은 한동안 더 따라붙는다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+
+:: Mine Job Cleaning Sundress Refuse
+<<effects>>
+
+<<if $rng gte 51>>
+	<<generate2>><<generate3>><<person1>>
+	당신은 <<persons>> 명령을 거부한다. <<He>>【은는】 휘파람을 불어 사방의 시선을 모은다. "이 <<girl>>【이가】 건방지게 구는 꼴은 더 못 봐주겠어." <<he>>【이가】 말한다. <span class="red">"누가 <<phim>>【을를】 <<pher>> 주제에 맞게 혼내 줄래?"</span>
+	<br><br>
+	<<his>> 동료들이 일어서자 의자 다리가 바닥에 끌리는 소리가 난다. 그들은 눈에 욕정을 가득 담고 당신을 둘러싼다.
+	<br><br>
+	<<link [[다음|Mine Job Cleaning Gangrape]]>><<set $molestationstart to 1>><</link>>
+<<else>>
+	<<He>>【은는】 재빨리 당신의 목덜미를 붙잡고 동굴 밖으로 걸어 나가며 당신을 끌고 간다. <<pain 20>><<gggpain>>
+	<br><br>
+	"너한테는 질렸어." <<he>>【이가】 말한다. "규칙은 분명했고, 도착했을 때 경고도 받았잖아. 이제 벌을 받을 시간이야."
+	<br><br>
+	<<link [[다음|Mine Punishment]]>><</link>>
+<</if>>
+
+
+
+:: Mine Job Cleaning Gangrape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<<audience>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Mine Job Cleaning Gangrape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Mine Job Cleaning Gangrape]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+
+:: Mine Job Cleaning Gangrape Finish
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	<<set $mine.job.mining.shackle to 8>>
+	<<tearful>> 당신은 그들을 쳐서 떨쳐낸다. 그들이 얼떨떨해하는 사이, <<person1>><<person>>의 허리띠에서 열쇠를 낚아챈다. 발목의 족쇄를 풀고 갱도로 달려 들어간다.
+	<<mine_unshackle>>
+	<<clotheson>>
+	<<link [[다음|Mine Job Cleaning Escape]]>><</link>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	"이제 교훈 좀 얻었겠지, <<bitch>>【아야】." <<person1>><<person>>【이가】 말한다. 경비원들이 일터로 돌아간다.
+	<br><br>
+	<<tearful>> 당신은 일어나 하던 일로 돌아간다.
+	<br><br>
+	<<link [[다음|Mine Job Cleaning]]>><</link>>
+<</if>>
+<<endcombat>>
+
+
+
+:: Mine Job Cleaning Pot
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 병을 꺼내 수프에 붓는다. 국자로 잘 휘저어 섞는 것도 잊지 않는다.
+<</if>>
+당신은 그릇을 집어 들고 수프를 넉넉히 퍼 담는다.
+<br><br>
+당신은 그릇을 <<person>>에게 가져가 탁자 위에 내려놓는다.
+
+<<if $settings.watersportsEnabled>>
+	"착하네, <<girl>>【아야】. 이제 꺼져, 안 그러면 오줌 세례를 받을 줄 알아." <<He>>【이가】 크게 낄낄거린다. 아무도 따라 웃지 않는다.
+<<else>>
+	"착하네, <<girl>>【아야】. 이제 꺼져." <<he>>【이가】 말한다.
+<</if>>
+<br><br>
+
+<<He>>【이가】 한 입 먹고,
+
+<<if $phase is 0>>
+	<<set $mine.job.cleaning.chemical to 0>>
+	<<set $mine.setup.food to 5>>
+	<<generate2>>
+	<span class="green">곧바로 뱉어낸다!</span> "이거 대체 뭐가 문제야?" <<he>>【이가】 말한다. "씨발, 약품 맛이잖아."
+	<br><br>
+	<<person2>><<person>>【이가】 솥으로 걸어와 수프를 한 모금 마신다. <<He>>【은는】 <<person1>><<person>>보다 더 빨리 뱉어낸다. "이거 못 먹겠어." <<person2>><<person>>【이가】 말한다.
+	<br>
+	"하지만 그게 앞으로 <span class="blue">닷새 치</span> 식량 전부란 말이야!" <<person1>><<person>>【이가】 외친다.
+	<br>
+	"어쩔 수 없잖아. 그냥 참아야지."
+<<else>>
+	당신이 걸어가는 동안 만족스러운 소리를 낸다.
+<</if>>
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+
+:: Mine Job Cleaning Corner
+<<effects>>
+
+<<if $phase is 0>>
+	당신은 <<he>>【이가】 벽장 안으로 끌고 가도록 내버려 둔다. <<He>>【은는】 당신을 벽에 밀어붙이고 더듬기 시작한다. <<stress 3>><<arousal 5>><<gstress>><<garousal>>
+	<br><br>
+	<<link [[다음|Mine Job Cleaning Corner Rape]]>><<set $molestationstart to 1>><</link>>
+<<else>>
+	당신은 <<him>>【을를】 밀쳐 내려 한다.
+	<<if $physiqueSuccess>>
+		<span class="green"><<He>>【은는】 바닥에 쓰러져 악의 어린 눈으로 당신을 쳐다보더니, 애써 상대할 가치가 없다고 마음먹는다.</span>
+		<br><br>
+		<<endevent>>
+		<<link [[다음|Mine Job Cleaning]]>><</link>>
+	<<else>>
+		<span class="red"><<He>>【은는】 오히려 손아귀에 힘을 주어 당신을 안으로 끌어당긴다.</span>
+		<br><br>
+		<<link [[다음|Mine Job Cleaning Corner Rape]]>><<set $molestationstart to 1>><<set $phase to 0>><</link>>
+	<</if>>
+<</if>>
+
+
+
+:: Mine Job Cleaning Corner Rape
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Mine Job Cleaning Corner Rape End]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Mine Job Cleaning Corner Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+
+:: Mine Job Cleaning Corner Rape End
+<<effects>>
+
+<<if $enemyhealth lte 0>>
+	<<tearful>> 당신은 <<him>>【을를】 밀쳐 내고 서둘러 구석에서 벗어난다.
+	<<clotheson>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+
+	<<He>>【은는】 바위 벽에 기대어 평온하게 누워 있다.
+	<<clotheson>>
+	<br><br>
+	<<tearful>> 당신은 일어나 일터로 돌아간다.
+<</if>>
+<<endcombat>>
+<br><br>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+
+:: Mine Job Cleaning Kiss
+<<effects>>
+
+<<if $phase is 0>>
+	<<He>>【은는】 당신의 얼굴을 자기 쪽으로 끌어당겨 혀로 입안을 파고든다.<<takeKissVirginity "mine guard" "rape" "human">>
+	<br><br>
+	<<He>>【은는】 곧 당신을 놓아주고, 아무 일도 없었다는 듯 걸어간다.
+<<else>>
+	당신은 <<him>>【을를】 밀어낸다. "너도 이거 원하잖아, <<slut>>【아야】." <<he>>【이가】 당신의 <<bottom>>【을를】 찰싹 때리며 말한다. <<He>>【은는】 아무 일도 없었다는 듯 자리를 떠난다.
+<</if>>
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+:: Mine Job Cleaning Firework
+<<effects>>
+
+당신은 폭죽에 불을 붙여 의자 밑에 놓고, 귀를 막은 채 걸어간다. 둔탁하게 펑펑 터지는 소리와 허둥대는 발소리가 등 뒤에서 들린다.
+<br><br> 
+뒤돌아보니 <<person>>【이가】 충격에 빠져 바닥에 주저앉아 있다. <<He>>【은는】 정신을 차리더니 다른 사람들에게 소리치며 따져 묻는다. 당신은 만족스러운 미소를 지으며 걸어간다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Cleaning]]>><</link>>
+
+
+
+:: Mine Job Cleaning Escape
+<<effects>><<generate1>><<person1>><<mine_distract_check>>
+
+당신은 순찰 중인 경비원들을 피해 터널을 달려, 노예들이 벽을 파고 있는 터널에 이른다. 경비원이 알아채기 전에 벽 뒤로 몸을 숨기고, 들키지 않았는지 살짝 내다본다. <<his>> 허리춤에 열쇠 꾸러미가 걸려 있다.
+<<if _distraction_count gte 1>>
+	<br><br>
+	<span class="blue">평소보다 경비원이 적은 것 같다.</span>
+<</if>>
+<br><br>
+<<link [[터널로 도망친다|Mine Escape]]>><<endevent>><</link>>
+<br>
+<<link [[경비병을 공격한다|Mine Revolt]]>><</link>>

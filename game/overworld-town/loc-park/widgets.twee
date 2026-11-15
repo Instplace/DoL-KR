@@ -3,7 +3,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "park">>
 	<<else>>
-		<<link [[모든 것이 어둠에 잠긴다...|Passout park]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Passout park]]>><</link>>
 	<</if>>
 <</widget>>
 
@@ -120,7 +120,7 @@
 				<!-- Modified for Monster People -->
 				<<beastNEWinit 1 lizard>>
 				<br>
-				<<if $monster is 1 or $settings.bestialityEnabled>>
+				<<if beastSexEnabledForType("lizard", $monster is 1)>>
 					반응하기도 전에, 거대한 하수도 <<beasttype>>【이가】 당신의 위로 기어오른다.
 					<br><br>
 					<<link [[다음|Park Lizard Rape]]>><<set $molestationstart to 1>><</link>>
@@ -245,10 +245,10 @@
 			<<link [[카메라를 훔친다|Park Run Steal]]>><<crimeUp 10 "thievery">><</link>><<crime "thievery">><<skulduggerydifficulty>>
 			<br>
 		<<elseif $rng gte 61>>
-			<<generate1>><<generate2>>앞쪽의 덤불에서 한 <<fullGroup>>【이가】 나타난다. 그들은 당신을 향해 걸어온다. <<covered>> "<<phim>>【이】잖아," <<person1>><<person>>【이가】 말한다. "그 변태 새끼."
+			<<generate1>><<generate2>>앞쪽의 덤불에서 한 <<fullGroup>>【이가】 나타난다. 그들은 당신을 향해 걸어온다. <<covered>> "<<phim>>【이】잖아." <<person1>><<person>>【이가】 말한다. "그 변태 새끼."
 			<br><br>
 
-			"이런 <<girl>>한테는 우리가 뭘 하든 상관없어," <<person2>><<person>>【이가】 말한다. "아무도 <<phim>>의 말을 안 믿을 테니까." 그들은 발걸음을 재촉한다.
+			"이런 <<girl>>한테는 우리가 뭘 하든 상관없어." <<person2>><<person>>【이가】 말한다. "아무도 <<phim>>의 말을 안 믿을 테니까," 그들은 발걸음을 재촉한다.
 			<br><br>
 
 			<<link [[싸운다|Park Run Rape]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
@@ -264,7 +264,7 @@
 			<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
 			<br>
 		<<elseif $rng gte 21>>
-			당신은 덤불 건너편에서 경찰 복장을 한 <<generatePolice 1>><<person1>><<person>>【이가】 보행자와 이야기하는 소리를 엿듣는다. "맞습니다," <<he>>가 말한다. "키는 이 정도 되는 <<girl>>입니다. 공원에서 음란 행위를 벌이고 있었어요. 정말 아무것도 못 보셨습니까?"
+			당신은 덤불 건너편에서 경찰 복장을 한 <<generatePolice 1>><<person1>><<person>>【이가】 보행자와 이야기하는 소리를 엿듣는다. "맞습니다." <<he>>가 말한다. "키는 이 정도 되는 <<girl>>입니다. 공원에서 음란 행위를 벌이고 있었어요. 정말 아무것도 못 보셨습니까?"
 			<<if $earSlime.growth gte 200 - ($earSlime.promiscuity * 10)>>
 				<<generate2>>
 				<br><br>
@@ -310,7 +310,7 @@
 	<<generate1>><<generate2>>
 	오솔길을 달리고 있는데, <<person1>><<person>>【와과】 <<person2>><<person>>【이가】 당신 앞을 가로막고 나선다. 그들의 눈에는 악의가 가득하다.
 	<br><br>
-	"오호, 이 녀석 과시하는 걸 좋아하는군," <<person1>><<person>>【이가】 말한다.
+	"오호, 이 녀석 과시하는 걸 좋아하는군." <<person1>><<person>>【이가】 말한다.
 	<br>
 	"우리끼리도 재미 좀 볼 수 있겠는데," <<person2>><<person>>【이가】 중얼거린다.
 	<br><br>
@@ -373,4 +373,15 @@
 	<<link [[다음|Toilets Molestation]]>><<set $molestationstart to 1>><</link>>
 
 	<<if isCrossdressing()>><<set $toiletsmistake to 1>><</if>>
+<</widget>>
+
+<<widget "pumpkin_prop">>
+	<<set _pumpkin_carving to ($pumpkin_carving + ($pumpkin_carving_knowledge?.length * 5))>>
+	<<if _pumpkin_carving gte 15>>
+		<<wearProp "jack_o_lantern">>
+	<<elseif _pumpkin_carving gte 7>>
+		<<wearProp "jack_o_lantern_simple">>
+	<<else>>
+		<<wearProp "jack_o_lantern_rough">>
+	<</if>>
 <</widget>>

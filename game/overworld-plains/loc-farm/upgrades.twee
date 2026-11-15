@@ -15,7 +15,7 @@
 <<if ($sexStats.anus.pregnancy.motherStatus gte 1 or $sexStats.vagina.pregnancy.motherStatus gte 1) and !$farm.parasitebarn and $farm.build isnot "parasites 1">>
 	당신이 낳은 여러 생물들이 머릿속에 떠오른다. 농장에는 그들을 돌보는 데 필요한 모든 것이 있다. <span class="blue">아이디어가 떠오른다.</span>
 	<br>
-	<<ind>><<link [[기생충들을 위한 축사 짓기|Farm Upgrades Parasite Barn]]>><</link>>
+	<<ind>><<link [[기생충들을 위한 축사를 짓는다|Farm Upgrades Parasite Barn]]>><</link>>
 	<br><br>
 <</if>>
 <<if !$alex_greenhouse>>
@@ -50,7 +50,7 @@
 		<br><br>
 
 		<<if $money gte 500000>>
-			<<link [[건설 (£10000)|Farm Upgrades Greenhouse 2]]>><<set $alex_greenhouse to 1>><<set $alex_greenhouse_timer to 7>><<money -1000000 "farmUpgrades">><</link>>
+			<<link [[건설 (£5000)|Farm Upgrades Greenhouse 2]]>><<set $alex_greenhouse to 1>><<set $alex_greenhouse_timer to 7>><<money -500000 "farmUpgrades">><</link>>
 			<br>
 		<<else>>
 			온실을 지을 돈이 충분하지 않다.
@@ -83,7 +83,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"제, 제가 뭐 좀 제안해도 될까요?" 당신이 묻는다. "고아원에 있는 제 친구들이 이걸 좋아할 것 같아요. 저희에겐 정원이 있는데—"
+	"제-제가 뭐 좀 제안해도 될까요?" 당신이 묻는다. "고아원에 있는 제 친구들이 이걸 좋아할 것 같아요. 저희에겐 정원이 있는데—"
 <<elseif $speech_attitude is "bratty">>
 	"좋은 생각이 있어요." 당신이 말한다. "고아원을 위해 당신의 계획을 쓸 수 있을 것 같아요. 고아들이—"
 <<else>>
@@ -110,7 +110,7 @@
 <br>
 <span class="green">습격 시 공격자들을 약간 늦춘다.</span>
 <br>
-<span class="gold">비용 £3500.</span>
+<span class="gold">비용 £2000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -122,7 +122,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 200000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -350000 "farmUpgrades">><<set $farm.build to "wall 1">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "wall 1">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -149,7 +149,7 @@
 <br>
 <span class="green">습격 시 공격자들을 더욱 늦춘다.</span>
 <br>
-<span class="gold">비용 £10000.</span>
+<span class="gold">비용 £5000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -161,7 +161,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 500000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "wall 2">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "wall 2">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -178,7 +178,7 @@
 <br>
 <span class="green">습격 시 공격자들을 더욱 늦춘다.</span>
 <br>
-<span class="gold">비용 £25000.</span>
+<span class="gold">비용 £15000.</span>
 <br>
 <span class="blue">건설에 2주가 걸린다.</span>
 <br>
@@ -190,7 +190,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1500000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -2500000 "farmUpgrades">><<set $farm.build to "wall 3">><<set $farm.build_timer to 14>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1500000 "farmUpgrades">><<set $farm.build to "wall 3">><<set $farm.build_timer to 14>><</link>>
 	<br>
 <</if>>
 <br>
@@ -206,7 +206,7 @@
 <br>
 <span class="green">습격 시 공격자들을 더욱 늦춘다.</span>
 <br>
-<span class="gold">비용 £5000.</span>
+<span class="gold">비용 £3000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -218,7 +218,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 300000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "wall 4">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -300000 "farmUpgrades">><<set $farm.build to "wall 4">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -251,7 +251,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1000000>>
-   <<link [[건설하기 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "tower 1">><<set $farm.build_timer to 14>><</link>>
+   <<link [[건설한다 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "tower 1">><<set $farm.build_timer to 14>><</link>>
 	<br>
 <</if>>
 <br>
@@ -270,7 +270,7 @@
 <br>
 <span class="purple">직원이 배치되어 있을 때만 작동한다.</span>
 <br>
-<span class="gold">비용 £5000.</span>
+<span class="gold">비용 £3000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -282,7 +282,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 300000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "tower 2">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -300000 "farmUpgrades">><<set $farm.build to "tower 2">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -302,7 +302,7 @@
 <br>
 <span class="red">자유가 많아지면 돼지들을 통제하기 더 어려워진다.</span>
 <br>
-<span class="gold">비용 £10000.</span>
+<span class="gold">비용 £5000.</span>
 <br>
 <span class="blue">울타리를 확장하는 데 3일이 걸린다.</span>
 <br>
@@ -314,7 +314,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 500000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "woodland 1">><<set $farm.build_timer to 3>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "woodland 1">><<set $farm.build_timer to 3>><</link>>
 	<br>
 <</if>>
 <br>
@@ -343,7 +343,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1000000>>
-   <<link [[건설하기 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "woodland 2">><<set $farm.build_timer to 5>><</link>>
+   <<link [[건설한다 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "woodland 2">><<set $farm.build_timer to 5>><</link>>
 	<br>
 <</if>>
 <br>
@@ -364,7 +364,7 @@
 <br>
 <span class="red">자유가 많아지면 돼지들을 통제하기 더 어려워진다.</span>
 <br>
-<span class="gold">건설 비용: £50000.</span>
+<span class="gold">건설 비용: £25000.</span>
 <br>
 <span class="blue">울타리를 확장하는 데 일주일이 걸린다.</span>
 <br>
@@ -376,7 +376,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 2500000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -5000000 "farmUpgrades">><<set $farm.build to "woodland 3">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -2500000 "farmUpgrades">><<set $farm.build to "woodland 3">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -399,7 +399,7 @@
 <br>
 <span class="red">공격성은 가축들에게도 불안감을 줄 것이다.</span>
 <br>
-<span class="gold">건설 비용: £15000.</span>
+<span class="gold">건설 비용: £10000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -411,7 +411,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1000000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1500000 "farmUpgrades">><<set $farm.build to "kennel 1">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "kennel 1">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -427,7 +427,7 @@
 
 <span class="green">말을 타고 마을을 더 빨리 오갈 수 있다.</span>
 <br>
-<span class="gold">비용 £20000.</span>
+<span class="gold">비용 £15000.</span>
 <br>
 <span class="blue">건설에 2주가 걸린다.</span>
 <br>
@@ -439,7 +439,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1500000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -2000000 "farmUpgrades">><<set $farm.build to "stable 1">><<set $farm.build_timer to 14>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1500000 "farmUpgrades">><<set $farm.build to "stable 1">><<set $farm.build_timer to 14>><</link>>
 	<br>
 <</if>>
 <br>
@@ -456,7 +456,7 @@
 <br>
 <span class="green">스스로를 더 빨리 착유할 수 있다.</span>
 <br>
-<span class="gold">비용 £5000.</span>
+<span class="gold">비용 £3000.</span>
 <br>
 <span class="blue">건설에 이틀이 걸린다.</span>
 <br>
@@ -468,7 +468,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 300000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "barn 1">><<set $farm.build_timer to 2>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -300000 "farmUpgrades">><<set $farm.build to "barn 1">><<set $farm.build_timer to 2>><</link>>
 	<br>
 <</if>>
 <br>
@@ -485,7 +485,7 @@
 <br>
 <span class="red">착유에 더 많은 시간이 소요된다.</span>
 <br>
-<span class="gold">비용 £20000.</span>
+<span class="gold">비용 £10000.</span>
 <br>
 <span class="blue">건설에 열흘이 걸린다.</span>
 <br>
@@ -497,7 +497,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1000000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -2000000 "farmUpgrades">><<set $farm.build to "barn 2">><<set $farm.build_timer to 10>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "barn 2">><<set $farm.build_timer to 10>><</link>>
 	<br>
 <</if>>
 <br>
@@ -513,7 +513,7 @@
 
 <span class="green">더 많은 달걀을 생산한다.</span>
 <br>
-<span class="gold">건설 비용: £2000.</span>
+<span class="gold">건설 비용: £1000.</span>
 <br>
 <span class="blue">건설에 5일이 걸린다.</span>
 <br>
@@ -525,7 +525,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 100000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "coop 1">><<set $farm.build_timer to 5>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -100000 "farmUpgrades">><<set $farm.build to "coop 1">><<set $farm.build_timer to 5>><</link>>
 	<br>
 <</if>>
 <br>
@@ -541,7 +541,7 @@
 
 <span class="green">훨씬 더 많은 달걀을 생산한다.</span>
 <br>
-<span class="gold">비용 £5000.</span>
+<span class="gold">비용 £2000.</span>
 <br>
 <span class="blue">건설에 일주일이 걸린다.</span>
 <br>
@@ -553,7 +553,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 200000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -500000 "farmUpgrades">><<set $farm.build to "coop 2">><<set $farm.build_timer to 7>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "coop 2">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -577,7 +577,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 200000>>
-   <<link [[건설하기 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "parasites 1">><<set $farm.build_timer to 14>><</link>>
+   <<link [[건설한다 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "parasites 1">><<set $farm.build_timer to 14>><</link>>
 	<br>
 <</if>>
 <br>
@@ -601,7 +601,7 @@
 	<span class="blue">한 번에 하나의 업그레이드만 진행할 수 있다.</span>
 	<br>
 <<elseif $money gte 1000000>>
-   <<link [[건설하기 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "parasites 2">><<set $farm.build_timer to 7>><</link>>
+   <<link [[건설한다 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -1000000 "farmUpgrades">><<set $farm.build to "parasites 2">><<set $farm.build_timer to 7>><</link>>
 	<br>
 <</if>>
 <br>
@@ -640,7 +640,7 @@
 <span class="green">오두막에 아이들이 살 수 있는 아기방을 추가한다.</span>
 <br>
 
-<span class="gold">건설 비용: £3000.</span>
+<span class="gold">건설 비용: £2000.</span>
 <br>
 
 <span class="blue">건설에 일주일이 걸립니다.</span>
@@ -654,7 +654,7 @@
 	<br>
 
 <<elseif $money gte 200000>>
-	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -300000 "farmUpgrades">><<set $farm.build to "nursery">><<set $farm.build_timer to 7>><<set $cottage_nursery_prep to 1>><</link>>
+	<<link [[건설 (0:20)|Farm Upgrades Build]]>><<pass 20>><<money -200000 "farmUpgrades">><<set $farm.build to "nursery">><<set $farm.build_timer to 7>><<set $cottage_nursery_prep to 1>><</link>>
 	<br>
 
 <</if>>

@@ -16,7 +16,7 @@
 <div id="scenesViewerControls">
 	<<scenesViewerControls>>
 </div>
-<<if $debug is 1>>
+<<if $debug>>
 	<!--<br>
 	<<saveCompareTool>>-->
 	<br>
@@ -147,7 +147,7 @@
 			case 2: $scenePassages.pushUnique("AlexFarmIntro");
 		}
 	>>
-	<<if $farm and $farm.milking and $farm.milking.alexNightEvent>>
+	<<if $farm?.milking?.alexNightEvent>>
 		<<run $scenePassages.pushUnique("AlexFarmSelfMilkingCaught")>>
 	<</if>>
 	<<if $bullyevent gt 0>>
@@ -231,7 +231,7 @@
 	<<if $edenradiointro gte 2>>
 		<<set $scenePassages.pushUnique("EdenRadioIntro")>>
 	<</if>>
-	<<if $wraithPrison and $wraithPrison.vision>>
+	<<if $wraithPrison?.vision>>
 		<<set $scenePassages.pushUnique("Schism")>>
 	<</if>>
 	<<if $christmas_wraith>>
@@ -291,6 +291,9 @@
 		<<if $nightmaresSeen.includes("office")>>
 			<<set $scenePassages.pushUnique("NightmareOffice")>>
 		<</if>>
+		<<if $nightmaresSeen.includes("mine")>>
+			<<set $scenePassages.pushUnique("NightmareMine")>>
+		<</if>>
 	<</if>>
 	<<if $harper_appointments.hypnosis gte 1>>
 		<<set $scenePassages.pushUnique("HarperHypnosisIntro")>>
@@ -346,7 +349,7 @@
 	<<if $mickeyPub gte 2>>
 		<<set $scenePassages.pushUnique("OrphanageHacker")>>
 	<</if>>
-	<<if $pubfame and $pubfame.status>>
+	<<if $pubfame?.status>>
 		<<set $scenePassages.pushUnique("PubFameIntro")>>
 	<</if>>
 	<<if $per_npc.anxious_guard?.name_known>>
@@ -357,6 +360,15 @@
 	<</if>>
 	<<if $per_npc.scarred_inmate?.name_known>>
 		<<set $scenePassages.pushUnique("PrisonScarredInmate")>>
+	<</if>>
+	<<if $avery_tower?.progress gte 25 and $avery_tower?.stage gte 0>>
+		<<set $scenePassages.pushUnique("Skyscraper Foundation")>>
+	<</if>>
+	<<if $avery_tower?.progress gte 60 and $avery_tower?.stage gte 1>>
+		<<set $scenePassages.pushUnique("Skyscraper Structure")>>
+	<</if>>
+	<<if $averySeen?.includes("puppyPlayReturn")>>
+		<<set $scenePassages.pushUnique("Mansion Return Walk Dog")>>
 	<</if>>
 <</widget>>
 
@@ -406,7 +418,7 @@
 			"AveryHelicopter":{
 				name:"에이버리 헬리콥터",
 				startPassage:"SV Avery Helicopter",
-				passages: ["SV Avery Helicopter","Avery Helicopter","Avery Helicopter Drink","Avery Helicopter Refuse","Avery Helicopter 2","Avery Helicopter Nod","Avery Helicopter Brush","Avery Helicopter Push","Avery Helicopter Sex","Avery Helicopter Sex End","Avery Helicopter Roll","Avery Helicopter Slap","Avery Helicopter Walk"],
+				passages: ["SV Avery Helicopter","Avery Helicopter", "Avery Helicopter Destination", "Avery Helicopter Drink","Avery Helicopter Refuse", "Avery Helicopter Refuse 2","Avery Helicopter 2", "Avery Helicopter Gossip","Avery Helicopter Turbulence","Avery Helicopter View", "Avery Helicopter View Lewd", "Avery Helicopter View Lewd Refuse", "Avery Helicopter 3","Avery Helicopter Sex","Avery Helicopter Sex End","Avery Helicopter Rape","Avery Helicopter Rape End","Avery Helicopter Threat End", "Avery Helicopter Walk"],
 				manualVariableChanges: "<<set $location to 'town'>>",
 				unlocked: $scenePassages.includes("Avery Helicopter")
 			},
@@ -726,7 +738,7 @@
 				name:"첫 월세 로빈 싸움",
 				startPassage:"Rent First Robin SV",
 				passages:["Rent Pay","Rent Seduce","Rent Refuse","Rent First Robin Fight","Rent First Robin Fight Finish"],
-				manualVariableChanges:"<<set $robinpaid to 1>><<set $robinromance to 1>><<set $bus to \"home\">><<set $robinfirstrentfight to 0>><<set $baileydefeatedchain to 3>><<unset $baileyReunionScene>><<set $renttime to 0>><<set $robinmissing to 0>><<set $hoursGoneFromHome to 0>>",
+				manualVariableChanges:"<<set $robinpaid to 1>><<set $robinromance to 1>><<set $bus to \"home\">><<set $robinfirstrentfight to 0>><<set $baileydefeatedchain to 3>><<unset $baileyReunionScene>><<set $rentTime to 0>><<set $robinmissing to 0>><<set $hoursGoneFromHome to 0>>",
 				unlocked: $scenePassages.includes("RentFirstRobinFight")
 			},
 			"RobinDocks":{
@@ -853,7 +865,7 @@
 			"EdenRadioIntro":{
 				name:"에덴 라디오 인트로",
 				startPassage:"Eden Radio Intro",
-				passages:["Eden Valentines Bath","Eden Radio Intro 2","Eden Radio Intro 3","Eden Radio Intro 4"],
+				passages:["Eden Radio Intro","Eden Radio Intro 2","Eden Radio Intro 3","Eden Radio Intro 4"],
 				manualVariableChanges:"<<npc Eden>><<person1>>",
 				unlocked: $scenePassages.includes("EdenRadioIntro")
 			},
@@ -930,7 +942,7 @@
 				unlocked: $scenePassages.includes("Pinch")
 			},
 			"RaulAndJanet":{
-				name:"라울과 재닛",
+				name:"라울과 자넷",
 				startPassage: "ScarletBook1",
 				passages:["ScarletBook1", "ScarletBook2", "ScarletBook3", "ScarletBook4", "ScarletBook5", "ScarletBook6", "ScarletBook7aye", "ScarletBook7nay", "ScarletBook7nay_page2", "ScarletBook8aye", "ScarletBook8nay", "ScarletBook9", "ScarletBook10", "Loveth", "Loveth Finish", "Drama", "Drama Finish"],
 				manualVariableChanges:"<<set $scarletExitPassage to 'Bedroom'>><<set $bus to ''>><<set $arousal to ($arousalmax / 5) * 2>>",
@@ -998,6 +1010,13 @@
 				passages:["Nightmare Gwylan", "Nightmare Gwylan Wake", "Nightmare Gwylan Leave", "Nightmare Gwylan Leave 2", "Nightmare Gwylan 2", "Nightmare Gwylan 3", "Nightmare Gwylan 4", "Nightmare Gwylan Tornado", "Nightmare Gwylan Whalefall", "Nightmare Gwylan End"],
 				manualVariableChanges:"<<set $sleephour to 1>><<set $nightmareExit to 'Bed'>>",
 				unlocked: $scenePassages.includes("NightmareGwylan")
+			},
+			"NightmareMine":{
+				name:"악몽 광산",
+				startPassage:"Nightmare Mine",
+				passages:["Nightmare Mine", "Nightmare Mine 2", "Nightmare Mine 3", "Nightmare Mine Wake", "Nightmare Mine End"],
+				manualVariableChanges:"<<set $sleephour to 1>><<set $nightmareExit to 'Bed'>>",
+				unlocked: $scenePassages.includes("NightmareMine")
 			},
 			"HarperHypnosisIntro":{
 				name:"하퍼 최면 인트로",
@@ -1133,32 +1152,67 @@
 				unlocked: $scenePassages.includes("OrphanageHacker")
 			},
 			"MickeyPubFameIntro":{
-				name:"미키 펍 명성 인트로",
+				name:"미키 술집 명성 인트로",
 				startPassage:"SV Pub Fame Intro",
 				passages:["SV Pub Fame Intro","Pub Fame Intro","Pub Fame Intro 2","Pub Fame Intro 3","Pub Fame Intro 4"],
 				manualVariableChanges:"<<set $location to 'pub'>><<set $mickeyPub to 2>>",
 				unlocked: $scenePassages.includes("PubFameIntro")
 			},
 			"PrisonSpirePrecipice":{
-				name:"교도소 첨탑 절벽",
+				name:"감옥 첨탑 절벽",
 				startPassage:"Scene Viewer passages",
 				passages:["Prison Spire Precipice","Prison Spire Precipice Help","Prison Spire Precipice Demand"],
 				manualVariableChanges:"<<set $sceneViewSwitch to 'prison_spire_options'>><<set $location to 'prison'>><<set $per_npc.anxious_guard.name_known to 0>><<run Time.setTime(13,0)>>",
 				unlocked: $scenePassages.includes("PrisonSpirePrecipice")
 			},
 			"PrisonYardLocket":{
-				name:"교도소 운동장 로켓",
+				name:"감옥 운동장 로켓",
 				startPassage:"Prison Yard Speak",
 				passages:["Prison Yard Speak","Prison Yard Locket"],
 				manualVariableChanges:"<<set $location to 'prison'>><<set $per_npc.veteran_guard.name_known to 0>><<run Time.setTime(13,0)>>",
 				unlocked: $scenePassages.includes("PrisonYardLocket")
 			},
 			"PrisonScarredInmate":{
-				name:"교도소 흉터 있는 죄수",
+				name:"감옥 흉터 있는 죄수",
 				startPassage:"SV Prison Scarred",
 				passages:["SV Prison Scarred","Prison Scarred","Prison Scarred Bars","Prison Scarred Bars 2","Prison Scarred Bars Say","Prison Scarred Bars Refuse","Prison Scarred Bars Sob","Prison Scarred Refuse","Prison Scarred Pair","Prison Scarred Pair 2","Prison Scarred Pair Calm","Prison Scarred Pair Spank","Prison Scarred Pair Silent","Prison Scarred Pair Help","Prison Scarred Molestation","Prison Scarred Molestation 2","Prison Scarred Rape","Prison Scarred Rape Finish","Prison Scarred Turn","Prison Scarred Resist","Prison Scarred Fight","Prison Scarred Fight Finish","Prison Scarred Walk","Prison Scarred Walk 2","Prison Scarred Yard","Prison Scarred Yard Warn","Prison Scarred Yard End","Prison Scarred Yard Rape","Prison Scarred Yard Rape Finish","Prison Scarred Inmate Rape","Prison Scarred Inmate Rape Finish","Prison Scarred Inmate Help","Prison Scarred Sex","Prison Scarred Sex Finish","Prison Scarred Ask","Prison Scarred Sibling Refuse","Prison Scarred Sibling Agree","Prison Scarred Sibling 2","Prison Scarred Sibling 3","Prison Scarred Sibling 4","Prison Scarred Sex Refuse"],
 				manualVariableChanges:"<<set $location to 'prison'>><<run Time.setTime(13,0)>>",
 				unlocked: $scenePassages.includes("PrisonScarredInmate")
+			},
+			"AveryPubWinter":{
+				name: "에이버리 겨울 술집",
+				startPassage: "SV Avery Pub Winter",
+				passages:["SV Avery Pub Winter","Avery Pub Winter Accept","Avery Pub Winter Drink","Avery Pub Winter Sing Intro","Avery Pub Winter Sing","Avery Pub Winter Sing Jolly","Avery Pub Winter Sing Jolly 2","Avery Pub Winter Sing Jolly 3","Avery Pub Winter Sing Sorrowful","Avery Pub Winter Sing Sorrowful 2","Avery Pub Winter Sing Sorrowful 3","Avery Pub Winter Sing Ironic","Avery Pub Winter Sing Ironic 2","Avery Pub Winter Sing Ironic 3","Avery Pub Winter Sing Harpy","Avery Pub Winter Sing Harpy 2","Avery Pub Winter Sing Harpy 3","Avery Pub Winter Sing Fail","Avery Pub Winter Sing Fail 2","Avery Pub Winter Sing Back","Avery Pub Winter Sing Kiss","Avery Pub Winter Sing Leave","Avery Pub Winter Drink Finish","Avery Pub Winter Drink Finish 2","Avery Pub Winter Refuse"],
+				manualVariableChanges:"<<set $location to 'town'>><<run Time.setTime(15,0)>>",
+				unlocked: $scenePassages.includes("Avery Pub Winter")
+			},
+			"AverySpa":{
+				name: "에이버리 스파",
+				startPassage: "SV Avery Spa",
+				passages: ["SV Avery Spa", "Avery Spa", "Avery Spa Lewd", "Avery Spa 2", "Avery Spa Offer", "Avery Spa Accept", "Avery Spa Oral", "Avery Spa Oral Finish", "Avery Spa Reward", "Avery Spa Reward Finish", "Avery Spa No Reward", "Avery Spa Refuse", "Avery Spa Rape", "Avery Spa Rape Finish", "Avery Spa End Normal", "Avery Spa End Satisfied", "Avery Spa End Awkward", "Avery Spa End Angry"],
+				manualVariableChanges: "<<set $location to 'spa'>><<run Time.setTime(9,0)>>",
+				unlocked: $scenePassages.includes("Avery Spa")
+			},
+			"MansionReturnWalkDog":{
+				name: "에이버리 개 산책",
+				startPassage: "SV Mansion Return Walk Dog",
+				passages: ["SV Mansion Return Walk Dog", "Mansion Return Walk Dog Bark", "Mansion Return Walk Dog Silent", "Mansion Return Walk Dog Bite", "Mansion Return Walk Dog 2", "Mansion Return Walk Dog Near", "Mansion Return Walk Dog Bid", "Mansion Return Walk Dog Lick", "Mansion Return Walk Dog Shut", "Mansion Return Walk Dog Snap", "Mansion Return Walk Dog Run", "Mansion Return Walk Dog Howl", "Mansion Return Walk Dog Yours", "Mansion Return Walk Dog Okay", "Mansion Return Walk Dog Lick 2", "Mansion Return Walk Dog Wolf Silent", "Mansion Return Walk Dog Growl", "Mansion Return Walk Dog Growl Lick", "Mansion Return Walk Dog Growl Silent", "Mansion Return Walk Dog Growl Attacked", "Mansion Return Walk Dog Rape", "Mansion Return Walk Dog Rape Finish", "Mansion Return Walk Dog Rape Avery", "Mansion Return Walk Dog Rape Silent", "Mansion Return Walk Dog Rape Say", "Mansion Return Walk Dog Rape Help", "Mansion Return Walk Dog Rape Cover", "Mansion Return Walk Dog Rape Free", "Mansion Return Walk Dog Endure", "Mansion Return Walk Dog Stand", "Mansion Return Walk Dog 2 Bark", "Mansion Return Walk Dog 2 Silent", "Mansion Return Walk Dog 2 Bite", "Mansion Return Walk Dog End"],
+				manualVariableChanges:"<<set $location to 'avery_mansion'>><<run Time.setTime(21,0)>>",
+				unlocked: $scenePassages.includes("Mansion Return Walk Dog")
+			},
+			"AverySkyscraperFoundation":{
+				name: "에이버리 마천루 1",
+				startPassage: "SV Skyscraper Foundation",
+				passages: ["SV Skyscraper Foundation", "Skyscraper Foundation Insult", "Skyscraper Foundation Nice", "Skyscraper Foundation Silent", "Skyscraper Foundation 2", "Skyscraper Foundation 3", "Skyscraper Foundation 4", "Skyscraper Foundation Yes", "Skyscraper Foundation No", "Skyscraper Foundation Silent 2", "Skyscraper Foundation Tackle", "Skyscraper Foundation Avery", "Skyscraper Foundation 5", "Skyscraper Foundation Remember", "Skyscraper Foundation Happen", "Skyscraper Foundation Silent 3"],
+				manualVariableChanges: "<<set $location to 'avery_skyscraper'>><<run Time.setTime(21,0)>><<unset $avery_fate>><<set $avery_tower.progress to 25>>",
+				unlocked: $scenePassages.includes("Skyscraper Foundation")
+			},
+			"AverySkyscraperStructure":{
+				name: "에이버리 마천루 2",
+				startPassage: "SV Skyscraper Structure",
+				passages: ["Skyscraper Structure Impressive", "Skyscraper Structure Stupid", "Skyscraper Structure Silent", "Skyscraper Structure 2", "Skyscraper Whitney", "Skyscraper Whitney Sensible", "Skyscraper Whitney Strategic", "Skyscraper Whitney Egg", "Skyscraper Whitney 2", "Skyscraper Whitney 3", "Skyscraper Whitney Jump", "Skyscraper Whitney Jump 2", "Skyscraper Whitney Jump 3", "Skyscraper Whitney Stay", "Skyscraper Whitney Stay 2", "Skyscraper Whitney Stay Whitney", "Skyscraper Whitney Leer", "Skyscraper Whitney Stand", "Skyscraper Whitney Fire", "Skyscraper Whitney Fire Nod", "Skyscraper Whitney Fire Alone", "Skyscraper Whitney Fire Refuse", "Skyscraper Whitney Fire Sex Refuse", "Skyscraper Whitney Fire Sex", "Skyscraper Whitney Fire Sex Finish", "Skyscraper Whitney Fire Sex End", "Skyscraper Whitney Stay Avery", "Skyscraper Structure End"],
+				manualVariableChanges: "<<set $location to 'avery_skyscraper'>><<run Time.setTime(21,0)>><<unset $avery_fate>><<set $avery_tower.progress to 60>>",
+				unlocked: $scenePassages.includes("Skyscraper Structure")
 			},
 		}>>
 	<</if>>
@@ -1206,7 +1260,7 @@
 		<<if $scenesSearch.hideLocked and !_value.unlocked>><<continue>><</if>>
 		<<set _lowerName to clone(_value.name).toLowerCase()>>
 		<<set _lowerPassages to "".concat(_value.startPassage).toLowerCase()>>
-		<<if $scenesSearch.text.length is 0 or ((_value.unlocked or $debug is 1) and (_value.name.toLowerCase().includes($scenesSearch.text.toLowerCase()) or "".concat(_value.startPassage).toLowerCase().includes($scenesSearch.text.toLowerCase())))>>
+		<<if $scenesSearch.text.length is 0 or ((_value.unlocked or $debug) and (_value.name.toLowerCase().includes($scenesSearch.text.toLowerCase()) or "".concat(_value.startPassage).toLowerCase().includes($scenesSearch.text.toLowerCase())))>>
 			<<run _scenes[_label] to clone(_value)>>
 		<</if>>
 	<</for>>
@@ -1229,7 +1283,7 @@
 	<</if>>
 	<<for _i to _indexStart; _i lt _indexEnd; _i++>>
 		<<set _item to _scenes[_keys[_i]]>>
-		<<if _item.unlocked is false and $debug is 0>>
+		<<if _item.unlocked is false and !$debug>>
 			<span class="no-numberify red">
 				<<print _item.lockedMessage || "잠김">>
 			</span>
@@ -1439,7 +1493,7 @@
 
 등 뒤에서 누군가 당신의 어깨에 손을 얹는다. <span class="red">베일리다.</span>
 <br><br>
-<<if $robinfirstrentfight and ($baileypaychain lt 2 or $renttime lte -1)>>
+<<if $robinfirstrentfight and ($baileypaychain lt 2 or $rentTime lte -1)>>
 	<<rentduerobin 0>>
 <<else>>
 	<<rentdue 0>>
@@ -1721,15 +1775,15 @@
 
 :: SV Avery Helicopter
 <<npc Avery>><<person1>>
-건물을 막 떠나려는데, 엄청난 소란이 들려온다. 헬리콥터 한 대가 학교 구내로 하강하자 수십 명의 학생들이 밖으로 모여든다. 승객석 문 하나가 활짝 열린다. 안에서 에이버리가 손짓한다.
+건물을 막 떠나려는데, 엄청난 소란이 들려온다. 수십 명의 학생들이 밖으로 모여들고, 헬리콥터 한 대가 학교 구내 위를 맴돈다. 문 하나가 활짝 열리더니 사다리가 요란하게 철컹거리며 내려온다.
 <br><br>
-
-"자, 어서 움직여. 하루 종일 기다려 줄 순 없다고! 중요한 사업이 기다리고 있단 말이야!"
+에이버리가 위에서 몸을 내밀고 손짓하는 것이 보인다. <<He>>【이가】 무언가 말하지만, 소음 속에서 들리는 것은 당신의 이름뿐이다.
 <br><br>
-
-<<link [[헬리콥터에 탑승한다 (0:20)|Avery Helicopter]]>><<npcincr Avery love 2>><</link>><<gglove>>
+주위에서 급우들이 웅성거리는 소리가 들린다. 이 호화로운 광경에 감탄한 듯하다. <<gcool>><<status 1>>
+<br><br>
+<<link [[헬리콥터에 탑승한다 (0:20)|Avery Helicopter]]>><<pass 20>><</link>><<glove>><<if $avery_mansion>><<gdom>><</if>>
 <br>
-<<link [[걸어서 자리를 뜬다|Avery Helicopter Walk]]>><<npcincr Avery love -1>><<npcincr Avery rage 5>><</link>><<garage>><<llove>>
+<<link [[걸어서 자리를 뜬다|Avery Helicopter Walk]]>><<npcincr Avery love -1>><<npcincr Avery rage 1>><</link>><<garage>><<llove>>
 
 :: SV Street Bully Orphanage Go
 휘트니가 베일리를 처음 만났는가: <span id="baileyMeet">아니오</span>
@@ -1945,3 +1999,162 @@
 <<elseif $phase is "dog">>
 	<<include "Doctor Harper's Office Dog">>
 <</if>>
+
+:: SV Avery Pub Winter
+<<set $outside to 0>><<set $location to "town">><<effects>><<set $bus to "harvest">>
+
+당신은 <<his>> 차에 들어가 앉는다. 안은 기분 좋게 따뜻하다. 잠시 뒤, 두 사람은 하베스트 가에 도착한다. 에이버리는 술집 맞은편에 차를 세우고, 당신을 위해 차 문을 열어준다. "카페의 따뜻한 음료도 좋지만, 여기에는 선택지가 더 많을 겁니다." <<he>>【은는】 술집으로 걸어가며 따라오라는 듯 손짓한다.
+<br><br>
+
+<<link [[Hold Avery's hand|Avery Pub Winter Accept]]>><<set $endear += 10>><<set $phase to 0>><</link>><<gendear>><<handholdingvirginitywarning>><br>
+<<link [[Follow along|Avery Pub Winter Accept]]>><<set $phase to 1>><</link>><br>
+<<link [[Refuse|Avery Pub Winter Refuse]]>><<npcincr Avery rage 5>><<npcincr Avery love -1>><</link>><<garage>><<llove>>
+
+:: SV Mansion Return Walk Dog
+<<npc Avery>><<person1>>
+
+<<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
+	에이버리가 당신의 사역마 목걸이를 잡아당겨 벗기고 다른 것으로 바꾸려 하지만, 아무리 세게 <<he>>【이가】 잡아당겨도 꼼짝도 하지 않는다.
+	<br><br>
+
+	<<if C.npc.Avery.rage gte random(20, 100) and $averyragerevealed gte 1>>
+		<<He>>【은는】 마지막으로 힘껏 잡아당기다가, <span class="blue"><<his>> 손이 황금 하트에 닿는 순간 얼어붙는다</span>. 낮은 윙윙거림이 들린다. <span class="red">에이버리가 떨기 시작한다.</span>
+		<br><br>
+
+		<<He>>【은는】 가까스로 손을 떼고 숨을 헐떡인다. <span class="red"><<His>> 눈은 분노로 가득하지만,</span> <<he>>【은는】 하트를 바라보며 물러선다. <<npcincr Avery rage 1>><<npcincr Avery dom -1>><<garage>><<ldom>>
+		<br><br>
+
+		<<endevent>>
+		<<avery_mansion_end_links>>
+	<<else>>
+		<<He>>【은는】 콧방귀를 뀌며 당신을 놓아준다. "아쉽군. 난 늘 개를 갖고 싶었거든. 늘 그렇듯 대충 만족해야겠어." <<He>>【은는】 걸어가 버린다.
+		<br><br>
+
+		<<endevent>>
+		<<avery_mansion_end_links>>
+	<</if>>
+<<else>>
+	<<if $exposed gte 2>>
+		에이버리는 <<his>> 표정을 읽을 수 없는 얼굴로 당신이 옷을 벗는 것을 지켜본다. 당신이 무릎을 꿇자, 에이버리는 목걸이를 들고 앞으로 다가온다. <<He>>【은는】 목걸이가 딱 맞을 때까지 조인다. 그러고는 <<he>>【이가】 한 칸 더 조인다.
+
+		<<if $phase is 1>>
+			<<exhibitionism5>>
+		<<else>>
+			<br><br>
+		<</if>>
+	<<else>>
+		당신은 무릎을 꿇는다. 에이버리는 목걸이를 들고 앞으로 다가온다. <<He>>【은는】 목걸이가 딱 맞을 때까지 조인다. 그러고는 <<he>>【이가】 한 칸 더 조인다.
+	<</if>>
+	<<undress "avery_dog_walk">>
+	<br><br>
+
+	<<He>>【은는】 목줄을 <<his>> 양손 사이로 팽팽히 잡아당긴 채 당신을 살피며 한 바퀴 돈다. <<He>>【은는】 그것을 채우려고 웅크린다.
+	<<leash 24>>
+	<br><br>
+
+	"누가 착한 강아지일까?"
+	<br><br>
+
+	<<link [[Bark happily|Mansion Return Walk Dog Bark]]>><<set $avery_walk_reaction to "bark">><<attach_leash>><<npcincr Avery dom 1>><</link>><<gdom>>
+	<br>
+	<<link [[Remain silent|Mansion Return Walk Dog Silent]]>><<set $avery_walk_reaction to "silent">><<attach_leash>><<npcincr Avery dom 1>><</link>><<gdom>>
+	<br>
+	<<link [[Bite|Mansion Return Walk Dog Bite]]>><<set $avery_walk_reaction to "bite">><<attach_leash>><<pain 4>><<npcincr Avery love -1>><<npcincr Avery rage 1>><<npcincr Avery dom -1>><</link>><<gpain>><<llove>><<garage>><<ldom>>
+	<br>
+<</if>>
+
+:: SV Skyscraper Foundation
+<<npc Avery>><<person1>>
+
+당신은 에이버리를 따라 차고로 가서 <<him>>의 옆에 있는 스포츠카에 올라탄다. <<He>>【이가】 시동을 걸고 다뉴브 대로로 차를 몬다.
+<br><br>
+
+<<pass 5>>
+도착하기도 전에 크레인이 보인다. 지금은 쓰지 않는 것 같지만. 에이버리는 현장 가까이에 멈추고, 둘 다 밖으로 나온다.
+<<if $avery_tower.effects.includes("temple")>>
+	<<He>>【은는】 신전 시위자 하나를 발로 걷어낸다. 다른 이들은 당신 둘에게서 넓게 물러선다.
+<</if>>
+<br><br>
+
+이제 건물이 들어설 자리에는 직사각형의 구덩이가 있다. 구덩이는 깊고, 바닥에는 터널들이 뻗어 있다.
+<br><br>
+
+"벌써 인상적이지, 안 그래." 에이버리가 말한다.
+<br><br>
+
+<<link [[Insult it|Skyscraper Foundation Insult]]>><<npcincr Avery rage 1>><<npcincr Avery love -1>><</link>><<garage>><<llove>>
+<br>
+<<link [[Say it's very nice|Skyscraper Foundation Nice]]>><<npcincr Avery love 1>><</link>><<glove>>
+<br>
+<<link [[Remain silent|Skyscraper Foundation Silent]]>><<npcincr Avery love -1>><</link>><<llove>>
+
+:: SV Skyscraper Structure
+<<npc Avery>><<person1>>
+
+에이버리의 마천루까지 가는 길은 그리 길지 않다. 도착하기 전에 다른 건물들 위로 우뚝 솟은 건물이 보인다.
+
+<<if $avery_tower.effects.includes("temple")>>
+	신전에서 온 사람들이 주차장 앞에서 팔짱을 끼고 바리케이드를 치고 있다. 에이버리는 <<he>>【이가】 다가가자 속도를 높여 그들이 옆으로 뛰어오르게 만든다.
+<</if>>
+<br><br>
+
+에이버리가 차에서 내려 보닛을 돌아 당신의 문을 열어준다.
+<br><br>
+
+"인상적이지, 안 그래?" 에이버리가 허리에 손을 얹고 말한다. 건물은 이미 이웃 건물들 위로 솟아 있고, 노출된 철골은 더 높이 솟아 있다.
+<br><br>
+
+
+<<link [[Say it's impressive|Skyscraper Structure Impressive]]>><<npcincr Avery love 1>><</link>><<glove>>
+<br>
+<<link [[Say it's stupid|Skyscraper Structure Stupid]]>><<npcincr Avery love -1>><</link>><<llove>>
+<br>
+<<link [[Say nothing|Skyscraper Structure Silent]]>><</link>>
+
+:: SV Avery Spa
+<<npc Avery>><<person1>>
+<<spa_init>>
+
+<<set $endear to 0>>
+잠시 뒤 한 사람이 들어온다. <<his>> <<= $pronoun is "m" ? "허리" : "몸">>에 수건을 두르고 있다.
+
+<<if $averyragerevealed is 1>>
+	<<set _rageColour to (
+			C.npc.Avery.rage gte 80 ? "red" :
+			C.npc.Avery.rage gte 60 ? "pink" :
+			C.npc.Avery.rage gte 40 ? "purple" :
+			C.npc.Avery.rage gte 20 ? "lblue" : "green"
+		)>>
+<<else>>
+	<<set _rageColour to "green">>
+<</if>>
+<span @class="_rageColour">에이버리다.</span>
+<br><br>
+<<He>>【은는】 당신을 보고 놀란 눈치였지만, 금세 표정을 숨긴다.
+<br><br>
+"글쎄." <<he>>【이가】 수건을 풀어 옆으로 치우며 말한다,
+<<if $averySeen.includes("spa")>>
+	<<if $averyragerevealed is 1 and (C.npc.Avery.rage gte 60 or $averyRejectedSpa)>>
+		"이번에는 네가 내 말을 고분고분 들을지 궁금하군." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
+	<<else>>
+		"다시 만나서 반갑군, <<pcpetname "Avery">>. 날 아주 잘 돌봐줄 거지, 안 그래?"
+	<</if>>
+<<else>>
+	"널 볼 줄은 예상치 못했다고 해야겠지,
+	<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 60>>
+		최근의 네 태도를 생각하면, 이렇게 시중드는 자리에서는 말이야." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
+	<<else>>
+		여기서 말이야, <<pcpetname "Avery">>."
+	<</if>>
+<</if>>
+<br><br>
+<<He>>【은는】 두 팔을 머리 아래로 괸 채 탁자 위에 눕는다.
+<br><br>
+어떻게 행동할까?
+<br><br>
+
+<<link [[귀엽게|Avery Spa]]>><<set $spa.behaviour to "cute">><</link>><<note "+ 호감?" "teal">>
+<br>
+<<link [[세련되게|Avery Spa]]>><<set $spa.behaviour to "sophisticated">><</link>><<note "+ 호감?" "teal">>
+<br>
+<<link [[매혹적으로|Avery Spa]]>><<set $spa.behaviour to "alluring">><</link>><<promiscuous1>><<note "+ 호감?" "teal">>

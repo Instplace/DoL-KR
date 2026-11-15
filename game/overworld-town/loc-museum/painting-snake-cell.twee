@@ -899,7 +899,7 @@
 <br><br>
 
 그녀의 머리카락은 매듭으로 가득했다. 당신은 손가락을 부드럽게 빗어 내리며, 가능한 한 머리카락을 적게 뽑으면서 엉킨 것을 풀기 위해 최선을 다한다.
-<<if $prisonerBrands and $prisonerBrands.includes("right cheek")>>
+<<if $prisonerBrands?.includes("right cheek")>>
 	그녀는 물이 얼굴을 타고 흘러내려 얼굴의 낙인에 닿을 때마다 움찔했지만, 이내 만족스러운 한숨을 내쉰다.
 <<else>>
 	그녀는 만족스러운 한숨을 내쉰다.
@@ -1601,7 +1601,7 @@
 		<br>
 	<</if>>
 <<else>>
-	<<link [[잠자기|Hopeless Cycle Cell Spend Night 2]]>><<set $hc.daily.cellSleep to true>><<hcPrisonerHealth 3>><<endevent>><<pass 5 hours>><<tiredness -60>><</link>>
+	<<link [[잔다|Hopeless Cycle Cell Spend Night 2]]>><<set $hc.daily.cellSleep to true>><<hcPrisonerHealth 3>><<endevent>><<pass 5 hours>><<tiredness -60>><</link>>
 	<br>
 <</if>>
 
@@ -2785,7 +2785,7 @@
 	<<elseif $hc.nightBreakIn is "tonight" or $hc.nightBreakIn is "heard">>
 		<<loadNPC 0 "hc_abuser">><<person1>>
 		당신은 검은 로브를 입은 <<personsimple>>【와과】 마주친다. 그는 당신을 때리려는 듯 곤봉을 치켜들고 있다.
-		<<He>>【은는】 멈칫한다. "페, 페인 형제님. 여기서 아직 뭘 하고 계십니까?" <<He>>【은는】 초조해 보인다.
+		<<He>>【은는】 멈칫한다. "페-페인 형제님. 여기서 아직 뭘 하고 계십니까?" <<He>>【은는】 초조해 보인다.
 		<br><br>
 
 		"우리... 둘 다 떠나서, 서로 못 본 척하는 게 어떻겠습니까, 네?"
@@ -3266,7 +3266,7 @@
 그녀의 이마 왼쪽에는 마치 금이 간 도자기처럼 검고 갈라진 자국이 있었다. 그것은 아래로 비스듬히 뻗어 그녀의 왼쪽 눈이 있어야 할 자리를 덮었지만, 거기서 멈추지 않았다. 그것은 그녀의 피부를 완전히 벗어나 허공으로 찢어져 나와, 세 갈래로 갈라진 균열, 즉 <span class="tentacle">구멍</span>을 남겼다., 바로 그녀의 머리 옆 세상 그 자체에. 그녀가 회복하는 동안 그것은 그녀와 함께 움직였고, 더 이상 붕대에 갇혀 있지 않았다. <<trauma 50>><<gggtrauma>><<awareness 50>><<ggawareness>>
 <br><br>
 
-<span class="purple">텅 빈 사슴뿔. 엘크의 자손의 표식.</span>
+<span class="purple">텅 빈 사슴뿔. 엘크스폰의 표식.</span>
 <br><br>
 
 그 안의 공허가 일렁이며 끓어올라, 당신의 온전한 주의와 <span class="tentacle">숭배</span>를 요구했다. 한 쌍의 커다란 손이 당신의 어깨를 잡아채 정신을 차리게 했다.

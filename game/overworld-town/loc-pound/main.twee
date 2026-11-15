@@ -32,11 +32,11 @@
 		<br><br>
 	<</if>>
 	<<stray_happiness_text>>
-	<<beastNEWinit 1 dog>>
+	<<generateBeastVictim 1 dog>>
 	<<beasttype>>【이가】 창살 너머로 당신을 지켜본다.
 	<<if !Time.openingHours() and Time.hour isnot $closinghour>>
 		<br>
-		<<if hasSexStat("deviancy", 2) and $pound.sneak is 0 and ($settings.bestialityEnabled or $monster is 1)>>
+		<<if hasSexStat("deviancy", 2) and $pound.sneak is 0 and beastSexEnabledForType("dog", $monster is 1)>>
 			<<prisonicon "cell">><<link [[유혹한다 (0:05)|Pound Tease]]>><<pass 5>><<set $pound.sneak to 1>><<arousal 600>><</link>><<deviant2>><<garousal>>
 			<br>
 		<</if>>
@@ -105,7 +105,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㄴ-내가 널 구해주러 왔어." 당신이 말한다. "무서워하지 마."
+	"내-내가 널 구해주러 왔어." 당신이 말한다. "무서워하지 마."
 <<elseif $speech_attitude is "bratty">>
 	"여기서 꺼내줄게." 당신이 말한다. "그렇게 속상해하지 마."
 <<else>>
@@ -276,7 +276,7 @@
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-	<<link [[다음|Pound Free Submit]]>><</link>>
+	<<link [[다음|Pound Free Submit]]>><<set $phase to "caught">><</link>>
 	<br>
 <</if>>
 
@@ -311,7 +311,11 @@
 <<else>>
 	<<leash 26>>
 	<<set $worn.neck.cursed to 1>>
-	<<badEndTracking "Pound" { reason: "poundSubmitted" }>>
+	<<if $phase is "caught">>
+		<<badEndTracking "Pound" { reason: "poundCaught" }>>
+	<<else>>
+		<<badEndTracking "Pound" { reason: "poundSubmitted" }>>
+	<</if>>
 	사방에서 손들이 뻗어와 당신의 몸에서 옷을 찢어낸다. 그들은 당신을 엎드리게 한다. 누군가 당신의 어깨 사이에 장화를 들이밀고 입에 입마개를, 목에 목줄과 가죽끈을 채운다. 적어도 수갑은 풀어준다.
 	<br><br>
 
@@ -425,8 +429,8 @@
 
 <<endevent>>
 
-<<beastNEWinit 6 dog>>
-<<if $settings.bestialityEnabled or $monster is 1>>
+<<generateBeastVictim 6 dog>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	"우리 열어!"
 	<br><br>
 	<<bind>>
@@ -443,7 +447,6 @@
 	<<generate1>><<person1>>
 	직원들은 계속해서 당신을 학대한다. 그들은 당신에게 물건 가져오기 놀이를 시키고, 개밥그릇으로 먹게 하는 등 다른 굴욕적인 행동을 시킨다. 마침내, 그들은 가죽끈을 풀고 당신을 우리 중 하나에 밀어 넣고 뒤에서 잠근다. "잘 자." 그들은 웃으며 걸어간다. <<lllpound_status>><<pound_status -30>><<gggtrauma>><<gggstress>><<trauma 18>><<stress 18>><<detach_leash>>
 	<br><br>
-	<<badEndTracking "Pound" { reason: "poundCaught" }>>
 	<<link [[다음|Pound Cage]]>><<endevent>><</link>>
 	<br>
 <</if>>
@@ -534,7 +537,6 @@
 	직원들은 계속해서 당신을 학대한다. 그들은 당신에게 물건 가져오기 놀이를 시키고, 개밥그릇으로 먹게 하는 등 다른 굴욕적인 행동을 시킨다. 마침내, 그들은 가죽끈을 풀고 당신을 우리 중 하나에 밀어 넣고 뒤에서 잠근다. "잘 자." <<person>>【이가】 말한다. "네 훈련은 내일부터 시작이야." 직원들은 웃으며 걸어간다.<<detach_leash>>
 	<<pass 60>>
 	<br><br>
-	<<badEndTracking "Pound" { reason: "poundCaught" }>>
 	<<link [[다음|Pound Cage]]>><<endevent>><</link>>
 	<br>
 <</if>>
@@ -544,7 +546,7 @@
 
 <<if $pound.progress is 1>>
 	<<set $pound.progress to 2>>
-	<<beastNEWinit 1 dog>>
+	<<generateBeastVictim 1 dog>>
 	<<saveNPC 0 "black_dog">>
 	<<generate2>><<person2>><<generate3>>
 	작은 시설은 아니며, 예상보다 직원도 많다. 긴장한 <<person>> 한 명이 목줄을 들고 그늘진 우리로 다가간다. 주변 우리들은 비어 있다. <<He>>【은는】 낮은 으르렁거리는 소리에 얼어붙는다.
@@ -557,7 +559,7 @@
 	<br>
 <<elseif $pound.progress is 2 and $pound.status gte 10>>
 	<<set $pound.progress to 3>>
-	<<beastNEWinit 1 dog>>
+	<<generateBeastVictim 1 dog>>
 	<<generate2>><<person2>>
 	낑낑거리는 소리가 들린다. <<person>> 한 명이 우리 안의 <<beasttype 0>> 위에서 벨트로 <<bhim 0>>【을를】 때리고 있다. <<beasttype 0>>【은는】 <<bhimself 0>> 방어하려 하지 않는다.
 	<br><br>
@@ -621,35 +623,35 @@
 		<</if>>
 	<<else>>
 		<br><br>
-		<<choreicon "sweep">><<link [[쓸기 (£5)|Pound Work Sweep]]>><<if !$pound.tasks.includes("sweep")>><<stray_happiness 1>><<set $pound.tasks.push("sweep")>><</if>><<set $pound.money to 5>><</link>><<if !$pound.tasks.includes("sweep")>><<gstray_happiness>><</if>>
+		<<choreicon "sweep">><<link [[쓸어낸다 (£5)|Pound Work Sweep]]>><<if !$pound.tasks.includes("sweep")>><<stray_happiness 1>><<set $pound.tasks.push("sweep")>><</if>><<set $pound.money to 5>><</link>><<if !$pound.tasks.includes("sweep")>><<gstray_happiness>><</if>>
 		<br>
 		<<if $pound.status gte 10>>
-			<<petshopicon "dog food">><<link [[먹이 주기 (£8)|Pound Work Feed]]>><<if !$pound.tasks.includes("feed")>><<stray_happiness 1>><<set $pound.tasks.push("feed")>><</if>><<set $pound.money to 8>><</link>><<if !$pound.tasks.includes("feed")>><<gstray_happiness>><</if>>
+			<<petshopicon "dog food">><<link [[먹이를 준다 (£8)|Pound Work Feed]]>><<if !$pound.tasks.includes("feed")>><<stray_happiness 1>><<set $pound.tasks.push("feed")>><</if>><<set $pound.money to 8>><</link>><<if !$pound.tasks.includes("feed")>><<gstray_happiness>><</if>>
 		<<else>>
 			<<petshopicon "dog food">><span class="blue"><<pound_text>>【은는】 당신을 존중하지 않아서, 밥그릇을 들고 있어도 가까이 다가오지 못하게 합니다.</span>
 		<</if>>
 		<br>
 		<<if $pound.status gte 20>>
-			<<petshopicon "brush">><<link [[빗질하기 (£10)|Pound Work Brush]]>><<if !$pound.tasks.includes("brush")>><<stray_happiness 2>><<set $pound.tasks.push("brush")>><</if>><<set $pound.money to 10>><</link>><<if !$pound.tasks.includes("brush")>><<ggstray_happiness>><</if>>
+			<<petshopicon "brush">><<link [[빗질한다 (£10)|Pound Work Brush]]>><<if !$pound.tasks.includes("brush")>><<stray_happiness 2>><<set $pound.tasks.push("brush")>><</if>><<set $pound.money to 10>><</link>><<if !$pound.tasks.includes("brush")>><<ggstray_happiness>><</if>>
 		<<else>>
 			<<petshopicon "brush">><span class="blue"><<pound_text>>【은는】 당신을 존중하지 않아서, 빗을 들고 가까이 다가오지 못하게 합니다.</span>
 		<</if>>
 		<br>
 		<<if $pound.status gte 40>>
-			<<choreicon "wash">><<link [[씻기기 (£12)|Pound Work Wash]]>><<if !$pound.tasks.includes("wash")>><<stray_happiness 2>><<set $pound.tasks.push("wash")>><</if>><<set $pound.money to 12>><</link>><<if !$pound.tasks.includes("wash")>><<ggstray_happiness>><</if>>
+			<<choreicon "wash">><<link [[씻긴다 (£12)|Pound Work Wash]]>><<if !$pound.tasks.includes("wash")>><<stray_happiness 2>><<set $pound.tasks.push("wash")>><</if>><<set $pound.money to 12>><</link>><<if !$pound.tasks.includes("wash")>><<ggstray_happiness>><</if>>
 		<<else>>
 			<<choreicon "wash">><span class="blue"><<pound_text>>【은는】 당신을 존중하지 않아서, 물통을 들고 가까이 다가오지 못하게 합니다.</span>
 		<</if>>
 		<br>
 		<<if $pound.status gte 60>>
-			<<petshopicon "dog leash">><<link [[산책시키기 (£15)|Pound Work Walk]]>><<if !$pound.tasks.includes("walk")>><<stray_happiness 3>><<set $pound.tasks.push("walk")>><</if>><<set $pound.money to 15>><</link>><<if !$pound.tasks.includes("walk")>><<gggstray_happiness>><</if>>
+			<<petshopicon "dog leash">><<link [[산책시킨다 (£15)|Pound Work Walk]]>><<if !$pound.tasks.includes("walk")>><<stray_happiness 3>><<set $pound.tasks.push("walk")>><</if>><<set $pound.money to 15>><</link>><<if !$pound.tasks.includes("walk")>><<gggstray_happiness>><</if>>
 		<<else>>
 			<<petshopicon "dog leash">><span class="blue"><<pound_text>>【은는】 당신을 존중하지 않아서, 목줄을 들고 가까이 다가오지 못하게 합니다.</span>
 		<</if>>
 	<</if>>
 	<br>
 	<<if !$slimePoundTask>>
-		<<getouticon>><<link [[떠나기|Pound]]>><</link>>
+		<<getouticon>><<link [[떠난다|Pound]]>><</link>>
 	<</if>>
 	<br>
 <</if>>
@@ -668,7 +670,7 @@
 <</if>>
 <br><br>
 
-<<person>>【은는】 <<beasttype 0>>에게 마지막으로 매질을 한 번 더 가하고는 당신을 바라본다. "됐다," <<he>>【이가】 힘에 겨워 숨을 헐떡이며 말한다. <<He>>【은는】 우리를 벗어나다 말고, 당신 옆에 멈춰 선다. "<span class="pink">조심하는 게 좋을 거야, <<lass>>.</span> 꼬투리만 잡히면 너도 <<bitch>>【으로로】 만들어 버릴 테니까."
+<<person>>【은는】 <<beasttype 0>>에게 마지막으로 매질을 한 번 더 가하고는 당신을 바라본다. "됐다." <<he>>【이가】 힘에 겨워 숨을 헐떡이며 말한다. <<He>>【은는】 우리를 벗어나다 말고, 당신 옆에 멈춰 선다. "<span class="pink">조심하는 게 좋을 거야, <<lass>>.</span> 꼬투리만 잡히면 너도 <<bitch>>【으로로】 만들어 버릴 테니까."
 <br><br>
 
 <<if Time.hour gte $closinghour>>
@@ -703,7 +705,7 @@
 <</switch>>
 <br><br>
 
-<<beastNEWinit 1 dog>>
+<<generateBeastVictim 1 dog>>
 <<if random(1, 3) is 3>>
 	<<beasttype>>【이가】 이빨로 빗자루를 물어채는 바람에 빗자루가 걸린다.
 	<br><br>
@@ -781,7 +783,7 @@
 <<if $tendingSuccess>>
 	"놔." 당신은 <span class="green">단호하고 확신에 찬 목소리로</span> 말한다. <<beasttype>>【은는】 포기하고 대신 창살을 씹는다.<<gpound_status>><<pound_status 1>>
 <<else>>
-	"ㄴ-놔." 당신은 말하지만, <span class="red"><<beasttype>>【이가】 빗자루를 마구 흔드는 동안 목소리를 유지하기 어렵다.</span> <<bHe>>【은는】 만족하고 나서야 손아귀에서 힘을 풀고, 나무에 이빨 자국을 남긴다.<<lpound_status>><<pound_status -1>><<if $tending lt 200>><<tending 1>><<gtending>><</if>>
+	"놔-놔." 당신은 말하지만, <span class="red"><<beasttype>>【이가】 빗자루를 마구 흔드는 동안 목소리를 유지하기 어렵다.</span> <<bHe>>【은는】 만족하고 나서야 손아귀에서 힘을 풀고, 나무에 이빨 자국을 남긴다.<<lpound_status>><<pound_status -1>><<if $tending lt 200>><<tending 1>><<gtending>><</if>>
 <</if>>
 <br><br>
 
@@ -836,7 +838,7 @@
 
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"ㅈ-제발 그만해,"
+		"제-제발 그만해,"
 	<<elseif $speech_attitude is "bratty">>
 		"야, 그만하라니까,"
 	<<else>>
@@ -860,7 +862,7 @@
 
 <<if random(1, 2) is 2>>
 	그들은 당신과 다른 직원들을 무시하고 그릇으로 몰려든다.
-	<<beastNEWinit 2 dog>>
+	<<generateBeastVictim 2 dog>>
 	수척한 <<beasttype 0>>【이가】 <<bhis 0>> 길을 뚫고 나아가려 하지만 너무 약하다. 다른 <<beasttype 1>>【이가】 <<bhim 0>>【을를】 밀쳐낸다. <<bHe 0>>【은는】 패배하여 눕는다.
 	<br><br>
 
@@ -915,13 +917,13 @@
 :: Pound Work Brush
 <<effects>>
 
-<<beastNEWinit 1 dog>><<wearProp "brush">>
+<<generateBeastVictim 1 dog>><<wearProp "brush">>
 <<if $slimePoundTask>>당신은 <<= numberOfEarSlime() gte 2 ? "슬라임들의" : "슬라임의">> 명령에 따라 특정 임무를 수행한다.<<unset $slimePoundTask>><</if>>
 솔을 손에 들고, 당신은 우리 중 하나로 들어간다.
 <br><br>
 
 <<cleareventpool>>
-<<if $settings.bestialityEnabled or $monster is 1>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	<<addinlineevent "pound_brush_1">>
 		안에 있는 <<beasttype>>【은는】 친근하다. 어쩌면 너무 친근할지도 모른다.
 		<<if $monster is 1>>
@@ -948,7 +950,7 @@
 	<br>
 	<<link [[더 온순한 동물을 찾아 빗질한다|Pound Work Brush Find]]>><<endevent>><</link>>
 	<br>
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("dog", $monster is 1)>>
 		<<link [[개처럼 행동해서 안심시킨다|Pound Work Brush Act]]>><</link>><<deviant1>>
 		<br>
 	<</if>>
@@ -1057,7 +1059,7 @@
 <<effects>>
 
 <<wearProp "brush">>
-<<beastNEWinit 1 dog>>
+<<generateBeastVictim 1 dog>>
 당신은 대신 더 온순한 동물을 찾아 빗질한다. 주로 <<bhe>>【이가】 잠들어 있기 때문이다.
 <br><br>
 
@@ -1199,7 +1201,7 @@
 	<<generate1>><<generate2>><<person1>>
 	찬장에서 탈출했지만, 하필 <<person>>의 품 안으로 뛰어들고 만다. "이게 누구야?"
 	<br>
-	"그런 꼴로 돌아다니다니," <<person1>><<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. <<He>>【은는】 고개를 젓는다.
+	"그런 꼴로 돌아다니다니." <<person1>><<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. <<He>>【은는】 고개를 젓는다.
 	<br><br>
 	<<link [[다음|Pound Exposed Caught]]>><</link>>
 	<br>
@@ -1385,7 +1387,7 @@
 <<endevent>><<generate1>><<generate2>><<person1>>
 몸을 숨길 곳을 찾아 돌아서지만, 하필 <<person>>의 품 안으로 뛰어들고 만다. "이게 누구야?"
 <br>
-"그런 꼴로 돌아다니다니," <<person1>><<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. <<He>>【은는】 고개를 젓는다.
+"그런 꼴로 돌아다니다니." <<person1>><<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. <<He>>【은는】 고개를 젓는다.
 <br><br>
 <<link [[다음|Pound Exposed Caught]]>><</link>>
 <br>
@@ -1393,13 +1395,13 @@
 :: Pound Work Wash
 <<effects>><<wearProp "bucket">>
 
-<<beastNEWinit 1 dog>>
+<<generateBeastVictim 1 dog>>
 <<if $slimePoundTask>>당신은 특정 임무를 수행하라는 <<= numberOfEarSlime() gte 2 ? "슬라임들의" : "슬라임의">> 명령을 따른다.<<unset $slimePoundTask>><</if>>
 
 당신은 양동이를 손에 들고 우리 중 하나로 들어간다.
 
 <<cleareventpool>>
-<<if $settings.bestialityEnabled or $monster is 1>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	<<addinlineevent "wash shake">>
 		안에 있던 <<beasttype>>【이가】 당신이 다가오도록 내버려 둔다. 당신은 비눗물로 <<bhim>>【을를】 씻긴다.
 		<br><br>
@@ -1417,7 +1419,7 @@
 <<addinlineevent "wash hate">>
 	안에 있던 <<beasttype>>【이가】 구석으로 움츠러든다.
 	<<if $monster is 1>>
-		"싫어," <<bhe>>【이가】 말한다. "젖는 거 싫어."
+		"싫어." <<bhe>>【이가】 말한다. "젖는 거 싫어."
 	<<else>>
 		<<bHe>>【이가】 조심스럽게 물을 쳐다본다.
 	<</if>>
@@ -1425,7 +1427,7 @@
 
 	<<link [[달랜다|Pound Work Wash Soothe]]>><</link>><<tendingdifficulty 1 800>>
 	<br>
-	<<if hasSexStat("deviancy", 3) and ($settings.bestialityEnabled or $monster is 1)>>
+	<<if hasSexStat("deviancy", 3) and beastSexEnabledForType("dog", $monster is 1)>>
 		<<link [[손을 사용한다|Pound Work Wash Hand]]>><</link>><<deviant3>>
 	<</if>>
 <</addinlineevent>>
@@ -1438,7 +1440,7 @@
 	<br>
 	<<link [[진정시킨다|Pound Work Wash Excited]]>><<set $phase to "calm">><</link>><<tendingdifficulty 1 800>>
 	<br>
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("dog", $monster is 1)>>
 		<<link [[억지로 가만히 있게 한다|Pound Work Wash Excited]]>><<set $phase to "force">><</link>><<physiquedifficulty 1 $physiquemax>>
 	<</if>>
 <</addinlineevent>>
@@ -1483,10 +1485,10 @@
 <<effects>>
 
 <<if $tendingSuccess>>
-	"괜찮아," 당신은 더 가까이 다가가며 나지막이 말한다. "물은 따뜻하고, 씻고 나면 기분이 더 좋아질 거야. 약속할게."
+	"괜찮아." 당신은 더 가까이 다가가며 나지막이 말한다. "물은 따뜻하고, 씻고 나면 기분이 더 좋아질 거야. 약속할게."
 	<br><br>
 	<<if $monster is 1>>
-		<span class="green">"아-알았어," <<bhe>>【이가】 다소 진정된 듯 말한다.</span>
+		<span class="green">"아-알았어." <<bhe>>【이가】 다소 진정된 듯 말한다.</span>
 	<<else>>
 		<span class="green">당신의 목소리에 <<bhis>> 긴장이 풀린다,</span> 그리고 <<bhe>>【은는】 당신이 다가오는 것을 허락한다.
 	<</if>>
@@ -1495,7 +1497,7 @@
 
 	당신은 <<bhim>>의 머리부터 발끝까지 씻긴다. <<bHe>>【은는】 처음에는 물을 싫어했지만, 곧 익숙해진다. 당신은 양동이를 들고 우리를 떠나, <<bhim>> 혼자 물을 털어내도록 둔다.
 <<else>>
-	"무서워하지 마," 당신이 말한다. 당신은 스펀지를 내밀어 <<bhim>>에게 무서워할 것이 없다는 것을 보여주지만, <span class="red"><<bhe>>【은는】 더욱 움츠러들 뿐이다.</span><<gtending>><<tending 1>>
+	"무서워하지 마." 당신이 말한다. 당신은 스펀지를 내밀어 <<bhim>>에게 무서워할 것이 없다는 것을 보여주지만, <span class="red"><<bhe>>【은는】 더욱 움츠러들 뿐이다.</span><<gtending>><<tending 1>>
 	<br><br>
 
 	<<bHe>>【은는】 결국 굴복하지만, 내내 낑낑거린다. 일이 끝나자, <<bhe>>【은는】 이웃 우리에 있는 <<pound_text>>에게 물이 튈 정도로 세게 <<bhis>> 머리와 털을 흔든다. <span class="pink">당신은 흠뻑 젖었다.</span>
@@ -1573,7 +1575,7 @@
 :: Pound Work Walk
 <<effects>><<wearProp "dog leash">>
 
-<<beastNEWinit 5 dog>>
+<<generateBeastVictim 5 dog>>
 <<if $slimePoundTask>>당신은 특정 임무를 수행하라는 <<= numberOfEarSlime() gte 2 ? "슬라임들의" : "슬라임의">> 명령을 따른다.<<unset $slimePoundTask>><</if>>
 다섯 마리의 <<beastsplural>>에게 목줄을 채운다. 녀석들은 운동을 하고 싶어 안달이 나서 저항하지 않는다. 꼬리를 흔들며, 녀석들은 당신을 앞마당을 지나 저 너머의 거리로 끌고 간다.
 <br><br>
@@ -1652,7 +1654,7 @@
 <br><br>
 
 <<if random(1, 2) is 2>>
-	<<generate6>><<person6>>한 <<person>>【이가】 팔짱을 낀 채 당신에게 다가온다. "귀여운 강아지들이네요," <<he>>【이가】 말한다. "당신 건가요?"
+	<<generate6>><<person6>>한 <<person>>【이가】 팔짱을 낀 채 당신에게 다가온다. "귀여운 강아지들이네요." <<he>>【이가】 말한다. "당신 건가요?"
 	<br><br>
 	<<link [[추파를 던진다|Pound Work Walk Beach Flirt]]>><</link>><<promiscuous1>>
 	<br>
@@ -1670,7 +1672,7 @@
 :: Pound Work Walk Beach Flirt
 <<effects>>
 
-"맞아요," 당신이 말한다. "하지만 당신만큼 귀엽진 않네요."
+"맞아요." 당신이 말한다. "하지만 당신만큼 귀엽진 않네요."
 <<promiscuity1>>
 
 <<if random(1, 100) is 100>>
@@ -1691,11 +1693,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아-아니요," 당신이 말한다. "전 그냥 보호소에서 일하는 거예요."
+	"아-아니요." 당신이 말한다. "전 그냥 보호소에서 일하는 거예요."
 <<elseif $speech_attitude is "bratty">>
-	"아니요," 당신이 말한다. "이게 제 일이에요."
+	"아니요." 당신이 말한다. "이게 제 일이에요."
 <<else>>
-	"아니요," 당신이 말한다. "보호소에서 일해요."
+	"아니요." 당신이 말한다. "보호소에서 일해요."
 <</if>>
 <br><br>
 
@@ -1751,7 +1753,7 @@
 당신은 숲에 도착한다. 당신은 <<beastsplural>>의 목줄을 채워둔다. 이곳에서 길을 잃으면 마을에서 가깝더라도 위험할 수 있기 때문이다.
 <br><br>
 
-<<if random(1, 2) and ($settings.bestialityEnabled or $monster is 1)>>
+<<if random(1, 2) and beastSexEnabledForType("dog", $monster is 1)>>
 	한 <<beasttype 0>>【이가】 이상한 분홍색 꽃 냄새를 맡는다.
 	<<if $tending gte 600>>
 		<span class="green">당신은 그것을 알아본다,</span> <span class="purple">그리고 그것이 위험하다는 것을 안다.</span>
@@ -1782,7 +1784,7 @@
 <<effects>>
 <<wearProp "dog leash">>
 <<if $tendingSuccess>>
-	"이리 와, <<bboy 0>>," 당신이 말한다. <<beasttype 0>>【이가】 반응하며, <span class="green">꽃을 내버려 둔다.</span>
+	"이리 와, <<bboy 0>>." 당신이 말한다. <<beasttype 0>>【이가】 반응하며, <span class="green">꽃을 내버려 둔다.</span>
 	<br><br>
 
 	적당히 지치면, 당신은 <<beastsplural>>【을를】 이끌고 마을을 지나 보호소로 돌아간다.
@@ -1930,20 +1932,20 @@
 
 <<generate6>><<person6>><<person>>【이가】 지나간다.
 <<if $speech_attitude is "meek">>
-	"저-저기요," 당신이 소리친다. "사고가 좀 있었어요. 뭐 가릴 것 좀 주실 수 있나요?"
+	"저-저기요." 당신이 소리친다. "사고가 좀 있었어요. 뭐 가릴 것 좀 주실 수 있나요?"
 <<elseif $speech_attitude is "bratty">>
-	"숲에서 사고가 좀 났어요," 당신이 소리친다. "뭐 가릴 것 좀 주실 수 있나요?"
+	"숲에서 사고가 좀 났어요." 당신이 소리친다. "뭐 가릴 것 좀 주실 수 있나요?"
 <<else>>
-	"안녕하세요," 당신이 소리친다. "사고가 좀 있었어요. 뭐 가릴 것 좀 주실 수 있나요?"
+	"안녕하세요." 당신이 소리친다. "사고가 좀 있었어요. 뭐 가릴 것 좀 주실 수 있나요?"
 <</if>>
 <br><br>
 <<person>>【은는】 멈춰 서서 당신을 빤히 쳐다본다. 나무들이 당신을 충분히 가려주지만,
 <<upperwear "overalls">>
 <<if random(1, 2) is 2>>
-	<<he>>【은는】 <<he>>【이가】 볼 수 있는 것을 음흉하게 쳐다본다. "물론이죠," <<he>>【이가】 말한다. "근처에 살아요. 몇 분만 기다리면 뭐 좀 가져다줄게요."
+	<<he>>【은는】 <<he>>【이가】 볼 수 있는 것을 음흉하게 쳐다본다. "물론이죠." <<he>>【이가】 말한다. "근처에 살아요. 몇 분만 기다리면 뭐 좀 가져다줄게요."
 	<br><br>
 
-	<<He>>【은는】 약속대로 작업복 한 벌을 들고 돌아온다. "당신한테 맞을 만한 게 이것밖에 없네요," <<he>>【이가】 그것을 내밀며 말한다. 당신은 몸을 앞으로 기울여 <<his>> 손아귀에서 옷감을 낚아챈다. 만져보니 차갑다.
+	<<He>>【은는】 약속대로 작업복 한 벌을 들고 돌아온다. "당신한테 맞을 만한 게 이것밖에 없네요." <<he>>【이가】 그것을 내밀며 말한다. 당신은 몸을 앞으로 기울여 <<his>> 손아귀에서 옷감을 낚아챈다. 만져보니 차갑다.
 	<br><br>
 
 	당신은 나무 뒤에서 옷을 입는다. 옷감은 왠지 모르게 정말 차갑지만, 곧 따뜻해질 것이라고 생각한다. 당신이 나왔을 때 <<person>>【은는】 여전히 그 자리에 서서 <<his>> 미소를 짓고 있다. 당신은 거리로 나와 보호소를 향해 걷는다.
@@ -1952,10 +1954,10 @@
 	<<link [[다음|Pound Work Walk Ask 2]]>><</link>>
 	<br>
 <<else>>
-	<<he>>【은는】 얼굴을 붉힌다. "네-네," <<he>>【이가】 말한다. "근처에 살아요. 몇 분만 기다리면 뭐 좀 가져다줄게요."
+	<<he>>【은는】 얼굴을 붉힌다. "네-네." <<he>>【이가】 말한다. "근처에 살아요. 몇 분만 기다리면 뭐 좀 가져다줄게요."
 	<br><br>
 
-	<<He>>【은는】 약속대로 작업복 한 벌을 들고 돌아온다. "더 편한 게 아니라서 미안해요," <<he>>【이가】 눈을 피하며 그것을 내밀며 말한다. "당신 사이즈에 맞는 게 이것밖에 없어요. 목적지까지 가는 데는 도움이 될 거예요."
+	<<He>>【은는】 약속대로 작업복 한 벌을 들고 돌아온다. "더 편한 게 아니라서 미안해요." <<he>>【이가】 눈을 피하며 그것을 내밀며 말한다. "당신 사이즈에 맞는 게 이것밖에 없어요. 목적지까지 가는 데는 도움이 될 거예요."
 	<br><br>
 
 	당신은 <<person>>에게 감사 인사를 하고 나무 뒤에서 옷을 입는다. 당신이 나왔을 때 <<person>>【은는】 사라지고 없다.
@@ -2050,7 +2052,7 @@
 <<upperruined>>
 <<lowerruined>>
 <<exposure>>
-<<covered>> 관중들은 주위에 서서 입을 벌리고 촬영한다. <<person6>><<person>>【이가】 가장 가까이 서 있다. "걱정 마세요," <<person>>【이가】 웃는다. "그 옷 돌려받을 생각은 없었어요."
+<<covered>> 관중들은 주위에 서서 입을 벌리고 촬영한다. <<person6>><<person>>【이가】 가장 가까이 서 있다. "걱정 마세요." <<person>>【이가】 웃는다. "그 옷 돌려받을 생각은 없었어요."
 <br><br>
 
 <<link [[도망친다|Pound Work Walk Ask Run]]>><</link>>
@@ -2173,7 +2175,7 @@
 
 <<if random(1, 2) is 2>>
 	<<beastsplural>>【은는】 에너지가 넘쳐서, 제각기 다른 방향으로 달려가지 못하게 하는 것이 일이다.
-	<<if hasSexStat("deviancy", 5) and ($monster is 1 or $settings.bestialityEnabled)>>
+	<<if hasSexStat("deviancy", 5) and beastSexEnabledForType("dog", $monster is 1)>>
 		<span class="lewd">음란한 생각이 스쳐 지나간다.</span> 이곳에는 당신 혼자이며, 시야에서 잘 가려져 있다. <<beastsplural>>【을를】 지치게 할 한 가지 방법을 알고 있다.
 		<br><br>
 
@@ -2491,13 +2493,13 @@
 
 <<if $tendingSuccess>>
 
-	"괜찮아," 당신이 말한다. "난 그냥 네가 괜찮은지 확인하러 온 거야."
+	"괜찮아." 당신이 말한다. "난 그냥 네가 괜찮은지 확인하러 온 거야."
 	<br><br>
 
 	어둠이 꿈틀거리더니, 거대한 검은 <<beasttype 0>>【이가】 모습을 드러낸다. <<bHis 0>> 검은 털은 엉키고 지저분하며, 당신이 아는 어떤 개 품종과도 닮지 않았다. <<bHe 0>>【은는】 거의 늑대처럼 보일 정도다.
 	<br><br>
 	<<if $monster is 1>>
-		"가라," <<bhe 0>>【이가】 말한다. "네 계획을 안다. 가라, 아니면 먹어버리겠다!"
+		"가라." <<bhe 0>>【이가】 말한다. "네 계획을 안다. 가라, 아니면 먹어버리겠다!"
 	<<else>>
 		그것이 다시 으르렁거린다.
 	<</if>>
@@ -2508,7 +2510,7 @@
 	<<link [[다음|Pound Work Brute Brush]]>><<set $pound.progress to 4>><</link>>
 	<br>
 <<else>>
-	"차, 착한 강아지야," 당신이 말한다. "나는—"
+	"차, 착한 강아지야." 당신이 말한다. "나는—"
 	<br><br>
 	<span class="red">하얀 이빨이 번쩍이며 당신을 공포에 떨게 한다.</span> 당신은 우리에서 도망친다. <<person2>><<person>>【와과】 <<person3>><<person>>【이가】 웃지만, 당신은 신경 쓰지 않고 그저 멀리 떨어져 있고 싶을 뿐이다.
 	<br><br>
@@ -2525,7 +2527,7 @@
 
 솔을 손에 들고 더 가까이 다가간다. <<beasttype 0>>의 등을 빗질하며 엉킨 털을 풀려고 해도 반응이 없다. <<bHe 0>>【은는】 숨을 내쉬더니, 마치 힘이 다 빠진 것처럼 쓰러진다.
 <<if $monster is 1>>
-	"이제 상관없어," <<bhe 0>>【이가】 말한다. "그냥 끝내고 싶어."
+	"이제 상관없어." <<bhe 0>>【이가】 말한다. "그냥 끝내고 싶어."
 <<else>>
 	그것은 패배한 것처럼 보인다.
 <</if>>
@@ -2534,7 +2536,7 @@
 "저 <<girl>>【이가】 해냈어!" <<person>>【이가】 소리친다. 더 많은 직원들이 구경하러 온다. "누가 호스 좀 가져와." 그들은 우리 안으로 들어와, 당신을 밀치고 그 생물에게 가까이 다가간다. 그들 중 한 명은 목줄을 들고 있다.
 <br><br>
 
-"잘했어," <<person2>><<person>>【이가】 말한다. "여기 작은 보상이야." <<He>>【이가】 당신에게 현금 뭉치를 건네준다. "이제 가봐. 할 일이 많아."
+"잘했어." <<person2>><<person>>【이가】 말한다. "여기 작은 보상이야." <<He>>【이가】 당신에게 현금 뭉치를 건네준다. "이제 가봐. 할 일이 많아."
 
 당신은 <<moneyGain 100>>【을를】 벌었습니다.
 <br><br>
@@ -2560,11 +2562,11 @@
 한 <<person>>【이가】 우리들 사이의 통로를 어슬렁거리며 빗자루로 털을 쓸고 있다. <<He>>【은는】 당신이 <<him>>에게 다가가자 멈춰 서서 당신을 위아래로 훑어본다. "뭘 원해?"
 <br><br>
 <<if $speech_attitude is "meek">>
-	"저, 일자리를 찾고 있어요," 당신이 말한다. "도움이 필요하신가요?"
+	"저, 일자리를 찾고 있어요." 당신이 말한다. "도움이 필요하신가요?"
 <<elseif $speech_attitude is "bratty">>
 	"일거리 좀 있어?" 당신이 묻는다.
 <<else>>
-	"일자리를 찾고 있어요," 당신이 말한다. "구인 중이신가요?"
+	"일자리를 찾고 있어요." 당신이 말한다. "구인 중이신가요?"
 <</if>>
 <br><br>
 <<person>>【이가】 침을 뱉고는 고개를 끄덕인다. "이런 일 해본 적 있어?" <<he>>【이가】 묻는다. <<He>>【은는】 당신의 대답을 가로막는다. "상관없어. 일손이 필요하니까. 빗질, 먹이 주기, 씻기기, 산책시키기. 손이 많이 가."
@@ -2624,7 +2626,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	"넌 내 거야," <<bhe>>【이가】 으르렁거린다. "땅에 엎드려."
+	"넌 내 거야." <<bhe>>【이가】 으르렁거린다. "땅에 엎드려."
 <<else>>
 	<<bHe>>【이가】 으르렁거린다.
 <</if>>
@@ -3018,14 +3020,14 @@
 		<<wearProp "lockpick">>
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:10)|Pound]]>><<pass 10>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:10)|Pound]]>><<pass 10>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
 		<br>
 	<</if>>
 <<else>>
 	<span class="red">자물쇠는 당신의 실력으로 딸 수 없을 것 같다.</span><<skulduggeryrequired>>
 	<br><br>
 <</if>>
-<<starfishicon>><<link [[떠나기|Starfish Street]]>><</link>>
+<<starfishicon>><<link [[떠난다|Starfish Street]]>><</link>>
 
 :: Pound Work Brush Clean
 <<effects>>
@@ -3045,7 +3047,7 @@
 
 <<link [[쓰다듬는다|Pound Work Brush Clean End]]>><<set $phase to 1>><</link>>
 <br>
-<<if hasSexStat("deviancy", 2) and ($settings.bestialityEnabled or $monster is 1)>>
+<<if hasSexStat("deviancy", 2) and beastSexEnabledForType("dog", $monster is 1)>>
 	<<link [[엉덩이를 내민다|Pound Work Brush Clean Sex]]>><<set $sexstart to 1>><</link>><<deviant2>>
 	<br>
 <</if>>

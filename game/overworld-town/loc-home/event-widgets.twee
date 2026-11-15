@@ -29,7 +29,7 @@
 		<br>
 		"베일리가 장식하는 건 허락해 주잖아." <<person2>><<person>>【이가】 대답한다. "하지만 선물은? 아마 산타 할아버지가 갖다 주지 않겠어?" <<He>>【이가】 못 미더운 표정을 짓고 있는 <<person1>><<person>>【을를】 슬쩍 찌른다.
 		<br><br>
-		<i>새 옷을 선물하면 아이들이 참 좋아할 것이다. 쇼핑 센터에서 구하면 될 것이다. <<if C.npc.Robin.init is 1>> 숲속 상점이나 쇼핑 센터에서 로빈에게 줄 선물도 고를 수 있다.<</if>></i>
+		<i>새 옷을 선물하면 아이들이 참 좋아할 것이다. 쇼핑센터에서 구하면 될 것이다. <<if C.npc.Robin.init is 1>> 숲속 상점이나 쇼핑센터에서 로빈에게 줄 선물도 고를 수 있다.<</if>></i>
 		<br><br>
 
 		<<endevent>>
@@ -226,7 +226,7 @@
 <</widget>>
 
 <<widget "homeeventnorm">>
-	<<switch random(1, 14)>>
+	<<switch random(1, 15)>>
 		<<case 1>>
 			<<generateyv1>><<person1>><<person>>【이가】 당신에게 다가온다. "돈 좀 줄 수 있어?" <<he>>【이가】 묻는다. "정말 급해서 그래."
 			<br><br>
@@ -325,11 +325,11 @@
 			<br>
 
 		<<case 10>>
-			<<npc Bailey>>베일리가 부엌으로 식료품을 옮기며 거칠게 당신을 밀치고 지나간다.
-			<<pain 1>><<gpain>>
+			<<npc Bailey>>베일리가 비켜설 기미도 없이 다가온다. <<He>>【은는】 <<his>> 두 팔 가득 주방에 쓸 물건을 안고 있다.
 			<br><br>
-
-			<<link [[다음|Orphanage]]>><<endevent>><</link>>
+			<<link [[피한다|Home Bailey Shove Dodge]]>><<endevent>><</link>><<dancedifficulty 200 800>>
+			<br>
+			<<link [[가만히 선다|Home Bailey Shove Stand]]>><<endevent>><</link>>
 			<br>
 
 		<<case 11>>
@@ -401,6 +401,39 @@
 				<<link [[다음|Orphanage]]>><<endevent>><</link>>
 				<br>
 			<</if>>
+		<<case 15>>
+			<<generatey1>><<generatey2>><<generatey3>>
+			<<if $mine?.freed isnot 1>>
+				당신은 두 고아의 대화를 엿듣게 된다.
+				<br><br>
+				"한동안 <<person3>><<him>>【을를】 못 봤는데, 너는 봤어?" <<person1>><<person>>【이가】 묻는다.
+				<br>
+				"내가 마지막으로 봤을 땐 <<person3>><<he>>【이가】 플랫에 일자리를 구하러 가는 길이었어."
+				<<person2>><<person>>【이가】 대답한다. "근데 그게 몇 주 전이야. <<person3>><<he>>【이가】 영영 나타나지 않을까 봐 걱정돼,<<if !$town_projects.bridge gte 4>> 다른 애들처럼.<</if>>"
+				<<person1>><<person>>【은는】 낙담한 표정이다.
+				<<if $town_projects.bridge gte 4>>
+					<<llhope>><<hope -3>>
+				<<else>>
+					<<lllhope>><<hope -5>>
+				<</if>>
+				<<gstress>><<stress 5>><<gtrauma>><<trauma 5>>
+			<<else>>
+				당신은 세 고아의 대화를 엿듣게 된다.
+				<br><br>
+				"광산 탈출한 이야기 또 해 줘!" <<person1>><<person>>【이가】 외친다.
+				<br>
+				"그 얘긴 벌써 몇 번이나 했잖아." <<person3>><<person>>【이가】 말한다.
+				<br>
+				"그래도 할 때마다 더 재밌어지는걸." <<person2>><<person>>【이가】 <<his>> 눈을 크게 뜨고 조른다.
+				<br>
+				"알았어." <<person3>><<person>>【이가】 한숨을 쉰다. "그러니까—"<<gghope>><<hope 3>><<ggreb>><<reb 3>>
+				<br><br>
+				당신은 뿌듯한 기분으로 몰래 자리를 뜬다. <<llstress>><<stress -20>><<lltrauma>><<trauma -20>>
+			<</if>>
+			<br><br>
+
+			<<link [[다음|Orphanage]]>><<endevent>><</link>>
+			<br>
 	<</switch>>
 <</widget>>
 
@@ -538,7 +571,7 @@
 			<<generatey1>><<person1>><<person>>【이가】 <<generatey2>><<person2>><<person>>【을를】 달래주는 모습이 보인다. 그들은 핀에 꽂힌 찢어진 포스터 조각들 옆에 서 있다. <<person2>><<person>>【은는】 훌쩍이며 더듬거린다. "왜 베일리는 계-계속 이걸 찢—"
 			<br><br>
 
-			<<He>>【은는】 통곡한다. <<person1>><<person>>【은는】 <<person2>><<him>>【을를】 꼭 안아준다. "괜찮아," <<person1>><<he>>【이가】 말한다. "이것 봐." <<personsimple>>【은는】 주머니에 손을 넣어 지폐 몇 장을 꺼내 우는 친구에게 쥐여준다.
+			<<He>>【은는】 통곡한다. <<person1>><<person>>【은는】 <<person2>><<him>>【을를】 꼭 안아준다. "괜찮아." <<person1>><<he>>【이가】 말한다. "이것 봐." <<personsimple>>【은는】 주머니에 손을 넣어 지폐 몇 장을 꺼내 우는 친구에게 쥐여준다.
 			<br><br>
 
 			"가서 다른 포스터를 하나 더 붙여. 베일리한테 질 순 없잖아." <<person2>><<personsimple>>【은는】 울음을 그치고, 뛰어가는 내내 <<person1>><<person>>에게 고마워한다. <<personsimple>>【은는】 몸을 돌려 남은 찢어진 조각들을 정리한다.
@@ -626,7 +659,7 @@
 			<<link [[다음|Orphanage]]>><</link>>
 			<br>
 		<<case 4 5>>
-			<<generateyv1>><<person1>>한 <<person>>【이가】 당신과 부딪힌다. "미안해," <<he>>【이가】 몸을 숙이며 말한다. "너 이거 떨어뜨렸어."
+			<<generateyv1>><<person1>>한 <<person>>【이가】 당신과 부딪힌다. "미안해." <<he>>【이가】 몸을 숙이며 말한다. "너 이거 떨어뜨렸어."
 
 			<<if $spray gte $spraymax or random(1, 100) gte 50>>
 				<<He>>【은는】 당신에게 본 적 없는 불룩한 봉투를 건넨다. 그 안에는
@@ -769,7 +802,7 @@
 			<<link [[다음|Orphanage]]>><<endevent>><</link>>
 			<br>
 		<<case 3>>
-			<<generateyv1>><<person1>>한 <<person>>【이가】 발에 걸려 넘어지며 더러운 물이 든 양동이를 바닥에 쏟는다. "안-안 돼," <<he>>【이가】 중얼거린다. "베일리가 곧 올 텐데!" <<He>>【은는】 걸레의 물을 짠 후 쏟아진 물을 닦아내려 하지만, 발이 미끄러져 바닥에 넘어지고 만다.
+			<<generateyv1>><<person1>>한 <<person>>【이가】 발에 걸려 넘어지며 더러운 물이 든 양동이를 바닥에 쏟는다. "안-안 돼." <<he>>【이가】 중얼거린다. "베일리가 곧 올 텐데!" <<He>>【은는】 걸레의 물을 짠 후 쏟아진 물을 닦아내려 하지만, 발이 미끄러져 바닥에 넘어지고 만다.
 			<br><br>
 
 			<<link [[도와준다 (0:20)|Home Spill Help]]>><<pass 20>><<famegood 1>><</link>>
@@ -780,7 +813,7 @@
 			<<generateyv1>><<person1>>당신이 한 <<person>> 곁을 지나가며 <<him>>【을를】 놀라게 한다. <<He>>【은는】 소리 지른다.<<gstress>><<stress 6>>
 			<br><br>
 
-			"미-미안해," <<he>>【이가】 말한다. "베일리인 줄 알았어."
+			"미-미안해." <<he>>【이가】 말한다. "베일리인 줄 알았어."
 			<br><br>
 
 			<<link [[다음|Orphanage]]>><<endevent>><</link>>
@@ -789,10 +822,10 @@
 			<<generate1>><<generateyv2>>"보기 좋은데," 밖에서 누군가 큰 소리로 말한다. 당신이 창문을 통해 내다본다. 당신에게 한 말이 아니라, 정문을 막 통과하려던 한 <<person2>><<person>>에게 하는 말이다. "한 번 하는데 얼마야?"
 			<br><br>
 
-			<<person>>【이가】 돌아본다. "£50," <<he>>【이가】 무뚝뚝하게 대답한다.
+			<<person>>【이가】 돌아본다. "£50." <<he>>【이가】 무뚝뚝하게 대답한다.
 			<br><br>
 
-			<<person1>><<person>>【은는】 비웃는다. "네 엉덩이는 그만한 가치가 없어," <<he>>【이가】 말한다. "£20 주지." <<He>>【은는】 지폐를 흔든다.
+			<<person1>><<person>>【은는】 비웃는다. "네 엉덩이는 그만한 가치가 없어." <<he>>【이가】 말한다. "£20 주지." <<He>>【은는】 지폐를 흔든다.
 			<br><br>
 
 			<<person2>><<person>>【은는】 잠시 고민하더니 <<person1>><<person>>에게로 돌아간다.
@@ -913,5 +946,24 @@
 	<br><br>
 
 	<<link [[다음|Orphanage]]>><</link>>
+	<br>
+<</widget>>
+
+<<widget "gardenStem">>
+	무언가 다리를 스친다. 당신은 벌레려니 하고 털어내지만, 다시 한번 같은 일이 일어난다. 아래를 내려다보니 줄기 하나가 발목을 감싸고 있다.
+	<br><br>
+
+	<<link [[털어 낸다|Garden Stem Shake]]>><</link>>
+	<br>
+	<<link [[자세히 본다|Garden Stem Look]]>><</link>>
+	<br>
+<</widget>>
+
+<<widget "gardenScent">>
+	<<hallucinogen 60>>
+	물을 주자 식물에서 이상한 향기가 피어오른다. 머리가 어질어질하다. <<ghallucinogens>><<if $backgroundTraits.includes("plantlover")>><<arousal 6>><<garousal>><</if>>
+	<br><br>
+
+	<<link [[다음|Garden Flowers]]>><</link>>
 	<br>
 <</widget>>

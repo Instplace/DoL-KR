@@ -385,7 +385,7 @@
 	<label>| 골동품을 찾을 확률이 높은 평원 <<radiobutton "$island.explore" "plain" autocheck>></label>
 <</if>>
 <br>
-<<islandicon "explore">><<link [[탐험하기 (1:00)|Island Explore]]>><<physique 6>><<island_pass 60>><<set $island.explore_count += 1>><</link>><<gphysique>>
+<<islandicon "explore">><<link [[탐험한다 (1:00)|Island Explore]]>><<physique 6>><<island_pass 60>><<set $island.explore_count += 1>><</link>><<gphysique>>
 <br><br>
 
 <<if $island.walnut gte 1 or $island.walnut_dried gte 1>>
@@ -398,11 +398,11 @@
 	숨겨두었다. <<if $island.walnut_dried gte 1>><<Number $island.walnut_dried>> <<print $island.walnut_dried is 1 ? '줌은' : '줌은'>> 말려서 영양가가 더 높다.<</if>>
 	<br>
 	<<if $island.walnut gte 1>>
-		<<islandicon "nuts">><<link [[생호두 한 줌 먹기|Island Walnut Eat]]>><<set $island.walnut-->><<hunger -200>><</link>><<lhunger>>
+		<<islandicon "nuts">><<link [[생호두 한 줌을 먹는다|Island Walnut Eat]]>><<set $island.walnut-->><<hunger -200>><</link>><<lhunger>>
 		<br>
 	<</if>>
 	<<if $island.walnut_dried gte 1>>
-		<<islandicon "nuts">><<link [[말린 호두 한 줌 먹기 (0:05)|Island Walnut Eat Dried]]>><<set $island.walnut_dried-->><<island_pass 5>><<hunger -400>><</link>><<llhunger>>
+		<<islandicon "nuts">><<link [[말린 호두 한 줌을 먹는다 (0:05)|Island Walnut Eat Dried]]>><<set $island.walnut_dried-->><<island_pass 5>><<hunger -400>><</link>><<llhunger>>
 		<br>
 	<</if>>
 	<br>
@@ -456,7 +456,7 @@
 		가구를 놓을 공간이 더 이상 없다.
 		<br>
 	<</if>>
-	<<choreicon "fix">><<link [[건설하기|Island Build]]>><</link>>
+	<<choreicon "fix">><<link [[건설한다|Island Build]]>><</link>>
 	<br>
 	<br>
 	<<if $drugged gte 1>>
@@ -472,7 +472,7 @@
 	<</if>>
 	<<skinicon "wash">><<link [[씻는다 (0:10)|Island]]>><<island_pass 10>><<wash>><</link>>
 	<br>
-	<<mirroricon>><<link [[비친 모습 보기|Island Mirror]]>><<preMirror>><</link>>
+	<<mirroricon>><<link [[비친 모습을 본다|Island Mirror]]>><<preMirror>><</link>>
 	<br>
 	<<if ($worn.upper.exposed gte 2 and $worn.under_upper.exposed gte 1
 	or $worn.upper.exposed gte 2 and $underupperwetstage gte 3
@@ -493,12 +493,12 @@
 
 
 
-	<<bedicon "zzz">><<link [[잠자기|Island Bed]]>><</link>>
+	<<bedicon "zzz">><<link [[잔다|Island Bed]]>><</link>>
 	<br>
 	<br>
 
 	<<if $island.explore_locations.includes("castle")>>
-		<<birdicon "tower">><<link [[성으로 걷기 (0:20)|Island Castle]]>><<island_pass 20>><</link>>
+		<<birdicon "tower">><<link [[성으로 걷는다 (0:20)|Island Castle]]>><<island_pass 20>><</link>>
 		<br>
 	<</if>>
 	<<if $worn.face.name is "islander mask">>
@@ -508,8 +508,8 @@
 		<<islandicon "mask">><<link [[가면을 되찾는다|Island]]>><<set $island.mask_stored to undefined>><<facewear "islander mask">><</link>>
 		<br>
 	<</if>>
-	<<if $debug is 1>>
-		<<ind>><<link [[목재 얻기|$passage]]>><<set $island.wood += 100>><</link>> (debug)
+	<<if $debug>>
+		<<ind>><<link [[목재를 얻는다|$passage]]>><<set $island.wood += 100>><</link>> (debug)
 		<br>
 	<</if>>
 <</if>>
@@ -1709,7 +1709,7 @@
 마침내 평지에 다다른다. 짙은 어둠 탓에 <<persons>> 횃불 빛은 십여 피트 밖을 벗어나지 못하지만, <<his>> 발걸음은 확신에 차 있다.
 <br><br>
 
-"주군," <<he>>【이가】 화로 옆에 멈춰 서며 말한다. 처음에는 누구에게 말하는 것인지 보이지 않았으나, 이내 <<he>>【이가】 옆에 있는 그릇에 횃불을 꽂아 넣는다. 불빛이 거대한 금박 창자루 위로 두 손을 모은 채, 조각상처럼 고요히 누워 있는 <<person2>><<personsimple>>【을를】 비춘다.
+"주군." <<he>>【이가】 화로 옆에 멈춰 서며 말한다. 처음에는 누구에게 말하는 것인지 보이지 않았으나, 이내 <<he>>【이가】 옆에 있는 그릇에 횃불을 꽂아 넣는다. 불빛이 거대한 금박 창자루 위로 두 손을 모은 채, 조각상처럼 고요히 누워 있는 <<person2>><<personsimple>>【을를】 비춘다.
 <br><br>
 
 자세히 보니 그 인물의 가슴이 마치 잠든 것처럼 오르내리고 있다. "다시 때가 왔습니다." <<person1>><<person>>【이가】 말한다. "당신의 용사에게 당신의 창이 필요합니다. 이 침입을 용서하소서." <<He>>【은는】 당신에게 고개를 끄덕이고 기다린다.
@@ -1788,7 +1788,7 @@
 <</if>>
 <br><br>
 
-<<person1>><<person>>【이가】 안도한 듯 한숨을 쉰다. "이리 와," <<he>>【이가】 말한다. "이제 시간이 별로 없어. <span class="gold">창을 신전으로 가져가.</span> 그들이 뭘 해야 할지 알 거야."
+<<person1>><<person>>【이가】 안도한 듯 한숨을 쉰다. "이리 와." <<he>>【이가】 말한다. "이제 시간이 별로 없어. <span class="gold">창을 신전으로 가져가.</span> 그들이 뭘 해야 할지 알 거야."
 <br><br>
 
 <<He>>【은는】 입구에서 멀어지며 뛰기 시작한다. 당신은 뒤처지지 않으려 서두른다.
@@ -2166,7 +2166,7 @@
 	<<addevent "island_events_tear" 1>>
 	<<addevent "island_events_flower" 1>>
 	<<addevent "island_events_rope" 0.5>>
-	<<if $settings.bestialityEnabled and $settings.slugsEnabled>>
+	<<if $settings.slugsEnabled>>
 		<<addevent "island_events_slugs" 0.5>>
 	<</if>>
 
@@ -2739,7 +2739,4 @@
 당신은 가면을 쓴 인물들에게 둘러싸여 깨어난다. 이 가면들은 당신이 섬에서 본 다른 것들과는 다르다. 더 높고, 조각을 통해 보존된 야생의 성장이 있다. 각 인물은 횃불을 들고 있고, 불꽃이 바람에 흔들린다. 그들은 부자연스러운 안정감으로 움직인다. 당신은 하늘을 바라보고, 물이 튀는 소리를 듣고, 다시 정신을 잃는다.
 <br><br>
 
-<<set _time to 60>>
-<<set _hours to Math.floor(_time / 60)>>
-<<set _minutes to _time % 60>>
-<<link [["다음 ("+_hours+":"+(_minutes lt 10 ? "0": "")+_minutes+")"| Pregnancy Birth Hospital]]>><<island_end>><<pass _time>><<set $phase to 1>><</link>>
+<<link [["다음 " + printTime(_time, true)| Pregnancy Birth Hospital]]>><<island_end>><<pass _time>><<set $phase to 1>><</link>>

@@ -26,26 +26,26 @@
 <</if>>
 <br>
 <<set _chair to Furniture.get('chair')>>
-<<icon "project-maths.png">><<link [[풀이 작업하기 (2:00)|Maths Project Work]]>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 5>><<else>><<set $mathschance += 1>><</if>><<mathsskill 2>><<pass 120>><<stress 12>><</link>><<gstress>><<gmaths>>
+<<icon "project-maths.png">><<link [[풀이 작업을 한다 (2:00)|Maths Project Work]]>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 5>><<else>><<set $mathschance += 1>><</if>><<mathsskill 2>><<pass 120>><<stress 12>><</link>><<gstress>><<gmaths>>
 <br>
 <<if $mathsstim gte 1 and playerIsPregnant() and playerAwareTheyArePregnant()>>
 	<span class="blue">임신한 것을 알기에 각성제를 복용할 마음이 들지 않는다.</span>
 	<br>
 <<elseif $mathsstim gte 1>>
-	<<pillicon "stimulant">><<link [[각성제 사용하기 (2:00)|Maths Project Stim]]>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 20>><<else>><<set $mathschance += 16>><</if>><<set $mathsstim -= 1>><<set $mathsstimused += 1>><<mathsskill 40>><<pass 120>><</link>><<gggmaths>>
+	<<pillicon "stimulant">><<link [[각성제를 사용한다 (2:00)|Maths Project Stim]]>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 20>><<else>><<set $mathschance += 16>><</if>><<set $mathsstim -= 1>><<set $mathsstimused += 1>><<mathsskill 40>><<pass 120>><</link>><<gggmaths>>
 	<br>
 <</if>>
 <<if $mathsinfo gte 1>>
-	<<investigateicon>><<link [[수학적 통찰력 사용하기 (2:00)|Maths Project Work]]>><<set $mathsinfo -= 1>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 12>><<else>><<set $mathschance += 8>><</if>><<mathsskill 40>><<pass 120>><</link>><<ggmaths>>
+	<<investigateicon>><<link [[수학적 통찰력을 사용한다 (2:00)|Maths Project Work]]>><<set $mathsinfo -= 1>><<if ($location is "home" and _chair.type.includes("comfy")) or $location is "avery_mansion">><<set $mathschance += 12>><<else>><<set $mathschance += 8>><</if>><<mathsskill 40>><<pass 120>><</link>><<ggmaths>>
 	<br>
 <</if>>
 <br>
 <<if $location is "home">>
-	<<getouticon>><<link [[그만두기|Bedroom]]>><</link>>
+	<<getouticon>><<link [[그만둔다|Bedroom]]>><</link>>
 <<elseif $location is "avery_mansion">>
-	<<getouticon>><<link [[그만두기|Mansion Study]]>><</link>>
+	<<getouticon>><<link [[그만둔다|Mansion Study]]>><</link>>
 <<else>>
-	<<getouticon>><<link [[그만두기|School Library]]>><</link>>
+	<<getouticon>><<link [[그만둔다|School Library]]>><</link>>
 <</if>>
 <br>
 
@@ -220,14 +220,14 @@
 <<effects>><<wearProp "notebook pen">>당신은 각성제를 복용하고 자리에 앉아 작업에 착수한다.
 <<set _chair to Furniture.get('chair')>>
 <<if $location is "home" and _chair.type.includes("comfy")>>
-	약물과 <span class="green">편안한</span> 의자 덕분에, 프로젝트에 집중하기가 어느 때보다 쉬워졌다.
+	약물과 <span class="green">편안한</span> 의자 덕분에, 프로젝트에 집중하기가 어느 때보다 쉬워진다.
 <<elseif $location is "avery_mansion">>
-	약물과 <span class="green">편안한</span> 의자 덕분에, 프로젝트에 집중하기가 어느 때보다 쉬워졌다.
+	약물과 <span class="green">편안한</span> 의자 덕분에, 프로젝트에 집중하기가 어느 때보다 쉬워진다.
 <<else>>
-	집중력은 높아졌지만, <span class="red">불편한</span> 의자에서 오는 사소한 통증 때문에 각성제의 효과가 약간 떨어졌다.
+	집중력은 높아졌지만, <span class="red">불편한</span> 의자에서 오는 사소한 통증 때문에 각성제의 효과가 약간 떨어진다.
 <</if>>
 <<if $mathschance lte 9>>
-	수학은 완전히 새로운 분야였지만, 각성제로 정신이 날카로워진 덕분에 기초를 파악할 수 있었다.
+	수학은 완전히 새로운 분야지만, 각성제로 정신이 날카로워진 덕분에 기초를 파악할 수 있다.
 <<elseif $mathschance lte 24>>
 	각성제의 도움으로, 프로젝트를 완료하는 데 필요한 모든 단계를 파악할 수 있다.
 <<elseif $mathschance lte 44>>
@@ -381,7 +381,7 @@
 		<br>
 	<</if>>
 <<elseif $mathsstimused is 3 or $mathsstimused gte 4 and $rng gte 51>>
-	당신은 뒤로 기대어 자신의 작품을 감상하지만, 뭔가 잘못되었다. <<if $location is "home">>방 안의<<elseif $location is "avery_mansion">>서재의<<else>>도서관의<</if>> 물건들이 움직이고 뒤틀리기 시작하며, 이상한 무늬로 뒤덮인다. 균형 감각을 잃고 비틀거린다. 거의 넘어질 뻔했다. 그 약은 <span @class="basicDrunkCss()">농축된 환각제</span>에 오염된 것이 틀림없다. 그 사실을 안다고 해서 경험이 덜 현실적으로 느껴지지는 않는다.
+	당신은 뒤로 기대어 자신의 작품을 감상하지만, 뭔가 잘못되었다. <<if $location is "home">>방 안의<<elseif $location is "avery_mansion">>서재의<<else>>도서관의<</if>> 물건들이 움직이고 뒤틀리기 시작하며, 이상한 무늬로 뒤덮인다. 균형 감각을 잃고 비틀거린다. 거의 넘어질 뻔한다. 그 약은 <span @class="basicDrunkCss()">농축된 환각제</span>에 오염된 것이 틀림없다. 그 사실을 안다고 해서 경험이 덜 현실적으로 느껴지지는 않는다.
 	<<hallucinogen 500>>
 	<br><br>
 	<<if $location is "home">>누우려고 하지만, 침대에 닿기도 전에<<else>>머리를 식히기 위해 산책을 하기로 결심하지만, 의자에서 일어나는 순간,<</if>> 주변이 뒤틀리고 낯설게 변한다. 익숙한 것에 매달리기 위해 비틀거리며 앞으로 나아가는 동안 어둡고 위협적인 형체들이 주위에서 움직인다. 거대한 눈과 수없이 꿈틀거리는 혀를 가진 기괴한 생물들이 멀리서 당신을 지켜보며, 풍경 전체에 울려 퍼지는 거친 소리로 지껄인다. 바닥이 액화되기 시작하고, 발목, 무릎, 허리까지 잠기면서 그 속을 헤쳐나가기 위해 발버둥 친다. 마침내, 바닥이 한꺼번에 무너지면서 당신은 검은 공허 속으로 곤두박질치며 떨어진다.
@@ -561,7 +561,7 @@
 :: Maths Project Endure Home
 <<effects>>
 
-당신은 침대에 누워 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조로웠다.
+당신은 침대에 누워 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조롭다.
 <br><br>
 
 통증이 사라질 때쯤에는 긴장으로 근육이 쑤신다. 당신은 이를 악물고 있었다는 것을 깨닫는다. 여전히 흥분되고 좌절스럽다. 적어도 다시 똑바로 생각할 수는 있다.
@@ -578,7 +578,7 @@
 <<else>>
 	당신은 의자에 등을 기댄다
 <</if>>
-그리고 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조로웠다.
+그리고 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조롭다.
 <br><br>
 
 약효가 사라지기 시작할 때쯤에는 긴장으로 근육이 쑤신다. 당신은 이를 악물고 있었다는 것을 깨닫는다. 여전히 흥분되고 좌절스럽다. 적어도 다시 똑바로 생각할 수는 있다.
@@ -590,7 +590,7 @@
 :: Maths Project Endure Library
 <<effects>>
 
-당신은 의자에 등을 기대고 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조로웠다.
+당신은 의자에 등을 기대고 이 경험을 견뎌낼 수 있기를 바란다. 지금 당장 생산적인 일을 하는 것은 불가능하다. 똑바로 생각하는 것조차 힘겹지만, 당신은 무언가를 세며 정신을 딴 데로 돌리려고 최선을 다한다. 시계를 흘끗 보고 겨우 몇 분밖에 지나지 않았다는 것을 깨닫기 전까지는 순조롭다.
 <br><br>
 
 약효가 사라지기 시작할 때쯤에는 긴장으로 근육이 쑤신다. 당신은 이를 악물고 있었다는 것을 깨닫는다. 여전히 흥분되고 좌절스럽다. 적어도 다시 똑바로 생각할 수는 있다.
@@ -1348,7 +1348,7 @@
 :: Maths Abduction 6
 <<effects>><<set $location to "moor">>
 <<clothesontowel>><<earnFeat "Sour Dealing">>
-시골길을 거쳐 집으로 돌아가는 길은 별일 없었다. 당신은 <<person4>><<person>>【와과】 <<person5>><<person>> 사이의 가운데 좌석에 앉아 있다. 그들은 당신을 쳐다보지 않는다. 베일리가 운전하고, <<person3>><<person>>【은는】 <<person1>><<him>> 옆에 앉아 있다.
+시골길을 거쳐 집으로 돌아가는 길은 별일 없다. 당신은 <<person4>><<person>>【와과】 <<person5>><<person>> 사이의 가운데 좌석에 앉아 있다. 그들은 당신을 쳐다보지 않는다. 베일리가 운전하고, <<person3>><<person>>【은는】 <<person1>><<him>> 옆에 앉아 있다.
 <br><br>
 
 <<link [[구해줘서 고맙다고 한다|Maths Abduction Thank]]>><</link>>
@@ -1534,11 +1534,11 @@
 해답을 제출하거나, 그냥 지켜볼 수 있다. 참여하면 이기든 지든 선생님들이 당신을 더 좋게 생각할 것이다.
 <br><br>
 <<set $mathschance = Math.clamp($mathschance, 0, 100)>>
-<<link [[대회 참가하기 (3:00)|Maths Competition Enter]]>><<pass 3 hours>><<set $mathsproject to "done">><</link>><<note "$mathschance% 확률로 우승" "gold">>
+<<link [[대회에 참가한다 (3:00)|Maths Competition Enter]]>><<pass 3 hours>><<set $mathsproject to "done">><</link>><<note "$mathschance% 확률로 우승" "gold">>
 <br>
-<<link [[지켜보기만 하기 (3:00)|Maths Competition Watch]]>><<set $mathschancestart to $mathschance>><<pass 3 hour>><</link>>
+<<link [[지켜보기만 한다 (3:00)|Maths Competition Watch]]>><<set $mathschancestart to $mathschance>><<pass 3 hour>><</link>>
 <br>
-<<link [[떠나기 (0:05)|Cliff Street]]>><<pass 5>><<endevent>><</link>>
+<<link [[떠난다 (0:05)|Cliff Street]]>><<pass 5>><<endevent>><</link>>
 <br>
 
 :: Maths Competition Watch
@@ -1681,7 +1681,7 @@
 가장 먼저 호명된 학생, 한 <<person>>【이가】 방에서 도망치려 한다. <<Hes>> 친구들에게 붙잡혀 어쩔 수 없이 발표를 하러 간다. <<He>>【은는】 말을 더듬고 서류를 두 번이나 떨어뜨렸지만, 발표가 끝날 무렵에는 미소를 짓고 있다.
 <br><br>
 
-다음 학생은 더 자신감이 넘친다. 레이튼은 줄을 따라 한 명씩 참가자들을 호명한다. 당신이 마지막이다. 단 한 명의 학생도 다른 학생과 비슷한 풀이를 내놓지 않았다.
+다음 학생은 더 자신감이 넘친다. 레이튼은 줄을 따라 한 명씩 참가자들을 호명한다. 당신이 마지막이다. 단 한 명의 학생도 다른 학생과 비슷한 풀이를 내놓지 않는다.
 <br><br>
 <<endevent>>
 
@@ -1702,7 +1702,7 @@
 <<else>>
 
 <</if>>
-<<if $avery_mansion and $avery_mansion.attend.maths>>
+<<if $avery_mansion?.attend.maths>>
 	관중 속에서 에이버리도 발견한다<<if $mathsprojectwhitney is 1>>.<<else>>. <</if>><<if $mathsprojectwhitney is 1>> <<else>><</if>><<if $averyragerevealed gte 1 and C.npc.Avery.rage gte 40>> <<nnpc_His "Avery">> 표정은 이 거리에서 알아보기 어렵다<<else>> <<nnpc_He "Avery">>【이가】 당신을 향해 미소 짓는다<</if>>.
 <</if>>
 <br><br>
@@ -1848,7 +1848,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"아, 아직 안 끝났는데요." 당신이 말한다.
+	"아-아직 안 끝났는데요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"아직 안 끝났거든요." 당신이 말한다.
 <<else>>
@@ -1889,7 +1889,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"아, 아직 안 끝났는데요." 당신이 말한다.
+	"아-아직 안 끝났는데요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"아직 안 끝났거든요." 당신이 말한다.
 <<else>>
@@ -1915,17 +1915,17 @@
 	<<fameexhibitionism 30 "pic">><<set $mathsexposed to "undies">>
 <</if>>
 
-당신은 한 손으로 치마를 치켜든 채 발표를 이어갔다. 휘트니의 무리도 옷을 잡아당기는 데 가세했다. $worn.lower.name【이가】 점점 조여왔고, 이내 손가락 한 마디 굵기의 옷감만이 관중들로부터 당신의 <<genitals>>【을를】 가려주었다.
+당신은 한 손으로 치마를 치켜든 채 발표를 이어간다. 휘트니의 무리도 옷을 잡아당기는 데 가세한다. $worn.lower.name【이가】 점점 조여오고, 이내 손가락 한 마디 굵기의 옷감만이 관중들로부터 당신의 <<genitals>>【을를】 가려준다.
 <br><br>
 
-레이튼과 대부분의 관중은 자리에 바짝 기대앉았다. <<endevent>><<npc River>><<person1>>리버는 <<his>> 눈을 가리고 있었지만, 손님들은 경악한 표정으로 지켜보았다. 마지막으로 홱 잡아당겨지자, $worn.lower.name【이가】 <<lowerplural>> 당신의 손에서 찢겨 나갔고, <span class="pink">군중들 앞에 당신의 알몸이 드러났다.</span>
+레이튼과 대부분의 관중은 자리에 바짝 기대앉는다. <<endevent>><<npc River>><<person1>>리버는 <<his>> 눈을 가리고 있지만, 손님들은 경악한 표정으로 지켜본다. 마지막으로 홱 잡아당겨지자, $worn.lower.name【이가】 <<lowerplural>> 당신의 손에서 찢겨 나가고, <span class="pink">군중들 앞에 당신의 알몸이 드러난다.</span>
 <br><br>
 
-숨을 헐떡이는 소리와 웃음소리가 강당을 채웠다. 고개를 돌리는 사람도 있었지만, 대부분은 놀란 눈으로 쳐다보거나 주머니에서 휴대폰을 꺼냈다. 리버는 기절한 것 같다.
+숨을 헐떡이는 소리와 웃음소리가 강당을 채운다. 고개를 돌리는 사람도 있었지만, 대부분은 놀란 눈으로 쳐다보거나 주머니에서 휴대폰을 꺼낸다. 리버는 기절한 것 같다.
 <br><br>
 
-<<if $player.penisExist and $player.vaginaExist and !playerChastity("hidden")>>
-	"<<pShe>>【은는】 둘 다 달렸어!" 누군가 소리쳤다.
+<<if $player.penisExist and $player.vaginaExist and !playerChastity("hidden") and $settings.nudeGenderPerception !== 0>>
+	"<<pShe>>【은는】 둘 다 달렸어!" 누군가 소리친다.
 	<br>
 	"믿을 수가 없네."
 	<br>
@@ -1941,9 +1941,9 @@
 		<<famepregnancy 1>>
 	<</if>>
 	<<schoolrep herm 1>>
-<<elseif isCrossdressing() and !playerChastity("hidden")>>
+<<elseif isCrossdressing() and !playerChastity("hidden") and $settings.nudeGenderPerception !== 0>>
 	<<set $player.gender_appearance to $player.sex>>
-	"<<pShes>> <<girl>>【이】잖아!" 누군가 소리쳤다.
+	"<<pShes>> <<girl>>【이】잖아!" 누군가 소리친다.
 	<br>
 	"<<pshe>>【은는】 무슨 <<slut>> 같은 건가?"
 	<br>
@@ -1955,13 +1955,13 @@
 당신은 떨리는 목소리로 아무 일도 없는 것처럼 해결책을 설명하려 애썼다. <<if $worn.under_lower.type.includes("naked")>> 방 안의 모든 사람들의 이목이 당신의 <<genitals>>에 쏠리지 않은 것처럼 말이다. <</if>>사진작가는 무대 앞을 이리저리 돌아다니며 모든 각도에서 당신의 사진을 찍어댔다.
 <br><br>
 
-마침내 발표가 끝났다. 관객들은 환호하며 박수를 보냈다. 당신은 더듬거려 고리를 찾고는 하나씩 빼냈다. 치마가 제자리로 떨어지며 당신의 <<undies>>【을를】 가렸다. 휘트니는 의자에 기대어 실쭉 웃었다.
+마침내 발표가 끝난다. 관객들은 환호하며 박수를 보낸다. 당신은 더듬거려 고리를 찾고는 하나씩 빼낸다. 치마가 제자리로 떨어지며 당신의 <<undies>>【을를】 가린다. 휘트니는 의자에 기대어 실쭉 웃는다.
 <br><br>
 <<endevent>><<npc Leighton>><<person1>>
-"아주 좋군." 레이튼이 말했다. <<He>>【은는】 리버를 흔들어 깨웠다.
+"아주 좋군." 레이튼이 말한다. <<He>>【은는】 리버를 흔들어 깨운다.
 <br><br>
 
-심장이 여전히 쿵쾅거리는 가운데, 당신은 무대에서 내려왔다. 자리에 앉아 심사위원들의 결정을 기다렸다.
+심장이 여전히 쿵쾅거리는 가운데, 당신은 무대에서 내려온다. 자리에 앉아 심사위원들의 결정을 기다린다.
 <br><br>
 
 <<endevent>>
@@ -1978,17 +1978,17 @@
 	<<fameexhibitionism 30 "pic">><<set $mathsexposed to "undies">>
 <</if>>
 
-당신은 한 손으로 옷을 치켜든 채 발표를 이어갔다. 휘트니의 무리도 옷을 잡아당기는 데 가세했다. $worn.lower.name【이가】 점점 조여왔고, 이내 손가락 한 마디 굵기의 옷감만이 관중들로부터 당신의 <<genitals>>【을를】 가려주었다.
+당신은 한 손으로 옷을 치켜든 채 발표를 이어간다. 휘트니의 무리도 옷을 잡아당기는 데 가세한다. $worn.lower.name【이가】 점점 조여오고, 이내 손가락 한 마디 굵기의 옷감만이 관중들로부터 당신의 <<genitals>>【을를】 가려준다.
 <br><br>
 
-레이튼과 대부분의 관중은 자리에 바짝 기대앉았다. <<endevent>><<npc River>><<person1>>리버는 <<his>> 눈을 가리고 있었지만, 손님들은 경악한 표정으로 지켜보았다. 마지막으로 홱 잡아당겨지자, $worn.lower.name【이가】 당신의 손에서 찢겨 나갔고, <span class="pink">군중들 앞에 당신의 알몸이 드러났다.</span>
+레이튼과 대부분의 관중은 자리에 바짝 기대앉는다. <<endevent>><<npc River>><<person1>>리버는 <<his>> 눈을 가리고 있지만, 손님들은 경악한 표정으로 지켜본다. 마지막으로 홱 잡아당겨지자, $worn.lower.name【이가】 당신의 손에서 찢겨 나가고, <span class="pink">군중들 앞에 당신의 알몸이 드러난다.</span>
 <br><br>
 
-숨을 헐떡이는 소리와 웃음소리가 강당을 채웠다. 고개를 돌리는 사람도 있었지만, 대부분은 놀란 눈으로 쳐다보거나 주머니에서 휴대폰을 꺼냈다. 리버는 기절한 것 같다.
+숨을 헐떡이는 소리와 웃음소리가 강당을 채운다. 고개를 돌리는 사람도 있었지만, 대부분은 놀란 눈으로 쳐다보거나 주머니에서 휴대폰을 꺼낸다. 리버는 기절한 것 같다.
 <br><br>
 
-<<if $player.penisExist and $player.vaginaExist and !playerChastity("hidden")>>
-	"<<pShe>>【은는】 둘 다 달렸어!" 누군가 소리쳤다.
+<<if $player.penisExist and $player.vaginaExist and !playerChastity("hidden") and $settings.nudeGenderPerception !== 0>>
+	"<<pShe>>【은는】 둘 다 달렸어!" 누군가 소리친다.
 	<br>
 	"믿을 수가 없네."
 	<br>
@@ -2004,16 +2004,16 @@
 		<<famepregnancy 1>>
 	<</if>>
 	<<schoolrep herm 1>>
-<<elseif isCrossdressing() and !playerChastity("hidden")>>
+<<elseif isCrossdressing() and !playerChastity("hidden") and $settings.nudeGenderPerception !== 0>>
 	<<if $player.sex is "m">>
-		"남자애잖아!" 누군가 소리쳤다.
+		"남자애잖아!" 누군가 소리친다.
 		<br>
 		"무슨 변태 새끼인가?"
 		<br>
 		"분명히 일부러 저러는 거라니까."
 		<br>
 	<<else>>
-		"여자애잖아!" 누군가 소리쳤다.
+		"여자애잖아!" 누군가 소리친다.
 		<br>
 		"무슨 걸레 같은 년인가?"
 		<br>
@@ -2026,13 +2026,13 @@
 당신은 떨리는 목소리로 아무 일도 없는 것처럼 해결책을 설명하려 애썼다. <<if $worn.under_lower.type.includes("naked")>> 방 안의 모든 사람들의 이목이 당신의 <<if $player.penisExist>><<penis>><<else>><<pussy>><</if>>에 쏠리지 않은 것처럼 말이다. <</if>>사진작가는 무대 앞을 이리저리 돌아다니며 모든 각도에서 당신의 사진을 찍어댔다.
 <br><br>
 
-마침내 발표가 끝났다. 관객들은 환호하며 박수를 보냈다. 당신은 웅크린 채 고리를 더듬어 하나씩 빼냈다. 당신은 $worn.lower.name【을를】 제자리로 당겨 올려 <<undies>>【을를】 가렸다. 휘트니는 의자에 기대어 실쭉 웃었다.
+마침내 발표가 끝난다. 관객들은 환호하며 박수를 보낸다. 당신은 웅크린 채 고리를 더듬어 하나씩 빼낸다. 당신은 $worn.lower.name【을를】 제자리로 당겨 올려 <<undies>>【을를】 가린다. 휘트니는 의자에 기대어 실쭉 웃는다.
 <br><br>
 <<endevent>><<npc Leighton>><<person1>>
-"아주 좋군." 레이튼이 말했다. <<he>>【은는】 리버를 흔들어 깨웠다.
+"아주 좋군." 레이튼이 말한다. <<he>>【은는】 리버를 흔들어 깨운다.
 <br><br>
 
-심장이 여전히 쿵쾅거리는 가운데, 당신은 무대에서 내려왔다. 자리에 앉아 심사위원들의 결정을 기다렸다.
+심장이 여전히 쿵쾅거리는 가운데, 당신은 무대에서 내려온다. 자리에 앉아 심사위원들의 결정을 기다린다.
 <br><br>
 
 <<endevent>>
@@ -2046,33 +2046,33 @@
 <<npc Leighton>><<person1>>
 레이튼, 리버, 그리고 두 명의 손님이 잠시 무대 위에서 의논을 나눴다.
 <<if $mathschance gte 1 and $mathschancestart is 0>>
-	레이튼은 다른 사람들과 언쟁을 벌이는 듯했다.
+	레이튼은 다른 사람들과 언쟁을 벌이는 듯하다.
 	<<if $mathschance gte $rng>>
-		레이튼이 마이크로 다가가 헛기침을 하자, 리버는 분통이 터진다는 듯 두 손을 치켜들었다.
+		레이튼이 마이크로 다가가 헛기침을 하자, 리버는 분통이 터진다는 듯 두 손을 치켜든다.
 	<<else>>
-		<<he>>【은는】 고개를 저은 뒤, 마이크로 다가가 헛기침을 했다.
+		<<he>>【은는】 고개를 저은 뒤, 마이크로 다가가 헛기침을 한다.
 		<br><br>
 	<</if>>
 <</if>>
 
-"결정을 내렸다." <<he>>【이가】 말했다.
+"결정을 내렸다." <<he>>【이가】 말한다.
 
 <<if $mathschance gte $rng>>
 	<<wearProp "trophy">>
 	"우승자는 <<haircolourtext>> 머리를 한 학생이다." <span class="green"><<he>>【이가】 당신을 가리킨다.</span> "올라와라."
 	<br><br>
 
-	당신은 무대로 올라가 대기 중인 사진사를 향해 미소 짓는 레이튼과 악수를 나눴다. <<takeHandholdingVirginity "Leighton">> <<He>>【은는】 당신에게 트로피를 건넸다. 그 안에는 <<printmoney 200000>><<money 200000 "schoolProject">>이 들어 있었다.
-	관객들이 환호하며 박수를 보냈다.
+	당신은 무대로 올라가 대기 중인 사진사를 향해 미소 짓는 레이튼과 악수를 나눈다. <<takeHandholdingVirginity "Leighton">> <<He>>【은는】 당신에게 트로피를 건넨다. 그 안에는 <<printmoney 200000>><<money 200000 "schoolProject">>이 들어 있다.
+	관객들이 환호하며 박수를 보낸다.
 	<<npcincr River love 5>><<llltrauma>><<trauma -120>><<famebusiness 100 "pic">>
 	<br><br>
 
 	<<if $mathsexposed isnot undefined>>
-		<<endevent>><<npc River>><<person1>>리버는 당신과 눈을 마주치지 않으려 애썼다. "앞으로 모든 시험에서 A+를 받길 기대하마." <<he>>【이가】 말했다. "넌 능력을 증명했으니까." <<he>>【와과】 레이튼은 당신과 다른 학생들을 건물 밖으로 몰아냈다. 나가는 길에 몇몇 사람들이 당신을 더듬으려 했다.
+		<<endevent>><<npc River>><<person1>>리버는 당신과 눈을 마주치지 않으려 애쓴다. "앞으로 모든 시험에서 A+를 받길 기대하마." <<he>>【이가】 말한다. "넌 능력을 증명했으니까." <<he>>【와과】 레이튼은 당신과 다른 학생들을 건물 밖으로 몰아낸다. 나가는 길에 몇몇 사람들이 당신을 더듬으려 한다.
 		<<llldelinquency>><<detention -54>>
 		<br><br>
 	<<else>>
-		<<endevent>><<npc River>><<person1>>리버가 미소 지었다. "앞으로 모든 시험에서 A+를 받길 기대하마." <<he>>【이가】 말했다. "넌 능력을 증명했으니까." <<he>>【와과】 레이튼은 당신과 다른 학생들을 건물 밖으로 몰아냈다.
+		<<endevent>><<npc River>><<person1>>리버가 미소 짓는다. "앞으로 모든 시험에서 A+를 받길 기대하마." <<he>>【이가】 말한다. "넌 능력을 증명했으니까." <<he>>【와과】 레이튼은 당신과 다른 학생들을 건물 밖으로 몰아낸다.
 		<<llldelinquency>><<detention -54>>
 		<br><br>
 	<</if>>
@@ -2082,13 +2082,13 @@
 	<<if C.npc.Avery.state isnot "dismissed" and $avery_mansion?.attend.maths>>
 		<<set $averySeen.pushUnique("maths_success")>>
 		<<endevent>><<npc Avery 1>><<person1>>
-		군중을 헤치고 나아가던 중, <span class="blue">당신은 에이버리를 발견했다.</span> <<he>>【은는】 당신에게 다가오며 <span class="green">미소 짓고 있다.</span> <<npcincr Avery rage -3>><<larage>>
+		군중을 헤치고 나아가던 중, <span class="blue">당신은 에이버리를 발견한다.</span> <<he>>【은는】 당신에게 다가오며 <span class="green">미소 짓고 있다.</span> <<npcincr Avery rage -3>><<larage>>
 		<br><br>
-		"오늘 아주 훌륭했어요, 자기." <<he>>【이가】 말했다.
+		"오늘 아주 훌륭했어요, 자기." <<he>>【이가】 말한다.
 		<<if $mathsexposed is "safe">>
-			"그것도 품위를 고스란히 지킨 채로 말이죠." 말과는 다르게, <<he>>【은는】 퍽 실망한 기색이었다.
+			"그것도 품위를 고스란히 지킨 채로 말이죠." 말과는 다르게, <<he>>【은는】 퍽 실망한 기색이다.
 		<</if>>
-		그러고는 <<he>>【이가】 팔을 내밀었다. "자, 이제 갈까요?"
+		그러고는 <<he>>【이가】 팔을 내민다. "자, 이제 갈까요?"
 		<br><br>
 		<<link [[에이버리와 함께 간다|Maths Competition Avery]]>><<set $phase to 1>><</link>><<glove>><<larage>>
 		<br>
@@ -2101,24 +2101,24 @@
 	<</if>>
 <<else>>
 	<<generate2>>
-	<span class="red"><<he>>【이가】 어떤 <<person2>><<person>>【을를】 우승자로 발표했다.</span> <<he>>【은는】 트로피를 받기 위해 서둘러 무대에 올랐다.
+	<span class="red"><<he>>【이가】 어떤 <<person2>><<person>>【을를】 우승자로 발표한다.</span> <<he>>【은는】 트로피를 받기 위해 서둘러 무대에 오른다.
 	<br><br>
 
 	<<if $mathsexposed isnot undefined>>
-		레이튼은 당신과 다른 학생들을 강당 밖으로 몰아냈다. "노력은 가상하구나." 밖으로 나가는 길에 리버가 당신에게 말했다. <<nnpc_he "River">>【은는】 당신과 눈을 마주치지 않으려 애썼다.
+		레이튼은 당신과 다른 학생들을 강당 밖으로 몰아낸다. "노력은 가상하구나." 밖으로 나가는 길에 리버가 당신에게 말한다. <<nnpc_he "River">>【은는】 당신과 눈을 마주치지 않으려 애쓴다.
 		<<lldelinquency>><<detention -18>>
 		<br><br>
-		나가는 길에 몇몇 사람들이 당신을 더듬으려 했다.
+		나가는 길에 몇몇 사람들이 당신을 더듬으려 한다.
 		<br><br>
 	<<else>>
-		레이튼은 당신과 다른 학생들을 강당 밖으로 몰아냈다. "노력은 가상하구나." 밖으로 나가는 길에 리버가 당신에게 말했고, 이내 정장을 입은 손님 중 한 명에게 끌려갔다.
+		레이튼은 당신과 다른 학생들을 강당 밖으로 몰아낸다. "노력은 가상하구나." 밖으로 나가는 길에 리버가 당신에게 말하고, 이내 정장을 입은 손님 중 한 명에게 끌려간다.
 		<<lldelinquency>><<detention -18>>
 		<br><br>
 	<</if>>
 
 	<<if C.npc.Avery.state isnot "dismissed" and $avery_mansion?.attend.maths>>
 		<<set $averySeen.pushUnique("maths_fail")>>
-		당신은 군중을 헤치고 나아갔다. 어디에도 에이버리의 모습은 보이지 않았다. <span class="red"><<nnpc_He "Avery">>【은는】 일찍 떠난 것이 분명하다.</span><<stress 6>><<gstress>>
+		당신은 군중을 헤치고 나아간다. 어디에도 에이버리의 모습은 보이지 않는다. <span class="red"><<nnpc_He "Avery">>【은는】 일찍 떠난 것이 분명하다.</span><<stress 6>><<gstress>>
 		<br><br>
 	<</if>>
 

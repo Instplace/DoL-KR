@@ -125,7 +125,7 @@
 <<set $outside to 1>><<set $location to "park">><<effects>><<set $bus to "park">>
 <<wearProp "lichen" "white">>
 <<if $speech_attitude is "meek">>
-	"아, 아무것도 아니에요." 당신이 말한다.
+	"아-아무것도 아니에요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"상관할 바 아니잖아요." 당신은 말한다.
 <<else>>

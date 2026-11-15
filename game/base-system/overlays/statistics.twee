@@ -108,7 +108,7 @@
 		<br>
 		밀수업자 저지 횟수: $smuggler_stolen_stat
 		<br>
-		펍 작업 횟수: $pub_task_stat
+		술집 작업 횟수: $pub_task_stat
 		<br>
 		수확물 판매: $produce_sold
 		<br>
@@ -128,7 +128,7 @@
 		<br>
 		최음제 판매 횟수: $stat_aphrodisiacs_sold
 		<br>
-		<<if $brothelVending and $brothelVending.total>>
+		<<if $brothelVending?.total>>
 			창관 상품 판매 횟수: $brothelVending.total
 			<br>
 		<</if>>
@@ -208,7 +208,7 @@
 			<br>
 		<</if>>
 		삼킨 정액: <<print Math.floor($semenswallowedstat)>> mL
-		<<if $settings.bestialityEnabled>>
+		<<if isBestialityOnForAnyCreature()>>
 			<br>
 			삼킨 동물 정액: <<print Math.floor($animalsemenswallowedstat)>> mL
 		<</if>>
@@ -317,7 +317,7 @@
 			<br>
 			마지막 강간: <<statisticsTimeCompare $rapeTimeStat>>
 			<br>
-			<<if $settings.bestialityEnabled>>
+			<<if isBestialityOnForAnyCreature()>>
 				동물에게 강간: $beastrapestat
 				<br>
 			<<else>>
@@ -588,7 +588,7 @@
 			흡연 횟수: $whitney_smoke
 			<br>
 		<</if>>
-		<<if $bird and $bird.lurkersEaten>>
+		<<if $bird?.lurkersEaten>>
 			럴커 섭취 수: $bird.lurkersEaten
 			<br>
 		<</if>>
@@ -737,9 +737,16 @@
 			<br>
 			크로스 드레서 진행도:
 			<<if $crossdressingTrait isnot undefined>>
-				<<print Math.trunc($crossdressingTrait)>> %
+				<<print Math.trunc($crossdressingTrait)>>%
 			<<else>>
-				0
+				0%
+			<</if>>
+			<br>
+			넥타르 중독
+			<<if $backgroundTraits.includes("plantlover")>>
+				타이머: <<print Math.trunc($nectar_timer)>> <<pluralise $nectar_timer "일" "일">>
+			<<else>>
+				진행도: <<print Math.trunc(($nectar_addiction / 150) * 100)>>%
 			<</if>>
 			<br><br>
 			민감도:
@@ -783,7 +790,7 @@
 				<<else>>
 					<<set $_penisGrowthMin to -400>>
 				<</if>>
-				<<if $player.penissize gt 0>>
+				<<if $player.penissize gt 2>>
 					<<set $_penisGrowthMax to 1000>>
 				<<elseif $player.penissize is 2>>
 					<<set $_penisGrowthMax to 1200>>
@@ -899,7 +906,7 @@
 				부두 상태: <<print Math.trunc($docks.status)>>
 				<br>
 			<</if>>
-			<<if $pound and $pound.progress gte 1>>
+			<<if $pound?.progress gte 1>>
 				유기견 만족도: <<print Math.trunc($stray_happiness)>>
 				<br>
 			<</if>>
@@ -923,7 +930,7 @@
 			<br>
 			사업 명성: <<print Math.trunc($fame.business)>>
 			<br>
-			<<if $debug is 1>>
+			<<if $debug>>
 				포주 명성: <<print Math.trunc($fame.pimp)>>
 				<br>
 			<</if>>
@@ -934,6 +941,8 @@
 			섬 주민 언어: <<if $islander_language is undefined>>0<<else>><<print Math.trunc($islander_language)>><</if>>
 			<br>
 			그윌란의 발전: <<if $gwylan?.progress is undefined>>0<<else>><<print $gwylan.progress>><</if>>
+			<br>
+			광산 희망: <<if $mine?.hope is undefined>>0<<else>><<print $mine.hope>><</if>>
 			<br><br>
 		<</foldout>>
 
@@ -988,9 +997,9 @@
 			<br>
 			젖소 발현 단계: <<print Math.trunc($cow)>>
 			<br>
-			<<if $hallucinations gte 2 or !$settings.bestialityEnabled>>하피 변이<<else>>새 변이<</if>>: <<print Math.trunc($birdbuild)>> (30+ 완전 변신)
+			<<if resolveIfNamedBeastIsMonster("greathawk")>>하피 변이<<else>>새 변이<</if>>: <<print Math.trunc($birdbuild)>> (30+ 완전 변신)
 			<br>
-			<<if $hallucinations gte 2 or !$settings.bestialityEnabled>>하피<<else>>새<</if>> 발현 단계: <<print Math.trunc($harpy)>>
+			<<if resolveIfNamedBeastIsMonster("greathawk")>>하피<<else>>새<</if>> 발현 단계: <<print Math.trunc($harpy)>>
 			<br>
 			여우 변이: <<print Math.trunc($foxbuild)>> (30+ 완전 변신)
 			<br>
@@ -1075,7 +1084,7 @@
 		<<if $NPCName.find(npc => npc.pregnancy and npc.pregnancy.enabled isnot undefined)>>
 			<<foldout false "_npcPregnancyFoldout">>
 				<span class="gold">NPC 임신</span>
-				<<for $_npc range $NPCName.filter(npc => npc.pregnancy and npc.pregnancy.enabled isnot undefined)>>
+				<<for $_npc range $NPCName.filter(npc => npc.pregnancy and npc.pregnancy.enabled isnot undefined).sort((a,b) => a.nam.localeCompare(b.nam))>>
 					<div>
 						<<print window.KR.gatPersonNameDictKR($_npc.nam)>>:
 						<<set _active to getActivePregnancies($_npc.nam)[0]>>
@@ -1113,11 +1122,11 @@
 					_label 슬롯 <<=_i+1>>【은는】 <<print window.KR.getGenderKR($_pregnancy.fetus[_i].stats.gender)>> <<print window.KR.getCreatureTypeKr($_pregnancy.fetus[_i].creature)>>【을를】 임신 중입니다.
 					<<if $_pregnancy.fetus[_i].stats.gender is "Hermaphrodite">>
 						<<if $pregnancyStats.parasiteDoctorEvents gte 4 and $_pregnancy.fetus[_i].daysLeft is 0>>
-							하퍼 박사가 언제든 출산을 도와줄 수 있을 것입니다.
+							하퍼 의사가 언제든 출산을 도와줄 수 있을 것입니다.
 						<<elseif $pregnancyStats.parasiteDoctorEvents gte 4>>
-							하퍼 박사가 <<=$_pregnancy.fetus[_i].daysLeft>>일 후 출산을 도와줄 수 있을 것입니다.
+							하퍼 의사가 <<=$_pregnancy.fetus[_i].daysLeft>>일 후 출산을 도와줄 수 있을 것입니다.
 						<<else>>
-							출산을 위해서는 하퍼 박사를 만나야 합니다.
+							출산을 위해서는 하퍼 의사를 만나야 합니다.
 						<</if>>
 					<<else>>
 						<<if $_pregnancy.fetus[_i].daysLeft is 0>>
@@ -1266,7 +1275,7 @@
 			<div id="moneyStatsDiv">
 				<<moneyStats>>
 			</div>
-			<<if $debug is 1>>
+			<<if $debug>>
 				<<link "통계 초기화 (디버그)">>
 					<<set $moneyStats to {}>>
 					<<set $timeStats to {}>>

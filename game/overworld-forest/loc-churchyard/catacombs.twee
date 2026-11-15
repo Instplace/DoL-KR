@@ -40,7 +40,7 @@
 	<<events_catacombs normal>>
 <<else>>
 	<<if $museumAntiques.antiques.antiqueivorystatuette isnot "found" and $museumAntiques.antiques.antiqueivorystatuette isnot "talk" and $museumAntiques.antiques.antiqueivorystatuette isnot "museum">>
-		<<antiqueicon "ivory-statuette">><<link [[조각상 가져가기|Catacombs Statuette]]>><</link>><<crime "thievery">>
+		<<antiqueicon "ivory-statuette">><<link [[조각상을 가져간다|Catacombs Statuette]]>><</link>><<crime "thievery">>
 		<br>
 	<</if>>
 	<<if pcAreArmsBound("any")>>
@@ -48,10 +48,10 @@
 		<br>
 	<</if>>
 	<<if $catacombs_torch lt 100>>
-		<<caveicon "torch">><<link [[횃불에 불 붙이기|Catacombs Light]]>><</link>><<gtorch>>
+		<<caveicon "torch">><<link [[횃불에 불을 붙인다|Catacombs Light]]>><</link>><<gtorch>>
 		<br>
 	<</if>>
-	<<caveicon "east">><<link [[동쪽으로 걷기 (0:10)|Catacombs Sarcophagi]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
+	<<caveicon "east">><<link [[동쪽으로 걷는다 (0:10)|Catacombs Sarcophagi]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
 	<br>
 	<<caveicon "west">><<link [[서쪽으로 걷는다 (0:10)|Catacombs Prison]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
 	<br><br>
@@ -112,9 +112,9 @@
 <<else>>
 	<<catacombs_plunder "normal">>
 
-	<<caveicon "east">><<link [[동쪽으로 걷기 (0:10)|Catacombs Chasm]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
+	<<caveicon "east">><<link [[동쪽으로 걷는다 (0:10)|Catacombs Chasm]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
 	<br>
-	<<caveicon "west">><<link [[서쪽으로 걷기 (0:10)|Catacombs]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
+	<<caveicon "west">><<link [[서쪽으로 걷는다 (0:10)|Catacombs]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
 	<br>
 <</if>>
 
@@ -136,9 +136,9 @@
 <<else>>
 	<<catacombs_plunder "normal">>
 
-	<<caveicon "east">><<link [[동쪽으로 걷기 (0:10)|Catacombs]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
+	<<caveicon "east">><<link [[동쪽으로 걷는다 (0:10)|Catacombs]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
 	<br>
-	<<caveicon "west">><<link [[서쪽으로 걷기 (0:10)|Catacombs Ridge]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
+	<<caveicon "west">><<link [[서쪽으로 걷는다 (0:10)|Catacombs Ridge]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>>
 	<br>
 <</if>>
 
@@ -167,13 +167,13 @@
 	<<catacombs_plunder "normal">>
 
 	<<if currentSkillValue('tending') gte 500>>
-		<<mysteryicon>><<link [[달래기|Catacombs Chasm Coax]]>><</link>><<note "관리" "green">>
+		<<mysteryicon>><<link [[달랜다|Catacombs Chasm Coax]]>><</link>><<note "관리" "green">>
 		<br>
 	<<else>>
 		<<mysteryicon>><span class="blue">저 위의 무언가를 달래서 나오게 하기에는 관리 스킬이 부족합니다.</span>
 		<br>
 	<</if>>
-	<<caveicon "west">><<link [[서쪽으로 걷기 (0:10)|Catacombs Sarcophagi]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
+	<<caveicon "west">><<link [[서쪽으로 걷는다 (0:10)|Catacombs Sarcophagi]]>><<pass 10>><<catacombs_torch -5>><</link>><<ltorch>><<catacombs_exit_indicator>>
 	<br>
 <</if>>
 
@@ -194,7 +194,7 @@
 	하지만 이내 머리 하나가 불쑥 나타나고, 여덟 개의 다리가 뒤따른다. <<beasttype>>【이】지만, <<bhis>> 태도에는 위협적인 기색이 없다. <<bHe>>【은는】 종유석을 기어 내려오다가, 남은 거리는 비단실을 타고 내려와 당신 앞에 착지한다.
 	<br><br>
 
-	"당신에게는 위험한 곳이야," <<bhe>>【이가】 말한다. "원한다면 내가 균열을 건너게 해줄 수 있어. 보기보다 힘이 세거든. 훨씬 더."
+	"당신에게는 위험한 곳이야." <<bhe>>【이가】 말한다. "원한다면 내가 균열을 건너게 해줄 수 있어. 보기보다 힘이 세거든. 훨씬 더."
 <<else>>
 	하지만 이내 여덟 개의 다리가 기어 나온다. 거대한 <<beasttype>>【이】지만, <<bhis>> 태도에는 위협적인 기색이 없다. <<bHe>>【은는】 종유석을 기어 내려오다가, 남은 거리는 비단실을 타고 내려와 당신 앞에 착지한다.
 	<br><br>
@@ -202,9 +202,9 @@
 <</if>>
 <br><br>
 
-<<link [[균열 건너가기 (0:10)|Catacombs Chasm Coax 2]]>><<pass 10>><</link>>
+<<link [[균열을 건너간다 (0:10)|Catacombs Chasm Coax 2]]>><<pass 10>><</link>>
 <br>
-<<link [[머무르기|Catacombs Chasm]]>><<endevent>><<set $eventskip to 1>><</link>>
+<<link [[머무른다|Catacombs Chasm]]>><<endevent>><<set $eventskip to 1>><</link>>
 <br>
 
 :: Catacombs Chasm Coax 2
@@ -216,7 +216,7 @@
 
 	장난스럽게 반짝이며, 빛은 천장을 향해 쏘아 올라가 구멍 속에 몸을 숨긴다.
 <<elseif $monster is 1>>
-	<<beasttype>>【이가】 당신 주위를 빙빙 맴돌며 달려든다. 반응하기도 전에, <<bhes>> 당신의 허리에 여러 가닥의 실을 감았다. <<bHe>>【은는】 자신이 내려왔던 실을 타고 올라가, 당신의 발을 땅에서 떼어 공중으로 들어 올린다. "당신을 옮기는 가장 좋은 방법이야," <<bhe>>【이가】 미안한 듯 웃으며 말한다.
+	<<beasttype>>【이가】 당신 주위를 빙빙 맴돌며 달려든다. 반응하기도 전에, <<bhes>> 당신의 허리에 여러 가닥의 실을 감았다. <<bHe>>【은는】 자신이 내려왔던 실을 타고 올라가, 당신의 발을 땅에서 떼어 공중으로 들어 올린다. "당신을 옮기는 가장 좋은 방법이야." <<bhe>>【이가】 미안한 듯 웃으며 말한다.
 	<br><br>
 
 	<<bHe>>【은는】 천장까지 기어 올라가 균열 위를 쏜살같이 가로지른다. 당신은 <<bhim>> 아래에 매달린 채 발밑의 심연을 의식하며 반대편에 도착한다. <<bHe>>【은는】 당신을 부드럽게 내려준 다음, <<bhimself>> 내려와 허리에 감긴 실을 찢어낸다.
@@ -467,7 +467,7 @@
 	<<catacombs_plunder "compound">>
 
 	<<if currentSkillValue('tending') gte 500>>
-		<<mysteryicon>><<link [[달래기|Catacombs Bores Coax]]>><</link>><<note "관리" "green">>
+		<<mysteryicon>><<link [[달랜다|Catacombs Bores Coax]]>><</link>><<note "관리" "green">>
 		<br>
 	<<else>>
 		<<mysteryicon>><span class="blue">저 위의 무언가를 달래서 나오게 하기에는 관리 스킬이 부족합니다.</span>
@@ -496,7 +496,7 @@
 	이내 머리 하나가 불쑥 나타나고, 이어서 여덟 개의 팔다리가 보인다. <<beasttype>>【이】지만, <<bhis>> 태도에는 위협적인 기색이 없다. <<bHe>>【은는】 비단실에 의지해 구멍에서 기어 나와 벽을 타고 내려와 당신 앞에 착지한다.
 	<br><br>
 
-	"다른 인간들과는 친구가 아니군," <<bhe>>【이가】 묻는다. "괜찮다면 내가 틈새를 건너게 해줄 수 있어. 출구가 더 가까워. 보기보다 힘이 세거든. 훨씬 더."
+	"다른 인간들과는 친구가 아니군." <<bhe>>【이가】 묻는다. "괜찮다면 내가 틈새를 건너게 해줄 수 있어. 출구가 더 가까워. 보기보다 힘이 세거든. 훨씬 더."
 <<else>>
 	이내 여덟 개의 다리가 기어 나오는 것이 보인다. 거대한 <<beasttype>>【이】지만, <<bhis>> 태도에는 위협적인 기색이 없다. <<bHe>>【은는】 비단실에 의지해 구멍에서 기어 나와 벽을 타고 내려와 당신 앞에 착지한다.
 	<br><br>

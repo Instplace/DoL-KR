@@ -1,0 +1,287 @@
+:: Mine Job Mining Intro
+<<effects>><<wearProp "pickaxe">>
+
+<<person>>【이가】 당신의 족쇄를 다른 노예 둘의 족쇄에 연결하고 곡괭이를 당신 품에 떠안긴다.
+<br><br>
+"좋아, 다들 잘 들어." <<he>>【이가】 소리친다. "너희는 여기서 채굴한다. 게으름을 피우면 벌을 받는다. 수정이든 보석이든 번쩍이는 건 전부 나한테 내놔. 하나라도 몰래 숨기려 들면 벌을 받는다."
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Mining]]>><</link>>
+
+
+
+:: Mine Job Mining
+<<effects>><<wearProp "pickaxe">>
+
+당신은 터널 안에 있다. 곡괭이가 바위를 내리치는 소리가 사방에서 들린다.
+<<if $exposed gte 1>>
+	경비원들이 당신의 <<lewdness>>【을를】 빤히 쳐다본다.
+<</if>>
+<<if isPregnancyEnding()>>
+	<<generate1>>
+	당신은 배를 움켜쥐고 무릎을 꿇는다. <<person1>><<person>>【이가】 알아채고 <<he>>【이가】 서둘러 당신 곁으로 와 쇠사슬을 풀어 준다. <<he>>【이가】 당신을 들어 올리자 당신은 의식을 잃는다.
+	<br><br>
+	<<link [[다음|Mine Birth]]>><</link>>
+<<elseif $stress gte $stressmax>>
+	너무 무리했다.
+	<br><br>
+
+	<<passout>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|Mine Job Mining Passout]]>><<endevent>><</link>>
+<<elseif Time.hour lte 5 or Time.hour gte 21>>
+	<br><br>
+	<<link [[다음|Mine Job Mining End]]>><</link>>
+<<elseif $mine.hope gte 20 and $mine.song isnot 1>>
+	<<generate1>><<person1>>
+	<<set $mine.song to 1>>
+	어디선가 낮은 흥얼거림이 들린다. 다른 노예들이 소리의 출처를 찾아 두리번거리는 사이 흥얼거림은 노래로 번진다. <<stress -5>><<lstress>>
+	<br><br>
+	경비원들도 알아챈다. "누가 노래하는 거야?!" <<person>>【이가】 소리친다. 노래가 계속되는데도 모두 입을 다물고 있다. 그러자 침묵 속에서 두 번째 목소리가 나와 첫 번째 목소리에 합류한다. "노래하는 놈은 누구든 벌을 받는다!"
+	<br><br>
+	협박은 오히려 더 많은 목소리가 합류하게 만들 뿐이다. 경비원이 소리를 높일수록 점점 더 많은 목소리가 보태지고, 마침내 모두가 함께 노래한다. <<stress -5>><<lstress>><<trauma -5>><<ltrauma>>
+	<br><br>
+	<<link [[함께 부른다|Mine Job Mining Song]]>><<set $phase to 0>><</link>>
+	<br>
+	<<link [[침묵한다|Mine Job Mining Song]]>><<set $phase to 1>><</link>>
+<<else>>
+	<br><br>
+	<<link [[채굴에 집중한다 (1:00)|Mine Job Mining Event]]>><<pass 1 hours>><<set $phase to 0>><<tiredness 2>><</link>><<gtiredness>>
+	<br>
+	<<link [[채굴하는 척한다 (1:00)|Mine Job Mining Event]]>><<pass 1 hours>><<set $phase to 1>><<stress 2>><</link>><<gstress>>
+	<br><br>
+	<<mine_shackle_text>>
+	<br>
+	<<link [[족쇄를 망가뜨린다 (1:00)|Mine Job Mining Event]]>><<pass 1 hours>><<set $phase to 2>><<set $mine.job.mining.shackle -= 1>><<stress 4>><</link>><<gstress>>
+	<<if $mine.favor.mining is 1>>
+		<br>
+		<<link [[시선을 끌어 달라고 부탁한다|Mine Job Mining Distraction]]>><</link>>
+	<</if>>
+<</if>>
+
+
+
+:: Mine Job Mining Event
+<<effects>><<wearProp "pickaxe">>
+<<if $phase is 0>>
+	당신은 채굴에 집중한다.
+	<<if $prof.pickaxe lt 1000 and random(1,3) is 1>>
+		<span class="green">당신은 이 일에 점점 익숙해지고 있다는 생각이 든다.</span><<gpickaxe>>
+		<<prof pickaxe 1>>
+		<br>
+	<</if>>
+	<<print either(
+		"당신은 보석을 찾아 경비원에게 건넨다.",
+		"바위가 당신의 머리 위로 떨어진다. <<pain 10>><<ggpain>> ",
+		"당신은 바위 덩어리를 광차에 들어 올려 싣는다. <<tiredness 10>><<ggtiredness>>",
+		"당신은 수정을 찾아 경비원에게 건넨다.",
+		"당신은 보석을 찾아 경비원에게 건넨다.",
+		"당신은 터널 벽에서 큰 바위 하나를 떼어 낸다."
+	)>>
+<<elseif $phase is 1>>
+	당신은 채굴하는 척한다. 경비원들이 알아채지 못하기를 바란다.
+<<else>>
+	당신은 곡괭이로 족쇄를 내리치기 시작하지만, 경비원들이 쳐다볼 때는 채굴하는 척한다.
+<</if>>
+<<if $mine.job.mining.shackle is 0>>
+	<<mine_unshackle>><<mine_distract_check>>
+	세게 내리치자 <span class="green">발목의 족쇄가 부서진다.</span>
+	<br><br>
+	당신은 주위를 둘러보고 경비원 중 누구도 당신을 보고 있지 않다는 것을 확인한다. 경비원 한 명의 허리띠에 열쇠 꾸러미가 달려 있는 것이 눈에 들어온다.
+	<<if _distraction_count gte 1>>
+		<br><br>
+		<span class="blue">경비원이 평소보다 적은 것 같다.</span>
+	<</if>>
+	<br><br>
+	<<link [[터널로 도망친다|Mine Escape]]>><<endevent>><</link>>
+	<br>
+	<<link [[경비병을 공격한다|Mine Revolt]]>><<generate1>><</link>>
+<<else>>
+
+<br><br>
+<<cleareventpool>>
+
+<<addinlineevent "nothing" 1.5>>
+	당신은 방해 없이 계속 일한다.
+	<br><br>
+	<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "scream" 1.5>>
+	터널 속에서 비명이 메아리친다. 경비원 한 명이 낄낄댄다. <<stress 7>><<trauma 5>><<ggstress>><<gtrauma>>
+	<br><br>
+	<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "explosion" 1.5>>
+	멀리서 울리는 폭발의 진동에 쓰러질 뻔하지만, 당신은 간신히 중심을 잡는다. <<stress 7>><<ggstress>>
+	<br><br>
+	<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<addinlineevent "collapse" 0.5>>
+	<<generatey1>><<generate2>>
+	근처에 있던 <<person1>><<person>>【이가】 바위 위로 쓰러진다. 경비원이 알아채고 다가온다. "지금은 쉬는 시간이 아니야. 일어나." <<person2>><<he>>【이가】 <<person1>><<him>>【을를】 걷어차며 말한다. <span class="red"><<He>>【은는】 반응이 없다.</span>
+	<br><br>
+	경비원이 소리치자 경비원 둘이 와서 <<person>>의 족쇄를 풀고 <<him>>【을를】 끌고 간다. <<stress 5>><<gstress>><<trauma 5>><<gtrauma>><<mine_hope -1>><<lhope>>
+	<br><br>
+	<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<if $mine.favor.mining isnot 1 and $mine.distraction.mining is undefined>>
+	<<addinlineevent "favor">>
+		<<generatey1>><<generate2>>
+		당신과 <<person1>><<person>>【이가】 바위를 광차에 옮기기 시작한다. <<He>>【이가】 큰 바위 때문에 애를 먹는다. 당신이 한쪽 끝을 잡고 <<he>>【이가】 다른 쪽 끝을 잡는다. 바위를 광차에 들어 올리는데 <<his>> 주머니에서 보석 하나가 떨어진다.
+		<br><br>
+		당신들은 서로의 눈을 바라본다. <<His>> 얼굴이 공포로 가득하다. "어이!" 터널 건너편에서 경비원이 소리친다. "내가 다 봤어!" <<person2>><<He>>【이가】 달려와 두 사람을 훑어본다. "둘 중 누가 이걸 나 몰래 빼돌릴 수 있을 줄 알았지?" <<he>>【이가】 묻고는 보석을 허리춤의 가방에 슬쩍 집어넣는다.<<person1>>
+		<br><br>
+		<<link [[책임을 뒤집어쓴다|Mine Job Mining Favor]]>><<set $phase to 0>><<set $mine.favor.mining to 1>><</link>>
+		<br>
+		<<link [[<<him>>【을를】 고자질한다|Mine Job Mining Favor]]>><<set $phase to 1>><<stress 7>><<trauma 7>><</link>><<ggstress>><<ggtrauma>>
+	<</addinlineevent>>
+<</if>>
+
+<<addinlineevent "mouth">>
+	<<generate1>><<generatey2>>
+	"뱉어!" <<person1>><<person>>【이가】 소리친다. <<He>>【은는】 <<person2>><<person>>에게 달려가 <<person1>><<he>> 손을 내민다. "내놔. 당장."
+	<br><br>
+	<<person2>><<person>>의 얼굴이 공포로 가득하다. <<person1>><<person>>【이가】 <<his>> 손을 <<person2>><<person>>의 입에 밀어 넣고 휘저어 보석 하나를 꺼낸다. <<person1>><<He>>【은는】 그것을 <<his>> 가방에 슬쩍 넣더니 곤봉을 휘둘러 <<person2>><<person>>의 머리를 후려친다.
+	<br><br>
+	<<He>>【은는】 바닥에 쓰러졌다가 <<person1>><<person>>에게 끌려간다. <<stress 7>><<ggstress>><<mine_hope -1>><<lhope>>
+	<br><br>
+	<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+<</addinlineevent>>
+
+<<if $mine.favor.job.night is "gem" and $mine.favor.night isnot 1 and $mine.distraction.night is "inprogress">>
+	<<addinlineevent "favor_gem">>
+		<<set $mine.favor.night to 1>>
+		<<set $mine.distraction.night to "complete">>
+		당신은 <span class="blue"><<print either("gem","crystal")>>【을를】</span> 발견한다. 당신은 경비원이 보고 있지 않은지 주위를 살피고 나서 그것을 집어 든다.
+		<br><br>
+		<<link [[다음|Mine Job Mining]]>><<endevent>><</link>>
+	<</addinlineevent>>
+<</if>>
+
+<<runeventpool>>
+<</if>>
+
+
+
+:: Mine Job Mining End
+<<effects>><<generate1>><<person1>>
+
+경비원이 <<his>> 시계를 본다. "오늘 일은 끝이다!" <<he>>【이가】 소리친다. 경비원들이 줄을 따라 돌며 노예들을 서로 떼어 놓는다. "좋아, 움직여!"
+<br><br>
+당신은 그들과 함께 걸어 작은 동굴로 이어지는 쇠문 앞에 도착한다. 무리가 문을 통과하고 모두가 안으로 들어가자 경비원이 쇠문을 쾅 닫는다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Night]]>><</link>>
+
+
+
+:: Mine Job Mining Distraction
+<<effects>>
+<<loadNPC 0 "mine_mining">>
+
+당신은 <<person1>><<person>>에게 다가간다.
+<br><br>
+<<if $speech_attitude is "meek">>
+	"경비원들 좀 따돌려 줄 수 있어요?" 당신이 묻는다.
+<<elseif $speech_attitude is "bratty">>
+	"경비원들을 따돌려 줘야겠어."" 당신이 말한다.
+<<else>>
+	"경비원들을 따돌려 줘." 당신이 말한다.
+<</if>>
+<<He>>【은는】 걱정스럽게 주위를 둘러본다. "언제 하면 되는데?" <<he>>【이가】 묻는다.
+<br><br>
+<<mine_distract_links "Mine Job Mining Distraction Set">>
+
+
+
+:: Mine Job Mining Distraction Set
+<<effects>>
+
+<<if $phase isnot "no">>
+	<<set $mine.distraction.mining to $phase>><<unset $mine.favor.mining>>
+
+	당신은 <<him>>에게 <<mine_distract_time>> 소란이 일어났으면 한다고 말한다. <<He>>【은는】 고개를 끄덕인다.
+	<br><br>
+	<<He>>【은는】 경비원들을 힐끔 보고는 당신에게서 고개를 돌리고, 당신과 말을 나누지 않은 척한다.
+	<<clearNPC "mine_mining">>
+<<else>>
+	당신은 <<him>>에게 마음이 바뀌었다고 말한다. <<He>>【은는】 고개를 끄덕이고 일터로 돌아간다.
+<</if>>
+<<endevent>>
+<br><br>
+<<link [[다음|Mine Job Mining]]>><</link>>
+
+
+
+:: Mine Job Mining Song
+<<effects>><<wearProp "pickaxe">>
+
+<<if $phase is 0>>
+	당신은 다른 사람들과 함께 노래를 따라 부르기 시작한다.
+<<else>>
+	당신은 벌을 받을지 모르니 가만히 있기로 한다.
+<</if>>
+노래가 점점 커지며 음악이 터널 속에 울려 퍼진다. 저마다의 목소리가 커져 가는 노래에 제 몫을 보탠다. <<stress -10>><<llstress>><<trauma -10>><<lltrauma>>
+<br><br>
+경비원들이 노래를 잠재우려 하지만 실패한다. 시도할 때마다 노래는 오히려 더 커진다.
+<<if $phase is 0>>
+	<span class="green">우리 모두를 막을 수는 없다.</span>
+<<else>>
+	모두를 막을 수는 없다.
+<</if>>
+<<mine_hope 3>><<ggghope>><<stress -20>><<lllstress>><<trauma -20>><<llltrauma>>
+<br><br>
+노래는 끝에 이를 때까지 이어진다. "일터로 돌아가!" <<person>>【이가】 소리친다. 모두 말을 따르지만 새로 되살아난 기운이 감돈다.
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Mining]]>><</link>>
+
+
+
+:: Mine Job Mining Favor
+<<effects>>
+
+<<if $phase is 0>>
+	<<saveNPC 0 "mine_mining">>
+	<<set $mine.favor.mining to 1>>
+	<<if $speech_attitude is "meek">>
+		"저예요." 당신이 말한다.
+	<<elseif $speech_attitude is "bratty">>
+		"네 멍청한 보석은 내가 훔쳤어." 당신이 말한다.
+	<<else>>
+		"내가 했어." 당신이 말한다.
+	<</if>>
+	<<person2>>
+	<<person>>【이가】 곤봉을 꺼내 당신을 후려친다. 당신이 멍해진 사이 <<he>>【은는】 당신의 족쇄를 다른 노예들의 족쇄에서 떼어 내고 당신을 잡아끈다. <<mine_hope 3>><<ggghope>><<pain 10>><<ggpain>>
+	<br><br>
+	<<link [[다음|Mine Punishment]]>><</link>>
+<<else>>
+	<<person1>>
+	<<if $speech_attitude is "meek">>
+		"<<him>>【이】에요." 당신이 말한다.
+	<<elseif $speech_attitude is "bratty">>
+		"<<He>>【이가】 네 멍청한 보석을 훔쳤어." 당신이 말한다.
+	<<else>>
+		"<<He>>【이가】 했어." 당신이 말한다.
+	<</if>>
+	<<person2>>
+	<<person>>【이가】 곤봉을 꺼내 <<person1>><<person>>의 머리를 후려친다.<<stress 7>><<trauma 7>><<ggstress>><<ggtrauma>>
+	<br><br>
+	<<person2>><<He>>【은는】 <<person1>><<person>>의 족쇄를 다른 노예들의 족쇄에서 떼어 내고 <<him>>【을를】 끌고 간다.<<mine_hope -3>><<lllhope>>
+	<br><br>
+	<<endevent>>
+	<<link [[다음|Mine Job Mining]]>><</link>>
+<</if>>
+
+:: Mine Job Mining Return
+<<effects>><<wearProp "pickaxe">>
+
+<<person>>【이가】 당신의 족쇄를 다른 노예 둘의 족쇄에 연결하고 곡괭이를 당신 품에 떠안긴다.
+<br><br>
+"명심해. 넌 여기서 채굴하러 온 거다." <<he>>【이가】 말한다. "또 벌 받고 싶지는 않겠지."
+<br><br>
+<<endevent>>
+<<link [[다음|Mine Job Mining]]>><</link>>

@@ -12,7 +12,7 @@
 	<br><br>
 <</if>>
 
-"관심 없는 학생들은," 도렌이 말을 꺼낸다. "<span class="gold">마음을 바꿀 시간이 일주일 있습니다.</span> 방과 후에 와서 신청하면 됩니다."
+"관심 없는 학생들은." 도렌이 말을 꺼낸다. "<span class="gold">마음을 바꿀 시간이 일주일 있습니다.</span> 방과 후에 와서 신청하면 됩니다."
 <br><br>
 
 <span class="gold">영어 연극이 일지에 추가되었습니다. 일주일 안에 신청하거나, 방과 후 영어 교실에서 다른 학생들이 연습하는 것을 도울 수 있습니다.</span>
@@ -41,11 +41,11 @@
 <</if>>
 <br><br>
 
-<<link [[젊은 거지, 캐스 역할 맡기|English Play Role Select]]>><<set $phase to 1>><</link>>
+<<link [[젊은 거지, 캐스 역할을 맡는다|English Play Role Select]]>><<set $phase to 1>><</link>>
 <br>
-<<link [[부유한 가문의 자제, 테일러 역할 맡기|English Play Role Select]]>><<set $phase to 2>><</link>>
+<<link [[부유한 가문의 자제, 테일러 역할을 맡는다|English Play Role Select]]>><<set $phase to 2>><</link>>
 <br>
-<<link [[그들의 사랑을 반대하는 테일러의 부모, 스털링 역할 맡기|English Play Role Select]]>><<set $phase to 3>><</link>>
+<<link [[그들의 사랑을 반대하는 테일러의 부모, 스털링 역할을 맡는다|English Play Role Select]]>><<set $phase to 3>><</link>>
 <br>
 
 :: English Play Role Select
@@ -118,11 +118,11 @@
 어떤 역할에 신청하시겠습니까?
 <br><br>
 
-<<link [[젊은 거지, 캐스 역할 맡기|English Play Late Role]]>><<set $phase to 1>><</link>>
+<<link [[젊은 거지, 캐스 역할을 맡는다|English Play Late Role]]>><<set $phase to 1>><</link>>
 <br>
-<<link [[부유한 가문의 자제, 테일러 역할 맡기|English Play Late Role]]>><<set $phase to 2>><</link>>
+<<link [[부유한 가문의 자제, 테일러 역할을 맡는다|English Play Late Role]]>><<set $phase to 2>><</link>>
 <br>
-<<link [[그들의 사랑을 반대하는 테일러의 부모, 스털링 역할 맡기|English Play Late Role]]>><<set $phase to 3>><</link>>
+<<link [[그들의 사랑을 반대하는 테일러의 부모, 스털링 역할을 맡는다|English Play Late Role]]>><<set $phase to 3>><</link>>
 <br>
 <<link [[물러선다|English Classroom]]>><<endevent>><<set $eventskip to 1>><</link>>
 <br>
@@ -224,7 +224,7 @@
 당신은 카일라에게 다가간다. <<He>>【은는】 극도로 불편해 보였지만, 당신을 보자 표정이 밝아진다.
 <br><br>
 
-"ㅎ-안녕," 카일라가 당신의 팔을 부드럽게 잡으며 말한다. "널 위한 깜짝 선물이 있어. 우리 연극 무대에서 같이 공연하게 될 거야." <<He>>【은는】 가방에서 작은 책자를 꺼내 당신에게 보여준다.
+"ㅎ-안녕." 카일라가 당신의 팔을 부드럽게 잡으며 말한다. "널 위한 깜짝 선물이 있어. 우리 연극 무대에서 같이 공연하게 될 거야." <<He>>【은는】 가방에서 작은 책자를 꺼내 당신에게 보여준다.
 <br><br>
 
 <<switch $englishPlayRoles.Kylar>>
@@ -235,7 +235,7 @@
 <</switch>>
 <br><br>
 
-<<He>>【은는】 소심하게 아래를 내려다본다. "저기, 우리 같이 시간 좀 보낼까? ㅇ-연습 말이야." <<He>>【은는】 다른 말을 하려다 멈춘다.
+<<He>>【은는】 소심하게 아래를 내려다본다. "저기, 우리 같이 시간 좀 보낼까? 여-연습 말이야." <<He>>【은는】 다른 말을 하려다 멈춘다.
 <<if Weather.precipitation isnot "none">>
 	"그냥... 나 보러 와, 알았지? <span class="gold">도서관에 있을게.</span> 여기는... 사람이 너무 많아. 너무."
 <<else>>
@@ -338,7 +338,7 @@
 	<<case 1>>
 		당신과 카일라는 함께 연습을 시작한다. 당신이 대사를 읊는 동안 <<he>>【은는】 당신과 계속 눈을 맞추려고 노력한다. 마침내 <<his>> 차례가 되자, <<he>>【은는】 세련된 몸짓으로 말하며 강한 억양으로 이야기한다.
 		<br><br>
-		열정적인 연기에 당신이 눈썹을 치켜올리자, <<he>>【은는】 대사를 마치며 "ㅇ-웃지 마, 알았지?"라고 긴장하며 말한다.
+		열정적인 연기에 당신이 눈썹을 치켜올리자, <<he>>【은는】 대사를 마치며 "우-웃지 마, 알았지?"라고 긴장하며 말한다.
 	<<case 2>>
 		당신은 카일라와 연습을 시작한다. 당신은 대사를 말하는 동안 자주 더듬거리지만, 결국에는 제대로 해낸다. 카일라의 차례가 되자, <<he>>【은는】 약간 혼란스러워 보이며 몇 번이고 대사 순서를 바꾸고, 당혹스러운 표정으로 대본을 주기적으로 쳐다본다.
 		<br><br>
@@ -350,17 +350,17 @@
 				당신과 카일라는 함께 연습한다. 당신은 대본의 시적이고 열정적인 부분을 <<him>>에게 읊어준다. <<He>>【은는】 몸이 약간 굳고, <<his>> 눈은 불안하게 주위를 맴돈다. 당신이 의아한 표정으로 <<him>>【을를】 쳐다보자, <<him>>【은는】 금방 정신을 차린다.
 				<br><br>
 
-				"ㅁ-미안해," <<he>>【이가】 더듬거린다. "하지만 네가 내 앞에서 ㄱ-그런 말을 하는 걸 들으니까 그냥..." <<His>> 뺨이 붉어지고, <<he>>【은는】 다시 몽상에 빠진 것 같다.
+				"미-미안해," <<he>>【이가】 더듬거린다. "하지만 네가 내 앞에서 그-그런 말을 하는 걸 들으니까 그냥..." <<His>> 뺨이 붉어지고, <<he>>【은는】 다시 몽상에 빠진 것 같다.
 			<<case "Taylor">>
 				당신과 카일라는 함께 연습한다. 캐스팅된 세 번째 사람이 현재 없기 때문에, 가상의 인물과 로맨틱한 부분을 연습하기 시작할 때까지는 대본에 아무 문제가 없다. 당신이 대사를 읊는 내내 카일라는 <<his>> 팔짱을 끼고 얼굴을 찌푸린다.
 				<br><br>
 
-				"다른 역할은 내 것이어야 해," <<he>>【이가】 쉭쉭거리지만, 금방 진정한다. "ㄴ-내가 <<nnpc_him "Sydney">>보다 더 잘할 거야. 확신해."
+				"다른 역할은 내 것이어야 해," <<he>>【이가】 쉭쉭거리지만, 금방 진정한다. "내-내가 <<nnpc_him "Sydney">>보다 더 잘할 거야. 확신해."
 			<<case "Sterling">>
 				당신과 카일라는 리허설을 시작한다. 중간쯤에 카일라가 갑자기 멈춘다. 당신이 <<him>>에게 무슨 문제냐고 묻자 <<he>>【은는】 한숨을 쉰다.
 				<br><br>
 
-				"ㄱ-그냥 <<nnpc_him "Sydney">>에게 그런 말을 하고 싶지 않아," <<he>>【이가】 <<his>> 손바닥을 <<his>> 얼굴에 대며 말한다. "ㅇ-이게 그냥 연극인 건 알지만, 그래도 어색하잖아, 알지?" <<He>>【은는】 다시 한숨을 쉰다. "대신 너한테 말할 수 있었으면 좋겠어."
+				"그-그냥 <<nnpc_him "Sydney">>에게 그런 말을 하고 싶지 않아." <<he>>【이가】 <<his>> 손바닥을 <<his>> 얼굴에 대며 말한다. "이-이게 그냥 연극인 건 알지만, 그래도 어색하잖아, 알지?" <<He>>【은는】 다시 한숨을 쉰다. "대신 너한테 말할 수 있었으면 좋겠어."
 		<</switch>>
 	<<default>>
 		<<playLinePool>>
@@ -380,7 +380,7 @@
 당신이 끝마칠 때쯤, 학교는 문을 닫기 시작했다. 당신은 카일라와 함께 밖으로 걸어 나간다.
 <br><br>
 
-<<kylaroptions "notext">>
+<<kylarOptions "notext">>
 
 :: English Play Rehearse Sydney
 <<schooleffects>><<effects>><<set $bus to "rehearsal">>
@@ -646,12 +646,12 @@
 		<</if>>
 	<<case "Taylor">>
 		<<if $phase is 1>>
-			당신은 감정을 전달하기 위해 진심으로 노력한다. 스털링에게 카스를 향한 사랑을 고백하자 시드니의 얼굴이 붉어진다. 카일라는 대본을 구기며 주먹을 꽉 쥔다.
+			당신은 감정을 전달하기 위해 진심으로 노력한다. 스털링에게 캐스를 향한 사랑을 고백하자 시드니의 얼굴이 붉어진다. 카일라는 대본을 구기며 주먹을 꽉 쥔다.
 			<br><br>
 
 			연기가 끝나자 시드니가 박수를 친다. "대단했어요! 관객들도 분명 좋아할 거예요."
 		<<else>>
-			당신은 어떠한 몸짓이나 감정도 싣지 않은 채, 무미건조하게 스털링에게 카스를 사랑한다고 말한다. 카일라의 표정이 조금 밝아진다.
+			당신은 어떠한 몸짓이나 감정도 싣지 않은 채, 무미건조하게 스털링에게 캐스를 사랑한다고 말한다. 카일라의 표정이 조금 밝아진다.
 			<br><br>
 
 			<<if _sydneyStatus.includes("corrupt")>>
@@ -666,7 +666,7 @@
 			<<if $speech_attitude is "meek">>
 				"걱정 마, 네가 감정을 좀 싣는다고 해서 서운하게 생각하진 않을 테니까," 당신이 말한다.
 			<<elseif $speech_attitude is "bratty">>
-				"자, 거기 서 있는 게 나라고 생각해 봐," 당신이 말한다.
+				"자, 거기 서 있는 게 나라고 생각해 봐." 당신이 말한다.
 			<<else>>
 				"넌 할 수 있어! 온 힘을 다해 봐!"
 			<</if>>
@@ -680,11 +680,11 @@
 			당신은 시드니에게 다가간다.
 			<<if _sydneyStatus.includes("corrupt")>>
 				<<if $speech_attitude is "meek">>
-					"너... 넌 해낼 수 있을 거야. 넌 말을 참 잘하잖아," 당신이 말한다.
+					"너... 넌 해낼 수 있을 거야. 넌 말을 참 잘하잖아." 당신이 말한다.
 				<<elseif $speech_attitude is "bratty">>
-				"야한 말도 그렇게 잘하면서, 이번엔 로맨틱하게 한번 해봐," 당신이 말한다.
+				"야한 말도 그렇게 잘하면서, 이번엔 로맨틱하게 한번 해봐." 당신이 말한다.
 				<<else>>
-					"그 새로 배운 단어들을 좀 써먹어 봐," 당신이 말한다.
+					"그 새로 배운 단어들을 좀 써먹어 봐." 당신이 말한다.
 				<</if>>
 				<br><br>
 
@@ -692,9 +692,9 @@
 				카일라는 말을 더듬거리며, 받아쳐야 할 대사조차 잇지 못한다.
 			<<else>>
 				<<if $speech_attitude is "meek">>
-					"저... 연기일 뿐이니까 괜찮아. 너무 예의 차리고 그러지 않아도 돼," 당신이 말한다.
+					"저... 연기일 뿐이니까 괜찮아. 너무 예의 차리고 그러지 않아도 돼." 당신이 말한다.
 				<<elseif $speech_attitude is "bratty">>
-					"너무 얌전 빼지 마, 그냥 연기잖아," 당신이 말한다.
+					"너무 얌전 빼지 마, 그냥 연기잖아." 당신이 말한다.
 				<<else>>
 					"연극을 위한 거니까 최선을 다해 봐!" 당신이 말한다.
 				<</if>>
@@ -705,11 +705,11 @@
 		<<else>>
 			당신은 카일라와 시드니의 어깨를 붙잡고 둘을 바짝 끌어당긴다.
 			<<if $speech_attitude is "meek">>
-				"어색할 수도 있지만... 그래도 연극을 위한 거잖아? 너희 둘 다 해낼 수 있어," 당신이 말한다.
+				"어색할 수도 있지만... 그래도 연극을 위한 거잖아? 너희 둘 다 해낼 수 있어." 당신이 말한다.
 			<<elseif $speech_attitude is "bratty">>
-				"이제 화해하고 다정하게 굴 시간이야, 잉꼬님들," 당신이 말한다. "너흰 카스와 테일러라고. 배역답게 행동해."
+				"이제 화해하고 다정하게 굴 시간이야, 잉꼬님들." 당신이 말한다. "너흰 캐스와 테일러라고. 배역답게 행동해."
 			<<else>>
-				"그냥 연기일 뿐이야. 정 안 되겠으면 서로를 다른 사람이라고 상상해 봐," 당신이 말한다.
+				"그냥 연기일 뿐이야. 정 안 되겠으면 서로를 다른 사람이라고 상상해 봐." 당신이 말한다.
 			<</if>>
 			<br><br>
 
@@ -726,11 +726,11 @@
 		카일라 앞으로 다가선다. "연기 제법인데, 이 괴짜 새끼야. 네놈한테 그런 재주가 있는 줄 누가 알았겠어?" 다른 학생들이 낄낄거린다. "차라리 우리 조로 넘어오는 게 어때?"
 		<br><br>
 
-		<<link [[카일라 놀리기|English Play Rehearse Both Students]]>><<npcincr Kylar love -5>><<npcincr Sydney love -1>><<status 5>><<set $phase2 to 1>><</link>><<gcool>><<lllove "Kylar">><<llove "Sydney">>
+		<<link [[카일라를 놀린다|English Play Rehearse Both Students]]>><<npcincr Kylar love -5>><<npcincr Sydney love -1>><<status 5>><<set $phase2 to 1>><</link>><<gcool>><<lllove "Kylar">><<llove "Sydney">>
 		<br>
-		<<link [[카일라 감싸기|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">>
+		<<link [[카일라를 감싼다|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">>
 		<br>
-		<<link [[침묵 지키기|English Play Rehearse Both Students]]>><<npcincr Kylar love -1>><<set $phase2 to 3>><</link>><<llove "Kylar">>
+		<<link [[침묵한다|English Play Rehearse Both Students]]>><<npcincr Kylar love -1>><<set $phase2 to 3>><</link>><<llove "Kylar">>
 		<br>
 
 	<<elseif $phase is 2>>
@@ -756,11 +756,11 @@
 			저런 패배자 놈이랑 어울리고 있어?" <<Hes>> 카일라를 가리킨다. 다른 학생들이 낄낄거린다. "차라리 우리 조로 넘어오는 게 어때?"
 			<br><br>
 
-			<<link [[카일라 놀리기|English Play Rehearse Both Students]]>><<npcincr Kylar love -5>><<npcincr Sydney love -1>><<status 1>><<set $phase2 to 1>><</link>><<gcool>><<lllove "Kylar">><<llove "Sydney">>
+			<<link [[카일라를 놀린다|English Play Rehearse Both Students]]>><<npcincr Kylar love -5>><<npcincr Sydney love -1>><<status 1>><<set $phase2 to 1>><</link>><<gcool>><<lllove "Kylar">><<llove "Sydney">>
 			<br>
-			<<link [[카일라 감싸기|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">>
+			<<link [[카일라를 감싼다|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">>
 			<br>
-			<<link [[침묵 지키기|English Play Rehearse Both Students]]>><<npcincr Kylar love -1>><<set $phase2 to 3>><</link>><<llove "Kylar">>
+			<<link [[침묵한다|English Play Rehearse Both Students]]>><<npcincr Kylar love -1>><<set $phase2 to 3>><</link>><<llove "Kylar">>
 			<br>
 
 		<</if>>
@@ -768,7 +768,7 @@
 		카일라와 시드니 앞으로 다가선다. "너희 둘 다 연기 제법인데." <<He>>【이가】 두 사람의 어깨에 양팔을 두른다. "이런 패배자 녀석은 버려두고 우리랑 연습하는 게 어때? 우리가 잘 챙겨줄게." 다른 학생들이 낄낄거린다.
 		<br><br>
 
-		"<<phim>>더러 패배자라고 부르지 마," 카일라와 시드니가 일제히 말한다. 둘은 눈을 깜빡이며 서로를 힐끔 쳐다보더니, 다시 그 <<person>>을 노려본다.
+		"<<phim>>더러 패배자라고 부르지 마." 카일라와 시드니가 일제히 말한다. 둘은 눈을 깜빡이며 서로를 힐끔 쳐다보더니, 다시 그 <<person>>을 노려본다.
 		<br><br>
 
 		<<He>>【은는】 슬금슬금 뒷걸음질을 치며 어색하게 웃는다. "괴짜 새끼들끼리 아주 다 해 처먹네. 야, 가자." <<He>>【은는】 다른 학생들에게 장난스레 떠밀리며 자리를 뜬다.
@@ -787,15 +787,15 @@
 		"연기 제법인데." <<He>>【이가】 당신의 어깨에 팔을 두른다. "이런 패배자 녀석들이랑 어울려서 뭐 하고 있냐?" <<Hes>> 카일라와 시드니를 가리킨다. 다른 학생들이 낄낄거린다.
 		<br><br>
 
-		<<link [[두 사람 감싸기|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<npcincr Sydney love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">><<glove "Sydney">>
+		<<link [[두 사람을 감싼다|English Play Rehearse Both Students]]>><<status -5>><<npcincr Kylar love 2>><<npcincr Sydney love 2>><<set $phase2 to 2>><</link>><<lcool>><<glove "Kylar">><<glove "Sydney">>
 		<br>
-		<<link [[침묵 지키기|English Play Rehearse Both Students]]>><<set $phase2 to 3>><</link>>
+		<<link [[침묵한다|English Play Rehearse Both Students]]>><<set $phase2 to 3>><</link>>
 		<br>
 	<<else>>
-		"존나 가관인 연기네," <<he>>【이가】 말한다. "뭐 하러 쟤들 시간까지 낭비하고 있냐?" <<He>>【이가】 카일라와 시드니를 가리킨다. "너희 둘 다 이런 패배자 녀석은 버려두고, 그—"
+		"존나 가관인 연기네." <<he>>【이가】 말한다. "뭐 하러 쟤들 시간까지 낭비하고 있냐?" <<He>>【이가】 카일라와 시드니를 가리킨다. "너희 둘 다 이런 패배자 녀석은 버려두고, 그—"
 		<br><br>
 
-		"<<phim>>더러 패배자라고 부르지 마," 카일라와 시드니가 일제히 말한다. 둘은 눈을 깜빡이며 서로를 힐끔 쳐다보더니, 다시 그 <<person>>을 노려본다.
+		"<<phim>>더러 패배자라고 부르지 마." 카일라와 시드니가 일제히 말한다. 둘은 눈을 깜빡이며 서로를 힐끔 쳐다보더니, 다시 그 <<person>>을 노려본다.
 		<br><br>
 
 		<<He>>【은는】 슬금슬금 뒷걸음질을 치며 어색하게 웃는다. "괴짜 새끼들끼리 아주 다 해 처먹네. 야, 가자." <<He>>【은는】 다른 학생들에게 장난스레 떠밀리며 자리를 뜬다.
@@ -817,7 +817,7 @@
 <<if $englishPlayRoles.Player is "Sterling">>
 	<<if $phase2 is 1>>
 		<<if $speech_attitude is "meek">>
-			당신은 고개를 끄덕인다. "ㅋ-카일라, 이제 가봐야 할 것 같아."
+			당신은 고개를 끄덕인다. "카-카일라, 이제 가봐야 할 것 같아."
 		<<elseif $speech_attitude is "bratty">>
 			당신은 카일라의 머리에 거칠게 손을 얹는다. "네가 우리를 방해하고 있어."
 		<<else>>
@@ -843,7 +843,7 @@
 	<<elseif $phase2 is 2>>
 		당신은 팔짱을 낀다.
 		<<if $speech_attitude is "meek">>
-			"ㄴ-너무 심했어. 그런 말은 하면 안 돼."
+			"너-너무 심했어. 그런 말은 하면 안 돼."
 		<<elseif $speech_attitude is "bratty">>
 			"꺼져, 아무도 안 물어봤어."
 		<<else>>
@@ -887,7 +887,7 @@
 	<<if $phase2 is 2>>
 		당신은 <<his>> 손아귀에서 빠져나온다.
 		<<if $speech_attitude is "meek">>
-			"ㅈ-제 친구들에 대해 그렇게 말하지 말아 주세요." 당신이 말한다.
+			"제-제 친구들에 대해 그렇게 말하지 말아 주세요." 당신이 말한다.
 		<<elseif $speech_attitude is "bratty">>
 			"꺼져, 내 친구들이야." 당신이 쏘아붙인다.
 		<<else>>
@@ -1285,7 +1285,7 @@
 		<<link [["" + window.KR.gatPersonNameDictKR($englishPlayRoles.Kylar) + " 역을 맡은 학생에게 말 걸기"|English Play Kylar Talk]]>><</link>>
 		<br>
 	<<else>>
-		<<link [[카일라에게 말 걸기|English Play Kylar Talk]]>><</link>>
+		<<link [[카일라에게 말을 건다|English Play Kylar Talk]]>><</link>>
 		<br>
 	<</if>>
 <</if>>
@@ -1294,13 +1294,13 @@
 		<<link [["" + window.KR.gatPersonNameDictKR($englishPlayRoles.Sydney) + " 역을 맡은 학생에게 말 걸기"|English Play Sydney Talk]]>><</link>>
 		<br>
 	<<else>>
-		<<link [[시드니에게 말 걸기|English Play Sydney Talk]]>><</link>>
+		<<link [[시드니에게 말을 건다|English Play Sydney Talk]]>><</link>>
 		<br>
 	<</if>>
 <</if>>
 <br>
 <<if $englishPlayRoles.KylarKnown and $englishPlayRoles.SydneyKnown>>
-	<<link [[공연 준비하기|English Play Prep]]>><</link>>
+	<<link [[공연을 준비한다|English Play Prep]]>><</link>>
 	<br>
 <</if>>
 
@@ -1321,9 +1321,9 @@
 <<He>>【은는】 혼잣말을 중얼거리며 정신없이 서성인다. "내가 왜 이걸 하겠다고 했을까..." <<he>>【이가】 조용히 중얼거린다. "저 많은 사람들이 내가 바보처럼 연기하는 걸 볼 거야, 비웃겠지 그리고—" <<He>>【이가】 당신을 본다. "나 못하겠어."
 <br><br>
 
-<<link [[카일라 안심시키기|English Play Kylar Talk 2]]>><<set $phase to 1>><</link>>
+<<link [[카일라를 안심시킨다|English Play Kylar Talk 2]]>><<set $phase to 1>><</link>>
 <br>
-<<link [[무시하기|English Play Kylar Talk 2]]>><<set $phase to 2>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
+<<link [[무시한다|English Play Kylar Talk 2]]>><<set $phase to 2>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
 <br>
 
 :: English Play Kylar Talk 2
@@ -1399,9 +1399,9 @@
 <</if>>
 <br><br>
 
-<<link [[시드니 위로하기|English Play Sydney Talk 2]]>><<set $phase to 1>><</link>>
+<<link [[시드니를 위로한다|English Play Sydney Talk 2]]>><<set $phase to 1>><</link>>
 <br>
-<<link [[시드니 겁주기|English Play Sydney Talk 2]]>><<set $phase to 2>><</link>>
+<<link [[시드니를 겁준다|English Play Sydney Talk 2]]>><<set $phase to 2>><</link>>
 <br>
 
 :: English Play Sydney Talk 2
@@ -1421,7 +1421,7 @@
 	<<if _sydneyStatus.includes("corrupt")>>
 		"좋아요, 동기 부여가 됐어요." <<he>>【이가】 말한다. "정말 여러 번 읽었어요. 할 수 있어요. 안심시켜줘서 고마워요. 다 끝장내버리죠."
 	<<else>>
-		"ㄴ-네 말이 맞아요." <<He>>【이가】 웃는다. "정말 여러 번 반복했으니까, 할 수 있다는 걸 알아요. 게다가 당신이 저기 같이 있는 한 걱정할 거 없어요."
+		"네-네 말이 맞아요." <<He>>【이가】 웃는다. "정말 여러 번 반복했으니까, 할 수 있다는 걸 알아요. 게다가 당신이 저기 같이 있는 한 걱정할 거 없어요."
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek">>
@@ -1597,11 +1597,11 @@
 			<<if $englishPlayKylarReplace>>
 				<<person2>><<persons>> 얼굴이 새빨갛게 달아오른다. <<He>>【은는】 이런 연기를 전혀 예상하지 못한 것이 분명하며, 당신의 수준에 맞추려 애쓰다 대사를 더듬거린다.
 				<br>
-				"가장 소중한 나의 카스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
+				"가장 소중한 나의 캐스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
 			<<else>>
 				카일라의 얼굴이 새빨갛게 달아오르고, <<person2>><<hes>> 자신이 연기 중이라는 사실을 떠올리려 애쓰며 한동안 말을 더듬는다. <<npcincr Kylar rage -2>><<lksuspicion>>
 				<br>
-				"가-가장 소중한 나의 카스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가-가깝게 느껴져. 내 삶에 네가 없다면 온 세상의 부귀영화도 아무런 의미가 없어."
+				"가-가장 소중한 나의 캐스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가-가깝게 느껴져. 내 삶에 네가 없다면 온 세상의 부귀영화도 아무런 의미가 없어."
 			<</if>>
 		<<elseif $englishPlayReadiness gte 26>>
 			"전 이 세상에 가진 것이 거의 없습니다. 하지만 테일러, 당신만 제 곁에 있다면, 전 더 바랄 것이 없습니다."
@@ -1611,11 +1611,11 @@
 			<<if $englishPlayKylarReplace>>
 				<<person2>><<person>>【이가】 알맞게 화답한다.
 				<br>
-				"가장 소중한 나의 카스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
+				"가장 소중한 나의 캐스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
 			<<else>>
 				카일라는 당신의 말에 넋을 잃은 채 한동안 애절한 눈빛으로 바라본다. <<person2>><<He>>【은는】 자신이 맡은 배역이 있다는 사실을 퍼뜩 떠올린다.
 				<br>
-				"가-가장 소중한 나의 카스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가-가깝게 느껴져. 내 삶에 네가 없다면 온 세상의 부귀영화도 아무런 의미가 없어."
+				"가-가장 소중한 나의 캐스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가-가깝게 느껴져. 내 삶에 네가 없다면 온 세상의 부귀영화도 아무런 의미가 없어."
 			<</if>>
 		<<else>>
 			"저, 어... 딱히 할 말은 없는데... 그러니까, 가진 건 별로 없지만, 그래도... 여기 있어서 좋은데요?"
@@ -1625,11 +1625,11 @@
 			<<if $englishPlayKylarReplace>>
 				<<person2>><<person>>【은는】 답답한 듯 한숨을 내쉬더니, 대사를 이어받는다.
 				<br>
-				"가장 소중한 나의 카스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
+				"가장 소중한 나의 캐스. 우리 사이를 가로막는 신분의 거리는 아득하지만, 난 당신이 그토록 가깝게 느껴집니다. 내 삶에 당신이 없다면 온 세상의 부귀영화도 아무런 의미가 없습니다."
 			<<else>>
 				당신의 엉망인 연기에 카일라의 주먹이 부들부들 떨린다. <<person2>><<He>>【은는】 그것을 자신에 대한 거절로 받아들인 모양이다. <<npcincr Kylar rage 1>><<gksuspicion>>
 				<br>
-				"가-가장 소중한 나의 카스. 왜 그렇게 긴장하는 거야? 나한테 마음을 터놓는 게 정-정말 그렇게 어려워?"
+				"가-가장 소중한 나의 캐스. 왜 그렇게 긴장하는 거야? 나한테 마음을 터놓는 게 정-정말 그렇게 어려워?"
 			<</if>>
 		<</if>>
 		<br><br>
@@ -1645,7 +1645,7 @@
 		<br><br>
 
 		<<if $englishPlayReadiness gte 70>>
-			"가장 소중한 나의 카스. 우리 사이를 가로막는 계급과 신분의 거리는 아득하지만, 그럼에도 당신은 내 가장 큰 보물입니다. 나의 흙 속의 진주여."
+			"가장 소중한 나의 캐스. 우리 사이를 가로막는 계급과 신분의 거리는 아득하지만, 그럼에도 당신은 내 가장 큰 보물입니다. 나의 흙 속의 진주여."
 			<span class="green">당신은 대본에 적힌 것보다 풍부한 말과 감정을 담아내며 낭만적인 독백을 완벽하게 소화해 냈다.</span> 관객들이 박수갈채를 보낸다. <<set $englishPlayApproval += 30>><<ggapproval>>
 			<br><br>
 
@@ -1664,7 +1664,7 @@
 			<br><br>
 
 		<<else>>
-			"저기, 어... 괜찮아, 스- 어, 카스. 가난한 사람들도 귀여울 수 있지."
+			"저기, 어... 괜찮아, 스- 어, 캐스. 가난한 사람들도 귀여울 수 있지."
 			<span class="red">당신은 대사를 완전히 망쳤다.</span> 관객들의 반응은 싸늘하다. <<set $englishPlayApproval += 10>><<lapproval>><<stress 6>><<trauma 12>><<gstress>><<ggtrauma>>
 			<br><br>
 
@@ -1757,7 +1757,7 @@
 			당신은 독백을 완전히 생략하고, 기세 좋게 무대로 돌진한다. 문 소품의 정중앙을 향해 사납게 발길질을 날린다. <span class="green">문이 경첩에서 떨어져 나가,</span> 요란한 소리를 내며 바닥에 나뒹군다.
 			<br><br>
 
-			시드니와 <<if $englishPlayKylarReplace>><<person2>><<person>><<else>>카일라<</if>> 【은는】 진심으로 놀란 표정으로 당신을 바라보며, 즉시 대사를 멈춘다. 당신은 연기 효과를 위해 거친 숨소리를 더한다.
+			시드니와 <<if $englishPlayKylarReplace>><<person2>><<person>><<else>>카일라<</if>>【은는】 진심으로 놀란 표정으로 당신을 바라보며, 즉시 대사를 멈춘다. 당신은 연기 효과를 위해 거친 숨소리를 더한다.
 			<br>
 			관객들은 이를 예상하지 못했지만, <span class="teal">환호하는 것을 보니 즐거워하는 것 같다.</span> <<set $englishPlayApproval += 15>><<gapproval>>
 			<br>
@@ -2027,14 +2027,14 @@
 		<<if $englishPlayKylarReplace>>
 			"대체 무슨 소리를 하는 거야?" <<person2>><<person>>【이가】 뱉어낸다. "대본대로 해, 이 멍청아."
 		<<else>>
-			카일라는 깜짝 놀랐지만, 장단을 맞춰주기로 한다. "ㅁ-맞아!" <<he>>【이가】 말을 더듬는다. <<if $settings.pregnancySpeechEnabled>>"우린 아기를 너무 많이 가질 거라서, 전부 키우려면 대저택을 사야 할 거야!"<</if>>
+			카일라는 깜짝 놀랐지만, 장단을 맞춰주기로 한다. "마-맞아!" <<he>>【이가】 말을 더듬는다. <<if $settings.pregnancySpeechEnabled>>"우린 아기를 너무 많이 가질 거라서, 전부 키우려면 대저택을 사야 할 거야!"<</if>>
 		<</if>>
 		<br><br>
 
 		<<if _sydneyStatus.includes("corrupt")>>
 			시드니는 처음에는 혼란스러워 보이지만, 당신의 장난에 맞춰준다. "테일러, 이 <<bastard>>! 이게 내가 너를 위해 해준 모든 것에 대한 보답이냐!? 이로써 너와의 연을 끊겠다, 테일러. 넌 더 이상 내 <<taylorSon>> 아니다!" <<he>>【이가】 선언한다. 시드니는 상스러운 말을 내뱉고 장난스럽게 당신의 이름을 저주하며 떠난다.
 		<<else>>
-			시드니는 완전히 충격에 빠진다. "ㅁ-무슨 짓을 한 거야?!" <<person1>><<He>>【은는】 정신을 차리고 다음 대사를 즉흥적으로 만들어내려 애쓴다. "내 말은... 어떻게 그럴 수가! 뭐, 이 이교도를 원한다면 받아들여, 난 빠질 테니!" 시드니는 삐진 채 서둘러 무대를 떠난다. <<npcincr Sydney love -2>><<llove "Sydney">>
+			시드니는 완전히 충격에 빠진다. "무-무슨 짓을 한 거야?!" <<person1>><<He>>【은는】 정신을 차리고 다음 대사를 즉흥적으로 만들어내려 애쓴다. "내 말은... 어떻게 그럴 수가! 뭐, 이 이교도를 원한다면 받아들여, 난 빠질 테니!" 시드니는 삐진 채 서둘러 무대를 떠난다. <<npcincr Sydney love -2>><<llove "Sydney">>
 		<</if>>
 		<<npcincr Sydney purity -2>><<lspurity>>
 	<<case "Taylor">>
@@ -2070,7 +2070,7 @@
 					시드니는 작게 웃는다. "뭐, 날 찌를 계획이야? 언론이 이 소식을 들을 때까지 기다려봐. 사업가 <<sterlingTitle>> 스털링이 크리스마스 이브에 젊은 거지를 냉혹하게 찔렀다!"
 					<<person1>><<Hes>> 연극을 위해 용감한 척하지만, <<he>>【이가】 한 걸음 물러설 때 당신은 <<he>>【은는】 진심으로 긴장했다는 것을 알 수 있다. "난 이 세상에서 가진 모든 것을 잃었어. 그러니 어서. 내 목숨도 가져가."
 				<<else>>
-					시드니는 충격으로 한 걸음 물러섰다가, 카일라를 쏘아본다. "ㅁ-뭐, 날 찌를 계획이야? 언론이 이 소식을 들을 때까지 기다려봐. 사업가 <<sterlingTitle>> 스털링이 크리스마스 이브에 젊은 거지를 냉혹하게 찔렀다!"
+					시드니는 충격으로 한 걸음 물러섰다가, 카일라를 쏘아본다. "뭐-뭐, 날 찌를 계획이야? 언론이 이 소식을 들을 때까지 기다려봐. 사업가 <<sterlingTitle>> 스털링이 크리스마스 이브에 젊은 거지를 냉혹하게 찔렀다!"
 					<<person1>><<He>>【은는】 <<his>> 목소리의 미세한 떨림을 숨기지 못한다. "난 이 세상에서 가진 모든 것을 잃었어. 그러니 어서. 내 목숨도 가져가."
 				<</if>>
 				<br><br>
@@ -2091,7 +2091,7 @@
 
 				<span class="gold">관객들은 자리에서 일어나 기립 박수를 보낸다. 공연장 전체가 환호로 들썩인다.</span> <<set $englishPlayApproval += 40>><<gggapproval>><<set _tragedyAhAhAhAh to true>>
 			<<elseif _kylarStatus.includes("Rage") or (_kylarStatus.includes("Sus") and _kylarStatus.includes("Love") and $sydneyromance is 1)>>
-				"ㅇ-이 창녀랑?!" 카일라가 외친다. "왜? <<person1>><<He>>【은는】 절대 내가 하는 것처럼 널 사랑하지 않을 거야! 왜 그걸 못 봐?" <<npcincr Kylar rage 5>><<ggksuspicion>>
+				"이-이 창녀랑?!" 카일라가 외친다. "왜? <<person1>><<He>>【은는】 절대 내가 하는 것처럼 널 사랑하지 않을 거야! 왜 그걸 못 봐?" <<npcincr Kylar rage 5>><<ggksuspicion>>
 				<br><br>
 
 				관객들은 카일라가 대본을 벗어났다는 것을 깨닫지 못한 채 열광적으로 지켜본다.
@@ -2116,14 +2116,14 @@
 		<<if _sydneyStatus.includes("corrupt")>>
 			시드니는 킥킥 웃으며 장단을 맞춘다. "사실이야. 바로 나다, <<taylorSibling>>. 나는 가족에게 돌아가, 내가 정당하게 소유한 재산을 되찾을 것이다!"
 		<<else>>
-			시드니는 당황하며 주위를 둘러본다. "ㅁ-뭐라고?!" 시드니가 외친다. "내 잃어버린... 뭐라고?"
+			시드니는 당황하며 주위를 둘러본다. "뭐-뭐라고?!" 시드니가 외친다. "내 잃어버린... 뭐라고?"
 		<</if>>
 		<br><br>
 
 		<<if $englishPlayKylarReplace>>
 			<<person2>><<person>>【은는】 경멸의 눈초리로 당신을 쏘아본다. "연극은 그렇게 진행되지 않아, 이 잘난 척하는 놈아." <<he>>【이가】 뱉어낸다. "나가."
 		<<else>>
-			궤도를 이탈한 연극을 바로잡으려는 필사적인 시도로, 카일라가 끼어든다. "ㅌ-틀렸습니다, <<sterlingFather>>! 제 유일한 형제는 오래전 당신의 부주의로 인한 사고로 죽었습니다! 이제 우리를 내버려 두세요!"
+			궤도를 이탈한 연극을 바로잡으려는 필사적인 시도로, 카일라가 끼어든다. "트-틀렸습니다, <<sterlingFather>>! 제 유일한 형제는 오래전 당신의 부주의로 인한 사고로 죽었습니다! 이제 우리를 내버려 두세요!"
 		<</if>>
 		<br><br>
 
@@ -2165,11 +2165,11 @@
 			마지막 작별 인사로, 이제 이 장면은 키스로 끝나야 한다. 도렌이 진짜 키스는 필요 없지만, 관객들은 더 호의적으로 반응할 수 있다고 언급했던 것을 기억한다.
 			<br><br>
 
-			<<link [[키스 피하기|English Play Act Three No Kiss]]>><</link>>
+			<<link [[키스를 피한다|English Play Act Three No Kiss]]>><</link>>
 			<br>
-			<<link [[뺨에 키스하기|English Play Act Three Kiss]]>><<set $phase to 1>><</link>>
+			<<link [[뺨에 키스한다|English Play Act Three Kiss]]>><<set $phase to 1>><</link>>
 			<br>
-			<<link [[입술에 키스하기|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><</link>><<kissvirginitywarning>>
+			<<link [[입술에 키스한다|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><</link>><<kissvirginitywarning>>
 			<br>
 		<<else>>
 			당신은 카일라와 함께 마지막 막을 위해 무대에 선다. 이번에는 시드니가 없다. 마지막 대사를 읊는 것은 카일라에게 달렸다.
@@ -2181,11 +2181,11 @@
 			마지막 작별 인사로, 이제 이 장면은 키스로 끝나야 한다. 도렌이 진짜 키스는 필요 없지만, 관객들은 더 호의적으로 반응할 수 있다고 언급했던 것을 기억한다.
 			<br><br>
 
-			<<link [[키스 피하기|English Play Act Three No Kiss]]>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
+			<<link [[키스를 피한다|English Play Act Three No Kiss]]>><<npcincr Kylar rage 5>><</link>><<ggksuspicion>>
 			<br>
-			<<link [[카일라의 뺨에 키스하기|English Play Act Three Kiss]]>><<set $phase to 1>><</link>>
+			<<link [[카일라의 뺨에 키스한다|English Play Act Three Kiss]]>><<set $phase to 1>><</link>>
 			<br>
-			<<link [[카일라의 입술에 키스하기|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><<npcincr Kylar rage -5>><</link>><<llksuspicion>><<kissvirginitywarning>>
+			<<link [[카일라의 입술에 키스한다|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><<npcincr Kylar rage -5>><</link>><<llksuspicion>><<kissvirginitywarning>>
 			<br>
 		<</if>>
 	<<case "Taylor">>
@@ -2206,11 +2206,11 @@
 		마지막 작별 인사로, 이제 이 장면은 키스로 끝나야 한다. 도렌이 진짜 키스는 필요 없지만, 관객들은 더 호의적으로 반응할 수 있다고 언급했던 것을 기억한다.
 		<br><br>
 
-		<<link [[키스 피하기|English Play Act Three No Kiss]]>><</link>>
+		<<link [[키스를 피한다|English Play Act Three No Kiss]]>><</link>>
 		<br>
-		<<link [[시드니의 뺨에 키스하기|English Play Act Three Kiss]]>><<npcincr Sydney love 1>><<set $phase to 1>><</link>><<glove "Sydney">>
+		<<link [[시드니의 뺨에 키스한다|English Play Act Three Kiss]]>><<npcincr Sydney love 1>><<set $phase to 1>><</link>><<glove "Sydney">>
 		<br>
-		<<link [[시드니의 입술에 키스하기|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><<npcincr Sydney love 5>><</link>><<gglove "Sydney">>
+		<<link [[시드니의 입술에 키스한다|English Play Act Three Kiss]]>><<set $english_play_kiss to true>><<npcincr Sydney love 5>><</link>><<gglove "Sydney">>
 		<br>
 
 	<<case "Sterling">>
@@ -2225,13 +2225,13 @@
 		<br><br>
 
 		<<if $englishPlayKylarReplace>>
-			<<link [[부추기기|English Play Act Three Kiss]]>><<npcincr Sydney purity -2>><</link>><<lspurity>><<gapproval>>
+			<<link [[부추긴다|English Play Act Three Kiss]]>><<npcincr Sydney purity -2>><</link>><<lspurity>><<gapproval>>
 			<br>
 		<<else>>
-			<<link [[부추기기|English Play Act Three Kiss]]>><<npcincr Kylar love -2>><<npcincr Sydney purity -2>><</link>><<llove "Kylar">><<lspurity>><<gapproval>>
+			<<link [[부추긴다|English Play Act Three Kiss]]>><<npcincr Kylar love -2>><<npcincr Sydney purity -2>><</link>><<llove "Kylar">><<lspurity>><<gapproval>>
 			<br>
 		<</if>>
-		<<link [[아무것도 하지 않기|English Play Act Three No Kiss]]>><</link>><<lapproval>>
+		<<link [[아무것도 하지 않는다|English Play Act Three No Kiss]]>><</link>><<lapproval>>
 		<br>
 <</switch>>
 
@@ -2340,7 +2340,7 @@
 		<</if>>
 	<<case "Taylor">>
 		<<if _sydneyStatus.includes("corrupt")>>
-			시드니가 가까이 다가와 키스하려 하지만, 당신은 제때 피한다. 당신은 <<person1>><<him>>【을를】 가까이 오지 못하게 막았지만, 시드니는 실망한 듯 보인다. "오, 분위기 깨는 사람이네," <<he>>【이가】 속삭인다. <<He>>【은는】 당신을 <<him>>에게 더 가까이 끌어당겨 꽉 붙잡는다. "참고로, 나한테 키스 한 번 빚진 거야." <<He>>【이가】 킥킥 웃는다.
+			시드니가 가까이 다가와 키스하려 하지만, 당신은 제때 피한다. 당신은 <<person1>><<him>>【을를】 가까이 오지 못하게 막았지만, 시드니는 실망한 듯 보인다. "오, 분위기 깨는 사람이네." <<he>>【이가】 속삭인다. <<He>>【은는】 당신을 <<him>>에게 더 가까이 끌어당겨 꽉 붙잡는다. "참고로, 나한테 키스 한 번 빚진 거야." <<He>>【이가】 킥킥 웃는다.
 		<<else>>
 			시드니는 당신이 움직이기를 초조하게 기다린다. 당신은 키스 대신 <<person1>><<him>>【을를】 가까이 끌어당겨 짧게 껴안는다. 당신은 시드니를 불편한 영원처럼 느껴질 정도로 오래 안고 있다가 마침내 놓아준다. 관객들 사이에서 몇 번의 느린 박수 소리가 들려오고, 그들의 지루함이 거의 만져질 듯하다.
 		<</if>>
@@ -2390,9 +2390,9 @@
 <<if $englishPlayApproval lte 50>>
 	<<He>>【은는】 위로하는 듯한 미소와 함께 당신을 바라본다. "명심하렴, 완벽한 공연을 보여주기보다는 가족들을 한데 모으고 축제의 의미를 되새기기 위한 자리였단다." <<He>>【은는】 불편한 기색으로 관중석을 힐끗 본다. "너희가 노력했다는 것, 그게 제일 중요해."
 <<elseif $englishPlayApproval lt 75>>
-	"다들 정말 잘해줬어!" <<he>>【이가】 말한다. "관객들이 매 순간 즐거워하는 게 보이더구나. 운이 좋으면, 내년에도 <<nnpc_title "Leighton">>【이가】 이런 연극을 더 허락해 줄지도 몰라. 다들 참여해 줘서 정말 고맙다." <<npcincr Doren love 1>><<glove>>
+	"다들 정말 잘해줬어!" <<he>>【이가】 말한다. "관객들이 매 순간 즐거워하는 게 보이더구나. 운이 좋으면, 내년에도 <<nnpc_title "Leighton">>【이가】 이런 연극을 더 허락해 줄지도 몰라. 다들 참여해 줘서 정말 고맙다." <<npcincr Doren love 1>><<glove Doren>>
 <<else>>
-	"믿을 수가 없구나," <<he>>【이가】 말한다. "너희들의 무대는 누구에게도 뒤지지 않을 만큼 완벽했어!" 도렌은 자랑스러움에 환하게 웃는다. "자 이리 오렴, 너희들이 정말 자랑스럽구나!" <<He>>【은는】 세 사람을 두 팔로 꽉 껴안는다. <<npcincr Doren love 3>><<gglove>>
+	"믿을 수가 없구나." <<he>>【이가】 말한다. "너희들의 무대는 누구에게도 뒤지지 않을 만큼 완벽했어!" 도렌은 자랑스러움에 환하게 웃는다. "자 이리 오렴, 너희들이 정말 자랑스럽구나!" <<He>>【은는】 세 사람을 두 팔로 꽉 껴안는다. <<npcincr Doren love 3>><<gglove Doren>>
 <</if>>
 <<if $englishPlayApproval gte 75>>
 	<<set $englishPlayWell to 1>>
@@ -2582,7 +2582,7 @@
 		"그건—"
 	<</if>>
 	<br><br>
-	에이버리가 웃으며 당신의 말을 끊는다. "겸손하긴," <<he>>【이가】 말한다. "칭찬은 우아하게 받아들여야지, 내 <<girl>>. 자, 어서 저 멋진 <<person2>><<personsimple>>에게 감사하다고 해."
+	에이버리가 웃으며 당신의 말을 끊는다. "겸손하긴." <<he>>【이가】 말한다. "칭찬은 우아하게 받아들여야지, 내 <<girl>>. 자, 어서 저 멋진 <<person2>><<personsimple>>에게 감사하다고 해."
 	<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 20>>
 		당신 어깨 위의 손이<<if C.npc.Avery.rage gte 60>> 훨씬<</if>> 세게 조여와, 당신은 간신히 얼굴을 찡그리지 않고 버틴다.<<gpain>><<pain 1>>
 	<</if>>
@@ -2592,22 +2592,22 @@
 <<else>>
 	<<if $phase is 1>> /* Go along with it */
 		<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-			"아, 음," 당신은 옅은 미소를 지으며 말한다. "감사합니다?"
+			"아, 음." 당신은 옅은 미소를 지으며 말한다. "감사합니다?"
 		<<elseif $speech_attitude is "bratty">>
-			"네. 고마워요," 당신은 목소리에서 비꼬는 투를 간신히 감추며 말한다.
+			"네. 고마워요." 당신은 목소리에서 비꼬는 투를 간신히 감추며 말한다.
 		<<else>>
-			"감사합니다," 당신은 고개를 끄덕이며 말한다.
+			"감사합니다." 당신은 고개를 끄덕이며 말한다.
 		<</if>>
 	<<else>>
 		당신은 아무 말도 하지 않고, 그저 에이버리와 <<person2>><<person>> 사이를 조용히 쳐다본다. 에이버리는 마치 당신이 <<person1>><<him>>에게 장단을 맞춘 것처럼 계속 말을 이어간다.
 	<</if>>
 	<br><br>
 	<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 60>>
-		"물론, <<pshe>>【이가】 그렇게 잘 해낼 거라 예상했지," <<he>>【이가】 말한다. "어쨌든 <<pShe>>【은는】 내 <<girl>>【이】니까." <<He>>【은는】
+		"물론, <<pshe>>【이가】 그렇게 잘 해낼 거라 예상했지." <<he>>【이가】 말한다. "어쨌든 <<pShe>>【은는】 내 <<girl>>【이】니까." <<He>>【은는】
 	<<elseif $averyragerevealed is 1 and C.npc.Avery.rage gte 20>>
-		"<<phim>>【이가】 자랑스럽지만, 내 <<girl>>에게 그 정도는 기대해야지," <<he>>【이가】 말하며
+		"<<phim>>【이가】 자랑스럽지만, 내 <<girl>>에게 그 정도는 기대해야지." <<he>>【이가】 말하며
 	<<else>>
-		"<<phim>>【이가】 아주 자랑스러워. <<pShe>>【은는】 많은 노력을 했고, 그게 드러나는군," <<he>>【이가】 말하며
+		"<<phim>>【이가】 아주 자랑스러워. <<pShe>>【은는】 많은 노력을 했고, 그게 드러나는군." <<he>>【이가】 말하며
 	<</if>>
 	당신의 어깨를 만족스럽게 꽉 쥔다. <<glove>><<gdom>>
 	<br><br>
@@ -2627,14 +2627,14 @@
 
 	<<endevent>><<npc Avery>><<person1>><<he>>【이가】 당신을 출구 쪽으로 이끌며, 가까이 몸을 기댄다.
 	<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 60>>
-		"몸조심해, <<girl>>," <<he>>【이가】 격앙된 목소리로 중얼거린다. "나도 유지해야 할 평판이 있어. 앞으로 이런 상황에선 그냥 내 말대로 따라, 알겠어?"
+		"몸조심해, <<girl>>." <<he>>【이가】 격앙된 목소리로 중얼거린다. "나도 유지해야 할 평판이 있어. 앞으로 이런 상황에선 그냥 내 말대로 따라, 알겠어?"
 	<<elseif $averyragerevealed is 1 and C.npc.Avery.rage gte 20>>
-		"말하기 전에 잘 생각해, <<pcpetname "Avery">>," <<he>>【이가】 차갑게 중얼거린다. "누군가에게 오해를 사고 싶진 않잖아, 안 그래?"
+		"말하기 전에 잘 생각해, <<pcpetname "Avery">>." <<he>>【이가】 차갑게 중얼거린다. "누군가에게 오해를 사고 싶진 않잖아, 안 그래?"
 	<<else>>
-		"앞으로는 말조심해, <<pcpetname "Avery">>," <<he>>【이가】 속삭인다. "누군가에게 오해를 사고 싶진 않잖아, 안 그래?"
+		"앞으로는 말조심해, <<pcpetname "Avery">>." <<he>>【이가】 속삭인다. "누군가에게 오해를 사고 싶진 않잖아, 안 그래?"
 	<</if>> <<llove>><<ldom>>
 	<br><br>
-	"자," <<he>>【이가】 만족한 듯 한숨을 쉬며 말한다. "이제 갈까?"
+	"자." <<he>>【이가】 만족한 듯 한숨을 쉬며 말한다. "이제 갈까?"
 
 <<else>> /* Went along with Avery */
 	에이버리는 몇 분간 <<person2>><<person>>에게 당신의<<if (($fame.good + $fame.business + $fame.social + $fame.model) gte 2000) or (($englishtrait + $mathstrait + $sciencetrait + $historytrait) gte 12)>> 다른<</if>> 업적에 대해 이야기한다. 대화의 주제는 당신이지만, 그에 대한 모든 존경은 에이버리가 받는 것 같은 기분을 떨칠 수 없다.
@@ -2726,7 +2726,7 @@
 
 모두 무대 뒤로 향하자, 도렌이 다시 당신을 맞이한다. <<person3>><<He>>【은는】 즉시 당신들 세 명을 팔로 감싸 안는다.
 
-"다음에 그런 거 할 거면 미리 경고 좀 해줘! 난 정말 네가 꼬챙이가 될 줄 알았다고, <<nnpc_lass "Sydney">>," <<he>>【이가】 시드니에게 말한다. 시드니는 <<person1>><<himself>>도 확신이 없는 표정이다.
+"다음에 그런 거 할 거면 미리 경고 좀 해줘! 난 정말 네가 꼬챙이가 될 줄 알았다고, <<nnpc_lass "Sydney">>." <<he>>【이가】 시드니에게 말한다. 시드니는 <<person1>><<himself>>도 확신이 없는 표정이다.
 <br><br>
 
 <<if $englishPlayApproval gte 75>>
@@ -2876,11 +2876,11 @@
 <<set $location to "home">><<set $outside to 0>><<effects>>
 
 <<if $speech_attitude is "meek">>
-	"잘, 잘했어! 진짜 잘했어, 세상에서 제일 멋진 나무였는걸," 당신은 <<his>> 얼굴 앞에서 손을 내저으며 말한다.
+	"잘-잘했어! 진짜 잘했어, 세상에서 제일 멋진 나무였는걸." 당신은 <<his>> 얼굴 앞에서 손을 내저으며 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"세상에서 제일 귀여워 죽겠는 나무였어," 당신은 <<his>> 머리를 헝클어뜨리며 말한다.
+	"세상에서 제일 귀여워 죽겠는 나무였어." 당신은 <<his>> 머리를 헝클어뜨리며 말한다.
 <<else>>
-	"나무 역할 꽤 잘하던데," 당신이 말한다. "최고였어."
+	"나무 역할 꽤 잘하던데." 당신이 말한다. "최고였어."
 <</if>>
 <<He>>【은는】 얼굴을 붉힌다. 둘은 함께 고아원으로 걸어 돌아간다.
 <br><br>
@@ -2889,7 +2889,7 @@
 
 :: English Play Robin Lewd
 <<set $location to "home">><<set $outside to 0>><<effects>>
-"나무 역할 꽤 잘하던데," 당신은 로빈을 더 가까이 끌어당기며 말한다.
+"나무 역할 꽤 잘하던데." 당신은 로빈을 더 가까이 끌어당기며 말한다.
 <<if C.npc.Robin.gender is "f">>
 	"얼마나 수분을 잘 받는지 내게 보여주는 건 어때?"
 <<else>>
@@ -2936,7 +2936,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	로빈이 당신에게 매달린다. "네가 곁에 있어서 정말 다행이야," <<his>> 목덜미에 얼굴을 묻으며 <<he>>【이가】 말한다.
+	로빈이 당신에게 매달린다. "네가 곁에 있어서 정말 다행이야." <<his>> 목덜미에 얼굴을 묻으며 <<he>>【이가】 말한다.
 	<br><br>
 
 	<<clotheson>>
@@ -3002,7 +3002,7 @@
 <<elseif _sydneyStatus.includes("corrupt")>>
 	<<He>>【이가】 미소를 짓는다. "누가 듣고 있을 것 같나요? 관객들에게 또 다른 볼거리를 선사해 줄 수도 있겠네요."
 <<else>>
-	<<His>> 얼굴이 새빨갛게 물든다. "여, 여기서요?! 누가 듣기라도 하면—" 당신은 입맞춤으로 <<him>>의 말을 가로막는다. <<takeKissVirginity "Sydney" `($sydneyromance is 1?"loveInterest":"romantic")`>>
+	<<His>> 얼굴이 새빨갛게 물든다. "여-여기서요?! 누가 듣기라도 하면—" 당신은 입맞춤으로 <<him>>의 말을 가로막는다. <<takeKissVirginity "Sydney" `($sydneyromance is 1?"loveInterest":"romantic")`>>
 <</if>>
 <<if !$sydneySeen.includes("lewd")>>
 	<br><br>
@@ -3054,13 +3054,13 @@
 	<<ejaculation>>
 	<<if $corruptionRollover is 1>>
 		<<unset $corruptionRollover>>
-		"저, 정말 대단했어요," <<he>>【이가】 중얼거린다. "또... 또 하고 싶어요. 그리고... 계속요." <<He>>【이가】 당신의 눈을 응시한다. <span class="lewd">"새로운 세상에 눈을 뜬 것만 같아요."</span>
+		"저, 정말 대단했어요." <<he>>【이가】 중얼거린다. "또... 또 하고 싶어요. 그리고... 계속요." <<He>>【이가】 당신의 눈을 응시한다. <span class="lewd">"새로운 세상에 눈을 뜬 것만 같아요."</span>
 	<<else>>
 		<<switch _sydneyStatus>>
 			<<case "pure" "pureLust">>
 				"이것도... 이것도 연극의 일부였나요?" <<He>>【이가】 쿡쿡 웃는다.
 			<<default>>
-				"저만을 위한 특별 공연을 보여주셔서 고마워요," <<he>>【이가】 쿡쿡 웃는다.
+				"저만을 위한 특별 공연을 보여주셔서 고마워요." <<he>>【이가】 쿡쿡 웃는다.
 		<</switch>>
 	<</if>>
 	<<if _sydneyChastity and $sydneyChastityKnown>>
@@ -3106,7 +3106,7 @@
 					시드니가 불안한 기색으로 당신을 바라본다. "제가... 뭐 잘못한 거라도 있나요?"
 				<</if>>
 			<<case "corrupt">>
-				시드니는 입술을 삐죽 내밀면서도 당신에게서 물러선다. "이건 나중에 꼭 마저 해야 해요," <<he>>【이가】 말한다. "부탁이에요."
+				시드니는 입술을 삐죽 내밀면서도 당신에게서 물러선다. "이건 나중에 꼭 마저 해야 해요." <<he>>【이가】 말한다. "부탁이에요."
 			<<case "corruptLust">>
 				시드니가 끙 소리를 내며 입술을 삐죽거린다. "너무 심술궂으세요! 하지만 좋아요. 대신 나중에 꼭 끝내는 거예요."
 			<<default>>
@@ -3143,7 +3143,7 @@
 
 			<<He>>【이가】 자랑스럽게 당신을 바라본다. "전부 제 솜씨였어요. 어쩌면 전 무대에 서기 위해 태어난 걸지도 모르겠네요!"
 		<<else>>
-			"적어도 넌 끝까지 프로답게 해줘서 다행이야," 당신이 말한다. "다른 배우들보다 수준이 훨씬 높았어."
+			"적어도 넌 끝까지 프로답게 해줘서 다행이야." 당신이 말한다. "다른 배우들보다 수준이 훨씬 높았어."
 			<br><br>
 
 			<<He>>【은는】 수줍은 듯 고개를 숙이더니, 기쁨에 겨워 당신을 끌어안는다. "감사해요."
@@ -3167,14 +3167,14 @@
 그들 중 하나인 <<person1>><<person>>【이가】 당신에게 관심을 보이는 듯하다.
 <<if $englishPlayRolePlayed isnot "none">>
 	<<if $englishPlayApproval gte 90>>
-		"네가 무대 완전히 뒤집어놨잖아," <<he>>【이가】 말한다. "진짜 대단했어. 우리랑 좀 더 같이 있는 건 어때? 무대 뒤통도 슬슬 비어가는데, 내가... 상이라도 줄 수 있고."
+		"네가 무대 완전히 뒤집어놨잖아." <<he>>【이가】 말한다. "진짜 대단했어. 우리랑 좀 더 같이 있는 건 어때? 무대 뒤통도 슬슬 비어가는데, 내가... 상이라도 줄 수 있고."
 	<<elseif $englishPlayApproval gte 75>>
-		"진짜 잘하더라," <<he>>【이가】 말한다. "우리랑 좀 더 같이 있는 건 어때? 무대 뒤통도 슬슬 비어가는데, 내가... 상이라도 줄 수 있고."
+		"진짜 잘하더라." <<he>>【이가】 말한다. "우리랑 좀 더 같이 있는 건 어때? 무대 뒤통도 슬슬 비어가는데, 내가... 상이라도 줄 수 있고."
 	<<else>>
-		"아까 연기 때문에 너무 풀 죽어 있지는 마," <<he>>【이가】 말한다. "어차피 아무도 진지하게 안 봤어. 그나저나 무대 뒤통도 슬슬 비어가는데, 기분 풀리게 해줄 방법이 있거든."
+		"아까 연기 때문에 너무 풀 죽어 있지는 마." <<he>>【이가】 말한다. "어차피 아무도 진지하게 안 봤어. 그나저나 무대 뒤통도 슬슬 비어가는데, 기분 풀리게 해줄 방법이 있거든."
 	<</if>>
 <<else>>
-	"같은 학교 애들이 응원해 주니까 진짜 힘나네," <<he>>【이가】 말한다. "그나저나 좀 더 같이 있는 건 어때? 무대 뒤쪽도 슬슬 비어가는데, 얼마나 고마운지 제대로 보여줄 수 있는데."
+	"같은 학교 애들이 응원해 주니까 진짜 힘나네." <<he>>【이가】 말한다. "그나저나 좀 더 같이 있는 건 어때? 무대 뒤쪽도 슬슬 비어가는데, 얼마나 고마운지 제대로 보여줄 수 있는데."
 <</if>>
 <br><br>
 
@@ -3225,7 +3225,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"끝내줬어," <<person1>><<person>>【이가】 숨을 헐떡이며 말한다. "이렇게 서로 도울 수 있어서 다행이네." <<tearful>> 당신은 추스른다.
+	"끝내줬어." <<person1>><<person>>【이가】 숨을 헐떡이며 말한다. "이렇게 서로 도울 수 있어서 다행이네." <<tearful>> 당신은 추스른다.
 	<br><br>
 
 	<<clotheson>>

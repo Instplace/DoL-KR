@@ -156,7 +156,7 @@
 	<<endevent>>
 	<<avery_mansion_chase_end>>
 	<<npc Avery>><<person1>>
-	"네가 내게 보상할 방법을 알고 있습니다," <<he>>【이가】 말한다. 뜨거운 분노는 적어도 지금은 차가운 악의로 바뀌어 있다.
+	"네가 내게 보상할 방법을 알고 있어." <<he>>【이가】 말한다. 뜨거운 분노는 적어도 지금은 차가운 악의로 바뀌어 있다.
 	<<if $avery_mansion.jobs.includes("dungeon")>>
 		"훈육 시간이다."
 		<br><br>
@@ -204,6 +204,11 @@
 <br><br>
 
 <span class="green">지금은 안전하다.</span>
+<br><br>
+
+<<if $transformationParts.traits.chase isnot "disabled">>
+	심장이 뛴다. <span class="green">추격의 스릴이 당신에게 활력을 불어넣는다.</span> <<lstress>><<garousal>><<stress -8>><<arousal 200>><<transform fox 1>>
+<</if>>
 <br><br>
 
 <<set $avery_mansion.away_timer to 7>>

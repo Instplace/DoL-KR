@@ -30,7 +30,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "schoolCanteen">>
 	<<else>>
-		<<link [[모든 것이 암전된다...|School Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 	<</if>>
 <<else>>
 	<<if $arousal gte $arousalmax>>
@@ -49,7 +49,7 @@
 				근처에는 당신과 함께 찍은 액자 사진이 놓여 있다. <<He>>【이가】 벌떡 일어나 당신을 향해 달려온다.
 				<br><br>
 				<<if $robinReunionScene is "dungeon">>
-					"믿을 수 없어!" <<he>>【이가】 당신의 가슴에 얼굴을 묻기 전에 소리친다. "ㄴ-나는 네가 영원히 사라진 줄 알았어!"
+					"믿을 수 없어!" <<he>>【이가】 당신의 가슴에 얼굴을 묻기 전에 소리친다. "나-나는 네가 영원히 사라진 줄 알았어!"
 					<br>
 					마침내 로빈은 조금 진정한다. <<He>>【은는】 눈물이 그렁그렁한 눈으로 당신을 바라본다.
 					"이건 집에 가서 얘기해야 해." <<he>>【이가】 훌쩍이며 말한다. "물-물론 네가 준비되면 말이야."
@@ -79,7 +79,7 @@
 							<<nnpc_He "Kylar">>【은는】 잠시 로빈을 멍하니 바라보다가, 혀를 내밀고는 <<nnpc_his "Kylar">> 테이블로 재빨리 돌아간다.
 							<br><br>
 							마침내 로빈은 진정하기 시작한다. <<He>>【은는】 당황한 기색이다.
-							"ㅁ-미안, 무례했어." <<he>>【이가】 중얼거린다. "<<nnpc_him "Kylar">>에게 사과해야겠어."
+							"미-미안, 무례했어." <<he>>【이가】 중얼거린다. "<<nnpc_him "Kylar">>에게 사과해야겠어."
 							<<He>>【은는】 카일라의 테이블 쪽을 쳐다본다. 그곳에서 <<nnpc_he "Kylar">>【은는】 평소보다 더 분개하며 <<nnpc_his "Kylar">> 음식을 찌르고 있다.
 							"아-아마도 나중에, 그래야겠어."
 							<br>
@@ -107,37 +107,37 @@
                     <<npc Robin>><<person1>>등 뒤에서 외치는 목소리가 들린다. "야!" 로빈이다. <<Hes>> 고아원의 또 다른 원생이다.
                     <<Hes>> 비슷한 나이인데도 항상 당신을 잘 따랐다.
                     <<He>>【이가】 당신을 향해 달려오다가 제때 속도를 줄이지 못하고 부딪히는 바람에, <<his>> 식판을 거의 엎지를 뻔한다.
-                    당신은 <<him>>【이가】 넘어지지 않게 <<his>> 팔을 붙잡아 준다. "고마워," <<he>>【이가】 부끄러워하면서도 여전히 미소를 지으며 말한다.
+                    당신은 <<him>>【이가】 넘어지지 않게 <<his>> 팔을 붙잡아 준다. "고마워." <<he>>【이가】 부끄러워하면서도 여전히 미소를 지으며 말한다.
 					<br><br>
 					"오늘 아침에 못 봤네. <span class="gold">집에 있는 내 방에 언제든지 찾아와도 돼.</span> 알았지?
 					너한테 보여주고 싶은 게 있어서 기다리고 있었어. 정말 기대돼!"
 					<<He>>【이가】 다른 팔로 <<his>> 식판의 균형을 조심스럽게 잡으며 한 팔로 당신을 껴안고는, 자리를 찾으러 달려간다.
 					<br><br>
 					<<endevent>>
-					<<foodicon "eat">><<link [[로빈과 함께 식사하기 (0:20)|Canteen Lunch Robin]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
+					<<foodicon "eat">><<link [[로빈과 함께 식사한다 (0:20)|Canteen Lunch Robin]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
 					<br>
 				<<elseif _robin_location is "school" and C.npc.Robin.init is 1 and $daily.school.lunchEaten isnot 1 and $exposed lte 0>>
 					<<if C.npc.Robin.cdquest is 5 and C.npc.Robin.trauma lte 20>>
 						로빈이 점심을 먹고 있는 것이 보인다. <<npc Robin>><<person1>><<he>>【은는】 약간의 주목을 끈 것 같다.<<endevent>>
 						<br>
-						<<foodicon "eat">><<link [[로빈과 함께 식사하기 (0:20)|Canteen Lunch Robin CD 1]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
+						<<foodicon "eat">><<link [[로빈과 함께 식사한다 (0:20)|Canteen Lunch Robin CD 1]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
 						<br>
 					<<else>>
 						<<rng>>
 						<<if $rng gte 96>>
 							<<npc Robin>><<person1>>로빈이 <<his>> 점심을 먹으려는데 한 무리의 불량배들이 <<him>>【을를】 괴롭히는 것이 보인다.<<endevent>>
 							<br>
-							<<ind>><<link [[개입하기 (0:20)|Canteen Lunch Intervene]]>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 5>><</link>>
+							<<ind>><<link [[개입한다 (0:20)|Canteen Lunch Intervene]]>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 5>><</link>>
 							<br>
 						<<elseif $rng gte 91 and C.npc.Whitney.dom gte 16 and C.npc.Whitney.state isnot "dungeon">>
 							로빈이 점심을 먹고 있는 것이 보인다.
 							<br>
-							<<foodicon "eat">><<link [[로빈과 함께 식사하기 (0:20)|Canteen Robin Whitney]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
+							<<foodicon "eat">><<link [[로빈과 함께 식사한다 (0:20)|Canteen Robin Whitney]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
 							<br>
 						<<else>>
 							로빈이 점심을 먹고 있는 것이 보인다.
 							<br>
-							<<foodicon "eat">><<link [[로빈과 함께 식사하기 (0:20)|Canteen Lunch Robin]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
+							<<foodicon "eat">><<link [[로빈과 함께 식사한다 (0:20)|Canteen Lunch Robin]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<glove>><<ltrauma>><<lstress>>
 							<br>
 						<</if>>
 					<</if>>
@@ -146,40 +146,40 @@
 				<<if $exposed lte 0 && _kylarLocation.area is "canteen">>
 					카일라가 혼자 앉아 포크로 음식을 찌르고 있다.
 					<br>
-					<<foodicon "eat">><<link [[카일라와 함께 식사하기 (0:20)|Canteen Lunch Kylar]]>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Kylar love 1>><<npcincr Kylar rage -1>><</link>><<glove>><<lksuspicion>>
+					<<foodicon "eat">><<link [[카일라와 함께 식사한다 (0:20)|Canteen Lunch Kylar]]>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Kylar love 1>><<npcincr Kylar rage -1>><</link>><<glove>><<lksuspicion>>
 					<br>
 				<</if>>
 				<<if C.npc.Sydney.init is 1 and _sydney_location is "canteen" and $exposed lte 0>>
 					시드니가 책과 서류 더미를 쌓아두고 외딴 구석에 앉아 있다.
 					<br>
-					<<foodicon "eat">><<link [[시드니와 함께 식사하기 (0:15)|Canteen Lunch Sydney]]>><<stress -6>><<trauma -2>><<pass 15>><<set $daily.school.lunchEaten to 1>><<npcincr Sydney love 1>><</link>><<glove>><<lstress>>
+					<<foodicon "eat">><<link [[시드니와 함께 식사한다 (0:15)|Canteen Lunch Sydney]]>><<stress -6>><<trauma -2>><<pass 15>><<set $daily.school.lunchEaten to 1>><<npcincr Sydney love 1>><</link>><<glove>><<lstress>>
 					<br>
 				<</if>>
 				<<if $daily.school.lunchEaten isnot 1 and $exposed lte 0>>
 					<br>
-					<<foodicon "eat">><<link [[점심 먹기 (0:10)|Canteen Lunch]]>><<pass 10>><<stress -6>><<set $daily.school.lunchEaten to 1>><</link>><<lstress>>
+					<<foodicon "eat">><<link [[점심을 먹는다 (0:10)|Canteen Lunch]]>><<pass 10>><<stress -6>><<set $daily.school.lunchEaten to 1>><</link>><<lstress>>
 					<br>
 				<</if>>
 			<</if>>
 		<<elseif $daily.school.canteenApproach isnot 1 and $exposed lte 0>>
-			<<ind>><<link [[학생들에게 다가가기|Canteen Students]]>><</link>>
+			<<ind>><<link [[학생들에게 다가간다|Canteen Students]]>><</link>>
 			<br>
 		<</if>>
 		<<if def $milkshake and $milkshake gt 0 and $exposed lte 0>>
-			<<foodicon "milkshake">><<link [[밀크쉐이크 마시기 (0:10)|Canteen Milkshake]]>><<pass 10>><<set $milkshake -= 1>><<stress -5>><</link>><<lstress>>
+			<<foodicon "milkshake">><<link [[밀크쉐이크를 마신다 (0:10)|Canteen Milkshake]]>><<pass 10>><<set $milkshake -= 1>><<stress -5>><</link>><<lstress>>
 			<br>
 		<</if>>
 	<</if>>
 
 	<<if $exposed gte 1 and $schoolstate is "lunch">>
 		<<if !pcAreArmsBound("both")>>
-			<<link [[쟁반으로 몸을 가리고 떠나려고 시도하기|Canteen Tray]]>><</link>>
+			<<link [[쟁반으로 몸을 가리고 떠나려고 시도한다|Canteen Tray]]>><</link>>
 			<br>
 		<</if>>
-		<<link [[주변이 잠잠해질 때까지 기다리기|Canteen Wait]]>><</link>>
+		<<link [[주변이 잠잠해질 때까지 기다린다|Canteen Wait]]>><</link>>
 		<br>
 	<<else>>
-		<<getouticon>><<link [[식당 떠나기 (0:01)|Hallways]]>><<pass 1>><</link>>
+		<<getouticon>><<link [[식당을 떠난다 (0:01)|Hallways]]>><<pass 1>><</link>>
 		<br>
 	<</if>>
 <</if>>
@@ -278,7 +278,7 @@
 	<<generatey1>><<person1>>
 	자리에 앉아 점심을 먹기 시작한다. 음식을 쿡쿡 찌르며 생각에 잠긴다. 갑자기 얼음 같은 충격이 몽상에서 당신을 깨운다. 차가운 액체가 머리와 등을 타고 흘러내려 옷을 흠뻑 적신다. 당신은 움찔하며 자리에서 벌떡 일어난다. 뒤를 돌아보니, 한 <<person>> 학생과 마주친다.
 	<br><br>
-	"어라," <<he>>【이가】 빈정거리며 말한다. "음료를 쏟으려던 건 아니었는데 말이야." 주변에서 웃음이 터져 나오고, 젖은 옷이 몸에 달라붙자 웃음소리는 더욱 커져만 간다.<<stress 6>><<status -1>><<gstress>><<lcool>><<wetUpper>>
+	"어라." <<he>>【이가】 빈정거리며 말한다. "음료를 쏟으려던 건 아니었는데 말이야." 주변에서 웃음이 터져 나오고, 젖은 옷이 몸에 달라붙자 웃음소리는 더욱 커져만 간다.<<stress 6>><<status -1>><<gstress>><<lcool>><<wetUpper>>
 	<br><br>
 	<<tearful>> 당신은 자리에서 일어난다.
 	<br><br>
@@ -321,7 +321,7 @@
 		<br><br>
 		"여러분, 보세요! 저 외톨이가 또 혼자 밥 먹고 있어요!"
 		<br><br>
-		웃음이 터져 나와 급식실 전체로 퍼져나간다. 당신은 점심을 끝내는 데 집중하려 하지만, 모두의 시선이 쏠리는 무게감 때문에 음식을 즐기기 어렵다.<<stress 6>><<status -1>><<gstress>><<lcool>>
+		웃음이 터져 나와 식당 전체로 퍼져나간다. 당신은 점심을 끝내는 데 집중하려 하지만, 모두의 시선이 쏠리는 무게감 때문에 음식을 즐기기 어렵다.<<stress 6>><<status -1>><<gstress>><<lcool>>
 	<</if>>
 	<br><br>
 
@@ -331,7 +331,7 @@
 <<if $fame.sex gte 400>>
 	<<addinlineevent "canteen_6">>
 		<<generatey1>><<generatey2>>
-		급식실 맨 끝자리에 자리를 잡는다. 식사를 시작하자 한 무리의 학생들이 옆 테이블에 앉는다. 힐끗 쳐다보지만, 아는 얼굴은 없다. 그들은 급식실의 다른 사람들에 대해 농담을 나누며 활기차게 이야기하고, 그들의 목소리는 당신이 엿들을 수 있을 만큼 크다.
+		식당 맨 끝자리에 자리를 잡는다. 식사를 시작하자 한 무리의 학생들이 옆 테이블에 앉는다. 힐끗 쳐다보지만, 아는 얼굴은 없다. 그들은 식당의 다른 사람들에 대해 농담을 나누며 활기차게 이야기하고, 그들의 목소리는 당신이 엿들을 수 있을 만큼 크다.
 		<br><br>
 		그들 중 한 명인 <<person1>><<person>> 학생이 당신 쪽을 보며 <<his>> 친구에게 무언가 속삭인다. <<He>>【은는】 <<his>> 휴대폰을 꺼내 들고 당신에게 시선을 고정한 채 히죽 웃는다. 휴대폰은 학생들 사이를 오간다. 누군가 "걸레"라는 단어를 언급하는 소리가 들리지만, 당신은 식사를 계속하며 그들에게 별다른 주의를 기울이지 않기로 한다.<<stress 6>><<gstress>>
 		<br><br>
@@ -381,7 +381,7 @@
 
 <<addinlineevent "canteen_10">>
 	<<generatey1>><<person1>>
-	빈 테이블에 앉아 식사를 하는데, 인기 없는 학생 한 명이 당신 옆자리를 쳐다보는 것을 발견한다. <<He>>【은는】 몇 초간 불안하게 급식실을 둘러보더니, 미안하다고 중얼거리며 자리에 앉는다.
+	빈 테이블에 앉아 식사를 하는데, 인기 없는 학생 한 명이 당신 옆자리를 쳐다보는 것을 발견한다. <<He>>【은는】 몇 초간 불안하게 식당을 둘러보더니, 미안하다고 중얼거리며 자리에 앉는다.
 	<br><br>
 
 	<<link [[이야기한다|Canteen Lunch Unpopular Student]]>><<set $phase to 0>><<stress -6>><<trauma -6>><<status -1>><</link>><<lstress>><<ltrauma>><<lcool>>
@@ -395,7 +395,7 @@
 <<if C.npc.Whitney.state is "active" and C.npc.Whitney.init is 1>>
 	<<addinlineevent "canteen_whitney_taste">>
 		<<npc Whitney>><<person1>>
-		혼자 앉아 있다. 막 식사를 시작하려는데, 급식실 문이 활짝 열린다. 고개를 들어보니 소란스러운 학생 무리가 들어오고 있다. 그들 사이에서 휘트니를 발견한다. <<his>> 친구 중 한 명이 당신을 발견하고 <<him>>【을를】 툭 친다. 휘트니는 당신에게 시선을 고정한 채 히죽 웃고, 곧 무리가 당신의 테이블로 다가와 주위를 둘러싼다.
+		혼자 앉아 있다. 막 식사를 시작하려는데, 식당 문이 활짝 열린다. 고개를 들어보니 소란스러운 학생 무리가 들어오고 있다. 그들 사이에서 휘트니를 발견한다. <<his>> 친구 중 한 명이 당신을 발견하고 <<him>>【을를】 툭 친다. 휘트니는 당신에게 시선을 고정한 채 히죽 웃고, 곧 무리가 당신의 테이블로 다가와 주위를 둘러싼다.
 		<br><br>
 		"여기서 외롭게 있네, 응?" 휘트니가 가까이 다가오며 조롱한다. "너 같은 걸레년이 <<pher>> 입술에 담을 수 있는 건 네 음식뿐만이 아닐 텐데."
 		<br><br>
@@ -420,7 +420,7 @@
 			<br><br>
 			"찾았다. 널 찾고 있었어, 걸레년아." <<He>>【이가】 히죽 웃는다. "널 위한 작은 선물이 있거든."
 			<br><br>
-			<<his>> 친구 중 한 명이 <<him>>에게 무언가를 건넨다. 개밥그릇이다. 안에는 오늘의 급식실 음식이 조금 담겨 있다. 급하게 던져 넣은 듯 엉망으로 보인다.
+			<<his>> 친구 중 한 명이 <<him>>에게 무언가를 건넨다. 개밥그릇이다. 안에는 오늘의 식당 음식이 조금 담겨 있다. 급하게 던져 넣은 듯 엉망으로 보인다.
 			<br><br>
 			휘트니의 미소가 더 넓어진다. "동물처럼 입고 싶으면, 동물처럼 먹어야지."
 			<br><br>
@@ -488,7 +488,7 @@
 	<<addinlineevent "canteen_kylar_harass">>
 		<<npc Kylar>><<person1>>
 		빈 테이블에 앉아 점심을 먹으려 한다. 몇 분 후, 누군가 다가온다. 카일라다. <<his>> 쟁반을 들고 있다.
-		"ㄱ-같이 앉아도 될까?" <<he>>【이가】 묻는다. <<He>>【은는】 대답을 기다리지 않고 당신 옆자리에 슬며시 앉는다.
+		"가-같이 앉아도 될까?" <<he>>【이가】 묻는다. <<He>>【은는】 대답을 기다리지 않고 당신 옆자리에 슬며시 앉는다.
 		<br><br>
 		평화롭게 식사를 마치려 하지만, 당신의 얼굴에 머무는 카일라의 시선 때문에 긴장을 풀 수가 없다.<<stress 6>><<gstress>>
 		<br><br>
@@ -521,10 +521,10 @@
 	당신은 학생들에게 다가간다. <<person1>><<person>>【이가】 당신을 의심스럽게 쳐다본다. "뭘 원해?"
 	<br><br>
 
-	<<link [[추파 던지기|Canteen Students Flirt]]>><</link>><<promiscuous1>>
+	<<link [[추파를 던진다|Canteen Students Flirt]]>><</link>><<promiscuous1>>
 	<br>
 
-	<<link [[떠나기|Canteen]]>><<endevent>><</link>>
+	<<link [[떠난다|Canteen]]>><<endevent>><</link>>
 <<else>>
 	당신은 학생들에게 다가간다. 그들은 당신과 이야기하는 데 관심이 없어 보인다. "꺼져, 이 참견쟁이야." <<person1>><<person>>【이가】 귀찮다는 듯 손짓하며 말한다.
 	<br><br>
@@ -589,7 +589,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	<<His>> 친구들이 웃는다. "너 이거 좀 너무 즐기는 것 같은데." 한 명이 말한다. 그 <<person>>【은는】 <<himself>> 변호하려 애쓴다. <<tearful>> 당신은 걸어 나온다.
+	<<His>> 친구들이 웃는다. "너 이거 좀 너무 즐기는 것 같은데," 한 명이 말한다. 그 <<person>>【은는】 <<himself>> 변호하려 애쓴다. <<tearful>> 당신은 걸어 나온다.
 	<br><br>
 
 	<<clotheson>>
@@ -1032,7 +1032,7 @@
 <br><br>
 <<if $phase is 0>>
 	<<if $speech_attitude is "meek">>
-		"아, 아니. 아무 문제 없어." 당신은 흐느낀다. 당신은 테이블을 내려다보며, 당신을 뚫어져라 쳐다보는 모든 시선을 피한다.
+		"아-아니. 아무 문제 없어." 당신은 흐느낀다. 당신은 테이블을 내려다보며, 당신을 뚫어져라 쳐다보는 모든 시선을 피한다.
 	<<elseif $speech_attitude is "bratty">>
 		당신은 팔짱을 낀다. "무슨 말 하는지 모르겠는데. 왜 문제가 있겠어?"
 	<<else>>
@@ -1201,7 +1201,7 @@
 			휘트니가 <<him>>에게 다가가기 시작하자 로빈의 얼굴이 무너진다. <<He>>【은는】 테이블에 컵을 떨어뜨리고, 그 안의 액체가 쏟아지는 동안 <<he>>【은는】 휘트니가 <<his>> 뒤를 바짝 쫓아오자 돌아서서 달아난다.<<npcincr Robin dom -1>><<ldom>>
 		<<case "Kylar">>
 			<<npc Kylar 2>>
-			"ㅇ-이봐!" 카일라가 <<person2>><<he>>【은는】 휘트니의 셔츠 뒷부분을 붙잡고 당신에게서 <<person1>><<him>>【을를】 떼어내려 잡아당기며 소리친다.
+			"이-이봐!" 카일라가 <<person2>><<he>>【은는】 휘트니의 셔츠 뒷부분을 붙잡고 당신에게서 <<person1>><<him>>【을를】 떼어내려 잡아당기며 소리친다.
 			<br><br>
 			무언가 찢어지는 소리가 들리자 모든 것과 모든 사람이 얼어붙는다.
 			<br><br>
@@ -1315,7 +1315,7 @@
 <<if $phase is 0>> /* Stay */
 	당신은 다시 자리에 앉는다. 카일라가 활짝 웃는다. <<He>>【은는】 또 다른 대화를 시작하며, 너무 사적인 것 같은 질문을 하고 불안할 정도로 강렬한 칭찬을 건넨다.
 	<br><br>
-	"너랑 있으면 시간이 너무 빨리 가." 카일라가 마침내 자리에서 일어나며 말한다. "ㄸ-또 보자!"
+	"너랑 있으면 시간이 너무 빨리 가." 카일라가 마침내 자리에서 일어나며 말한다. "또-또 보자!"
 	<br><br>
 	<<He>>【은는】 급히 식당을 빠져나가다가, 나가는 길에 다른 학생 몇 명과 거의 부딪힐 뻔한다. 당신도 자리에서 일어난다.
 	<br><br>

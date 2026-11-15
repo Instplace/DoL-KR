@@ -296,7 +296,7 @@
 	<br><br>
 	질주하던 말들도 뒤따라, 곧 당신을 추월하여 둘러싼다. 차는 뒤에서 속도를 늦춘다.
 	<br><br>
-	"여기서 해변의 걸레를 찾을 줄은 몰랐는데." 그 <<person>>【이가】 우렁차게 말한다. "돌아서서 카메라에 쇼나 한번 보여주는 게 어때? 해안까지 태워다 줄게."
+	"여기서 해변의 걸레를 찾을 줄은 몰랐는데," 그 <<person>>【이가】 우렁차게 말한다. "돌아서서 카메라에 쇼나 한번 보여주는 게 어때? 해안까지 태워다 줄게."
 	<br><br>
 
 	<<if hasSexStat("exhibitionism", 5)>>
@@ -397,7 +397,7 @@
 
 	그 <<persons>> 입가에 사악한 미소가 번진다.
 
-	<<if $settings.horsesEnabled>>
+	<<if beastSexEnabledForType("horse")>>
 		<<He>>【은는】 카메라를 든 <<person1>><<person>>【와과】 기수 중 한 명에게 손짓한다. 전자는 렌즈를 더 가까이 가져오고, 후자는 말에서 내린다.
 		<<endevent>>
 		<<beastNEWinit 1 horse>>

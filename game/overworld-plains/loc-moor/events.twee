@@ -5,7 +5,7 @@
 	당신은 헤더 덤불 사이에 잘 숨어서 땅에 엎드린다. 꽃 사이로 엿본다. <<person>>【이가】 시야에서 사라졌다.
 	<br><br>
 
-	<<person>>【이가】 이미 반대편 능선 너머로 사라졌는지 궁금해하고 있을 때, <span class="red">막대기 하나가 당신 옆 땅에 쿵 하고 박힌다.</span> "황야의 <<slut>>【이】라," <<person1>><<person>>【이가】 말한다. "운 좋은 날이군."
+	<<person>>【이가】 이미 반대편 능선 너머로 사라졌는지 궁금해하고 있을 때, <span class="red">막대기 하나가 당신 옆 땅에 쿵 하고 박힌다.</span> "황야의 <<slut>>【이】라." <<person1>><<person>>【이가】 말한다. "운 좋은 날이군."
 	<br><br>
 
 	<<link [[다음|Moor Rape]]>><<set $molestationstart to 1>><</link>>
@@ -545,7 +545,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"구, 구해주셔서 감사해요." 당신은 말한다. "하지만 이제부터는 조심할게요."
+	"구-구해주셔서 감사해요." 당신은 말한다. "하지만 이제부터는 조심할게요."
 <<elseif $speech_attitude is "bratty">>
 	"구해줘서 고마워." 당신은 말한다. "하지만 다시는 도움이 필요 없을 거야."
 <<else>>
@@ -790,9 +790,9 @@
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
-   <<link [[들어가기 (0:20)|Moor Crack Passage]]>><<set $outside to 0>><<pass 20>><</link>>
+   <<link [[들어간다 (0:20)|Moor Crack Passage]]>><<set $outside to 0>><<pass 20>><</link>>
    <br>
-   <<link [[무시하기|Moor]]>><<set $eventskip to 1>><</link>>
+   <<link [[무시한다|Moor]]>><<set $eventskip to 1>><</link>>
 	<br>
 <</if>>
 
@@ -937,7 +937,7 @@
 	<<link [[걸어서 돌아간다 (0:30)|Moor Passage Walk]]>><<pass 30>><</link>>
 	<br>
 <<else>>
-	<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+	<<if $settings.lurkersEnabled>>
 		<span class="red">앞에서 무언가 바스락거리는 소리가 들린다.</span> 점점 가까워진다.
 		<br><br>
 
@@ -1296,7 +1296,7 @@
 	<br>
 	<<link [[황야 깊은 곳 (0:20)|Moor Vehicle Journey]]>><<pass 20>><<set $phase to 1>><</link>>
 	<br>
-	<<link [[레미의 사유지 (0:10)|Moor Vehicle Journey]]>><<set $phase to 2>><</link>>
+	<<link [[레미의 저택 (0:10)|Moor Vehicle Journey]]>><<set $phase to 2>><</link>>
 	<br>
 <</if>>
 
@@ -1316,7 +1316,7 @@
 	<<person2>><<person>>【은는】 당신을 태우고 황야를 가로질러 운전한다. <<He>>【은는】 그리 빠르게 움직일 수는 없지만, 걸어가는 것보다는 빠르다.
 	<br><br>
 
-	<<He>>【은는】 커다란 가시덤불 앞에 차를 세우고, <<his>> 좌석 너머로 몸을 기울인다. "여기까지야," <<he>>【이가】 말한다. "지형이 너무 험하거든. 조심해."
+	<<He>>【은는】 커다란 가시덤불 앞에 차를 세우고, <<his>> 좌석 너머로 몸을 기울인다. "여기까지야." <<he>>【이가】 말한다. "지형이 너무 험하거든. 조심해."
 	<br><br>
 	당신은 두 사람에게 작별 인사를 하고, 그들은 차를 몰고 떠난다.
 	<br><br>
@@ -1337,7 +1337,7 @@
 	<<person2>><<person>>【은는】 고개를 젓지만, 따지지는 않는다. <<He>>【은는】 당신을 태우고 황야를 가로질러 운전한다. <<He>>【은는】 그리 빠르게 움직일 수는 없지만, 걸어가는 것보다는 빠르다.
 	<br><br>
 
-	<<He>>【은는】 높은 금속 울타리 앞에 차를 세우고, <<his>> 좌석 너머로 몸을 기울인다. "조심해," <<he>>【이가】 말한다.
+	<<He>>【은는】 높은 금속 울타리 앞에 차를 세우고, <<his>> 좌석 너머로 몸을 기울인다. "조심해." <<he>>【이가】 말한다.
 	<br><br>
 
 	당신은 그들에게 작별 인사를 한다. 그들은 차를 몰고 떠나기 전에 잠시 망설인다.
@@ -2065,7 +2065,7 @@
 
 당신은 여정을 계속한다.
 <<beastNEWinit 3 cat>>
-<<if $rng gte 51 and ($settings.bestialityEnabled or $monster is 1)>>
+<<if $rng gte 51 and beastSexEnabledForType("cat", $monster is 1)>>
 	<<outfitChecks>>
 	어쨌든 그냥 느낌일 뿐이다.
 	<br><br>
@@ -2093,11 +2093,11 @@
 		<br><br>
 	<</if>>
 
-		<<link [[달래기|Moor Cats Soothe]]>><</link>><<tendingdifficulty 500 1100>>
+		<<link [[달랜다|Moor Cats Soothe]]>><</link>><<tendingdifficulty 500 1100>>
 		<br>
-		<<link [[싸우기|Moor Cats Rape]]>><<set $phase to 0>><<set $molestationstart to 1>><</link>>
+		<<link [[싸운다|Moor Cats Rape]]>><<set $phase to 0>><<set $molestationstart to 1>><</link>>
 		<br>
-		<<link [[굴복하기|Moor Cats Rape]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
+		<<link [[굴복한다|Moor Cats Rape]]>><<set $phase to 1>><<set $molestationstart to 1>><</link>>
 		<br>
 <<elseif $rng gte 51>>
 	뒤에서 발소리가 들린다. 돌아보니, 한 쌍의 <<print either("개암나무색", "노란색", "녹색", "파란색")>> 눈과 마주친다. 더 많은 발소리가 들린다. 당신은 미친 듯이 달려, 간신히 탈출하지만, 상태는 더 나빠졌다.<<beastescape>>
@@ -2410,9 +2410,9 @@
 		<span class="blue"><<beasttype>>【이가】 공중을 가르며 급강하한다.</span> 연못 가장자리에 착지한다. <<bHe>>【은는】 주위를 살피지만, 당신이 숨은 곳은 흘끗 쳐다볼 뿐이다.
 		<br><br>
 
-		<<link [[숨어 있기 (0:01)|Moor Bird Pool 2]]>><<pass 1>><</link>><<swimmingdifficulty 1 500>>
+		<<link [[숨어 있는다 (0:01)|Moor Bird Pool 2]]>><<pass 1>><</link>><<swimmingdifficulty 1 500>>
 		<br>
-		<<link [[밖으로 나가기|Moor Bird Emerge]]>><</link>>
+		<<link [[밖으로 나간다|Moor Bird Emerge]]>><</link>>
 		<br>
 	<<else>>
 		<<beasttype>>【은는】 좌절한 듯한 비명을 지르고, <span class="green">날아가 버린다.</span>
@@ -2445,9 +2445,9 @@
 		<span class="purple"><<beasttype>>【이가】 연못 가장자리로 뛰어오른다.</span> 몇 피트 떨어진 곳에서, 먼 쪽 둑을 응시한다.
 		<br><br>
 
-		<<link [[숨어 있기 (0:01)|Moor Bird Pool 3]]>><<pass 1>><</link>><<swimmingdifficulty 1 700>>
+		<<link [[숨어 있는다 (0:01)|Moor Bird Pool 3]]>><<pass 1>><</link>><<swimmingdifficulty 1 700>>
 		<br>
-		<<link [[밖으로 나가기|Moor Bird Emerge]]>><</link>>
+		<<link [[밖으로 나간다|Moor Bird Emerge]]>><</link>>
 		<br>
 	<<else>>
 		<<bHe>>【은는】 좌절하며 비명을 지르고, 날갯짓을 하더니, <span class="green">날아가 버린다.</span>
@@ -2480,9 +2480,9 @@
 		<span class="purple"><<beasttype>>의 머리가 당신 쪽으로 홱 돌아간다</span>. 당신을 꿰뚫어 보듯 응시하다가, 다른 곳으로 시선을 돌린다. <<bHe>>【은는】 수면 아래를 볼 수 없다.
 		<br><br>
 
-		<<link [[숨어 있기 (0:01)|Moor Bird Pool 4]]>><<pass 1>><</link>><<swimmingdifficulty 1 900>>
+		<<link [[숨어 있는다 (0:01)|Moor Bird Pool 4]]>><<pass 1>><</link>><<swimmingdifficulty 1 900>>
 		<br>
-		<<link [[밖으로 나가기|Moor Bird Emerge]]>><</link>>
+		<<link [[밖으로 나간다|Moor Bird Emerge]]>><</link>>
 		<br>
 	<<else>>
 		<<bHe>>【은는】 좌절하며 비명을 지르고, 날갯짓을 하더니, <span class="green">날아가 버린다.</span>
@@ -2586,7 +2586,7 @@
 	<</if>>
 	<br><br>
 
-	<<link [[안심시키기|Moor Bird Screech Reassure]]>><</link>>
+	<<link [[안심시킨다|Moor Bird Screech Reassure]]>><</link>>
 	<br>
 <<else>>
 	<<if $monster is 1>>
@@ -2597,9 +2597,9 @@
 	<br><br>
 <</if>>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
 <<link [[그냥 손질만 한다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
@@ -2608,7 +2608,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저기," 당신이 말한다. "걱정할 필요 없어. 나, 난 괜찮아."
+	"저-저기." 당신이 말한다. "걱정할 필요 없어. 나, 난 괜찮아."
 <<elseif $speech_attitude is "bratty">>
 	"난 괜찮아." 당신이 말한다. "진정해."
 <<else>>
@@ -2645,21 +2645,21 @@
 <br><br>
 
 <<if $phase is 1 or $phase is 2>>
-	<<link [[재확인시키기|Moor Bird Screech Reassure 2]]>><</link>>
+	<<link [[재확인시킨다|Moor Bird Screech Reassure 2]]>><</link>>
 	<br>
 <</if>>
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[그냥 깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[그냥 깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
 
 :: Moor Bird Screech Reassure 2
 <<effects>>
 <<switch $speech_attitude>>
 	<<case "meek">>"나 정말 괜찮아." 당신이 부드럽게 말한다. "그렇게 걱정해줘서 고마워."
-	<<case "bratty">>"저기," 당신이 약간 부드러워진 어조로 말한다. "난 괜찮아. 너무 걱정하지 마."
+	<<case "bratty">>"저기." 당신이 약간 부드러워진 어조로 말한다. "난 괜찮아. 너무 걱정하지 마."
 	<<default>>"정말 걱정할 필요 없어." 당신이 말하며, <<if $monster is 1>><<beasttype>>의 어깨에 손을 얹는다<<else>><<beasttype>>의 날개를 부드럽게 쓰다듬는다<</if>>. "난 괜찮아. 정말로."
 <</switch>>
 <<if $monster is 1 or understandsBirdBehaviour()>><<beasttype>>의 표정이 부드러워진다<<else>><<beasttype>>【이가】 진정하는 것 같다<</if>>.
@@ -2675,11 +2675,11 @@
 <</if>>
 <br><br>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[그냥 깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[그냥 깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
 
 :: Moor Bird Screech Nest
@@ -2988,7 +2988,7 @@
 <<set $location to "moor">><<set $outside to 1>><<effects>>
 
 당신은 고개를 젓는다.
-<<if $rng gte 76 and $settings.bestialityEnabled and $settings.lurkersEnabled>>
+<<if $rng gte 76 and $settings.lurkersEnabled>>
 	"젠장, 안됐네." <<person>>【이가】 한숨을 쉰다. "그럼, 플랜 B. <<pShes>>【은는】 이제 네 거야."
 	<br><br>
 
@@ -3204,7 +3204,7 @@
 	<</if>>
 	<br>
 <<else>>
-	<<He>>【은는】 발을 헛디뎌 흐르는 개울에 빠진다. "ㅊ-차가워!" <<he>>【이가】 소리치며 벌떡 일어나, 사방에 물방울을 흩뿌리며 능선 위로 달려간다.
+	<<He>>【은는】 발을 헛디뎌 흐르는 개울에 빠진다. "차-차가워!" <<he>>【이가】 소리치며 벌떡 일어나, 사방에 물방울을 흩뿌리며 능선 위로 달려간다.
 	<br><br>
 	<<tearful>> 당신은 몸을 가눈다.
 
@@ -3252,7 +3252,7 @@
 <<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	<<He>>【이가】 당신의 옷을 떨어뜨리고 비틀거리다, 엉덩방아를 찧으며 개울에 빠진다. "ㅊ-차가워!" <<he>>【이가】 소리치며 벌떡 일어나 비탈길을 달려 올라간다.
+	<<He>>【이가】 당신의 옷을 떨어뜨리고 비틀거리다, 엉덩방아를 찧으며 개울에 빠진다. "차-차가워!" <<he>>【이가】 소리치며 벌떡 일어나 비탈길을 달려 올라간다.
 	<br><br>
 	<<tearful>> 당신은 옷을 되찾는다. 물에 빠진 것은 하나도 없다.
 	<br><br>
@@ -3261,7 +3261,7 @@
 	<<link [[다음|Moor]]>><<set $eventskip to 1>><</link>>
 	<br>
 <<elseif $enemyhealth lte 0>>
-	당신이 <<person>>【을를】 너무 세게 때려서 <<he>>【이가】 비틀거리며, 자기 몸을 안정시키려는 헛된 시도 속에 당신의 옷을 놓친다. <<He>>【은는】 엉덩방아를 찧으며 개울에 빠진다. "ㅊ-차가워!" <<he>>【이가】 소리치며 벌떡 일어나 비탈길을 달려 올라간다.
+	당신이 <<person>>【을를】 너무 세게 때려서 <<he>>【이가】 비틀거리며, 자기 몸을 안정시키려는 헛된 시도 속에 당신의 옷을 놓친다. <<He>>【은는】 엉덩방아를 찧으며 개울에 빠진다. "차-차가워!" <<he>>【이가】 소리치며 벌떡 일어나 비탈길을 달려 올라간다.
 	<br><br>
 	<<tearful>> 당신은 옷을 되찾는다. 물에 빠진 것은 하나도 없다.
 	<br><br>
@@ -3444,7 +3444,7 @@
 <<skulduggerycheck>>
 <<if $skulduggerysuccess is 1>>
 
-	"누가 있는 것 같았는데." <<person1>><<personsimple>>【이가】 말한다.
+	"누가 있는 것 같았는데," <<person1>><<personsimple>>【이가】 말한다.
 	<br>
 	"아냐." 다른 사람이 웃는다. "네가 너무 많이 마셨어. 술은 내가 들게."
 	<br>
@@ -3461,7 +3461,7 @@
 
 <<else>>
 
-	"누가 있는 것 같았는데." <<person1>><<personsimple>>【이가】 말한다.
+	"누가 있는 것 같았는데," <<person1>><<personsimple>>【이가】 말한다.
 	<br>
 	"그래." 다른 사람이 대답한다. <span class="red">"저 덤불 뒤로 들어갔어."</span>
 	<br>
@@ -3758,7 +3758,7 @@
 <<else>>
 	말을 하려 하지만, <span class="red">입술에서 알아들을 수 없는 중얼거림만 나온다.</span>
 	<br><br>
-	"'날 따먹어줘'라고 한 것 같은데." <<person>>【이가】 말한다. 다른 이들도 고개를 끄덕인다. 그들이 다가온다.
+	"'날 따먹어줘'라고 한 것 같은데," <<person>>【이가】 말한다. 다른 이들도 고개를 끄덕인다. 그들이 다가온다.
 	<br><br>
 
 	<<link [[다음|Moor Youths Rape]]>><<set $molestationstart to 1>><</link>>
@@ -3899,7 +3899,7 @@
 	<</if>>
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<link [[다음|Moor Fox Rape]]>><<set $molestationstart to 1>><<set $position to "doggy">><<set $NPCList[0].stance to "top">><</link>>
 	<<else>>
 		잠깐의 몸부림 끝에, 당신은 간신히 일어나 도망친다.<<beastescape>>
@@ -3914,7 +3914,7 @@
 <<effects>>
 <<if $physiqueSuccess>>
 	<<if $monster is 1>>
-		당신은 습격자를 향해 돌아서서 두 발을 단단히 딛고 방어 자세를 취하며, 덤불 속에서 튀어나오는 <<if $NPCList[0].skincolour is "black">>칠흑빛<<else>>창백한<</if>> 잔상을 때맞춰 맞받아친다.
+		당신은 습격자를 향해 돌아서서 두 발을 단단히 딛고 방어 자세를 취하며, 덤불 속에서 튀어나오는 <<if $NPCList[0].skincolour gte 70>>칠흑빛<<else>>창백한<</if>> 잔상을 때맞춰 맞받아친다.
 		당신은 놈을 팔로 감싸 쥐고 옆으로 비틀어 내동댕이친다. 놈은 몇 미터 떨어진 바닥으로 처박힌다.
 	<<else>>
 		당신은 습격자를 향해 돌아서서 두 발을 단단히 딛고 방어 자세를 취하며, 덤불 속에서 튀어나오는 적갈색 잔상을 때맞춰 맞받아친다.
@@ -3930,7 +3930,7 @@
 	<br>
 <<else>>
 	<<if $monster is 1>>
-		당신은 습격자를 향해 돌아서서 두 발을 단단히 딛고 방어 자세를 취하며, 덤불 속에서 튀어나오는 <<if $NPCList[0].skincolour is "black">>칠흑빛<<else>>창백한<</if>> 잔상을 때맞춰 맞받아치려 한다.
+		당신은 습격자를 향해 돌아서서 두 발을 단단히 딛고 방어 자세를 취하며, 덤불 속에서 튀어나오는 <<if $NPCList[0].skincolour gte 70>>칠흑빛<<else>>창백한<</if>> 잔상을 때맞춰 맞받아친다.
 		그 반동을 흘려보내려 붙잡으려 해보지만, 손이 닿기도 전에 한발 늦고 만다. 정면으로 들이받힌 강한 충격에 균형을 잃고 숲 바닥에 곤두박질치며 뒹군다.
 		<br><br>
 
@@ -3951,7 +3951,7 @@
 	<</if>>
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<link [[다음|Moor Fox Rape]]>><<set $molestationstart to 1>><<set $position to "doggy">><<set $NPCList[0].stance to "top">><</link>>
 	<<else>>
 		짧은 몸싸움 끝에, 당신은 가까스로 몸을 일으켜 허겁지겁 도망친다.<<beastescape>>
@@ -3993,7 +3993,7 @@
 	<</if>>
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<link [[다음|Moor Fox Rape]]>><<set $molestationstart to 1>><<set $position to "doggy">><<set $NPCList[0].stance to "top">><</link>>
 	<<else>>
 		잠깐의 몸부림 끝에, 당신은 간신히 일어나 도망친다.<<beastescape>>
@@ -4033,7 +4033,7 @@
 	<</if>>
 	<br><br>
 
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("fox", $monster is 1)>>
 		<<if hasSexStat("deviancy", 3)>>
 			<<link [[<<bhim>>【을를】 애무한다|Moor Fox Deviant Pet]]>><<transform fox 1>><</link>><<deviant3>>
 		<<else>>
@@ -4100,7 +4100,7 @@
 
 		<<bhis>> 입술에서 부드러운 신음이 새어 나온다.
 		<<if $NPCList[0].traits.includes("clever")>>
-			"젠, 젠장, 너 이거 꽤 잘하는데. 어쨌든 인간치고는 말이야." <<bHe>>【은는】 건방지게 굴지만, <<bhis>> 몸은 정직하다. 새로 맺힌 쿠퍼액 한 방울이 <<bhis>> 자지를 타고 흘러내리자마자 당신의 손에 의해 부풀어 오르는 살덩이 속으로 다시 마사지되는 것이 당신에게 필요한 모든 확신이다.
+			"젠-젠장, 너 이거 꽤 잘하는데. 어쨌든 인간치고는 말이야." <<bHe>>【은는】 건방지게 굴지만, <<bhis>> 몸은 정직하다. 새로 맺힌 쿠퍼액 한 방울이 <<bhis>> 자지를 타고 흘러내리자마자 당신의 손에 의해 부풀어 오르는 살덩이 속으로 다시 마사지되는 것이 당신에게 필요한 모든 확신이다.
 		<<elseif $NPCList[0].traits.includes("cowardly")>>
 			<<bHe>>【은는】 당신의 팔을 감싸며 항복한다. 새로 맺힌 쿠퍼액 한 방울이 <<bhis>> 자지를 타고 흘러내리자마자 당신의 손에 의해 부풀어 오르는 살덩이 속으로 다시 마사지되는 것이 당신에게 필요한 모든 확신이다.
 		<<else>>
@@ -4113,7 +4113,7 @@
 
 		<<bhis>> 입술에서 부드러운 신음이 새어 나온다.
 		<<if $NPCList[0].traits.includes("clever")>>
-			"젠, 젠장, 너 이거 꽤 잘하는데. 어쨌든 인간치고는 말이야." <<bHes>> 건방지게 굴지만, <<bhis>> 몸은 정직하다. 당신의 손과 <<bhis>> 허벅지 안쪽을 따라 흘러내리는 신선한 애액의 분출이 당신에게 필요한 모든 확신이다.
+			"젠-젠장, 너 이거 꽤 잘하는데. 어쨌든 인간치고는 말이야." <<bHes>> 건방지게 굴지만, <<bhis>> 몸은 정직하다. 당신의 손과 <<bhis>> 허벅지 안쪽을 따라 흘러내리는 신선한 애액의 분출이 당신에게 필요한 모든 확신이다.
 		<<elseif $NPCList[0].traits.includes("cowardly")>>
 			<<bHe>>【은는】 당신의 팔을 감싸며 항복한다. 당신의 손과 <<bhis>> 허벅지 안쪽을 따라 흘러내리는 신선한 애액의 분출이 당신에게 필요한 모든 확신이다.
 		<<else>>
@@ -4150,7 +4150,7 @@
 		당신은 계속해서 <<beasttypes>> <<npcPenisSimple 0>>【을를】 흔든다. 꽉 쥘 때마다 흠뻑 젖은 손가락 사이로 <<bhis>> 풍부한 쿠퍼액이 질척인다. 다른 손은 더 위쪽에서 악마 같은 장난을 계속하며, <<bhis>> <<npcChest 0>>【을를】 장난스럽게 문지르고 쥐어짠다.
 		<br><br>
 
-		"쌀 것 같아," <<bhe>>【이가】 낑낑거리며 한 음절 한 음절 내뱉을 때마다 숨을 가쁘게 몰아쉰다. "나, 나는...!!"
+		"쌀 것 같아," <<bhe>>【이가】 낑낑거리며 한 음절 한 음절 내뱉을 때마다 숨을 가쁘게 몰아쉰다. "나-나는...!!"
 		<br><br>
 		<<outfitChecks>>
 		<<bhis>> 감각에 대한 당신의 공격은 세 갈래로 이루어진다. <<bhis>> 성기를 잡은 손은 빠르게 부풀어 오르는 매듭 아래로 내려가 아래에서 위로 잡아당기고, <<bhis>> 가슴에 있는 손은 장난스럽게 유두를 꼬집는다. 하지만 진정한 결정타는 <<bhis>> 등 뒤에서 당신이 하고 있는 행동이다. <<if $bodysize lte 1>>까치발을 들고<<else>>똑바로 서서<</if>>, 당신은 골반의 각도를 조절해 <<bhis>> 꼬리에 당신의 <<genitals>>【을를】 비벼댄다<<if _bottom>>. 당신의 <<allBottoms>> 위로<</if>>.
@@ -4162,7 +4162,7 @@
 		당신은 계속해서 <<beasttypes>> <<npcVagina 0>>에 손가락을 넣는다. 안팎으로 쑤실 때마다 흠뻑 젖은 손가락 사이로 <<bhis>> 풍부한 애액이 질척인다. 다른 손은 더 위쪽에서 악마 같은 장난을 계속하며, <<bhis>> <<npcChest 0>>【을를】 장난스럽게 문지르고 쥐어짠다.
 		<br><br>
 
-		"갈 것 같아," <<bhe>>【이가】 낑낑거리며 한 음절 한 음절 내뱉을 때마다 숨을 가쁘게 몰아쉰다. "나, 나는...!!"
+		"갈 것 같아," <<bhe>>【이가】 낑낑거리며 한 음절 한 음절 내뱉을 때마다 숨을 가쁘게 몰아쉰다. "나-나는...!!"
 		<br><br>
 
        감각을 향한 당신의 공세는 세 갈래로 이뤄진다. <<bhis>> 보지를 손가락으로 쑤시던 손은 G스팟을 더 잘 자극하도록 위치를 살짝 바꾸고, 가슴 위에 올려진 손은 젖꼭지를 장난스럽게 꼬집는다. 하지만 진정한 하이라이트는 <<bhis>> 뒤에서 벌어지는 일이다. <<if $bodysize lte 1>>발끝으로 서서<<else>>똑바로 서서<</if>> 골반을 비틀어, <<if _bottom>><<allBottoms>><</if>> 너머로 당신의 <<genitals>>【을를】 <<bhis>> 꼬리에 대고 문지른다.
@@ -4173,7 +4173,7 @@
 	<br><br>
 
 	<<if $NPCList[0].traits.includes("clever")>>
-		<<bHe>>【이가】 당신의 손아귀에서 벗어나 몸을 돌려 당신을 마주한다. 얼굴이 새빨갛게 달아올라 있다. "무슨 생각이야, 갑자기 내 꼬리를 만지고... 변태. 가, 가볼게. 그래도 절정은 고마웠어."
+		<<bHe>>【이가】 당신의 손아귀에서 벗어나 몸을 돌려 당신을 마주한다. 얼굴이 새빨갛게 달아올라 있다. "무슨 생각이야, 갑자기 내 꼬리를 만지고... 변태. 가-가볼게. 그래도 절정은 고마웠어."
 		<br><br>
 
 		그 말을 남기고, <<bhe>>【은는】 덤불 속으로 걸어가 다시 당신을 혼자 남겨둔다.
@@ -4183,7 +4183,7 @@
 
 		당신은 <<bhim>>【이가】 쉬도록 조심스럽게 <<bhim>>에게서 몸을 뗀다.
 	<<else>>
-		<<bHe>>【이가】 당신의 손아귀에서 벗어나 몸을 돌려 당신을 마주한다. 얼굴이 새빨갛게 달아올라 있다. "아, 아무 말도 없이 그러면 안 돼! 하지만... 고마워."
+		<<bHe>>【이가】 당신의 손아귀에서 벗어나 몸을 돌려 당신을 마주한다. 얼굴이 새빨갛게 달아올라 있다. "아-아무 말도 없이 그러면 안 돼! 하지만... 고마워."
 		<br><br>
 
 		그 말을 남기고, <<bhe>>【은는】 덤불 속으로 걸어가 다시 당신을 혼자 남겨둔다.
@@ -4223,7 +4223,7 @@
 	<<beastCombatInit>>
 	<<if $monster is 1>>
 		<<if $speech_attitude is "meek">>
-			"나, 나도 기분 좋아지고 싶어." 당신은 <<bhis>> 귀에 속삭인다.
+			"나-나도 기분 좋아지고 싶어." 당신은 <<bhis>> 귀에 속삭인다.
 		<<elseif $speech_attitude is "bratty">>
 			"보답해 줄 거지?" 당신은 <<bhis>> 귀에 속삭인다.
 		<<else>>
@@ -4664,7 +4664,7 @@
 	<<else>>
 		<<bHis>> 움직임은 당신이 감당하기에는 너무 격렬해서, 균형을 잃게 된다. <span class="red">당신은 땅으로 떨어진다</span>
 
-		<<if ($settings.bestialityEnabled or $monster is 1) and $settings.horsesEnabled>>
+		<<if beastSexEnabledForType("horse", $monster is 1)>>
 			바로 그때 <<beasttype>>【이가】 당신 위에 선다.<<pain 4>><<gpain>>
 			<br><br>
 
@@ -4702,7 +4702,7 @@
 		<<stress 6>><<gstress>>
 		<br><br>
 
-		<<if ($settings.bestialityEnabled or $monster is 1) and $settings.horsesEnabled>>
+		<<if beastSexEnabledForType("horse", $monster is 1)>>
 			<<link [[다음|Moor Horse Rape]]>><<set $molestationstart to 1>><</link>>
 			<br>
 		<<else>>
@@ -4975,7 +4975,7 @@
 :: Moor Horse Riding Failure
 <<effects>>
 
-<<if dangerEvent() and ($settings.bestialityEnabled or $monster is 1) and $settings.horsesEnabled>>
+<<if dangerEvent() and beastSexEnabledForType("horse", $monster is 1)>>
 	<<beasttype>>【은는】 당신의 자세를 이용해, 당신 위에 올라탄다.
 	<br><br>
 
@@ -5061,11 +5061,11 @@
 <</if>>
 <br><br>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
 
 :: Bird Rescue Syndrome Fuss
@@ -5091,17 +5091,17 @@
 <br><br>
 
 <<if $monster is 1>>
-	"알아. <<Wife>>【은는】 강하니까." <<bhe>>【이가】 말한다. "그래도 걱정돼."
+	"알아. <<Wife>>【은는】 강하니까," <<bhe>>【이가】 말한다. "그래도 걱정돼."
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 머리를 숙이고 작게 지저귄다.
 <</if>>
 <br><br>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
 
 :: Bird Rescue Syndrome Reassure
@@ -5123,11 +5123,11 @@
 <</if>>
 <br><br>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
 
 :: Bird Rescue Syndrome Comfort
@@ -5140,9 +5140,34 @@
 <</if>>
 <br><br>
 
-<<link [[둥지로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
+<<link [[둥지로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Nest]]>><<pass 20>><</link>>
 <br>
-<<link [[농장으로 태워달라고 부탁하기 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
+<<link [[농장으로 태워달라고 부탁한다 (0:20)|Moor Bird Screech Farmlands]]>><<pass 20>><</link>>
 <br>
-<<link [[깃 다듬기 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
+<<link [[깃을 다듬는다 (0:05)|Moor Bird Screech Stroke]]>><<transform bird 1>><<pass 5>><<stress -6>><<trauma -6>><</link>><<ltrauma>><<lstress>>
 <br>
+
+:: Moor Pumpkin
+<<effects>>
+
+<<if $tendingSuccess>>
+	<<wearProp "pumpkin">>
+	당신은 덩굴에서 호박을 딴다. <span class="green">크고 잘 익었다.</span>
+	<<tending_pick pumpkin 1 1>>
+	<br><br>
+
+	<<if !$plants_known.includes("pumpkin")>>
+		땅바닥에 씨앗이 보인다. 아직 싹이 트지 않았지만 건강해 보인다. <span class="gold">이제 <<foodstufficon "pumpkin">> 호박을 재배할 수 있습니다.</span><<set $plants_known.push("pumpkin")>>
+		<br><br>
+	<</if>>
+
+	<<link [[다음|Moor]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	당신은 덩굴에서 호박을 따려 하지만 꿈쩍도 하지 않는다. 너무 세게 당기는 바람에 호박이 멀리 날아간다. <span class="red">호박은 땅에 부딪히며 터진다.</span>
+	<<gtending>><<tending 2>>
+	<br><br>
+
+	<<link [[다음|Moor]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>

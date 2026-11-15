@@ -19,28 +19,28 @@
 		<<insufficientStat "exhibitionism" "무언가를 보여주기에는">>
 		<br>
 	<<else>>
-		<<skinicon "strip">><<link [[<<undies>> 보여주기|Beach Phallus Show]]>><<set $phase to 2>><</link>><<exhibitionist2>>
+		<<skinicon "strip">><<link [[<<undies>>【을를】 보여준다|Beach Phallus Show]]>><<set $phase to 2>><</link>><<exhibitionist2>>
 		<br>
 	<</if>>
 	<<if hasSexStat("exhibitionism", 5)>>
-		<<skinicon "strip">><<link [[전부 보여주기|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
+		<<skinicon "strip">><<link [[전부 보여준다|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
 		<br>
 	<</if>>
 <<elseif hasSexStat("exhibitionism", 5)>>
 	<<if (_bottomExposed or !_underwear) and !_bottomless>>
-		<<skinicon "strip">><<link [[<<c>><<pulldown>><</c>> <<bottoms>> 내리기|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
+		<<skinicon "strip">><<link [[<<c>><<pulldown>><</c>> <<bottoms>>【을를】 내린다|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
 		<br>
 	<<elseif _bottomless>> /* I'm 99% sure this is unreachable without cheats, but I wrote it and it works, so I'm leaving here just in case */
-		<<skinicon "strip">><<link [[<<genitals>> 과시하기|Beach Phallus Show]]>><<set $phase to 1>><</link>><<exhibitionist5>>
+		<<skinicon "strip">><<link [[<<genitals>>【을를】 과시한다|Beach Phallus Show]]>><<set $phase to 1>><</link>><<exhibitionist5>>
 		<br>
 	<</if>>
 <<else>>
 	<<insufficientStat "exhibitionism" "무언가를 보여주기에는">>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 /* Beach Phallus Flex Show would be the proper name according to naming convention, but we shouldn't change passage names just so coders can read stuff better */
@@ -75,7 +75,7 @@
 	"시작은 좋네." <<he>>【이가】 당신이 옷을 고쳐 입는 것을 보며 말한다. "하지만 더 잘해야 할 거야."
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
-		<<skinicon "strip">><<link [[전부 보여주기|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
+		<<skinicon "strip">><<link [[전부 보여준다|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
 		<br>
 	<<else>>
 		<<insufficientStat "exhibitionism" "더 보여주기에는">>
@@ -84,9 +84,9 @@
 	/* I'm using the base brothel icon throughout this file in place of a dedicated "seduction" icon. If this is bad practice, feel free to correct it */
 	<<brothelicon>><<link [[충분히 보여줬다고 <<him>>【을를】 설득한다|Beach Phallus Flirt]]>><</link>>
 	<br>
-	<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+	<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 	<br>
-	<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+	<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 	<br>
 <</if>>
 
@@ -115,15 +115,15 @@
 	<<beachicon>><<link [[다음|Beach]]>><<endevent>><</link>>
 	<br>
 <<else>>
-	"네가 나한테 요구하는 것보다 훨씬 덜 보이는데." <<he>>【이가】 말한다. "더 보여주든지, 아니면 다른 사람 귀찮게 하러 가."
+	"네가 나한테 요구하는 것보다 훨씬 덜 보이는데," <<he>>【이가】 말한다. "더 보여주든지, 아니면 다른 사람 귀찮게 하러 가."
 	<br><br>
 	<<if hasSexStat("exhibitionism", 5)>>
-		<<skinicon "strip">><<link [[전부 보여주기|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
+		<<skinicon "strip">><<link [[전부 보여준다|Beach Phallus Show]]>><<set $phase to 0>><</link>><<exhibitionist5>>
 		<br>
 	<</if>>
-	<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+	<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 	<br>
-	<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+	<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 	<br>
 <</if>>
 
@@ -140,7 +140,7 @@
 "약속할게." <<person1>><<person>>【이가】 대답한다. <<He>>【은는】 <<his>> 파트너 앞에 무릎을 꿇고 <<person2>><<removesbeachlower>>, 당신에게 <<his>> <<npcGenitals 1 "simple">>【을를】 드러낸다.
 <br><br>
 <<if $rng gte 61>>
-	<<schoolicon>><<link [[측정하기|Beach Phallus Pair Measure]]>><</link>>
+	<<schoolicon>><<link [[측정한다|Beach Phallus Pair Measure]]>><</link>>
 	<br>
 <<else>>
 	당신이 <<his>> 치수를 재기 위해 무릎을 꿇자, <<person1>><<person>>【이가】 당신 뒤에 웅크리고 앉아 <span class="red">당신의 입을 손으로 막는다.</span> "가만히 있어. 내 연인에게 잘해줘야 할 거야. 알겠어?" <<person2>><<person>>【은는】 당신을 내려다보며 미소 짓는다.
@@ -223,14 +223,14 @@
 당신이 말하는 동안 <<His>> 미소는 사라졌다가, 한꺼번에 다시 돌아온다. "좋아요." <<he>>【이가】 말한다. "돈을 주신다면요. 제가 좀 어려운 상황이라서요."
 <br><br>
 <<if $money gte 1000>>
-	<<ind>><<link [[지불하기 (£10)|Beach Phallus Pay]]>><<money -1000>><</link>>
+	<<ind>><<link [[지불한다 (£10)|Beach Phallus Pay]]>><<money -1000>><</link>>
 	<br>
-	<<ind>><<link [[대가 없이 돈 주기 (£10)|Beach Phallus Charity]]>><<famegood 1>><<money -1000>><<trauma -6>><</link>><<ltrauma>>
+	<<ind>><<link [[대가 없이 돈을 준다 (£10)|Beach Phallus Charity]]>><<famegood 1>><<money -1000>><<trauma -6>><</link>><<ltrauma>>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 /* Beach Phallus Beggar Pay would be the proper name */
@@ -253,7 +253,7 @@
 :: Beach Phallus Charity
 <<location "beach">><<effects>>
 <<if $speech_attitude is "meek">>
-	당신은 <<him>>에게 돈을 건넨다. <<He>>【은는】 자신의 성기를 노출하려 움직인다. "아, 아니요." 당신이 말한다. "괜찮아요. 다른 사람을 찾을게요."
+	당신은 <<him>>에게 돈을 건넨다. <<He>>【은는】 자신의 성기를 노출하려 움직인다. "아-아니요." 당신이 말한다. "괜찮아요. 다른 사람을 찾을게요."
 	<br><br>
 <<elseif $speech_attitude is "bratty">>
 	"그냥 돈이나 받아요." 당신이 말한다. "다른 사람을 찾을게요."
@@ -287,7 +287,7 @@
 <br><br>
 <<asktomeasurephallus>>
 
-<<He>>【은는】 얼굴을 붉히며 외면한다. 당신은 거절의 뜻으로 받아들이지만, 이내 <<he>>【은는】 수건을 다리 위로 끌어당겨 허리까지 덮는다. "ㅇ-이리 들어와." <<he>>【이가】 말한다. "아무도 보면 안 돼."
+<<He>>【은는】 얼굴을 붉히며 외면한다. 당신은 거절의 뜻으로 받아들이지만, 이내 <<he>>【은는】 수건을 다리 위로 끌어당겨 허리까지 덮는다. "이-이리 들어와." <<he>>【이가】 말한다. "아무도 보면 안 돼."
 <br><br>
 당신은 수건 아래로 기어들어가 <<his>> 다리 사이에 자리 잡는다. 당신은 <<removebeachlower>> <<his>> <<npcGenitals 0 "simple">>【와과】 마주한다.
 <br><br>
@@ -313,7 +313,7 @@
 	<<else>>
 		<<set $enemytrust += 50>>
 	<</if>>
-	당신은 더 가까이 기어가 <<him>>【을를】 장난스럽게 핥는다. "ㅈ-잠깐," <<he>>【이가】 말을 더듬지만, 당신을 밀어내지는 않는다.
+	당신은 더 가까이 기어가 <<him>>【을를】 장난스럽게 핥는다. "자-잠깐," <<he>>【이가】 말을 더듬지만, 당신을 밀어내지는 않는다.
 	<<promiscuity4>>
 	<<npcoral>>
 	<<enable_rescue>>
@@ -475,7 +475,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Insecurity
@@ -484,7 +484,7 @@
 <br><br>
 <<asktomeasurephallus>>
 
-<<He>>【은는】 놀라서 당신을 올려다보더니 얼굴이 창백해진다. "ㅈ-저요, 꼭 저여야 하나요?" <<he>>【이가】 묻는다. 당신은 그저 이 제안에 응해줄 사람을 찾고 있을 뿐이라고 안심시킨다.
+<<He>>【은는】 놀라서 당신을 올려다보더니 얼굴이 창백해진다. "저-저요, 꼭 저여야 하나요?" <<he>>【이가】 묻는다. 당신은 그저 이 제안에 응해줄 사람을 찾고 있을 뿐이라고 안심시킨다.
 <br><br>
 "알았어요. 부끄러워할 건 없죠." <<he>>【이가】 불안하게 주위를 둘러보며 말한다. <<He>>【은는】 <<removesbeachlower>> 일어서지 않은 채로 당신이 <<his>> <<npcGenitals 0 "simple">>에 접근할 수 있게 해준다. <<He>>【은는】 분명히 매우 자의식이 강하지만, 당신에게는 충분히 평범해 보인다.
 <br><br>
@@ -518,12 +518,12 @@
 <<seductionskilluse>>
 
 <<if $seductionrating gte $seductionrequired>>
-	"ㅈ-정말이에요?" <<He>>【은는】 당신의 시선을 마주치지 못하고 말을 더듬는다. "이런데도...?" <<He>>【은는】 자기 자신을 가리킨다. 당신이 고개를 끄덕이자, 잠시 망설이던 <<he>>【은는】 굶주린 표정으로 당신에게 손을 뻗는다.
+	"저-정말이에요?" <<He>>【은는】 당신의 시선을 마주치지 못하고 말을 더듬는다. "이런데도...?" <<He>>【은는】 자기 자신을 가리킨다. 당신이 고개를 끄덕이자, 잠시 망설이던 <<he>>【은는】 굶주린 표정으로 당신에게 손을 뻗는다.
 	<br><br>
 	<<link [[다음|Beach Phallus Insecurity Sex]]>><<set $sexstart to 1>><</link>>
 	<br>
 <<else>>
-	<<He>>【은는】 망설이다가, 서둘러 <<his>> $NPCList[$index].clothes.lower.name【을를】 고쳐 입고 허둥지둥 일어선다. "아뇨, ㄷ-당신은 절 원하지 않을 거예요. 고맙지만..." <<He>>【은는】 당신이 한마디 더 하기도 전에 달아나 버린다.
+	<<He>>【은는】 망설이다가, 서둘러 <<his>> $NPCList[$index].clothes.lower.name【을를】 고쳐 입고 허둥지둥 일어선다. "아뇨, 다-당신은 절 원하지 않을 거예요. 고맙지만..." <<He>>【은는】 당신이 한마디 더 하기도 전에 달아나 버린다.
 	<br><br>
 	<<beachicon>><<link [[다음|Beach]]>><<endevent>><</link>>
 	<br>
@@ -574,7 +574,7 @@
 	<br><br>
 <<else>>
 	<<set $rescued += 1>>
-	주변 사람들이 당신 쪽으로 고개를 돌린다. <<person>>【은는】 마치 불에 덴 것처럼 당신을 놓아주고 말을 더듬으며 뒷걸음질 친다. "ㅇ-아니, 난... 그럴 뜻이 아니었는데..." <<He>>【은는】 돌아서서 도망친다.
+	주변 사람들이 당신 쪽으로 고개를 돌린다. <<person>>【은는】 마치 불에 덴 것처럼 당신을 놓아주고 말을 더듬으며 뒷걸음질 친다. "아-아니, 난... 그럴 뜻이 아니었는데..." <<He>>【은는】 돌아서서 도망친다.
 	<br><br>
 <</if>>
 
@@ -683,7 +683,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Horizon
@@ -726,7 +726,7 @@
 <br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Wading In
@@ -751,7 +751,7 @@
 	<<beachicon>><<link [[다음|Beach]]>><<endevent>><</link>>
 	<br>
 <<else>>
-	당신이 <<person>>에게 다가가자, <span class="red"><<his>> 손이 튀어나와 당신의 팔을 잡는다.</span> "지금 딱 좋은 섹스가 필요했는데." <<he>>【이가】 당신을 물속으로 끌어당기며 말한다.
+	당신이 <<person>>에게 다가가자, <span class="red"><<his>> 손이 튀어나와 당신의 팔을 잡는다.</span> "지금 딱 좋은 섹스가 필요했는데," <<he>>【이가】 당신을 물속으로 끌어당기며 말한다.
 	<br><br>
 	<<link [[다음|Beach Phallus Wading Rape]]>><<set $molestationstart to 1>><</link>>
 	<br>
@@ -766,7 +766,7 @@
 	<<neutral 1>>
 	<<molested>>
 	<<set $noBodyWriting to 1>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<maninit>>
 	<<enable_rescue>>
 	<<set $NPCList[0].mouth to "underwater">>
@@ -883,7 +883,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Prude
@@ -898,7 +898,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Old
@@ -915,7 +915,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Dog
@@ -939,7 +939,7 @@
 <br><br>
 "<<He>>【은는】 당신처럼 <<cute>> <<girls>>에게 약하거든요. 그리고 당신도 추가 데이터가 있으면 좋을 거고요." <<person2>><<persons>> 미소가 포식자의 것처럼 변한다.
 <br><br>
-<<if $settings.bestialityEnabled or $monster is 1>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	<<animalicon "dog">><<link [[먼저 <<his>> <<beasttype>>【을를】 측정하는 데 동의한다|Beach Phallus Dog Agree]]>><</link>><<deviant1>>
 	<br>
 	<<if hasSexStat("deviancy", 3)>>
@@ -1081,7 +1081,7 @@
 <br><br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Masturbator
@@ -1170,11 +1170,11 @@
 <br><br>
 근처에 물을 파는 곳이 있지만, 가격이 꽤 비싸다.
 <br><br>
-<<icon "water-bottle.png">><<link [[물 사주기 (£5 0:05)|Beach Phallus Jogger Buy]]>><<money -500>><<pass 5>><</link>>
+<<icon "water-bottle.png">><<link [[물을 사준다 (£5 0:05)|Beach Phallus Jogger Buy]]>><<money -500>><<pass 5>><</link>>
 <br>
 <<investigateicon>><<link [[다른 사람을 찾는다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Jogger Buy
@@ -1204,7 +1204,7 @@
 <<if $beauty gte ($beautymax / 7) * 3>>
 	<span class="green">그리고 씨익 웃는다.</span> "물론이지, 귀염둥이. 나랑 사진 한 장 찍으면, 원하는 만큼 측정해도 좋아." <<He>>【이가】 음흉하게 당신을 쳐다본다.
 	<br><br>
-	<<photographystudioicon>><<link [[<<him>>【와과】 셀카 찍기|Beach Phallus Blogger Selfie]]>><<set $phase to 0>><</link>>
+	<<photographystudioicon>><<link [[<<him>>【와과】 셀카를 찍는다|Beach Phallus Blogger Selfie]]>><<set $phase to 0>><</link>>
 	<br>
 <<else>>
 	<span class="red">그리고 비웃는다.</span> "나도 기준이란 게 있어, <<girl>>. 꺼져." <<He>>【이가】 손을 흔들어 당신을 쫓아내고, 다시 <<his>> 휴대폰으로 시선을 돌린다.
@@ -1212,9 +1212,9 @@
 	<<brothelicon>><<link [[<<his>> 마음을 바꿔보려 한다|Beach Phallus Blogger Selfie]]>><<set $phase to 1>><</link>><<promiscuous1>>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Blogger Selfie
@@ -1308,9 +1308,9 @@
 	<<insufficientStat "promiscuity" "그런 요구를 수락하기에는">>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Friends Accept
@@ -1410,9 +1410,9 @@
 	<<insufficientStat "promiscuity" "그런 요구를 수락하기에는">>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Drinker Accept
@@ -1492,7 +1492,7 @@
 <br><br>
 <<He>>【은는】 당신을 탈의실 뒤편, 대부분의 사람들 눈에 띄지 않는 곳으로 이끈다.
 <<if crimeSumCurrent() gte 2000>>
-	둘만 남게 되자, <<he>>【은는】 돌아서서 <span class="red">당신을 벽으로 밀어붙인다.</span> "반면에," <<he>>【이가】 아무렇지 않게 말한다. "알려진 범죄자가 나한테 그냥 걸어온다면, 난 기꺼이 <<phim>>【이가】 정의를 찾도록 도와줄 수 있지."
+	둘만 남게 되자, <<he>>【은는】 돌아서서 <span class="red">당신을 벽으로 밀어붙인다.</span> "반면에." <<he>>【이가】 아무렇지 않게 말한다. "알려진 범죄자가 나한테 그냥 걸어온다면, 난 기꺼이 <<phim>>【이가】 정의를 찾도록 도와줄 수 있지."
 	<br><br>
 	<<if $rng gte 61>>
 		<<generatePolice 2>>
@@ -1509,7 +1509,7 @@
 <<elseif $rng gte 61>>
 	둘만 남게 되자, <<he>>【은는】 <<his>> 제복 바지의 지퍼를 내리고 <<his>> <<npcGenitals 0 "simple">>【을를】 노출한다.
 	<br><br>
-	<<schoolicon>><<link [[치수 재기|Beach Phallus Police Measure]]>><</link>>
+	<<schoolicon>><<link [[치수를 잰다|Beach Phallus Police Measure]]>><</link>>
 	<br>
 <<else>>
 	둘만 남게 되자, <<he>>【은는】 돌아서서 <span class="red">당신의 입을 손으로 막는다.</span> "자, 제대로 보여줄게." <<he>>【이가】 말한다.
@@ -1608,9 +1608,9 @@
 	<<insufficientStat "promiscuity" "그런 제안을 수락하기에는">>
 	<br>
 <</if>>
-<<investigateicon>><<link [[다른 사람 찾아보기 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
+<<investigateicon>><<link [[다른 사람을 찾아본다 (0:15)|Beach Phallus]]>><<endevent>><<pass 15>><</link>>
 <br>
-<<beachicon>><<link [[그만두기|Beach]]>><<pass 10>><<endevent>><</link>>
+<<beachicon>><<link [[그만둔다|Beach]]>><<pass 10>><<endevent>><</link>>
 <br>
 
 :: Beach Phallus Swimmer Sex
@@ -1621,7 +1621,7 @@
 	<<set $consensual to 1>>
 	<<neutral 1>>
 	<<set $noBodyWriting to 1>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<maninit>>
 	<<if $phase lte 0>>
 		<<set $enemytrust += 100>>

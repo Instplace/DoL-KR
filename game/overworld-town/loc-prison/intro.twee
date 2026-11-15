@@ -272,7 +272,7 @@
 :: Prison Intro Repeat 2
 <<location "prison">><<effects>>
 
-보트는 안개 속으로, 돌기둥의 미로를 통과하여 교도소 앞으로 나온다.
+보트는 안개 속으로, 돌기둥의 미로를 통과하여 감옥 앞으로 나온다.
 <br><br>
 
 <<person4>><<methodical_guard 3 cap>>【이가】 터널 끝에서 당신을 맞이한다. "시간 딱 맞췄군." <<he>>【이가】 <<his>> 책상 뒤에 앉으며 말한다. "절차는 알겠지."
@@ -281,13 +281,13 @@
 다른 경비원들이 당신 주위에 서서 지켜본다.
 <br><br>
 
-<<link [[옷 벗기|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
+<<link [[옷을 벗는다|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
 <br>
 <<if hasSexStat("exhibitionism", 4)>>
-	<<link [[과시하기|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
+	<<link [[과시한다|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
 	<br>
 <</if>>
-<<link [[거부하기|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
+<<link [[거절한다|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
 <br>
 
 :: Prison Intro Boat
@@ -342,9 +342,9 @@
 그들은 당신이 없는 것처럼 당신 앞에서 계속 언쟁을 벌인다.
 <br><br>
 
-<<link [[불평하기|Prison Intro Boat Complain]]>><<pain 4>><<def 1>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
+<<link [[불평한다|Prison Intro Boat Complain]]>><<pain 4>><<def 1>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
 <br>
-<<link [[침묵 지키기|Prison Intro Boat 2]]>><<stress 6>><<sub 1>><<set $phase to 1>><</link>><<gstress>>
+<<link [[침묵한다|Prison Intro Boat 2]]>><<stress 6>><<sub 1>><<set $phase to 1>><</link>><<gstress>>
 <br>
 
 :: Prison Intro Boat Complain
@@ -408,14 +408,14 @@
 
 <<if $player.gender_appearance is "m">>
 	<<if maleChance() lte 0>>
-		"근데 왜 <<phim>>【을를】 여자 교도소로 보내는 거지?" <<anxious_guard 1>>【이가】 묻는다.
+		"근데 왜 <<phim>>【을를】 여자 감옥으로 보내는 거지?" <<anxious_guard 1>>【이가】 묻는다.
 		<br>
 		"몰라." <<veteran_guard 2>>【이가】 대답한다. "난 불만 없어."
 		<br><br>
 	<</if>>
 <<elseif $player.gender_appearance is "f">>
 	<<if maleChance() gte 100>>
-		"근데 왜 <<phim>>【을를】 남자 교도소로 보내는 거지?" <<anxious_guard 1>>【이가】 묻는다.
+		"근데 왜 <<phim>>【을를】 남자 감옥으로 보내는 거지?" <<anxious_guard 1>>【이가】 묻는다.
 		<br>
 		"몰라." <<veteran_guard 2>>【이가】 대답한다. "난 불만 없어."
 		<br><br>
@@ -452,11 +452,11 @@
 "이름?" <<he>>【이가】 당신을 보지 않고 묻는다.
 <br><br>
 
-<<link [[이름 말하기|Prison Intro Name]]>><<sub 1>><</link>>
+<<link [[이름을 말한다|Prison Intro Name]]>><<sub 1>><</link>>
 <br>
-<<link [[침 뱉기|Prison Intro Spit]]>><<def 2>><<prison_guards 1>><</link>><<dancedifficulty 1 1000>><<gsuspicion>>
+<<link [[침을 뱉는다|Prison Intro Spit]]>><<def 2>><<prison_guards 1>><</link>><<dancedifficulty 1 1000>><<gsuspicion>>
 <br>
-<<link [[침묵 지키기|Prison Intro Silent]]>><<def 1>><<pain 4>><</link>>
+<<link [[침묵한다|Prison Intro Silent]]>><<def 1>><<pain 4>><</link>>
 <br>
 
 :: Prison Intro Name
@@ -465,13 +465,13 @@
 당신은 <<person4>><<methodical_guard 3>>에게 당신의 이름을 말한다. <<He>>【이가】 무언가를 휘갈겨 쓴다. "옷 벗어." <<person2>><<anxious_guard 1 cap>>【이가】 <<his>> 입술을 핥는다. "전부 다."<<gstress>><<stress 6>>
 <br><br>
 
-<<link [[옷 벗기|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
+<<link [[옷을 벗는다|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
 <br>
 <<if hasSexStat("exhibitionism", 4)>>
-	<<link [[과시하기|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
+	<<link [[과시한다|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
 	<br>
 <</if>>
-<<link [[거부하기|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
+<<link [[거절한다|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
 <br>
 
 :: Prison Intro Spit
@@ -490,13 +490,13 @@
 <<person4>><<methodical_guard 3 cap>>【이가】 손을 흔든다. "상관없어." <<he>>【이가】 무언가를 휘갈겨 쓰며 말한다. "옷 벗어." <<person2>><<anxious_guard 1 cap>>【이가】 <<his>> 입술을 핥는다. "전부 다."<<gstress>><<stress 6>>
 <br><br>
 
-<<link [[옷 벗기|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
+<<link [[옷을 벗는다|Prison Intro Strip]]>><<trauma 6>><<stress 6>><<prison_guards -1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
 <br>
 <<if hasSexStat("exhibitionism", 4)>>
-	<<link [[과시하기|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
+	<<link [[과시한다|Prison Intro Flaunt]]>><<prison_guards 3>><</link>><<exhibitionist4>><<llsuspicion>>
 	<br>
 <</if>>
-<<link [[거부하기|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
+<<link [[거절한다|Prison Intro Refuse]]>><<pain 4>><<prison_guards 1>><</link>><<gpain>><<gsuspicion>>
 <br>
 
 :: Prison Intro Silent
@@ -509,13 +509,13 @@
 <<person4>><<methodical_guard 3 cap>>【이가】 <<his>> 손을 흔든다. "상관없어." <<he>>【이가】 무언가를 휘갈겨 쓰며 말한다. "옷 벗어." <<person2>><<anxious_guard 1 cap>>【이가】 <<his>> 입술을 핥는다. "전부 다."<<gstress>><<stress 6>>
 <br><br>
 
-<<link [[옷 벗기 (0:01)|Prison Intro Strip]]>><<pass 1>><<trauma 6>><<stress 6>><<prison_guards 1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
+<<link [[옷을 벗는다 (0:01)|Prison Intro Strip]]>><<pass 1>><<trauma 6>><<stress 6>><<prison_guards 1>><</link>><<gtrauma>><<gstress>><<lsuspicion>>
 <br>
 <<if hasSexStat("exhibitionism", 4)>>
-	<<link [[과시하기 (0:03)|Prison Intro Flaunt]]>><<prison_guards 3>><<pass 3>><</link>><<exhibitionist4>><<llsuspicion>>
+	<<link [[과시한다 (0:03)|Prison Intro Flaunt]]>><<prison_guards 3>><<pass 3>><</link>><<exhibitionist4>><<llsuspicion>>
 	<br>
 <</if>>
-<<link [[거부하기 (0:01)|Prison Intro Refuse]]>><<pass 1>><<pain 4>><<prison_guards -1>><</link>><<gpain>><<gsuspicion>>
+<<link [[거절한다 (0:01)|Prison Intro Refuse]]>><<pass 1>><<pain 4>><<prison_guards -1>><</link>><<gpain>><<gsuspicion>>
 <br>
 
 :: Prison Intro Strip
@@ -600,9 +600,9 @@
 	<<generate_veteran_guard 2>>
 	<<generate_methodical_guard 3>>
 
-	<<link [[도망치기|Prison Intro Strip Run]]>><<prison_guards 3>><</link>><<ggsuspicion>>
+	<<link [[도망친다|Prison Intro Strip Run]]>><<prison_guards 3>><</link>><<ggsuspicion>>
 	<br>
-	<<link [[협상하기|Prison Intro Strip Bargain]]>><<set $prisonClothesBargain to 1>><<prison_guards -1>><</link>><<lsuspicion>>
+	<<link [[협상한다|Prison Intro Strip Bargain]]>><<set $prisonClothesBargain to 1>><<prison_guards -1>><</link>><<lsuspicion>>
 	<br>
 
 <<elseif $enemyhealth lte 0>>
@@ -615,9 +615,9 @@
 	<<generate_veteran_guard 2>>
 	<<generate_methodical_guard 3>>
 
-	<<link [[도망치기|Prison Intro Strip Run]]>><<prison_guards 3>><</link>><<ggsuspicion>>
+	<<link [[도망친다|Prison Intro Strip Run]]>><<prison_guards 3>><</link>><<ggsuspicion>>
 	<br>
-	<<link [[협상하기|Prison Intro Strip Bargain]]>><<set $prisonClothesBargain to 1>><<prison_guards -1>><</link>><<lsuspicion>>
+	<<link [[협상한다|Prison Intro Strip Bargain]]>><<set $prisonClothesBargain to 1>><<prison_guards -1>><</link>><<lsuspicion>>
 	<br>
 
 <<else>>
@@ -643,9 +643,9 @@
 뒤에서 경보음이 울리는 소리가 들린다.
 <br><br>
 
-<<link [[보트 타기|Prison Intro Strip Boat]]>><</link>>
+<<link [[보트를 탄다|Prison Intro Strip Boat]]>><</link>>
 <br>
-<<link [[수영하기|Prison Intro Strip Swim]]>><</link>>
+<<link [[수영한다|Prison Intro Strip Swim]]>><</link>>
 <br>
 
 :: Prison Intro Strip Boat
@@ -698,9 +698,9 @@
 <br><br>
 
 <<if $monster is 1>>
-	<<beasttype>>【은는】 당신을 교도소로 돌려보내는 대신, <<bhis>> 눈에 장난기 어린 빛을 띠며 더 높이 선회한다. <<bHe>>【이가】 당신을 놓아준다.
+	<<beasttype>>【은는】 당신을 감옥으로 돌려보내는 대신, <<bhis>> 눈에 장난기 어린 빛을 띠며 더 높이 선회한다. <<bHe>>【이가】 당신을 놓아준다.
 <<else>>
-	<<beasttype>>【은는】 당신을 교도소로 돌려보내는 대신, 더 높이 선회하고 당신을 놓아준다.
+	<<beasttype>>【은는】 당신을 감옥으로 돌려보내는 대신, 더 높이 선회하고 당신을 놓아준다.
 <</if>>
 <<endevent>>
 당신은 깊은 물속으로 뛰어들고, 해류에 휩쓸려 더 깊이 끌려 들어간다. 의식이 희미해진다.
@@ -798,7 +798,7 @@
 	<br><br>
 
 	<<if $prison_intro is undefined>>
-		바로 그 가장자리에서, <<person3>><<veteran_guard 2>>【이가】 당신의 머리채를 잡고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 교도소에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
+		바로 그 가장자리에서, <<person3>><<veteran_guard 2>>【이가】 당신의 머리채를 잡고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 감옥에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
 		<br><br>
 	<</if>>
 
@@ -822,7 +822,7 @@
 <br><br>
 
 <<if $prison_intro is undefined>>
-	바로 그 가장자리에서, <<person3>><<veteran_guard 2>>【이가】 당신의 머리채를 잡고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 교도소에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
+	바로 그 가장자리에서, <<person3>><<veteran_guard 2>>【이가】 당신의 머리채를 잡고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 감옥에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
 	<br><br>
 <</if>>
 
@@ -843,7 +843,7 @@
 <</if>>
 <br><br>
 <<if $prison_intro is undefined>>
-	마지막 순간, 단단한 손이 당신을 붙잡는다. <<person3>><<veteran_guard 2 cap>>【이가】 당신의 머리 뒷부분을 움켜쥐고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 교도소에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
+	마지막 순간, 단단한 손이 당신을 붙잡는다. <<person3>><<veteran_guard 2 cap>>【이가】 당신의 머리 뒷부분을 움켜쥐고 심연 위로 머리를 내밀게 한다. "나쁜 <<girls>>은 감옥에 가지." <<he>>【이가】 쉭쉭거린다. "여기선 나쁜 <<girls>>을 다루는 방법이 많지만, 정말 나쁜 <<girls>>은 러트에 던져버린다. 아무도 널 신경 쓰지 않을 거야. 그러니 착한 <<girl>>【이가】 되어, 시키는 대로 해."
 	<br><br>
 <</if>>
 

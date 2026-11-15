@@ -15,7 +15,7 @@
 
 		로빈은 당신 쪽으로 돌아서더니 <<if $robinconsole is 0>>숨을 삼킨다<<else>><<his>> 컨트롤러를 떨어뜨린다<</if>>. <<He>>【은는】 <<his>> 침대에서 재빨리 뛰어올라 당신에게 달려와, 넘어질 뻔할 만큼 세게 껴안는다. <<his>> 뺨으로 눈물이 거침없이 흘러내린다.
 		<br>
-		"다-다시는 널 못 볼 줄 알았어! 너무 무서웠어," 로빈이 당신을 침대로 끌어당기기 전에 말한다.
+		"다-다시는 널 못 볼 줄 알았어! 너무 무서웠어." 로빈이 당신을 침대로 끌어당기기 전에 말한다.
 		<br><br>
 
 		한참 뒤, 로빈은 진정한다. "다들 널 찾고 있었어. 베일리는 아무 도움도 안 됐고." <<He>>【은는】 <<his>> 눈을 비빈다. "무슨 일이 있었는지 말해줄 수 있어? 그-그러니까, 준비가 되면. 분명 조금은 나아질 거야."
@@ -27,7 +27,7 @@
 
 		로빈은 당신 쪽으로 돌아서더니 <<if $robinconsole is 0>>숨을 삼킨다<<else>><<his>> 컨트롤러를 떨어뜨린다<</if>>. <<He>>【은는】 <<his>> 침대에서 재빨리 뛰어올라 당신에게 달려와, 넘어질 뻔할 만큼 세게 껴안는다. <<his>> 뺨으로 눈물이 거침없이 흘러내린다.
 		<br>
-		"다-다시는 널 못 볼 줄 알았어! 너무 무서웠어," 로빈이 당신을 침대로 끌어당기기 전에 말한다.
+		"다-다시는 널 못 볼 줄 알았어! 너무 무서웠어." 로빈이 당신을 침대로 끌어당기기 전에 말한다.
 		<br><br>
 
 		한참 뒤, 로빈은 진정한다. "네가 어디 있는지 모두에게 말하려 했는데, 무슨 일이 있었는지 말해도 아무도 믿어주지 않았어." <<He>>【은는】 <<his>> 눈을 비빈다. "네가 돌아와서 다행이야. 보고 싶었어."
@@ -74,14 +74,14 @@
 		<<loveicon "hug">><<link [[껴안는다 (0:30)|Robin Trauma Hug]]>><<npcincr Robin love 1>><<npcincr Robin dom -1>><<npcincr Robin trauma -6>><<pass 30>><</link>><<glove>><<ldom>>
 		<br><br>
 	<<elseif $robin_injured gte 1>>
-		당신은 문을 두드린다. 로빈이 문을 열고 미소 짓는다. <<His>> 눈이 붉다. "안녕," <<he>>【이가】 말한다. "들어와." 당신은 안으로 들어가 침대에 앉는다. <<He>>【은는】 당신 옆에 앉는다.
+		당신은 문을 두드린다. 로빈이 문을 열고 미소 짓는다. <<His>> 눈이 붉다. "안녕." <<he>>【이가】 말한다. "들어와." 당신은 안으로 들어가 침대에 앉는다. <<He>>【은는】 당신 옆에 앉는다.
 		<<His>> 움직임은 <<hes>> 아픈 듯 어색하다.
 		<br><br>
 		<<hospitalicon>><<link [[로빈을 병원에 데려간다 (1:00)|Robin Hospital]]>><<unset $robin_injured>><<pass 1 hour>><<npcincr Robin love 1>><<npcincr Robin dom -1>><<npcincr Robin trauma -16>><</link>><<glove>><<ldom>>
 		<br><br>
 
 	<<elseif _robin.trauma gte 40>>
-		당신은 문을 두드린다. 로빈이 문을 열고 미소 짓는다. <<His>> 눈이 붉다. "안녕," <<he>>【이가】 말한다. "들어와." 당신은 안으로 들어가 침대에 앉는다. <<He>>【은는】 당신 옆에 앉는다.
+		당신은 문을 두드린다. 로빈이 문을 열고 미소 짓는다. <<His>> 눈이 붉다. "안녕." <<he>>【이가】 말한다. "들어와." 당신은 안으로 들어가 침대에 앉는다. <<He>>【은는】 당신 옆에 앉는다.
 		<br><br>
 
 	<<elseif $robinpaid is 1 and $robinPayout is 0 and $robinmoney gte 20 and _robin.love gte 80 and _robin.trauma lte 20 and $robin.timer.hurt is 0>>
@@ -115,14 +115,14 @@
 				"왜 나를 때린 거지?" 로빈이 <<himself>>에게 중얼거린다.
 			<<case "landfill">>
 				<<if $robinSeen.includes("robinRape")>>
-					"미안해," <<he>>【이가】 <<his>> 숨결 아래로 속삭인다.
+					"미안해." <<he>>【이가】 <<his>> 숨결 아래로 속삭인다.
 				<<else>>
 					"죽는 줄 알았어." <<He>>【은는】 <<his>> 고개를 젓는다.
 				<</if>>
 			<<case "pillory">>
 				"난 범죄자가 아니야..." 로빈은 <<he>>【이가】 땅을 쳐다보는 동안 <<his>> 발을 찬다.
 			<<case "underground">>
-				"집에 오니 정말 기쁘다. 다시는 해를 못 볼 줄 알았어." <<He>>【은는】 당신을 보며 미소 짓는다. "고마워, 나 혼자서는 해낼 힘이 없었을 거야."
+				"집에 오니 정말 기뻐. 다시는 해를 못 볼 줄 알았어." <<He>>【은는】 당신을 보며 미소 짓는다. "고마워, 나 혼자서는 해낼 힘이 없었을 거야."
 			<<case "mansion">>
 				"다뉴브 가에 있는 저택으로 끌려가서 청소를 해야 했어." <<he>>【이가】 말한다. "주인들은... 추근덕거렸어. 그리고 나한테 메이드복을 입혔어."
 				<<if _robin.pronoun is (_robin.crossdressing gte 2 ? "m" : "f")>>
@@ -164,7 +164,7 @@
 			<br><br>
 		<!-- Lowest Special Priority (Random Events when Robin is in their room/not doing anything special) -->
 		<<elseif $rng gte 86 and _robin.lovestage gte 3 and _robin.crossdress gte 1 and !$daily.robin.cdevent and _robin.cdquest lte 0 and _robin.trauma lte 20>>
-			당신은 로빈의 방으로 간다. 문에 쪽지가 붙어 있다. "들어오지 마세요!"
+			당신은 로빈의 방으로 간다. 문에 쪽지가 붙어 있다. "들어오지 말아줘!"
 			<br><br>
 
 			<<set _uniqueoptions to true>>
@@ -487,7 +487,7 @@
 		<<elseif $daily.robin.traumarequest is 1>>
 			로빈은 당신을 한참 동안 껴안았다가 놓아준다. "자, 잘 자... 조심해."
 		<<else>>
-			"나, 나랑 같이 있어줄 수 있을까?" <<He>>【은는】 당신의 팔을 가볍게 잡는다. <<his>> 눈이 애원하고 있다.
+			"나-나랑 같이 있어줄 수 있을까?" <<He>>【은는】 당신의 팔을 가볍게 잡는다. <<his>> 눈이 애원하고 있다.
 			<<set $daily.robin.traumarequest to 1>><<set _robinrequest to 1>>
 		<</if>>
 		<br><br>
@@ -582,7 +582,7 @@
 		<</if>>
 		<<set _passageStart to _standType is "Chocolate" ? "Robin " : "Robin's ">>
 		<<if $exposed lte 0 or _anyItemsInRoom>>
-			<<if $tutorial is 0 and $debug is 0>>
+			<<if $tutorial is 0 and !$debug>>
 				<<robinicon `_standType is "Chocolate" ? "cocoa" : "lemonade"`>><<link [[_linkStart + "준비를 돕는다 (0:30)"|_passageStart + _standType + " Set Tutorial"]]>>
 					<<pass 30>><<npcincr Robin love 1>><<set $tutorial to 1>>
 					<<if $exposed gte 1 and _anyItemsInRoom>><<storeon "Robin's Room">><</if>>
@@ -1000,7 +1000,7 @@
 <</widget>>
 
 <<widget "robinRentUnsafeMessage">>
-	<<set $rentsale to 0>>
+	<<set $rentSale to 0>>
 	<i>당신은 <<nnpc_he "Bailey">>【이가】 당신이 제때 <<nnpc_him "Bailey">>에게 돈을 낼 거라고 단순히 기대할 수 없다는 것을 베일리에게 증명했다.
 	<span class="red">당신이 베일리를 막아내지 못하면, 로빈은 더 이상 베일리에게서 안전하지 않을 것이다.</span></i>
 	<br><br>
@@ -1026,17 +1026,17 @@
 
 <<widget "robinroom_link">>
 	<<if C.npc.Robin.init is 1>>
-		<<if Time.dayState isnot "night" and $exposed gte 1 and getRobinLocation() is "orphanage">>
-			<<if hasSexStat("exhibitionism", 5) and $exposed is 2>>
+		<<if Time.dayState isnot "night" and ($exposed gte 1 or $exposedRaw gte 1) and getRobinLocation() is "orphanage">>
+			<<if hasSexStat("exhibitionism", 5) and ($exposed is 2 or $exposedRaw is 2)>>
 				<<bedroomicon>><<link [[로빈의 방 (0:01)|Robin Room Naked]]>><<pass 1>><</link>><<exhibitionist5>>
 				<br>
 
-			<<elseif hasSexStat("exhibitionism", 4) and $exposed is 1>>
+			<<elseif hasSexStat("exhibitionism", 4) and ($exposed is 1 or $exposedRaw is 1)>>
 				<<bedroomicon>><<link [[로빈의 방 (0:01)|Robin Room Naked]]>><<pass 1>><</link>><<exhibitionist4>>
 				<br>
 			<</if>>
 
-		<<elseif $exposed lte 0>>
+		<<elseif $exposed lte 0 or $exposedRaw lte 0>>
 			<<bedroomicon>><<link [[로빈의 방 (0:01)|Robin's Room Entrance]]>><<pass 1>><</link>>
 			<br>
 
@@ -1054,14 +1054,14 @@
 		"팝콘을 쏟아서 미안해." 로빈이 미안한 듯 당신을 쳐다본다. "나 정말 기대하고 있었거든, 너도 그랬을 텐데."
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"괜찮아," 당신이 다정하게 말한다. "진짜 아무렇지도 않아. 팝콘은 언제든 또 먹을 수 있잖아!"
+			"괜찮아." 당신이 다정하게 말한다. "진짜 아무렇지도 않아. 팝콘은 언제든 또 먹을 수 있잖아!"
 		<<elseif $speech_attitude is "bratty">>
-			"에이," 당신이 <<him>>의 팔꿈치를 툭 치며 말한다. "그런 건 신경 안 써. 엎질러진 팝콘을 보고 울어봤자 소용없잖아, 그지?"
+			"에이." 당신이 <<him>>의 팔꿈치를 툭 치며 말한다. "그런 건 신경 안 써. 엎질러진 팝콘을 보고 울어봤자 소용없잖아, 그지?"
 		<<else>>
-			"야, 괜찮아," 당신이 <<him>>【을를】 격려하듯 미소 지으며 말한다. "그냥 팝콘일 뿐이잖아."
+			"야, 괜찮아." 당신이 <<him>>【을를】 격려하듯 미소 지으며 말한다. "그냥 팝콘일 뿐이잖아."
 		<</if>>
 		<br><br>
-		<<He>>【은는】 당신에게 미소 지으며 가볍게 포옹한다. "고마워," <<he>>【은는】 말한다. "네가 최고야."
+		<<He>>【은는】 당신에게 미소 지으며 가볍게 포옹한다. "고마워." <<he>>【이가】 말한다. "네가 최고야."
 	<</if>>
 <</widget>>
 
@@ -1113,7 +1113,7 @@
 		<br>
 	<</if>>
 	<<if $robin_amusements.games.includes("ring")>>
-		<<link [[고리 던지기|Robin Amusements Ring]]>><<money -700 "robin">><<pass 15>><<set $robin_amusements.games.delete("ring")>><</link>>
+		<<link [[고리를 던진다|Robin Amusements Ring]]>><<money -700 "robin">><<pass 15>><<set $robin_amusements.games.delete("ring")>><</link>>
 		<br>
 	<</if>>
 	<<if $robin_amusements.games.includes("slot")>>

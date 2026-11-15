@@ -11,7 +11,7 @@
 :: Photo High Suit
 <<set $location to "town">><<set $bus to "high">><<effects>>
 
-니키는 당신을 하이 스트리트로 태워다 주고, 목적지인 상점 밖에 차를 세운다. 창문을 통해 진열된 보드게임, 카드 게임, 컴퓨터 게임들이 보인다. 꽤나 인상적일 정도로 종류가 다양하다.
+니키는 당신을 하이 가로 태워다 주고, 목적지인 상점 밖에 차를 세운다. 창문을 통해 진열된 보드게임, 카드 게임, 컴퓨터 게임들이 보인다. 꽤나 인상적일 정도로 종류가 다양하다.
 <br><br>
 
 당신은 니키와 함께 상점에 들어간다. 직원들은 <<him>>【을를】 기다리고 있었던 것 같으며, 당신이 <<him>>【을를】 따라 뒷방으로 들어갈 때 힐끗 쳐다보기만 한다.
@@ -155,15 +155,15 @@
 <<elseif $photo_location is 6>>
     당신은 광장에 우뚝 솟은 동상에 도착한다. 사람들이 지나가거나 벤치에 앉아 쉬고 있다.
 <<elseif $photo_location is 5>>
-    당신은 하이 스트리트의 메인 버스 정류장에 도착한다. 버스들이 수시로 도착해 사람들을 쏟아낸다.
+    당신은 하이 가의 메인 버스 정류장에 도착한다. 버스들이 수시로 도착해 사람들을 쏟아낸다.
 <<elseif $photo_location is 4>>
-    당신은 당신이 일하고 있는 게임 상점 밖에 도착한다. 하이 스트리트 한가운데라 위치가 꽤 좋다.
+    당신은 당신이 일하고 있는 게임 상점 밖에 도착한다. 하이 가 한가운데라 위치가 꽤 좋다.
 <<elseif $photo_location is 3>>
-    당신은 쇼핑 센터 밖에 도착한다. 사람들이 넓은 문을 통해 끊임없이 오간다.
+    당신은 쇼핑센터 밖에 도착한다. 사람들이 넓은 문을 통해 끊임없이 오간다.
 <<elseif $photo_location is 2>>
     당신은 인기 있는 공원 입구에 도착한다. 양쪽에 있는 두 그루의 나무가 길을 지키듯 나뭇가지로 아치를 이루고 있다.
 <<else>>
-    당신은 하이 스트리트의 끝에 도착한다. 길 건너편에는 숲이 마을로 이어져 있다. 이곳의 상점들은 숲의 독특한 생태계에 관심 있는 사람들을 위한 장비나 기념품을 팔며 확고한 테마를 띠고 있다.
+    당신은 하이 가의 끝에 도착한다. 길 건너편에는 숲이 마을로 이어져 있다. 이곳의 상점들은 숲의 독특한 생태계에 관심 있는 사람들을 위한 장비나 기념품을 팔며 확고한 테마를 띠고 있다.
 <</if>>
 <br><br>
 
@@ -188,13 +188,13 @@
 <<elseif $photo_location is 2>>
     당신은 공원 바로 밖 벤치에 앉는다. 바람이 당신의 발 위로 나뭇잎들을 춤추게 하지만, 의상 속에서는 전혀 느껴지지 않는다.
 <<elseif $photo_location is 3>>
-    당신은 번잡함을 피해 쇼핑 센터 바로 안쪽에 앉는다.
+    당신은 번잡함을 피해 쇼핑센터 바로 안쪽에 앉는다.
 <<elseif $photo_location is 4>>
     당신은 게임 상점 밖, 의상과 똑같은 캐릭터가 그려진 포스터 옆에 앉는다.
 <<elseif $photo_location is 5>>
     당신은 버스 정류장 지붕 아래에 앉는다. 버스가 도착하자 사람들의 시선이 당신에게 쏠린다.
 <<elseif $photo_location is 6>>
-    당신은 동상 주변 벤치 중 하나에 앉는다. 당신의 의상이 남들보다 많은 공간을 차지한다. 비둘기들이 당신을 지켜본다.
+	당신은 동상 주변 벤치 중 하나에 앉는다. 당신의 의상이 남들보다 많은 공간을 차지한다. 비둘기들이 당신을 지켜본다.
 <<else>>
     당신은 언덕 꼭대기에 앉는다. 이곳에는 다른 곳보다 관광객이 더 많고, 그들은 신기한 듯 당신의 의상을 빤히 쳐다본다.
 <</if>>
@@ -334,16 +334,12 @@
 <<famemodel _photo_fame "pic">>
 <<set $photo_high_money to _photo_money>>
 
-당신은 하이 스트리트에서 살짝 벗어난 골목에서 깨어난다.
+당신은 하이 가에서 살짝 벗어난 골목에서 깨어난다.
 
 <<if $exposed gte 1>>
-    <span class="red">의상이 사라졌다.</span> <<covered>>
-    <<storeon "photo_high_suit">>
-    <<overruined>><<middleruined>>
-    <<if $exposed isnot 1>>
-        <<underruined>>
-    <</if>>
-    <br><br>
+	<span class="red">의상이 사라졌다.</span> <<covered>>
+	<<storereturn "photo_high_suit">>
+	<br><br>
 <<else>>
     의상이 사라졌다.
 <</if>>
@@ -453,7 +449,7 @@
 당신이 고개를 끄덕인 뒤, 두 사람을 향해 달려든다. 그들은 기겁하며 진짜로 겁을 먹었고, <<person1>><<person>>【은는】 항복하듯 두 손을 번쩍 치켜든다. <<person2>><<person>>【은는】 잠시 얼어붙었다가 이내 카메라를 든다. <<He>>【은는】 멈칫거리다 간신히 사진을 찍는다.
 <br><br>
 
-"고, 고마워요." <<person1>><<person>>【이가】 말한다. 그들은 뒤를 힐끗거리며 황급히 달아난다.
+"고-고마워요." <<person1>><<person>>【이가】 말한다. 그들은 뒤를 힐끗거리며 황급히 달아난다.
 <br><br>
 
 <<photo_high_options>>
@@ -554,7 +550,7 @@
 :: Photo High Bottom Allow
 <<effects>>
 
-당신은 <<person>>【이가】 의상 앞섶을 끌어내려 <<print $worn.upper.name>>【을를】 노출하도록 내버려 둔다. "<<pshe>>【이가】 밑에 아무것도 안 입었길 바랐는데." <<person>>【이가】 투덜거린다.
+당신은 <<person>>【이가】 의상 앞섶을 끌어내려 <<print $worn.upper.name>>【을를】 노출하도록 내버려 둔다. "<<pshe>>【이가】 밑에 아무것도 안 입었길 바랐는데," <<person>>【이가】 투덜거린다.
 <br><br>
 
 당신을 괴롭히던 사람들은 곧 장난에 지쳐 떠나갔고, 당신은 다시 옷을 추스를 수 있게 되었다.
@@ -975,44 +971,44 @@
         "좀 곤란한 상황인 것 같네." <<he>>【이가】 말한다. "옷을 돌려받고 싶으면 대신 뭘 줄 건데?"
         <br><br>
 
-        <<if $money gte 10000>>
-            <<link [[£100를 제안한다|Photo High Squirrel Money]]>><</link>>
-            <br>
-        <<else>>
-            <span class="blue">만족시킬 만큼 돈이 충분하지 않다.</span>
-            <br>
-        <</if>>
-        <<link [[공격한다|Photo High Squirrel Attack]]>><<photo_attention 1>><</link>><<physiquedifficulty 1 16000>><<gattention>>
-        <br>
-        <<if $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 5)>>
-            <<link [[조롱한다|Photo High Squirrel Mock Naked]]>><<photo_attention 1>><</link>><<exhibitionist5>><<gattention>>
-            <br>
-        <</if>>
-        <<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 3)>>
-            <<link [[조롱한다|Photo High Squirrel Mock Undies]]>><<photo_attention 1>><</link>><<exhibitionist3>><<gattention>>
-            <br>
-        <</if>>
-        <<if $submissive lte 500>>
-            <<link [[위협한다|Photo High Squirrel Threaten]]>><<def 1>><</link>><<defianttext>>
-            <br>
-        <</if>>
-        <<if $submissive gte 1500>>
-            <<link [[애원한다|Photo High Squirrel Beg]]>><<sub 1>><<photo_attention 2>><<photo_interest 2>><</link>><<submissivetext>><<ggattention>><<gginterest>>
-            <br>
-        <</if>>
-        <<if $worn.lower.type.includes("naked")>>
-            <<link [[상점으로 도망쳐 본다 (0:02)|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><<photo_attention 3>><<overruined>><</link>><<gggattention>>
-        <<else>>
-            <<link [[게임 상점으로 돌아간다 (0:05)|Photo High Return]]>><<endevent>><<overruined>><<photo_pass 5>><</link>>
-            <br>
-        <</if>>
-        <br>
-    <<else>>
-        당신은 허둥지둥 의상 안으로 들어간다.
-        <<silently>><<clotheson>><</silently>>
-        <br><br>
-        <<photo_high_options>>
-    <</if>>
+		<<if $money gte 10000>>
+			<<link [[£100를 제안한다|Photo High Squirrel Money]]>><</link>>
+			<br>
+		<<else>>
+			<span class="blue">만족시킬 만큼 돈이 충분하지 않다.</span>
+			<br>
+		<</if>>
+		<<link [[공격한다|Photo High Squirrel Attack]]>><<photo_attention 1>><</link>><<physiquedifficulty 1 16000>><<gattention>>
+		<br>
+		<<if $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 5)>>
+			<<link [[조롱한다|Photo High Squirrel Mock Naked]]>><<photo_attention 1>><</link>><<exhibitionist5>><<gattention>>
+			<br>
+		<</if>>
+		<<if $worn.lower.type.includes("naked") and !["naked","lower_covering"].includes($worn.under_lower.type) and hasSexStat("exhibitionism", 3)>>
+			<<link [[조롱한다|Photo High Squirrel Mock Undies]]>><<photo_attention 1>><</link>><<exhibitionist3>><<gattention>>
+			<br>
+		<</if>>
+		<<if displayDefiantOption(500)>>
+			<<link [[위협한다|Photo High Squirrel Threaten]]>><<def 1>><<wolfDefiant 500>><</link>><<defianttext 500>>
+			<br>
+		<</if>>
+		<<if $submissive gte 1500>>
+			<<link [[애원한다|Photo High Squirrel Beg]]>><<sub 1>><<photo_attention 2>><<photo_interest 2>><</link>><<submissivetext>><<ggattention>><<gginterest>>
+			<br>
+		<</if>>
+		<<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("lower_covering")>>
+			<<link [[상점으로 도망쳐 본다 (0:02)|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><<photo_attention 3>><<overruined>><</link>><<gggattention>>
+		<<else>>
+			<<link [[게임 상점으로 돌아간다 (0:05)|Photo High Return]]>><<endevent>><<overruined>><<photo_pass 5>><</link>>
+			<br>
+		<</if>>
+		<br>
+	<<else>>
+		당신은 허둥지둥 의상 안으로 들어간다.
+		<<silently>><<clotheson>><</silently>>
+		<br><br>
+		<<photo_high_options>>
+	<</if>>
 <<else>>
     당신은 사람들의 재밌어하는 시선을 한 몸에 받는다. 부끄러워하며 다시 의상 안으로 기어들어 간다.<<gattention>><<photo_attention 1>><<silently>><<clotheson>><</silently>>
     <br><br>
@@ -1071,31 +1067,31 @@
 <</if>>
 
 <<if $phase gte 1>>
-    <<link [[공격한다|Photo High Squirrel Attack]]>><<photo_attention 1>><</link>><<physiquedifficulty 1 16000>><<gattention>>
-    <br>
-    <<if $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 5)>>
-        <<link [[조롱한다|Photo High Squirrel Mock Naked]]>><<photo_attention 1>><</link>><<exhibitionist5>><<gattention>>
-        <br>
-    <</if>>
-    <<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 3)>>
-        <<link [[조롱한다|Photo High Squirrel Mock Undies]]>><<photo_attention 1>><</link>><<exhibitionist3>><<gattention>>
-        <br>
-    <</if>>
-    <<if $submissive lte 500>>
-        <<link [[위협한다|Photo High Squirrel Threaten]]>><<def 1>><</link>><<defianttext>>
-        <br>
-    <</if>>
-    <<if $submissive gte 1500>>
-        <<link [[애원한다|Photo High Squirrel Beg]]>><<sub 1>><<photo_attention 2>><<photo_interest 2>><</link>><<submissivetext>><<ggattention>><<gginterest>>
-        <br>
-    <</if>>
-    <<if $worn.lower.type.includes("naked")>>
-        <<link [[상점으로 도망쳐 본다 (0:02)|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><<photo_attention 3>><<overruined>><</link>><<gggattention>>
-    <<else>>
-        <<link [[게임 상점으로 돌아간다 (0:05)|Photo High Return]]>><<endevent>><<overruined>><<photo_pass 5>><</link>>
-        <br>
-    <</if>>
-    <br>
+	<<link [[공격한다|Photo High Squirrel Attack]]>><<photo_attention 1>><</link>><<physiquedifficulty 1 16000>><<gattention>>
+	<br>
+	<<if $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 5)>>
+		<<link [[조롱한다|Photo High Squirrel Mock Naked]]>><<photo_attention 1>><</link>><<exhibitionist5>><<gattention>>
+		<br>
+	<</if>>
+	<<if $worn.lower.type.includes("naked") and !["naked","lower_covering"].includes($worn.under_lower.type) and hasSexStat("exhibitionism", 3)>>
+		<<link [[조롱한다|Photo High Squirrel Mock Undies]]>><<photo_attention 1>><</link>><<exhibitionist3>><<gattention>>
+		<br>
+	<</if>>
+	<<if displayDefiantOption(500)>>
+		<<link [[위협한다|Photo High Squirrel Threaten]]>><<def 1>><<wolfDefiant 500>><</link>><<defianttext 500>>
+		<br>
+	<</if>>
+	<<if $submissive gte 1500>>
+		<<link [[애원한다|Photo High Squirrel Beg]]>><<sub 1>><<photo_attention 2>><<photo_interest 2>><</link>><<submissivetext>><<ggattention>><<gginterest>>
+		<br>
+	<</if>>
+	<<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("lower_covering")>>
+		<<link [[상점으로 도망쳐 본다 (0:02)|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><<photo_attention 3>><<overruined>><</link>><<gggattention>>
+	<<else>>
+		<<link [[게임 상점으로 돌아간다 (0:05)|Photo High Return]]>><<endevent>><<overruined>><<photo_pass 5>><</link>>
+		<br>
+	<</if>>
+	<br>
 <</if>>
 
 :: Photo High Squirrel Pay
@@ -1127,12 +1123,12 @@
     <<endevent>>
     <<photo_high_options>>
 <<else>>
-    당신은 <<person>>에게 돌진했지만, <span class="red"><<he>>【이가】 발을 걸어 버리는 바람에</span> 엎어지고 만다.<<gattention>><<gpain>><<gstress>><<pain 4>><<stress 6>><<photo_attention 1>>
-    <br><br>
-    <<overruined>>
-    <<if $worn.lower.type.includes("naked")>>
-        당신이 몸을 추스르기도 전에, <<He>>【은는】 당신의 의상을 집어 들고 튀어 버린다. 당신은 거리에 고스란히 노출되었다.
-        <br><br>
+	당신은 <<person>>에게 돌진했지만, <span class="red"><<he>>【이가】 발을 걸어 버리는 바람에</span> 엎어지고 만다.<<gattention>><<gpain>><<gstress>><<pain 4>><<stress 6>><<photo_attention 1>>
+	<br><br>
+	<<overruined>>
+	<<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("lower_covering")>>
+		당신이 몸을 추스르기도 전에, <<He>>【은는】 당신의 의상을 집어 들고 튀어 버린다. 당신은 거리에 고스란히 노출되었다.
+		<br><br>
 
         <<link [[다음|Photo High Exhibitionism]]>><<endevent>><</link>>
         <br>
@@ -1245,19 +1241,19 @@
     <<photo_high_options>>
 
 <<else>>
-    <<person1>><<person>>【와과】 <<person2>><<person>>【은는】 서로 시선을 교환하더니, <span class="red">이내 폭소를 터뜨린다.</span>
-    <br><br>
-    "존나 병신 같네." <<person1>><<person>>【이가】 말한다. "꺼져. 너랑 같이 있는 거 보이기 싫으니까."<<lcool>><<gtrauma>><<gstress>><<status -1>><<trauma 6>><<stress 6>>
-    <br><br>
-    <<if $submissive lte 500>>
-        <<link [[그들을 놀래킨다|Photo High School Popular Scare]]>><<photo_attention 1>><<photo_interest 1>><<stress -6>><</link>><<defianttext>><<gattention>><<ginterest>><<lstress>>
-        <br>
-        <<link [[그냥 떠난다|Photo High School Popular Walk]]>><</link>>
-        <br>
-    <<else>>
-        <<endevent>>
-        <<photo_high_options>>
-    <</if>>
+	<<person1>><<person>>【와과】 <<person2>><<person>>【은는】 서로 시선을 교환하더니, <span class="red">이내 폭소를 터뜨린다.</span>
+	<br><br>
+	"존나 병신 같네." <<person1>><<person>>【이가】 말한다. "꺼져. 너랑 같이 있는 거 보이기 싫으니까."<<lcool>><<gtrauma>><<gstress>><<status -1>><<trauma 6>><<stress 6>>
+	<br><br>
+	<<if displayDefiantOption(500)>>
+		<<link [[그들을 놀래킨다|Photo High School Popular Scare]]>><<photo_attention 1>><<photo_interest 1>><<stress -6>><<wolfDefiant 500>><</link>><<defianttext 500>><<gattention>><<ginterest>><<lstress>>
+		<br>
+		<<link [[그냥 떠난다|Photo High School Popular Walk]]>><</link>>
+		<br>
+	<<else>>
+		<<endevent>>
+		<<photo_high_options>>
+	<</if>>
 <</if>>
 
 :: Photo High School Popular Scare
@@ -1349,7 +1345,7 @@
 :: Photo High Exhibitionism
 <<effects>>
 
-당신은 하이 스트리트에 숨어, 게임 상점으로 돌아갈 길을 찾고 있다. <<covered>>
+당신은 하이 가에 숨어, 게임 상점으로 돌아갈 길을 찾고 있다. <<covered>>
 <br><br>
 <<if $photo_location is 7>>
     여기엔 몸을 숨길 곳이 마땅치 않다. 당신은 인접한 골목 중 한 곳에 숨는다.
@@ -1418,7 +1414,7 @@
 		<<case 3>>
 			주차된 차량 행렬은 여러 상점 뒤로 이어지는 골목 옆에서 끝난다. 당신은 적절한 때를 기다렸다가 나타나, 남들 눈에 띄기 전에 시야 밖으로 몸을 피한다.
 		<<case 2>>
-			당신은 오솔길 끝에 다다른 뒤, 하이 스트리트에 있는 누군가가 당신 쪽을 쳐다보기도 전에 주차된 차 밑으로 몸을 숨긴다.
+			당신은 오솔길 끝에 다다른 뒤, 하이 가에 있는 누군가가 당신 쪽을 쳐다보기도 전에 주차된 차 밑으로 몸을 숨긴다.
 		<<default>>
 			당신은 쓰레기 수거함 뒤에 숨어 쇼핑객 무리가 지나가길 기다린다.
 	<</switch>>
@@ -1528,7 +1524,7 @@
 <<if $fame.model gte random(400, 1000)>>
     <<set $photo_high_caught to 1>>
     <<if random(1, 2) is 2>>
-        "어이," 누군가 소리친다. "나 쟤 알아. <<overworld_nickname>>【이】잖아."
+        "어이." 누군가 소리친다. "나 쟤 알아. <<overworld_nickname>>【이】잖아."
     <<else>>
         "저거 <<overworld_nickname>> 아니야?"
     <</if>>
@@ -1774,7 +1770,7 @@
     <<endcombat>>
     <<link [[다음|Photo High Exhibitionism Run Shop]]>><<clotheson>><<photo_high_gang_clear>><</link>>
 <<elseif $enemyhealth lte 0>>
-    "씨발," <<person1>><<person>>【이가】 다친 곳을 부여잡으며 말한다. "누가 쟤 좀 잡아!" 아무도 나서지 않는다. <<tearful>> 당신은 거리로 도망친다.
+    "씨발." <<person1>><<person>>【이가】 다친 곳을 부여잡으며 말한다. "누가 쟤 좀 잡아!" 아무도 나서지 않는다. <<tearful>> 당신은 거리로 도망친다.
     <br><br>
     당신은 길을 계속 달려, 당황한 사람들을 지나쳐 게임 상점까지 무사히 돌아온다.
     <br><br>
@@ -1854,7 +1850,7 @@
     <</if>>
     <br><br>
 
-    "나도 들키긴 싫은데." <<person2>><<person>>【이가】 말한다. "우리 것도 가져와."
+    "나도 들키긴 싫은데," <<person2>><<person>>【이가】 말한다. "우리 것도 가져와."
     <br><br>
 
     <<photo_pass 1>>
@@ -2062,7 +2058,7 @@
 <<He>>【은는】 골목을 지나 비좁은 계단 아래로 당신을 안내한다. <<He>>【은는】 문을 열고 당신이 들어갈 때 의상을 건네준다.
 <br><br>
 
-종이 상자가 높게 쌓인 작은 방이다. 당신은 의상을 입고 하이 스트리트 본거리로 돌아온다.
+종이 상자가 높게 쌓인 작은 방이다. 당신은 의상을 입고 하이 가 본거리로 돌아온다.
 <br><br>
 
 
@@ -2077,7 +2073,7 @@
 <<He>>【은는】 골목을 지나 비좁은 계단 아래로 당신을 안내한다. <<He>>【은는】 문을 열고 당신이 들어갈 때 의상을 건네준다.
 <br><br>
 
-종이 상자가 높게 쌓인 작은 방이다. 당신은 의상을 입고 하이 스트리트 본거리로 돌아온다.
+종이 상자가 높게 쌓인 작은 방이다. 당신은 의상을 입고 하이 가 본거리로 돌아온다.
 <br><br>
 
 <<endevent>>
@@ -2244,8 +2240,8 @@
     <br><br>
 <</if>>
 
-<<if $worn.lower.type.includes("naked")>>
-    <<link [[다음|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><</link>>
+<<if $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("lower_covering")>>
+	<<link [[다음|Photo High Exhibitionism]]>><<endevent>><<photo_pass 2>><</link>>
 <<else>>
     <<link [[다음|Photo High Return]]>><<endevent>><<photo_pass 5>><</link>>
     <br>

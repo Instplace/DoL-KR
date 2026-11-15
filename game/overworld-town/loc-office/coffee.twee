@@ -216,9 +216,9 @@
 	<<endcombat>>
 	<<passout>>
 	<<if $officecomplaints gte 10>>
-		<<link [[모든 것이 까맣게 흐려진다...|Office Security Max Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Office Security Max Passout]]>><</link>>
 	<<else>>
-		<<link [[모든 것이 까맣게 흐려진다...|Office Coffee Swarm Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Office Coffee Swarm Passout]]>><</link>>
 	<</if>>
 <<else>>
 	<<tearful>> 당신은 물고기 떼에서 벗어나 연못 밖으로 기어 나온다.

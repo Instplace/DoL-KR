@@ -18,7 +18,7 @@
 	<<loadNPC 0 "chalets_manager">><<person1>>
 	당신은 샬레에 접근하여 관리 건물로 들어간다. 매니저가 <<his>> 책상에서 고개를 든다.
 	<br><br>
-	"아," <<he>>【이가】 말한다. "마음이 바뀌었나? 일에 관심 있어?"
+	"아." <<he>>【이가】 말한다. "마음이 바뀌었나? 일에 관심 있어?"
 	<br><br>
 
 	<<link [[네|Chalets Intro Yes]]>><<set $chaletsintro to 2>><</link>>
@@ -47,7 +47,7 @@
 
 "좋아. 원할 때 시작해." <<He>>【이가】 다시 <<his>> 서류 작업으로 돌아간다.
 <br><br>
-"아," 당신이 떠날 때 <<he>>【이가】 부른다. "휴가 온 사람들이 좀 손버릇이 나쁠 수 있으니 조심해. 그냥 핑곗거리만 주지 마, 알았지? 윗사람들은 그런 일에 눈감아 주거든."
+"아." 당신이 떠날 때 <<he>>【이가】 부른다. "휴가 온 사람들이 좀 손버릇이 나쁠 수 있으니 조심해. 그냥 핑곗거리만 주지 마, 알았지? 윗사람들은 그런 일에 눈감아 주거든."
 <br><br>
 
 <<link [[다음|Starfish Street]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -115,7 +115,7 @@
 	<span class="blue">관광객들이 밤을 보내기 위해 샬레로 돌아가고 있다.</span>
 	<br>
 <</if>>
-<<getouticon>><<link [[떠나기|Chalets Work End]]>><</link>>
+<<getouticon>><<link [[떠난다|Chalets Work End]]>><</link>>
 <br>
 
 :: Chalets Knock

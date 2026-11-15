@@ -252,7 +252,11 @@
 	max: 30,
 	blind: false
 }>>
-<<checkbox "$hcChallengeRandom.blind" false true autocheck>> <span class="gold">무작위 도전 과제 숨기기</span> <span class="tooltip-anchor linkBlue" tooltip='활성화하면, "무작위 도전 과제로 진행"을 선택했을 때 어떤 도전 과제가 활성화되었는지 알려주지 않습니다.<br><span class="red">모든 도전 과제에 익숙하지 않다면 권장하지 않습니다.</span>'>(?)</span>
+<label>
+<<checkbox "$hcChallengeRandom.blind" false true autocheck>>
+<span class="gold">무작위 도전 과제 숨기기</span>
+</label>
+<span class="tooltip-anchor linkBlue" tooltip='활성화하면, "무작위 도전 과제로 진행"을 선택했을 때 어떤 도전 과제가 활성화되었는지 알려주지 않습니다.<br><span class="red">모든 도전 과제에 익숙하지 않다면 권장하지 않습니다.</span>'>(?)</span>
 <br>
 <<hcChallengeRandomSliders>>
 <br><br>
@@ -621,7 +625,7 @@
 		<br>
 	<</if>>
 
-	<<if $debug is 1>>
+	<<if $debug>>
 		<br>
 		<<hcicon "bucket">><<link [[아이템 디버그|Hopeless Cycle Debug]]>><</link>>
 		<br>
@@ -865,7 +869,7 @@
 		거대한 <<beasttype>>【이가】 물 밖으로 솟구쳐 오른다! <<bhim>>에게는 <<bhis>> 크기 외에도 부자연스러운 점이 있다. 눈썹 뼈에서 마치 나뭇가지 같은 것이 튀어나와 있다.
 		<br><br>
 
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("lizard", $monster is 1)>>
 			<<bHes>> 순식간에 당신에게 달려든다.
 			<br><br>
 
@@ -1790,7 +1794,7 @@
 		<<templeicon "altar">><<link [[미사 참석 (1:00)|Hopeless Cycle Temple]]>><<set $hcAction to "mass">><<pass 60>><<set $hc.daily.massAttended to 1>><<stress -100>><<trauma -50>><</link>><<lllstress>><<llltrauma>>
 		<br>
 	<<else>>
-		<<templeicon "pray">><<link [[기도하기 (1:00)|Hopeless Cycle Temple]]>><<set $hcAction to "pray">><<pass 60>><<stress -2>><<trauma -6>><</link>><<lstress>><<ltrauma>>
+		<<templeicon "pray">><<link [[기도한다 (1:00)|Hopeless Cycle Temple]]>><<set $hcAction to "pray">><<pass 60>><<stress -2>><<trauma -6>><</link>><<lstress>><<ltrauma>>
 		<br>
 	<</if>>
 	<br>
@@ -1944,7 +1948,7 @@
 						<</for>>
 					<</if>>
 				<<else>>
-					<<animalicon "dog">><<link [[개 쓰다듬기 (0:05)|Hopeless Cycle Garden]]>><<set $hc.dogsTimer[_i]++>><<pass 5>><<stress -3>><<set $itemAction to "petTheDog">><</link>><<lstress>>
+					<<animalicon "dog">><<link [[개를 쓰다듬는다 (0:05)|Hopeless Cycle Garden]]>><<set $hc.dogsTimer[_i]++>><<pass 5>><<stress -3>><<set $itemAction to "petTheDog">><</link>><<lstress>>
 					<br>
 				<</if>>
 			<</capture>>
@@ -1955,10 +1959,10 @@
 	<div id="hcItems" class="no-numberify"><<hopelessCycleItemLinks>></div>
 	<b><u>장소:</u></b><br>
 	<<if Time.dayState is "night">>
-		<<lakeicon "campfire">><<link [[장작더미에 접근하기|Hopeless Cycle Pyre]]>><<set $hcAction to "approach">><</link>>
+		<<lakeicon "campfire">><<link [[장작더미에 접근한다|Hopeless Cycle Pyre]]>><<set $hcAction to "approach">><</link>>
 		<br><br>
 	<<else>>
-		<<templeicon "trial">><<link [[석탄 화로에 접근하기|Hopeless Cycle Pyre]]>><<set $hcAction to "approach">><</link>>
+		<<templeicon "trial">><<link [[석탄 화로에 접근한다|Hopeless Cycle Pyre]]>><<set $hcAction to "approach">><</link>>
 		<br><br>
 	<</if>>
 	<<wolficon>><<link [[신전 본당 (0:01)|Hopeless Cycle Temple]]>><<pass 1>><</link>>
@@ -2050,11 +2054,11 @@
 		<br>
 	<</if>>
 
-	<<link [[일 그만하기|Hopeless Cycle Garden]]>><<endevent>><</link>>
+	<<link [[일을 그만둔다|Hopeless Cycle Garden]]>><<endevent>><</link>>
 	<br>
 	<<set _loc to hcItemHasFreeHand() ? "held" : "garden">>
 	<<capture _loc>>
-		<<link [[과일 훔치기|Hopeless Cycle Garden]]>><<run hcItemAdd({ type: "food", name: "stolen fruit", location: _loc, origin: "garden", dirty: 0, dirtyOnDrop: true })>><<endevent>><<hcSuspicion 5>><</link>><<hopelessCycleSus 1>>
+		<<link [[과일을 훔친다|Hopeless Cycle Garden]]>><<run hcItemAdd({ type: "food", name: "stolen fruit", location: _loc, origin: "garden", dirty: 0, dirtyOnDrop: true })>><<endevent>><<hcSuspicion 5>><</link>><<hopelessCycleSus 1>>
 		<br>
 	<</capture>>
 <</if>>
@@ -2084,7 +2088,7 @@
 		<br><br>
 
 		<<if !$hc.daily.trialOfPurity>>
-			<<link [[순결의 시험에 도전하기 <<hcTimeTaskDisplay>>|Hopeless Cycle Firewalk]]>><<hcTimeTaskPass>><<set $hc.daily.trialOfPurity to true>><</link>><<gwillpower>><<hopelessCycleSus -1>>
+			<<link [[순결의 시련에 도전하기 <<hcTimeTaskDisplay>>|Hopeless Cycle Firewalk]]>><<hcTimeTaskPass>><<set $hc.daily.trialOfPurity to true>><</link>><<gwillpower>><<hopelessCycleSus -1>>
 			<br>
 		<</if>>
 	<<else>>
@@ -2114,7 +2118,7 @@
 	숯에서 연기가 피어오른다. 당신은 깊은 숨을 들이쉬고 그 위로 발을 내딛는다. 따뜻하다.
 	<br><br>
 
-	<<templeicon "trialcontinue">><<link [[계속하기|Hopeless Cycle Firewalk]]>><<set $hc.firewalk++>><</link>><<gpain>>
+	<<templeicon "trialcontinue">><<link [[계속한다|Hopeless Cycle Firewalk]]>><<set $hc.firewalk++>><</link>><<gpain>>
 	<br>
 <<elseif $hc.firewalk gte 6>>
 	<<unset $fire>>
@@ -2159,10 +2163,10 @@
 	<br><br>
 
 	<<if _success>>
-		<<templeicon "trialcontinue">><<link [[계속하기|Hopeless Cycle Firewalk]]>><<set $hc.firewalk++>><</link>><<gpain>>
+		<<templeicon "trialcontinue">><<link [[계속한다|Hopeless Cycle Firewalk]]>><<set $hc.firewalk++>><</link>><<gpain>>
 		<br>
 	<</if>>
-	<<templeicon "trialbail">><<link [[뛰어내리기|Hopeless Cycle Firewalk Jump]]>><<run delete $hc.firewalk>><</link>>
+	<<templeicon "trialbail">><<link [[뛰어내린다|Hopeless Cycle Firewalk Jump]]>><<run delete $hc.firewalk>><</link>>
 	<br>
 <</if>>
 
@@ -2199,11 +2203,11 @@
 <</if>>
 
 <<if $hcForest lt 25>>
-	<<getinicon>><<link [[숲 속 깊이 들어가기 (0:10)|Hopeless Cycle Forest]]>><<pass 10>><<hcForest "forward">><</link>>
+	<<getinicon>><<link [[숲 속 깊이 들어간다 (0:10)|Hopeless Cycle Forest]]>><<pass 10>><<hcForest "forward">><</link>>
 	<br>
 <</if>>
 <<if $hcForest gt 0>>
-	<<getouticon>><<link [[신전 방향으로 이동하기 (0:10)|Hopeless Cycle Forest]]>><<pass 10>><<hcForest "back">><</link>>
+	<<getouticon>><<link [[신전 방향으로 이동한다 (0:10)|Hopeless Cycle Forest]]>><<pass 10>><<hcForest "back">><</link>>
 	<br>
 <</if>>
 
@@ -2267,7 +2271,7 @@
 <<set _bones to hcItemCanReach("bones")>>
 <<if _bones>>
 	<<capture _bones>>
-		<<hcicon "bones">><<link [[호수에 뼈 던지기|Hopeless Cycle Wraith]]>><<run hcItemRemove(_bones)>><</link>>
+		<<hcicon "bones">><<link [[호수에 뼈를 던진다|Hopeless Cycle Wraith]]>><<run hcItemRemove(_bones)>><</link>>
 		<br><br>
 	<</capture>>
 <</if>>
@@ -2276,7 +2280,7 @@
 	<span class="gold">여기에 양동이가 있다. 신전에서 온 것 같다.</span>
 	<br>
 	<<if hcItemHasFreeHand()>>
-		<<hcicon "bucket">><<link [[가져가기|Hopeless Cycle Lake Bucket]]>><<set $hc.lakeBucket to true>><</link>>
+		<<hcicon "bucket">><<link [[가져간다|Hopeless Cycle Lake Bucket]]>><<set $hc.lakeBucket to true>><</link>>
 		<br>
 	<</if>>
 	<br>
@@ -3100,7 +3104,7 @@
 
 <<link [[예|Hopeless Cycle Prayer Report 3]]>><<set $phase to 1>><</link>>
 <br>
-<<link [[아니오|Hopeless Cycle Prayer Report 3]]>><<set $phase to 2>><</link>>
+<<link [[아니요|Hopeless Cycle Prayer Report 3]]>><<set $phase to 2>><</link>>
 <br>
 
 :: Hopeless Cycle Prayer Report 3
@@ -3124,7 +3128,7 @@
 그녀는 그를 보고 눈을 깜빡일 뿐, 그의 말을 이해하지 못하는 듯하다. 하지만 그녀의 눈길이 오른쪽의 수도사에게 닿는다. 그 시선에는 노골적인 증오가 담겨 있다. 손에게는 그것으로 충분한 신호다.
 <br><br>
 
-그는 다른 수도사를 감옥 밖으로 밀쳐내고, 기다리고 있던 고해사제들의 팔에 넘긴다. "너는 정화되어야 한다," 그들이 말한다. 그는 그저 평범한 처벌만 받게 된 것에 안도하는 듯하다.
+그는 다른 수도사를 감옥 밖으로 밀쳐내고, 기다리고 있던 고해사제들의 팔에 넘긴다. "너는 정화되어야 한다." 그들이 말한다. 그는 그저 평범한 처벌만 받게 된 것에 안도하는 듯하다.
 <br><br>
 
 죄를 지은 수도사가 주교의 손에 붙잡힌 채 몸부림치며 비웃는다. "이건 터무니없습니다. 이 창녀를 신께 더 가까이 데려간 것으로 벌을 받아서는 안 됩니다!" 주교의 손이 그의 얼굴을 정통으로 가격하자 그는 잠잠해지며 바닥에 쓰러진다.
@@ -3645,7 +3649,7 @@
 	writing_right_foot: _brandings.right_foot
 }>>
 <<if $hcChallenge.faithBlooms>>
-	<<set $follower.hair += "_challenge-faithBlooms">>
+	<<set $follower.hair += "-challenge-faithBlooms">>
 <</if>>
 
 <<run Time.timeTravel(new DateTime(1390, 5, 31, 22, 0))>>
@@ -4911,7 +4915,7 @@
 <br><br>
 
 그녀의 머리가 천천히 들어 올려진다. 턱은 늘어지고 갈라져 느슨하게 매달려 있고, 보라색 힘줄이 입에서 늘어져 있다.
-<span class="red">엘크의 자손이 날카로운 포효를 내지르며 거미 같은 다리로 뛰어올라 무리를 쫓는다.</span>
+<span class="red">엘크스폰이 날카로운 포효를 내지르며 거미 같은 다리로 뛰어올라 무리를 쫓는다.</span>
 <br><br>
 
 <<link [[달린다|Hopeless Cycle Ending B 3]]>><<set $phase to 1>><<pass 30>><<tiredness 12>><</link>><<gggtiredness>>
@@ -5623,7 +5627,7 @@
 </span>
 <br><br>
 
-그녀는 괴물이다. 엘크의 자손. 당신이 결코 곁에 서리라 생각지 못했던 존재지만, 당신의 의무가 그것을 요구한다.
+그녀는 괴물이다. 엘크스폰. 당신이 결코 곁에 서리라 생각지 못했던 존재지만, 당신의 의무가 그것을 요구한다.
 <br><br>
 
 당신들은 서로를 놓고 등을 맞댄다. 당신들은 포위되었다. 당신의 형제들이 다가온다.
@@ -6108,5 +6112,5 @@
 <br>
 <<icon "alert.png">><<link [[아이템 설정 재실행|Hopeless Cycle Debug]]>><<run hcItemSetup()>><</link>>
 <br><br>
-<<getouticon>><<link [[돌아가기|Hopeless Cycle Dungeon]]>><</link>>
+<<getouticon>><<link [[돌아간다|Hopeless Cycle Dungeon]]>><</link>>
 <br>

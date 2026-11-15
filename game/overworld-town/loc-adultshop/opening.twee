@@ -215,7 +215,7 @@
 작업실인 듯하다. 표면은 신비한 장치들로 덮여 있고, 바닥에는 예비 부품들이 어지럽게 널려 있다. 뒤쪽에는 낡은 원통형 보일러가 있지만, 파이프는 파란 불빛이 점점이 박힌 진동 기계를 통해 재배치되어 있다.
 <br><br>
 
-"어수선해서 죄송합니다," 시리스가 말한다. "여기가 사생활을 보장받을 수 있는 유일한 곳이라서요. 여기요." <<He>>【은는】 당신에게 천 뭉치 두 개를 건네준다. 하나는 <span class="lblue">젖소 무늬 한벌옷</span>이고, 다른 하나는 <span class="purple">베이비돌 란제리</span> 세트다.
+"어수선해서 죄송합니다." 시리스가 말한다. "여기가 사생활을 보장받을 수 있는 유일한 곳이라서요. 여기요." <<He>>【은는】 당신에게 천 뭉치 두 개를 건네준다. 하나는 <span class="lblue">젖소 무늬 한벌옷</span>이고, 다른 하나는 <span class="purple">베이비돌 란제리</span> 세트다.
 <br><br>
 
 "베이비돌을 홍보하고 싶지만, 싫다면 이해해요. 한벌옷도 귀엽고요. 당신에게 맡길게요." <<He>>【은는】 <<him>> 뒤로 문을 닫는다.
@@ -263,7 +263,7 @@
 <</if>>
 <<link [[추파를 던진다|Adult Shop Opening Pure 2]]>><<set $phase to 1>><</link>><<promiscuous1>>
 <br>
-<<link [[아니오|Adult Shop Opening Pure 2]]>><<set $phase to 0>><</link>>
+<<link [[아니요|Adult Shop Opening Pure 2]]>><<set $phase to 0>><</link>>
 <br>
 
 :: Adult Shop Opening Pure Babydoll
@@ -295,7 +295,7 @@
 <</if>>
 <<link [[추파를 던진다|Adult Shop Opening Pure 2]]>><<set $phase to 1>><</link>><<promiscuous1>>
 <br>
-<<link [[아니오|Adult Shop Opening Pure 2]]>><<set $phase to 0>><</link>>
+<<link [[아니요|Adult Shop Opening Pure 2]]>><<set $phase to 0>><</link>>
 <br>
 
 :: Adult Shop Opening Pure 2
@@ -303,7 +303,7 @@
 
 <<if $phase is 2>>
 	<<if $speech_attitude is "meek">>
-		"ㅈ-제가 얼마죠?" 당신이 묻는다.
+		"제-제가 얼마죠?" 당신이 묻는다.
 	<<elseif $speech_attitude is "bratty">>
 		"날 살 돈은 없을 텐데." 당신이 얕보는 눈길로 말한다.
 	<<else>>
@@ -317,7 +317,7 @@
 	<br><br>
 <<elseif $phase is 1>>
 	<<if $speech_attitude is "meek">>
-		"ㅈ-제가 매력적인가요?" 당신이 묻는다. "모델링 잘 하고 있나요?"
+		"제-제가 매력적인가요?" 당신이 묻는다. "모델링 잘 하고 있나요?"
 	<<elseif $speech_attitude is "bratty">>
 		"입 조심하는 게 좋을걸." 당신이 나른하게 속삭인다. "네 목구멍에 처박아줄 게 있거든."
 	<<else>>
@@ -557,7 +557,7 @@
 <<run statusCheck("Sydney")>>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ-좋으시다면 사진 찍으셔도 돼요." 당신이 말한다.
+	"조-좋으시다면 사진 찍으셔도 돼요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"찍으세요." 당신이 말한다. "빨리만 찍어주세요. 줄이 밀려있으니까요."
 <<else>>
@@ -570,7 +570,7 @@
 <br><br>
 
 <<person1>>
-시드니는 본능적으로 <<his>> 십자가를 찾지만, 한벌옷 안에 숨겨져 있다. "ㅈ-절대 안 돼! 당장 나가!" 그 <<person4>><<person>>【은는】 어린애처럼 뚱하지만, 시드니가 지시하는 대로 한다.
+시드니는 본능적으로 <<his>> 십자가를 찾지만, 한벌옷 안에 숨겨져 있다. "저-절대 안 돼! 당장 나가!" 그 <<person4>><<person>>【은는】 어린애처럼 뚱하지만, 시드니가 지시하는 대로 한다.
 <br><br>
 
 <<link [[다음|Adult Shop Opening Neutral 2]]>><</link>>
@@ -582,7 +582,7 @@
 
 당신은 고개를 젓는다.
 <<if $speech_attitude is "meek">>
-	"ㅈ-정말 죄송해요." 당신이 말한다. "하지만 사진은 안 돼요."
+	"저-정말 죄송해요." 당신이 말한다. "하지만 사진은 안 돼요."
 <<elseif $speech_attitude is "bratty">>
 	"사진 촬영은 금지입니다." 당신이 말한다. "찍으려는 사람은 누구든 쫓겨날 거예요."
 <<else>>
@@ -593,7 +593,7 @@
 실망의 웅성거림이 있지만, 시드니는 안도하는 것 같다. 그러다 <<person4>><<person>>【이가】 침대 틀에 기댈 때까지였다. "우리한테 장난감 시연해 줄 거야?" <<he>>【이가】 묻는다.
 <br><br>
 
-<<person1>>시드니는 본능적으로 <<his>> 십자가를 찾지만, 한벌옷 안에 숨겨져 있다. "ㅈ-절대 안 돼! 당장 나가!" 그 <<person4>><<person>>【은는】 어린애처럼 뚱하지만, 시드니가 지시하는 대로 한다.
+<<person1>>시드니는 본능적으로 <<his>> 십자가를 찾지만, 한벌옷 안에 숨겨져 있다. "저-절대 안 돼! 당장 나가!" 그 <<person4>><<person>>【은는】 어린애처럼 뚱하지만, 시드니가 지시하는 대로 한다.
 <br><br>
 
 <<link [[다음|Adult Shop Opening Neutral 2]]>><</link>>

@@ -7,7 +7,7 @@
 <<food_gift_list>>
 
 <<if _food_gift_found is true>>
-	<<skinicon "give">><<link [[선물 주기 (0:05)|Alex Gifts]]>><<endevent>><<pass 5>><<give_gift Alex>><</link>>
+	<<skinicon "give">><<link [[선물을 준다 (0:05)|Alex Gifts]]>><<endevent>><<pass 5>><<give_gift Alex>><</link>>
 	<br>
 <</if>>
 <<refuseicon>><<link [[다시 생각한다|Alex Gifts Reconsider]]>><</link>>
@@ -38,7 +38,7 @@
 <br><br>
 
 <<if $gift is "full_english_breakfast">>
-	알렉스가 씨익 웃는다. "이런 아침밥이라면 언제 먹어도 딱이지," <<he>>【이가】 말하며 서랍에서 손에 잡히는 나이프와 포크를 꺼낸다. <<He>>【은는】 곧바로 먹기 시작하더니, <<his>> 턱에 묻은 기름을 닦을 때만 잠깐 멈춘다.<<gglove>><<npcincr Alex love 3>>
+	알렉스가 씨익 웃는다. "이런 아침밥이라면 언제 먹어도 딱이지." <<he>>【이가】 말하며 서랍에서 손에 잡히는 나이프와 포크를 꺼낸다. <<He>>【은는】 곧바로 먹기 시작하더니, <<his>> 턱에 묻은 기름을 닦을 때만 잠깐 멈춘다.<<gglove>><<npcincr Alex love 3>>
 	<br><br>
 
 	<<link [["Tell " + $NPCList[0].pronouns.him + " to eat more gracefully"|Alex Gifts Breakfast Tell]]>><<npcincr Alex dom -1>><</link>><<ldom>>
@@ -50,7 +50,7 @@
 <<elseif $gift is "apple_crumble">>
 	"애플 크럼블!" 당신이 <<him>> 앞에 디저트를 놓자 알렉스가 말한다. "내가 제일 좋아하는 건데!" <<He>>【은는】 큰 숟가락으로 한가득 퍼서 <<his>> 입에 쑤셔 넣는다.
 	<br><br>
-	"과일이 딱 알맞게 새콤하네," <<he>>【이가】 입안 가득 음식을 넣은 채 말한다. "요리 솜씨 좋은데."<<gglove>><<npcincr Alex love 3>>
+	"과일이 딱 알맞게 새콤하네." <<he>>【이가】 입안 가득 음식을 넣은 채 말한다. "요리 솜씨 좋은데."<<gglove>><<npcincr Alex love 3>>
 	<br><br>
 	<<link [[감사를 표한다|Alex Gifts Crumble Thank]]>><</link>>
 	<br>
@@ -67,7 +67,7 @@
 	<</if>>
 	"이거 고급져 보이는데," 알렉스가 <<him>> 앞에 놓인 스테이크를 바라보며 말한다. "식당에서 파는 것 같아." <<He>>【은는】 고기를 조금 썰어내더니, 그 부드러움에 놀란 눈치다.
 	<br><br>
-	"와," <<he>>【이가】 입안 가득 음식을 넣은 채 말한다. "우리 <<person2>><<ma>>도 엄청 좋아하겠는걸."<<gglove>><<npcincr Alex love 3>>
+	"와." <<he>>【이가】 입안 가득 음식을 넣은 채 말한다. "우리 <<person2>><<ma>>도 엄청 좋아하겠는걸."<<gglove>><<npcincr Alex love 3>>
 	<br><br>
 	<<person1>><<He>>【은는】 음식을 너무 급하게 먹는다. 당신은 <<hes>> 목이 메지 않을까 걱정된다.
 	<br><br>
@@ -88,7 +88,7 @@
 	<</if>>
 	<<gglove>><<npcincr Alex love 3>>
 	<br><br>
-	<<He>>【은는】 상자를 열고 초콜릿 하나를 <<his>> 입에 쏙 집어넣는다. "정말 맛있다," <<he>>【이가】 우물거리며 말한다. "넌 솜씨가 참 좋네." <<He>>【은는】 또 하나, 또 하나 집어 먹는다. 초콜릿이 꽤 마음에 든 모양이다.
+	<<He>>【은는】 상자를 열고 초콜릿 하나를 <<his>> 입에 쏙 집어넣는다. "정말 맛있다." <<he>>【이가】 우물거리며 말한다. "넌 솜씨가 참 좋네." <<He>>【은는】 또 하나, 또 하나 집어 먹는다. 초콜릿이 꽤 마음에 든 모양이다.
 	<br><br>
 	<<if $farm_stage gte 7 and $alex_countdown is undefined>>
 		<<He>>【은는】 빈 상자를 옆으로 치워두고 당신을 향해 미소 짓는다. "키스라도 해줘야 하나?"
@@ -107,11 +107,11 @@
 		<br>
 	<</if>>
 <<elseif setup.foodstuff[$gift].food.tags.includes("spicy")>>
-	당신은 <<recipe_name $gift>>【을를】 알렉스 앞에 놓는다. <<He>>【은는】 입술을 핥는다. "매콤한 냄새가 풀풀 풍기네," <<he>>【이가】 식기를 집어 들며 말한다. "아주 화끈했으면 좋겠어."
+	당신은 <<recipe_name $gift>>【을를】 알렉스 앞에 놓는다. <<He>>【은는】 입술을 핥는다. "매콤한 냄새가 풀풀 풍기네." <<he>>【이가】 식기를 집어 들며 말한다. "아주 화끈했으면 좋겠어."
 	<br><br>
 	<<He>>【은는】 먹기 시작한다. 처음에는 별 탈 없어 보였으나, 이내 눈물이 찔끔 나기 시작한다. 그래도 <<He>>【은는】 접시를 싹 비울 때까지 숟가락을 놓지 않는다.
 	<br><br>
-	"고마워," <<he>>【이가】 휴지로 뺨을 훔치며 말한다. "식당 음식 같으면서도, 왠지 정성이 더 느껴지는 맛이야."<<glove>><<npcincr Alex love 1>>
+	"고마워." <<he>>【이가】 휴지로 뺨을 훔치며 말한다. "식당 음식 같으면서도, 왠지 정성이 더 느껴지는 맛이야."<<glove>><<npcincr Alex love 1>>
 	<br><br>
 	<<link [[다음|Farm Alex Bedroom]]>><<endevent>><</link>>
 	<br>
@@ -133,7 +133,7 @@
 	<</if>>
 	당신은 <<recipe_name $gift>>【을를】 내민다. 알렉스가 휘파람을 분다. "맛있어 보이는데," <<he>>【이가】 말한다. "전부 내 거야? 고마워."
 	<br><br>
-	<<He>>【은는】 한 입 베어 문다. <<His>> 얼굴에 만족감이 그대로 드러난다. "요리 진짜 잘하네," <<he>>【이가】 말한다. "<<person2>><<Mum>>보다 나아." 그러고는 또 한 입 베어 문다. "내가 이렇게 말했다고 <<him>>한텐 이르지 마."
+	<<He>>【은는】 한 입 베어 문다. <<His>> 얼굴에 만족감이 그대로 드러난다. "요리 진짜 잘하네." <<he>>【이가】 말한다. "<<person2>><<Mum>>보다 나아." 그러고는 또 한 입 베어 문다. "내가 이렇게 말했다고 <<him>>한텐 이르지 마."
 	<br><br>
 	<<person1>><<He>>【은는】 접시를 내려놓는다. "또 먹여주고 싶어지면 언제든 말해."<<glove>><<npcincr Alex love 1>>
 	<br><br>

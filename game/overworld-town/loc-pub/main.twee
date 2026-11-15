@@ -13,7 +13,7 @@
 		<br>
 	<</if>>
 	<<if $spray lt $spraymax and $money gte 250000>>
-		<<peppersprayicon>><<link [[후추 스프레이 충전을 산다 (£2500)|Pub Spray]]>><<spray 1>><<money -250000 "pubPepperSpray">><</link>>
+		<<peppersprayicon>><<link [[후추 스프레이 충전을 산다 (<<printmoney 250000>>)|Pub Spray]]>><<spray 1>><<money -250000 "pubPepperSpray">><</link>>
 		<br>
 	<</if>>
 	<<if crimeSumCurrent() gte 500 and !$pubtask>>
@@ -384,7 +384,7 @@
 		<</if>>
 		<<generate1>><<person1>>혼자 앉아 있는 <<person>>【이가】 보인다.
 		<br>
-		<<brothelicon>><<link [[추파 던지기 (0:05)|Pub Flirt]]>><<if !($weekly.theft.pub || $weekly.pubMusic)>><<clearsinglenpc 1>><</if>><<pass 5>><<set $pubdrink to 0>><</link>><<promiscuous1>>
+		<<brothelicon>><<link [[추파를 던진다 (0:05)|Pub Flirt]]>><<if !($weekly.theft.pub || $weekly.pubMusic)>><<clearsinglenpc 1>><</if>><<pass 5>><<set $pubdrink to 0>><</link>><<promiscuous1>>
 		<br>
 		<<investigateicon>><<link [[다른 사람을 찾아본다 (0:01)|Pub]]>><<endevent>><<pass 1>><</link>>
 		<br>
@@ -460,7 +460,7 @@
 	<<landryoptions>>
 	<<getouticon>><<link [[떠난다|Pub]]>><<endevent>><</link>>
 	<br>
-<<elseif $fake_artefact is undefined and $skulduggery gte 600 and C.npc.Avery.init is 1 and !$avery_fate or ($avery_mansion and $avery_mansion.landry is 1 and !$avery_fate)>>
+<<elseif $fake_artefact is undefined and $skulduggery gte 600 and C.npc.Avery.init is 1 and !$avery_fate or ($avery_mansion?.landry is 1 and !$avery_fate)>>
 	<<npc Landry 1>><<person1>>
 	바텐더에게 랜드리에 대해 묻자, 바텐더는 고개를 끄덕이며 늘 앉던 테이블로 당신을 안내한다. 늘 앉던 자리에 누군가 몸을 앞으로 숙인 채 조용히 이야기하고 있다. 그 사람은 후드가 달린 짙은 녹색 망토를 입고 있다.
 	<<if $transformationParts.fox.ears isnot "disabled" or $transformationParts.wolf.ears isnot "disabled" or $transformationParts.cat.ears isnot "disabled">>
@@ -518,7 +518,7 @@
 			"공범이라도 찾는 거야?" 당신이 묻는다. "미안하지만 랜드리 물건은 안 훔쳐."
 		<</if>>
 		<br><br>
-		"진정해, <<girl>>. 그런 일로 온 게 아니니까." <<he>>【이가】 말한다.
+		"진정해, <<girl>>. 그런 일로 온 게 아니니까," <<he>>【이가】 말한다.
 	<</if>>
 	<br><br>
 	"다른 걸 생각하고 있어. 우리 둘 다에게 이득이 될 만한 일. 일거리 말이야." <<He>>【이가】 당신을 보며 씨익 웃는다. "관심 있어?"
@@ -575,7 +575,7 @@
 	<br><br>
 <</if>>
 당신은 <span class="gold">£<<print $blackmoney>></span>【을를】 법니다.
-<<money `$blackmoney * 100` "pubStolenGoods">><<set $blackmoney to 0>>
+<<money `$blackmoney * 100` "pubStolenGoods">><<set $blackmoney to 0>><<unset $mine?.heldGem>>
 <br><br>
 <<getouticon>><<link [[술집|Pub]]>><<endevent>><</link>>
 <br>
@@ -657,7 +657,7 @@
 		<</if>>
 	<<else>>
 		"경찰 컴퓨터를 해킹한다고?" 랜드리가 몸을 뒤로 젖히며 묻는다. "네 스타일 마음에 드는군. 하지만 사이버 관련으로 내 도움을 바란다면, 운이 없네." <<He>>【은는】 생각에 잠겨 턱을 문지른다. "적임자가 한 명 있긴 하지.
-		<<if $pubfame and $pubfame.intro>>
+		<<if $pubfame?.intro>>
 			미키 기억나? 네 명성 문제 때문에 내가 소개해줬던 해커 말이야. 그 친구라면 해결할 수 있을 거야."
 		<<else>>
 			<span class="teal">도무스 가에 있는 고아원의 그 고아 말이야.</span> 컴퓨터 천재야. 미키, 아니면 맥케이, 뭐 그런 이름이었지."
@@ -666,7 +666,7 @@
 			랜드리가 누구를 말하는지 알지만, 한 번도 이야기해 본 적은 없다. 그 아이는 혼자 지내는 편이다.
 			<br><br>
 
-			"최선의 방법은," 랜드리가 말을 잇는다. "이 고아를 찾는 거야. 그 아이를 설득해서 나와 함께 일하게 만들면, 너한테도 돈이 좀 들어갈 거야. 베일리의 심기만 건드리지 마." <<He>>【이가】 미소 짓는다. "하지만 그건 이미 알고 있겠지."
+			"최선의 방법은." 랜드리가 말을 잇는다. "이 고아를 찾는 거야. 그 아이를 설득해서 나와 함께 일하게 만들면, 너한테도 돈이 좀 들어갈 거야. 베일리의 심기만 건드리지 마." <<He>>【이가】 미소 짓는다. "하지만 그건 이미 알고 있겠지."
 		<</if>>
 		<br><br>
 
@@ -677,27 +677,27 @@
 	<</if>>
 	<<exit>>
 <<elseif $police_hack is 4>>
-	"물론이지," 랜드리가 말한다. "10분만 줘."
+	"물론이지." 랜드리가 말한다. "10분만 줘."
 	<br><br>
 
 	당신은 잠시 다른 손님들을 구경한다. 랜드리가 곧 돌아온다.
 	<br>
-	"여기 있어," 랜드리가 말한다. "새 경찰 마스터 비밀번호 하나. 그리고 우리 친구가 안부 전해달래."
+	"여기 있어." 랜드리가 말한다. "새 경찰 마스터 비밀번호 하나. 그리고 우리 친구가 안부 전해달래."
 <<elseif $mickeyPub gte 2>>
-	"경찰 컴퓨터 일 말이지," 랜드리가 고개를 끄덕이며 말한다. "그래. 네가 말했었지. 우리 친구가 처리해 뒀어."
+	"경찰 컴퓨터 일 말이지." 랜드리가 고개를 끄덕이며 말한다. "그래. 네가 말했었지. 우리 친구가 처리해 뒀어."
 	<br><br>
 	<<He>>【이가】 봉투 하나를 밀어준다. 안에는 단어가 휘갈겨진 카드가 들어있다.
 	<br><br>
-	"이게 경찰 마스터 비밀번호야. 이것도 있어," <<he>>【이가】 USB 스틱을 내밀며 덧붙인다. "바이러스야. 컴퓨터 시스템을 깨끗하게 지워버리지. 이걸로 문제를 일으킬 수도 있고, 아니면 오래된 문제를 없앨 수도 있을 거야. 행운을 빌어."
+	"이게 경찰 마스터 비밀번호야. 이것도 있어." <<he>>【이가】 USB 스틱을 내밀며 덧붙인다. "바이러스야. 컴퓨터 시스템을 깨끗하게 지워버리지. 이걸로 문제를 일으킬 수도 있고, 아니면 오래된 문제를 없앨 수도 있을 거야. 행운을 빌어."
 <<else>> /*Was elseif $pub_hack_job is 4*/
 	<<money 50000 "pub">><<set $mickeyPub to 2>>
-	"미키가 나타났어," 랜드리가 말한다. "이상한 녀석이야. 나한테 줄 SD 카드가 잔뜩 있다고 네가 그랬다던데?"
+	"미키가 나타났어." 랜드리가 말한다. "이상한 녀석이야. 나한테 줄 SD 카드가 잔뜩 있다고 네가 그랬다던데?"
 	<br><br>
 	당신은 SD 메모리 카드를 건네준다. 그 대가로 랜드리는 봉투를 준다. 안에는 돈과 단어가 휘갈겨진 카드가 들어있다.
 	<br><br>
 	"고마워. 이건 경찰 마스터 비밀번호고, 이건 내게 인재를 데려와 준 것에 대한 <<printmoney 50000>>의 사례금이야. 앞으로 새로운 종류의 일이 생길지도 모르겠군."
 	<br><br>
-	"이것도 있어," <<he>>【이가】 USB 스틱을 내밀며 말한다. "바이러스야. 컴퓨터 시스템을 깨끗하게 지워버리지. 이걸로 문제를 일으킬 수도 있고, 아니면 오래된 문제를 없앨 수도 있을 거야. 행운을 빌어."
+	"이것도 있어." <<he>>【이가】 USB 스틱을 내밀며 말한다. "바이러스야. 컴퓨터 시스템을 깨끗하게 지워버리지. 이걸로 문제를 일으킬 수도 있고, 아니면 오래된 문제를 없앨 수도 있을 거야. 행운을 빌어."
 <</if>>
 <br><br>
 <<set $police_hack to 5>>
@@ -813,7 +813,7 @@
 
 	당신은 <<him>> 맞은편 자리에 앉는다.
 	<<if $speech_attitude is "meek">>
-		"저, 저는 경비원이 필요해서—"
+		"저-저는 경비원이 필요해서—"
 	<<elseif $speech_attitude is "bratty">>
 		"저는—"
 	<<else>>
@@ -827,7 +827,7 @@
 	바에서 <<print maleChance($pronoun) gte random(1, 100) ? "남자" : "여자">>에게 작업을 걸고 있다. <<His>> 목표물이 떠나버리고, <<him>>【은는】 카운터에 기댄 채 남겨진다. 당신은 이제 비어있는 자리에 앉는다.
 	<br><br>
 
-	"너도 꽤 괜찮은데." <<person>>【이가】 당신을 위아래로 훑어보며 말한다.
+	"너도 꽤 괜찮은데," <<person>>【이가】 당신을 위아래로 훑어보며 말한다.
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
@@ -880,7 +880,7 @@
 	<br><br>
 
 <<else>>
-	<<person>>【은는】 망설이다가 고개를 끄덕인다. "재밌겠는데." <<he>>【이가】 말한다. "<span class="gold"><<print window.KR.gatPersonNameDictKR($NPCList[0].name)>></span>【이】라고 불러도 돼. 서로 알아갈 시간은 충분하겠지. 그 농장은 어디야?
+	<<person>>【은는】 망설이다가 고개를 끄덕인다. "재밌겠는데," <<he>>【이가】 말한다. "<span class="gold"><<print window.KR.gatPersonNameDictKR($NPCList[0].name)>></span>【이】라고 불러도 돼. 서로 알아갈 시간은 충분하겠지. 그 농장은 어디야?
 	<br><br>
 
 	당신은 <<him>>에게 길을 알려준다. "거기까지 가는 버스는 없네." <<he>>【이가】 불평한다. "그래도 야간 근무 시간 맞춰서 갈게."
@@ -1104,7 +1104,7 @@
 <br><br>
 
 <<if $seabird_lullaby gte 2 and random(0,100) is 1>>
-	<span class="teal">바다새의 자장가</span>가 당신의 마음을 스친다. 기억을 따라, 당신은 노래의 첫 음을 흥얼거린다. 이상하게도 자연스럽게 느껴진다. <<person>>【은는】 어쩔 줄 몰라 하다가, <<his>> 악기를 내려놓고 당신의 노래를 듣는 데 만족한다.
+	<span class="teal">바닷새의 자장가</span>가 당신의 마음을 스친다. 기억을 따라, 당신은 노래의 첫 음을 흥얼거린다. 이상하게도 자연스럽게 느껴진다. <<person>>【은는】 어쩔 줄 몰라 하다가, <<his>> 악기를 내려놓고 당신의 노래를 듣는 데 만족한다.
 	<br><br>
 	당신의 목소리가 청중을 나른하게 만든다. 그들은 눈을 뜨려고 애쓴다. 당신이 노래를 마칠 때쯤, 대부분은 잠이 들었고, 남은 몇몇만이 조용한 박수를 보낸다. 당신은 자리를 뜬다.
 <<else>>
@@ -1250,7 +1250,7 @@
 
 :: Pub Avery Note
 <<effects>>
-<<if $avery_mansion and $avery_mansion.landry is 1>>
+<<if $avery_mansion?.landry is 1>>
 	<<set $avery_mansion.landry to 2>>
 	<<if $avery_mansion.fox.known>>
 		<<if $speech_attitude is "meek">>
@@ -1340,7 +1340,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"너무 위험한 일 같아요," 당신이 말한다. "그 대가로 저는 뭘 얻을 수 있죠?"
+	"너무 위험한 일 같아요." 당신이 말한다. "그 대가로 저는 뭘 얻을 수 있죠?"
 <<elseif $speech_attitude is "bratty">>
 	"저한테 떨어지는 게 뭔데요?" 당신이 묻는다.
 <<else>>
@@ -1440,7 +1440,7 @@
 	<br><br>
 
 	당신은 다른 테이블에서 20분 동안 빈둥거린다. <<him>>【이가】 들어오는 소리는 듣지 못했지만, <<say_brown_fox>>【이가】 당신의 테이블로 다가와
-	<<if $avery_mansion.fox.friend or $brownFoxRevealed and _gwylanLovePercent gte 75>>
+	<<if $avery_mansion.fox.friend or $brownFoxRevealed and _gwylanLovePercent gte 65>>
 		당신 옆에 앉고,
 	<<else>>
 		당신 맞은편에 앉는다,
@@ -1451,7 +1451,7 @@
 	<br><br>
 
 	당신은 다른 테이블에서 10분 동안 빈둥거린다. <<him>>【이가】 들어오는 소리는 듣지 못했지만, <<say_brown_fox>>【이가】 당신의 테이블로 다가와
-	<<if $avery_mansion.fox.friend or $brownFoxRevealed and _gwylanLovePercent gte 75>>
+	<<if $avery_mansion.fox.friend or $brownFoxRevealed and _gwylanLovePercent gte 65>>
 		당신 옆에 앉고,
 	<<else>>
 		당신 맞은편에 앉는다,
@@ -1839,7 +1839,7 @@
 <</if>>
 <br><br>
 
-랜드리가 웃는다. "알아. 그 보상금, 내 결정이 아니었어, 믿어줘." <<He>>【은는】 술집 앞쪽을 힐끗 본다. "10,£000는 내 친구들한테서 나오는 거야. 그 친구들이 좀 현실 감각이 없어서 말이지. 하지만 강해. 네 베일리가 알아서 기어야 하는, 안 그러면 짓밟힐 위험이 있는 그런 부류지. 그들은 돈으로 살 수 없는 것들을 가지고 있고, 그런 일들을 해. 그런 친구들이 있으면 좋지 않겠어?"
+랜드리가 웃는다. "알아. 그 보상금, 내 결정이 아니었어, 믿어줘." <<He>>【은는】 술집 앞쪽을 힐끗 본다. "£10000는 내 친구들한테서 나오는 거야. 그 친구들이 좀 현실 감각이 없어서 말이지. 하지만 강해. 네 베일리가 알아서 기어야 하는, 안 그러면 짓밟힐 위험이 있는 그런 부류지. 그들은 돈으로 살 수 없는 것들을 가지고 있고, 그런 일들을 해. 그런 친구들이 있으면 좋지 않겠어?"
 <br><br>
 
 "부담 갖지 마. 그냥 주시하고 있어." <<He>>【은는】 뒤로 기댄다. "다른 건?"

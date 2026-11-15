@@ -102,7 +102,7 @@
 	<<socialiseicon>><<link [[추파를 던진다 (0:05)|Beach Day Encounter]]>><<pass 5>><<set $phase to 2>><</link>><<promiscuous1>>
 	<br>
 	<<if between(Time.hour, 7, 19) and !Weather.isOvercast and Weather.temperature gte 10>>
-		<<cosmeticsicon "sunscreen">><<link [[선크림 발라주기 (0:03)|Beach Day Encounter Sunscreen 1]]>><<pass 3>><</link>><<promiscuous1>>
+		<<cosmeticsicon "sunscreen">><<link [[선크림을 발라준다 (0:03)|Beach Day Encounter Sunscreen 1]]>><<pass 3>><</link>><<promiscuous1>>
 		<br>
 	<</if>>
 	<<getouticon>><<destinationBeach "떠난다">><<endevent>><<set $eventskip to 1>><</destinationBeach>>
@@ -185,7 +185,7 @@
 	<<insufficientStat "promiscuity" "더 나아가기엔">>
 <</if>>
 <br>
-<<link [[그만두기|Beach Day Encounter Sunscreen 2]]>><<set $phase to 0>><</link>>
+<<link [[그만둔다|Beach Day Encounter Sunscreen 2]]>><<set $phase to 0>><</link>>
 
 :: Beach Day Encounter Sunscreen 2
 
@@ -418,7 +418,7 @@
 <<else>>
 	미소 지으며, <<he>>【이가】 당신의 뺨에 키스한다. <<His>> 숨에서 술 냄새가 진동한다. "이건 널 위한 거야." <<He>>【은는】 일어나 땅에 누워있는 당신을 내버려 두고 떠난다.
 	<br><br>
-	You've gained <<printmoney 500>><<money 500 "prostitution">>.
+	<<printmoney 500>>【을를】 벌었다.<<money 500 "prostitution">>
 	<br><br>
 <</if>>
 <<underlowersteal>>
@@ -745,13 +745,13 @@
 <br><br>
 
 <<if $worn.neck.collared>>
-	"벌써 목줄이 채워져 있네," <<person>>【이가】 말한다. "완벽해." 그들이 당신을 향해 다가온다.
+	"벌써 목줄이 채워져 있네." <<person>>【이가】 말한다. "완벽해." 그들이 당신을 향해 다가온다.
 	<br><br>
 
 	<<link [[다음|Beach Abduction Molestation]]>><<set $molestationstart to 1>><<set $phase to 1>><</link>>
 	<br>
 <<else>>
-	"딱 하나만 더 하면 되겠어," 목줄과 리드줄을 꺼내 들며 <<person>>【이가】 말한다.
+	"딱 하나만 더 하면 되겠어." 목줄과 리드줄을 꺼내 들며 <<person>>【이가】 말한다.
 	<br><br>
 
 	<<link [[받아들인다|Beach Abduction Collared]]>><<neckwear 21>><<set $phase to 1>><</link>>
@@ -888,7 +888,7 @@
 	<br><br>
 	당신은 모래 언덕 더 깊은 곳으로 끌려간다. 당신은 몇 분 동안 걸으며, 자신이 얼마나 노출되고 취약한지 의식한다. 당신을 붙잡은 자들은 당신에 대한 권력의 위치를 즐기는 것을 숨기려 하지 않으며, 당신이 막을 수 없다는 것을 알기에 끊임없이 당신의 몸을 음흉하게 쳐다본다.
 	<br><br>
-	<<if $rng gte 51 and ($monster is 1 or $settings.bestialityEnabled)>>
+	<<if $rng gte 51 and beastSexEnabledForType("dog", $monster is 1)>>
 		<!-- Jimmy: Looks terrible, but is the safest way to ensure event history is orderly.
 					A likely plan will be to have a wrapper/macro for this type of shuffle. (TODO) -->
 		<<saveNPC 0 "beach_abduction_dog_1">>
@@ -950,7 +950,7 @@
 	<br><br>
 <<else>>
 	<<if $orgasmdown gte 1 and $phase is 1>><<set $phase to 0>>
-		"이럴 수가," <<person2>><<person>>【이가】 기쁨에 차 소리친다. "<<if $monster is 1>><<beasttype>><<else>>동물<</if>>한테 강간당하면서 가버리다니. 이거 환상적이네." 당신은 극심한 굴욕감을 느낀다.
+		"이럴 수가." <<person2>><<person>>【이가】 기쁨에 차 소리친다. "<<if $monster is 1>><<beasttype>><<else>>동물<</if>>한테 강간당하면서 가버리다니. 이거 환상적이네." 당신은 극심한 굴욕감을 느낀다.
 		<<trauma 6>><<famebestiality 20>>
 	<<else>>
 		<<person2>><<person>>【와과】 <<person3>><<person>>【은는】 쇼를 즐기고 있다.
@@ -1002,7 +1002,7 @@
 	<br><br>
 <</if>>
 
-<<person2>><<person>>【와과】 <<person3>><<person>>【이가】 박수를 친다. "<<silently>><<bred>><</silently>>네년이 <<bitch>>인 것처럼 <<capitalise>>," <<person>>【이가】 당신의 결박을 풀어주며 외친다. <<person2>><<person>>【이가】 약속했던 옷가지를 던져준다. "목줄은 가져도 돼. 너한테 잘 어울리니까." 그들은 웃으며 모래 위에 굴욕적으로 쓰러져 있는 당신을 내버려 두고 떠난다. <<tearful>> 당신은 힘겹게 일어선다.
+<<person2>><<person>>【와과】 <<person3>><<person>>【이가】 박수를 친다. "<<silently>><<bred>><</silently>>네년이 <<bitch>>인 것처럼 <<capitalise>>." <<person>>【이가】 당신의 결박을 풀어주며 외친다. <<person2>><<person>>【이가】 약속했던 옷가지를 던져준다. "목줄은 가져도 돼. 너한테 잘 어울리니까." 그들은 웃으며 모래 위에 굴욕적으로 쓰러져 있는 당신을 내버려 두고 떠난다. <<tearful>> 당신은 힘겹게 일어선다.
 <br><br>
 
 <<unbind>>

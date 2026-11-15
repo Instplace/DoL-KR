@@ -597,13 +597,30 @@
 				<<option "설정하지 않음" undefined>>
 				<<optionsfrom _savedHairStylesKeys>>
 			<</listbox>>
-			<mouse class="tooltip linkBlue">(?)<span>'설정하지 않음'은 현재 헤어스타일을 변경하지 않습니다.</span></mouse>
+			<mouse class="tooltip linkBlue">(?)<span>'설정하지 않음'을 고르면 의상을 선택할 때 헤어스타일이 바뀌지 않습니다.</span></mouse>
 		</div>
 	<<else>>
 		<div>
 			헤어 스타일: 저장된 세트 없음 (거울 확인)
 		</div>
 	<</if>>
+	<div>
+		태도:
+		<<listbox "_demeanour" autoselect>>
+			<<option "설정하지 않음" undefined>>
+			<<optionsfrom setup.faceVariantOptions[$facestyle]>>
+		<</listbox>>
+		<mouse class="tooltip linkBlue">(?)<span>'설정하지 않음'을 고르면 의상을 선택할 때 표정이 바뀌지 않습니다.</span></mouse>
+	</div>
+	<div>
+		기본 표정:
+		<<listbox "_defaultSidebarMouth" autoselect>>
+			<<option "설정하지 않음" undefined>>
+			<<option "미소" "smile">>
+			<<option "무표정" "neutral">>
+		<</listbox>>
+		<mouse class="tooltip linkBlue">(?)<span>'설정하지 않음'을 고르면 의상을 선택할 때 표정이 바뀌지 않습니다.</span></mouse>
+	</div>
 	<br>
 	<div class="wardrobe-action">
 		<<link "현재 입은 옷을 새 세트로 추가">>
@@ -668,6 +685,12 @@
 			<</if>>
 			<<if _hairStyle>>
 				<<set _newOutfit.hairStyle to _hairStyle>>
+			<</if>>
+			<<if _demeanour>>
+				<<set _newOutfit.facevariant to _demeanour>>
+			<</if>>
+			<<if _defaultSidebarMouth>>
+				<<set _newOutfit.defaultSidebarMouth to _defaultSidebarMouth>>
 			<</if>>
 			<<set $outfit.push(_newOutfit)>>
 			<<updatewardrobe "outfits">>
@@ -832,14 +855,15 @@
 				<<case "kimono" "kimonomini">><<set _altLink to ["느슨하게 풀기", "단단히 조이기"]>>
 				<<case "flowy sleeve top" "milkmaid dress">><<set _altLink to ["소매 내리기", "소매 올리기"]>>
 				<<case "striped sweater">><<set _altLink to ["소매를 걷어올린다", "소매를 내린다"]>>
-                <<default>><<exit>>
-            <</switch>>
-        <<case "under_upper">>
-            <<switch $worn.under_upper.variable>>
-                <<case "ruffled swimsuit">><<set _altLink to ["가디건 벗기", "가디건 입기"]>>
-                <<default>><<exit>>
-            <</switch>>
-        <<case "head">>
+				<<case "boilersuit">><<set _altLink to ["지퍼 내리기", "지퍼 올리기"]>>
+				<<default>><<exit>>
+			<</switch>>
+		<<case "under_upper">>
+			<<switch $worn.under_upper.variable>>
+				<<case "ruffled swimsuit">><<set _altLink to ["가디건 벗기", "가디건 입기"]>>
+				<<default>><<exit>>
+			<</switch>>
+		<<case "head">>
 			<<switch $worn.head.variable>>
 				<<case "bandana hat">><<set _altLink to ["뒤로 묶기", "앞으로 묶기"]>>
 				<<default>><<exit>>
@@ -1224,7 +1248,7 @@
 	<<oldWardrobeMinorOptions>>
 	<br>
 
-	<<if $debug is 1>>
+	<<if $debug>>
 		<<oldWardrobeList "over_upper">>
 		<<oldWardrobeList "over_lower">>
 	<</if>>
@@ -1242,7 +1266,7 @@
 	<div id="clothingBox-under_lower">
 		<<oldWardrobeList "under_lower">>
 	</div>
-	<<if $debug is 1>>
+	<<if $debug>>
 		<<oldWardrobeList "over_head">>
 	<</if>>
 	<div id="clothingBox-head"><<oldWardrobeList "head">></div>

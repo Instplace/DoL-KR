@@ -12,7 +12,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "schoolToilets">>
 	<<else>>
-		<<link [[모든 것이 암흑 속으로 사라집니다...|School Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 	<</if>>
 <<else>>
 	<<icon "men-toilet.png">><<link [[남자 화장실|School Boy's Toilets]]>><</link>>
@@ -27,7 +27,7 @@
 		<br>
 	<</if>>
 	<<if $brothel_basement_intro is 1 and hasSexStat("promiscuity", 4)>>
-		<<brothelicon "gloryhole">><<link [[대기실에 글로리홀 설치하기|School Gloryhole Start]]>><</link>><<promiscuous4>>
+		<<brothelicon "gloryhole">><<link [[대기실에 글로리홀을 설치한다|School Gloryhole Start]]>><</link>><<promiscuous4>>
 		<br>
 	<</if>>
 	<<if $settings.condomLevel gte 1>>
@@ -35,7 +35,7 @@
 		<br>
 	<</if>>
 	<br>
-	<<getouticon>><<link [[화장실에서 나가기 (0:01)|Hallways]]>><<pass 1>><</link>>
+	<<getouticon>><<link [[화장실에서 나간다 (0:01)|Hallways]]>><<pass 1>><</link>>
 	<br>
 <</if>>
 
@@ -122,7 +122,7 @@
 <<elseif $phase is 2>>
 	"어머, 제가 방을 잘못 들어왔나요?" 당신은 <<person1>><<person>>에게 다가가, <<him>>에게 닿지 않을 정도로 가까이 선다. "여기 계셔서 다행이네요. 누군가 제 어리석음을 이용하기 전에 떠나야겠어요."
 	<br><br>
-	"아, 아니, 괜찮아요." <<person>>【이가】 얼굴을 붉히며 시선을 피하며 말한다. "저희가 비켜드릴게요." 그들은 방을 떠나지만, <<person3>><<person>>【은는】 <<his>> 손목을 잡혀 끌려가야 했다.
+	"아-아니, 괜찮아요." <<person>>【이가】 얼굴을 붉히며 시선을 피하며 말한다. "저희가 비켜드릴게요." 그들은 방을 떠나지만, <<person3>><<person>>【은는】 <<his>> 손목을 잡혀 끌려가야 했다.
 	<<promiscuity1>>
 
 	<<endevent>>
@@ -390,35 +390,35 @@
 당신은 남자 화장실에 있습니다.
 <br><br>
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 <<else>>
 
 	<<if dangerEvent() and $eventskip isnot 1>>
 		<<eventsschooltoilets>>
 	<<else>>
 		<<storeactions "schoolboys">>
-		<<mirroricon "school">><<link [[거울 보기 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
+		<<mirroricon "school">><<link [[거울을 본다 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
 		<br>
 		<<if setup.bodyliquid.combined("face") gte 1 or $skin.left_cheek.pen is "pen" or $skin.right_cheek.pen is "pen" or $skin.forehead.pen is "pen" or $skin.left_cheek.pen is "mud" or $skin.right_cheek.pen is "mud" or $skin.forehead.pen is "mud" or $skin.left_cheek.pen is "lipstick" or $skin.right_cheek.pen is "lipstick" or $skin.forehead.pen is "lipstick">>
-			<<bathroomicon "sink">><<link [[얼굴 씻기 (0:05)|School Boy's Wash]]>><<pass 5>><</link>>
+			<<bathroomicon "sink">><<link [[얼굴을 씻는다 (0:05)|School Boy's Wash]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 		<<if setup.bodyliquid.combined("mouth") gte 1>>
-			<<bathroomicon "sink">><<link [[입 헹구기 (0:05)|School Boy's Rinse]]>><<pass 5>><</link>>
+			<<bathroomicon "sink">><<link [[입을 헹군다 (0:05)|School Boy's Rinse]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
-		<<skinicon "masturbate">><<link [[자위하기|School Boy's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
+		<<skinicon "masturbate">><<link [[자위한다|School Boy's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
 		<br>
 		<<pregnancyTest "School Boy's Toilets">>
 		<<storeon "schoolboys" "check">>
 		<<if _store_check isnot 1>>
-			<<getouticon>><<link [[나가기 (0:01)|Hallways]]>><<pass 1>><</link>>
+			<<getouticon>><<link [[나간다 (0:01)|Hallways]]>><<pass 1>><</link>>
 		<<elseif $exposed gte 2 and hasSexStat("exhibitionism", 4)>>
-			<<getouticon>><<link [[몰래 나가기 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist4>>
+			<<getouticon>><<link [[몰래 나간다 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist4>>
 		<<elseif $exposed is 1 and hasSexStat("exhibitionism", 3)>>
-			<<getouticon>><<link [[몰래 나가기 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist3>>
+			<<getouticon>><<link [[몰래 나간다 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist3>>
 		<<elseif $exposed lte 0>>
-			<<getouticon>><<link [[나가기 (0:01)|Hallways]]>><<pass 1>><</link>>
+			<<getouticon>><<link [[나간다 (0:01)|Hallways]]>><<pass 1>><</link>>
 		<</if>>
 	<</if>>
 <</if>>
@@ -431,35 +431,35 @@
 당신은 여자 화장실에 있습니다.
 <br><br>
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 <<else>>
 
 	<<if dangerEvent() and $eventskip isnot 1>>
 		<<eventsschooltoilets>>
 	<<else>>
 		<<storeactions "schoolgirls">>
-		<<mirroricon "school">><<link [[거울 보기 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
+		<<mirroricon "school">><<link [[거울을 본다 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
 		<br>
 		<<if setup.bodyliquid.combined("face") gte 1 or $skin.left_cheek.pen is "pen" or $skin.right_cheek.pen is "pen" or $skin.forehead.pen is "pen" or $skin.left_cheek.pen is "mud" or $skin.right_cheek.pen is "mud" or $skin.forehead.pen is "mud" or $skin.left_cheek.pen is "lipstick" or $skin.right_cheek.pen is "lipstick" or $skin.forehead.pen is "lipstick">>
-			<<bathroomicon "sink">><<link [[얼굴 씻기 (0:05)|School Girl's Wash]]>><<pass 5>><</link>>
+			<<bathroomicon "sink">><<link [[얼굴을 씻는다 (0:05)|School Girl's Wash]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 		<<if setup.bodyliquid.combined("mouth") gte 1>>
-			<<bathroomicon "sink">><<link [[입 헹구기 (0:05)|School Girl's Rinse]]>><<pass 5>><</link>>
+			<<bathroomicon "sink">><<link [[입을 헹군다 (0:05)|School Girl's Rinse]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
-		<<skinicon "masturbate">><<link [[자위하기|School Girl's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
+		<<skinicon "masturbate">><<link [[자위한다|School Girl's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
 		<br>
 		<<pregnancyTest "School Girl's Toilets">>
 		<<storeon "schoolgirls" "check">>
 		<<if _store_check isnot 1>>
-			<<getouticon>><<link [[나가기 (0:01)|Hallways]]>><<pass 1>><</link>>
+			<<getouticon>><<link [[나간다 (0:01)|Hallways]]>><<pass 1>><</link>>
 		<<elseif $exposed gte 2 and hasSexStat("exhibitionism", 4)>>
-			<<getouticon>><<link [[몰래 나가기 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist4>>
+			<<getouticon>><<link [[몰래 나간다 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist4>>
 		<<elseif $exposed is 1 and hasSexStat("exhibitionism", 3)>>
-			<<getouticon>><<link [[몰래 나가기 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist3>>
+			<<getouticon>><<link [[몰래 나간다 (0:01)|Hallways Sneak]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist3>>
 		<<elseif $exposed lte 0>>
-			<<getouticon>><<link [[나가기 (0:01)|Hallways]]>><<pass 1>><</link>>
+			<<getouticon>><<link [[나간다 (0:01)|Hallways]]>><<pass 1>><</link>>
 		<</if>>
 	<</if>>
 <</if>>
@@ -590,14 +590,14 @@
 		<<wearProp "lockpick">>
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:10)|Vending Machine Sneak]]>><<pass 10>><<crimeUp 1 "petty">><</link>><<crime "petty">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:10)|Vending Machine Sneak]]>><<pass 10>><<crimeUp 1 "petty">><</link>><<crime "petty">>
 		<br>
 	<</if>>
 <<else>>
 	<span class="red">자물쇠는 당신의 실력으로 딸 수 없을 것 같다.</span><<skulduggeryrequired>>
 	<br>
 <</if>>
-<<condomicon "machine">><<link [[부수기 (0:10)|Vending Machine Smash]]>><<pass 10>><<crimeUp 5 "destruction">><<crimeUp 5 "petty">><</link>><<physiquedifficulty>> <<crimes "destruction" "petty">>
+<<condomicon "machine">><<link [[부순다 (0:10)|Vending Machine Smash]]>><<pass 10>><<crimeUp 5 "destruction">><<crimeUp 5 "petty">><</link>><<physiquedifficulty>> <<crimes "destruction" "petty">>
 <br>
 <<getouticon>><<link [[뒤로|School Toilets]]>><</link>>
 
@@ -714,7 +714,7 @@
 
 	<<link [[다음|School Toilets]]>><</link>>
 <<elseif $finish is 1>>
-	"씨발, 사람 놀리기는," <<he>>【이가】 <<his>> 교복을 고쳐 입으며 말한다. "콘돔은 내가 가질게, <<bitch>>."
+	"씨발, 사람 놀리기는." <<he>>【이가】 <<his>> 교복을 고쳐 입으며 말한다. "콘돔은 내가 가질게, <<bitch>>."
 	<br><br>
 
 	<<clotheson>>
@@ -802,10 +802,10 @@
 
 <<if $player.perceived_breastsize gte $player.perceived_bottomsize>>
 	당신은 <<breasts>>【을를】 받치기 위해 팔을 모으고 앞으로 몸을 숙인다. <<him>>에게 당신의 가슴골이 완전히 보이도록.
-	"실례합니다," 당신이 나른하게 말한다. "당신이 제 물건을 가지고 있는 것 같네요."
+	"실례합니다." 당신이 나른하게 말한다. "당신이 제 물건을 가지고 있는 것 같네요."
 <<else>>
 	<<him>>에게 등을 보인 채, 당신은 다리를 벌리고 자판기에 기댄다.
-	"어머나," 당신이 놀리듯 말한다, "나중에 꼭 쓰고 싶었는데. 친절하게 돌려주실 수 있나요?"
+	"어머나." 당신이 놀리듯 말한다, "나중에 꼭 쓰고 싶었는데. 친절하게 돌려주실 수 있나요?"
 <</if>>
 <<promiscuity1>>
 <br>

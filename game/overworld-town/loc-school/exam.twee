@@ -229,7 +229,11 @@
 			당신은 시리스를 지켜본다. <<He>>【은는】 교실을 감시해야 하지만, 창밖을 보는 데 더 많은 시간을 보낸다. 조심한다면 이웃의 답을 베낄 수 있을 것이다.
 			<<if $skulduggerysuccess is 1>>
 				조심스럽게. <span class="green">당신은 더 어려운 몇몇 문제에 대한 답을 간신히 얻어낸다.</span>
-				<<set $exam_chance += 10>><<passPercent 10>>
+				<<if $temple_calligraphy gte 11>>
+					<<set $exam_chance += 20>><<passPercent 20>>
+				<<else>>
+					<<set $exam_chance += 10>><<passPercent 10>>
+				<</if>>
 			<<else>>
 				조심-
 				<br><br>
@@ -306,7 +310,11 @@
 			옆을 힐끗 쳐다본다. 옆자리의 <<person>>【은는】 자신만만해 보인다. 당신은 아무렇지 않은 척 움직이며 시선을 가린다.
 			<<if $skulduggerysuccess is 1>>
 				리버의 시선을 피하려 애쓴다. <span class="green">당신은 몇몇 어려운 문제의 답을 간신히 엿보는 데 성공한다.</span>
-				<<set $exam_chance += 10>><<passPercent 10>>
+				<<if $temple_calligraphy gte 11>>
+					<<set $exam_chance += 20>><<passPercent 20>>
+				<<else>>
+					<<set $exam_chance += 10>><<passPercent 10>>
+				<</if>>
 			<<else>>
 				그러려던-
 				<br><br>
@@ -406,7 +414,7 @@
 <<run statusCheck("Kylar")>>
 <<npc Doren>><<person1>>
 <<if $kylarenglishstate is "active">>
-	<<npc Kylar 2>><<person2>>
+	<<npc Kylar 2>>
 <</if>>
 
 <<switch $phase>>
@@ -431,7 +439,11 @@
 			도렌은 종종 당신에게 등을 돌리고 있지만, <<his>> 동선은 예측할 수 없다.
 			<<if $skulduggerysuccess is 1>>
 				<<He>>【은는】 언제든 돌아설 수 있지만, <span class="green">당신은 대담한 곁눈질로 옆자리 학생의 답안지를 읽는 데 성공한다.</span>
-				<<set $exam_chance += 10>><<passPercent 10>>
+				<<if $temple_calligraphy gte 11>>
+					<<set $exam_chance += 20>><<passPercent 20>>
+				<<else>>
+					<<set $exam_chance += 10>><<passPercent 10>>
+				<</if>>
 			<<else>>
 				당신은 <<he>>【이가】 지나갈 때까지 기다렸다가, 옆자리 학생을 힐끗 쳐다본다. 도렌이 휙 돌아서더니, <span class="red">당신의 책상에 <<his>> 손을 내리친다.</span>
 				<br><br>
@@ -461,16 +473,17 @@
 
 <!-- Add text for interacting with Kylar here, if they are present? -->
 <<if $kylarenglishstate is "active">>
-    카일라는 시험지를 들고 머뭇거리며 다가오더니,
-    <<if !_kylarStatus.includes("Love")>>
-			교실 밖으로 뛰쳐나간다.
-		<<else>>
-			당신에게 조심스럽게 묻는다. "저기, 나, 나는...
-			<<switch random(1, 3)>>
+	카일라는 시험지를 들고 머뭇거리며 다가오더니,
+	<<if !_kylarStatus.includes("Love")>>
+		교실 밖으로 뛰쳐나간다.
+	<<else>>
+		당신에게 조심스럽게 묻는다. "저기, 나-나는...
+		<<switch random(1, 3)>>
 			<<case 1>><span class="lblue">B</span>
 			<<case 2>><span class="blue">C</span>
 			<<case 3>><span class="purple">D</span>
-			<</switch>>야... 내, <<kylar_pet_name>>【은는】 어때?" <<He>>【은는】 당신의 시험지를 슬쩍 훔쳐본다. <<status -3>><<lcool>>
+		<</switch>>
+		너는 어때, <<kylar_pet_name>>?" <<person2>><<He>>【은는】 당신의 것을 슬쩍 훔쳐본다. <<status -3>><<lcool>>
 	<</if>>
 	<br><br>
 <</if>>
@@ -511,7 +524,11 @@
 			윈터는 책에 몰두해 있으며, 별로 신경 쓰지 않는 것 같다.
 			<<if $skulduggerysuccess is 1>>
 				당신은 그게 사실이 아니라는 것을 안다. 여기저기 선생님의 주의가 다른 곳으로 쏠리는 순간들이 있다. 당신은 그 순간들을 이용해 옆자리 학생들을 힐끗 쳐다보고, <span class="green">더 어려운 문제들의 답 몇 개를 얻어내는 데 성공한다.</span>
-				<<set $exam_chance += 10>><<passPercent 10>>
+				<<if $temple_calligraphy gte 11>>
+					<<set $exam_chance += 20>><<passPercent 20>>
+				<<else>>
+					<<set $exam_chance += 10>><<passPercent 10>>
+				<</if>>
 			<<else>>
 				당신은 기회를 틈타 옆자리 학생의 시험지를 본다.
 				<br><br>

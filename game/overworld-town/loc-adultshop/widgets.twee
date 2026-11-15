@@ -15,7 +15,7 @@
 			"그건 부적절해요.",
 			"흠?",
 			"흠?",
-			"ㅁ-뭐... 조심 좀 해주세요."
+			"뭐-뭐... 조심 좀 해주세요."
 		]>>
 		<<set _reactTone to either("코웃음 친다","외친다","<<nnpc_his \"Sydney\">> 눈을 가리며 중얼거린다","카운터 뒤로 물러난다")>>
 		<<run statusCheck("Sydney")>>
@@ -350,7 +350,7 @@
 		/*Customer compliments you on your costume/fetish wear/school uniform/formal outfit/compliments your service skills*/
 		<<generateAdultShopCustomer 1>><<person1>>
 		<<if $worn.upper.type.includesAny("fetish", "costume", "school") and random(0,3) is 0>>
-			"옷이 참 예쁘네. 아주 <<cute>>," <<person>>【이가】 당신의 $worn.upper.name【와과】 <<breasts>>【을를】 음흉하게 쳐다보며 말한다.<<gstress>><<gcontrol>><<control 5>><<stress 3>>
+			"옷이 참 예쁘네. 아주 <<cute>>." <<person>>【이가】 당신의 $worn.upper.name【와과】 <<breasts>>【을를】 음흉하게 쳐다보며 말한다.<<gstress>><<gcontrol>><<control 5>><<stress 3>>
 		<<elseif $worn.upper.type.includes("school")>>
 			"학교 <<girl>>, 좋지. 바로 여기서 가르쳐 줄 게 있는데!" <<He>>【은는】 <<his>> 가랑이를 움켜쥐고 <<laughs>>.<<gstress>><<stress 5>>
 		<<else>>
@@ -411,7 +411,7 @@
 			<br>
 			"닥쳐, <<pshe>>【이가】 괴짜라고!" <<person2>><<person>>【이가】 호통친다.
 			<br>
-			"어쨌든, 이 괴상한 놈 가게에서 나가자," <<person1>><<person>>【이가】 말한다.<<gstress>><<gtrauma>><<trauma 5>><<stress 5>><<status -1>><<lcool>>
+			"어쨌든, 이 괴상한 놈 가게에서 나가자." <<person1>><<person>>【이가】 말한다.<<gstress>><<gtrauma>><<trauma 5>><<stress 5>><<status -1>><<lcool>>
 			<br>
 		<<elseif $cool lt 140>>
 			"어디서 본 적 있지 않나? 학교? 허," <<person1>><<person>>【이가】 <<if random(1) is 1>><<himself>>에게 <<laughs>>.<<else>><<person2>><<person>>【와과】 함께 <<laughs>>.<</if>><<gstress>><<stress 5>>
@@ -445,7 +445,7 @@
 		<<link [[돌아간다|Adult Shop]]>><</link>>
 	<</addinlineevent>>
 
-	<<if $cool lt 80 or $debug is 1>>
+	<<if $cool lt 80 or $debug>>
 		/* school status event */
 		<<addinlineevent "studentbully" 1>>
 			<<endevent>>
@@ -674,7 +674,7 @@
 		<<pregnancyPassout "adultShop">>
 	<<else>>
 		<<passout>>
-		<<link [[모든 것이 어둠에 잠긴다...|Adult Shop Passout Bondage]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Adult Shop Passout Bondage]]>><</link>>
 	<</if>>
 <</widget>>
 

@@ -104,7 +104,7 @@
 		<<if _sydneyStatus.includes("corrupt")>>
 			<<He>>【은는】 웃음을 감추려는 듯 손으로 입을 가린다. "당신 얼굴 좀 봐요! 제가 정말 할 줄은 몰랐죠?"
 		<<else>>
-			<<He>>【은는】 당신의 시선을 제대로 마주하지 못한 채, 긴장한 미소를 짓는다. "그, 그래서요? 한다고 했고, 했잖아요."
+			<<He>>【은는】 당신의 시선을 제대로 마주하지 못한 채, 긴장한 미소를 짓는다. "그-그래서요? 한다고 했고, 했잖아요."
 		<</if>>
 		<br><br>
 
@@ -145,7 +145,7 @@
 	<br>
 	<<link [[거절한다|Temple]]>><<endevent>><</link>>
 	<br>
-<<elseif ($temple_rank is "monk" or $temple_rank is "priest") and ($renttime lte -2 or $renttime lte 0 and Time.hour gte 4 and Time.hour lte 21)>>
+<<elseif ($temple_rank is "monk" or $temple_rank is "priest") and ($rentTime lte -2 or $rentTime lte 0 and Time.hour gte 4 and Time.hour lte 21)>>
 	<<if $temple_bailey is undefined>>
 		<<npc "Bailey" 1>>
 		<<npc "Jordan" 2>>
@@ -174,7 +174,7 @@
 		<br>
 		<<link [[침묵한다|Temple Bailey Intro Silent]]>><<set $temple_bailey to 1>><</link>>
 		<br>
-		<<set $renttime to 7>><<set $rentday to Time.weekDay>>
+		<<set $rentTime to 7>><<thuganger -5>><<set $baileyRefusedToPay to 0>>
 	<<else>>
 		<<npc "Bailey">><<person1>>
 		<<if $per_npc.bishop_right_hand>>
@@ -232,6 +232,10 @@
 		<</if>>
 	<<elseif $exposed lte 0>>
 		<<templeicon "pray">><<link [[기도한다|Temple Pray]]>><<set $eventskip to 1>><<set $phase to 1>><</link>>
+		<br>
+	<</if>>
+	<<if $kylar_altar_research and $kylar_altar_research.includes("library") and !$kylar_altar_research.includes("temple") and !$temple_scriptorium_known>>
+		<<socialiseicon "ask">><<link [[학교 도서관에서 사라진 페이지에 대해 수소문한다 (0:20)|Temple Altar Research Ask]]>><<pass 20>><</link>>
 		<br>
 	<</if>>
 	<<if $exposed lte 0>>
@@ -315,8 +319,6 @@
 		<</if>>
 	<</if>>
 
-
-
 	<<if $temple_rank isnot undefined and $temple_rank isnot "prospective">>
 		<br>
 		<<if $prayer_room_init is 1>>
@@ -334,7 +336,12 @@
 			<<templeicon "cloister">><<link [[회랑|Temple Cloister]]>><</link>>
 			<br>
 		<</if>>
-
+	<</if>>
+	<<if $temple_scriptorium_known is 1>>
+		<<templeicon "scriptorium">><<link [[필사실을 찾아본다 (0:20)|Temple Scriptorium Search]]>><<pass 20>><</link>>
+		<br>
+	<<elseif $temple_scriptorium_known gte 2>>
+		<<templeicon "scriptorium">><<link [[필사실에 몰래 들어간다 (0:01)|Temple Scriptorium Lock]]>><<pass 1>><</link>>
 	<</if>>
 	<br>
 	<<wolficon>><<link [[떠난다 (0:01)|Wolf Street]]>><<pass 1>><</link>>
@@ -543,7 +550,7 @@
 :: Temple Thurible Chat
 <<set $outside to 0>><<set $location to "temple">><<temple_effects>><<effects>>
 
-당신은 대화를 시작해보려 하지만, <<generate2>><<person2>>나이 든 <<monk>>【이가】 끼어든다. "<<person1>><<him>>【을를】 방해하지 마십시오." <<person2>><<he>>【이가】 쏘아붙인다. "<<person1>><<He>>【은는】 매우 중요한 임무를 맡고 있습니다."
+당신은 대화를 시작해 보려 하지만, <<generate2>><<person2>>나이 든 <<monk>>【이가】 끼어든다. "<<person1>><<him>>【을를】 방해하지 마십시오." <<person2>><<he>>【이가】 쏘아붙인다. <<person1>>"<<He>>【은는】 매우 중요한 임무를 맡고 있습니다."
 <br><br>
 
 <<person1>><<person>>【은는】 얼굴을 붉히며 시선을 피한다.
@@ -913,7 +920,7 @@
 <<elseif $temple_spear_mission is undefined and ($temple_rank is "monk" or $temple_rank is "priest") and $grace gte 100>>
 	"당신이 와 주어 다행입니다." <<he>>【이가】 말한다. "다가오는 축일이 있습니다. 한 세기에 단 한 번뿐인 날이지요. 매 세기마다 우리 수도회 구성원 한 명이 해안 너머의 섬으로 순례를 떠나, 유물인 창을 회수하도록 선택됩니다. 그 창은 축일의 중심이 되는 물건입니다. 우리는 이 역할을 당신에게 맡기고 싶습니다."
 	<br><br>
-	"다만 문제가 하나 있습니다." <<he>>【은는】 말을 잇는다. "그 섬이 존재한다는 기록이 없습니다. 신전에는 많은 기록이 남아 있지만, 우리가 유일한 보관자인 듯합니다. 박물관의 역사학자는 우리의 이야기가 교도소나 해안가 어딘가와 혼동된 것일지도 모른다고 하더군요."
+	"다만 문제가 하나 있습니다." <<he>>【은는】 말을 잇는다. "그 섬이 존재한다는 기록이 없습니다. 신전에는 많은 기록이 남아 있지만, 우리가 유일한 보관자인 듯합니다. 박물관의 역사학자는 우리의 이야기가 감옥이나 해안가 어딘가와 혼동된 것일지도 모른다고 하더군요."
 	<br><br>
 	"당신의 첫 임무는 그 섬이 어디에 있는지, 그리고 어떻게 그곳에 갈 수 있는지 알아내는 것입니다. 더 도움이 되지 못해 미안합니다. 어쩌면 이것도 순례의 일부일지도 모릅니다. 저는 당신을 전적으로 믿습니다."
 	<br><br>
@@ -993,8 +1000,23 @@
 		<<ind>><<link [[창이 해적들에게 빼앗겼다고 조던에게 알린다|Temple Spear Zephyr]]>><</link>>
 		<br>
 	<</if>>
+	<<if $kylar_altar_research and $kylar_altar_research.includes("library") and !$kylar_altar_research.includes("temple") and !$temple_scriptorium_known>>
+		<<socialiseicon "ask">><<link [[학교 도서관에서 사라진 페이지에 대해 묻는다|Temple Altar Research Jordan]]>><</link>>
+		<br>
+	<</if>>
 	<<getouticon>><<link [[물러난다|Temple]]>><<endevent>><</link>>
 <</if>>
+
+:: Temple Altar Research Jordan
+<<effects>>
+
+조던은 당신이 설명하는 책 이야기를 귀 기울여 듣는다. "안타깝군요." <<he>>【이가】 말한다. "처음 듣는 제목이지만 흥미로울 것 같습니다. 새 책을 구하실 수 있기를 바랍니다."
+<br><br>
+
+<<endevent>>
+
+<<link [[다음|Temple]]>><</link>>
+<br>
 
 :: Temple Spear
 <<effects>>
@@ -1951,9 +1973,9 @@
 <<monks>>이 당신의 옷을 붙잡고 벗기려 한다. 눈이 가려져 있고, 수많은 손이 잡아당기고 끌어당기는 탓에, 당신이 막을 수 있는 일은 아무것도 없다. 곧 당신은 옷이 벗겨져 알몸이 된다. <<covered>><<gtrauma>>
 <br><br>
 <<if $speech_attitude is "meek">>
-	"제, 제발 다치게 하지 말아주세요." 당신이 말한다.
+	"제-제발 다치게 하지 말아주세요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"너희는 이것보단 나은 사람들인 줄 알았는데." 당신이 말한다.
+	"너희는 이것보단 나은 사람들인 줄 알았는데," 당신이 말한다.
 <<else>>
 	"추워요." 당신이 말한다.
 <</if>>
@@ -2500,7 +2522,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"빼, 빼앗겼어요." 당신이 말한다. "죄송해요."
+	"빼-빼앗겼어요." 당신이 말한다. "죄송해요."
 <<elseif $speech_attitude is "bratty">>
 	"필요 없어." 당신이 말한다. "네 멍청한 검사는 이미 실패했으니까."
 <<else>>
@@ -2635,7 +2657,7 @@
 :: Temple Arcade 2
 <<effects>>
 
-<<generate1>><<person1>>당신 앞의 문을 통해 <<monk>>【이가】 들어왔다. "나의 자녀들이여," <<he>>【이가】 말했다. "당신들은 신성한 순결을 갱신하기 위해 이곳에 왔습니다. 그렇게 함으로써 우리 마을의 타락을 씻어내는 데 기여하게 될 것입니다." <<he>>【은는】 종 아래로 손을 뻗어 종을 울렸다.
+<<generate1>><<person1>>당신 앞의 문을 통해 <<monk>>【이가】 들어왔다. "나의 자녀들이여." <<he>>【이가】 말했다. "당신들은 신성한 순결을 갱신하기 위해 이곳에 왔습니다. 그렇게 함으로써 우리 마을의 타락을 씻어내는 데 기여하게 될 것입니다." <<he>>【은는】 종 아래로 손을 뻗어 종을 울렸다.
 <br><br>
 <<endevent>>
 
@@ -2708,7 +2730,7 @@
 <<if $temple_arcade_phase is 0>><<set $temple_arcade_phase += 1>>
 	종이 다시 울린다. 이전 무리만큼이나 들뜬 또 다른 무리가 들어온다.
 	<br><br>
-	<span class="red">검은 머리의 <<if $temple_wall_victim is "boy">>소년<<else>>소녀<</if>>【은는】 비명을 지르며 벽을 두드린다.</span> "그, 그만. 또 하지는 마. 제발."
+	<span class="red">검은 머리의 <<if $temple_wall_victim is "boy">>소년<<else>>소녀<</if>>【은는】 비명을 지르며 벽을 두드린다.</span> "그-그만. 또 하지는 마. 제발."
 	<br><br>
 	<span class="lewd">누군가가 당신의 <<bottom>>【을를】 움켜쥔다.</span>
 	<br><br>
@@ -2718,7 +2740,7 @@
 <<elseif $temple_arcade_phase is 1>><<set $temple_arcade_phase += 1>>
 	종이 다시 울린다. 이전 무리만큼이나 들뜬 또 다른 무리가 들어온다.
 	<br><br>
-	<span class="blue">"강, 강하게 버텨."</span> 주근깨가 난 <<if $temple_wall_victim is "boy">>소년<<else>>소녀<</if>>【이가】 말한다. "우리 모두 이겨내고 있어."
+	<span class="blue">"강-강하게 버텨."</span> 주근깨가 난 <<if $temple_wall_victim is "boy">>소년<<else>>소녀<</if>>【이가】 말한다. "우리 모두 이겨내고 있어."
 	<br><br>
 	<span class="lewd">누군가가 당신의 <<bottom>>【을를】 움켜쥔다.</span>
 	<br><br>
@@ -2802,6 +2824,7 @@
 <<unset $temple_wall_victim>>
 <<set $temple_arcade_known to true>>
 <<set $player.virginity.temple to true>>
+<<set $temple_chastity_timer to 30>>
 <<clotheson>>
 <<endevent>>
 
@@ -2861,7 +2884,7 @@
 	<</if>>
 	<br><br>
 	<<if $exposed gte 1>>
-		<<He>>【은는】 당신의 옷차림 상태를 깨닫고 숨을 삼키며 다시 눈을 감는다. "그, 그게 저, 저는..." <<he>>【은는】 중얼거리며 계속 제 갈 길을 간다.
+		<<He>>【은는】 당신의 옷차림 상태를 깨닫고 숨을 삼키며 다시 눈을 감는다. "그-그게 저-저는..." <<he>>【은는】 중얼거리며 계속 제 갈 길을 간다.
 		<br><br>
 	<<else>>
 		<<He>>【은는】 이제 눈을 뜬 채 제 갈 길을 간다.
@@ -3683,4 +3706,33 @@
 <</if>>
 
 <<link [[떠난다|Temple]]>><<endevent>><<set $temple_spear_mission to 1>><<unset $spearQuestion>><<unset $spearQuestions>><</link>>
+<br>
+
+:: Temple Altar Research Ask
+<<effects>>
+
+<<generate1>><<person1>>
+
+
+<<if $temple_rank is "monk" or $temple_rank is "priest">>
+	당신은 지나가는 <<monks_and_nuns>>에게 사라진 페이지에 대해 묻는다. 처음 몇 명은 무슨 말인지 모르겠다는 반응이지만, 이내 나이 든 <<monk>>【이가】 당신을 구석진 곳으로 손짓해 부른다.
+	<br><br>
+	"그 주제는 잘 모릅니다." <<he>>【이가】 말한다. "하지만 여기 있다면 회랑 너머의 필사실에 있을 겁니다."
+	<br><br>
+	<<He>>【은는】 걸어 나간다. 어딘가에 감춰진 사슬이 짤랑거리는 소리가 들린다.
+	<br><br>
+<<else>>
+	당신은 지나가는 <<monks_and_nuns>>에게 사라진 페이지에 대해 묻는다. 어떤 이들은 동정하며 귀를 기울이고, 어떤 이들은 냉랭하게 외면한다. 무슨 말인지 아는 사람은 없는 듯하다.
+	<br><br>
+	한 <<monk>>【이가】 불쾌해한다. "우리를 흔한 도둑 취급하는 겁니까?" <<he>>【이가】 말한다. "예전 같으면 그런 무례에는 채찍질에 낙인이 찍혔을 겁니다. 우리가 필사실에 지식을 쌓아 두고 있지 않다는 듯이 말입니다." <<He>>【은는】 씩씩거리며 자리를 뜬다.
+	<br><br>
+<</if>>
+
+<<if !$temple_scriptorium_known>>
+	<<set $temple_scriptorium_known to 1>>
+	<span class="gold">당신은 신전 어딘가에 필사실이 있다는 것을 알게 되었다.</span>
+	<br><br>
+<</if>>
+
+<<link [[다음|Temple]]>><<endevent>><</link>>
 <br>

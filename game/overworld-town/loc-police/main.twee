@@ -259,7 +259,7 @@
 	<<if $police_access_card is 0 and ($rng % 3) is 0>>
 		<br><span class="gold">경찰 출입 카드가 책상 위에 놓여 있다.</span> 카드에는 "외부 접속 전용"이라는 메모가 적혀 있다.
 		<br><br>
-		<<icon "access-card.png">><<link [[출입 카드 훔치기|Police Back Office]]>><<set $police_access_card to 1>><</link>>
+		<<icon "access-card.png">><<link [[출입 카드를 훔친다|Police Back Office]]>><<set $police_access_card to 1>><</link>>
 		<br>
 	<<else>>
 	<br>
@@ -319,7 +319,7 @@
 <<generate1>><<person1>>
 컴퓨터에 접속하기도 전에, 한 줄기 빛이 당신을 비춘다.
 <br><br>
-"잡았다, 이 교활한 작은 쥐새끼," 한 목소리가 으르렁거린다.
+"잡았다, 이 교활한 작은 쥐새끼." 한 목소리가 으르렁거린다.
 <br><br>
 당신은 돌아서서 밝은 손전등 불빛으로부터 눈을 가린다. <span class="red">경찰관이다</span>. 당신이 도망치기도 전에, <<he>>【이가】 당신을 바닥으로 넘어뜨린다.
 <br><br>
@@ -373,7 +373,7 @@
 :: Police Sneak Rape Finish
 <<effects>>
 <<if $pain gte 100 and $willpowerpain is 0>>
-	"교훈을 얻었나?" <<He>>【은는】 당신의 머리카락을 난폭하게 잡아당겨, 당신의 머리를 위로 젖혀 <<him>>【을를】 보게 한다. "아직 안 끝났어," <<he>>【은는】 당신을 땅에 내던지고 옷을 벗기며 말한다. "이건 증거 보관함에 들어갈 물건이야. 자, 이제 엉덩이 빼. 다시는 여기서 널 보고 싶지 않으니까."
+	"교훈을 얻었나?" <<He>>【은는】 당신의 머리카락을 난폭하게 잡아당겨, 당신의 머리를 위로 젖혀 <<him>>【을를】 보게 한다. "아직 안 끝났어." <<he>>【은는】 당신을 땅에 내던지고 옷을 벗기며 말한다. "이건 증거 보관함에 들어갈 물건이야. 자, 이제 엉덩이 빼. 다시는 여기서 널 보고 싶지 않으니까."
 	<br><br>
 	<<person>>【이가】 당신을 밖으로 걷어차, 알몸으로 내버려 둔다.
 	<br><br>

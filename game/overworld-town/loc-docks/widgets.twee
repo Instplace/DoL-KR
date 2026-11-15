@@ -197,17 +197,17 @@
 	<</if>>
 
 	<<if !$worn.face.type.includes("gag")>>
-		<<socialiseicon>><<link [["사교 활동 (0:" + _time_to_pass + ")"|Docks Lunch Socialise]]>><<pass _time_to_pass>><</link>>
+		<<socialiseicon>><<link [["사교 활동 " + printTime(_time_to_pass, true)|Docks Lunch Socialise]]>><<pass _time_to_pass>><</link>>
 		<br>
 		<<if Time.minute < 50>>
 			<<brothelicon>><<link [[추파를 던진다 (0:05)|Docks Lunch Flirt]]>><<pass 5>><</link>><<promiscuous1>>
 			<br>
 		<</if>>
 	<</if>>
-	<<walkicon>><<link [["산책한다 (0:" + _time_to_pass + ")"|Docks Lunch Stroll]]>><<pass _time_to_pass>><</link>>
+	<<walkicon>><<link [["산책한다 " + printTime(_time_to_pass, true)|Docks Lunch Stroll]]>><<pass _time_to_pass>><</link>>
 	<br>
 	<<if Time.minute < 50>>
-		<<bedicon "zzz">><<link [["잠을 잔다 (0:" + _time_to_pass + ")"|Docks Lunch Sleep]]>><<pass _time_to_pass>><</link>><<ltiredness>>
+		<<bedicon "zzz">><<link [["잠을 잔다 " + printTime(_time_to_pass, true)|Docks Lunch Sleep]]>><<pass _time_to_pass>><</link>><<ltiredness>>
 		<br>
 		<<if $docks.fakeID is "shown">>
 			<<walkicon>><<link [[떠난다|Docks Lunch Leave]]>><</link>>
@@ -316,7 +316,7 @@
 			<<set $docks.pub.cooldown to 2>> /* reduced in dailyDockEffects() */
 			<<generate2>><<person2>>
 
-			당신의 동료 무리가 게이트에 모여 있다. 한 <<person>>【이가】 당신에게 손을 흔들어 부른다. "우린 펍 순례하러 갈 건데," <<he>>【이가】 말한다.
+			당신의 동료 무리가 게이트에 모여 있다. 한 <<person>>【이가】 당신에게 손을 흔들어 부른다. "우린 술집 순례하러 갈 건데." <<he>>【이가】 말한다.
 			<<if playerBellyVisible()>>
 				"너도 같이 가면 환영이지만, 그런데..."
 				<<He>>【은는】 당신의 <<bellyDescription "pc">>【을를】 내려다본다. "네 애가 우리처럼 망가진 채로 태어나길 바라진 않겠지." 그들은 장난기 어린 웃음을 터뜨리며 당신과 함께 웃는다.
@@ -399,7 +399,7 @@
 		<<if $rng gte 81 and $money gte 12000 and !$docks.slave.seen>>
 			<<generatey1>><<generate2>><<person2>>컨테이너 중 하나에서 억눌린 듯한 울음소리가 들린다.
 			<br><br>
-			당신이 키코드를 입력하지만, 문은 열리지 않는다. "그건 아니야," 다른 노동자가 말한다. <<he>>【이가】 문에 인쇄된 이니셜을 가리킨다. "우린 저것들은 검사 안 해." <<he>>【이가】 울음소리를 들었더라도, 그냥 무시하는 듯하다.
+			당신이 키코드를 입력하지만, 문은 열리지 않는다. "그건 아니야." 다른 노동자가 말한다. <<he>>【이가】 문에 인쇄된 이니셜을 가리킨다. "우린 저것들은 검사 안 해." <<he>>【이가】 울음소리를 들었더라도, 그냥 무시하는 듯하다.
 			<br><br>
 			<<set $lock to 400>>
 			<<if currentSkillValue('skulduggery') gte $lock>>
@@ -468,11 +468,11 @@
 			<br><br>
 		<</if>>
 		<<if $speech_attitude is "meek">>
-			"<<sir>>, 이쪽으로 접근하시면 안 됩니다," 당신이 말한다. "다른 배들의 길을 막고 계십니다."
+			"<<sir>>, 이쪽으로 접근하시면 안 됩니다." 당신이 말한다. "다른 배들의 길을 막고 계십니다."
 		<<elseif $speech_attitude is "bratty">>
-			"끼어들어서 미안한데요," 당신이 말한다. "당신 그 멍청한 배가 다른 배랑 충돌하기 직전이거든요."
+			"끼어들어서 미안한데요." 당신이 말한다. "당신 그 멍청한 배가 다른 배랑 충돌하기 직전이거든요."
 		<<else>>
-			"전달할 메시지가 있습니다," 당신이 말한다. "경로가 잘못되었습니다. 배를 물리고 올바른 각도로 접근하셔야 합니다. 다른 배들이 지연되고 있습니다."
+			"전달할 메시지가 있습니다." 당신이 말한다. "경로가 잘못되었습니다. 배를 물리고 올바른 각도로 접근하셔야 합니다. 다른 배들이 지연되고 있습니다."
 		<</if>>
 		<br><br>
 		"기다리라고 해," <<he>>【이가】 코웃음 친다. "우리 배엔 높으신 분들이 많이 타셨거든. 얼른 육지에 내리고 싶어 하셔." <<he>>【은는】 몸을 돌린다.
@@ -492,7 +492,7 @@
 	<<addinlineevent "docks_work_compound_lorry">>
 		당신은 화물차에서 짐을 내리는 일을 맡았다. 근처에서 짐을 내리고 있는 다른 차량을 발견하는데, 작업자들의 제복이 묘하다. <<generate1>><<person1>><<generate2>><<person>>【이가】 그들을 감독하고 있다.
 		<br><br>
-		"저 놈들은 신경 쓰지 마," 당신 옆에서 일하던 <<person2>><<person>>【이가】 말한다. "자기네 짐은 알아서 처리하니까."
+		"저 놈들은 신경 쓰지 마." 당신 옆에서 일하던 <<person2>><<person>>【이가】 말한다. "자기네 짐은 알아서 처리하니까."
 		<br><br>
 		<<link [[자세히 보기 위해 몰래 다가간다|Docks Compound]]>><<drugs 240>><<stress -6>><</link>><<garousal>><<lstress>>
 		<br>
@@ -533,7 +533,7 @@
 	<</addinlineevent>>
 
 	<<addinlineevent "docks_work_moving_crates">>
-		차량에 실을 상자들을 옮기는 임무를 맡았다. <<generate1>><<person1>>"지게차가 필요하겠군," 감독관이 말한다. "열쇠 좀 찾아볼게."
+		차량에 실을 상자들을 옮기는 임무를 맡았다. <<generate1>><<person1>>"지게차가 필요하겠군." 감독관이 말한다. "열쇠 좀 찾아볼게."
 		<br><br>
 		<<if currentSkillValue('physique') gte 14000>>
 			상자가 그리 무거워 보이지 않는다. <<he>>【이가】 돌아왔을 무렵, 당신은 이미 작업을 끝마친 상태다. "보기보다 힘이 장사네," <<he>>【이가】 헛웃음을 짓는다.
@@ -644,7 +644,7 @@
 				<span class="pink">팔이 묶여 제대로 잡을 수 없어서 훨씬 더 힘들었다.</span>
 			<</if>>
 			<br><br>
-			당신이 두 번째 상자를 옮기려 애쓸 때, 근육질의 부두 노동자가 다가와 당신 손에서 짐을 빼앗아 든다. "마지막 상자다," <<generate1>><<person1>><<he>>【이가】 말한다. <<he>>【은는】 당신을 쳐다보지도 않는다.
+			당신이 두 번째 상자를 옮기려 애쓸 때, 근육질의 부두 노동자가 다가와 당신 손에서 짐을 빼앗아 든다. "마지막 상자다." <<generate1>><<person1>><<he>>【이가】 말한다. <<he>>【은는】 당신을 쳐다보지도 않는다.
 			<<lcool>><<dockstatus -1>>
 			<br><br>
 		<</if>>
@@ -675,7 +675,7 @@
 		<<elseif $rng gte 21>>
 			"걔들이 다루는 물건에서 단내 같은 게 나는데, 기분이 좀 이상해지더라."
 		<<else>>
-			"엘크 거리에 있는 건물과 연관돼 있다는 소문도 들었어. 무슨 신종 마약 같은 걸 테스트한다고. 난 좀 억지스럽다 생각하지만."
+			"엘크 가에 있는 건물과 연관돼 있다는 소문도 들었어. 무슨 신종 마약 같은 걸 테스트한다고. 난 좀 억지스럽다 생각하지만."
 		<</if>>
 	<</addinlineevent>>
 
@@ -876,7 +876,7 @@
 	<</addinlineevent>>
 
 	<<addinlineevent "docks_overhear_giant_hawk" 0.5>>
-		"황야에 있는 거대한 매에 대해 들어본 적 있어?"
+		"황야에 있는 거대 매에 대해 들어본 적 있어?"
 		<br>
 		"아니. 무슨 일인데?"
 		<br>
@@ -1599,9 +1599,9 @@
 			<<generateSecurity 1>><<person1>>
 			저 앞 모퉁이에서 경비원 제복을 입은 <<person>>【이가】 나타난다. 당신은 두 컨테이너 사이로 몸을 숨긴다. <<he>>【은는】 당신을 보지 못한 것 같다.
 			<<if random(1, 2) is 1>>
-				하지만 지나쳐 가는 듯하던 <<he>>【이가】 당신이 숨은 곳으로 손을 불쑥 내민다. "잡았다," <<he>>【은는】 당신의 팔을 움켜쥐고 밖으로 끌어내며 말한다.
+				하지만 지나쳐 가는 듯하던 <<he>>【이가】 당신이 숨은 곳으로 손을 불쑥 내민다. "잡았다." <<he>>【은는】 당신의 팔을 움켜쥐고 밖으로 끌어내며 말한다.
 				<br><br>
-				<<He>>【은는】 무전기로 손을 뻗는다. "망할 놈을 잡았다," <<he>>【은는】 당신을 컨테이너에 밀어붙이며 말한다. "수신 양호." <<He>>【은는】 무전기를 내려놓는다. "지원 병력이 곧 도착할 거다. 기다리는 동안 우리끼리 즐거운 시간 좀 가져보는 건 어때?"
+				<<He>>【은는】 무전기로 손을 뻗는다. "망할 놈을 잡았다." <<he>>【은는】 당신을 컨테이너에 밀어붙이며 말한다. "수신 양호." <<He>>【은는】 무전기를 내려놓는다. "지원 병력이 곧 도착할 거다. 기다리는 동안 우리끼리 즐거운 시간 좀 가져보는 건 어때?"
 				<br><br>
 
 				<<link [[다음|Docks Sneak Rape]]>><<set $molestationstart to 1>><</link>>

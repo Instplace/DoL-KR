@@ -185,7 +185,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송합니다." 당신은 말한다. "돈이 없어요."
+	"죄-죄송합니다." 당신은 말한다. "돈이 없어요."
 <<elseif $speech_attitude is "bratty">>
 	"빈털터리예요." 당신은 어깨를 으쓱하며 말한다. "실망시키지 않았으면 좋겠네요."
 <<else>>
@@ -416,7 +416,7 @@
 :: Flats Canal Kiss Endure
 <<effects>>
 
-<<if random(1, 2) is 2>>
+<<if random(1, 2) is 2 or $mine?.freed is 1>>
 	<<person>>【은는】 <<his>> 입을 당신의 입에 여전히 누른 채로, <<his>> 손아귀에 더욱 힘을 준다. 당신이 기절할 것 같다고 생각하는 바로 그 순간, <span class="green"><<he>>【은는】 당신을 놓아준다.</span> 당신은 숨을 헐떡인다. 시야에 별이 가득하다.
 	<br><br>
 

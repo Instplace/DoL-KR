@@ -6,7 +6,7 @@
 	<<if $nikiSeen.includes("farm")>>
 		니키다. 레미 농장의 그 사진작가다. 당신은 발걸음을 재촉한다.
 		<br><br>
-		"잠깐만," 당신과 보조를 맞추기 위해 속도를 높이며 <<he>>【이가】 말한다. "금방 끝낼게. 그때 난... 제정신이 아니었어. <span class="gold">난 나이팅게일 가에서 사진관을 운영하고 있어.</span> 전부 합법적인 일이지. 일거리가 필요하면 언제 한 번 들러."
+		"잠깐만." 당신과 보조를 맞추기 위해 속도를 높이며 <<he>>【이가】 말한다. "금방 끝낼게. 그때 난... 제정신이 아니었어. <span class="gold">난 나이팅게일 가에서 사진관을 운영하고 있어.</span> 전부 합법적인 일이지. 일거리가 필요하면 언제 한 번 들러."
 		<br><br>
 
 		당신은 골목으로 쏜살같이 들어가, 차를 몰고 떠나게끔 <<him>>【을를】 남겨둔다.
@@ -15,7 +15,7 @@
 		<<endevent>>
 		<<destinationeventend>>
 	<<else>>
-		"안녕," <<he>>【이가】 말한다. "시간 좀 있어?"
+		"안녕." <<he>>【이가】 말한다. "시간 좀 있어?"
 		<br><br>
 
 		<<link [[멈춰 선다|Photo Street Stop]]>><<npcincr Niki love 1>><</link>><<glove>>
@@ -313,8 +313,8 @@
 		<br>
 		<<link [[찰싹 때린다|Photo High Smack]]>><<famescrap 1 "pic">><<photo_attention 1>><<stress -6>><</link>><<gattention>><<lstress>>
 		<br>
-		<<if $submissive lte 500>>
-			<<link [[포효한다|Photo High Roar]]>><<famescrap 1 "pic">><<photo_attention 1>><<photo_interest 2>><<stress -6>><<famemodel 1 "pic">><</link>><<defianttext>><<gattention>><<gginterest>><<lstress>>
+		<<if displayDefiantOption(500)>>
+			<<link [[포효한다|Photo High Roar]]>><<famescrap 1 "pic">><<photo_attention 1>><<photo_interest 2>><<stress -6>><<famemodel 1 "pic">><<wolfDefiant 500>><</link>><<defianttext 500>><<gattention>><<gginterest>><<lstress>>
 			<br>
 		<</if>>
 	<</addinlineevent>>
@@ -654,7 +654,7 @@
 			<<lheat>>
 		<</if>>
 		<br>
-		<<link [[니키를 찾는다 (0:01)|Photo High Niki]]>><<photo_pass 1>><</link>>
+		<<link [[니키를 찾는다 (0:01)|Photo High Niki]]>><<photo_pass 1>><<endevent>><</link>>
 		<br>
 		<br>
 	<</if>>
@@ -690,7 +690,7 @@
 		<<case 3>>쇼핑센터
 		<<case 2>>공원
 		<<case 1>>숲 근처
-		<<default>><span class="red">하이 스트리트 어딘가 (버그입니다)</span>
+		<<default>><span class="red">하이 가 어딘가 (버그입니다)</span>
 	<</switch>>
 	|
 	남은 시간: <<print Math.max(0, $photo_timer)>>분

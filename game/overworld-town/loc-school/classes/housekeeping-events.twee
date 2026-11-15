@@ -110,7 +110,7 @@
 :: Housekeeping Vacuum Heavy 2
 <<effects>>
 
-"너," 리버가 당신 쪽을 가리키며 말한다. "창고로. 당장."
+"너." 리버가 당신 쪽을 가리키며 말한다. "창고로. 당장."
 <br><br>
 당신은 음흉하게 쳐다보는 학생들의 시선을 피해 문을 닫는다. 잠시 후 리버의 손이 나타나 망가진 옷을 대신할 옷을 카운터에 놓아준다.
 <br><br>
@@ -318,16 +318,16 @@
 <</if>>
 <br><br>
 <<schoolrep_naked>>
-<<if $player.penisExist and $player.vaginaExist>>
+<<if $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
 	"넌 대체 무슨 괴물이냐?" <<person1>><<person>>【이가】 말하자, <<person2>><<person>>【은는】 <<his>> 손으로 <<his>> 입을 가린다. <<person3>><<person>>【은는】 넋을 잃고 바라본다.
 <<elseif $player.penisExist>>
-	<<if $player.gender_appearance is "f">>
+	<<if $player.gender_appearance is "f" and $settings.nudeGenderPerception !== 0>>
 		세 명 모두 웃는다. "내가 기대했던 건 이게 아닌데." <<person1>><<person>>【이가】 말한다. "너 변태구나."
 	<<else>>
 		세 명 모두 당신을 음흉하게 쳐다본다. "좋네." <<person1>><<person>>【이가】 말한다.
 	<</if>>
 <<else>>
-	<<if $player.gender_appearance is "m">>
+	<<if $player.gender_appearance is "m" and $settings.nudeGenderPerception !== 0>>
 		세 명 모두 웃는다. "내가 기대했던 건 이게 아닌데." <<person1>><<person>>【이가】 말한다. "너 변태구나."
 	<<else>>
 		세 명 모두 당신을 음흉하게 쳐다본다. "좋네." <<person1>><<person>>【이가】 말한다.
@@ -1019,7 +1019,7 @@
 당신은 옆방으로 들어가 옷을 턴다. 잠시 후 <<person>>【이가】 들어오고, 그 뒤를 <<person2>><<person>>【이가】 따라 들어온다.
 <br><br>
 
-"네가 뭘 하고 있었는지 알아," <<person2>><<person>>【이가】 다가오는 동안 <<person1>><<person>>【이가】 말한다. "우리가 원하는 걸 주는 게 좋을 거야, 아니면 모두가 알게 될 테니."<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
+"네가 뭘 하고 있었는지 알아." <<person2>><<person>>【이가】 다가오는 동안 <<person1>><<person>>【이가】 말한다. "우리가 원하는 걸 주는 게 좋을 거야, 아니면 모두가 알게 될 테니."<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
 <br><br>
 
 <<link [[시키는 대로 한다|Housekeeping Lesson Masturbate Rape]]>><<set $molestationstart to 1>><</link>>

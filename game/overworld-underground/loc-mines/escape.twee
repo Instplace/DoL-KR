@@ -1,0 +1,172 @@
+:: Mine Escape
+<<effects>>
+<<generate1>><<generate2>><<generate3>><<generate4>><<generate5>><<generate6>>
+위험을 무릅쓰고 싶지 않아 당신은 터널 속으로 서둘러 달려간다. 구불구불한 터널을 달리며 출구를 찾으려 애쓴다.
+작은 동굴에 나오자 <span class="red">이미 와 본 곳이라는 걸 깨닫는다. 길을 잃었다!</span>
+<br><br>
+<<link [[다음|Mine Escape Maze]]>><</link>>
+
+
+
+:: Mine Escape Maze
+<<effects>>
+<<if !$mine.maze>>
+	<<run V.mine.maze = new MineMaze(Object.values(V.NPCList));>>
+	<<set _start_turn to 1>>
+<<else>>
+	<<run resetMazeMethods()>>
+<</if>>
+
+<<if $debug>>
+	<<mine_maze_map>>
+	<br><br>
+<</if>>
+
+<<clearnpc>>
+당신은 작은 동굴에 있다. 여러 갈래의 터널이 뻗어 있다.
+<<if $mine.setup.dust gt 0 and $mine.maze.proximityCheck()>>
+	<<= either("쌕쌕거리는 숨소리가", "기침 소리가")>> 터널 한 곳에서 들린다.
+<</if>>
+
+<<if _start_turn and $mine.setup.lantern>>
+	<br><br>
+	당신은 랜턴을 꺼낸다. 불꽃이 흔들리며
+	<<switch $mine.maze.lantern()>>
+		<<case "up">>
+			남쪽으로
+		<<case "down">>
+			북쪽으로
+		<<case "left">>
+			동쪽으로
+		<<case "right">>
+			서쪽으로
+	<</switch>>
+	기운 뒤 밖으로 나간다.
+<</if>>
+
+<br><br>
+<<run V.mine.maze.guardsWithPC()>>
+
+<<if $mine.maze.ActiveGuards.length gte 1>>
+	<<run V.mine.maze.setNPCSlots()>>
+
+	<<person1>>
+
+	당신은 동굴을 둘러보다가
+	<<if $mine.maze.ActiveGuards.length gte 2>>
+		입구 옆에 서 있는 몇몇 <<people>>【을를】 발견한다. 그들은 당신을 알아채고 달려와 붙잡는다.
+	<<else>>
+		입구 옆에 서 있는 <<person>>【을를】 발견한다. <<He>>【은는】 당신을 알아채고 달려와 붙잡는다.
+	<</if>>
+	<br><br>
+	<<link [[다음|Mine Escape Maze Fight]]>><<set $fightstart to 1>><</link>>
+
+	<<exit>>
+<</if>>
+
+<<if $mine.maze.PC.equals($mine.maze.Exit)>>
+	<span class="blue">동굴 한가운데에 천장의 구멍으로 이어지는 사다리가 있다.</span>
+	<br><br>
+	<<link [[사다리를 오른다|Mine Escape Victory]]>><<unset $mine.maze>><</link>>
+	<br>
+<</if>>
+
+<<if !_start_turn>>
+	<<run V.mine.maze.moveGuards()>>
+	<<run V.mine.maze.stun()>>
+<</if>>
+
+<<set _player_dir to $mine.maze.PC.possibleDirections(MineMaze.MAZE_SIZE)>>
+<<if _player_dir.includes("up")>>
+	<<link [[북쪽으로 움직인다|Mine Escape Maze]]>><<run V.mine.maze.PC.up()>><</link>>
+	<br>
+<</if>>
+<<if _player_dir.includes("down")>>
+	<<link [[남쪽으로 움직인다|Mine Escape Maze]]>><<run V.mine.maze.PC.down()>><</link>>
+	<br>
+<</if>>
+<<if _player_dir.includes("left")>>
+	<<link [[서쪽으로 움직인다|Mine Escape Maze]]>><<run V.mine.maze.PC.left()>><</link>>
+	<br>
+<</if>>
+<<if _player_dir.includes("right")>>
+	<<link [[동쪽으로 움직인다|Mine Escape Maze]]>><<run V.mine.maze.PC.right()>><</link>>
+	<br>
+<</if>>
+<<link [[제자리에 머문다|Mine Escape Maze]]>><</link>>
+
+
+
+:: Mine Escape Maze Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+	<<set $enemyno to $mine.maze.ActiveGuards.length>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+	<<person1>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0) or $orgasmdown gte 1 or $worn.feet.type.includes("shackle")>>
+	<span id="next"><<link [[다음|Mine Escape Maze Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Mine Escape Maze Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+
+
+:: Mine Escape Maze Fight Finish
+<<effects>><<person1>>
+
+<<if $orgasmdown gte 1>>
+	<<shackle_feet>>
+	경련하는 당신의 몸 때문에 <<he>>【이가】 손쉽게 당신을 제압한다.
+<<elseif $worn.feet.type.includes("shackle")>>
+	족쇄 때문에 당신은 도망칠 수 없다.
+<<elseif $pain gte 100 and $willpowerpain is 0>>
+	<<shackle_feet>>
+	고통에 굴복한 당신의 몸이 축 늘어진다.
+<<else>>
+	<<if $mine.maze.ActiveGuards.length gte 2>>
+		그들은
+	<<else>>
+		<<He>>【은는】
+	<</if>>
+	바닥에 <<= $enemyarousal gte $enemyarousalmax ? "황홀경에 빠져" : "고통에 겨워">> 쓰러진다. 당신은 지체 없이 터널 속으로 달려간다.
+	<br><br>
+	<<endcombat>>
+	<<link [[다음|Mine Escape Maze]]>><<run
+		V.mine.maze.combatEnd = MineMaze.prototype.combatEnd;
+		V.mine.maze.combatEnd();
+	>><</link>>
+	<<exit>>
+<</if>>
+<<He>>【은는】 당신의 발목에 족쇄를 채운다. <<He>>【은는】 낄낄거리며 당신을 바닥에서 끌어 올리고 걷기 시작한다.
+<br><br>
+사람이 더 많은 구역에 이르자 <<he>>【이가】<<endcombat>><<generate1>> 당신을 <<person1>><<person>>에게 넘긴다. <<He>>【은는】 당신을 다른 터널로 끌고 간다.
+<br><br>
+<<link [[다음|Mine Punishment]]>><<unset $mine.maze>><</link>>
+
+
+
+:: Mine Escape Victory
+<<effects>><<earnFeat "Down Below">>
+<<badEndTrackingEnd "Mines" { reason: "minesEscapedMaze" }>>
+
+등 뒤에서 고함이 들린다. 경비원 셋이 당신 쪽으로 달려온다. 당신은 나무 사다리를 붙잡고, 사다리가 발밑에서 무너지기 직전에 가까스로 올라선다.
+<br><br>
+아래에서 고함 소리를 들으며 터널을 달려가다, 갈림길에 이르러 멈춰 선다.
+그중 한쪽에서 지독한 악취가 훅 끼쳐 속이 울렁거린다. 구역질을 꾹 참고 다른 터널로 비틀거리며 들어선다.
+<br><br>
+당신은 가파른 오르막에 이른다. 칠흑같이 캄캄한 비탈을 오르자 암벽이 시멘트로 바뀌고, 빗물 배수로에 나온다. <<mine_hope 3>><<ggghope>>
+<br><br>
+<<link [[다음|Residential Drain]]>><<endevent>><<set $eventskip to 1>><</link>>

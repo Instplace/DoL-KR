@@ -26,7 +26,7 @@
 	<<beastNEWinit 1 dog>>
 	등 뒤에서 으르렁거리는 소리가 들린다. 쓰레기 더미 뒤에서 <<beasttype>>【이가】 이빨을 드러낸 채 나타난다.
 	<br><br>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("dog", $monster is 1)>>
 
 		<<link [[다음|Trash Beast]]>><<set $molestationstart to 1>><</link>>
 		<br>
@@ -93,7 +93,7 @@
 <<addinlineevent "trash_8" 2>>
 	<<rng>>
 	<<if $rng gte 91 and $settings.parasitesEnabled and $parasite.right_thigh.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 오른쪽 허벅지에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 오른쪽 허벅지에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite right_thigh maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.
@@ -104,7 +104,7 @@
 		<br>
 
 	<<elseif $rng gte 81 and $settings.parasitesEnabled and $parasite.left_thigh.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 왼쪽 허벅지에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 왼쪽 허벅지에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite left_thigh maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.
@@ -114,7 +114,7 @@
 		<<link [[다음|Trash]]>><<set $eventskip to 1>><</link>>
 		<br>
 	<<elseif $rng gte 71 and $settings.parasitesEnabled and $parasite.right_arm.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 오른쪽 팔에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 오른쪽 팔에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite right_arm maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.
@@ -124,7 +124,7 @@
 		<<link [[다음|Trash]]>><<set $eventskip to 1>><</link>>
 		<br>
 	<<elseif $rng gte 61 and $settings.parasitesEnabled and $parasite.left_arm.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 왼쪽 팔에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 왼쪽 팔에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite left_arm maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.
@@ -134,7 +134,7 @@
 		<<link [[다음|Trash]]>><<set $eventskip to 1>><</link>>
 		<br>
 	<<elseif $rng gte 51 and $settings.parasitesEnabled and $parasite.tummy.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 배에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 배에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite tummy maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.
@@ -144,7 +144,7 @@
 		<<link [[다음|Trash]]>><<set $eventskip to 1>><</link>>
 		<br>
 	<<elseif $rng gte 41 and $settings.parasitesEnabled and $parasite.bottom.name is undefined>>
-		무언가에 발이 걸려 넘어진다. 이 쓰레기장 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 엉덩이에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
+		무언가에 발이 걸려 넘어진다. 이 매립지 상태를 생각하면 놀랄 일도 아니지만, 문득 <span class="lewd">당신의 엉덩이에 무언가 미끄러지듯 달라붙는 것이 느껴진다.</span> 내려다보니 거대한 구더기 하나가 달라붙어 있다. 찰싹 달라붙어 있어 아무리 잡아당겨도 떨어지지 않는다. <i>어쩌면 씻어낼 수 있을지도 모른다.</i>
 		<br><br>
 		<<parasite bottom maggot>>
 		구더기가 닿은 피부에서 온기가 느껴진다. 그 온기가 퍼져나간다.

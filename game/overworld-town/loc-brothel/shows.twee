@@ -39,7 +39,7 @@
 	<<endevent>>
 
 	/* guarantees pig will be generated as a monster - regardless of monsterChance - if monsterpeople are possible and beasts are disabled; otherwise generated as usual */
-	<<if !$settings.bestialityEnabled and $settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)>>
+	<<if !animalSexEnabledForType("pig") and monsterCanAppearForType("pig")>>
 		<<if maleChance() gte random(1, 100)>>
 			<<if $settings.maleNPCVaginaChance gte random(1, 100)>>
 				<<beastNEWinit 1 pig m vagina monster>>
@@ -54,11 +54,11 @@
 			<</if>>
 		<</if>>
 	<<else>>
-		<<beastNEWinit 1 pig>>
+		<<generateBeastVictim 1 pig>>
 	<</if>>
 
 	/* defaults to gangbang show if the player changed their beast settings, or has lost hallucinations since accepting the job */
-	<<if $settings.bestialityEnabled or $monster is 1>>
+	<<if beastSexEnabledForType("pig", $monster is 1)>>
 		브라이어가 당신을 돌아본다. "모든 준비가 끝났어. 이제 주인공만 기다리면 돼." <<nnpc_him "Briar">> 옆에 있는 우리가 흔들린다. "짐승이 좀 흥분했지만, 네가 잘 다룰 수 있을 거라 믿어." 당신은 무대 위로 걸어간다. 당신 위로 하얀 조명 하나가 켜지자, 어두운 방 안의 소음이 잦아든다. 무대 가장자리 너머는 보이지 않지만, 당신을 향한 시선들은 느껴진다.
 		<br><br>
 
@@ -111,7 +111,7 @@
 	<br><br>
 	"<<Ladies_gentlemen>>!" 브라이어가 관객들에게 알린다. "기어 다니는 것들에 쉽게 겁을 먹는 분이 계시다면, 방을 나가시는 것을 강력히 권고합니다."
 	<br><br>
-	"나머지 분들은," <<he>>【이가】 훨씬 더 대담한 어조로 외친다. "저희가 제공하는 가장 정교한 쇼를 목격해 주십시오!" 두 사람은 떨리는 상자를 들고 무대에 오른다.
+	"나머지 분들은." <<he>>【이가】 훨씬 더 대담한 어조로 외친다. "저희가 제공하는 가장 정교한 쇼를 목격해 주십시오!" 두 사람은 떨리는 상자를 들고 무대에 오른다.
 	<br><br>
 	"우리의 작은 친구들이 선사하는 음탕한 전율을 즐겨보세요." <<deviancy5>>
 	<<endevent>>
@@ -249,7 +249,7 @@
 	<br><br>
 	"<<phim>>【을를】 강간해." 관객 중 누군가가 소리친다.
 	<br><br>
-	"ㄴ-네." 당신은 말한다. 다른 세 명이 등 뒤로 더 가까이 다가오는 소리가 들린다. "길을 잃었고, 무섭고, 혼자에요. 도와주실래요?"
+	"네-네." 당신은 말한다. 다른 세 명이 등 뒤로 더 가까이 다가오는 소리가 들린다. "길을 잃었고, 무섭고, 혼자에요. 도와주실래요?"
 	<br><br>
 	그 <<person>>【은는】 웃는다. "물론, 우리가 도와줄게." <<He>>【은는】 당신의 팔을 꽉 잡고, 다른 누군가가 등 뒤에서 다른 팔을 잡는다. 네 명은 당신의 몸을 더듬고 탐색하기 시작한다. 그들의 손가락이 당신을 탐험하며 셔츠 단추 사이와 $worn.lower.name 아래 허벅지 위로 파고들자 당신은 항의한다. 얼마 지나지 않아 당신의 저항은 쾌락의 신음으로 바뀐다.
 	<<promiscuity5>>
@@ -362,7 +362,7 @@
 <<if $phase is 0>>
 	당신은 그 <<person>>【을를】 무대 위로 초대한다. <<He>>【은는】 놀란 표정으로 <<his>> 가슴을 가리키더니, 이내 무대 위로 기어 올라온다.
 	<br><br>
-	"ㅈ-지금 절 가져요." 당신이 말한다. <<He>>【은는】 고개를 끄덕이고, 당신을 무릎 꿇린다.
+	"지-지금 절 가져요." 당신이 말한다. <<He>>【은는】 고개를 끄덕이고, 당신을 무릎 꿇린다.
 	<br><br>
 	<<link [[다음|Brothel Show Flirt Sex]]>><<set $sexstart to 1>><</link>>
 	<br>
@@ -370,7 +370,7 @@
 	<<endevent>>
 	당신은 <<generate1>><<person1>><<person>>【을를】 무대 위로 초대한다. <<He>>【은는】 앞으로 나오다가 넘어지지만, 간신히 무대 위로 올라온다. <<He>>【은는】 관객석에 있는 누군가에게 손을 흔든다.
 	<br><br>
-	"ㅈ-지금 절 가져요." 당신이 말한다. <<He>>【은는】 서툰 손으로 당신을 더듬는다.
+	"지-지금 절 가져요." 당신이 말한다. <<He>>【은는】 서툰 손으로 당신을 더듬는다.
 	<br><br>
 	<<link [[다음|Brothel Show Flirt Sex]]>><<set $sexstart to 1>><</link>>
 	<br>
@@ -1254,7 +1254,7 @@
 <<elseif $brothel_show_bukkake gte 7>>
 	"잘했어." <<he>>【이가】 말한다. "네가 그걸 다 받아낼 수 있어서 기쁘군."
 <<elseif $brothel_show_bukkake gte 1>>
-	"솔직히," <<he>>【이가】 말한다. "관객들이 더 열광할 줄 알았는데. 뭐, 어쨌든. 여기 네 보수야, 잘 벌었어."
+	"솔직히." <<he>>【이가】 말한다. "관객들이 더 열광할 줄 알았는데. 뭐, 어쨌든. 여기 네 보수야, 잘 벌었어."
 <<else>>
 	"단 한 명도 사정시키지 못했다니 놀랍군." <<he>>【이가】 말한다. "아마 적절한 환경이 아니었나 보지. 수고했으니 약간의 돈을 주지." <<He>>【은는】 당신에게 <<printmoney 10000>><<money 10000 "brothelShow">>【을를】 건넨다.
 <</if>>
@@ -1332,16 +1332,16 @@
 	a <<personsimple>>.
 
 	<<if $harperSeen.includes("livestock")>>
-		농장의 의사다. 당신에게 실험을 했던 그 사람. <<He>>【은는】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 박사입니다." <<he>>【이가】 말한다. <<his>> 얼굴에는 당신을 알아보는 기색이 없다.
+		농장의 의사다. 당신에게 실험을 했던 그 사람. <<He>>【은는】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 의사입니다." <<he>>【이가】 말한다. <<his>> 얼굴에는 당신을 알아보는 기색이 없다.
 	<<elseif $harperSeen.includes("party")>>
-		에이버리의 파티에 있던 의사다. 분홍색 가루를 가지고 있던 그 사람. <<He>>【은는】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 박사입니다." <<he>>【이가】 말한다. <<He>>【은는】 순진한 미소를 짓는다.
+		에이버리의 파티에 있던 의사다. 분홍색 가루를 가지고 있던 그 사람. <<He>>【은는】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 의사입니다." <<he>>【이가】 말한다. <<He>>【은는】 순진한 미소를 짓는다.
 	<<else>>
-		<<He>>【이가】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 박사입니다." <<he>>【이가】 말하며, <<his>> 금발 앞머리를 눈에서 쓸어 넘긴다. <<He>>【은는】 의사치고는 젊어 보인다, 기껏해야 25살을 넘지 않았을 것이다.
+		<<He>>【이가】 당신을 보며 미소 짓는다. "안녕하세요, 저는 하퍼 의사입니다." <<he>>【이가】 말하며, <<his>> 금발 앞머리를 눈에서 쓸어 넘긴다. <<He>>【은는】 의사치고는 젊어 보인다, 기껏해야 25살을 넘지 않았을 것이다.
 	<</if>>
 
 	<<set $harperSeen.pushUnique("hospital")>>
 <<else>>
-	하퍼 박사.
+	하퍼 의사.
 <</if>>
 
 <<He>>【은는】 흰색 의사 가운과 흰색 수술용 장갑을 끼고 있다. <<He>>【은는】 당신을 맞이하기 위해 일어선다.
@@ -1350,7 +1350,7 @@
 <br><br>
 <<if playerChastity() or ($player.penisExist and $parasite.penis.name)>>
 	<<if !_fullyNaked>>
-		당신은 마지못해 그렇게 하지만 선택의 여지가 거의 없다. 당신이 완전히 벌거벗자, <<person1>><<he>>【이가】 당신의 <<= $worn.genitals.name>>【을를】 보고 브라이어에게서 화난 으르렁거림이 나온다. 하퍼 박사는 눈살을 찌푸리지만 아무 말도 하지 않는다.
+		당신은 마지못해 그렇게 하지만 선택의 여지가 거의 없다. 당신이 완전히 벌거벗자, <<person1>><<he>>【이가】 당신의 <<= $worn.genitals.name>>【을를】 보고 브라이어에게서 화난 으르렁거림이 나온다. 하퍼 의사는 눈살을 찌푸리지만 아무 말도 하지 않는다.
 		<br><br>
 	<</if>>
 	<<set $brothelVirginityState to "chastity">>
@@ -1457,7 +1457,7 @@
 		<<link [[다음|Brothel Show Virginity Stage]]>><<set $phase to 1>><</link>>
 		<br>
 	<<else>>
-		마지막으로 큰 쇳소리와 함께, <<= $worn.genitals.name>>【이가】 바닥으로 떨어진다. "이제 저건 처리됐으니, 검사를 계속하자고." <<He>>【은는】 미소 없이 뒤로 물러서며 하퍼 박사가 계속하도록 허락한다.
+		마지막으로 큰 쇳소리와 함께, <<= $worn.genitals.name>>【이가】 바닥으로 떨어진다. "이제 저건 처리됐으니, 검사를 계속하자고." <<He>>【은는】 미소 없이 뒤로 물러서며 하퍼 의사가 계속하도록 허락한다.
 		<br><br>
 		<<if $player.penisExist and $parasite.penis.name>>
 			<<link [[다음|Brothel Show Virginity Parasite Removal]]>><</link>>
@@ -1468,9 +1468,9 @@
 	<</if>>
 <<else>>
 	<<if $phase is 0>> /* Comply */
-		당신은 억지로 의자에 앉혀진다. 브라이어가 하퍼 박사에게 돌아선다.
+		당신은 억지로 의자에 앉혀진다. 브라이어가 하퍼 의사에게 돌아선다.
 	<<else>> /* Resist and Fight */
-		<<He>>【이가】 하퍼 박사에게 돌아선다.
+		<<He>>【이가】 하퍼 의사에게 돌아선다.
 	<</if>>
 	"이걸 처리할 도구가 있겠지, 그렇지?" <<he>>【이가】 묻는다.
 	<br><br>
@@ -1550,7 +1550,7 @@
 "부끄러워할 필요 없습니다. 이건 지극히 자연스럽고 정상적인 반응이니까요." <<he>>【이가】 건조한 어조로 말한다. 당신의 <<genitals>>에 대한 검사와 탐색은 필요 이상으로 길게 이어져, 또 다른 쾌감의 전율을 일으킨다.<<arousal 1000 "genitals">><<ggarousal>>
 <br><br>
 <<if $player.virginity.penile is true and $player.virginity.vaginal is true>>
-	마침내, 하퍼 박사가 <<his>> 고개를 든다.
+	마침내, 하퍼 의사가 <<his>> 고개를 든다.
 	<br><br>
 	하퍼가 일어서서 브라이어에게 돌아선다. <span class="green">"<<pShe>>【은는】 처녀입니다."</span> 브라이어가 고개를 끄덕인다.
 	<br><br>
@@ -1561,7 +1561,7 @@
 	<<link [[다음|Brothel Show Virginity Stage]]>><<set $phase to 0>><</link>>
 	<br>
 <<else>>
-	마침내, 하퍼 박사가 걱정스러운 표정으로 <<his>> 고개를 든다.
+	마침내, 하퍼 의사가 걱정스러운 표정으로 <<his>> 고개를 든다.
 	<br><br>
 	당신은 자신이 처녀가 아니라는 것을 알고 있고, 이제 하퍼도 그것을 안다. 당신은 의사의 눈을 바라보며 말하지 말아 달라고 애원한다. <<He>>【은는】 당신을 무시한다.
 	하퍼가 일어서서 브라이어에게 돌아선다. <span class="red">"<<pShe>>【은는】 처녀가 아닙니다."</span>
@@ -1581,7 +1581,7 @@
 <<effects>>
 
 <<if $phase is 0>> /* Resist */
-	당신은 브라이어에게서 손을 빼내려 애쓰지만, <<his>> 손아귀 힘이 너무 강하다. <<= pcAreArmsBound("both") ? "당신은 <<person1>><<him>>【을를】 걷어차려고 준비하지만" : "당신은 주먹을 날리려 하지만">> 어깨에 날카로운 통증이 느껴져 멈춘다. 돌아보니, 하퍼 박사가 주사기로 당신에게 무언가를 주사하는 것을 보고 공황에 빠진다. "당신을 위한 겁니다." <<person2>><<he>>【이가】 말한다.
+	당신은 브라이어에게서 손을 빼내려 애쓰지만, <<his>> 손아귀 힘이 너무 강하다. <<= pcAreArmsBound("both") ? "당신은 <<person1>><<him>>【을를】 걷어차려고 준비하지만" : "당신은 주먹을 날리려 하지만">> 어깨에 날카로운 통증이 느껴져 멈춘다. 돌아보니, 하퍼 의사가 주사기로 당신에게 무언가를 주사하는 것을 보고 공황에 빠진다. "당신을 위한 겁니다." <<person2>><<he>>【이가】 말한다.
 	<br><br>
 	당신의 몸이 축 늘어지고, 브라이어가 당신을 무대 위로 끌고 간다.<<pain 4>><<drugs 240>><<gpain>><<ggdrugged>>
 <<else>> /* Comply */
@@ -1609,26 +1609,26 @@
 		<<if $exposed gte 1>>
 			<<set _exhibitionist to _fullyNaked ? 5 : 3>>
 			<<if hasSexStat("exhibitionism", _exhibitionist)>>
-				<<link [[결박 자랑하기|Brothel Show Virginity Start]]>><<set $phase to 3>><</link>><<= _fullyNaked ? "<<exhibitionist5>>" : "<<exhibitionist3>>">>
+				<<link [[결박을 자랑한다|Brothel Show Virginity Start]]>><<set $phase to 3>><</link>><<= _fullyNaked ? "<<exhibitionist5>>" : "<<exhibitionist3>>">>
 			<<else>>
 				<<insufficientStat "exhibitionism" "그들에게 나체를 과시하기엔">>
 			<</if>>
 		<<else>>
-			<<link [[결박 자랑하기|Brothel Show Virginity Start]]>><<set $phase to 3>><</link>>
+			<<link [[결박을 자랑한다|Brothel Show Virginity Start]]>><<set $phase to 3>><</link>>
 		<</if>>
 	<<else>>
 		<<if hasSexStat("exhibitionism", 5)>>
 			<<if _fullyNaked>>
-				<<link [[뽐내기|Brothel Show Virginity Start]]>><<set $phase to 1>><</link>><<exhibitionist5>>
+				<<link [[뽐낸다|Brothel Show Virginity Start]]>><<set $phase to 1>><</link>><<exhibitionist5>>
 			<<else>>
-				<<link [[스트립쇼 하기|Brothel Show Virginity Start]]>><<set $phase to 2>><</link>><<exhibitionist5>>
+				<<link [[스트립쇼를 한다|Brothel Show Virginity Start]]>><<set $phase to 2>><</link>><<exhibitionist5>>
 			<</if>>
 		<<else>>
 			<<insufficientStat "exhibitionism" "그들에게 나체를 과시하기엔">>
 		<</if>>
 	<</if>>
 	<br>
-	<<link [[아무것도 안 하기|Brothel Show Virginity Start]]>><<set $phase to 0>><</link>>
+	<<link [[아무것도 하지 않는다|Brothel Show Virginity Start]]>><<set $phase to 0>><</link>>
 	<br>
 <<else>> /* Change rape show */
 	당신과 브라이어 위로 하얀 조명 하나가 켜지고, 어두운 방의 소음이 잦아든다. 무대 가장자리 너머는 보이지 않지만, 당신을 향한 시선들은 느껴진다.
@@ -1826,7 +1826,7 @@
 				<<if $worn.face.type.includes("gag")>>
 					당신은 요염하게 웅크린 채 어깨너머로 관객들을 쳐다본다.
 				<<elseif $speech_attitude is "meek">>
-					"처, 처음이에요. 부, 부드럽게 다뤄주세요." 당신은 발을 꼼지락거리며 말한다<<if !pcAreArmsBound("any")>>. 그리고 턱 아래로 손을 모은다<</if>>.
+					"처-처음이에요. 부-부드럽게 다뤄주세요." 당신은 발을 꼼지락거리며 말한다<<if !pcAreArmsBound("any")>>. 그리고 턱 아래로 손을 모은다<</if>>.
 				<<elseif $speech_attitude is "bratty">>
 					"처음이에요. 그만한 가치가 있게 만들어줘요." 당신은 <<= pcAreArmsBound("both") ? "한쪽 엉덩이를 내밀며" : "손을 허리에 얹고">> 말한다.
 				<<else>>
@@ -1838,7 +1838,7 @@
 				<<if $worn.face.type.includes("gag")>>
 					당신은 재갈 너머로 중얼거리며 은근한 눈짓을 보내지만, 아무도 알아채지 못한다.
 				<<elseif $speech_attitude is "meek">>
-					"처음이에요. 부, 부디 부드럽게..." 당신은 속삭이지만, 너무 작아서 아무도 듣지 못한다.
+					"처음이에요. 부-부디 부드럽게..." 당신은 속삭이지만, 너무 작아서 아무도 듣지 못한다.
 				<<elseif $speech_attitude is "bratty">>
 					"처음이에요. 그만한 가치가 있게 만들어줘요." 당신이 말한다. 당신의 목소리에 섞인 날카로움에 몇몇 입찰자들이 뒷걸음질 친다.
 				<<else>>
@@ -1998,7 +1998,7 @@
 			<</if>>
 		<</if>>
 		<br><br>
-		<<brothelvirginitybidders>>"<<printmoney $tip>>," 매료된 군중 속에서 <<person>> 한 명이 외친다.
+		<<brothelvirginitybidders>>"<<printmoney $tip>>." 매료된 군중 속에서 <<person>> 한 명이 외친다.
 		<br><br>
 
 		<<if hasSexStat("promiscuity", 5)>>

@@ -48,10 +48,12 @@
 			<</if>>
 		<<elseif $whitney_toilet is 1 and C.npc.Whitney.state is "active" and $rng gte 51 and $daily.whitney.toiletCheck isnot 1>>
 			<<set $daily.whitney.toiletCheck to 1>>
-			<<if $player.penisExist and $player.vaginaExist>>
+			<<if ($player.penisExist and $player.vaginaExist) or $settings.nudeGenderPerception is 0>>
 				<<set _correctBathroom to (C.npc.Whitney.pronoun is "m" ? "boys" : "girls")>>
+			<<else>>
+				<<set _correctBathroom to (V.player.sex is "f" ? "boys" : "girls")>>
 			<</if>>
-			<<if $changingRoomGender is "boys" and $player.sex is "m" or $changingRoomGender is "girls" and $player.sex is "f" or ($player.penisExist and $player.vaginaExist) and $changingRoomGender isnot _correctBathroom>>
+			<<if $changingRoomGender isnot _correctBathroom>>
 				<<if $player.sex is C.npc.Whitney.pronoun>>
 					<<npc Whitney>><<person1>>
 					당신은 휘트니와 마주친다. <<His>> 표정이 어두워진다. "여기서 얼굴 들이밀면 어떻게 한다고 했지?" <<he>>【이가】 말한다. "내가 직접 처박아줘야 알아먹겠군."
@@ -63,7 +65,7 @@
 					<<generatey1>><<generatey2>><<generatey3>><<person1>>
 					휘트니의 무리 몇몇이 화장실로 들어온다. 그들은 당신을 보자 능글맞은 웃음을 짓는다.
 					<br><br>
-					"못된 짓을 하는군," <<person>>【이가】 말한다. "더 이상 여기 오면 안 된다는 소리 못 들었어? 아니면 벌받을 구실을 찾고 있었나? 운이 좋네. 휘트니가 여기선 맘대로 해도 좋다고 했거든."
+					"못된 짓을 하는군." <<person>>【이가】 말한다. "더 이상 여기 오면 안 된다는 소리 못 들었어? 아니면 벌받을 구실을 찾고 있었나? 운이 좋네. 휘트니가 여기선 맘대로 해도 좋다고 했거든."
 					<br><br>
 					그들이 당신의 주위를 에워싼다.
 					<br><br>
@@ -79,7 +81,7 @@
 					<br>
 				<</if>>
 			<<else>>
-				<<if $player.sex is C.npc.Whitney.pronoun>>
+				<<if $player.sex is C.npc.Whitney.pronoun and $settings.nudeGenderPerception !== 0>>
 					휘트니의 무리 두엇이 화장실로 들어온다. 그들은 웃으며 서로를 쿡쿡 찌른다. 위협적인 움직임은 보이지 않지만, 당신을 가만히 내버려 둘 생각도 없는 것 같다.
 					<br><br>
 					"우린 그냥 네가 <<if $player.sex is "m">>앉아서 오줌을 누는지<<else>>소변기를 쓸 줄 아는지<</if>> 확인하러 왔어. 휘트니가 지시했거든."
@@ -97,7 +99,7 @@
 					<<npc Whitney>><<person1>>
 					당신은 휘트니와 부딪힌다. <<Hes>> 여기서 당신을 보게 되어 기쁜 듯하다.
 					<<if random(1, 100) gte 51>>
-						"타이밍 한 번 좋네, 걸레년," <<he>>【이가】 말한다. <<His>> 무리가 그 곁에 있다. <<He>>【이가】 당신의 어깨를 붙잡고 화장실 칸으로 억지로 밀어넣으려 한다.
+						"타이밍 한 번 좋네, 걸레년." <<he>>【이가】 말한다. <<His>> 무리가 그 곁에 있다. <<He>>【이가】 당신의 어깨를 붙잡고 화장실 칸으로 억지로 밀어넣으려 한다.
 						<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
 						<br><br>
 						<<link [[그대로 둔다|Bully Toilets Sex]]>><<trauma 6>><<stress 6>><<sub 1>><<npcincr Whitney dom 1>><<set $molestationstart to 1>><</link>><<gtrauma>><<gstress>><<gdom>>
@@ -184,7 +186,7 @@
 	<<else>>
 
 		<<beastNEWinit 1 cat>>
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("cat", $monster is 1)>>
 			등 뒤에서 들려오는 낮게 으르렁거리는 소리가 적막을 깬다. 그림자 속에서 거대한 <<beasttype>>【이가】 당신을 덮치고, 당신을 무릎 꿇게 만든다.
 			<br><br>
 			<<if $cat gte 6>>
@@ -338,7 +340,7 @@
 			<</addinlineevent>>
 		<</if>>
 
-		<<if getRobinLocation("school") and !$daily.robin.bump>>
+		<<if C.npc.Robin.init is 1 and getRobinLocation() is "school" and $robinmissing is 0 and !$daily.robin.bump>>
 			<<addinlineevent "robin_bump">>
 				<<effects>>
 				<<set $daily.robin.bump to true>>
@@ -349,7 +351,7 @@
 				<<if _robin.trauma gte 40>>
 					<<He>>【은는】 부딪힌 것에 거의 반응하지 않고, <<his>> 눈빛은 흐리멍덩하다. <<He>>【은는】 느릿느릿 움직이며, 심지어 당신을 알아본 것 같지도 않다. 당신이 사과하려 하지만, <<he>>【은는】 당신이나 <<his>> 주변 환경에 전혀 주의를 기울이지 않는다. 당신은 가슴속에 끔찍한 기분을 품은 채 <<him>>【이가】 떠나는 것을 지켜본다. <<gstress>><<stress 5>><<gtrauma>><<trauma 5>>
 				<<elseif _robin.trauma gte 20>>
-					"미-미안해," <<he>>【은는】 고개를 푹 숙이고 <<his>> 어깨를 웅크린 채 중얼거린다. <<His>> 시선은 온전히 당신에게 향해 있지 않은 듯하다. "말할 시간 없어," <<he>>【이가】 웅얼거리더니 종종걸음으로 달아난다. <<gstress>><<stress 5>>
+					"미-미안해." <<he>>【은는】 고개를 푹 숙이고 <<his>> 어깨를 웅크린 채 중얼거린다. <<His>> 시선은 온전히 당신에게 향해 있지 않은 듯하다. "말할 시간 없어," <<he>>【이가】 웅얼거리더니 종종걸음으로 달아난다. <<gstress>><<stress 5>>
 				<<elseif $robin.timer.hurt gte 1>>
 					<<He>>【은는】 당신을 쳐다보지도 않은 채 아무 말도 하지 않는다. <<He>>【은는】 <<his>> 발걸음을 재촉한다.
 				<<else>>
@@ -407,23 +409,23 @@
 				this event. All PCs must be bullied equally! */
 				<<person1>>
 				<<switch random(1,3)>>
-					<<case 1>>"하지만 <<pshe>>【은는】 평범한 <<girl>>처럼 생겼잖아," <<person>>【이가】 말한다.
-					<<case 2>>"말도 안 돼," <<person>>【이가】 말한다. "<<pShe>>【은는】 평범해 보이는데."
+					<<case 1>>"하지만 <<pshe>>【은는】 평범한 <<girl>>처럼 생겼잖아." <<person>>【이가】 말한다.
+					<<case 2>>"말도 안 돼." <<person>>【이가】 말한다. "<<pShe>>【은는】 평범해 보이는데."
 					<<case 3>>"정말?" <<person>>【이가】 말한다. "<<pShe>>【은는】 별로 달라 보이지 않는데."
 				<</switch>>
 				<br>
 				<<person2>>
 				<<switch random(1,3)>>
-					<<case 1>>"다들 그렇게 말해," <<person>>【이가】 대답한다. "<<pShe>>한테는 <<if $player.gender_appearance is "m">>보지<<else>>자지<</if>>도 있대."
-					<<case 2>>"<<pShe>>【은는】 평범해 보여," <<person>>【이가】 대답한다, "가랑이를 보기 전까진 말이야."
-					<<case 3>>"<<pShe>>【은는】 둘 다 가졌어," <<person>>【이가】 대답한다. "내 친구가 봤다니까."
+					<<case 1>>"다들 그렇게 말해." <<person>>【이가】 대답한다. "<<pShe>>한테는 <<if $player.gender_appearance is "m">>보지<<else>>자지<</if>>도 있대."
+					<<case 2>>"<<pShe>>【은는】 평범해 보여." <<person>>【이가】 대답한다, "가랑이를 보기 전까진 말이야."
+					<<case 3>>"<<pShe>>【은는】 둘 다 가졌어." <<person>>【이가】 대답한다. "내 친구가 봤다니까."
 				<</switch>>
 				<br>
 				<<person3>>
 				<<switch random(1,3)>>
-					<<case 1>>"완전 괴물이야," <<person>>【이가】 덧붙인다. "태어났을 때 물에 빠뜨렸어야 했는데."
-					<<case 2>>"어떤 느낌일까," <<person>>【이가】 덧붙인다. "<<pshe>>【은는】 혼자 하려나?"
-					<<case 3>>"왜 고아인지 알겠다," <<person>>【이가】 덧붙인다. "누가 저런 애를 원하겠어?"
+					<<case 1>>"완전 괴물이야." <<person>>【이가】 덧붙인다. "태어났을 때 물에 빠뜨렸어야 했는데."
+					<<case 2>>"어떤 느낌일까." <<person>>【이가】 덧붙인다. "<<pshe>>【은는】 혼자 하려나?"
+					<<case 3>>"왜 고아인지 알겠다." <<person>>【이가】 덧붙인다. "누가 저런 애를 원하겠어?"
 				<</switch>>
 				<br><br>
 				그 셋은 당신을 힐끗 보더니, 당신이 쳐다보는 것을 알아채고 황급히 자리를 피한다.<<gtrauma>><<gstress>><<trauma 6>><<stress 6>>
@@ -449,21 +451,21 @@
 							<<switch random(1,3)>>
 								<<case 1>>"쟤가 남자애처럼 입는다고?" <<person>>【이가】 묻는다. "어떻게? 저렇게 임신했는데."
 								<<case 2>>"쟤가 남자처럼 옷을 입는다는 게 확실해?" <<person>>【이가】 묻는다. "애초에 남자 옷을 입을 수나 있겠어."
-								<<case 3>>"남자처럼 옷을 입을 리가 없어," <<person>>【이가】 말한다. "저 <<bellyDescription pc>>【으로로】는 무리야."
+								<<case 3>>"남자처럼 옷을 입을 리가 없어." <<person>>【이가】 말한다. "저 <<bellyDescription pc>>【으로로】는 무리야."
 							<</switch>>
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"항상 그러진 않나 봐," <<person>>【이가】 대답한다. "남자 탈의실에 몰래 들어가려고 그런 거겠지."
-								<<case 2>>"가끔씩만 그럴지도," <<person>>【이가】 대답한다. "누굴 꼬셔서 임신하려고 속인 게 분명해."
-								<<case 3>>"뭐, 항상 그러는 건 아니래," <<person>>【이가】 대답한다. "남자 화장실에 가려고 그런 걸지도."
+								<<case 1>>"항상 그러진 않나 봐." <<person>>【이가】 대답한다. "남자 탈의실에 몰래 들어가려고 그런 거겠지."
+								<<case 2>>"가끔씩만 그럴지도." <<person>>【이가】 대답한다. "누굴 꼬셔서 임신하려고 속인 게 분명해."
+								<<case 3>>"뭐, 항상 그러는 건 아니래." <<person>>【이가】 대답한다. "남자 화장실에 가려고 그런 걸지도."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"이유가 뭐든 간에," <<person>>【이가】 덧붙인다, "변태네."
-								<<case 2>>"분명히 그럴 거야," <<person>>【이가】 덧붙인다. "정말 미친년이라니까!"
-								<<case 3>>"여전히 변태는 변태지," <<person>>【이가】 덧붙인다, "이유야 어찌됐든."
+								<<case 1>>"이유가 뭐든 간에." <<person>>【이가】 덧붙인다, "변태네."
+								<<case 2>>"분명히 그럴 거야." <<person>>【이가】 덧붙인다. "정말 미친년이라니까!"
+								<<case 3>>"여전히 변태는 변태지." <<person>>【이가】 덧붙인다, "이유야 어찌됐든."
 							<</switch>>
 							<<schoolrep crossdress -3>>
 						<<elseif !playerBellyVisible()>>
@@ -476,16 +478,16 @@
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"항상 그러진 않나 봐," <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
-								<<case 2>>"원할 때만 남자처럼 보이나 봐," <<person>>【이가】 대답한다. "분명 속여서 섹스하려고 하는 걸 거야."
-								<<case 3>>"항상 남자처럼 보이는 건 아닌가 봐," <<person>>【이가】 대답한다. "꼬시려고 저러는 것 같아."
+								<<case 1>>"항상 그러진 않나 봐." <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
+								<<case 2>>"원할 때만 남자처럼 보이나 봐." <<person>>【이가】 대답한다. "분명 속여서 섹스하려고 하는 걸 거야."
+								<<case 3>>"항상 남자처럼 보이는 건 아닌가 봐." <<person>>【이가】 대답한다. "꼬시려고 저러는 것 같아."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"이유가 어쨌든," <<person>>【이가】 덧붙인다, "좀 이상하네."
-								<<case 2>>"틀림없이 그럴 거야," <<person>>【이가】 덧붙인다. "변태네."
-								<<case 3>>"어쨌든," <<person>>【이가】 덧붙인다, "정신이 좀 나갔어."
+								<<case 1>>"이유가 어쨌든." <<person>>【이가】 덧붙인다, "좀 이상하네."
+								<<case 2>>"틀림없이 그럴 거야." <<person>>【이가】 덧붙인다. "변태네."
+								<<case 3>>"어쨌든." <<person>>【이가】 덧붙인다, "정신이 좀 나갔어."
 							<</switch>>
 						<</if>>
 					<<elseif $player.sex is "m">>
@@ -493,22 +495,22 @@
 							<<person1>>
 							<<switch random(1,3)>>
 								<<case 1>>"진짜 남자애 맞아?" <<person>>【이가】 묻는다. "완전 임신했잖아. 어떻게 남자애가 임신을 해?"
-								<<case 2>>"네가 착각한 거겠지," <<person>>【이가】 말한다. "저게 남자일 리가 없잖아. 임신했다니까!"
-								<<case 3>>"딱 봐도 임신이잖아," <<person>>【이가】 말한다. "남자일 리가 없어. 저기 좀 봐!"
+								<<case 2>>"네가 착각한 거겠지." <<person>>【이가】 말한다. "저게 남자일 리가 없잖아. 임신했다니까!"
+								<<case 3>>"딱 봐도 임신이잖아." <<person>>【이가】 말한다. "남자일 리가 없어. 저기 좀 봐!"
 							<</switch>>
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"맞아," <<person>>【이가】 덧붙인다, "남자가 임신했다는 소린 들어본 적도 없어."
-								<<case 2>>"진짜, 과학 시간에 그만 좀 자라," <<person>>【이가】 덧붙인다. "딱 봐도 여자잖아."
-								<<case 3>>"남자가 임신할 순 없지," <<person>>【이가】 덧붙인다. "네가 들은 앤 쟤가 아닐 거야."
+								<<case 1>>"맞아." <<person>>【이가】 덧붙인다, "남자가 임신했다는 소린 들어본 적도 없어."
+								<<case 2>>"진짜, 과학 시간에 그만 좀 자라." <<person>>【이가】 덧붙인다. "딱 봐도 여자잖아."
+								<<case 3>>"남자가 임신할 순 없지." <<person>>【이가】 덧붙인다. "네가 들은 앤 쟤가 아닐 거야."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"그렇다 쳐도, 저 <<bellyDescription pc>> 좀 봐," <<person>>【이가】 대답한다. "남자가 아니라 해도 완전 걸레네."
-								<<case 2>>"어느 쪽이든," <<person>>【이가】 대답한다, "저런 모습으로 학교에 오다니, 진짜 뻔뻔하다."
-								<<case 3>>"상관없어," <<person>>【이가】 대답한다. "저런 꼴로 다니는 변태라는 건 마찬가지니까."
+								<<case 1>>"그렇다 쳐도, 저 <<bellyDescription pc>> 좀 봐." <<person>>【이가】 대답한다. "남자가 아니라 해도 완전 걸레네."
+								<<case 2>>"어느 쪽이든." <<person>>【이가】 대답한다, "저런 모습으로 학교에 오다니, 진짜 뻔뻔하다."
+								<<case 3>>"상관없어." <<person>>【이가】 대답한다. "저런 꼴로 다니는 변태라는 건 마찬가지니까."
 							<</switch>>
 							<<schoolrep crossdress -3>>
 						<<elseif !playerBellyVisible()>>
@@ -516,21 +518,21 @@
 							<<switch random(1,3)>>
 								<<case 1>>"진짜 남자에 맞아?" <<person>>【이가】 묻는다. "그냥 여자애 같은데."
 								<<case 2>>"네가 착각한 거 아니야?" <<person>>【이가】 말한다. "남자에일 리가 없어."
-								<<case 3>>"완전 여잔데," <<person>>【이가】 말한다. "남자는 저렇게 안 생겼어."
+								<<case 3>>"완전 여잔데." <<person>>【이가】 말한다. "남자는 저렇게 안 생겼어."
 							<</switch>>
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"틀림없어. 쟤 남자야," <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
-								<<case 2>>"걔 맞아. 남자애," <<person>>【이가】 대답한다. "선생들이랑 하려고 저러는 걸지도."
-								<<case 3>>"남자애 맞아. 확실해," <<person>>【이가】 대답한다. "여자애들한테 접근하려고 저러는 거겠지."
+								<<case 1>>"틀림없어. 쟤 남자야." <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
+								<<case 2>>"걔 맞아. 남자애." <<person>>【이가】 대답한다. "선생들이랑 하려고 저러는 걸지도."
+								<<case 3>>"남자애 맞아. 확실해." <<person>>【이가】 대답한다. "여자애들한테 접근하려고 저러는 거겠지."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"상관없어. 이상한 애야," <<person>>【이가】 덧붙인다. "그거면 충분해."
-								<<case 2>>"완전 변태네," <<person>>【이가】 덧붙인다. "조심하라고 말해야겠어."
-								<<case 3>>"완전 징그럽다," <<person>>【이가】 덧붙인다. "아무도 모를 줄 알았나 보지?"
+								<<case 1>>"상관없어. 이상한 애야." <<person>>【이가】 덧붙인다. "그거면 충분해."
+								<<case 2>>"완전 변태네." <<person>>【이가】 덧붙인다. "조심하라고 말해야겠어."
+								<<case 3>>"완전 징그럽다." <<person>>【이가】 덧붙인다. "아무도 모를 줄 알았나 보지?"
 							<</switch>>
 						<</if>>
 					<</if>>
@@ -540,22 +542,22 @@
 							<<person1>>
 							<<switch random(1,3)>>
 								<<case 1>>"누구를 속이려는 걸까?" <<person>>【이가】 묻는다. "저 <<bellyDescription pc>>【으로로】 남자인 척하다니 말도 안 돼."
-								<<case 2>>"자기도 아는지 모르겠네," <<person>>【이가】 말한다. "아무도 남자로 안 본다는 거. 배가 저런데."
+								<<case 2>>"자기도 아는지 모르겠네." <<person>>【이가】 말한다. "아무도 남자로 안 본다는 거. 배가 저런데."
 								<<case 3>>"저런 배를 하고," <<person>>【이가】 묻는다, "사람들을 속여서 남자인 척할 수 있을 거라 생각하는 건가?"
 							<</switch>>
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"진짜로," <<person>>【이가】 대답한다. "남자 탈의실에 몰래 들어가려고 그런 거겠지."
-								<<case 2>>"장난 아니네," <<person>>【이가】 대답한다. "분명히 꼬셔서 하려고 남들을 속이려는 걸 거야."
-								<<case 3>>"뻔하지," <<person>>【이가】 대답한다. "남자 화장실 같은 데 몰래 가려고 저러는 걸 거야."
+								<<case 1>>"진짜로." <<person>>【이가】 대답한다. "남자 탈의실에 몰래 들어가려고 그런 거겠지."
+								<<case 2>>"장난 아니네." <<person>>【이가】 대답한다. "분명히 꼬셔서 하려고 남들을 속이려는 걸 거야."
+								<<case 3>>"뻔하지." <<person>>【이가】 대답한다. "남자 화장실 같은 데 몰래 가려고 저러는 걸 거야."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"여장하려는 것 자체가 안 믿겨," <<person>>【이가】 덧붙인다, "완전 기분 나빠."
-								<<case 2>>"저러면서 즐기는 걸지도," <<person>>【이가】 덧붙인다. "내 말 믿어. 완전 변태라니까."
-								<<case 3>>"어느 쪽이든," <<person>>【이가】 덧붙인다, "진짜 이상한 애네."
+								<<case 1>>"여장하려는 것 자체가 안 믿겨." <<person>>【이가】 덧붙인다, "완전 기분 나빠."
+								<<case 2>>"저러면서 즐기는 걸지도." <<person>>【이가】 덧붙인다. "내 말 믿어. 완전 변태라니까."
+								<<case 3>>"어느 쪽이든." <<person>>【이가】 덧붙인다, "진짜 이상한 애네."
 							<</switch>>
 						<<elseif !playerBellyVisible()>>
 							<<person1>>
@@ -567,16 +569,16 @@
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"틀림없어. 쟤 여자야," <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
-								<<case 2>>"걔 맞아. 여자애야," <<person>>【이가】 대답한다. "선생들이랑 하려고 저러는 걸지도."
-								<<case 3>>"여자애 맞아. 확실해," <<person>>【이가】 대답한다. "남자애들한테 접근하려고 저러는 거겠지."
+								<<case 1>>"틀림없어. 쟤 여자야." <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
+								<<case 2>>"걔 맞아. 여자애야." <<person>>【이가】 대답한다. "선생들이랑 하려고 저러는 걸지도."
+								<<case 3>>"여자애 맞아. 확실해." <<person>>【이가】 대답한다. "남자애들한테 접근하려고 저러는 거겠지."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"상관없어. 이상한 애야," <<person>>【이가】 덧붙인다. "그거면 충분해."
-								<<case 2>>"완전 변태네," <<person>>【이가】 덧붙인다. "조심하라고 말해야겠어."
-								<<case 3>>"완전 징그럽다," <<person>>【이가】 덧붙인다. "아무도 모를 줄 알았나 보지?"
+								<<case 1>>"상관없어. 이상한 애야." <<person>>【이가】 덧붙인다. "그거면 충분해."
+								<<case 2>>"완전 변태네." <<person>>【이가】 덧붙인다. "조심하라고 말해야겠어."
+								<<case 3>>"완전 징그럽다." <<person>>【이가】 덧붙인다. "아무도 모를 줄 알았나 보지?"
 							<</switch>>
 						<</if>>
 					<<elseif $player.sex is "m">>
@@ -585,21 +587,21 @@
 							<<switch random(1,3)>>
 								<<case 1>>"쟤가 여자애처럼 입는다고?" <<person>>【이가】 묻는다. "남자처럼 입는 거 아니야?"
 								<<case 2>>"쟤야?" <<person>>【이가】 묻는다. "쟤 말하는 거 아니야? 배가 빵빵한데."
-								<<case 3>>"쟤 임신했어," <<person>>【이가】 말한다. "당연히 남자가 아니지."
+								<<case 3>>"쟤 임신했어." <<person>>【이가】 말한다. "당연히 남자가 아니지."
 							<</switch>>
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
 								<<case 1>>"뭔가 잘못 알고 있는 거 아냐?" <<person>>【이가】 덧붙인다. "만약 쟤가 진짜 남자라면 임신할 수가 없잖아."
-								<<case 2>>"완전 다른 사람이야. 쟤는 여잔데," <<person>>【이가】 덧붙인다. "선생한테 당해서 임신한 거 아닐까."
-								<<case 3>>"남자가 저런 배를 가질 리 없지," <<person>>【이가】 덧붙인다. "다른 사람 생각하는 거 아니야?"
+								<<case 2>>"완전 다른 사람이야. 쟤는 여잔데." <<person>>【이가】 덧붙인다. "선생한테 당해서 임신한 거 아닐까."
+								<<case 3>>"남자가 저런 배를 가질 리 없지." <<person>>【이가】 덧붙인다. "다른 사람 생각하는 거 아니야?"
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"이유야 어찌됐든," <<person>>【이가】 대답한다, "변태네."
-								<<case 2>>"어느 쪽이든," <<person>>【이가】 대답한다, "저런 모습으로 학교에 오다니, 진짜 뻔뻔하다."
-								<<case 3>>"상관없어," <<person>>【이가】 대답한다. "어차피 임신한 변태니까."
+								<<case 1>>"이유야 어찌됐든." <<person>>【이가】 대답한다, "변태네."
+								<<case 2>>"어느 쪽이든." <<person>>【이가】 대답한다, "저런 모습으로 학교에 오다니, 진짜 뻔뻔하다."
+								<<case 3>>"상관없어." <<person>>【이가】 대답한다. "어차피 임신한 변태니까."
 							<</switch>>
 						<<elseif !playerBellyVisible()>>
 							<<person1>>
@@ -611,16 +613,16 @@
 							<br>
 							<<person2>>
 							<<switch random(1,3)>>
-								<<case 1>>"항상 그러진 않나 봐," <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
-								<<case 2>>"원할 때만 여자처럼 보이나 봐," <<person>>【이가】 대답한다. "분명 속여서 섹스하려고 하는 걸 거야."
-								<<case 3>>"항상 여자처럼 보이는 건 아닌가 봐," <<person>>【이가】 대답한다. "꼬시려고 저러는 것 같아."
+								<<case 1>>"항상 그러진 않나 봐." <<person>>【이가】 대답한다. "섹스하려고 남들 속이는 걸지도 몰라."
+								<<case 2>>"원할 때만 여자처럼 보이나 봐." <<person>>【이가】 대답한다. "분명 속여서 섹스하려고 하는 걸 거야."
+								<<case 3>>"항상 여자처럼 보이는 건 아닌가 봐." <<person>>【이가】 대답한다. "꼬시려고 저러는 것 같아."
 							<</switch>>
 							<br>
 							<<person3>>
 							<<switch random(1,3)>>
-								<<case 1>>"이유가 어쨌든," <<person>>【이가】 덧붙인다, "좀 이상하네."
-								<<case 2>>"틀림없이 그럴 거야," <<person>>【이가】 덧붙인다. "변태네."
-								<<case 3>>"어쨌든," <<person>>【이가】 덧붙인다, "정신이 좀 나갔어."
+								<<case 1>>"이유가 어쨌든." <<person>>【이가】 덧붙인다, "좀 이상하네."
+								<<case 2>>"틀림없이 그럴 거야." <<person>>【이가】 덧붙인다. "변태네."
+								<<case 3>>"어쨌든." <<person>>【이가】 덧붙인다, "정신이 좀 나갔어."
 							<</switch>>
 						<</if>>
 					<</if>>
@@ -636,7 +638,7 @@
 
 		<<set _fameRumour to []>>
 		<<run ["sex", "prostitution", "rape", "exhibitionism"].forEach(name => {if (V.fame[name] >= 400) T.fameRumour.push(name)})>>
-		<<if ($settings.monsterChance gte 1 or $settings.bestialityEnabled) and $fame.bestiality gte 400>>
+		<<if isBestialityOnForAnyCreature() and $fame.bestiality gte 400>>
 			<<set _fameRumour.push("bestiality")>>
 		<</if>>
 
@@ -652,7 +654,7 @@
 							"진짜?" 무리가 웃는다.<br>
 							"글쎄, 다른 애들보다 좀 큰 편이지."
 						<<else>>
-							"정말이야," <<person1>><<person>>【이가】 속삭인다. "<<pShe>>【은는】 완전 걸레야! 내 인생에서 가장 쉬웠어!"<br>
+							"정말이야." <<person1>><<person>>【이가】 속삭인다. "<<pShe>>【은는】 완전 걸레야! 내 인생에서 가장 쉬웠어!"<br>
 							"놀랍지도 않네."<br>
 							"나도 한번 해볼까."
 						<</if>>
@@ -662,8 +664,8 @@
 							"정말? 누군데?"<br>
 							"음, 얼굴은 제대로 못 봤는데..."
 						<<else>>
-							"내가 보증할게," <<person1>><<person>>【이가】 속삭인다. "<<pShe>>【은는】 창녀야, 그것도 엄청 싼 창녀. £5 값어치는 톡톡히 한다니까!"<br>
-							"£5면 <<phim>>한테 너무 과분한데." 무리가 웃는다.<br>
+							"내가 보증할게." <<person1>><<person>>【이가】 속삭인다. "<<pShe>>【은는】 창녀야, 그것도 엄청 싼 창녀. £5 값어치는 톡톡히 한다니까!"<br>
+							"£5면 <<phim>>한테 너무 과분한데," 무리가 웃는다.<br>
 							"나는 한두 푼 정도 줘볼까."
 						<</if>>
 					<<case "rape">>
@@ -672,12 +674,12 @@
 							"강간? 이 마을에서?" <<person2>><<He>>【이가】 눈을 굴린다. "처음 들어보는데."<br>
 							"맞아, 네 말이 맞는 거 같아."
 						<<else>>
-							"그래, <<pshe>> 강간당했대," <<person1>><<person>>【이가】 속삭인다. "그것도 한두 명한테 당한 게 아니래."<br>
+							"그래, <<pshe>> 강간당했대." <<person1>><<person>>【이가】 속삭인다. "그것도 한두 명한테 당한 게 아니래."<br>
 							"그 걸레가? 내기할까, <<pshe>>【은는】 오히려 좋아했을걸." 무리가 웃는다.<br>
 							"우리도 언젠가 한 번 해볼까?"
 						<</if>>
 					<<case "bestiality">>
-						<<if $settings.bestialityEnabled>>
+						<<if animalSexEnabledForType("dog")>>
 							<<if $cool gte 120>>
 								"진짜야!" <<person1>><<person>>【이가】 말하는 걸 엿듣는다. "골목에서 신음소리가 나더니, 개들이 나오더라고!"<br>
 								"골목 안은 안 봤어?"<br>
@@ -689,11 +691,11 @@
 							<</if>>
 						<<else>>
 							<<if $cool gte 120>>
-								"거짓말 마," <<person1>><<person>>【이가】 말한다. "누가 그런..."<br>
+								"거짓말 마." <<person1>><<person>>【이가】 말한다. "누가 그런..."<br>
 								"진짜라니까!" <<person2>><<person>>【이가】 말한다. "별의별 취향이 다 있잖아."<br>
 								<<person1>><<He>>【이가】 고개를 젓는다. "그게 불법 아냐?"
 							<<else>>
-								"<<pShe>>【은는】 아무도 자길 좋아하게 만들 수 없잖아," <<person1>><<person>>【이가】 비웃는다. "그래서 <<pshe>>【이가】 그렇게 하는..." 나머지는 알아들을 수 없다.
+								"<<pShe>>【은는】 아무도 자길 좋아하게 만들 수 없잖아." <<person1>><<person>>【이가】 비웃는다. "그래서 <<pshe>>【이가】 그렇게 하는..." 나머지는 알아들을 수 없다.
 								"설마." <<His>> 친구가 놀란다. "그 정도로 이상한 녀석은 없다고."<br>
 								"아직 <<phim>>【을를】 못 만났나 보네?"
 							<</if>>
@@ -725,7 +727,7 @@
 				<br><br>
 				"너였구나!" <<person1>><<person>>【이가】 친절한 미소를 지으며 말한다. "임신한 <<girl>>!"
 				<br><br>
-				"완전 신기하다," <<person2>><<person>>【이가】 덧붙인다. "만져봐도 돼? 살살 만질게, 약속해!"
+				"완전 신기하다." <<person2>><<person>>【이가】 덧붙인다. "만져봐도 돼? 살살 만질게, 약속해!"
 				<br><br>
 
 				<<link [[허락한다 (0:01)|Hallways Pregnant Touch]]>><<pass 1>><</link>>
@@ -753,7 +755,7 @@
 					<br>
 				<<elseif $cool gte 120>>
 					<<if $schoolrep.herm gte 5 and !$worn.face.type.includes("mask")>>
-						당신이 지나가자 속삭이기 시작하는 학생들의 무리를 지나친다. 양성구유라는 말이 들린다.
+						당신이 지나가자 속삭이기 시작하는 학생들의 무리를 지나친다. 다른 말보다 유독 크게 속삭여진 '둘 다'라는 말이 들린다.
 					<<elseif $schoolrep.crossdress gte 5 and !$worn.face.type.includes("mask")>>
 						당신이 지나가자 속삭이기 시작하는 학생들의 무리를 지나친다. 이성장착자라는 말이 들린다.
 					<<else>>
@@ -1003,12 +1005,12 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "hallways_rape">>
-			<<generates1>><<generates2>><<person1>><span class="red">뒤에서 손이 당신의 입을 틀어막고,</span> 팔이 당신의 허리를 감싼다. "반항하지 마," 당신을 붙잡고 있는 <<person>>【이가】 말한다. "그냥 네 도움이 좀 필요해." <<He>>【은는】 빈 교실로 당신을 끌고 들어가려고 한다.
+			<<generates1>><<generates2>><<person1>><span class="red">뒤에서 손이 당신의 입을 틀어막고,</span> 팔이 당신의 허리를 감싼다. "반항하지 마." 당신을 붙잡고 있는 <<person>>【이가】 말한다. "그냥 네 도움이 좀 필요해." <<He>>【은는】 빈 교실로 당신을 끌고 들어가려고 한다.
 			<br><br>
 			<<if $whitneyromance is 1>>
-				"내 생각엔," <<person1>><<him>> 뒤에서 <<person2>><<person>>【이가】 말한다. "저거 휘트니의 <<girl>> 같은데."
+				"내 생각엔." <<person1>><<him>> 뒤에서 <<person2>><<person>>【이가】 말한다. "저거 휘트니의 <<girl>> 같은데."
 				<br><br>
-				"씨발," <<person>>【이가】 즉시 당신을 풀어주며 말한다. "<<nnpc_him "Whitney">>한테 내가 널 만졌다고 말하지 마." 두 사람은 당신을 밀치고 지나간다.
+				"씨발." <<person>>【이가】 즉시 당신을 풀어주며 말한다. "<<nnpc_him "Whitney">>한테 내가 널 만졌다고 말하지 마." 두 사람은 당신을 밀치고 지나간다.
 				<br><br>
 
 				<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -1046,8 +1048,8 @@
 			<br>
 			<<link [[도와줄 선생님을 찾는다 (0:03)|Hallways Locker Victim]]>><<pass 3>><<set $phase to 1>><</link>>
 			<br>
-			<<if $sadism gte 300 or $delinquency gte 600 or ($soldCount gte 1 and $money lt $rentmoney + ($babyRent or 0))>>
-				<<link [[도와주는 대가로 돈을 요구한다 (0:10)|Hallways Locker Victim]]>><<pass 10>><<set $phase to 2>><</link>><<if $soldCount gte 1 and $money lt $rentmoney + ($babyRent or 0)>><<note "베일리에게 낼 돈이 필요해!" "red">><<else>><<note "돈?" "gold">><</if>>
+			<<if $sadism gte 300 or $delinquency gte 600 or ($soldCount gte 1 and $money lt $rentMoney + ($babyRent or 0))>>
+				<<link [[도와주는 대가로 돈을 요구한다 (0:10)|Hallways Locker Victim]]>><<pass 10>><<set $phase to 2>><</link>><<if $soldCount gte 1 and $money lt $rentMoney + ($babyRent or 0)>><<note "베일리에게 낼 돈이 필요해!" "red">><<else>><<note "돈?" "gold">><</if>>
 				<br>
 			<</if>>
 			<<link [[무시한다|Hallways Locker Victim]]>><<set $phase to 3>><</link>>
@@ -1088,7 +1090,7 @@
 		<</if>>
 
 		<<addinlineevent "hallways_chat">>
-			<<generatey1>>한 <<person1>><<person>>【이가】 당신에게 다가온다. "<<print either("안녕", "야", "안녕")>>," <<he>>【이가】 말한다. 뭔가 말을 하고 싶어 하는 눈치다.
+			<<generatey1>>한 <<person1>><<person>>【이가】 당신에게 다가온다. "<<print either("안녕", "야", "안녕")>>." <<he>>【이가】 말한다. 뭔가 말을 하고 싶어 하는 눈치다.
 			<br><br>
 
 			<<link [[잡담한다 (0:05)|Hallways Encounter]]>><<pass 5>><<trauma -6>><<stress -12>><</link>><<ltrauma>><<lstress>>
@@ -1197,7 +1199,7 @@
 		<br><br>
 		<<set $phase to 2>>
 	<</if>>
-	"이런," <<he>>【이가】 교활한 미소를 지으며 말한다. 당신이 문을 열려고 하는 사이 <<He>>【이가】 떠나버린다. <span class="purple">사물함은 잠겨 있다.</span>
+	"이런." <<he>>【이가】 교활한 미소를 지으며 말한다. 당신이 문을 열려고 하는 사이 <<He>>【이가】 떠나버린다. <span class="purple">사물함은 잠겨 있다.</span>
 	<br><br>
 	<<set $lock to 100>>
 	<<set $lockattempt to 0>>
@@ -1221,28 +1223,28 @@
 	<<if $phase is 0>>
 		<<if !$worn.over_lower.type.includes("naked")>>
 			<<if $worn.lower.type.includes("naked") and $worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 5)>>
-				<<link [[<<bottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 6>><</link>><<exhibitionist5>>
+				<<link [[<<bottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 6>><</link>><<exhibitionist5>>
 				<br>
 			<<elseif $worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("naked") and hasSexStat("exhibitionism", 3)>>
-				<<link [[<<bottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 3>><</link>><<exhibitionist3>>
+				<<link [[<<bottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 3>><</link>><<exhibitionist3>>
 				<br>
 			<<elseif !$worn.lower.type.includes("naked") and !$worn.under_lower.type.includes("naked")>>
-				<<link [[<<bottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 0>><</link>>
+				<<link [[<<bottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 0>><</link>>
 				<br>
 			<</if>>
 		<<elseif !_underwear and hasSexStat("exhibitionism", 5)>>
-			<<link [[<<bottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 5>><</link>><<exhibitionist5>>
+			<<link [[<<bottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 5>><</link>><<exhibitionist5>>
 			<br>
 		<<elseif _underwear and hasSexStat("exhibitionism", 3)>>
-			<<link [[<<bottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist3>>
+			<<link [[<<bottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 2>><</link>><<exhibitionist3>>
 			<br>
 		<</if>>
 	<<elseif $phase gte 1>>
 		<<if _bottomExposed and hasSexStat("exhibitionism", 5)>>
-			<<link [[<<underbottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 4>><</link>><<exhibitionist5>>
+			<<link [[<<underbottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 4>><</link>><<exhibitionist5>>
 			<br>
 		<<elseif !_bottomExposed and hasSexStat("exhibitionism", 2)>>
-			<<link [[<<underbottoms>> 벗기 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist2>>
+			<<link [[<<underbottoms>>【을를】 벗는다 (0:01)|Hallways Strip Locker Clothing]]>><<pass 1>><<set $phase to 1>><</link>><<exhibitionist2>>
 			<br>
 		<</if>>
 	<</if>>
@@ -1316,12 +1318,12 @@
 				<<addinlineevent "panty_thief">>
 					<<generate1>><<person1>>
 					<<npcClothesType $NPCList[0] "default">><<set $panty_thief to 1>><<saveNPC 0 "panty_thief">>
-					근처에서 펜스 흔들리는 소리가 들린다. 돌아보니 <span class="purple"><<person>>【이가】 당신을 응시하고 있다.</span> "어이," <<he>>【이가】 말한다. "돈 좀 벌 생각 없어?"
+					근처에서 펜스 흔들리는 소리가 들린다. 돌아보니 <span class="purple"><<person>>【이가】 당신을 응시하고 있다.</span> "어이." <<he>>【이가】 말한다. "돈 좀 벌 생각 없어?"
 					<br><br>
 
 					<<if hasSexStat("promiscuity", 3) and $prostitutionstat gte 1>>
 						당신은 <<him>>【을를】 위아래로 훑어본다. 잠시 후, 당신은 당신의 화대를 부르기 시작한다,
-					<<elseif $uncomfortable.prostituting is false or ($soldCount gte 1 and $money lt $rentmoney + ($babyRent or 0))>>
+					<<elseif $uncomfortable.prostituting is false or ($soldCount gte 1 and $money lt $rentMoney + ($babyRent or 0))>>
 						당신은 주저하지만, 베일리의 얼굴이 머릿속을 스쳐 지나가고 당신에게는 돈이 필요하다는 사실을 알고 있다. 깊게 숨을 들이마시고 화대를 부르기 시작한다,
 					<<else>>
 						<<if $speech_attitude is "meek">>
@@ -1337,7 +1339,7 @@
 					<<if $speech_attitude is "meek">>
 						"무-무얼 원하시는 건가요, 그러면?" 당신이 묻는다,
 					<<elseif $speech_attitude is "bratty">>
-						"그러면 빨리 말해봐. 나 시간이 별로 없단 말이야," 당신이 말한다,
+						"그러면 빨리 말해봐. 나 시간이 별로 없단 말이야." 당신이 말한다,
 					<<else>>
 						"그럼 뭘 원하시는 건가요?" 당신이 묻는다,
 					<</if>>
@@ -1361,10 +1363,10 @@
 					<<generatey1>><<generatey2>><<generatey3>>
 					근처에서 학생들의 웃음소리가 들린다. 한 <<person1>><<person>>【이가】 <<his>> 핸드폰을 내밀고 있다. <<His>> 친구들이 <<him>> 뒤에 몰려있다.
 					<br><br>
-					"나 저거 <<phim>>인지 알 것 같아," 한 <<person2>><<person>>【이가】 말한다. "<<pShe>>도 우리 학교 다니잖아." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 나체로 고가도로 계단을 오르는 사람의 동영상이 재생되고 있다. <span class="lewd">바로 당신이다.</span>
+					"나 저거 <<phim>>인지 알 것 같아." 한 <<person2>><<person>>【이가】 말한다. "<<pShe>>도 우리 학교 다니잖아." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 나체로 고가도로 계단을 오르는 사람의 동영상이 재생되고 있다. <span class="lewd">바로 당신이다.</span>
 					<<arousal 18>><<stress 18>><<ggarousal>><<ggstress>>
 					<br><br>
-					"저거 학교 바로 앞 육교잖아," 한 <<person3>><<person>>【이가】 도망치는 당신의 모습을 보며 말한다. "완전 변태네."
+					"저거 학교 바로 앞 육교잖아." 한 <<person3>><<person>>【이가】 도망치는 당신의 모습을 보며 말한다. "완전 변태네."
 					<br><br>
 
 					<<if $worn.face.type.includes("mask")>>
@@ -1398,10 +1400,10 @@
 					<<generatey1>><<generatey2>><<generatey3>>
 					근처에서 학생들의 웃음소리가 들린다. 한 <<person1>><<person>>【이가】 <<his>> 핸드폰을 내밀고 있다. <<His>> 친구들이 <<him>> 뒤에 몰려있다.
 					<br><br>
-					"다시 한 번 틀어봐," 한 <<person2>><<person>>【이가】 말한다. "누군지 알아낼 수 있을 것 같아." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 나체로 고가도로 계단을 오르는 사람의 동영상이 재생되고 있다. <span class="lewd">바로 당신이다.</span>
+					"다시 한 번 틀어봐." 한 <<person2>><<person>>【이가】 말한다. "누군지 알아낼 수 있을 것 같아." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 나체로 고가도로 계단을 오르는 사람의 동영상이 재생되고 있다. <span class="lewd">바로 당신이다.</span>
 					<<arousal 18>><<stress 9>><<ggarousal>><<gstress>>
 					<br><br>
-					"저거 학교 바로 앞 육교잖아," 당신이 서둘러 가로질러 달리는 모습을 보며 <<person3>><<person>>【이가】 말한다. "분명 여기 다니는 학생일 거야."
+					"저거 학교 바로 앞 육교잖아." 당신이 서둘러 가로질러 달리는 모습을 보며 <<person3>><<person>>【이가】 말한다. "분명 여기 다니는 학생일 거야."
 					<br><br>
 					"완전 변태네," <<person2>><<person>>【이가】 참견한다. "나한테 동영상 보내줘. 누군지 분명 알아낼 수 있을 거야."
 					<<if $worn.face.type.includes("mask")>>
@@ -1431,18 +1433,18 @@
 						"나 <<person4>><<him>>【을를】 알아!" 한 <<person2>><<person>>【이가】 흥분하여 말한다. "우리 같이 수업 듣잖아." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 한 <<person4>><<person>>【이가】 벌거벗은 채로 고가도로 계단을 오르는 영상이 재생된다. <span class="purple">당신은 <<him>>【을를】 알아보지 못한다.</span>
 						<<arousal 9>><<awareness 1>><<garousal>><<gawareness>>
 						<br><br>
-						"학교 바로 앞 육교잖아," 벌거벗은 <<person4>><<personsimple>>【이가】 다리를 건너 도망치는 모습을 보며 한 <<person3>><<person>>【이가】 말한다. "<<he>>【은는】 무슨 생각으로 저런 걸까?"
+						"학교 바로 앞 육교잖아." 벌거벗은 <<person4>><<personsimple>>【이가】 다리를 건너 도망치는 모습을 보며 한 <<person3>><<person>>【이가】 말한다. "<<he>>【은는】 무슨 생각으로 저런 걸까?"
 						<br><br>
-						"글쎄, 하지만 분명 후회하게 될 거야," <<person2>><<person>>【이가】 즐거운 듯 말한다. "여기, 동영상 보내줘."
+						"글쎄, 하지만 분명 후회하게 될 거야." <<person2>><<person>>【이가】 즐거운 듯 말한다. "여기, 동영상 보내줘."
 						<br><br>
 						무리가 흥분하여 재잘대는 동안 당신은 안쓰러움에 움찔한다.
 					<<else>>
 						"혹시 <<person4>><<him>>【을를】 아는 사람 있어?" 한 <<person2>><<person>>【이가】 묻는다. "난 <<person4>><<his>> 얼굴을 못 알아보겠어." 당신은 까치발을 들고 사람들 너머를 훔쳐본다. 한 <<person>>【이가】 벌거벗은 채로 고가도로 계단을 오르는 영상이 재생된다. <span class="purple">당신은 <<him>>【을를】 알아보지 못한다.</span>
 						<<arousal 9>><<awareness 1>><<garousal>><<gawareness>>
 						<br><br>
-						"다시 한 번 틀어봐," 한 <<person3>><<person>>【이가】 말한다. "각도가 안 좋네. <<person4>><<he>>【은는】 마스크를 쓰고 있는 거야?"
+						"다시 한 번 틀어봐." 한 <<person3>><<person>>【이가】 말한다. "각도가 안 좋네. <<person4>><<he>>【은는】 마스크를 쓰고 있는 거야?"
 						<br><br>
-						"완전 변태네," <<person2>><<person>>【이가】 말한다. "저기 길 끝에 있는 육교 아니야?"
+						"완전 변태네." <<person2>><<person>>【이가】 말한다. "저기 길 끝에 있는 육교 아니야?"
 						<br><br>
 						당신은 대체 그 변태가 누구일지 궁금해진다.
 					<</if>>
@@ -1456,9 +1458,9 @@
 			<<if $schoolrep.herm gte 5 and !$worn.face.type.includes("mask")>>
 				<<addinlineevent "fame_herm_group">>
 					<<generatey1>><<generatey2>><<generatey3>>
-					<<fullGroup>>【이가】 당신을 에워싼다. "바로 이 녀석이야," <<person1>><<person>>【이가】 친구들에게 말한다. "<<pShe>>에게는 자지랑 보지가 둘 다 있어. 그렇지 않냐, 이 괴물아?"
+					<<fullGroup>>【이가】 당신을 에워싼다. "바로 이 녀석이야." <<person1>><<person>>【이가】 친구들에게 말한다. "<<pShe>>에게는 자지랑 보지가 둘 다 있어. 그렇지 않냐, 이 괴물아?"
 					<br><br>
-					"그럴 리가 없잖아," <<person2>><<person>>【이가】 당신의 사타구니를 음흉하게 쳐다보며 말한다. "보나마나 장난감 같은 걸 쓴 거겠지."
+					"그럴 리가 없잖아." <<person2>><<person>>【이가】 당신의 사타구니를 음흉하게 쳐다보며 말한다. "보나마나 장난감 같은 걸 쓴 거겠지."
 					<br><br>
 					<<if playerBellyVisible() and $settings.pregnancySpeechEnabled>>
 						"<<phers>> 저렇게 튀어나온 <<bellyDescription>> 말인데," <<person3>><<person>>【이가】 당신의 배를 쳐다보며 말한다. "저 년이 자기 <<print either("정액","정액","정액","정액","정액")>>【으로로】 <<pherself>> 임신시킨 거라고 내기할 사람?"
@@ -1487,7 +1489,7 @@
 			<<if $schoolrep.crossdress gte 5 and isCrossdressing() and !$worn.face.type.includes("mask")>>
 				<<addinlineevent "fame_crossdress_group">>
 					<<generatey1>><<generatey2>><<generatey3>>
-					<<fullGroup>>【이가】 당신을 에워싼다. "이런 이런 이런, 그 변태잖아," <<person1>><<person>>【이가】 말한다. "학교에 네가 사실은 <<pcSex>>【이】라는 소문이 돌던데."
+					<<fullGroup>>【이가】 당신을 에워싼다. "이런 이런 이런, 그 변태잖아." <<person1>><<person>>【이가】 말한다. "학교에 네가 사실은 <<pcSex>>【이】라는 소문이 돌던데."
 					<br><br>
 					<<if !playerBellyVisible()>>
 						"뭐야, 너 혹시 <<if $player.sex is "f">>남자애들<<else>>여자애들<</if>> 훔쳐보려고 그런 거야?" <<person2>><<person>>【이가】 당신을 비웃으며 말한다. "아니면 진짜로 <<girl>>【이가】 되고 싶은 거야?"
@@ -1508,7 +1510,7 @@
 						<<courtyard>>
 						<<exit>>
 					<<else>>
-						"근데 쟤 크로스드레싱 엄청 못하네," <<person2>><<person>>【이가】 당신의 <<bellyDescription>>【을를】 보며 말한다. "너 보니까 딱 임신했구먼, 이 변태야."
+						"근데 쟤 크로스드레싱 엄청 못하네." <<person2>><<person>>【이가】 당신의 <<bellyDescription>>【을를】 보며 말한다. "너 보니까 딱 임신했구먼, 이 변태야."
 						<br><br>
 						"맞아, <span class="lewd">그럼 한번 보여달라고 할까?</span>" <<person3>><<person>>【이가】 당신의 사타구니를 음흉하게 바라보며 덧붙인다. <<He>>【은는】 당신의 $worn.lower.name【을를】 움켜쥐려 하지만, 당신은 재빨리 피한다.
 						<br><br>
@@ -1549,16 +1551,16 @@
 
 					<<if $worn.face.type.includes("glasses")>>
 						<<if $worn.face.name is "monocle">>
-							돌아보니 <<person>>【이가】 안경을 손에 쥐고 있다. "어디서 이런 걸 가져온 거야? 엄청 구리네," <<he>>【이가】 말한다.
+							돌아보니 <<person>>【이가】 안경을 손에 쥐고 있다. "어디서 이런 걸 가져온 거야? 엄청 구리네." <<he>>【이가】 말한다.
 							<br><br>
 							<<He>>【은는】 안경을 땅에 떨어뜨린다. "와. 안 깨졌네." <span class="purple"><<He>>【은는】 그 위에서 밟기 위해 발을 올린다.</span>
 						<<else>>
-							돌아보니 <<person>>【이가】 안경을 쥐고 있다. "어디서 가져왔어? 완전 옛날 거네," <<he>>【이가】 말한다.
+							돌아보니 <<person>>【이가】 안경을 쥐고 있다. "어디서 가져왔어? 완전 옛날 거네." <<he>>【이가】 말한다.
 							<br><br>
 							<<He>>【은는】 안경을 땅에 떨어뜨린다. "와. 안 부서졌어." <span class="purple"><<He>>【은는】 그 위에서 밟기 위해 발을 들어올린다.</span>
 						<</if>>
 					<<elseif $worn.face.type.includes("cool")>>
-						당신은 뒤돌아 <<person>>【이가】 안경을 손에 든 것을 본다. "어디서 가져왔어? 이런 건 찌질이나 쓰는 건데," <<he>>【이가】 말한다.
+						당신은 뒤돌아 <<person>>【이가】 안경을 손에 든 것을 본다. "어디서 가져왔어? 이런 건 찌질이나 쓰는 건데." <<he>>【이가】 말한다.
 						<br><br>
 						<<He>>【은는】 안경을 바닥에 내동댕이친다. "오, 안 부서지네." <span class="purple"><<He>>【은는】 그 위에서 밟기 위해 발을 든다.</span>
 					<</if>>
@@ -1596,7 +1598,7 @@
 					<<generates1>><<person1>>뒤에서 발소리가 들린다. 당신이 뒤돌아보기도 전에 누군가가 당신과 부딪혀, 하마터면 넘어질 뻔한다. 손가락들이 당신의 등을 더듬는다.
 					<<if $worn.under_upper.type.includes("naked") or $worn.under_upper.type.includes("sticky")>>
 						<br><br>
-						"끈을 못 찾겠어," 사고 친 <<person>>【이가】 외친다. "속옷을 아예 안 입었어!" <<He>>【은는】 키득거리는 친구들에게로 도망간다. 당신의 볼이 달아오른다. <<gpain>><<pain 1>><<trauma 6>><<stress 6>><<gtrauma>><<gstress>><<fameexhibitionism 3>><<incgbreastinsecurity>>
+						"끈을 못 찾겠어." 사고 친 <<person>>【이가】 외친다. "속옷을 아예 안 입었어!" <<He>>【은는】 키득거리는 친구들에게로 도망간다. 당신의 볼이 달아오른다. <<gpain>><<pain 1>><<trauma 6>><<stress 6>><<gtrauma>><<gstress>><<fameexhibitionism 3>><<incgbreastinsecurity>>
 						<br><br>
 
 						<<if $submissive lte 500 or $stress gte (($stressmax / 5) * 3) or $trauma gte (($traumamax / 5) * 2)>>
@@ -1624,7 +1626,7 @@
 					<<else>>
 						사고를 친 <<person>>【이가】 당신을 밀치고 당신은 앞쪽으로 비틀거린다.
 						<br><br>
-						"조끼 같은 걸 입고 있네," <<he>>【이가】 친구들에게 걸어가며 말한다. 그들은 실망한 듯 보인다. <<gpain>><<pain 1>><<incgbreastinsecurity>>
+						"조끼 같은 걸 입고 있네." <<he>>【이가】 친구들에게 걸어가며 말한다. 그들은 실망한 듯 보인다. <<gpain>><<pain 1>><<incgbreastinsecurity>>
 						<br><br>
 
 						<<if $submissive lte 500 or $stress gte (($stressmax / 5) * 3) or $trauma gte (($traumamax / 5) * 2)>>
@@ -1644,7 +1646,7 @@
 					<<addinlineevent "courtyard_crush_wingman">>
 
 						<<generatey1>><<generatey2>>
-						한 <<person2>><<person>>【이가】 당신에게 다가온다. "내 친구가 너한테 호감 있대," <<he>>【이가】 말한다.
+						한 <<person2>><<person>>【이가】 당신에게 다가온다. "내 친구가 너한테 호감 있대." <<he>>【이가】 말한다.
 
 						<<set $phase to random(0, 4)>>
 						<<He>>【은는】 뒤돌아 근처 벤치에 앉아 있는 <<person1>><<person>>【을를】 가리킨다,
@@ -1687,7 +1689,7 @@
 					<</addinlineevent>>
 				<</if>>
 
-				<<if $photo and $photo.nude_footage is 1>>
+				<<if $photo?.nude_footage is 1>>
 					<<addinlineevent "courtyard_crush_photo_nude">>
 						<<set $photo.nude_footage to 0>>
 						<<generatey1>><<generatey2>><<generatey3>>
@@ -1703,7 +1705,7 @@
 					<</addinlineevent>>
 				<</if>>
 
-				<<if $photo and $photo.assault_footage is 1>>
+				<<if $photo?.assault_footage is 1>>
 					<<addinlineevent "courtyard_crush_photo_assault">>
 						<<set $photo.assault_footage to 0>>
 						<<generatey1>><<generatey2>><<generatey3>>
@@ -1886,7 +1888,7 @@
 							<<case 2>>그들은 조용하게 화면을 응시한다.
 							<<case 3>>다들 미소 짓는 것을 보면, 즐거운 시간을 보내는 것 같다.
 							<<case 4>>"미친," 한 <<person>>【이가】 경악하며 말하자 갑자기 일동 폭소한다. <<person1>><<person>>【은는】 해맑게 웃고 있다.
-							<<case 5>>"말도 안 돼," 한 <<person>>【이가】 당신이 들을 정도로 중얼거린다. <<person1>><<person>>【이가】 자랑스럽게 핸드폰을 내밀고 무리 중에 몇 명의 얼굴이 붉어진다.
+							<<case 5>>"말도 안 돼." 한 <<person>>【이가】 당신이 들을 정도로 중얼거린다. <<person1>><<person>>【이가】 자랑스럽게 핸드폰을 내밀고 무리 중에 몇 명의 얼굴이 붉어진다.
 						<</switch>>
 						<br><br>
 						<<courtyard>>
@@ -2139,7 +2141,7 @@
 							<<case 2>>그 <<person>>【은는】 일어서서 <<person1>><<him>>【을를】 노려본다.
 							<<case 3>>그 <<person>>【은는】 <<person1>><<him>>에게 가운뎃손가락을 날리곤 화난 얼굴로 일어선다.
 							<<case 4>>"<<print either("등신","개자식","얼간이","창년","암캐","씹새끼")>>." 그 <<person>>【은는】 일어서며 중얼거린다.
-							<<case 5>>"이 <<print either("등신","개자식","얼간이","창년","암캐")>>아," 그 <<person>>【이가】 일어나며 낄낄거린다. <<person1>><<persons>> 웃음이 한동안 폭소로 변한다. <<he>>【이가】 진정하고 나자, 그들은 농담 따먹기를 시작한다.
+							<<case 5>>"이 <<print either("등신","개자식","얼간이","창년","암캐")>>아." 그 <<person>>【이가】 일어나며 낄낄거린다. <<person1>><<persons>> 웃음이 한동안 폭소로 변한다. <<he>>【이가】 진정하고 나자, 그들은 농담 따먹기를 시작한다.
 						<</switch>>
 						<br><br>
 						<<courtyard>>
@@ -2166,7 +2168,7 @@
 						<<switch random (1,5)>>
 							<<case 1>>떨리는 손으로 <<person>>【은는】 무릎을 꿇고 떨어진 물건들을 주워 담는다. <<Hes>> 최대한 <<person1>><<person>>【을를】 무시하려 노력한다. <<gstress>><<stress 2>>
 							<<case 2>>무릎을 꿇고 학교 물품을 모으며 <<person>>【은는】 <<person1>><<him>>【을를】 한 번 째려본다.
-							<<case 3>>"<<print either("재수 없는 놈","개자식","멍청이","씨발년","개년","씹새끼")>>," <<person>>【이가】 학교 준비물을 주우려 무릎을 꿇으며 말한다.
+							<<case 3>>"<<print either("재수 없는 놈","개자식","멍청이","씨발년","개년","씹새끼")>>." <<person>>【이가】 학교 준비물을 주우려 무릎을 꿇으며 말한다.
 							<<case 4>><<person>>【이가】 한 발짝 다가와 <<person1>><<him>>【을를】 향해 주먹을 휘두르지만, <<he>>【은는】 뒤로 물러서며 웃으며 도망친다. 만족스러운 듯, <<person2>><<person>>【은는】 학교 준비물을 챙기기 시작한다.
 							<<case 5>>"이 <<print either("재수 없는 놈","개자식","멍청이","씨발년","개년")>>【아야】, 내 숙제가 망가지면 어떡할래?" <<person>>【이가】 웃으며 무릎을 꿇고 물건들을 줍기 시작한다. "그럼 누구 걸 베끼려고, 바보야?"
 						<</switch>>
@@ -2195,7 +2197,7 @@
 							<<switch random (1,5)>>
 								<<case 1>>잠시 후 그녀가 비명을 지르며 브래지어가 풀리고, 가슴이 <<npcClothesText $NPCList[$index] "upper">> 안에서 흔들리는 것이 보인다. <br><br> 그녀는 무릎을 꿇고 팔로 자신을 감싸며 눈가에 눈물이 맺힌다. 당신이 무언가 조치를 취하기 전, 그녀는 다시 벌떡 일어나 전력 질주로 도망친다. <<gstress>><<stress 2>>
 								<<case 2>>잠시 후 그녀는 꽥 소리를 지르며 브래지어가 풀리자 가슴을 가리고 패닉에 빠져 주변을 둘러본다. 그녀는 <<person1>><<person>>【이가】 뒤에서 웃는 가운데 프라이버시를 찾아 황급히 멀어진다.
-								<<case 3>>잠시 후 그녀는 브래지어가 풀리자 꽥 소리를 지른다. 그녀는 즉시 돌아서서 씩 웃고 있는 <<person1>><<person>>【이가】 도망가기 전에 따귀를 때린다. "변태," 그녀가 말한다.
+								<<case 3>>잠시 후 그녀는 브래지어가 풀리자 꽥 소리를 지른다. 그녀는 즉시 돌아서서 씩 웃고 있는 <<person1>><<person>>【이가】 도망가기 전에 따귀를 때린다. "변태." 그녀가 말한다.
 								<<case 4>>그녀는 즉시 돌아서서 <<person1>><<person>>【을를】 밀쳐낸다. "건드리지 마, <<print either("변태","재수 없는 놈","변태")>>!" 그녀의 말에 <<person>>【은는】 마지못해 물러난다.
 								<<case 5>>잠시 후 <<person1>><<person>>【이가】 도망친다. "노브라!" <<he>>【이가】 외치고, <<person2>><<person>>【은는】 얼굴을 붉히며 서둘러 가슴을 가린다.
 							<</switch>>
@@ -2307,7 +2309,7 @@
 			<<cleareventpool>>
 
 			<<addinlineevent "courtyard_dog_molest">>
-				<<if $monster is 1 or $settings.bestialityEnabled>>
+				<<if beastSexEnabledForType("dog", $monster is 1)>>
 					부엌 뒤 쓰레기통을 뒤지는 <<beasttype>>【을를】 발견한다. <<bHis>> 귀가 쫑긋 서더니, <span class="red"><<bhe>>【이가】 당신을 향해 달려온다</span>.
 					<br><br>
 
@@ -2352,7 +2354,7 @@
 			<<cleareventpool>>
 
 			<<addinlineevent "courtyard_guard_arrested">>
-				<<He>>【이가】 당신을 발견하고 다가오며 곤봉을 푼다. "이런, 이런," <<he>>【이가】 말한다. "넌 여기 있으면 안 되는데. 따라와."<<gstress>><<stress 6>>
+				<<He>>【이가】 당신을 발견하고 다가오며 곤봉을 푼다. "이런, 이런." <<he>>【이가】 말한다. "넌 여기 있으면 안 되는데. 따라와."<<gstress>><<stress 6>>
 				<br><br>
 
 				<<link [[싸운다|Courtyard Guard Fight]]>><<set $fightstart to 1>><</link>>
@@ -2363,7 +2365,7 @@
 				<br>
 			<</addinlineevent>>
 
-			<<addinlineevent "couryard_guard_shooed">>
+			<<addinlineevent "courtyard_guard_shooed">>
 				<<He>>【이가】 당신을 발견하고 찡그린다. "넌 여기 있으면 안 될 것 같은데," <<he>>【이가】 말한다. "혼나기 전에 가는 게 좋을 거야."
 				<br><br>
 
@@ -2440,7 +2442,7 @@
 	<<elseif $bullyevent is 1>>/* Shoved in locker */
 		<<set $bullyevent += 1>>
 
-		휘트니와 <<his>> 친구들이 당신을 둘러싸, 사물함에 몰아넣는다. "또 내 앞길을 막네. 잠깐 벌 좀 받아야겠는데." <<he>>【은는】 당신 옆의 사물함을 열며 말한다. <<He>>【은는】 당신을 그 안으로 밀어 넣으려 한다.
+		휘트니와 <<his>> 친구들이 당신을 둘러싸, 사물함에 몰아넣는다. "또 내 앞길을 막네. 잠깐 벌 좀 받아야겠는데," <<he>>【은는】 당신 옆의 사물함을 열며 말한다. <<He>>【은는】 당신을 그 안으로 밀어 넣으려 한다.
 		<br><br>
 
 		<<link [[내버려둔다 (0:30)|Bully Locker]]>><<sub 1>><<npcincr Whitney dom 1>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>><<gdom>>
@@ -2531,7 +2533,7 @@
 
 		<<if $worn.under_lower.type.includes("naked")>>
 			<<if $speech_attitude is "meek">>
-				당신은 발끝을 내려다본다. "나, 나는... 안... 입었는데...."
+				당신은 발끝을 내려다본다. "나-나는... 안... 입었는데...."
 			<<elseif $speech_attitude is "bratty">>
 				당신은 휘트니를 노려본다. "속옷을 입고 있었어도 네 말대로는 안 했을걸."
 			<<else>>
@@ -2562,11 +2564,11 @@
 
 		<<if $worn.under_lower.type.includes("naked")>>
 			<<if $speech_attitude is "meek">>
-				당신은 발끝을 내려다본다. "나, 나는... 안... 입었는데...."
+				당신은 발끝을 내려다본다. "나-나는... 안... 입었는데...."
 			<<elseif $speech_attitude is "bratty">>
 				당신은 휘트니를 노려본다. "속옷을 입고 있었어도 네 말대로는 안 했을걸."
 			<<else>>
-				"하지만 나, 나는 속옷 안 입었어." 당신이 말한다.
+				"하지만 나-나는 속옷 안 입었어." 당신이 말한다.
 			<</if>>
 			<br><br>
 
@@ -2594,8 +2596,8 @@
 		<<set $bullyevent += 1>>
 		<<if $whitney_toilet is undefined and $genderknown.includes("Whitney") and _whitney.dom gte 14>>
 			휘트니와 <<his>> 친구들이 당신을 둘러싼다. 휘트니는 비웃으며 당신의 어깨를 붙잡는다.
-			<!-- dev note: Keep in mind that this scene uses player.gender directly and not player.gender_appearance. That's why we have to do complicated things. -->
-			<<if $player.sex is _whitney.pronoun>>
+			<!-- dev note: Keep in mind that this scene uses player.sex directly and not player.gender_appearance. That's why we have to do complicated things. -->
+			<<if $player.sex is _whitney.pronoun and $settings.nudeGenderPerception !== 0>>
 				<<He>>【은는】 당신을 <<print ($player.sex is "m" ? "여자" : "남자")>> 화장실로 밀어 넣으려 한다.
 				<br><br>
 				"새 규칙이야, 걸레야." <<he>>【이가】 말한다. "넌 실패작 <<print ($player.sex is "m" ? "남자" : "여자")>>【아야】. 나랑 같은 화장실을 쓸 자격이 없어."
@@ -2606,7 +2608,14 @@
 				<br><br>
 				<!-- dev note: This scene is weird for herm PCs that normally choose the same toilets as Whitney. They aren't hiding from Whitney. How should Whitney's rule apply to herms? -->
 				<!-- dev note: This is ALSO weird for crossdresser PCs, because gender_appearance is what dictates getting thrown out of bathrooms, not gender, so they're ALSO already using the bathroom Whitney wants. -->
-				"새 규칙이야, 걸레야." <<he>>【이가】 말한다. "화장실에 숨어서 나 피하는 건 이제 끝이야. 넌 <<if $player.sex is "m">>남자<<elseif $player.penisExist and $player.vaginaExist>>괴물<<else>>여자<</if>>일지는 몰라도, 내 것이기도 해. 내가 쓰고 싶어질 때 근처에 있어야 하니까. 그러니까 이제부터 넌 <<nnpc_gendery "Whitney">> 화장실을 쓰는 거야."
+				"새 규칙이야, 걸레야." <<he>>【이가】 말한다. "화장실에 숨어서 나 피하는 건 이제 끝이야. 넌
+				<<if ($player.penisExist and $player.vaginaExist) or $settings.nudeGenderPerception is 0>>
+					괴물일지는 몰라도, <!-- if genitals are ignored for gender perception, this is just regular bullying/name-calling, since the line might not make sense otherwise -->
+				<<elseif $player.sex is "m">>
+					남자일지는 몰라도,
+				<<else>>
+					여자일지는 몰라도,
+				<</if>> 내 것이기도 해. 내가 쓰고 싶어질 때 근처에 있어야 하니까. 그러니까 이제부터 넌 <<nnpc_gendery "Whitney">> 화장실만 쓰는 거야."
 				<br><br>
 				<<He>>【은는】 당신을 더 가까이 밀어붙인다.
 			<</if>>
@@ -2614,7 +2623,7 @@
 			<<link [[내버려둔다|Bully Toilets]]>><</link>>
 			<br>
 			<<link [[싸운다|Bully Fight]]>><<set $fightstart to 1>><<def 1>><<npcincr Whitney dom -1>><</link>><<ldom>>
-		<<elseif $settings.forcedCrossdressingEnabled and $whitneyCrossdressSwimwear is 0 and _whitney.dom gte 18>>
+		<<elseif $settings.forcedCrossdressingEnabled and $whitneyCrossdressSwimwear is 0 and _whitney.dom gte 14>>
 			휘트니와 <<his>> 친구들이 당신을 둘러싼다. 휘트니는 비웃으며 당신의 어깨를 붙잡는다. <<He>>【은는】 당신을 여자 탈의실로 밀어 넣으려 한다.
 			<br><br>
 			"새 규칙이야, 걸레야." <<he>>【이가】 말한다. "네가 남자 탈의실을 썼다는 얘기는 듣고 싶지 않아. 그러니까 남자용 수영복도 금지야. 게다가 내가 이렇게 관대하니까, 넌 이미 여자 수영복도 받았잖아?"
@@ -2876,7 +2885,7 @@
 			<br><br>
 
 			<<if $speech_attitude is "meek">>
-				"네, 네가 나한테 부딪혔잖아." 당신이 항의한다. "사과해야 하는 건 너쪽인데..."
+				"네-네가 나한테 부딪혔잖아." 당신이 항의한다. "사과해야 하는 건 너쪽인데..."
 			<<elseif $speech_attitude is "bratty">>
 				"네가 나한테 부딪혔잖아, 이 더러운 새끼야!" 당신이 항의한다. "여기 내려와서 사과해야 하는 건 너라고!"
 			<<else>>
@@ -2907,7 +2916,7 @@
 			<br><br>
 
 			<<if $speech_attitude is "meek">>
-				"네, 네가 나한테 부딪혔잖아." 당신이 항의한다. "사과해야 하는 건 너쪽인데..."
+				"네-네가 나한테 부딪혔잖아." 당신이 항의한다. "사과해야 하는 건 너쪽인데..."
 			<<elseif $speech_attitude is "bratty">>
 				"네가 나한테 부딪혔잖아, 이 더러운 새끼야!" 당신이 항의한다. "여기 내려와서 사과해야 하는 건 너라고!"
 			<<else>>
@@ -2957,7 +2966,7 @@
 			<br>
 		<</if>>
 
-	<<elseif $bullyevent is 18 and C.npc.Robin.init gte 1 and getRobinLocation() is "school" and $robinmissing is 0>>/* Robin Pantsed*/
+	<<elseif $bullyevent is 18 and C.npc.Robin.init is 1 and getRobinLocation() is "school" and $robinmissing is 0>>/* Robin Pantsed*/
 		<<set $bullyevent += 1>>
 		<<endevent>><<npc "Robin">><<person1>>
 		<<set _lower to C.npc.Robin.clothes.lower.name>>
@@ -3188,7 +3197,7 @@
 	<<elseif C.npc.Whitney.dom lte 4 and !$whitneyLowDomOutside>>
 		<<set $whitneyLowDomOutside to 1>>
 		<<npc Whitney>><<person1>><<generatey2>>
-		당신은 모퉁이를 돌다가, 그대로 휘트니와 <<his>> 무리와 마주친다. "이게 누구야," <<he>>【이가】 말한다. "타이밍 좋네. 우리 지금 학교 나가는 중이거든." <<He>>【은는】 당신의 팔을 붙잡고는 <<his>> 친구들 쪽으로 돌아서지만, <span class="blue"><<him>>【을를】 두고 그냥 걸어가 버리는 것을 발견할 뿐이다.</span>
+		당신은 모퉁이를 돌다가, 그대로 휘트니와 <<his>> 무리와 마주친다. "이게 누구야." <<he>>【이가】 말한다. "타이밍 좋네. 우리 지금 학교 나가는 중이거든." <<He>>【은는】 당신의 팔을 붙잡고는 <<his>> 친구들 쪽으로 돌아서지만, <span class="blue"><<him>>【을를】 두고 그냥 걸어가 버리는 것을 발견할 뿐이다.</span>
 		<br><br>
 
 		<<link [[다음|Bully Outside Low Dom]]>><</link>>
@@ -3419,7 +3428,7 @@
 		<<kylarReunionScene>>
 	<<elseif _kylarStatus?.includes("Love")>>
 		<<if $rng gte 61>>
-			<<npc Kylar>><<person1>>카일라가 당신 옆에 나타나 팔을 꽉 껴안는다. "안녕," <<he>>【이가】 웃으며 말한다. <<he>>【은는】 쳐다보던 <<generatey2>><<person2>><<person>>【을를】 발견하곤 그를 향해 손을 흔든다. "내 <<girlfriend>>【아야】," <<person1>><<he>>【이가】 선언한다. 사람들이 더 돌아본다. 누군가 낄낄댄다.
+			<<npc Kylar>><<person1>>카일라가 당신 옆에 나타나 팔을 꽉 껴안는다. "안녕." <<he>>【이가】 웃으며 말한다. <<he>>【은는】 쳐다보던 <<generatey2>><<person2>><<person>>【을를】 발견하곤 그를 향해 손을 흔든다. "내 <<girlfriend>>【아야】," <<person1>><<he>>【이가】 선언한다. 사람들이 더 돌아본다. 누군가 낄낄댄다.
 			<<status -10>><<llcool>>
 			<br><br>
 
@@ -3444,7 +3453,7 @@
 			<<npc Kylar>><<person1>><<generatey2>>앞쪽에서 카일라의 목소리가 들린다. "진짜라니까," <<he>>【이가】 말한다. "<<pShes>> 내 <<girlfriend>>【아야】." <<hes>> <<person2>><<person>>【와과】 그 무리들에게 얘기하고 있다. 전혀 설득당한 눈치가 아니다.
 			<br><br>
 
-			카일라가 당신에게 달려온다. "그-그들에게 말해줘," <<person1>><<he>>【이가】 말한다. "이게 사실이라고 말해줘."
+			카일라가 당신에게 달려온다. "그-그들에게 말해줘." <<person1>><<he>>【이가】 말한다. "이게 사실이라고 말해줘."
 			<br><br>
 
 			<<link [[사실이라고 말한다|Kylar True]]>><<npcincr Kylar love 5>><<npcincr Kylar rage -5>><<status -10>><</link>><<llcool>><<gglove>>
@@ -3532,7 +3541,7 @@
 
 	<<else>>
 
-		<<generate1>><<person1>>"이봐," 누군가가 낮춘 목소리로 말한다. "거기 그루터기에 있는 너." 당신은 눈을 뜬다. 학교 옆 골목 울타리 너머에 <<person>>【이가】 서 있다. "그 옷 밑에 뭘 입고 있는 거야?"
+		<<generate1>><<person1>>"이봐." 누군가가 낮춘 목소리로 말한다. "거기 그루터기에 있는 너." 당신은 눈을 뜬다. 학교 옆 골목 울타리 너머에 <<person>>【이가】 서 있다. "그 옷 밑에 뭘 입고 있는 거야?"
 		<br><br>
 
 		<<link [[무시한다|School Stump Ignore]]>><<stress 1>><</link>><<gstress>>
@@ -3585,7 +3594,7 @@
 
 		<<if $worn.under_lower.type.includes("naked")>>
 			<<if playerHasButtPlug()>>
-				$worn.butt_plug.name【을를】 느끼자 <<his>> 눈이 커진다. "와, 이거 재밌는 서프라이즈인데." <<He>>【은는】 씩 웃는다.
+				$worn.butt_plug.name【을를】 느끼자 <<his>> 눈이 커진다. "와, 이거 재밌는 서프라이즈인데," <<He>>【은는】 씩 웃는다.
 				<br><br>
 			<</if>>
 			"착한 <<girl>>." <<he>>【이가】 말한다.
@@ -3634,7 +3643,7 @@
 
 			<<if $worn.under_lower.type.includes("naked")>>
 				<<if playerHasButtPlug()>>
-					$worn.butt_plug.name【을를】 느끼자 <<his>> 눈이 커진다. "와, 이거 재밌는 서프라이즈인데." <<He>>【은는】 씩 웃는다.
+					$worn.butt_plug.name【을를】 느끼자 <<his>> 눈이 커진다. "와, 이거 재밌는 서프라이즈인데," <<He>>【은는】 씩 웃는다.
 					<br><br>
 				<</if>>
 				<<WhitneyChastityCheck>>
@@ -3645,7 +3654,7 @@
 				<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
 				<br>
 			<<elseif $worn.under_lower.gender is "f">>
-				"착한 <<girl>>. $worn.under_lower.name_simple【이가】 아주 꽉 조이길 바라," <<he>>【이가】 말한다. "나중에 다시 검사할 거다."
+				"착한 <<girl>>. $worn.under_lower.name_simple【이가】 아주 꽉 조이길 바라." <<he>>【이가】 말한다. "나중에 다시 검사할 거다."
 				<br><br>
 				<<WhitneyChastityCheck>>
 				<<link [[다음|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
@@ -3726,7 +3735,7 @@
 	<<cleareventpool>>
 	<<if C.npc.Whitney.love gte 10 or $whitneyromance is 1>>
 		<<addinlineevent "whitney_roof_1">>
-			"내 전용 걸레 아니야," 휘트니가 다가오라고 손짓하며 말한다. "마침 잘 왔어. 내 친구들이랑 나, 지금 지루하거든. 쇼 좀 보여봐."
+			"내 전용 걸레 아니야." 휘트니가 다가오라고 손짓하며 말한다. "마침 잘 왔어. 내 친구들이랑 나, 지금 지루하거든. 쇼 좀 보여봐."
 			<br><br>
 			<<link [[어떤 쇼인지 묻는다|Whitney Roof Show Ask]]>><</link>>
 			<br>
@@ -3789,7 +3798,7 @@
 				<<generates2>><<person2>>한 불량 학생이 뒤에서 몰래 다가와 당신의 $worn.handheld.name【을를】 낚아챈다. <<He>>【은는】 가방을 휘트니에게 가져간다.
 				<br><br>
 				<<if $speech_attitude is "meek">>
-					"야, 야, ㅈ-잠깐만!" 당신은 <<him>>【을를】 쫓아가며 더듬거린다. "ㄱ-그건 내 거잖아!"
+					"야, 야, 자-잠깐만!" 당신은 <<him>>【을를】 쫓아가며 더듬거린다. "그-그건 내 거잖아!"
 				<<else>>
 					"야! 그거 내 거라고!" 당신은 <<him>>【을를】 쫓아가며 소리친다.
 				<</if>>
@@ -3902,6 +3911,15 @@
 <</widget>>
 
 <<widget "courtyardrevealresponse">>
+	<<if !$player.penisExist or !$player.vaginaExist>>
+		"<<print either(
+			"소문은 전부 거짓말일 뿐이야.",
+			"<<pShe>>【은는】 둘 다 있지도 않잖아!"
+		)>>"
+		<<schoolrep herm -1>>
+		<<exit>>
+	<</if>>
+
 	"<<print either(
 		"이거 진짜였어!",
 		"이거 진짜였어?",
@@ -3960,7 +3978,7 @@
 			/* Flash genitals */
 			<<case "Hallways Lewd Flash">> <<person>>【은는】 입을 떡 벌리고는, 방금 일어난 일을 누가 보지는 않았는지 주위를 두리번거린다. 아무도 못 본 모양이다. <<He>>【은는】 당신의 몸을 음흉하게 훑어보며 한 걸음 다가온다.
 		<</switch>>
-		"나랑 어디 좀 가자," <<he>>【이가】 말한다. <<his>> 꿍꿍이가 훤히 들여다보인다.
+		"나랑 어디 좀 가자." <<he>>【이가】 말한다. <<his>> 꿍꿍이가 훤히 들여다보인다.
 		<br><br>
 
 		<<if hasSexStat("promiscuity", 2)>>
@@ -4036,6 +4054,69 @@
 		<br><br>
 		<<whitneyRulePunishment true>>
 		<<exitAll>>
+	<</if>>
+<</widget>>
+
+<<widget "events_school_library_study">>
+	<<rng 100>>
+	<<if $scienceprojectwon is 1 and $rng gte 91>>
+		<<generates1>><<person1>>한 <<person>>【이가】 당신의 테이블에 멈춰 선다. "저기, 너 과학 경진대회에서 우승한 그 <<girl>>, 맞지?"
+		<br><br>
+
+		<<if $speech_attitude is "meek">>
+			"아, 그렇게 대단한 건 아니었는데..." 당신은 수줍게 고개를 끄덕이며 시선을 피한다.
+		<<elseif $speech_attitude is "bratty">>
+			당신은 자랑스럽게 공중에 엄지를 치켜세운다. "바로 나야!"
+		<<else>>
+			"내가 그랬지." 당신은 고개를 끄덕인다. "무슨 일이야?"
+		<</if>>
+		<br><br>
+
+		그 <<personsimple>>【은는】 미소를 지으며 고개를 끄덕여 화답한다. "대단하다! 네 프로젝트는 정말 잘 연구됐더라, 뭘 해야 할지 제대로 알고 있었어! 나도 너처럼 될 수 있으면 좋을 텐데! 나도 과학 경진대회에 참가했는데, 선생님들은 내 테이블에 와보지도 않으셨어."
+		<br><br>
+
+		<<He>>【은는】 한숨을 쉰다. "<<nnpc_title "Leighton">> 교장 선생님조차도. 아마 내가 내세울 만한 성적이 없어서 그런가 봐, 하지만 가끔은 수업에 집중하기가 너무 힘들어! 특히 몇몇 학생들이 계속 나를 만지고 장난을 치거나, 학용품이 계속 사라질 때, 그리고 지각을 좀 많이 해서 벌을 받아야 했을 때—"
+		<br><br>
+
+		<<He>>【은는】 몸을 굳히더니, 이내 <<his>> 고개를 젓는다. "...미안, 내가 너무 떠들었네."
+		<br><br>
+
+		<<link [[계속 공부한다|Library Study Science Fair]]>><<set $phase to 0>><<stress -4>><</link>><<lstress>>
+		<br>
+		<<link [[도와준다 (0:10)|Library Study Science Fair]]>><<set $phase to 1>><<pass 10>><<status 6>><</link>><<gcool>>
+		<br>
+	<<elseif $rng gte 51>>
+		<<generatey1>><<generatey2>>당신이 하던 일에 집중하고 있을 때, 한 <<fullGroup>>【이가】 당신을 괴롭히기 시작한다.
+		<br><br>
+
+		<<link [[무시한다|School Library Harass]]>><<set $phase to 0>><<trauma 2>><<stress 2>><</link>><<gtrauma>><<gstress>>
+		<br>
+		<<link [[사서에게 도움을 청한다|School Library Harass]]>><<set $phase to 1>><<status -10>><</link>><<llcool>>
+		<br>
+		<<if C.npc.Sydney.init is 1 and $sydneySeen.includes("library") and _sydney_location is "library">>
+			<<link [[시드니에게 도움을 청한다|School Library Harass]]>><<set $phase to 2>><</link>>
+			<br>
+		<</if>>
+	<<elseif _wraithEvent>>
+		얼마 후, 당신은 불안감을 느끼기 시작한다. 당신은 교과서를 책장에 다시 꽂으려고 움직인다.
+		<br><br>
+		반대편 틈새로 창백한 얼굴이 언뜻 보인다. <<stress 12>><<ggstress>><<trauma 4>><<gtrauma>>
+		<br><br>
+		<<link [[다음|School Library]]>><<endevent>><</link>>
+		<br>
+	<<else>>
+		<<outfitChecks>>
+		<<set _bottom.integrity -= 10>>
+		<<if _bottom.integrity lte 0>>
+			의자에서 일어나는 순간, 찢어지는 소리가 들린다. 당신의 <<bottoms>>【이가】 <<is _bottom>>책상에 걸렸다. <<= _bottom.plural ? "그것들" : "그것">>【을를】 빼내 보려 하지만, <<= _bottom.plural ? "그것들이" : "그것이">> 몸에서 통째로 뜯겨 나가며 당신의 <<= _bottomUnder?.name || "<<undies>>">>【을를】 드러낸다.
+			<<integritycheck no_text>>
+			<br><br>
+		<<else>>
+			의자에서 일어나는 순간, 찢어지는 소리가 들린다. 당신의 <<bottoms>>【이가】 <<is _bottom>>책상에 걸렸다.
+			<br><br>
+		<</if>>
+		<<link [[다음|School Library]]>><<endevent>><</link>>
+		<br>
 	<</if>>
 <</widget>>
 

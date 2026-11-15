@@ -96,13 +96,13 @@
 			<<if $masturbation_milk gt 0>><<set $_liquids.push("모유")>><</if>>
 			<<if $masturbation_semen gt 0>><<set $_liquids.push("정액")>><</if>>
 			<<if $masturbation_vaginaFluid gt 0>><<set $_liquids.push("음탕한 체액")>><</if>>
-			<span class="gold">당신은 <<print ($masturbation_fluid).toFixed(1)>> mL의 <<print formatList($_liquids, "그리고", true)>>【을를】 모았다.</span>
+			<span class="gold">당신은 <<print ($masturbation_fluid).toLocaleString("en-GB", {minimumFractionDigits: 1})>> mL의 <<print formatList($_liquids, "그리고", true)>>【을를】 모았다.</span>
 		<<else>>
 			당신은 어떠한 모유나 음탕한 체액도 짜내지 못했다.
 		<</if>>
 		<br>
 	<<elseif $bottledMilk>>
-		<span class="gold">모유 <<print ($bottledMilk).toFixed(1)>>mL를 병에 담았다.</span>
+		<span class="gold">모유 <<print ($bottledMilk).toLocaleString("en-GB", {minimumFractionDigits: 1})>>mL를 병에 담았다.</span>
 		<<if $bottledMilk gte 100>>
 			<<wearProp "baby bottle of breast milk">>
 			<<set $_bottles to Math.floor(parseFloat(($bottledMilk).toFixed(1)) / 100)>>
@@ -304,7 +304,7 @@
 		<<set $creamstat to $masturbation_fluid>>
 	<</if>>
 	<<masturbationbowlimage>>
-	당신은 체액을 <<print ($masturbation_fluid).toFixed(1)>> mL 모았다.
+	당신은 체액을 <<print ($masturbation_fluid).toLocaleString("en-GB", {minimumFractionDigits: 1})>> mL 모았다.
 <</widget>>
 
 <<widget "masturbationbowlimage">>

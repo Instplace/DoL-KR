@@ -51,22 +51,22 @@
 		<<wolfcaveicon "pupsden">><<link [[새끼들의 굴|Pups Den]]>><</link>>
 		<br>
 	<</if>>
-	<<wolfcaveicon "sleep">><<link [[잠자기|Wolf Cave Bed]]>><</link>>
+	<<wolfcaveicon "sleep">><<link [[잔다|Wolf Cave Bed]]>><</link>>
 	<br>
 	<<if $nextPassageCheck is "Wolf Cave Clearing">>
-		<<wolfcaveicon "outside">><span class="nextLink"><<link [[밖으로 나가기|Wolf Cave Clearing]]>><</link>></span>
+		<<wolfcaveicon "outside">><span class="nextLink"><<link [[밖으로 나간다|Wolf Cave Clearing]]>><</link>></span>
 	<<else>>
-		<<wolfcaveicon "outside">><<link [[밖으로 나가기|Wolf Cave Clearing]]>><</link>>
+		<<wolfcaveicon "outside">><<link [[밖으로 나간다|Wolf Cave Clearing]]>><</link>>
 	<</if>>
 	<br><br>
 	<<if $wolfcavedig gte 13>>
-		<<wolfcaveicon "hole">><<link [[구멍으로 내려가기|Forest Wolf Cave Hole]]>><</link>>
+		<<wolfcaveicon "hole">><<link [[구멍으로 내려간다|Forest Wolf Cave Hole]]>><</link>>
 	<<elseif $wolfcavedig gte 12 and $physiquesize lte 12000>>
-		<<wolfcaveicon "hole">><<link [[구멍으로 내려가기|Forest Wolf Cave Hole]]>><</link>><<small_text>>
+		<<wolfcaveicon "hole">><<link [[구멍으로 내려간다|Forest Wolf Cave Hole]]>><</link>><<small_text>>
 	<<elseif $wolfcavedig gte 11 and $physiquesize lte 9000>>
-		<<wolfcaveicon "hole">><<link [[구멍으로 내려가기|Forest Wolf Cave Hole]]>><</link>><<small_text>>
+		<<wolfcaveicon "hole">><<link [[구멍으로 내려간다|Forest Wolf Cave Hole]]>><</link>><<small_text>>
 	<<elseif $wolfcavedig gte 10 and $physiquesize lte 6000>>
-		<<wolfcaveicon "hole">><<link [[구멍으로 내려가기|Forest Wolf Cave Hole]]>><</link>><<small_text>>
+		<<wolfcaveicon "hole">><<link [[구멍으로 내려간다|Forest Wolf Cave Hole]]>><</link>><<small_text>>
 	<<elseif $wolfcavedig gte 1>>
 		<<getouticon "dig">><<link [[동굴 뒤편을 판다 (1:00)|Forest Wolf Cave Dig]]>><<pass 1 hour>><<set $wolfcavedig += 1>><</link>>
 	<<else>>
@@ -112,7 +112,7 @@
 	<</if>>
 	<<wolfcavestate>>
 <</if>>
-<<if $pound and $pound.progress is 5>>
+<<if $pound?.progress is 5>>
 	<span class="blue">어두운 형체가 나무들 사이에 숨어 있다.</span>
 	<br>
 <</if>>
@@ -147,10 +147,10 @@
 	<</if>>
 	<<wolfcaveicon "wolf play">><<link [[놀아준다 (1:00)|Wolf Cave Play]]>><<stress -12>><<pass 1 hour>><</link>><<lstress>>
 	<br>
-	<<if $pound and $pound.progress is 5>>
+	<<if $pound?.progress is 5>>
 		<<wolfcaveicon "black dog">><<link [[어두운 형체에 접근한다|Wolf Cave Dog Intro]]>><<set $pound.progress to 6>><<stress 6>><<trauma -6>><<control 25>><</link>><<gstress>><<ggcontrol>><<ltrauma>>
 		<br>
-	<<elseif $pound and $pound.progress is 6 and Time.dayState is "day" and $daily.wolfCaveDog is undefined>>
+	<<elseif $pound?.progress is 6 and Time.dayState is "day" and $daily.wolfCaveDog is undefined>>
 		<<wolfcaveicon "black dog">><<link [[검은 개에게 접근한다|Wolf Cave Dog]]>><</link>>
 		<br>
 	<</if>>
@@ -260,12 +260,12 @@
 <<bHe>>【이가】 커다란 양치식물 아래에 누워 당신이 다가오는 것을 지켜본다.
 <br><br>
 
-<<ind>><<link [[휴식하기 (0:30)|Wolf Cave Dog Relax]]>><<set $daily.wolfCaveDog to 1>><<pass 30>><<trauma -6>><<stress -6>><</link>><<ltrauma>><<lstress>>
+<<ind>><<link [[휴식한다 (0:30)|Wolf Cave Dog Relax]]>><<set $daily.wolfCaveDog to 1>><<pass 30>><<trauma -6>><<stress -6>><</link>><<ltrauma>><<lstress>>
 <br>
-<<ind>><<link [[새끼들과 놀도록 격려하기|Wolf Cave Dog Play]]>><<set $daily.wolfCaveDog to 1>><</link>>
+<<ind>><<link [[새끼들과 놀도록 격려한다|Wolf Cave Dog Play]]>><<set $daily.wolfCaveDog to 1>><</link>>
 <br><br>
 
-<<getouticon>><<link [[떠나기|Wolf Cave Clearing]]>><<endevent>><</link>>
+<<getouticon>><<link [[떠난다|Wolf Cave Clearing]]>><<endevent>><</link>>
 <br>
 
 :: Wolf Cave Dog Relax
@@ -277,11 +277,11 @@
 	<<elseif $rng gte 61>>
 		"커다란 인간 동굴에서 떨어져." <<bhe>>【이가】 말한다. "위험해."
 	<<elseif $rng gte 41>>
-		"호수에는 가까이 가지 마라," <<bhe>>【이가】 말한다. "숲보다 위험하다. 마을보다도 위험하다."
+		"호수에는 가까이 가지 마라." <<bhe>>【이가】 말한다. "숲보다 위험하다. 마을보다도 위험하다."
 	<<elseif $rng gte 21>>
-		"새끼들이 날 무서워한다," <<bhe>>【이가】 말한다. "이상하게 생겼나 보다."
+		"새끼들이 날 무서워한다." <<bhe>>【이가】 말한다. "이상하게 생겼나 보다."
 	<<else>>
-		"주인을 미워하진 않았다," <<bhe>>【이가】 말한다. "하지만 너무 많은 걸 요구했다."
+		"주인을 미워하진 않았다." <<bhe>>【이가】 말한다. "하지만 너무 많은 걸 요구했다."
 	<</if>>
 <<else>>
 	당신은 <<beasttype>>에게 기대어, <<bhis>> 숨결에 따라 몸이 오르내리는 동안 머리 위의 숲의 지붕을 바라본다. 거의 잠이 들 뻔했다.
@@ -328,7 +328,7 @@
 
 <br>
 
-<<getouticon>><<link [[떠나기|Wolf Cave Clearing]]>><<endevent>><</link>>
+<<getouticon>><<link [[떠난다|Wolf Cave Clearing]]>><<endevent>><</link>>
 <br>
 
 :: Wolf Cave Returned
@@ -420,7 +420,7 @@
 <<else>>
 	<<wakingEffects $sleepHoursTotal>>
 	<<if ["dryheaving","nausea"].includes(_wakingEffect)>>
-		<br><br>
+		<br>
 		푹 잤지만, 지금은 속이 좀 좋지 않다.
 		<br><br>
 	<<elseif $nightmares gte 1 and $controlled is 0>>
@@ -432,7 +432,7 @@
 			푹 잤다.
 			<br><br>
 		<<else>>
-			<<if !_eggEvent>><br><br><</if>>
+			<<if !_eggEvent>><br><</if>>
 		<</if>>
 	<</if>>
 	<<sleepeffects>>

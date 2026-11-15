@@ -562,7 +562,7 @@
 
 :: Fruit Street See Accept
 <<effects>>
-당신은 불쌍한 <<person1>><<personsimple>>【을를】 돕기로 하고 <<recipe_name $streetFruit plural>> 자루를 받아든다. 
+당신은 불쌍한 <<person1>><<personsimple>>【을를】 돕기로 하고 <<recipe_name $streetFruit plural>> 자루를 받아든다.
 <br><br>
 
 <<if $fame.rape gte 200>>
@@ -671,7 +671,7 @@
 	<<endcombat>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"고맙다, <<girl>>【아야】," <<he>>【이가】 말하며 <<recipe_name $streetFruit plural>> 자루를 당신에게 건넨다.
+	"고맙다, <<girl>>【아야】." <<he>>【이가】 말하며 <<recipe_name $streetFruit plural>> 자루를 당신에게 건넨다.
 	<br><br>
 
 	"그, 그래도 어... 혹시라도 우리 <<spouse>>【을를】 보거든 내가 이랬다는 말은 절대 하지 마라." <<tending_pick $streetFruit>>
@@ -705,7 +705,7 @@
 	그 <<person>>【은는】 <<recipe_name $streetFruit plural>> 자루를 당신에게 내던진다.
 	<br><br>
 
-	"자. 너랑 시간 낭비하면서 집에 늦을 여유는 없거든," <<he>>【이가】 말하며 몸을 돌려 골목길에 당신을 남겨둔 채 떠나버린다.
+	"자. 너랑 시간 낭비하면서 집에 늦을 여유는 없거든." <<he>>【이가】 말하며 몸을 돌려 골목길에 당신을 남겨둔 채 떠나버린다.
 	<<tending_pick $streetFruit>>
 	<br><br>
 
@@ -759,7 +759,7 @@
 	<<endcombat>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"고맙다, <<girl>>【아야】," <<he>>【이가】 말하며 <<recipe_name $streetFruit plural>> 자루를 당신에게 건넨다.
+	"고맙다, <<girl>>【아야】." <<he>>【이가】 말하며 <<recipe_name $streetFruit plural>> 자루를 당신에게 건넨다.
 	<br><br>
 
 	"그, 그래도 어... 혹시라도 <<spouse>>【을를】 보거든 내가 이랬다는 말은 절대 하지 마라." <<tearful>> 당신은 비틀거리며 몸을 일으킨다.
@@ -852,7 +852,7 @@
 	<<endcombat>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"자," <<he>>【이가】 <<recipe_name $streetFruit plural>> 자루를 당신에게 내던지며 말한다. "집에 가져갈 수 없다는 말이 거짓말은 아니었거든." <<tearful>> 당신은 기운을 차린다.
+	"자." <<he>>【이가】 <<recipe_name $streetFruit plural>> 자루를 당신에게 내던지며 말한다. "집에 가져갈 수 없다는 말이 거짓말은 아니었거든." <<tearful>> 당신은 기운을 차린다.
 	<<tending_pick $streetFruit>>
 	<br><br>
 

@@ -270,7 +270,7 @@ Caught with crime lt 2500 while already performing community service: Pillory. *
 한 시간 후, 경찰 제복을 입은 <<generatePolice 1>><<person1>><<person>>【이가】 감옥 옆으로 온다. "자, 이리 와. 처리 절차를 밟아야지." <<he>>【은는】 감옥 문을 열며 말한다. "뒤로 돌아."
 <br><br>
 <<if $worn.neck.name is "familiar collar" and $worn.neck.cursed is 1>>
-	당신은 따른다. "어라," <<he>>【이가】 말한다. "이미 목걸이를 차고 있군." <<He>>【은는】 당신 바로 뒤로 걸어와 목걸이를 더 자세히 살핀다. <<He>>【은는】 손으로 목걸이를 훑다가, 하트 모양을 만지고는 움찔한다. "충격 기능도 작동하는 것 같군." <<He>>【은는】 목줄을 채우려 하지만, 방법을 모르는 듯하다. "아무렴 어때, 내 알 바 아니지."
+	당신은 따른다. "어라." <<he>>【이가】 말한다. "이미 목걸이를 차고 있군." <<He>>【은는】 당신 바로 뒤로 걸어와 목걸이를 더 자세히 살핀다. <<He>>【은는】 손으로 목걸이를 훑다가, 하트 모양을 만지고는 움찔한다. "충격 기능도 작동하는 것 같군." <<He>>【은는】 목줄을 채우려 하지만, 방법을 모르는 듯하다. "아무렴 어때, 내 알 바 아니지."
 	<br><br>
 <<elseif $worn.neck.collared isnot 1 or $worn.neck.name is "familiar collar">>
 	<<neckwear 21>>
@@ -279,7 +279,7 @@ Caught with crime lt 2500 while already performing community service: Pillory. *
 	<br><br>
 <<else>>
 	<<set $worn.neck.collaredpolice to 1>>
-	당신은 따른다. "어라," <<he>>【이가】 말한다. "이미 목걸이를 차고 있군." <<He>>【은는】 당신 바로 뒤로 걸어와 목걸이를 더 자세히 살핀다. "충격 기능도 작동하는 것 같군." <<He>>【은는】 목줄을 채운다. "모든 게 제대로 되어 있군. 형기를 다 채우면 풀어줄 거다."
+	당신은 따른다. "어라." <<he>>【이가】 말한다. "이미 목걸이를 차고 있군." <<He>>【은는】 당신 바로 뒤로 걸어와 목걸이를 더 자세히 살핀다. "충격 기능도 작동하는 것 같군." <<He>>【은는】 목줄을 채운다. "모든 게 제대로 되어 있군. 형기를 다 채우면 풀어줄 거다."
 	<br><br>
 <</if>>
 <<He>>【은는】 당신을 데리고 또 다른 계단을 올라 작은 방으로 들어간다. 방 저편 테이블에는 정장을 입은 세 사람이 앉아 있다. 가운데에 앉은 <<generatePolice 2>><<person2>><<person>>【이가】 <<him>> 앞의 의자를 가리킨다. "앉아라." <<he>>【이가】 말한다. "꾸물거리지 말고." <<person1>><<person>>【은는】 당신을 따라 들어와 등 뒤의 문을 닫는다.
@@ -382,7 +382,7 @@ Caught with crime lt 2500 while already performing community service: Pillory. *
 		<<link [[다음|Industrial Alleyways]]>><<set $stress -= 1000>><<set $eventskip to 1>><</link>>
 	<<else>>
 		<<ejaculation>>
-		<<person2>>"<<pShe>>【은는】 돈이 좀 되겠는데." <<person>>【이가】 말한다. "착한 육변기가 돼서 우리랑 같이 가자." <<He>>【은는】 당신의 팔을 잡고 건물 더 깊은 곳으로 끌고 가려 한다.
+		<<person2>>"<<pShe>>【은는】 돈이 좀 되겠는데," <<person>>【이가】 말한다. "착한 육변기가 돼서 우리랑 같이 가자." <<He>>【은는】 당신의 팔을 잡고 건물 더 깊은 곳으로 끌고 가려 한다.
 		<br><br>
 		<<link [[조용히 따라간다|Underground Intro]]>><<badEndTracking "Underground Dungeon" { reason: "uDungeonPolice" }>><</link>>
 		<br>

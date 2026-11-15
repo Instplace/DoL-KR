@@ -76,7 +76,7 @@
 	<</if>>
 
 	<br>
-	<<farmicon>><<link [[농장으로 들어가기 (0:10)|Farmland]]>><<pass 10>><</link>>
+	<<farmicon>><<link [[농장으로 들어간다 (0:10)|Farmland]]>><<pass 10>><</link>>
 <</if>>
 <br>
 
@@ -203,13 +203,13 @@
 <<clearsinglenpc 0>>
 
 <<if $fox gte 4>>
-	<<link [[굴 파기|Meadow Squeeze]]>><<transform fox 1>><<endevent>><</link>><<fox>>
+	<<link [[굴을 판다|Meadow Squeeze]]>><<transform fox 1>><<endevent>><</link>><<fox>>
 	<br>
 <<elseif $physiquesize lte 9000>>
-	<<link [[비집고 들어가기|Meadow Squeeze]]>><<endevent>><</link>><<small_text>>
+	<<link [[비집고 들어간다|Meadow Squeeze]]>><<endevent>><</link>><<small_text>>
 	<br>
 <</if>>
-<<link [[기어 들어가기|Meadow Crawl]]>><<endevent>><</link>>
+<<link [[기어 들어간다|Meadow Crawl]]>><<endevent>><</link>>
 <br>
 
 :: Meadow Ignore
@@ -395,7 +395,7 @@
 <<if $monster is 1>>
 
 	<<if $museumAntiques.antiques.antiquestonetalisman isnot "found" and $museumAntiques.antiques.antiquestonetalisman isnot "talk" and $museumAntiques.antiques.antiquestonetalisman isnot "museum">>
-		"죄, 죄송해요." <<bhe>>【이가】 겁에 질려 말한다. "여기까지 따라올 줄은 몰랐어요." <<bHe>>【은는】 주위를 둘러보더니, <<bhis>> 귀를 쫑긋 세운다. "알겠다!" <<bhe>>【이가】 말을 잇는다. "안 해치면 선물을 줄게요." <<bHe>>【은는】 당신의 옷을 들어 올린다. 그 아래에는 또 다른 돌이 있지만, 이것은 조각이 새겨져 있다. 복잡해 보인다. 수집가에게는 가치가 있을지도 모른다.
+		"죄-죄송해요." <<bhe>>【이가】 겁에 질려 말한다. "여기까지 따라올 줄은 몰랐어요." <<bHe>>【은는】 주위를 둘러보더니, <<bhis>> 귀를 쫑긋 세운다. "알겠다!" <<bhe>>【이가】 말을 잇는다. "안 해치면 선물을 줄게요." <<bHe>>【은는】 당신의 옷을 들어 올린다. 그 아래에는 또 다른 돌이 있지만, 이것은 조각이 새겨져 있다. 복잡해 보인다. 수집가에게는 가치가 있을지도 모른다.
 		<br><br>
 		"이 동굴에서 찾았어요. 어때요?"
 		<br><br>
@@ -403,20 +403,22 @@
 		<<link [[받아들인다|Meadow Cave Accept]]>><</link>>
 		<br>
 	<<else>>
-		"죄, 죄송해요." <<bhe>>【이가】 겁에 질려 말한다. "여기까지 따라올 줄은 몰랐어요." <<bHe>>【은는】 주위를 둘러본다. "제발 해치지 말아 주세요."
+		"죄-죄송해요." <<bhe>>【이가】 겁에 질려 말한다. "여기까지 따라올 줄은 몰랐어요." <<bHe>>【은는】 주위를 둘러본다. "제발 해치지 말아 주세요."
 		<br><br>
 		<<link [[용서한다|Meadow Cave Accept]]>><</link>>
 		<br>
 	<</if>>
 
-	<<if $fox gte 3>>
-		<<link [[몸을 내준다|Meadow Cave Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
-		<br>
-	<<elseif hasSexStat("deviancy", 4)>>
-		<<link [[몸을 내준다|Meadow Cave Sex]]>><<set $sexstart to 1>><</link>><<deviant4>>
-		<br>
+	<<if monsterSexEnabledForType("fox")>>
+		<<if $fox gte 3>>
+			<<link [[몸을 내준다|Meadow Cave Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
+			<br>
+		<<elseif hasSexStat("deviancy", 4)>>
+			<<link [[몸을 내준다|Meadow Cave Sex]]>><<set $sexstart to 1>><</link>><<deviant4>>
+			<br>
+		<</if>>
 	<</if>>
-	<<if (displayDefiantOption(500)) and hasSexStat("deviancy", 2)>>
+	<<if (displayDefiantOption(500)) and hasSexStat("deviancy", 2) and monsterSexEnabledForType("fox")>>
 		<<link [[벌을 준다|Meadow Cave Punish]]>><<wolfDefiant 500>><<def 1>><<trauma -6>><<stress -6>><</link>><<deviant2>><<defianttext 500>><<ltrauma>><<lstress>>
 		<br>
 	<</if>>
@@ -429,7 +431,7 @@
 
 	<<link [[용서한다|Meadow Cave Accept]]>><</link>>
 	<br>
-	<<if $settings.bestialityEnabled>>
+	<<if animalSexEnabledForType("fox")>>
 		<<if $fox gte 3>>
 			<<link [[몸을 내준다|Meadow Cave Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
 			<br>
@@ -611,26 +613,28 @@
 			<<earnFeat "Cornered Rogue">>
 			<<if $museumAntiques.antiques.antiquestonetalisman isnot "found" and $museumAntiques.antiques.antiquestonetalisman isnot "talk" and $museumAntiques.antiques.antiquestonetalisman isnot "museum">>
 				<<set $phase to "monster">>
-				"죄, 죄송해요." <<bhe>>【이가】 당신의 팔이 <<bhis>> 목을 감싸자 말한다. "해칠 생각은 없었어요. 여기요." <<bHe>>【은는】 당신의 옷을 떨어뜨린다. "안 해치면 선물도 줄게요. 동굴에서 찾은 거예요."
+				"죄-죄송해요." <<bhe>>【이가】 당신의 팔이 <<bhis>> 목을 감싸자 말한다. "해칠 생각은 없었어요. 여기요." <<bHe>>【은는】 당신의 옷을 떨어뜨린다. "안 해치면 선물도 줄게요. 동굴에서 찾은 거예요."
 				<br><br>
 
 				<<link [[받아들인다|Meadow Chase Hill Accept]]>><</link>>
 				<br>
 			<<else>>
-				"죄, 죄송해요." <<bhe>>【이가】 당신의 팔이 <<bhis>> 목을 감싸자 말한다. "해칠 생각은 없었어요. 여기요." <<bHe>>【은는】 당신의 옷을 떨어뜨린다. "제발 보내주세요."
+				"죄-죄송해요." <<bhe>>【이가】 당신의 팔이 <<bhis>> 목을 감싸자 말한다. "해칠 생각은 없었어요. 여기요." <<bHe>>【은는】 당신의 옷을 떨어뜨린다. "제발 보내주세요."
 				<br><br>
 				<<link [[용서한다|Meadow Chase Hill Accept]]>><</link>>
 				<br>
 			<</if>>
 
-			<<if $fox gte 3>>
-				<<link [[몸을 내준다|Meadow Chase Hill Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
-				<br>
-			<<elseif hasSexStat("deviancy", 4)>>
-				<<link [[몸을 내준다|Meadow Chase Hill Sex]]>><<set $sexstart to 1>><</link>><<deviant4>>
-				<br>
+			<<if monsterSexEnabledForType("fox")>>
+				<<if $fox gte 3>>
+					<<link [[몸을 내준다|Meadow Chase Hill Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
+					<br>
+				<<elseif hasSexStat("deviancy", 4)>>
+					<<link [[몸을 내준다|Meadow Chase Hill Sex]]>><<set $sexstart to 1>><</link>><<deviant4>>
+					<br>
+				<</if>>
 			<</if>>
-			<<if (displayDefiantOption(500)) and hasSexStat("deviancy", 2)>>
+			<<if (displayDefiantOption(500)) and hasSexStat("deviancy", 2) and monsterSexEnabledForType("fox")>>
 				<<link [[벌을 준다|Meadow Chase Hill Punish]]>><<wolfDefiant 500>><<def 1>><<trauma -6>><<stress -6>><</link>><<deviant2>><<defianttext 500>><<ltrauma>><<lstress>>
 				<br>
 			<</if>>
@@ -643,7 +647,7 @@
 
 			<<link [[용서한다|Meadow Chase Hill Accept]]>><</link>>
 			<br>
-			<<if $settings.bestialityEnabled>>
+			<<if animalSexEnabledForType("fox")>>
 				<<if $fox gte 3>>
 					<<link [[몸을 내준다|Meadow Chase Hill Sex]]>><<set $sexstart to 1>><</link>><<deviant1>><<fox>>
 					<br>

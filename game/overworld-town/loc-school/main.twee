@@ -49,7 +49,7 @@
 	<<if isPregnancyEnding()>>
 		<<pregnancyPassout "school">>
 	<<else>>
-		<<link [[모든 것이 암전된다...|School Passout]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 	<</if>>
 <<elseif $adultshopintro is undefined and $adultshopunlocked is undefined and $adultshopintrosirris is undefined and $schoolstate is "afternoon" and Time.weekDay is 6 and $exposed lte 0>>
 	<<set $adultshopintrosirris to 1>>
@@ -145,7 +145,7 @@
 <<schoolperiodtext>>
 <<if ["intro", "discover"].includes($weekly.schoolNightPoolParty) and Time.hour gte 21 and $passagePrev is "hallway">><<set $weekly.schoolNightPoolParty to "admission">><</if>>
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 <<elseif ["intro", "discover"].includes($weekly.schoolNightPoolParty) and Time.hour gte 21>>
 	<<generateSecurity 1>><<person1>>
 	한 줄기 빛이 당신을 비춘다. 경비원이 손전등을 든 채 다가온다. "뭐야, 또 한 명이야?" <<He>>【은는】 이미 <<if $weekly.schoolNightPoolParty is "discover">>불량 학생들을<<else>>몇몇 학생들을<</if>> 잡은 모양이다. "뭐, 어쨌든. 돈이나 내."
@@ -255,7 +255,33 @@
 몇몇은 점심을 먹고 있다.
 <br><br>
 
-<<if $rng gte 67>>
+<<if $rng gte 86 and !$weekly.whitneyMilkToss and !["dungeon", "pillory"].includes(C.npc.Whitney.state) and C.npc.Whitney.init is 1 and !$worn.upper.type.includes("naked") and !waterproofCheck($worn.over_upper) and !waterproofCheck($worn.upper)>>
+	<<set $weekly.whitneyMilkToss to true>>
+	<<npc Whitney>><<person1>>
+	당신이 잔디밭에서 어울리고 있는데, 어딘가 위쪽에서 날카로운 휘파람 소리가 소음을 가르며 울린다.
+	<br><br>
+
+	"머리 조심해, 걸레야!"
+	<br><br>
+
+	위를 올려다보니 휘트니가 옥상 난간 위로 몸을 내밀고 있다. 얼굴에는 얄미운 웃음이 가득하다. <<He>>【은는】 딸기 우유 팩을 손가락 사이에서 빙글빙글 돌리고 있다.
+	<br><br>
+
+	"목말라 보이네." <<He>>【은는】 일부러 겨냥하듯 당신의 가슴께를 훑으며 팩을 더 멀리 내민다. "받아."
+	<br><br>
+
+	<<He>>【은는】 대답을 기다리지 않는다.
+	<br><br>
+
+	<<link [[받으려 한다|Whitney Milk Catch]]>><</link>><<athleticsdifficulty 1 400>>
+	<br>
+	<<link [[피한다|Whitney Milk Dodge]]>><</link>>
+	<br>
+	<<if hasSexStat("exhibitionism", 2)>>
+		<<link [[가만히 서서 과시한다|Whitney Milk Flaunt]]>><</link>><<exhibitionist2>>
+		<br>
+	<</if>>
+<<elseif $rng gte 58>>
 	<<generatey1>><<person1>>한 <<person>>【이가】 친구들이 지켜보는 가운데 나무에 오르려 하고 있다. 가장 낮은 나뭇가지가 거의 손에 닿지 않지만, <<he>>【은는】 간신히 붙잡는다. <<He>>【은는】 몸을 끌어올려 다른 가지를 잡으려다 미끄러져 아래 잔디밭으로 굴러떨어진다. <<His>> 친구들이 웃는다.
 	<br><br>
 
@@ -263,7 +289,7 @@
 	<br>
 	<<link [[무시한다|School Rear Courtyard]]>><<endevent>><</link>>
 	<br>
-<<elseif $rng gte 33>>
+<<elseif $rng gte 30>>
 	<<generatey1>><<generatey2>><<person1>>
 	한 <<person>>【이가】 <<person2>><<person>>【을를】 민다. 그 <<person>>【은는】 <<person1>><<him>>【을를】 다시 밀친다.
 	<br><br>
@@ -342,11 +368,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"제-제발 그만해," 당신은 말한다. "누가 다치는 건 싫어."
+	"제-제발 그만해." 당신은 말한다. "누가 다치는 건 싫어."
 <<elseif $speech_attitude is "bratty">>
-	"너희들 그만두는 게 좋을 거야," 당신은 말한다. "누가 발 걸려 넘어지기 전에."
+	"너희들 그만두는 게 좋을 거야." 당신은 말한다. "누가 발 걸려 넘어지기 전에."
 <<else>>
-	"그만둬야 해," 당신은 말한다. "그러다 다칠 거야."
+	"그만둬야 해." 당신은 말한다. "그러다 다칠 거야."
 <</if>>
 <br><br>
 
@@ -360,11 +386,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"싸-싸움은 그만둬야 해," 당신은 말한다. "규칙을 어기고 있잖아."
+	"싸-싸움은 그만둬야 해." 당신은 말한다. "규칙을 어기고 있잖아."
 <<elseif $speech_attitude is "bratty">>
-	"우리 모두 곤란해지기 전에 싸움 그만둬," 당신은 말한다.
+	"우리 모두 곤란해지기 전에 싸움 그만둬." 당신은 말한다.
 <<else>>
-	"싸움은 규칙 위반이야," 당신은 말한다.
+	"싸움은 규칙 위반이야." 당신은 말한다.
 <</if>>
 <br><br>
 
@@ -471,7 +497,7 @@
 		<<npc Whitney>><<person1>>
 		당신은 휘트니와 부딪힌다.
 		<<if $daily.whitney.whitneyCrossdressSwimwear.includes("boys exit")>>
-			<<His>> 표정이 어두워진다. "내가 분명히 여자 탈의실을 쓰라고 했는데 남자 탈의실에서 나오는 걸 딱 걸렸네," <<he>>【이가】 말한다.
+			<<His>> 표정이 어두워진다. "내가 분명히 여자 탈의실을 쓰라고 했는데 남자 탈의실에서 나오는 걸 딱 걸렸네." <<he>>【이가】 말한다.
 		<<else>>
 			<<He>>【은는】 당신을 보고 인상을 쓴다. "어떤 놈이 네가 내 규칙 중 하나를 어겼다고 말해주더군. 뭐 문제라도 있었나?
 			<<if $daily.whitney.whitneyCrossdressSwimwear.includesAll("boys swimwear", "boys entrance")>>
@@ -689,7 +715,7 @@
 	당신은 <<nnpc_title "Leighton">>의 사무실 문을 두드린다. 문 너머에서 <<his>> 목소리가 들린다. "들어와라."
 	<br><br>
 
-	<<if $worn.upper.type.includes("school") and $worn.lower.type.includes("school") and !pcAreArmsBound("any") and !$worn.feet.type.includes("shackle") or Time.hour gte 14>>
+	<<if (wearingSchoolOutfit() or ["fifth", "afternoon"].includes($schoolstate)) and !pcAreArmsBound("any") and !$worn.feet.type.includes("shackle")>>
 		<<if $daily.school.headInterrupted isnot 1>>
 			당신이 들어가자 레이튼이 책상에서 고개를 든다. "무슨 일이지?"
 			<br><br>
@@ -757,7 +783,7 @@
 			"어쩌다 이런 꼴이 된 거지." <<he>>【이가】 당신 뒤로 걸어가며 중얼거린다. <span class="green">당신의 팔다리가 자유로워지는 것이 느껴진다.</span>
 			<br><br>
 			<<unbind>>
-			<<if (!$worn.upper.type.includes("school") or !$worn.lower.type.includes("school")) and $schoolstate isnot "fifth">> /*clothes don't matter for swim*/
+			<<if !wearingSchoolOutfit() and !["fifth", "afternoon"].includes($schoolstate)>> /*clothes don't matter for swim and after classes*/
 				"이 옷도 안 되겠군." <<He>>【이가】 서랍에서 옷 몇 벌을 꺼낸다. "자, 여기 있다."
 				<br><br>
 			<<else>>
@@ -768,7 +794,7 @@
 			<<He>>【은는】 서랍에서 옷 몇 벌을 꺼낸다. "자, 여기 있다."
 			<br><br>
 		<</if>>
-		<<if !$worn.upper.type.includes("school") and !$worn.lower.type.includes("school") and $schoolstate isnot "fifth">>
+		<<if !wearingSchoolOutfit() and !["fifth", "afternoon"].includes($schoolstate)>>
 			<<if $player.gender_appearance is "m">>
 				<<if $rng gte 51 or !$settings.forcedCrossdressingEnabled>>
 					<<set $clothingselector to "m">>
@@ -810,7 +836,7 @@
 					<br>
 				<</if>>
 			<</if>>
-		<<elseif !$worn.lower.type.includes("school") and $schoolstate isnot "fifth">>
+		<<elseif !$worn.lower.type.includes("school") and !["fifth", "afternoon"].includes($schoolstate)>>
 			<<if $player.gender_appearance is "m">>
 				<<if $rng gte 51 or !$settings.forcedCrossdressingEnabled>>
 					<<set $clothingselector to "m">>
@@ -850,7 +876,7 @@
 					<br>
 				<</if>>
 			<</if>>
-		<<elseif !$worn.upper.type.includes("school") and $schoolstate isnot "fifth">>
+		<<elseif !$worn.upper.type.includes("school") and !["fifth", "afternoon"].includes($schoolstate)>>
 			<<He>>【은는】 당신에게 낡아 보이는 교복 셔츠를 건네준다. "창고에서 갈아입어라. 네 옷은 방과 후에 수영장에서 찾아갈 수 있도록 보내두겠다." <<He>>【은는】 다시 <<his>> 컴퓨터로 몸을 돌리고 당신이 옷을 갈아입도록 내버려 둔다.
 			<br><br>
 
@@ -886,7 +912,7 @@
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<set _offeredclothing to ($clothingselector is "m" ? "남학생 교복" : "여학생 교복")>>
 <<if $speech_attitude is "meek">>
-	"하, 하지만 이건 _offeredclothing【이】잖아요." 당신은 말한다.
+	"하-하지만 이건 _offeredclothing【이】잖아요." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"_offeredclothing【은는】 안 입을 거예요!" 당신은 말한다.
 <<else>>
@@ -899,16 +925,16 @@
 <br><br>
 <<if ($player.gender_appearance is $clothingselector) and !$genderknown.includes("Leighton") and !playerChastity("hidden")>> <!-- Leighton didn't expect this and checks the PC's records for their sex -->
 	<<He>>【은는】 잠시 혼란스러운 표정을 짓더니, 이내 <<his>> 컴퓨터로 돌아가 무언가를 찾아본다. <<He>>【은는】 잠시 훑어보더니,
-		<<if $player.penisExist and $player.vaginaExist>><!-- implication: PC's ambiguous sex is recorded as medical information -->
+		<<if $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>><!-- implication: PC's ambiguous sex is recorded as medical information -->
 			<<he>>【이가】 찾은 것에 숨을 들이킨다.
-		<<elseif $backgroundTraits.includes("crossdresser")>><!-- deliberately ambiguous implication: PC has been crossdressing for long enough for it to be on file -->
+		<<elseif $backgroundTraits.includes("crossdresser") and $settings.nudeGenderPerception !== 0>><!-- deliberately ambiguous implication: PC has been crossdressing for long enough for it to be on file -->
 			<<he>>【이가】 찾은 것에 히죽 웃는다.
 		<<else>>
 			<<he>>【이가】 찾은 것에 눈썹을 치켜올리고는 무언가를 입력한다.
 		<</if>>
 		<<He>>【은는】 다시 당신을 쳐다보며 말한다. "미안하지만, 이 교복밖에 없구나. 자, 어서 갈아입어라."
 	<<set $genderknown.pushUnique("Leighton")>><<if $player.penisExist and $player.vaginaExist>><<detention -1>><</if>> <!-- Leighton is too surprised to be angry at herm PC right now -->
-<<elseif $player.sex is $clothingselector and $genderknown.includes("Leighton")>>
+<<elseif $player.sex is $clothingselector and $genderknown.includes("Leighton") and $settings.nudeGenderPerception !== 0>>
 	<<He>>【은는】 당신을 엄하게 쳐다보며 비웃는다. "<<print ($clothingselector is "m" ? "여자애" : "남자애")>>처럼 입고 싶다면 그건 네 자유지만, 다음부턴 그렇게 입고 오도록 해라. 자, 어서 갈아입어."
 <<else>>
 	<<He>>【은는】 당신을 엄하게 쳐다본다. "말대꾸하지 마라. 옷을 갈아입으라고 했다. 자, 어서 갈아입어."
@@ -994,7 +1020,7 @@
 	<br>
 <<elseif $phase is 2>>
 	<<if $speech_attitude is "meek">>
-		"그, 그거 누르지 마세요!" 당신은 애원한다.
+		"그-그거 누르지 마세요!" 당신은 애원한다.
 	<<elseif $speech_attitude is "bratty">>
 		"그거 씨발 건드리지 마!" 당신은 말한다.
 	<<else>>
@@ -1398,7 +1424,7 @@
 레이튼은 후반부 사진에 등장하는데, 때로는 <<nnpc_him "Darryl">> 함께 포즈를 취하고 있지만, 다른 때에는 더듬고 애무하고 있다. <<nnpc_his "Darryl">> 복장으로 보아, <<nnpc_he "Darryl">> 이곳 학생이었던 것 같다.
 <br><br>
 
-<<link [[플래시 드라이브에 복사하기|Head's Computer Flash]]>><</link>>
+<<link [[플래시 드라이브에 복사한다|Head's Computer Flash]]>><</link>>
 
 :: Head's Computer Flash
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
@@ -1460,7 +1486,7 @@
 	<<skulduggeryuse>>
 
 	<<set $skulduggerydifficulty -= 200>>
-	<<link [[다시 시도하기 (0:30)|Head's Stash 2]]>><<pass 30>><</link>><<skulduggerydifficulty>>
+	<<link [[다시 시도한다 (0:30)|Head's Stash 2]]>><<pass 30>><</link>><<skulduggerydifficulty>>
 	<br>
 	<<link [[포기한다|Head's Office]]>><<endevent>><</link>>
 <</if>>
@@ -1477,7 +1503,7 @@
 	당신은 <<him>>에게 사악한 미소를 짓는다. "당신 컴퓨터를 봤어요." 당신이 말한다. "거기에 뭘 보관하는지 봤죠. 사본도 만들었고요."
 	<br><br>
 <<elseif $speech_attitude is "meek">>
-	당신은 차마 <<his>> 눈을 마주치지 못한다. "저, 저, 그 학생에게 무슨 짓을 했는지 봤어요. 당신 컴퓨터에서요." 당신은 간신히 말한다. "사, 사본도 만들었고요."
+	당신은 차마 <<his>> 눈을 마주치지 못한다. "저, 저, 그 학생에게 무슨 짓을 했는지 봤어요. 당신 컴퓨터에서요." 당신은 간신히 말한다. "사-사본도 만들었고요."
 	<br><br>
 <<else>>
 	"당신 컴퓨터를 봤어요." 당신이 말한다. "그 학생에게 무슨 짓을 했는지 봤죠. 사본도 만들었고요."
@@ -1560,7 +1586,7 @@
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
 
 <<if $speech_attitude is "meek">>
-	"하, 하지만 전 안 입고 있는데요." 당신이 말한다.
+	"하-하지만 전 안 입고 있는데요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"운이 없네. 난 안 입고 있거든." 당신이 말한다.
 <<else>>
@@ -1619,7 +1645,7 @@
 
 당신은 <<person>>의 가슴을 밀친다. <<He>>【은는】 균형을 잃고 비명을 지르며 뒤로 넘어진다<<if $schoollesson isnot 1>>, 다른 학생들의 주의를 끌면서<</if>>.
 <br><br>
-<<He>>【은는】 당신을 올려다보며 입을 떡 벌린다. "미, 미친 범생이, 네가 날 밀었다고 교장한테 이를 거야!" <<He>>【은는】 비틀거리며 떠나고, 당신의 안경은 손상되지 않은 채 남겨진다.
+<<He>>【은는】 당신을 올려다보며 입을 떡 벌린다. "미-미친 범생이, 네가 날 밀었다고 교장한테 이를 거야!" <<He>>【은는】 비틀거리며 떠나고, 당신의 안경은 손상되지 않은 채 남겨진다.
 
 <<clotheson>>
 <<courtyard>>
@@ -1655,10 +1681,10 @@
 	<<eventsschoolstump>>
 <<else>>
 	<<if $schoolstate isnot "late">>
-		<<link [[계속 휴식하기 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
+		<<link [[계속 휴식한다 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
 		<br>
 	<</if>>
-	<<link [[그만두기|School Rear Courtyard]]>><</link>>
+	<<link [[그만둔다|School Rear Courtyard]]>><</link>>
 <</if>>
 
 :: School Stump Ignore
@@ -1670,10 +1696,10 @@
 <<endevent>>
 
 <<if $schoolstate isnot "late">>
-	<<link [[계속 휴식하기 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
+	<<link [[계속 휴식한다 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
 	<br>
 <</if>>
-<<link [[그만두기|School Rear Courtyard]]>><</link>>
+<<link [[그만둔다|School Rear Courtyard]]>><</link>>
 
 :: School Stump Flash
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
@@ -1690,10 +1716,10 @@
 
 <<endevent>>
 <<if $schoolstate isnot "late">>
-	<<link [[계속 휴식하기 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
+	<<link [[계속 휴식한다 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
 	<br>
 <</if>>
-<<link [[그만두기|School Rear Courtyard]]>><</link>>
+<<link [[그만둔다|School Rear Courtyard]]>><</link>>
 
 :: School Stump Genital Flash
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
@@ -1707,10 +1733,10 @@
 <<exhibitionism5>>
 <<endevent>>
 <<if $schoolstate isnot "late">>
-	<<link [[계속 휴식하기 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
+	<<link [[계속 휴식한다 (0:10)|School Stump]]>><<pass 10>><<stress -1>><<tiredness -1>><</link>><<ltiredness>><<lstress>>
 	<br>
 <</if>>
-<<link [[그만두기|School Rear Courtyard]]>><</link>>
+<<link [[그만둔다|School Rear Courtyard]]>><</link>>
 
 :: Bra Strap Quiet
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
@@ -1766,14 +1792,14 @@
 <<switch $phase>>
 	<<case 0>> <<He>>【은는】 입안에 든 것을 꿀꺽 삼킨다. "아, 안녕." <<he>>【이가】 말한다.
 	<<case 1>> <<His>> 미소가 넓어진다. "안녕." <<he>>【이가】 말한다.
-	<<case 2>> <<He>>【은는】 당신을 향해 돌아선다. "ㄴ-네?" <<he>>【이가】 중얼거린다.
+	<<case 2>> <<He>>【은는】 당신을 향해 돌아선다. "네-네?" <<he>>【이가】 중얼거린다.
 	<<case 3>> <<He>>【은는】 당신을 보며 씩 웃는다. "안녕, 자기." <<he>>【이가】 말한다. "뭘 도와줄까?"
 	<<case 4>> <<He>>【은는】 <<his>> 무릎을 뚫어지게 쳐다본다.
 <</switch>>
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"ㄴ-네 친구가 네가 날 좋아한다고 말해줬어." 당신은 더 가까이 기대며 말한다. <<He>>【은는】 <<his>> 얼굴에 닿는 당신의 숨결을 느낄 수 있을 것이다. "너도 귀여워."
+	"네-네 친구가 네가 날 좋아한다고 말해줬어." 당신은 더 가까이 기대며 말한다. <<He>>【은는】 <<his>> 얼굴에 닿는 당신의 숨결을 느낄 수 있을 것이다. "너도 귀여워."
 <<elseif $speech_attitude is "bratty">>
 	"네가 날 쳐다보는 거 봤어." 당신은 더 가까이 기대며 말한다. <<He>>【은는】 <<his>> 얼굴에 닿는 당신의 숨결을 느낄 수 있을 것이다. "나도 너를 봐주는 건 나쁘지 않을 것 같네."
 <<else>>
@@ -1809,10 +1835,10 @@
 	<<courtyard>>
 <<else>>
 	<<if hasSexStat("promiscuity", 3)>>
-		<<link [[<<him>>【을를】 유혹하기|Courtyard Crush Seduce]]>><</link>><<promiscuous3>>
+		<<link [[<<him>>【을를】 유혹한다|Courtyard Crush Seduce]]>><</link>><<promiscuous3>>
 		<br>
 	<</if>>
-	<<link [[작별 인사하기|Courtyard Crush Goodbye]]>><</link>>
+	<<link [[작별 인사한다|Courtyard Crush Goodbye]]>><</link>>
 	<br>
 <</if>>
 
@@ -1845,7 +1871,7 @@
 	<br><br>
 	당신은 미소를 지으며 일어선다.
 	<<if $speech_attitude is "meek">>
-		"조, 조용한 곳을 찾으러 가자."
+		"조-조용한 곳을 찾으러 가자."
 	<<elseif $speech_attitude is "bratty">>
 		"날 따라와. 내가 아는 곳이 있어."
 	<<else>>
@@ -1861,8 +1887,8 @@
 	<<switch $phase>>
 		<<case 0>> /* Unreachable */
 		<<case 1>> <<His>> 손이 당신의 손 안에서 긴장하고, <<he>>【은는】 당신에게 어색한 미소를 짓는다. "저, 음, 괜찮다면 지금은 천천히 가고 싶어."
-		<<case 2>> <<He>>【은는】 망설이다가 <<person2>><<person>>에게 당황한 눈길을 보낸다. "아, 아직은 준비가 안 된 것 같아."
-		<<case 3>> <<His>> 눈이 당황해서 주위를 맴돈다. "잠깐, 나, 나는 그냥 장난친 거였어. 아직 그거 할 준비가 안 됐어, 알잖아..."
+		<<case 2>> <<He>>【은는】 망설이다가 <<person2>><<person>>에게 당황한 눈길을 보낸다. "아-아직은 준비가 안 된 것 같아."
+		<<case 3>> <<His>> 눈이 당황해서 주위를 맴돈다. "잠깐, 나-나는 그냥 장난친 거였어. 아직 그거 할 준비가 안 됐어, 알잖아..."
 		<<case 4>> <<He>>【은는】 눈을 동그랗게 뜨고 얼어붙는다. 잠시 기다리자, <<he>>【은는】 마침내 작게 '아니'라고 고개를 젓는다.
 	<</switch>>
 	<<stress 3>><<gstress>>
@@ -1922,13 +1948,13 @@
 		<<elseif $speech_attitude is "bratty">>
 			"너무 이기적인 거 아니야?" 당신은 <<him>>【을를】 못마땅한 표정으로 쳐다보며 말한다. "간 건 너 혼자뿐이잖아."
 		<<else>>
-			"음," 당신은 망설이며 말한다. "난 아직 가지 못했으니까..."
+			"음." 당신은 망설이며 말한다. "난 아직 가지 못했으니까..."
 		<</if>>
 		<<His>> 얼굴이 창백해진다. <<he>>【은는】 더듬거리며 사과한 뒤 서둘러 빠져나간다.
 		<br><br>
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"네, 네에... 좋았어요." 당신은 수줍게 말한다. "한 번 더 해도 괜찮을 것 같아요."
+			"네-네에... 좋았어요." 당신은 수줍게 말한다. "한 번 더 해도 괜찮을 것 같아요."
 		<<elseif $speech_attitude is "bratty">>
 			"완전." 당신은 말한다. "너 꽤 잘하네."
 		<<else>>
@@ -1968,7 +1994,7 @@
 잠시 이야기를 나눈 후, 당신은 일어선다.
 <<person1>>
 <<if $speech_attitude is "meek">>
-	"이제 가봐야 할 것 같아." 당신은 <<person>>에게 말한다. "하, 하지만 넌 좋은 애야. 또 볼 수 있을까?"
+	"이제 가봐야 할 것 같아." 당신은 <<person>>에게 말한다. "하-하지만 넌 좋은 애야. 또 볼 수 있을까?"
 <<elseif $speech_attitude is "bratty">>
 	"나 가봐야 해." 당신은 <<person>>에게 말한다. "또 보자, 귀염둥이?"
 <<else>>
@@ -1980,7 +2006,7 @@
 	<<case 1>> "응, 물론이지." <<he>>【이가】 마지못해 당신의 손을 놓으며 말한다. "이해해줘서 고마워."
 	<<case 2>> <<He>>【은는】 당신의 눈을 마주친다. "응, 응, 또 보자."
 	<<case 3>> "응, 응, 당연하지!" <<he>>【이가】 자신감 있는 미소를 지으며 말한다. "또 보자."
-	<<case 4>> <<He>>【은는】 여전히 <<his>> 무릎을 내려다보며 고개를 끄덕인다. "그, 그래." <<he>>【이가】 겨우 말한다.
+	<<case 4>> <<He>>【은는】 여전히 <<his>> 무릎을 내려다보며 고개를 끄덕인다. "그-그래." <<he>>【이가】 겨우 말한다.
 <</switch>>
 당신이 걸어갈 때, <<his>> 친구가 <<him>>에게 "봐? 그렇게 나쁘지 않았잖아."라고 말하는 소리가 들린다.
 <br><br>
@@ -1992,7 +2018,7 @@
 
 당신은 <<person1>><<person>>【을를】 쳐다본다.
 <<if $speech_attitude is "meek">>
-	"뭐, 뭐라고?" 당신이 묻는다. "윽, 싫어! 나한테서 떨어져."
+	"뭐-뭐라고?" 당신이 묻는다. "윽, 싫어! 나한테서 떨어져."
 <<elseif $speech_attitude is "bratty">>
 	"절대 안 돼." 당신은 비웃는다. "내가 그렇게 절박해질 일은 없을 거야."
 <<else>>
@@ -2029,7 +2055,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"나, 나는 로빈 거야." 당신이 말한다. "저, 저리 가!"
+	"나-나는 로빈 거야." 당신이 말한다. "저-저리 가!"
 <<elseif $speech_attitude is "bratty">>
 	"로빈은 내 거야." 당신은 <<person1>><<persons>> 깃을 움켜쥐며 말한다. "잊으면 네 손해야." 당신은 <<him>>【을를】 놓고 밀쳐낸다.
 <<else>>
@@ -2091,7 +2117,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"나, 나는 휘트니 거야." 당신이 말한다. "저, 저리 가!"
+	"나-나는 휘트니 거야." 당신이 말한다. "저-저리 가!"
 <<elseif $speech_attitude is "bratty">>
 	"휘트니는 내 거야." 당신은 <<person1>><<persons>> 깃을 움켜쥐며 말한다. "잊으면 네 손해야." 당신은 <<him>>【을를】 놓고 밀쳐낸다.
 <<else>>
@@ -2153,7 +2179,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"나, 나는 시드니 거야." 당신이 말한다. "저, 저리 가!"
+	"나-나는 시드니 거야." 당신이 말한다. "저-저리 가!"
 <<elseif $speech_attitude is "bratty">>
 	"시드니는 내 거야." 당신은 <<person1>><<persons>> 깃을 움켜쥐며 말한다. "잊으면 네 손해야." 당신은 <<him>>【을를】 놓고 밀쳐낸다.
 <<else>>
@@ -2330,7 +2356,7 @@
 	<br><br>
 	당신은 <<him>>에게 윙크를 한다.
 <<elseif $phase is 1>>
-	당신은 앞으로 나아가 <<person>>의 어깨를 톡톡 친다. <<he>>【이가】 당신을 돌아보자, 당신은 $worn.face.name【을를】 옆으로 치우고 <<him>>에게 의기양양한 미소를 짓는다. <<His>> 눈이 커지고 <<he>>【은는】 당신을 가리킨다. <span class="lewd">"너, 너였구나!"</span> 무리가 당신을 쳐다보기 위해 돌아선다.
+	당신은 앞으로 나아가 <<person>>의 어깨를 톡톡 친다. <<he>>【이가】 당신을 돌아보자, 당신은 $worn.face.name【을를】 옆으로 치우고 <<him>>에게 의기양양한 미소를 짓는다. <<His>> 눈이 커지고 <<he>>【은는】 당신을 가리킨다. <span class="lewd">"너-너였구나!"</span> 무리가 당신을 쳐다보기 위해 돌아선다.
 	<br><br>
 <<else>>
 	"응, 그게 나야." 당신은 똑바로 서서 <<persons>> 눈을 똑바로 쳐다본다.
@@ -2341,7 +2367,7 @@
 <<elseif $speech_attitude is "bratty">>
 	"너희들도 한번 해보는 게 어때." 당신이 말한다. "하지만 너희가 그럴 만큼 용감할 것 같진 않네."
 <<else>>
-	"이렇게 멋져 보일 땐," 당신이 말한다, "과시하고 싶어지지."
+	"이렇게 멋져 보일 땐." 당신이 말한다, "과시하고 싶어지지."
 <</if>>
 <<exhibitionism5>>
 
@@ -2553,7 +2579,13 @@
 <<fameexhibitionism 2>>
 <<schoolrep_naked>>
 
-<<fullGroup>>【은는】 저마다 당신의 가랑이를 쳐다본다. 얼굴에는 놀라움이 가득하다.
+<<fullGroup>>【은는】 저마다 당신의 가랑이를 쳐다본다. 얼굴에는
+<<if !$player.penisExist or !$player.vaginaExist>>
+	실망이
+<<else>>
+	놀라움이
+<</if>>
+가득하다.
 <br><br>
 <<courtyardrevealresponse>>
 <br><br>
@@ -2570,7 +2602,13 @@
 <<fameexhibitionism 5>>
 <<schoolrep_naked>>
 
-<<fullGroup>>【은는】 저마다 당신의 가랑이를 쳐다본다. 얼굴에는 놀라움이 가득하다.
+<<fullGroup>>【은는】 저마다 당신의 가랑이를 쳐다본다. 얼굴에는
+<<if !$player.penisExist or !$player.vaginaExist>>
+	실망이
+<<else>>
+	놀라움이
+<</if>>
+가득하다.
 <br><br>
 <<courtyardrevealresponse>>
 <br><br>
@@ -2868,7 +2906,7 @@
 <<elseif $panties_held gte 20>>
 	이 많은 속옷을 울타리 틈으로 일일이 넘기기에는 시간이 너무 걸릴 것 같아, 뭉텅이째 위로 던져버린다. <<person>>【은는】 대부분을 받아냈지만, 바닥에 떨어진 나머지를 줍는 것조차 감지덕지한 모양이다. "완전 극락이야." <<he>>【이가】 말한다. "여기."
 <<elseif $panties_held gte 5>>
-	당신은 울타리 틈으로 속옷을 밀어 넣는다. <<person>>【은는】 한 벌을 머리에 뒤집어쓰고는 나머지를 품에 쓸어 담는다. "제법 쏠쏠한 수확인데." <<he>>【이가】 말한다. "여기."
+	당신은 울타리 틈으로 속옷을 밀어 넣는다. <<person>>【은는】 한 벌을 머리에 뒤집어쓰고는 나머지를 품에 쓸어 담는다. "제법 쏠쏠한 수확인데," <<he>>【이가】 말한다. "여기."
 <<elseif $panties_held gte 2>>
 	당신은 울타리 틈으로 속옷을 밀어 넣는다. <<person>>【은는】 그것들을 품에 쓸어 담는다. "아주 좋아. 여기."
 <<else>>
@@ -2888,7 +2926,7 @@
 :: School Sirris Help
 <<effects>>
 
-"아, 고마워요," 시리스가 말한다. "차 문 좀 열어줄 수 있나요? 열쇠가 제 주머니에 있어서요."
+"아, 고마워요." 시리스가 말한다. "차 문 좀 열어줄 수 있나요? 열쇠가 제 주머니에 있어서요."
 <br><br>
 
 시리스가 차 지붕 위에 상자를 아슬아슬하게 올려놓는 동안 당신은 주머니 속으로 손을 뻗는다. 손가락에 플라스틱 같은 것이 닿는다. 열쇠고리의 일부인가? 그것을 밖으로 꺼낸다.
@@ -3065,3 +3103,96 @@
 <br><br>
 
 <<courtyard>>
+
+
+:: Whitney Milk Catch
+<<effects>>
+
+<<if $athleticsSuccess>>
+	<<set $whitneySeen.pushUnique("milkTossCaught")>>
+	당신은 팩의 궤적을 눈으로 좇다가 한 손으로 허공에서 낚아챈다. 근처의 몇몇 학생이 반사 신경에 감탄해 놀란 듯 웅성거린다.<<status 1>><<gcool>>
+	<br><br>
+
+	<<if $whitneyromance is 1>>
+		휘트니가 옥상에서 짧게 웃으며, 난간 위에 포갠 팔에 턱을 괸다. "나쁘지 않네, 걸레야. 네가 그 정도일 줄은 몰랐는데." <<He>>【은는】 턱짓으로 팩을 가리킨다. "뭐해? 마셔. 네가 거기 멍하니 서서 <<cute>> 소리나 들으라고 던진 게 아니거든."
+		<br><br>
+
+		당신은 빨대를 꽂아 한 모금 길게 빤다. 차갑고 지독하게 달다. 난간에 기대어 당신을 내려다보는 저 불량배와 꼭 닮았다.<<npcincr Whitney love 1>><<glove>><<stress -6>><<lstress>><<trauma -6>><<ltrauma>>
+		<br><br>
+		"그래, 그거지." <<He>>【은는】 난간에서 몸을 떼며 느긋하게 손을 흔든다. "또 보자, 걸레야."
+		<br><br>
+	<<else>>
+		휘트니의 얼굴에서 웃음이 사라진다. <<He>>【은는】 난간에서 당신을 내려다본다. 짜증과 어이없음 사이의 무언가가 얼굴을 스친다.
+		<br><br>
+
+		<<if $speech_attitude is "bratty">>
+			당신은 우유 팩을 들어 비꼬듯 건배하는 시늉을 하고, 일그러지는 눈초리를 뻔뻔한 비웃음으로 맞받다가 일부러 <<him>>에게 혀를 내민다.
+			<br><br>
+
+			휘트니의 인상이 더 험악해지더니, <<he>>【이가】 난간 너머로 거칠게 가운뎃손가락을 날린다. "버릇없는 것." <<he>>【이가】 내뱉는다. "또 혀 내밀어 봐, 이 쪼끄만 새끼야. 나중에 네 목구멍에 뭘 쑤셔 넣는지 보여줄 테니까." <<He>>【은는】 당신에게 날카로운 눈빛을 쏘아붙이고는 난간에서 몸을 뗀다.
+		<<else>>
+			"쳇. 우쭐대지 마." <<he>>【이가】 비웃으며, 실망스럽게 보송한 당신의 상의를 노려본다. "쫄딱 젖어서 줄줄 흘렀으면 훨씬 볼만했을 텐데. 아깝네." <<He>>【은는】 홱 돌아서서 걸어간다.
+		<</if>>
+		<br><br>
+
+		당신은 그래도 빨대를 꽂아 느긋하게 한 모금 길게 마신다. 차갑고 지독하게 달다. 마실 자격은 충분하다.<<stress -6>><<lstress>><<trauma -6>><<ltrauma>>
+		<br><br>
+	<</if>>
+<<else>>
+	<<set $whitneySeen.pushUnique("milkTossMissed")>>
+	손을 뻗지만 타이밍이 어긋난다. 팩이 손가락 사이로 빠져나가 가슴께에 부딪히며 굴러떨어지고, 충격에 닿자마자 종이 팩이 터진다. 우유가 당신의 <<top>> 앞쪽을 적시며 차갑게 꽃처럼 번져 나간다.<<wetUpper>>
+	<br><br>
+
+	휘트니가 웃음을 터뜨린다. "잘 받았네, 걸레야." <<He>>【은는】 난간 너머로 몸을 숙여 엉망이 된 꼴을 보며 씩 웃는다. "삐지지 마. 어차피 그러고 있는 게 더 나아 보여." <<His>> 시선이 가슴에 달라붙은 젖은 옷감으로 내려와, 자기 말을 확실히 전달할 만큼만 머물다가 <<he>>【이가】 다시 옥상 뒤로 사라진다.<<npcincr Whitney lust 1>><<glust>><<arousal 600>><<garousal>>
+	<br><br>
+
+	당신은 두 팔을 가슴 앞에 꽉 교차한 채 앞으로 웅크리고 인파를 헤치고 나아간다. 뒤에서 웃음소리가 따라온다.<<stress 6>><<gstress>><<status -1>><<lcool>>
+	<br><br>
+<</if>>
+
+<<link [[다음|School Rear Courtyard]]>><<endevent>><</link>>
+<br>
+
+
+:: Whitney Milk Dodge
+<<effects>>
+
+당신은 옆으로 폴짝 비켜, 팩이 풀밭에 철퍽 하고 떨어지게 둔다. 딸기 우유가 흙바닥으로 흘러나와 허비된다.
+<br><br>
+
+휘트니의 표정이 순식간에 일그러진다. <<He>>【은는】 코웃음을 치며 난간에서 물러선다. "좋아. 내 돈이나 낭비하든가." <<His>> 눈이 천천히 당신 위를 훑으며 계산한다. "이 값은 어떻게든 네 몸에서 뽑아낼 거야." <<He>>【은는】 한마디 말도 없이 홱 돌아서서 옥상 뒤로 사라진다.
+<br><br>
+
+<<he>>【이가】 사라진 뒤에도 그 위협은 한참 동안 허공에 맴돈다.<<stress 6>><<gstress>><<npcincr Whitney love -1>><<llove>><<npcincr Whitney dom -1>><<ldom>>
+<br><br>
+
+<<link [[다음|School Rear Courtyard]]>><<endevent>><</link>>
+<br>
+
+
+:: Whitney Milk Flaunt
+<<effects>>
+
+당신은 꼼짝도 하지 않는다. 팩이 떨어지는 것을 지켜보며 충격을 기다린다. 팩이 묵직하게 쿵 하고 가슴을 때리고, 종이가 터지며 당신의 <<top>> 앞쪽을 끈적한 연분홍빛 폭발로 흠뻑 적신다.<<wetUpper>>
+<br><br>
+
+당신은 등을 활처럼 휘며 일부러 몸을 곧추세우고 휘트니와 눈을 맞춘다. 젖은 옷감 위로 천천히 손을 쓸어내린다. 옷감이 팽팽하게 달라붙은 곳은 당신의
+<<if $worn.under_upper.type.includes("naked")>>
+	몸이다. 거의 비치는 두 번째 피부나 다름없다.
+<<else>>
+	<<undertop>>.
+<</if>>
+당신은 아랫입술에 맺힌 분홍빛 방울 하나를 혀로 훔치기까지 하면서도, 눈을 한 번도 떼지 않는다.
+<br><br>
+
+"공개적으로 박아 달라고 구걸하는 거나 다름없네, 안 그래?" <<he>>【이가】 아래로 소리치며, 비치는 당신의 <<top>>【을를】 불타는 눈으로 노려본다. "꼬시지 마, 걸레야. 난간 뛰어넘어서 운동장 사람들 다 보는 데서 그대로 흙바닥에서 박아버릴지도 모르니까."<<npcincr Whitney lust 2>><<gglust>>
+<br><br>
+
+휘트니가 난간 너머로 더 몸을 숙이다가 혀를 차며 갑자기 몸을 일으킨다. <<He>>【은는】 몸을 돌려 건물 안으로 사라진다.
+<br><br>
+
+당신은 가슴에 달라붙은 축축한 옷감이 새삼 의식된다.
+<br><br>
+
+<<link [[다음|School Rear Courtyard]]>><<endevent>><</link>>
+<br>

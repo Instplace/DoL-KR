@@ -8,7 +8,7 @@
 	<<if random(1, 100) gte 81>>
 		<<link [[일어난다|Abduction]]>><<set $molestationstart to 1>><</link>>
 	<<else>>
-		<<if $monster is 1 or $settings.bestialityEnabled>>
+		<<if beastSexEnabledForType("dog", $monster is 1)>>
 			<<link [[일어난다|Dog Park]]>><<set $molestationstart to 1>><</link>>
 		<<else>>
 			<<link [[일어난다|Dog Park 2]]>><</link>>
@@ -213,43 +213,43 @@
             <<if hasSexStat("exhibitionism", 5) and Time.dayState is "day" and $exposed gte 2 and !$daily.parkStreak>>
                 <span class="lewd">화장실에 벌거벗고 서 있으니, 공원을 알몸으로 질주하고 싶은 음란한 충동이 든다. 정말 많은 사람이 당신을 볼 것이다.</span>
                 <br><br>
-                <<ind>><<link [[알몸으로 달리기|Park Streak]]>><<set $daily.parkStreak to true>><<pass 1>><<arousal 100>><</link>><<exhibitionist5>><<garousal>>
+                <<ind>><<link [[알몸으로 달린다|Park Streak]]>><<set $daily.parkStreak to true>><<pass 1>><<arousal 100>><</link>><<exhibitionist5>><<garousal>>
                 <br>
             <<elseif hasSexStat("exhibitionism", 4)>>
                 <span class="lewd">음란한 생각이 떠오른다.</span> 옷을 벗고 화장실 칸 중 하나에서 순진한 행인이 당신을 보기를 기다릴 수 있다.
                 <<if Time.dayState is "dusk" or Time.dayState is "night">>
                     <br><br>
-                    <<skinicon "strip">><<link [[옷 벗고 칸에서 기다리기 (0:20)|Toilets Stall]]>><<pass 20>><</link>><<exhibitionist4>>
+                    <<skinicon "strip">><<link [[옷 벗고 칸에서 기다린다 (0:20)|Toilets Stall]]>><<pass 20>><</link>><<exhibitionist4>>
                     <br>
                 <<else>>
                     <span class="blue">하지만, 밤이 될 때까지 기다리는 것이 가장 좋을거같다.</span>
                     <br><br>
                 <</if>>
             <</if>>
-            <<mirroricon>><<link [[거울 보기 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
+            <<mirroricon>><<link [[거울을 본다 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
             <br>
             <<if hasSexStat("exhibitionism", 3) or $arousal gte 9000>>
-                <<skinicon "masturbate">><<link [[자위하기|Men's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
+                <<skinicon "masturbate">><<link [[자위한다|Men's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
                 <br>
             <</if>>
             <<if setup.bodyliquid.combined("face") gte 1 or $skin.left_cheek.pen is "pen" or $skin.right_cheek.pen is "pen" or $skin.forehead.pen is "pen" or $skin.left_cheek.pen is "mud" or $skin.right_cheek.pen is "mud" or $skin.forehead.pen is "mud" or $skin.left_cheek.pen is "lipstick" or $skin.right_cheek.pen is "lipstick" or $skin.forehead.pen is "lipstick">>
-                <<bathroomicon "sink">><<link [[얼굴 씻기 (0:05)|Men's Toilets Wash]]>><<pass 5>><</link>>
+                <<bathroomicon "sink">><<link [[얼굴을 씻는다 (0:05)|Men's Toilets Wash]]>><<pass 5>><</link>>
                 <br>
             <</if>>
             <<if setup.bodyliquid.combined("mouth") gte 1>>
-                <<bathroomicon "sink">><<link [[입 헹구기 (0:05)|Men's Toilets Rinse]]>><<pass 5>><</link>>
+                <<bathroomicon "sink">><<link [[입을 헹군다 (0:05)|Men's Toilets Rinse]]>><<pass 5>><</link>>
                 <br>
             <</if>>
             <<pregnancyTest "Men's Toilets">>
             <<storeon "parkmens" "check">>
             <<if _store_check isnot 1>>
-                <<getouticon>><<link [[나가기|Park]]>><</link>>
+                <<getouticon>><<link [[나간다|Park]]>><</link>>
             <<elseif $exposed gte 2 and hasSexStat("exhibitionism", 3)>>
-                <<sneakicon>><<link [[몰래 나가기|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
+                <<sneakicon>><<link [[몰래 나간다|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
             <<elseif $exposed is 1>>
-                <<sneakicon>><<link [[몰래 나가기|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
+                <<sneakicon>><<link [[몰래 나간다|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
             <<elseif $exposed lte 0>>
-                <<getouticon>><<link [[나가기|Park]]>><</link>>
+                <<getouticon>><<link [[나간다|Park]]>><</link>>
             <</if>>
         <</if>>
 <</if>>
@@ -315,13 +315,13 @@
             <<if hasSexStat("exhibitionism", 5) and Time.dayState is "day" and $exposed gte 2 and !$daily.parkStreak>>
                 <span class="lewd">화장실에 벌거벗고 서 있으니, 공원을 알몸으로 질주하고 싶은 음란한 충동이 든다. 정말 많은 사람이 당신을 볼 것이다.</span>
                 <br><br>
-                <<ind>><<link [[알몸으로 달리기|Park Streak]]>><<set $daily.parkStreak to true>><<pass 1>><<arousal 100>><</link>><<exhibitionist5>><<garousal>>
+                <<ind>><<link [[알몸으로 달린다|Park Streak]]>><<set $daily.parkStreak to true>><<pass 1>><<arousal 100>><</link>><<exhibitionist5>><<garousal>>
                 <br>
             <<elseif hasSexStat("exhibitionism", 4)>>
                 <span class="lewd">음란한 생각이 떠오른다.</span> 옷을 벗고 화장실 칸 중 하나에서 순진한 행인이 당신을 보기를 기다릴 수 있다.
                 <<if Time.dayState is "dusk" or Time.dayState is "night">>
                     <br><br>
-                    <<skinicon "strip">><<link [[옷 벗고 칸에서 기다리기 (0:20)|Toilets Stall]]>><<pass 20>><</link>><<exhibitionist4>>
+                    <<skinicon "strip">><<link [[옷 벗고 칸에서 기다린다 (0:20)|Toilets Stall]]>><<pass 20>><</link>><<exhibitionist4>>
                     <br>
                 <<else>>
                     <span class="blue">하지만, 밤이 될 때까지 기다리는 것이 가장 좋다.</span>
@@ -329,30 +329,30 @@
                 <</if>>
             <</if>>
 
-            <<mirroricon>><<link [[거울 보기 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
+            <<mirroricon>><<link [[거울을 본다 (0:02)|Simple Mirror]]>><<pass 2>><<set $previousPassage = $passage>><</link>>
             <br>
             <<if hasSexStat("exhibitionism", 3) or $arousal gte 9000>>
-                <<skinicon "masturbate">><<link [[자위하기|Women's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
+                <<skinicon "masturbate">><<link [[자위한다|Women's Toilets Masturbation]]>><<set $masturbationstart to 1>><</link>>
                 <br>
             <</if>>
             <<if setup.bodyliquid.combined("face") gte 1 or $skin.left_cheek.pen is "pen" or $skin.right_cheek.pen is "pen" or $skin.forehead.pen is "pen" or $skin.left_cheek.pen is "mud" or $skin.right_cheek.pen is "mud" or $skin.forehead.pen is "mud" or $skin.left_cheek.pen is "lipstick" or $skin.right_cheek.pen is "lipstick" or $skin.forehead.pen is "lipstick">>
-                <<bathroomicon "sink">><<link [[얼굴 씻기 (0:05)|Women's Toilets Wash]]>><<pass 5>><</link>>
+                <<bathroomicon "sink">><<link [[얼굴을 씻는다 (0:05)|Women's Toilets Wash]]>><<pass 5>><</link>>
                 <br>
             <</if>>
             <<if setup.bodyliquid.combined("mouth") gte 1>>
-                <<bathroomicon "sink">><<link [[입 헹구기 (0:05)|Women's Toilets Rinse]]>><<pass 5>><</link>>
+                <<bathroomicon "sink">><<link [[입을 헹군다 (0:05)|Women's Toilets Rinse]]>><<pass 5>><</link>>
                 <br>
             <</if>>
             <<pregnancyTest "Women's Toilets">>
             <<storeon "parkwomens" "check">>
             <<if _store_check isnot 1>>
-                <<getouticon>><<link [[나가기|Park]]>><</link>>
+                <<getouticon>><<link [[나간다|Park]]>><</link>>
             <<elseif $exposed gte 2 and hasSexStat("exhibitionism", 3)>>
-                <<sneakicon>><<link [[몰래 나가기|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
+                <<sneakicon>><<link [[몰래 나간다|Park Toilets Sneak]]>><<set $phase to 2>><</link>><<exhibitionist3>>
             <<elseif $exposed is 1>>
-                <<sneakicon>><<link [[몰래 나가기|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
+                <<sneakicon>><<link [[몰래 나간다|Park Toilets Sneak]]>><<set $phase to 1>><</link>><<exhibitionist1>>
             <<elseif $exposed lte 0>>
-                <<getouticon>><<link [[나가기|Park]]>><</link>>
+                <<getouticon>><<link [[나간다|Park]]>><</link>>
             <</if>>
         <</if>>
 <</if>>
@@ -881,7 +881,7 @@
 	<<if C.npc.Kylar.rage gte 60>>
 		당신의 말에 카일라는 그 자리에 얼어붙는다. <<He>>【은는】 한 걸음 물러서서 미동도 없이 서 있다. 갑작스러운 움직임으로, <<he>>【은는】 칼을 꺼내 당신에게 달려들어, 당신을 짓누른다.
 		<br><br>
-		"ㅁ-뭐라고 했어, 내 사랑?" <<he>>【이가】 묻는다. <<His>> 얼굴에는 아무런 감정도 드러나지 않는다. "난 단지 널 위해 최선을 다하고 싶을 뿐이야, 너도 알잖아, 그렇지? 그러니 다시 물을게. 입. 어."<<npcincr Kylar rage 3>><<gksuspicion>>
+		"뭐-뭐라고 했어, 내 사랑?" <<he>>【이가】 묻는다. <<His>> 얼굴에는 아무런 감정도 드러나지 않는다. "난 단지 널 위해 최선을 다하고 싶을 뿐이야, 너도 알잖아, 그렇지? 그러니 다시 물을게. 입. 어."<<npcincr Kylar rage 3>><<gksuspicion>>
 		<br><br>
 		<<link [[받는다|Park Streak Kylar 2]]>><<pass 2>><<set $phase to 0>><<stress 3>><</link>><<gstress>>
 		<br>
@@ -1110,7 +1110,7 @@
 	<br><br>
 	샘은 당신의 현재 상황을 이해하려 애쓰며 당황한 기색을 보인다. 몇 초 후, <<he>>【은는】 코트와 바지 한 벌을 꺼내 당신에게 건넨다.
 	<br><br>
-	"여, 여기요," <<he>>【은는】 시선을 피한다. "이거 입으세요."
+	"여-여기요," <<he>>【은는】 시선을 피한다. "이거 입으세요."
 	<br><br>
 
 	<<link [[거절한다|Park Sam Streak 3]]>><<set $phase to "refuse">><</link>>
@@ -1126,7 +1126,7 @@
 	<<lowerwear "slacks" "black">>
 	당신은 샘의 옷을 받아 입고, <<he>>【은는】 안도의 한숨을 내쉰다.
 	<br><br>
-	"훨씬 낫네요," <<he>>【이가】 말한다. "보통 일할 때 입으려고 여벌 옷을 들고 다니는데... 결국 이렇게 도움이 되네요."
+	"훨씬 낫네요." <<he>>【이가】 말한다. "보통 일할 때 입으려고 여벌 옷을 들고 다니는데... 결국 이렇게 도움이 되네요."
 	<br><br>
 	샘은 어색하게 웃으며, <<he>>【은는】 다시 오리 떼 쪽으로 돌아선다.
 <<else>>

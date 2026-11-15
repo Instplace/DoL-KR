@@ -1096,7 +1096,7 @@
 <</if>>
 <<if _gwylanStatus.includes("lust")>>
 	<<set $sexRitual.arousal += 10>><<set $sexRitual.gwylanDrugged to true>>
-	그윌란이 욕조 안으로 들어오는 소리가 들린다. <<He>>【은는】 여전히 묶여 있는 당신의 허벅지 위에 올라타 몸을 밀착시킨다. <<His>> 손이 당신의 뺨을 감싸고, 입술에 <<his>> 숨결이 느껴진다. "요즘 들어 꽤 쌀쌀맞았지," <<he>>【이가】 속삭인다. "이렇게 오랫동안 날 내버려 두고. 내가 얼마나 널 갈망하는지 알면서도, 날 계속 굶주리게 했어. 정말 배은망덕하군. 보상을 받을 자격이 있다고 생각하는데, 안 그래?" <<He>>【은는】 탐욕스럽게 당신에게 키스한다.
+	그윌란이 욕조 안으로 들어오는 소리가 들린다. <<He>>【은는】 여전히 묶여 있는 당신의 허벅지 위에 올라타 몸을 밀착시킨다. <<His>> 손이 당신의 뺨을 감싸고, 입술에 <<his>> 숨결이 느껴진다. "요즘 들어 꽤 쌀쌀맞았지." <<he>>【이가】 속삭인다. "이렇게 오랫동안 날 내버려 두고. 내가 얼마나 널 갈망하는지 알면서도, 날 계속 굶주리게 했어. 정말 배은망덕하군. 보상을 받을 자격이 있다고 생각하는데, 안 그래?" <<He>>【은는】 탐욕스럽게 당신에게 키스한다.
 	<<takeKissVirginity "Gwylan" "rape">>
 	<<if _pcKissVirginityTaken>>
 		<br><br>
@@ -1255,13 +1255,13 @@
 <<He>>【은는】 무릎을 꿇기 시작한다. "네 성기부터 시작할게."
 <br><br>
 
-<<link [[계속하기 (0:03)|Gwylan Ritual Inspect]]>><<pass 3>><</link>>
+<<link [[계속한다 (0:03)|Gwylan Ritual Inspect]]>><<pass 3>><</link>>
 <br>
 
 :: Gwylan Ritual Inspect
 <<effects>><<run statusCheck("Gwylan")>><<set _tf to checkTFparts()>><<hallucinogen 100>>
 
-<<if $player.penisExist and $player.vaginaExist and !$gwylanSeen.includes("herm")>>
+<<if $player.penisExist and $player.vaginaExist and !$gwylanSeen.includes("herm") and $settings.nudeGenderPerception !== 0>>
 	<<set $gwylanSeen.pushUnique("herm")>>
 	<<He>>【은는】 당신의 허벅지를 살짝 벌린다.
 	<<if C.npc.Gwylan.gender is "h">>
@@ -1269,7 +1269,7 @@
 	<<else>>
 		"와. 레비스를 직접 보는 건 처음이야. 넌 정말 놀라움의 연속이구나!"
 	<</if>>
-<<elseif $sexRitual.crossdressing>>
+<<elseif $sexRitual.crossdressing and $settings.nudeGenderPerception !== 0>>
 	<<He>>【은는】 당신의 허벅지를 살짝 벌린다. "예상치 못한 생식기지만, 싫지는 않아. 난 뭐든 잘 다루거든."
 <</if>>
 <<set $genderknown.pushUnique("Gwylan")>>
@@ -1399,7 +1399,7 @@
 당신의 다리는 뒤처지지 않으려 저절로 움직인다.
 <br><br>
 
-<<link [[계속하기 (0:02)|Gwylan Ritual Wash]]>><<set $phase to 0>><<pass 2>><</link>>
+<<link [[계속한다 (0:02)|Gwylan Ritual Wash]]>><<set $phase to 0>><<pass 2>><</link>>
 <br>
 <<link [[그윌란의 손을 잡는다 (0:02)|Gwylan Ritual Wash]]>><<set $phase to 1>><<pass 2>><<if C.npc.Gwylan.dom lt 10>><<npcincr Gwylan dom 1>><</if>><</link>><<if C.npc.Gwylan.dom lt 10>><<gyearning>><</if>><<handholdingvirginitywarning>>
 <br>
@@ -1459,10 +1459,10 @@
 <</if>>
 <br><br>
 
-<<link [[계속하기 (0:08)|Gwylan Ritual Wash 2]]>><<pass 8>><</link>>
+<<link [[계속한다 (0:08)|Gwylan Ritual Wash 2]]>><<pass 8>><</link>>
 <br>
 <<if $gwylanSeen.includes("vine_bondage") and !$sexRitual.forced>>
-	<<link [[묶어달라고 부탁하기 (0:08)|Gwylan Ritual Wash 2]]>><<set $phase to "bondage">><<pass 8>><</link>>
+	<<link [[묶어달라고 부탁한다 (0:08)|Gwylan Ritual Wash 2]]>><<set $phase to "bondage">><<pass 8>><</link>>
 	<br>
 <</if>>
 
@@ -1722,7 +1722,7 @@
 	<</if>>
 <<elseif $phase is "virginity">>
 	<<switch $speech_attitude>>
-		<<case "meek">>"ㄱ-계속해요, 괜찮아요."
+		<<case "meek">>"계-계속해요, 괜찮아요."
 		<<case "bratty">>"어떻게 될지 알아요. 망설이지 마요."
 		<<default>>"제대로 해요."
 	<</switch>>
@@ -1922,7 +1922,7 @@
 
 		"<i>너는 호수다. 밀어내라.</i>"<br>
 		그윌란의 목소리가 자비롭게도 당신을 끌어낸다. 오래 참고 있던 숨을 내쉬자, 달콤한 공기가 폐를 채운다. "강하구나. 잘했어. 걱정 마, 전부 다시 빼내줄게." <<Hes>> 당신의 머리를 <<his>> 옅은 주근깨가 있는 <<if C.npc.Gwylan.breastsize gte 3>><<print window.KR.getBreastSizeKr(C.npc.Gwylan.breastsdesc)>><<else>>가슴<</if>>에 기대 품고 있다.
-		<<if _gwylanLovePercent gte 85>>
+		<<if _gwylanLovePercent gte 75>>
 			<<He>>【은는】 당신의 정수리에 입을 맞춘다.
 		<<else>>
 			<<He>>【은는】 당신의 정수리를 쓰다듬는다.
@@ -2050,11 +2050,11 @@
 <br>
 
 <<if _gwylanStatus.includes("heat")>>
-	"으-<<pcpetname "Gwylan" "good">>," <<he>>【이가】 속삭인다. <span class="lewd"><<His>> 목소리<<= $sexRitual.bondage ? "는" : "와 시선은">> 역시 욕정으로 가득하다.</span>
+	"으-<<pcpetname "Gwylan" "good">>." <<he>>【이가】 속삭인다. <span class="lewd"><<His>> 목소리<<= $sexRitual.bondage ? "는" : "와 시선은">> 역시 욕정으로 가득하다.</span>
 <<elseif _gwylanStatus.includesAny("aroused", "lust")>>
-	"<<pcPetname "Gwylan" "good">>," <<he>>【이가】 속삭인다. <span class="lewd"><<His>> 목소리가 욕망으로 가늘게 떨린다.</span>
+	"<<pcPetname "Gwylan" "good">>." <<he>>【이가】 속삭인다. <span class="lewd"><<His>> 목소리가 욕망으로 가늘게 떨린다.</span>
 <<else>>
-	"<<pcPetname "Gwylan" "good">>," <<he>>【이가】 속삭인다. <<His>> 목소리에 안도감이 느껴진다.
+	"<<pcPetname "Gwylan" "good">>." <<he>>【이가】 속삭인다. <<His>> 목소리에 안도감이 느껴진다.
 <</if>>
 <<He>>【은는】 만이 당신의 머릿속을 가득 채운다. 당신의 걱정과 의심은 모든 것을 감싸는 <<his>> 존재감에 자리를 내준다. <<trauma -12>><<lltrauma>>
 <br><br>
@@ -2260,6 +2260,11 @@
 :: Gwylan Ritual Sex Select
 <<effects>><<run statusCheck("Gwylan")>><<set _tf to checkTFparts()>><<hallucinogen 2>><<drugs 2>>
 <<canvas-model-temporary-effect "petals">>
+
+<<if $earSlime.event is "have sex with someone" or $earSlime.event is "have sex with someone or something">>
+	<<set $earSlime.event to "">>
+<</if>>
+
 <<if $player.penisExist>>
 	/* Player has a penis */
 	<<if $sexRitual.roseKiss>>
@@ -2289,20 +2294,20 @@
 			<<else>>
 				<<His>> 눈이 다시 당신과 마주친다. <<he>>【은는】 결심을 내린 듯하다. 미소를 지으며, <<he>>【은는】 이제 더 빠른 속도로 당신을 계속 애무한다.
 			<</if>>
-			"괜찮아, 참지 마," <<he>>【이가】 부드럽게 말한다.
+			"괜찮아, 참지 마." <<he>>【이가】 부드럽게 말한다.
 			<<gwylanRitualOrgasm "player" "pre">>
 
 			<<if $sexRitual.bondage>>
 				당신의 정액이 그윌란의 배에 흩뿌려지자, 당신과 그윌란 모두 반응한다.
 				<<gwylanRitualTattooVision>>
-				"오, 엉망으로 만들었네," <<he>>【이가】 말한다. <<He>>【은는】 아직 발기해 있는 당신의 <<penis 2>>【을를】 놓고 당신의 정액을 떠낸다. <<He>>【은는】 손가락을 <<his>> 입술 사이에 넣고, 질척한 소리를 내며 깨끗이 빨아먹는다.
+				"오, 엉망으로 만들었네." <<he>>【이가】 말한다. <<He>>【은는】 아직 발기해 있는 당신의 <<penis 2>>【을를】 놓고 당신의 정액을 떠낸다. <<He>>【은는】 손가락을 <<his>> 입술 사이에 넣고, 질척한 소리를 내며 깨끗이 빨아먹는다.
 			<<else>>
 				당신의 정액이 그윌란의 <<bellyDescription "Gwylan">>【을를】 가로지르며 흔적을 남기자, <span class="lewd">그에 반응하여 <<his>> 문신이 빛난다</span>. "네가 어지른 것 좀 봐." <<He>>【은는】 아직 발기해 있는 당신의 <<penis 2>>【을를】 놓고 당신의 정액을 떠낸 뒤, <<his>> 손을 <<his>> 입으로 가져가 핥아먹는다.
 			<</if>>
 			"더 많이 만들었으면 좋겠어."<<npcincr Gwylan lust 1>><<glust>>
 		<<else>>
 			<<set $sexRitual.arousal += 1>>
-			그윌란이 재빨리 알아차리고 <<his>> 쥐는 법을 바꿔, 당신의 <<penis 1>> 끝부분만 살며시 쥔다. "아니, 아직이야," <<he>>【이가】 부드럽게 말한다. 당신의 발가락이 말려 올라가지만, 간신히 절정을 참아낸다. 그윌란은 당신이 진정되기를 기다리며 잠시 머리를 쓰다듬어 준다. "날 위해 조금만 더 참아줘, 착하지."<<arousal -1200>><<llarousal>>
+			그윌란이 재빨리 알아차리고 <<his>> 쥐는 법을 바꿔, 당신의 <<penis 1>> 끝부분만 살며시 쥔다. "아니, 아직이야." <<he>>【이가】 부드럽게 말한다. 당신의 발가락이 말려 올라가지만, 간신히 절정을 참아낸다. 그윌란은 당신이 진정되기를 기다리며 잠시 머리를 쓰다듬어 준다. "날 위해 조금만 더 참아줘, 착하지."<<arousal -1200>><<llarousal>>
 		<</if>>
 		<br><br>
 	<</if>>
@@ -2333,19 +2338,19 @@
 			<<else>>
 				<<His>> 눈이 다시 당신의 눈과 마주친다. <<he>>【은는】 결심한 듯하다. 미소를 지으며, <<he>>【은는】 이제 더 빠른 속도로 당신을 계속 손가락으로 희롱한다.
 			<</if>>
-			"괜찮아, 참지 마," <<he>>【이가】 부드럽게 말한다.
+			"괜찮아, 참지 마." <<he>>【이가】 부드럽게 말한다.
 			<<gwylanRitualOrgasm "player" "pre">>
 
 			당신의 애액이 그윌란의 손을 뒤덮는다.
 			<<if $sexRitual.bondage>>
-				"오, 엉망으로 만들어 버렸네," <<he>>【이가】 말한다. <<He>>【은는】 손가락을 <<his>> 입술 사이로 가져가, 질척한 소리를 내며 깨끗이 빤다.
+				"오, 엉망으로 만들어 버렸네." <<he>>【이가】 말한다. <<He>>【은는】 손가락을 <<his>> 입술 사이로 가져가, 질척한 소리를 내며 깨끗이 빤다.
 			<<else>>
 				"네가 어지른 것 좀 봐." <<He>>【은는】 <<his>> 손을 <<his>> 입으로 가져가 핥는다.
 			<</if>>
 			"더 많이 만들어 줬으면 좋겠네." <<npcincr Gwylan lust 1>><<glust>>
 		<<else>>
 			<<set $sexRitual.arousal += 1>>
-			그윌란이 재빨리 알아차리고 멈춘다. "아니, 아직이야," <<he>>【이가】 부드럽게 말한다. 당신의 발가락이 말려 들어가지만, 간신히 절정을 참아낸다. 그윌란은 당신이 진정되기를 기다리며 잠시 머리를 쓰다듬는다. "날 위해 조금만 더 참아줘, 아가." <<arousal -1200>><<larousal>>
+			그윌란이 재빨리 알아차리고 멈춘다. "아니, 아직이야." <<he>>【이가】 부드럽게 말한다. 당신의 발가락이 말려 들어가지만, 간신히 절정을 참아낸다. 그윌란은 당신이 진정되기를 기다리며 잠시 머리를 쓰다듬는다. "날 위해 조금만 더 참아줘, 아가." <<arousal -1200>><<larousal>>
 		<</if>>
 		<br><br>
 	<</if>>
@@ -2811,7 +2816,7 @@
 <br><br>
 
 <<if $sexRitual.position is "gwylanDoggyVaginal" and _gwylanStatus.includes("heat") and $settings.pregnancySpeechEnabled>>
-	"<i>너는 강이다. ㄸ-뚫어... 뚫어라...</i>"<br>
+	"<i>너는 강이다. 뚜-뚫어... 뚫어라...</i>"<br>
 	<<He>>【은는】 갑자기 당신의 목줄을 세게 잡아당긴다.<br>
 	<b>"<span class="witch">임신시켜.</span>"</b>
 	<br><br>
@@ -2960,10 +2965,10 @@
 			당신의 정액이 <<his>> 얼굴에 한 줄기 자국을 남기자, 그윌란은 한쪽 눈을 잠시 감을 뿐이다.
 		<</if>>
 		<<if _gwylanStatus.includes("dom")>>
-			"어이구, 누가 잔뜩 쌓였었나 보네," <<he>>【이가】 관능적인 목소리로 말한다.
+			"어이구, 누가 잔뜩 쌓였었나 보네." <<he>>【이가】 관능적인 목소리로 말한다.
 		<</if>>
 		<<if $sexRitual.bondage>>
-			"이건 내가 깨끗이 치워줄게," 그윌란이 말한다. <<He>>【은는】 <<his>> 손가락을 깨끗이 핥으며 과장된 소리를 낸다.
+			"이건 내가 깨끗이 치워줄게." 그윌란이 말한다. <<He>>【은는】 <<his>> 손가락을 깨끗이 핥으며 과장된 소리를 낸다.
 		<<else>>
 			<<He>>【은는】 <<his>> 손가락에 묻은 정액을 모아 핥아 먹고는 계속한다.
 		<</if>>
@@ -3302,7 +3307,7 @@
 			<<if $sexRitual.end is "spent">>
 				갑자기 <<him>>에게 이성이 돌아온다.
 				<<if $sexRitual.bondage>>
-					"아," <<he>>【이가】 멋쩍은 듯 말한다. "예상 밖이군." <<He>>【이가】 당신의 눈가리개를 벗기자, 시야가 돌아오면서 당신은 눈을 깜빡인다. 오랜 시간 어둠 속에 있었던 탓에 정원을 채우는 부드러운 불빛이 거칠게 느껴진다.
+					"아." <<he>>【이가】 멋쩍은 듯 말한다. "예상 밖이군." <<He>>【이가】 당신의 눈가리개를 벗기자, 시야가 돌아오면서 당신은 눈을 깜빡인다. 오랜 시간 어둠 속에 있었던 탓에 정원을 채우는 부드러운 불빛이 거칠게 느껴진다.
 					<br><br>
 
 					시야가 적응되자, 그윌란의 얼굴이 눈에 들어온다. <<He>>【은는】 몹시 얼굴을 붉히고 있다.
@@ -3331,7 +3336,7 @@
 			<<else>>
 				갑자기 <<him>>에게 이성이 돌아온다.
 				<<if $sexRitual.bondage>>
-					"아," <<he>>【이가】 멋쩍은 듯 말한다. "예상 밖이군." <<He>>【이가】 당신의 눈가리개를 벗기자, 시야가 돌아오면서 당신은 눈을 깜빡인다. 오랜 시간 어둠 속에 있었던 탓에 정원을 채우는 부드러운 불빛이 거칠게 느껴진다.
+					"아." <<he>>【이가】 멋쩍은 듯 말한다. "예상 밖이군." <<He>>【이가】 당신의 눈가리개를 벗기자, 시야가 돌아오면서 당신은 눈을 깜빡인다. 오랜 시간 어둠 속에 있었던 탓에 정원을 채우는 부드러운 불빛이 거칠게 느껴진다.
 					<br><br>
 
 					시야가 적응되자, 그윌란의 얼굴이 눈에 들어온다. <<He>>【은는】 몹시 얼굴을 붉히고 있다.
@@ -3497,7 +3502,7 @@
 				하지만, 그것들은 곧 안정되고 붉은색은 조심스러운 노란색으로 바뀐다.
 				"날 위해 얌전히 있어 줄 거지, 응?" 그윌란이 말한다.
 			<<else>>
-				그윌란의 목소리가 울려 퍼지자 그것들은 더욱 심하게 흔들린다. "ㅈ, 잠깐! 엎드려! 엎드리라고 했잖아!"
+				그윌란의 목소리가 울려 퍼지자 그것들은 더욱 심하게 흔들린다. "자-잠깐! 엎드려! 엎드리라고 했잖아!"
 			<</if>>
 		<<else>>
 			<<His>> 눈은 충격과 아주 약간의 두려움으로 가득 차 있다.
@@ -3512,7 +3517,7 @@
 			<<elseif _gwylanStatus.includesAny("dom", "lust")>>
 				하지만, 그것은 천천히 초조한 미소로 바뀐다. "날 위해 얌전히 있어 줄 거지, 응?"
 			<<else>>
-				"ㅈ, 잠깐! 엎드려! 엎드리라고 했잖아!"
+				"자-잠깐! 엎드려! 엎드리라고 했잖아!"
 			<</if>>
 		<</if>>
 		<<control 25>><<gcontrol>>
@@ -3593,7 +3598,7 @@
 		<<case "meek">>
 			"그윌란? 괜찮아?<<if !$sexRitual.bondage>> 나... 나도 방금 전까지 저런 모습이었어?<</if>>"<br>
 			"크르르릉!"<br>
-			"ㅇ-이거 어떻게 고쳐?"
+			"이-이거 어떻게 고쳐?"
 		<<case "bratty">>
 			"진심은 아니겠지. 장난치는 거지?" 당신은 말한다.<br>
 			"크르르릉!"<br>
@@ -3618,7 +3623,7 @@
 	<<set $sexRitual.hatOff to true>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"ㅊ-착한 <<personsimple>>?"
+			"차-착한 <<personsimple>>?"
 		<<case "bratty">>
 			"이거 진짜 이상한데, 이상하게 귀엽네. 누가 착한 <<personsimple>>일까?"
 		<<default>>
@@ -3631,7 +3636,7 @@
 	당신은 그윌란의 <<bellyDescription "Gwylan">> 문지른다. <<He>>【은는】 바로 등을 대고 드러누워 다리를 버둥거린다.
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"ㅊ-착한 <<personsimple>>?"
+			"차-착한 <<personsimple>>?"
 		<<case "bratty">>
 			"이거 진짜 이상한데, 이상하게 귀엽네. 누가 착한 <<personsimple>>일까?"
 		<<default>>
@@ -3656,7 +3661,7 @@
 <<elseif $phase is 5>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			당신은 소심하게 미소 짓는다. "ㅊ-착한 <<personsimple>>?"
+			당신은 소심하게 미소 짓는다. "차-착한 <<personsimple>>?"
 		<<case "bratty">>
 			당신은 씩 웃지 않을 수 없다. "누가 착한 <<personsimple>>일까?"
 		<<default>>
@@ -3950,7 +3955,7 @@
 		등 뒤에서 기침 소리가 들려, 당신은 어깨너머로 힐끗 쳐다본다. 그윌란이 무릎을 꿇은 채, 입에서 흘러나오는 소량의 분홍색 끈적한 액체를 닦아내고 있다. <<He>>【은는】 혼란스러운 듯 당신을 올려다본다.
 	<</if>>
 	<br><br>
-	"ㅈ-자기?" 그윌란이 당신에게 손을 뻗다가, <<he>>【이가】 
+	"자-자기?" 그윌란이 당신에게 손을 뻗다가, <<he>>【이가】 
 	<<switch $speech_attitude>>
 		<<case "meek">>
 			당신 눈의 눈물을 보고 멈춘다.
@@ -3971,7 +3976,7 @@
 
 		"미안, 나—" <<He>>【은는】 당신을 향해 몇 걸음 다가가다가, 당신이 더 뒤로 물러서자 얼어붙는다. "...미안. 그냥 여기 가만히 있을게."
 	<<elseif $sexRitual.end is "askStop" or $sexRitual.end is "spent">>
-		"무슨 일이야? 다쳤어?" <<He>>【은는】 당신을 확인하기 위해 가까이 다가가려 한다. 당신은 더 뒤로 물러선다. <<He>>【은는】 그걸 눈치채고 멈춰 선다. "ㄴ-내가 도울 수 있어, 자기!"
+		"무슨 일이야? 다쳤어?" <<He>>【은는】 당신을 확인하기 위해 가까이 다가가려 한다. 당신은 더 뒤로 물러선다. <<He>>【은는】 그걸 눈치채고 멈춰 선다. "내-내가 도울 수 있어, 자기!"
 	<<elseif $sexRitual.end is "Gwylan">>
 		"무슨 일이야, 자기?" <<He>>【은는】 당신을 살펴본다.
 	<<else>>
@@ -3995,9 +4000,9 @@
 	<<if !$gwylanSeen.includes("PCResentGwylan")>>
 		<<set $gwylanSeen.pushUnique("PCResentGwylan")>>
 		<<He>>【은는】 당신을 더 꽉 껴안는다. "만약 나를 용서할 마음이 생긴다면, 혹시 일주일 뒤에 다시 와줄 수 있겠어.
-		제발," <<he>>【이가】 속삭인다. "네가 없으면 난 이걸 할 수 없어."
+		제발." <<he>>【이가】 속삭인다. "네가 없으면 난 이걸 할 수 없어."
 	<<else>>
-		"내 사랑," <<he>>【이가】 당신 귓가에 달콤하게 속삭인다. "네가 없으면 내가 이걸 할 수 없다는 거 알잖아."
+		"내 사랑." <<he>>【이가】 당신 귓가에 달콤하게 속삭인다. "네가 없으면 내가 이걸 할 수 없다는 거 알잖아."
 	<</if>>
 	<br><br>
 	당신은 움직이려 한다. <<He>>【은는】 놔주지 않는다. "가지 마. 있어 줘... 잠시만이라도."
@@ -4129,7 +4134,7 @@
 		<<elseif _purgeCount lte 5>>
 			<span class="teal">_purgeCount번</span> 정화했네. 네 활약은... 만족스러웠어." <<He>>【이가】 킥킥 웃는다.
 		<<else>>
-			<span class="green">_purgeCount번</span> 정화했네. 아주 대단했어. 정말이지 사람 기분 좋게 해주는 법을 잘 안다니까." <<He>>【이가】 킥킥 웃는다. <<npcincr Gwylan dom 1>><<gyearning>>
+			<span class="green">_purgeCount번</span> 정화했네. 아주 대단했어. 정말이지 사람 기분 좋게 해주는 법을 잘 안다니까," <<He>>【이가】 킥킥 웃는다. <<npcincr Gwylan dom 1>><<gyearning>>
 		<</if>>
 	<<else>>
 		"우리가 하나가 된 뒤로, <span class="red">더는 정화하지 못했어.</span> 무언가가 연결을 막아버렸거든."
@@ -4228,7 +4233,7 @@
 
 	<<He>>【이가】 마을 쪽을 본다. 당신도 따라 보지만, 둘 다 사실 그곳을 보고 있는 게 아니라는 것을 깨닫는다. "오래전, 내 이복형제가 해준 말이야."
 	<<if $avery_fate is "ascended">>
-		<<His>> 시선이 위쪽으로 향한다. 숲의 경계선 위로 에이버리의 고층 빌딩 끝이 겨우 보인다. "보랏빛 엘크의 탑은 그림자를 드리우고, 계속해서 독을 키울 거야.
+		<<His>> 시선이 위쪽으로 향한다. 숲의 경계선 위로 에이버리의 마천루 끝이 겨우 보인다. "보랏빛 엘크의 탑은 그림자를 드리우고, 계속해서 독을 키울 거야.
 		더는 예전처럼 계속할 수 없어. 혼자서 모든 걸 감당하려 했다간, 너무 익은 과일처럼 터져버릴 테니까."
 	<</if>>
 	<<He>>【은는】 당신을 돌아보고
@@ -4481,11 +4486,11 @@
 		<<case "apologise">>
 			<<set $sexRitual.arousal += 1>>
 			<<if $speech_attitude is "meek">>
-				"미-미안해, 얌전히 있을게," 당신이 말한다.
+				"미-미안해, 얌전히 있을게." 당신이 말한다.
 			<<elseif $speech_attitude is "bratty">>
 				"미안해," 당신이 화가 난 듯 말하려 노력한다. 하지만 더 낑낑거리는 소리처럼 나온다.
 			<<else>>
-				"말썽 피워서 미안해," 당신이 말한다.
+				"말썽 피워서 미안해." 당신이 말한다.
 			<</if>>
 			<br><br>
 
@@ -4517,7 +4522,7 @@
 			그윌란은 <<= $sexRitual.bondage ? "허밍한다" : "미소 짓는다">>.
 			<<if _gwylanStatus.includesAny("dom", "lust")>>
 				"너한테 계속 화를 낼 순 없지."
-			<<elseif _gwylanLovePercent gte 75>>
+			<<elseif _gwylanLovePercent gte 65>>
 				"<<pcPetname "Gwylan" "good">>." 그 단어들이 당신의 귓가에 울린다. <<stress -6>><<lstress>><<arousal 50>><<garousal>>
 				<br><br>
 			<<else>>
@@ -5248,7 +5253,7 @@
 					<</if>>
 					<<if _gwylanStatus.includes("heat")>>
 						<<He>>【은는】 당신을 타는 동안 균형을 잡기 위해 재빠르게 그것들을 붙잡는다.
-					<<elseif _gwylanLovePercent gte 75>>
+					<<elseif _gwylanLovePercent gte 65>>
 						<<He>>【은는】 그것들을 들어 올려서 당신을 타는 동안 양쪽을 모두 잡을 수 있도록 해준다.
 						<<His>> 얼굴은 마치 예상하지 못했던 일인 양 조금 더 빨개진다.
 					<<else>>
@@ -6261,7 +6266,7 @@
 
 		<<if _gwylanStatus.includes("heat")>>
 			<<if $sexRitual.bondage>>
-				"이렇게 나한테 반항하다니, 나쁜 짓이야," <<he>>【이가】 말한다.
+				"이렇게 나한테 반항하다니, 나쁜 짓이야." <<he>>【이가】 말한다.
 			<<else>>
 				"이렇게 반항하다니, 못된 짓이야." <<He>>【은는】 미소 짓는다.
 			<</if>>
@@ -6910,7 +6915,7 @@
 			<</if>>
 		<</if>>
 	<</if>>
-	<<if $debug is 1>>
+	<<if $debug>>
 		<br><u>디버그:</u><br>
 		플레이어 흥분도: $arousal <br>
 		플레이어 절정 횟수: $sexRitual.playerOrgasms <br>

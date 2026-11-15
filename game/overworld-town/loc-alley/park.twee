@@ -19,12 +19,18 @@
 		<span class="pink">수상한 인물들이 그림자 속에 숨어 있다.</span> <i>당신이 음란하게 달린다는 소문이 퍼졌다. 소문이 잠잠해지길 원한다면 며칠 동안 노출한 채로 달리지 마라.</i>
 	<<elseif $park_fame gte 20>>
 		<span class="pink">누군가 당신을 지켜보는 것 같다.</span> <i>당신이 음란하게 달린다는 소문이 퍼졌다. 소문이 잠잠해지길 원한다면 며칠 동안 노출한 채로 달리지 마라.</i>
+	<<elseif Weather.bloodMoon && !Weather.isOvercast>>
+		핏빛 달이 나뭇잎 사이로 빛난다.
 	<<else>>
 		주변에 아무도 없다.
 	<</if>>
 <</if>>
 
 강둑 근처에 튤립이 무성하게 자라고 있다.
+
+<<if $halloween>>
+	나무마다 할로윈 장식과 주황색 조명이 걸려 있다.
+<</if>>
 
 <<streeteffects>>
 <br><br>
@@ -176,12 +182,12 @@
 		<br>
 		<<if $exposed lte 0>>
 			<<if $scienceproject is "ongoing" and $sciencelichenknown is 1 and $sciencelichenpark is 0>>
-				<<scienceicon "white lichen">><<link [[과학 과제를 위해 이끼 조사하기|Park Lichen]]>><</link>>
+				<<scienceicon "white lichen">><<link [[과학 과제를 위해 이끼를 조사한다|Park Lichen]]>><</link>>
 				<br>
 			<</if>>
 			<<if !$plants_known.includes("tulip")>>
 				<<if $sciencetrait gte 1>>
-					<<foodstufficon "tulip">> <<link [[씨앗 찾기 (0:30)|Park Tulip]]>><<set $plants_known.push("tulip")>><<pass 30>><<tending 6>><</link>><<gtending>>
+					<<foodstufficon "tulip">> <<link [[씨앗을 찾는다 (0:30)|Park Tulip]]>><<set $plants_known.push("tulip")>><<pass 30>><<tending 6>><</link>><<gtending>>
 					<br>
 				<<else>>
 					<span class="blue">과학 스킬이 더 높으면 튤립 씨앗을 수확할 수 있습니다.</span>
@@ -191,7 +197,7 @@
 			<<if pcAreArmsBound("both")>>
 				<span class="red">양팔이 묶여 있어</span> 튤립을 딸 수 없습니다.
 			<<else>>
-				<<foodstufficon "tulip">> <<link [[튤립 따기 (0:20)|Park Tulip Pick]]>><<pass 20>><<crimeUp 20 "petty">><</link>><<tendingdifficulty 1 200>><<crime "petty">>
+				<<foodstufficon "tulip">> <<link [[튤립을 딴다 (0:20)|Park Tulip Pick]]>><<pass 20>><<crimeUp 20 "petty">><</link>><<tendingdifficulty 1 200>><<crime "petty">>
 			<</if>>
 			<br>
 			<<if _robin_location is "park">>
@@ -205,12 +211,12 @@
 					<br>
 					카일라가 분수대에 앉아 가끔 동전을 던지고 있다.
 					<br>
-					<<parkicon "fountain">><<link [[다가가기|Kylar Park]]>><<set $kylar_text_trigger to true>><</link>>
+					<<parkicon "fountain">><<link [[다가간다|Kylar Park]]>><<set $kylar_text_trigger to true>><</link>>
 				<<else>>
 					<br>
 					카일라가 벤치에 앉아 무언가를 스케치하고 있다.
 					<br>
-					<<parkicon>><<link [[다가가기|Kylar Park]]>><<set $kylar_text_trigger to true>><</link>>
+					<<parkicon>><<link [[다가간다|Kylar Park]]>><<set $kylar_text_trigger to true>><</link>>
 				<</if>>
 				<br><br>
 			<</if>>
@@ -218,7 +224,7 @@
 				<br>
 				우산 아래에서 연기가 피어오르는 것이 보인다. 휘트니다. <<nnpc_He "Whitney">>【은는】 공원 분수대 근처 나무 아래에 서 있다.
 				<br>
-				<<parkicon "fountain">><<link [[다가가기|Whitney Park]]>><<set $daily.whitney.textTrigger to true>><<if $daily.whitney.text is undefined>><<set $daily.whitney.text to 0>><<else>><<set $daily.whitney.text += 1>><</if>><</link>>
+				<<parkicon "fountain">><<link [[다가간다|Whitney Park]]>><<set $daily.whitney.textTrigger to true>><<if $daily.whitney.text is undefined>><<set $daily.whitney.text to 0>><<else>><<set $daily.whitney.text += 1>><</if>><</link>>
 				<br><br>
 			<</if>>
 			<<if isInPark("sam") and $Sam_Park_Intro is 1>>
@@ -226,6 +232,33 @@
 				<br>
 				<<parkicon "bridge">><<link [[<<nnpc_him "Sam">>에게 다가간다|Sam Park]]>><</link>>
 				<br><br>
+			<</if>>
+		<</if>>
+		<<if $halloween is 1 and Time.monthDay is 30 and Time.hour gte 6 and !$halloween_pumpkin_competition>>
+			탁자가 설치되어 있고, 호박 조각 대회를 보려고 사람들이 모여든다.
+			<br>
+			<<icon "pumpkin-carving.png">><<link [[참가한다 (1:00)|Park Pumpkin Competition]]>><<pass 60>><</link>>
+			<br>
+		<<elseif $halloween is 1 and Time.monthDay is 31 or $halloween_pumpkin_competition>>
+			잔디밭에 호박 조각이 흩어져 있고, 나뭇가지에는 잭오랜턴이 걸려 있다.
+			<<if $halloween_pumpkin_competition is "won">>
+				으스스한 제단이 마련되어 우승한 호박을 전시하고 있다. <span class="green">당신의 호박이다.</span>
+			<<elseif $halloween_pumpkin_competition is "kylar">>
+				으스스한 제단이 마련되어 우승한 호박을 전시하고 있다. <span class="green">카일라의 호박이다.</span>
+			<</if>>
+			<br>
+		<<elseif $halloween is 1 and Time.monthDay is 30>>
+			호박 조각 대회를 위해 탁자를 설치하는 중이다.
+			<br>
+		<<elseif $halloween and Time.dayState isnot "night">>
+			사람들이 호박 조각을 연습하는 탁자가 놓여 있다. 팻말에 이달 30일에 열리는 대회를 알리는 글이 적혀 있다.
+			<br>
+			<<if $exposed lte 0>>
+				<<icon "pumpkin-carving.png">><<link [[호박 조각|Park Pumpkin]]>><</link>>
+				<br>
+			<<else>>
+				<span class="blue">호박 조각에 참여하려면 단정하게 옷을 입어야 한다.</span>
+				<br>
 			<</if>>
 		<</if>>
 		<<icon "men-toilet.png">><<link [[남자 화장실 (0:01)|Men's Toilets]]>><<pass 1>><<endevent>><</link>>
@@ -240,46 +273,46 @@
 			족쇄를 찬 상태로는 달리기를 할 수 없습니다.
 			<br>
 		<<elseif $worn.feet.type.includes("heels") and ($exposed is 0 or Time.dayState is "night")>>
-			<<heelsicon>><<link [[힐 신고 운동하기 (0:30)|Park Exercise Heels]]>><<athletics 3>><<pass 30>><<tiredness 4>><<stress -1>><<slimeEventEnd "running">><</link>><<ggtiredness>><<gathletics>><<lstress>>
+			<<heelsicon>><<link [[힐 신고 운동한다 (0:30)|Park Exercise Heels]]>><<athletics 3>><<pass 30>><<tiredness 4>><<stress -1>><<slimeEventEnd "running">><</link>><<ggtiredness>><<gathletics>><<lstress>>
 			<br>
 		<<else>>
 			<<if Time.dayState is "night">>
 				<<if $exposed gte 2 and hasSexStat("exhibitionism", 3)>>
-					<<runicon>><<link [[달리기 (0:30)|Park Run Exposed]]>><<athletics 4>><<set $phase to 0>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<exhibitionist3>><<gtiredness>><<gathletics>><<lstress>>
+					<<runicon>><<link [[달린다 (0:30)|Park Run Exposed]]>><<athletics 4>><<set $phase to 0>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<exhibitionist3>><<gtiredness>><<gathletics>><<lstress>>
 					<br>
 				<<elseif $exposed is 1>>
-					<<runicon>><<link [[달리기 (0:30)|Park Run Exposed]]>><<athletics 4>><<set $phase to 1>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<exhibitionist1>><<gtiredness>><<gathletics>><<lstress>>
+					<<runicon>><<link [[달린다 (0:30)|Park Run Exposed]]>><<athletics 4>><<set $phase to 1>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<exhibitionist1>><<gtiredness>><<gathletics>><<lstress>>
 					<br>
 				<<elseif $exposed is 0>>
-					<<runicon>><<link [[달리기 (0:30)|Park Run]]>><<athletics 4>><<pass 30>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<gtiredness>><<gathletics>><<lstress>>
+					<<runicon>><<link [[달린다 (0:30)|Park Run]]>><<athletics 4>><<pass 30>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<gtiredness>><<gathletics>><<lstress>>
 					<br>
 				<</if>>
 			<<elseif $exposed is 0>>
-				<<runicon>><<link [[달리기 (0:30)|Park Run]]>><<athletics 4>><<pass 30>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<gtiredness>><<gathletics>><<lstress>>
+				<<runicon>><<link [[달린다 (0:30)|Park Run]]>><<athletics 4>><<pass 30>><<tiredness 3>><<stress -3>><<slimeEventEnd "running">><</link>><<gtiredness>><<gathletics>><<lstress>>
 				<br>
 			<</if>>
 		<</if>>
 		<<if (Weather.precipitation is "none" or $worn.handheld.type.includes("rainproof"))>>
 			<<if $milkshake gte 1 and $exposed lte 0>>
-				<<foodicon "milkshake">><<link [[밀크쉐이크 마시기 (0:10)|Beach Milkshake]]>><<pass 10>><<set $milkshake -= 1>><<stress -5>><</link>><<lstress>>
+				<<foodicon "milkshake">><<link [[밀크쉐이크를 마신다 (0:10)|Beach Milkshake]]>><<pass 10>><<set $milkshake -= 1>><<stress -5>><</link>><<lstress>>
 				<br>
 			<</if>>
 			<<if $popcorn gte 1 and $exposed lte 0>>
-				<<foodicon "popcorn">><<link [[팝콘 먹기 (0:10)|Balloon Consume]]>><<pass 10>><<set $popcorn -= 1>><<wearProp "popcorn">><<trauma -3>><<set $phase to "park">><</link>><<ltrauma>>
+				<<foodicon "popcorn">><<link [[팝콘을 먹는다 (0:10)|Balloon Consume]]>><<pass 10>><<set $popcorn -= 1>><<wearProp "popcorn">><<trauma -3>><<set $phase to "park">><</link>><<ltrauma>>
 				<br>
 			<</if>>
 		<</if>>
 		<<if Time.dayState is "night" and !Weather.isFrozen("fountain") and hasSexStat("exhibitionism", 4) and $daily.ex.fountain is undefined>>
-			<<parkicon "fountain">><<link [[분수대에서 목욕하기 (0:10)|Park Fountain]]>><<set $daily.ex.fountain to 1>><</link>><<exhibitionist4>>
+			<<parkicon "fountain">><<link [[분수대에서 목욕한다 (0:10)|Park Fountain]]>><<set $daily.ex.fountain to 1>><</link>><<exhibitionist4>>
 			<br>
 		<</if>>
 		<<if $exposed gte 1 and Time.dayState isnot "night">>
-			<<icon "crate.png">><<link [[상자에 숨기 (0:10)|Crate Ex]]>><<pass 10>><</link>>
+			<<icon "crate.png">><<link [[상자에 숨는다 (0:10)|Crate Ex]]>><<pass 10>><</link>>
 			<br>
 			<<if $exposed gte 2 and hasSexStat("exhibitionism", 5)>>
-				<<icon "flyover.png">><<link [[고가도로를 건너 공업 지구로 가기 (0:05)|Flyover Ex Naked]]>><</link>><<if $daily.ex.flyover is undefined>><<exhibitionist5>><</if>>
+				<<icon "flyover.png">><<link [[고가도로를 건너 공업 지구로 간다 (0:05)|Flyover Ex Naked]]>><</link>><<if $daily.ex.flyover is undefined>><<exhibitionist5>><</if>>
 			<<elseif $exposed is 1 and hasSexStat("exhibitionism", 3)>>
-				<<icon "flyover.png">><<link [[고가도로를 건너 공업 지구로 가기 (0:05)|Flyover Ex Undies]]>><</link>><<if $daily.ex.flyover is undefined>><<exhibitionist3>><</if>>
+				<<icon "flyover.png">><<link [[고가도로를 건너 공업 지구로 간다 (0:05)|Flyover Ex Undies]]>><</link>><<if $daily.ex.flyover is undefined>><<exhibitionist3>><</if>>
 			<</if>>
 			<br>
 		<<else>>
@@ -350,3 +383,975 @@
 
 <<link [[다음|Park]]>><</link>>
 <br>
+
+:: Park Pumpkin
+<<effects>><<set _kylarLocation to getKylarLocation()>>
+
+당신은 호박 조각 탁자로 다가간다. 대부분의 자리가 차 있고, <<people>>【이가】 열심히 작업하며 잔디밭을 주황색 채소 조각으로 뒤덮고 있다.
+<br><br>
+
+<<if !$halloween_pumpkin>>
+	<<set $halloween_pumpkin to 1>>
+	<<set $halloween_pumpkins_bought to 0>>
+	<<set $pumpkin_carving to 0>>
+	<<set $pumpkin_carving_knowledge to []>>
+	<<generate1>><<person1>>
+	"대회 연습하러 오셨어요?" 미소 띤 <<person>>【이가】 묻는다. "누구든 환영이에요. 다만 호박은 직접 가져오셔야 해요. 물량이 좀 부족하거든요. 대회 자체에는 저희가 호박을 제공하고, 우승자에게는 <span class="gold">£1000</span>도 드려요. <span class="gold">30일에 열려요.</span> 그래야 잭오랜턴을 진짜 할로윈에 전시할 수 있으니까요."
+	<br><br>
+	<<He>>【은는】 사소한 사고에 정신이 팔려 몸을 돌린다.
+	<br><br>
+	<<endevent>>
+	<<generate1>><<person1>>
+	"호박이 필요하면," 다른 목소리가 말한다. "여기 하나 있는데 <span class="gold">£100</span>에 줄게." <<He>>【은는】 호박을 곧장 위로 던져 올려 받더니, 음탕한 눈으로 당신의 몸을 훑는다. "그게 비싸다 싶으면, 네 입을 좀 써먹어도 되고." <<He>>【은는】 혀로 천박한 시늉을 한다.
+	<br><br>
+	<<if $money gte 10000>>
+		<<link [[호박을 산다|Park Pumpkin Buy]]>><<money -10000>><<set $halloween_pumpkins_bought += 1>><<tending_give "pumpkin" 1>><</link>>
+		<br>
+	<</if>>
+	<<if hasSexStat("promiscuity", 4)>>
+		<<link [[호박을 받는 대가로 구강 봉사를 한다|Park Pumpkin Oral]]>><<set $sexstart to 1>><</link>><<promiscuous4>>
+		<br>
+	<<else>>
+		<<insufficientStat "promiscuity" "그런 제안을 받아들이기엔">>
+		<br>
+	<</if>>
+	<<link [[호박을 낚아채 도망친다|Park Pumpkin Athletics]]>><<crimeUp 3 "petty">><</link>><<athleticsdifficulty 1 1000>><<gcrime "petty">>
+	<br>
+	<<set $skulduggerydifficulty to 600>>
+	<<link [[호박을 훔친다 (0:05)|Park Pumpkin Skulduggery]]>><<crimeUp 3 "petty">><</link>><<skulduggerydifficulty>><<gcrime "petty">>
+	<br>
+	<<link [[걸어 나간다|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+
+	<<if _kylarLocation.area is "park" and !$halloween_pumpkin_kylar>>
+		나무 뒤에서 카일라가 지켜보는 모습이 보인다.
+		<br><br>
+	<</if>>
+
+	<<if $foodstuff.pumpkin.amount gte 1 and $pumpkin_carving lt 10>>
+		<<link [[호박 조각을 연습한다 (1:00)|Park Pumpkin Practise]]>><<pass 60>><<tending_give "pumpkin" -1>><<set $pumpkin_carving += 1>><</link>> | 호박: <<print $foodstuff.pumpkin.amount>>
+	<<elseif $pumpkin_carving gte 10>>
+		<span class="lblue">필요한 호박 조각 연습은 이미 충분히 했다.</span>
+	<<else>>
+		<span class="blue">조각할 호박이 없다.</span>
+	<</if>>
+	<br>
+	<<link [[호박 조각을 더 잘하는 법을 묻는다|Park Pumpkin Ask]]>><</link>>
+	<br>
+	<<link [[호박 판매자를 찾는다 (0:10)|Park Pumpkin Seller]]>><<pass 10>><</link>>
+	<br>
+	<<if _kylarLocation.area is "park" and !$halloween_pumpkin_kylar>>
+		<<link [[카일라를 부른다|Park Pumpkin Kylar]]>><</link>>
+		<br>
+	<</if>>
+	<<link [[떠난다|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+:: Park Pumpkin Ask
+<<effects>>
+
+<<generate1>><<person1>>
+노련해 보이는 조각가에게 다가가 요령이 있는지 묻는다. <<He>>【은는】 칼을 탁자에 꽂아 주최 측 사람에게 짜증 어린 눈총을 받고는, 턱을 쓰다듬는다.
+<br><br>
+
+"비법은 알려 줄 수 없지만," <<he>>【이가】 쓴웃음을 지으며 말한다. "일반적인 조언은 해 줄 수 있지. 도서관에 가면 이것저것 가르쳐 주는 책이 있을 거야. 그래도 결국 연습을 대신할 건 없어. 그러니 연습해."
+<br><br>
+
+<<He>>【은는】 칼을 집어 들고 다시 조각에 몰두한다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Pumpkin Seller
+<<effects>>
+<<if $halloween_pumpkins_bought is undefined>><<set $halloween_pumpkins_bought to 0>><</if>>
+<<set _pumpkin_price to Math.clamp((10000 + ($halloween_pumpkins_bought * 10000)), 10000, 100000)>>
+
+<<generate1>><<person1>>
+호박을 공처럼 던지고 받으며 지나가는 사람들에게 팔려는 <<person>>【이가】 보인다.
+<br><br>
+
+"호박 필요해, <<girl>>【아야】?" <<he>>【이가】 묻는다. "시세는 <<printmoney _pumpkin_price>>야." <<He>>【은는】 당신의 몸을 음흉하게 훑어본다. "그게 비싸면 대신 입을 좀 써도 돼." <<He>>【은는】 입으로 천박한 시늉을 한다.
+<br><br>
+
+<<if $money gte _pumpkin_price>>
+	<<link [[호박을 산다 (<<printmoney _pumpkin_price>>)|Park Pumpkin Buy]]>><<money `-_pumpkin_price`>><<tending_give "pumpkin" 1>><<set $halloween_pumpkins_bought += 1>><</link>>
+	<br>
+<<else>>
+	<span class="blue">호박을 살 돈이 없다.</span>
+	<br>
+<</if>>
+<<if hasSexStat("promiscuity", 4)>>
+	<<link [[호박을 받는 대가로 구강 봉사를 한다|Park Pumpkin Oral]]>><<set $sexstart to 1>><</link>><<promiscuous4>>
+	<br>
+<<else>>
+	<<insufficientStat "promiscuity" "그런 제안을 받아들이기엔">>
+	<br>
+<</if>>
+<<link [[호박을 낚아채 도망친다|Park Pumpkin Athletics]]>><<crimeUp 3 "petty">><</link>><<athleticsdifficulty 1 1000>><<gcrime "petty">>
+<br>
+<<set $skulduggerydifficulty to 600>>
+<<link [[호박을 훔친다 (0:05)|Park Pumpkin Skulduggery]]>><<pass 5>><<crimeUp 3 "petty">><</link>><<skulduggerydifficulty>><<gcrime "petty">>
+<br>
+<<link [[걸어 나간다|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Pumpkin Buy
+<<effects>>
+
+"거래해서 즐거웠어." <<person>>【이가】 당신에게 호박을 건네며 말한다. <<He>>【은는】 잠깐 실망한 표정을 짓더니 걸어가 버린다.<<wearProp "pumpkin">>
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Pumpkin Oral
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<person>>【이가】 덤불 사이의 좁은 틈으로 당신을 이끌고, 나뭇가지가 당신을 더듬는다. 곧 남의 눈을 피할 수 있는 풀밭 공터가 나온다.
+	<br><br>
+	<<He>>【은는】 당신의 머리를 붙잡아 <<his>> 사타구니로 끌어당긴다.
+	<<npcoral>>
+	<<set $enemytrust += 100>><<promiscuity4>>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[다음|Park Pumpkin Oral Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Park Pumpkin Oral]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Park Pumpkin Oral Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<He>>【은는】 호박을 허공으로 던져 당신 옆에 쿵 떨어뜨린다. "맛있게 먹어."
+	<br><br>
+	<<tearful>> 당신은 몸을 일으킨다. 호박은 여전히 단단하다.<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	격분한 <<person>>【이가】 호박을 머리 위로 치켜들어 당신에게 내리치려 한다. 당신은 <<his>> 사타구니를 걷어찬다. <<He>>【은는】 호박을 떨어뜨리고 고통에 <<himself>>【을를】 움켜쥐고, 호박은 <<his>> 머리 위로 떨어진다. <<He>>【은는】 쓰러진다.
+	<br><br>
+	<<tearful>> 당신은 몸을 일으킨다. 호박은 멀쩡하다. <<person>>【이가】 정신을 차리기 전에 호박을 챙겨 자리를 뜬다.<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $rescue is 1 and $alarm is 1>>
+	<<set $rescued += 1>>
+	<<generate2>><<generate3>><<person2>>
+	<<person>>【와과】 <<person3>><<person>>【이가】 공터로 들어와, 눈앞의 광경에 충격을 받고 멈춰 선다.
+	<br><br>
+	<<person1>><<person>>【이가】 변명을 더듬거리며 시작하려다 그냥 떠나기로 하고, 호박을 챙겨 떠나 버린다.
+	<br><br>
+	<<clotheson>>
+	<<if $exposed gte 1>>
+		"차 한 잔 마시면 좋겠어 보여요." <<person2>><<person>>【이가】 수건 몇 장을 건네며 말한다.
+		<<towelup>>
+		<br><br>
+	<<else>>
+		"차 한 잔 마시면 좋겠어 보여요." <<person2>><<person>>【이가】 말한다. 그동안 <<person3>><<person>>【은는】 <<person1>><<person>> 쪽을 향해 어이없다는 듯 고개를 젓는다.
+		<br><br>
+	<</if>>
+	<<link [[차를 마신다 (0:10)|Park Pumpkin Oral Tea]]>><<pass 10>><<trauma -6>><<stress -6>><</link>><<ltrauma>><<lstress>>
+	<br>
+	<<link [[거절한다|Park Pumpkin Oral Tea Decline]]>><</link>>
+	<br>
+<<else>>
+	"재미 없으면 호박도 없어." <<person>>【이가】 말한다. <<He>>【은는】 걸어가 버린다.
+	<br><br>
+	<<tearful>> 당신은 자리에서 일어선다.
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<</if>>
+
+
+:: Park Pumpkin Rape
+<<effects>>
+
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<person>>【이가】 덤불 사이의 좁은 틈으로 당신을 밀어 넣고, 나뭇가지가 당신을 더듬는다. 곧 풀밭 공터가 나온다.
+	<br><br>
+	"그 호박 갖고 싶어? 일해서 얻어."
+	<br><br>
+	<<set $enemyanger += 50>>
+	<<enable_rescue>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<alarmstate>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[다음|Park Pumpkin Rape Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[다음|Park Pumpkin Rape]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Park Pumpkin Rape Finish
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	<<He>>【은는】 호박을 허공으로 던져 당신 옆에 쿵 떨어뜨린다. "맛있게 먹어."
+	<br><br>
+	<<tearful>> 당신은 몸을 일으킨다. 호박은 여전히 단단하다.<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<elseif $enemyhealth lte 0>>
+	격분한 <<person>>【이가】 호박을 머리 위로 치켜들어 당신에게 내리치려 한다. 당신은 <<his>> 사타구니를 걷어찬다. <<He>>【은는】 호박을 떨어뜨리고 고통에 <<himself>>【을를】 움켜쥐고, 호박은 <<his>> 머리 위로 떨어진다. <<He>>【은는】 쓰러진다.
+	<br><br>
+	<<tearful>> 당신은 몸을 일으킨다. 호박은 멀쩡하다. <<person>>【이가】 정신을 차리기 전에 호박을 챙겨 자리를 뜬다.<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<br><br>
+	<<clotheson>>
+	<<endcombat>>
+	<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<set $rescued += 1>>
+	<<generate2>><<generate3>><<person2>>
+	<<person>>【와과】 <<person3>><<person>>【이가】 공터로 들어와, 눈앞의 광경에 충격을 받고 멈춰 선다.
+	<br><br>
+	<<person1>><<person>>【이가】 변명을 더듬거리며 시작하려다 그냥 떠나기로 하고, 호박을 챙겨 떠나 버린다.
+	<br><br>
+	<<clotheson>>
+	<<if $exposed gte 1>>
+		"차 한 잔 마시면 좋겠어 보여요." <<person2>><<person>>【이가】 수건 몇 장을 건네며 말한다.
+		<<towelup>>
+		<br><br>
+	<<else>>
+		"차 한 잔 마시면 좋겠어 보여요." <<person2>><<person>>【이가】 말한다. 그동안 <<person3>><<person>>【은는】 <<person1>><<person>> 쪽을 향해 어이없다는 듯 고개를 젓는다.
+		<br><br>
+	<</if>>
+	<<link [[차를 마신다 (0:10)|Park Pumpkin Oral Tea]]>><<pass 10>><<trauma -6>><<stress -6>><</link>><<ltrauma>><<lstress>>
+	<br>
+	<<link [[거절한다|Park Pumpkin Oral Tea Decline]]>><</link>>
+	<br>
+<</if>>
+
+:: Park Pumpkin Oral Tea
+<<effects>>
+
+<<person2>><<person>>【이가】 보온병에서 차를 한 잔 따라 주고, 셋은 잠깐 이야기를 나눈다.
+<br><br>
+"이 동네도 예전엔 달랐어요." <<person3>><<person>>【이가】 <<person1>><<person>>이 간 쪽을 가리키며 말한다. "어느새 이렇게 돼 버렸죠."
+<br><br>
+
+그들은 안쓰러운 미소를 지어 보이고는 떠난다.
+<br><br>
+
+<<endcombat>>
+
+<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Pumpkin Oral Tea Decline
+<<effects>>
+
+당신은 초대를 거절한다. <<person2>><<person>>【와과】 <<person3>><<person>>【이가】 안쓰러운 미소를 지어 보이고는 떠난다.
+<br><br>
+
+<<endcombat>>
+
+<<link [[다음|Park]]>><<set $eventskip to 1>><</link>>
+<br>
+
+:: Park Pumpkin Athletics
+<<effects>>
+
+망설임 없이 <<persons>> 손에서 호박을 낚아채 달아난다.
+<br><br>
+"씨발 걸레 같은 년," <<he>>【이가】 소리치며 뒤쫓아 온다.
+<<if $athleticsSuccess>>
+	당신은 <<him>>【을를】 이끌고 덤불을 지나고 나무 사이를 지나, 마침내 강을 건넌다. 당신은 한 번에 뛰어 넘는다. <span class="green"><<He>>【은는】 그러지 못한다.</span>
+	<br><br>
+	당신은 흠뻑 젖은 <<person>>【을를】 뒤로하고, 호박을 손에 든 채 떠난다.
+	<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<br><br>
+	<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	<<He>>【은는】 덤불을 지나고 나무 사이를 지나 쫓아오다가 <span class="red">강가에서 당신을 덮친다.</span>
+	<br><br>
+	"그 호박이 그렇게 갖고 싶었어?" <<he>>【이가】 묻는다. "좋아. 다른 방식으로 값을 치르게 해 주지."
+	<br><br>
+	<<link [[다음|Park Pumpkin Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Park Pumpkin Skulduggery
+<<effects>>
+
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+	당신은 걸어가지만 근처에서 <<person>>【을를】 계속 지켜본다. <<He>>【은는】 다른 사람들에게 호박을 팔아 보려 하며, 이따금 계속 던졌다 받는다.
+	<br><br>
+
+	몇 분 뒤 <<he>>【이가】 낮게 늘어진 나무 아래에서 걸음을 멈춘다. 기회다. <<his>> 등이 돌려진 틈에 다가가 나무 위로 기어올라 가지 위에서 기다린다.
+	<br><br>
+
+	<<He>>【은는】 호박을 다시 허공으로 던진다. <span class="green">당신은 그것을 낚아채고 나무를 미끄러져 내려와 눈에 띄지 않게 사라진다.</span> 낮은 덤불 뒤로 사라지는 순간, <<he>>【이가】 영문을 몰라 하늘을 쳐다보는 모습이 언뜻 보인다.
+	<br><br>
+	<<tending_give "pumpkin" 1>><<wearProp "pumpkin">>
+	<<skulduggeryuse>>
+
+	<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<br>
+<<else>>
+	당신은 걸어가지만 근처에서 <<person>>【을를】 계속 지켜본다. <<He>>【은는】 다른 사람들에게 호박을 팔아 보려다가, 담배를 피우려고 호박을 옆에 내려놓는다.
+	<br><br>
+	당신은 <<his>> 뒤로 몰래 다가가 호박을 든다. <span class="red">하지만 그 순간 <<he>>【이가】 홱 돌아서서 당신의 손목을 붙잡는다.</span>
+	<br><br>
+	"그 호박이 그렇게 갖고 싶었어?" <<he>>【이가】 묻는다. "좋아. 다른 방식으로 값을 치르게 해 주지."
+	<br><br>
+	<<skulduggeryuse>>
+	<<link [[다음|Park Pumpkin Rape]]>><<set $molestationstart to 1>><</link>>
+	<br>
+<</if>>
+
+:: Park Pumpkin Practise
+<<effects>><<set _kylarLocation to getKylarLocation()>>
+
+당신은 호박 조각 탁자에 앉아 작업을 시작하고, 탁자 위아래로 오가는 사람들을 지켜보며 조각해 나간다.
+<br><br>
+
+<<if _kylarLocation.area is "park" and $halloween_pumpkin_kylar is "win">>
+	공원 건너편에서 지켜보는 카일라의 시선이 내내 느껴진다.
+	<br><br>
+<<elseif _kylarLocation.area is "park" and $halloween_pumpkin_kylar is "kylar">>
+	카일라가 당신 옆에 앉아 엄청난 속도로 잭오랜턴을 찍어 낸다. 대부분은 형편없지만, 그 어마어마한 양에 구경꾼들이 놀란다.
+	<br><br>
+<</if>>
+
+연습 진행도: <<print ($pumpkin_carving * 10)>>%
+<br><br>
+
+<<set _pumpkin_carving to ($pumpkin_carving + ($pumpkin_carving_knowledge?.length * 5))>>
+
+<<pumpkin_prop>>
+
+<<if $pumpkin_carving gte 10>>
+	<span class="gold">호박 조각에 대해 이곳에서 연습으로 배울 수 있는 건 모두 배운 것 같다.</span>
+<<else>>
+	<span class="green">호박 조각 솜씨가 늘었다.</span>
+<</if>>
+
+<<if _pumpkin_carving is 15>>
+	<span class="gold">지식: 호박 조각 특성을 얻었습니다.</span>
+<</if>>
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><</link>>
+<br>
+
+
+:: Park Pumpkin Competition
+<<effects>><<set _kylarLocation to getKylarLocation()>>
+
+
+<<if !$halloween_pumpkin>>
+	당신은 연례 대회를 위해 모든 준비가 갖춰진 호박 조각 탁자로 다가간다.
+	<br><br>
+	<<set $halloween_pumpkin to 1>>
+	<<set $halloween_pumpkins_bought to 0>>
+	<<set $pumpkin_carving to 0>>
+	<<set $pumpkin_carving_knowledge to []>>
+<</if>>
+
+<<generate1>><<person1>><<generate2>>
+<<if C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar>>
+	<<npc Kylar 3>>
+	당신은 다른 참가자들 사이에 자리를 잡는다. 카일라가 당신 옆에 나타난다.
+<<else>>
+	당신은 다른 참가자들 사이에 자리를 잡는다.
+<</if>>
+화려한 옷차림의 <<person>>【이가】 높은 단상에 올라서자 군중이 모여든다. <<He>>【은는】 마이크를 톡톡 두드린다.
+<br><br>
+
+"연례 할로윈 호박 조각 대회에 오신 것을 환영합니다." <<he>>【이가】 말한다. 공원 다른 곳의 스피커에서도 <<his>> 목소리가 되풀이되어 들린다. <<He>>【은는】 시계를 흘끗 본다. "긴 말 없이, 셋을 세면 시작하겠습니다. 하나. 둘."
+<br>
+<<He>>【은는】 군중이 따라 외치도록 두 팔을 들어 올린다.
+<br>
+"셋!"
+<br><br>
+
+<<link [[시작한다|Park Pumpkin Competition 2]]>><</link>>
+<br>
+
+:: Park Pumpkin Competition 2
+<<effects>><<set _kylarLocation to getKylarLocation()>>
+
+칼이 지급되었다. 길고 얇은 날이다. 밑그림 틀도 여러 종류 갖춰져 있다. 당신은 최선을 다해 조각해 나간다.
+<br><br>
+
+<<if C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "win">>
+	옆에서 카일라가 호박 조각을 튕겨 다른 참가자들의 주의를 흩뜨린다.
+<<elseif C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "kylar">>
+	<<person3>>카일라가 옆에서 조각한다. 아까의 활기와 달리 이제는 느리고 치밀하게, 쓸데없는 움직임 하나 없이 움직인다. <<He>>【은는】 호박 위로 몸을 숙여 호박을 가린다.
+<</if>>
+<br><br>
+
+승리 확률:
+<br>
+실전 기술:
+<<if $pumpkin_carving gte 10>>
+	<span class="green">S</span>
+<<elseif $pumpkin_carving gte 8>>
+	<span class="lblue">A</span>
+<<elseif $pumpkin_carving gte 6>>
+	<span class="blue">B</span>
+<<elseif $pumpkin_carving gte 4>>
+	<span class="purple">C</span>
+<<elseif $pumpkin_carving gte 1>>
+	<span class="pink">D</span>
+<<else>>
+	<span class="red">F</span>
+<</if>>
+<br>
+지식:
+<<if $pumpkin_carving_knowledge?.length gte 2>>
+	<span class="green">S</span>
+<<elseif $pumpkin_carving_knowledge?.length gte 1>>
+	<span class="blue">B</span>
+<<else>>
+	<span class="red">F</span> 
+<</if>>
+<<set $pumpkin_win_chance to (($pumpkin_carving + ($pumpkin_carving_knowledge?.length * 5)) / 15 * 100)>>
+<<if C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "win">>
+	<br>
+	카일라의 도움: <span class="green">+10%</span>
+	<<set $pumpkin_win_chance += 10>>
+<<elseif C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "kylar">>
+	<br>
+	카일라가 당신에게 잘 보이고 싶어 한다: <span class="red">-1000%</span>
+	<<set $pumpkin_win_chance -= 1000>>
+<</if>>
+<br>
+종합: <<print Math.trunc($pumpkin_win_chance)>>%
+<br><br>
+
+<<link [[다음|Park Pumpkin Competition 3]]>><</link>>
+<br>
+
+:: Park Pumpkin Competition 3
+<<effects>>
+
+"시간 종료!" 당신은 몸을 뒤로 젖히고 자신의 작품과 다른 사람들의 작품을 살펴본다.
+<<pumpkin_prop>>
+<<if C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "kylar">>
+	<<person3>>
+	<<if $pumpkin_win_chance gte 100>>
+		<<if $pumpkin_carving_knowledge.includes("scriptorium")>>
+			언뜻 보기에 당신의 잭오랜턴은 꽤 잘 만든 축에 들고, 필사실에서 한 조사 덕분에 독특하고 남다른 섬뜩함이 깃들어 있다.
+		<<else>>
+			언뜻 보기에 당신의 잭오랜턴은 꽤 잘 만든 축에 든다.
+		<</if>>
+	<<else>>
+		전시된 잭오랜턴 중에는 더 잘 만든 것들이 있다. 심사위원이 당신 것에서 개성을 찾아 줄지도 모른다.
+	<</if>>
+	<br><br>
+
+	카일라는 호박 위로 몸을 웅크린 채 꼼짝도 하지 않아서, <<he>>【이가】 잠든 것처럼 보인다.
+	<br><br>
+
+	<<person1>><<person>>【이가】 탁자를 따라 걸으며 잭오랜턴 하나하나 앞에서 잠시 멈춰 선다. <<He>>【은는】 당신 것 앞에 이르러 턱을 쓰다듬지만, 카일라에게 정신이 팔린다.
+	<br><br>
+	
+	<<link [[다음|Park Pumpkin Competition Kylar]]>><</link>>
+	<br>
+<<elseif $pumpkin_win_chance gte random(1, 100)>>
+	<<if $pumpkin_win_chance gte 100>>
+		<<if $pumpkin_carving_knowledge.includes("scriptorium")>>
+			언뜻 보기에 당신의 잭오랜턴은 꽤 잘 만든 축에 들고, 필사실에서 한 조사 덕분에 독특하고 남다른 섬뜩함이 깃들어 있다.
+		<<else>>
+			언뜻 보기에 당신의 잭오랜턴은 꽤 잘 만든 축에 든다.
+		<</if>>
+	<<elseif $pumpkin_win_chance gte 50>>
+		당신 것은 꽤 괜찮아 보인다. 둘러본 다른 잭오랜턴 중 가장 잘 만든 것들과 견줄 만하다.
+	<<else>>
+		뜻밖에도 당신 것이 꽤 괜찮아 보인다. 가장자리가 조금 거칠긴 해도 개성이 있다. 더 잘 만든 잭오랜턴들이 있지만, 서로 너무 닮았다.
+	<</if>>
+
+	<<if C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "win">>
+		"내가 본 호박 중에 제일 예뻐." 카일라가 경외심 가득한 눈으로 말한다. "넌 분명 우승할 거야."
+	<</if>>
+	<br><br>
+	<<person1>><<person>>【이가】 탁자를 따라 걸으며 잭오랜턴 하나하나 앞에서 잠시 멈춰 선다. <<He>>【은는】 당신 것 앞에 이르러 턱을 쓰다듬는다.
+	<<if $pumpkin_carving_knowledge.includes("scriptorium")>>
+		"왜 순무가 떠오르는 걸까?" <<he>>【이가】 쓴웃음을 지으며 말한다.
+	<<elseif $pumpkin_carving_knowledge.includes("library")>>
+		"이론서를 읽은 사람이 있다니 반갑네." <<he>>【이가】 말하고는 다음 작품으로 넘어간다.
+	<<else>>
+		"나쁘지 않아, 나쁘지 않네." <<he>>【이가】 말하고는 다음 작품으로 넘어간다.
+	<</if>>
+	<br><br>
+	<<link [[다음|Park Pumpkin Competition Won]]>><</link>>
+	<br>
+<<elseif C.npc.Kylar.state isnot "prison" and $halloween_pumpkin_kylar is "win">>
+	전시된 잭오랜턴 중에는 더 잘 만든 것들이 있다. 사람들이 당신 것에서 개성을 찾아 줄지도 모른다. 카일라의 것도 비슷하지만, 얼굴 모양이 조금 더 삐뚤빼뚤하다.
+	<br><br>
+	심사위원이 탁자를 따라 걸으며 잭오랜턴 하나하나 앞에서 잠시 멈춰 선다. <<person1>><<He>>【은는】 당신 것을 살펴보고는 별다른 반응 없이 지나간다.
+	<br><br>
+
+	<<link [[다음|Park Pumpkin Competition Loss Kylar]]>><</link>>
+	<br>
+<<else>>
+	전시된 잭오랜턴 중에는 더 잘 만든 것들이 있다. 사람들이 당신 것에서 개성을 찾아 줄지도 모른다.
+	<br><br>
+	심사위원이 탁자를 따라 걸으며 잭오랜턴 하나하나 앞에서 잠시 멈춰 선다. <<person1>><<He>>【은는】 당신 것을 살펴보고는 별다른 반응 없이 계속 걸어간다.
+	<br><br>
+
+	<<link [[다음|Park Pumpkin Competition Loss]]>><</link>>
+	<br>
+<</if>>
+<<pumpkin_prop>>
+
+:: Park Pumpkin Competition Won
+<<effects>>
+<<person1>>
+<<earnFeat "Pumpkin Master">>
+<<pumpkin_prop>>
+<<set $halloween_pumpkin_competition to "won">>
+심사위원이 탁자 끝에 이르러 몸을 돌려 왔던 길로 되돌아온다. <<He>>【은는】 당신의 잭오랜턴을 집어 머리 위로 번쩍 들어 올린다. <span class="green">"우승자가 나왔습니다!"</span><<ggcontrol>><<lltrauma>><<llstress>><<control 25>><<trauma -12>><<stress -12>><<famebusiness 30>>
+<br><br>
+
+커다란 환호가 일고 박수가 뒤따르지만, 다른 참가자 몇몇이 질투 어린 눈길을 던지는 것이 보인다. <<person>>【이가】 당신을 앞으로 불러 사진을 찍게 하고, 상품을 건네주는 모습을 보여 준다.
+<br><br>
+
+<span class="gold">당신은 <<moneyGain 1000>>【을를】 벌었다.</span>
+<br><br>
+
+사람들이 당신 주위로 모여든다.
+<br><br>
+"당신의 호박 정말 멋져요."
+<br>
+"비결이 뭐예요?"
+<br>
+"무슨 요령이라도 있나요? 제 건 짓이겨진 감자 같은데."
+<br><br>
+사람들에게 뭐라고 말할까?
+<br><br>
+
+<<link [[내숭을 떨며 비밀을 숨긴다|Park Pumpkin Competition Coy]]>><</link>>
+<br>
+<<link [[연습이 전부라고 말한다|Park Pumpkin Competition Practise]]>><</link>>
+<br>
+<<if $pumpkin_carving_knowledge.includes("library")>>
+	<<link [[그 주제에 관한 독서가 중요하다고 말한다|Park Pumpkin Competition Library]]>><</link>>
+	<br>
+<</if>>
+<<if $pumpkin_carving_knowledge.includes("scriptorium")>>
+	<<link [[역사를 아는 것이 중요하다고 말한다|Park Pumpkin Competition Scriptorium]]>><</link>>
+	<br>
+<</if>>
+
+
+
+:: Park Pumpkin Competition Coy
+<<effects>>
+<<pumpkin_prop>>
+당신은 아무것도 알려 주지 않는다. 사람들은 한동안 당신을 졸라 대지만, 결국 침묵을 존중해 준다. 사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Practise
+<<effects>>
+<<pumpkin_prop>>
+당신은 연습이 비결이라고 말한다. 사람들은 고개를 끄덕이지만, 별다른 요령이 없다는 데 실망한 기색도 보인다. 사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Library
+<<effects>>
+<<pumpkin_prop>>
+당신은 이 주제에 관한 지혜는 책에서 구하라고 말하고, 호박 조각 요령을 학교 도서관에서 얻었다고 밝힌다. 만족하는 사람들도 있지만, 책 읽기에는 영 관심 없어 보이는 사람들도 있다. 사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Scriptorium
+<<effects>>
+<<pumpkin_prop>>
+당신은 사물의 기원과 발전 과정을 아는 것이 도움이 된다고 말한다. 만족하는 사람들도 있지만, 무슨 뜻인지 어리둥절해하는 사람들도 있다. 사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Kylar
+<<effects>>
+<<pumpkin_prop>>
+<<set $halloween_pumpkin_competition to "kylar">>
+"이러지 마." <<person1>><<person>>【이가】 재미있다는 듯 말한다. "그렇게 나쁠 리 없잖아. 부끄러우면 나한테만 살짝 보여 줘. 다른 사람은 안 봐도 돼. 내가 못 보면 우승도 못 해."
+<br><br>
+
+카일라는 내키지 않는 듯 <<person1>><<person>>【이가】 슬쩍 볼 수 있을 만큼만 몸을 비킨다. <<He>>【은는】 고개를 끄덕이고는 다음 작품으로 넘어간다.
+<br><br>
+
+<<link [[다음|Park Pumpkin Competition Kylar 2]]>><</link>>
+<br>
+
+
+:: Park Pumpkin Competition Kylar 2
+<<effects>>
+<<pumpkin_prop>>
+심사위원이 탁자 끝에 이르러 몸을 돌려 왔던 길로 되돌아온다. <span class="blue"><<He>>【은는】 당신 앞에 이르기 전에 멈춰 선다.</span> <<He>>【이가】 양팔을 뻗어 눈이 휘둥그레진 카일라를 <<person3>><<his>> 잭오랜턴에서 번쩍 떼어 들어 올린다.
+<br><br>
+
+카일라의 작품을 본 군중이 일제히 조용해진다. 틀림없다. 호박은 당신의 얼굴을 본떠 조각되어 있다. 당신은 얼굴이 달아오른다.<<gstress>><<stress 6>>
+<br><br>
+
+"우승자입니다." <<person1>><<person>>【이가】 발표한다. <<He>>【은는】 카일라를 공중에 든 채로 있을까 잠시 생각하는 듯하더니, 그만두고 <<person3>><<him>>【을를】 <<his>> 작품 옆에 내려놓는다.
+<br><br>
+
+<<link [[다음|Park Pumpkin Competition Kylar 3]]>><</link>>
+<br>
+
+
+:: Park Pumpkin Competition Kylar 3
+<<effects>><<run statusCheck("Kylar")>>
+<<earnFeat "Pumpkin Master">>
+<<pumpkin_prop>>
+"그럼 이쪽은 뭘까요?" <<person1>><<person>>【이가】 계속해서 말하며 당신 옆으로 다가선다. "이런, 우승자의 뮤즈로군요." 군중 사이에서 웅성거림이 인다.
+<<if _kylarStatus.includes("Love")>>
+	카일라가 탁자를 넘어가 마이크를 낚아챈다. "맞아요!" <<person3>><<he>>【이가】 말하고는 다시 탁자를 넘어와 당신의 팔을 붙잡는다. "내 <<girlfriend>>예요."
+	<br><br>
+	관객 대부분은 그저 귀엽게 보는 듯하지만, 당신 또래들은 수군거리며 비웃는다.<<llcool>><<ggstress>><<status -3>><<stress 12>>
+	<br><br>
+	<<person1>><<person>>【이가】 마이크를 도로 낚아채 침착함을 되찾고는, 사진기자들에게 다가오라고 손짓한다. <<He>>【은는】 카일라에게 상금을 건네는 모습을 연출하고, 카일라는 그것을 당신에게 건네는 모습을 연출한다.
+	<br><br>
+
+	<span class="gold">당신은 <<moneyGain 1000>>【을를】 벌었다.</span>
+	<br><br>
+
+	<<link [[다음|Park Pumpkin Competition Kylar High]]>><</link>>
+	<br>
+<<else>>
+	카일라가 다시 팔에 얼굴을 파묻지만, 당신은 <<person3>><<his>> 입가의 미소를 얼핏 본다.
+	<br><br>
+
+	<<person1>><<person>>【이가】 사진기자들에게 다가오라고 손짓한다. <<He>>【은는】 카일라를 잠시 바라보다가, 상금을 당신에게 건네기로 한다. <<He>>【은는】 그 장면을 사진에 담고 싶어 한다.
+	<br><br>
+
+	<span class="gold">당신은 <<moneyGain 1000>>【을를】 벌었다.</span>
+	<br><br>
+
+	<<link [[다음|Park Pumpkin Competition Kylar Low]]>><</link>>
+	<br>
+<</if>>
+
+
+
+:: Park Pumpkin Competition Kylar High
+<<effects>>
+<<pumpkin_prop>>
+사람들이 당신과 카일라 주위로 몰려들어 <<person3>><<his>> 비결이 뭔지 알고 싶어 한다. <<He>>【은는】 당신을 향한 사랑 덕분이라고 신나서 말한다. 사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어지자, <<he>>【은는】 당신을 돌아본다.
+<br><br>
+
+"나, 인상 깊었어?"
+<br><br>
+
+<<link [[그렇다고 말한다|Park Pumpkin Competition Yes]]>><<npcincr Kylar love 1>><</link>><<glove>>
+<br>
+<<link [[아니라고 말한다|Park Pumpkin Competition No]]>><<npcincr Kylar love -1>><<npcincr Kylar rage 1>><</link>><<llove>><<gksuspicion>>
+<br>
+<<link [[아무 말도 하지 않는다|Park Pumpkin Competition Nothing]]>><<npcincr Kylar rage 1>><</link>><<gksuspicion>>
+<br>
+
+
+:: Park Pumpkin Competition Yes
+<<effects>>
+<<pumpkin_prop>>
+당신의 입에서 말이 채 떨어지기도 전에 카일라의 팔다리에 흥분이 번진다. <<He>>【은는】 공원을 가로질러 달리며 마주치는 모두에게 <<his>> <<girlfriend>>【이가】 얼마나 자신을 사랑하는지 떠들어 댄다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition No
+<<effects>>
+<<pumpkin_prop>>
+<<He>>【이가】 웃음을 터뜨린다. 대회와 상관없는 사람들까지 돌아볼 만큼 큰 소리다. "넌 농담도 참 잘해." <<He>>【은는】 온몸을 떨며 걸어간다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Nothing
+<<effects>>
+<<pumpkin_prop>>
+당신은 아무 말도 하지 않는다. "그렇겠지." 카일라는 대답이 돌아오지 않는다는 것을 깨닫고 말한다. <<His>> 목소리가 떨리고, <<he>>【은는】 말을 잇지 못한다. <<He>>【은는】 온몸을 떨며 걸어간다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Kylar Low
+<<effects>>
+<<pumpkin_prop>>
+사람들이 카일라 주위로 몰려들어 <<person3>><<his>> 비결이 뭔지 알고 싶어 한다. <<He>>【은는】 쏟아지는 관심에 움츠러들더니 첫 기회를 틈타 슬그머니 빠져나간다.
+<br><br>
+
+사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Competition Loss Kylar
+<<effects>><<run statusCheck("Kylar")>>
+<<person1>>
+<<pumpkin_prop>>
+<<set $halloween_pumpkin_competition to "loss">>
+심사위원이 탁자 끝에 이르러 몸을 돌려 왔던 길로 되돌아온다. <span class="red"><<He>>【은는】 당신의 잭오랜턴을 그냥 지나쳐,</span> <<person2>><<person>>【이가】 만든 것을 집어 든다.
+<br><br>
+
+카일라는 <<person2>><<person>>【이가】 상금을 받으러 나서는 것을 지켜본다. <<person1>><<person>>【은는】 직접 상금을 건네는 모습을 연출하고 싶은 모양이다.
+<<person3>>
+<<if _kylarStatus.includes("Love")>>
+	"조작이야." <<he>>【이가】 말한다. "다들 너한테 불리하게 조작한 거야." 그러더니 순식간에
+<<else>>
+	그러더니 순식간에
+<</if>>
+<<he>>【이가】 일어나 <<his>> 잭오랜턴에서 파낸 속을 한 줌 쥐고 <<person2>><<person>>【을를】 향해 내던진다.
+<br><br>
+
+사진기자들이 신이 났다. 우승자는 그렇지 못하다. <<He>>【와과】 <<person1>><<person>>【이가】 범인을 찾아 휙 돌아보지만, 카일라는 이미 덤불 속으로 사라지고 없다.
+<br><br>
+
+사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+
+
+:: Park Pumpkin Competition Loss
+<<effects>>
+<<person1>>
+<<pumpkin_prop>>
+<<set $halloween_pumpkin_competition to "loss">>
+심사위원이 탁자 끝에 이르러 몸을 돌려 왔던 길로 되돌아온다. <span class="red"><<He>>【은는】 당신의 잭오랜턴을 그냥 지나쳐,</span> <<person2>><<person>>【이가】 만든 것을 집어 든다.
+<br><br>
+
+환호가 터지지만, 다른 참가자들은 실망한 표정이고 심지어 질투하는 이들도 있다. <<person1>><<person>>【은는】 우승자와 함께 사진을 찍고 싶어 안달인 듯, <<person2>><<him>>에게 상금을 건네는 모습을 연출한다.
+<br><br>
+
+사람들이 어질러진 자리를 치우고 칼이 하나도 빠짐없이 있는지 확인하러 오면서 군중이 흩어진다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><<unset $pumpkin_win_chance>><</link>>
+<br>
+
+:: Park Pumpkin Kylar
+<<effects>><<run statusCheck("Kylar")>>
+
+당신은 카일라에게 손짓한다.
+<<npc Kylar>><<person1>>
+<<if _kylarStatus.includes("Love")>>
+	<<He>>【은는】 군중에 대한 걱정 따위는 잊었거나 무시한 채 곧바로 달려온다. "무슨 일이야, 내 사랑?"
+<<else>>
+	<<He>>【은는】 주위 사람들을 겁먹은 눈으로 힐끔거리며 슬금슬금 다가와 당신 앞에 선다. <<He>>【은는】 당신이 말하기를 기다린다.
+<</if>>
+<br><br>
+
+<<link [[호박 조각 대회에서 우승하고 싶다고 말한다|Park Pumpkin Kylar Win]]>><<set $halloween_pumpkin_kylar to "win">><</link>>
+<br>
+<<link [[카일라가 이기면 감탄하겠다고 말한다|Park Pumpkin Kylar Kylar Win]]>><<set $halloween_pumpkin_kylar to "kylar">><</link>>
+<br>
+<<link [[그냥 인사한다|Park Pumpkin Kylar Hi]]>><</link>>
+<br>
+
+:: Park Pumpkin Kylar Hi
+<<effects>><<run statusCheck("Kylar")>>
+
+당신은 카일라에게 인사한다.
+<<if _kylarStatus.includes("Love")>>
+	<<He>>【은는】 당신의 손목을 붙잡아 손을 입가로 끌어당기더니 입맞춤을 퍼붓는다. "안녕." <<he>>【이가】 말하고는 달아난다.
+<<else>>
+	<<He>>【은는】 발끝을 내려다보며 얼굴을 붉히고는 달아난다.
+<</if>>
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+:: Park Pumpkin Kylar Win
+<<effects>><<run statusCheck("Kylar")>>
+
+<<if _kylarStatus.includes("Love")>>
+	카일라가 당신에게 고개를 끄덕인다. "넌 이길 거야. 난 알아." <<His>> 얼굴이 어떤 생각에 환해진다. "호박 필요해? 내가 구해다 줄 수 있어."
+	<br><br>
+	<<link [[호박을 달라고 한다 (0:03)|Park Pumpkin Kylar Need]]>><<pass 3>><<tending_give "pumpkin" 5>><</link>>
+	<br>
+	<<link [[아니라고 말한다|Park Pumpkin Kylar No]]>><</link>>
+	<br>
+<<else>>
+	카일라가 당신에게 고개를 끄덕인다. <<He>>【은는】 무슨 말을 하고 싶은 듯하지만, 입을 다문 채 가만히 있다.
+	<br><br>
+
+	<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+
+:: Park Pumpkin Kylar Need
+<<effects>>
+<<wearProp "pumpkin basket">>
+당신이 말하자 카일라는 나뭇가지 몇 개를 꺾으며 덤불 속으로 사라진다. <<He>>【은는】 오래 걸리지 않는다. <<He>>【은는】 호박을 한 아름 안고 돌아와 당신의 발치에 내려놓는다.
+<br><br>
+
+<<link [[<<him>>에게 고맙다고 말한다|Park Pumpkin Kylar Thank]]>><<npcincr Kylar love 1>><</link>><<glove>>
+<br>
+<<link [[<<him>>【을를】 칭찬한다|Park Pumpkin Kylar Praise]]>><<npcincr Kylar love 1>><</link>><<glove>>
+<br>
+<<link [[<<he>>【이가】 어떻게 구했는지 <<him>>에게 묻는다|Park Pumpkin Kylar Got]]>><</link>>
+<br>
+<<link [[말없이 받아 들고 걸어 나간다|Park Pumpkin Kylar Silent]]>><<npcincr Kylar rage 1>><</link>><<gksuspicion>>
+<br>
+
+
+:: Park Pumpkin Kylar Got
+<<effects>>
+
+카일라가 왔던 쪽을 흘끗 돌아보고는, 잠시 뜸을 들이다 대답한다.
+
+<<if $famescrap gte 400>>
+	"누구 하나 때려눕히고 가져왔어." <<he>>【이가】 당신의 눈을 살피며 말한다. "나쁜 사람이야." <<He>>【은는】 당신이 더 캐묻기 전에 달아난다.
+<<else>>
+	"찾았어." <<he>>【이가】 눈을 피하며 말한다. <<He>>【은는】 당신이 더 캐묻기 전에 달아난다.
+<</if>>
+<br><br>
+
+당신은 호박 다섯 개를 얻었다.<<wearProp "pumpkin">>
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+:: Park Pumpkin Kylar Thank
+<<effects>>
+
+당신이 카일라에게 고마움을 전한다. <<He>>【은는】 힘차게 고개를 끄덕인다. "널 위해서라면 뭐든지."
+<br><br>
+
+넘치는 흥분을 주체하지 못하는 듯 <<he>>【은는】 부리나케 달려가 버리고, 당신은 호박들과 함께 남겨진다.
+<br><br>
+
+당신은 호박 다섯 개를 얻었다.<<wearProp "pumpkin">>
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+:: Park Pumpkin Kylar Praise
+<<effects>>
+
+당신이 카일라를 칭찬하며 <<his>> 머리를 쓰다듬는다. <<He>>【은는】 흥분에 몸을 떨더니 부리나케 달려간다.
+<br><br>
+
+당신은 호박 다섯 개를 얻었다.<<wearProp "pumpkin">>
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+:: Park Pumpkin Kylar Silent
+<<effects>>
+
+당신은 호박을 들고 자리를 뜨며, 카일라를 어리둥절하게 내버려 둔다.
+<br><br>
+
+당신은 호박 다섯 개를 얻었다.<<wearProp "pumpkin">>
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+:: Park Pumpkin Kylar No
+<<effects>>
+
+카일라가 고개를 끄덕이고는 덤불 속으로 슬그머니 사라진다.
+<br><br>
+
+<<link [[다음|Park Pumpkin]]>><<endevent>><</link>>
+<br>
+
+
+
+:: Park Pumpkin Kylar Kylar Win
+<<effects>>
+
+카일라가 당신을 바라본다. 눈에 강철 같은 결의가 불타오른다. 그러더니 가장 가까운 의자로 달려가 호박을 찾아 주위를 둘러본다.
+<br><br>
+<<generate2>><<person2>>
+"호박은 직접 가져오셔야 해요." 한 <<person>>【이가】 말한다.
+<br><br>
+카일라는 <<him>>【을를】 노려보고, 눈을 부릅뜬 채 주위를 둘러보다가 덤불 속으로 사라진다.
+<br><br>
+
+<<person1>><<He>>【은는】 잠시 뒤 호박 한 꾸러미를 팔에 안고 돌아온다. <<He>>【은는】 자리에 앉아 칼로 호박을 다듬기 시작한다.
+<br><br>
+
+<<link [[<<him>>에게 나눠 달라고 부탁한다|Park Pumpkin Kylar Ask]]>><</link>>
+<br>
+<<link [[<<him>>【을를】 내버려 둔다|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+:: Park Pumpkin Kylar Ask
+<<effects>>
+
+카일라가 열렬히 고개를 끄덕이더니 호박을 전부 당신에게 주고는 더 구하러 사라진다.
+<br><br>
+<<wearProp "pumpkin basket">>
+당신은 호박 다섯 개를 얻었다.<<tending_give "pumpkin" 5>>
+<br><br>
+<<He>>【은는】 이번에도 채소를 한가득 안고 돌아와 자리에 앉아 칼로 다듬기 시작한다.
+<br><br>
+
+<<link [[다음|Park]]>><<endevent>><<set $eventskip to 1>><</link>>
+<br>
+
+
+

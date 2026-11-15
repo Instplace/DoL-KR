@@ -693,7 +693,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"베, 베일리는 제 <<nnpc_mother "Bailey">>【이가】 아니에요." 당신이 말한다.
+	"베-베일리는 제 <<nnpc_mother "Bailey">>【이가】 아니에요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"그 개자식은 내 <<nnpc_mother "Bailey">>【이가】 아니야." 당신이 말한다.
 <<else>>
@@ -701,7 +701,7 @@
 <</if>>
 <br><br>
 
-"뭐 어쨌든," <<veteran_guard 0>>【이가】 말한다. "시키는 대로만 해." <<He>>【은는】 당신을 다른 문으로 밀어 넣는다.
+"뭐 어쨌든." <<veteran_guard 0>>【이가】 말한다. "시키는 대로만 해." <<He>>【은는】 당신을 다른 문으로 밀어 넣는다.
 <br><br>
 
 <<link [[다음|Prison Pimp Start]]>><</link>>
@@ -916,7 +916,7 @@
 <</if>>
 <br><br>
 
-당신은 구불구불한 계단을 올라 교도소 수감동으로 돌아간다. <<veteran_guard 0 cap>>【은는】 <<him>> 뒤로 문을 잠근다.
+당신은 구불구불한 계단을 올라 감옥 수감동으로 돌아간다. <<veteran_guard 0 cap>>【은는】 <<him>> 뒤로 문을 잠근다.
 
 <<prison_unbind>>
 <br><br>
@@ -952,7 +952,7 @@
 "손님들이 불만족스러워하더군." <<he>>【이가】 말한다. "축 늘어진 생선이랑 섹스하려고 돈을 내진 않았지. 움직여."
 <br><br>
 <<clotheson>>
-당신은 구불구불한 계단을 올라 교도소 수감동으로 돌아간다. <<veteran_guard 0 cap>>【은는】 <<him>> 뒤로 문을 잠근다.
+당신은 구불구불한 계단을 올라 감옥 수감동으로 돌아간다. <<veteran_guard 0 cap>>【은는】 <<him>> 뒤로 문을 잠근다.
 
 <<prison_unbind>>
 <br><br>

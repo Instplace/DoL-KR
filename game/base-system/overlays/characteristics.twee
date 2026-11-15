@@ -31,7 +31,7 @@
 				젖소
 			<</if>>
 		<<elseif $harpy gte 6>>
-			<<if $hallucinations gte 2 or !$settings.bestialityEnabled>>
+			<<if resolveIfNamedBeastIsMonster("greathawk")>>
 				하피
 			<<else>>
 				새
@@ -218,9 +218,17 @@
 	<</if>>
 
 	<!--Semen Details-->
-	<<if $player.penisExist and $player.penissize gte 1>>
+	<<if $player.penisExist and $player.penissize gte 0>>
 		<<set _semenCapacityTextConfig = { currentValue : $semen_volume, preText: '당신은 ', states : [
-{ requiredValue: 0, color: '', description: '정액을', postText: ' 생산하지 않는다.' },{ requiredValue: 1, color: 'red', description: '아주 적은', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 100, color: 'pink', description: '적은', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 300, color: 'purple', description: '적당한', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 500, color: 'blue', description: '꽤 많은', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 1000, color: 'lblue', description: '많은', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 1500, color: 'teal', description: '엄청난', postText: ' 양의 정액을 생산하며, ' },{ requiredValue: 2000, color: 'green', description: '경이로운', postText: ' 양의 정액을 생산하며, ' }			]
+				{ requiredValue: 0,		color: '',			description: '',				postText: '정액을 생산하지 않는다.' },
+				{ requiredValue: 1,		color: 'red',		description: '아주 적은',			postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 100,	color: 'pink',		description: '적은',			postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 300,	color: 'purple',	description: '적당한',		postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 500,	color: 'blue',		description: '꽤 많은',		postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 1000,	color: 'lblue',		description: '많은',			postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 1500,	color: 'teal',		description: '엄청난',			postText: ' 양의 정액을 생산하며, ' },
+				{ requiredValue: 2000,	color: 'green',		description: '경이로운',	postText: ' 양의 정액을 생산하며, ' }
+			]
 		}>>
 		<<set _semenVolumeTextConfig = { currentValue : $semen_amount, states : [
 { requiredValue: 0, color: 'red', preText: "", description: "완전히 짜내 말랐습니다."},{ requiredValue: 1, color: 'pink', preText: "현재는 ", description: '거의 텅 비었습니다. '},{ requiredValue: ($semen_volume / 7) * 2, color: 'pink', preText: "현재는 ", description: '거의 바닥났습니다. '},{ requiredValue: ($semen_volume / 7) * 3, color: 'purple', preText: "현재는 ", description: '얼마 남지 않았습니다. '},{ requiredValue: ($semen_volume / 7) * 4, color: 'blue', preText: "현재는 ", description: '절반쯤 남아 있습니다. '},{ requiredValue: ($semen_volume / 7) * 5, color: 'lblue', preText: "현재는 ", description: '넉넉히 남아 있습니다. '},{ requiredValue: ($semen_volume / 7) * 6, color: 'teal', preText: "현재는 ", description: '거의 가득 차 있습니다. '},{ requiredValue: $semen_volume, color: 'green', preText: "현재는 ", description: '터질듯 가득 차 있습니다. '}			]
@@ -285,7 +293,7 @@
 
 	<br><br>
 	<<bodywriting>>
-	<div id="characteristics-display">
+	<div class="characteristics-display">
 
 		<br>
 		<span class="gold">핵심 특성</span>
@@ -800,6 +808,7 @@
 				<<set _netConfig =			{ name : "그물",		displayType : "grade",	currentValue : $prof.net,		modifier: 100, modTypes: { good: [], bad: [] },		states : _basicSkillGrades}>>
 				<<set _batonConfig =		{ name : "봉",		displayType : "grade",	currentValue : $prof.baton,		modifier: 100, modTypes: { good: [], bad: [] },		states : _basicSkillGrades}>>
 				<<set _whipConfig =			{ name : "채찍",		displayType : "grade",	currentValue : $prof.whip,		modifier: 100, modTypes: { good: [], bad: [] },		states : _basicSkillGrades}>>
+				<<set _pickaxeConfig =		{ name : "곡괭이",	displayType : "grade",	currentValue : $prof.pickaxe,	modifier: 100, modTypes: { good: [], bad: [] },		states : _basicSkillGrades}>>
 				<<set _hiddenConfig =		{ name : "<i>????</i>",	displayType : "grade",	currentValue : 0,				modifier: 100, modTypes: { good: [], bad: [] },		states : _basicSkillGrades}>>
 			<</silently>>
 			<<characteristic-box _sprayConfig>>
@@ -818,12 +827,11 @@
 			<<else>>
 				<<characteristic-box _hiddenConfig>>
 			<</if>>
-			/*
 			<<if $prof.pickaxe isnot undefined>>
 				<<characteristic-box _pickaxeConfig>>
 			<<else>>
 				<<characteristic-box _hiddenConfig>>
-			<</if>>*/
+			<</if>>
 		</div>
 	</div>
 

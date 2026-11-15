@@ -1029,11 +1029,11 @@
 	<<flaunting>> 당신은 <<undies>>【으로로】 장난치며, 살갗을 조금 더 드러낸다.<<exhibitionism3>>
 
 	<<if $speech_attitude is "meek">>
-		"자, <<group>>," 당신은 속삭인다. "이-이거 귀엽지 않아? 한 푼도 아깝지 않을 거라고 약속할게..."
+		"자, <<group>>." 당신은 속삭인다. "이-이거 귀엽지 않아? 한 푼도 아깝지 않을 거라고 약속할게..."
 	<<elseif $speech_attitude is "bratty">>
 		"휘트니 친구들이 이렇게 지독하게 쌀 줄은 몰랐네." 당신은 비웃는다. "자, <<group>>. 이 귀여운 물건은 적당한 가격에 너희들 것이 될 수 있어."
 	<<else>>
-		"자, <<group>>," 당신은 속삭인다. "보이는 게 마음에 들지 않아? 한 푼도 아깝지 않을 거야."
+		"자, <<group>>." 당신은 속삭인다. "보이는 게 마음에 들지 않아? 한 푼도 아깝지 않을 거야."
 	<</if>>
 	<br><br>
 	휘트니의 친구들은 광분한다. 한 <<person3>><<person>>【은는】 떨리는 손으로 구겨진 지폐 뭉치를 들어 올린다. "£26!" <<he>>【은는】 더듬거린다.
@@ -1072,7 +1072,7 @@
 <</if>>
 <br><br>
 <<set _genderUnknown to isHermOrCrossdresser() and !$genderknown.includes("Whitney")>>
-<<if _genderUnknown and !playerChastity("hidden")>>
+<<if _genderUnknown and !playerChastity("hidden") and $settings.nudeGenderPerception !== 0>>
 	<<set $genderknown.pushUnique("Whitney")>><<set _whitneyGenderUnknown is true>>
 	<<if $player.penisExist and $player.vaginaExist>>
 		"둘 다 있다고?" 휘트니가 믿을 수 없다는 듯 말한다. "그게 어떻게 가능해?<<if $schoolrep.herm gte 3>> 내 말은, 소문은 들어봤지만...<</if>>"
@@ -1110,11 +1110,11 @@
 	<br><br>
 	<<if $whitneypantiescheck gte 1>>
 		<<if $speech_attitude is "meek">>
-			"하, 하지만," 당신은 말을 더듬는다, "네가 입지 말라고..."
+			"하-하지만," 당신은 말을 더듬는다, "네가 입지 말라고..."
 		<<elseif $speech_attitude is "bratty">>
 			"뭘 기대한 건데?" 당신은 반박한다. "네가 입지 말라고 했잖아!"
 		<<else>>
-			"뭐, 그래," 당신은 말한다. "네가 입으면 안 된다고 했잖아."
+			"뭐, 그래." 당신은 말한다. "네가 입으면 안 된다고 했잖아."
 		<</if>>
 		<br><br>
 		휘트니가 <<his>> 눈을 굴린다. "그래, 그래, 규칙 잘 지켜서 좋겠네." <<He>>【이가】 당신을 바닥으로 밀친다. "그렇다고 네가 줏대 없는 암캐라는 사실이 변하는 건 아니지만. 이제 아래층으로 꺼져. 지금은 너한테 볼일 끝났으니까."

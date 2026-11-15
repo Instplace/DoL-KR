@@ -574,7 +574,7 @@
 		<<set _warmClothes to "마른 옷">>
 	<<elseif !_bottom>>
 		<<set _warmClothes to "바지">>
-	<<elseif $debug is 1 and $worn.over_upper.name is "naked" and $rng gte 46>>
+	<<elseif $debug and $worn.over_upper.name is "naked" and $rng gte 46>>
 		<<set _warmClothes to "재킷">>
 	<<elseif $worn.upper.warmth lt 6>>
 		<<set _warmClothes to _shirtless ? "셔츠" : "더 따뜻한 옷">>
@@ -584,7 +584,7 @@
 		<<set _warmClothes to "모자">>
 	<</if>>
 
-	<<if $debug is 1 and $worn.over_upper.name is "naked" and $rng gt 100>>
+	<<if $debug and $worn.over_upper.name is "naked" and $rng gt 100>>
 		/* outerwearToDo: Give players a jacket that's suitably warm. Not the froggy coat. Rng to allow for the possibility that they'll get another article of clothing instead -- rng should normally be gte 45, I just wanted to make this impossible to get. */
 		<<set $_slot to "over_upper">>
 		<<set $_jacket to ["froggy coat"]>>
@@ -638,7 +638,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 
 :: Passout Hypothermia Molest
 <<if $molestationstart is 1>>
-	눈을 뜨자 <<generate1>><<person1>><<person>> 한 명이 당신 위에 올라타 있다. "이봐, 자기," <<he>>【이가】 속삭인다. "엄청 떨고 있길래, 몸 좀 데워주려고. 체온을 올릴 좋은 방법이 있거든..." <<He>>【은는】 당신을 음흉하게 내려다보며, 당신의 몸에 외설적으로 몸을 비벼댄다.
+	눈을 뜨자 <<generate1>><<person1>><<person>> 한 명이 당신 위에 올라타 있다. "이봐, 자기." <<he>>【이가】 속삭인다. "엄청 떨고 있길래, 몸 좀 데워주려고. 체온을 올릴 좋은 방법이 있거든..." <<He>>【은는】 당신을 음흉하게 내려다보며, 당신의 몸에 외설적으로 몸을 비벼댄다.
 	<br><br>
 	<<set $molestationstart to 0>>
 	<<controlloss>>
@@ -714,7 +714,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <<outfitChecks>>
 <<set Weather.bodyTemperature-->>
 <<if _fullyNaked>>
-	마지막으로 한 번 잡아당기자, <<person>>【이가】 당신의 마지막 옷을 찢어버린다. <<He>>【은는】 당신의 나체를 위아래로 훑어본다. "좋네," <<he>>【이가】 감탄하며 말한다. <<He>>【은는】 당신의 옷을 팔에 끼고 일어선다. "자, 이제 아주 시원할 거야."
+	마지막으로 한 번 잡아당기자, <<person>>【이가】 당신의 마지막 옷을 찢어버린다. <<He>>【은는】 당신의 나체를 위아래로 훑어본다. "좋네." <<he>>【이가】 감탄하며 말한다. <<He>>【은는】 당신의 옷을 팔에 끼고 일어선다. "자, 이제 아주 시원할 거야."
 	<br><br>
 
 	<<tearful>> 당신은 여전히 몸이 약하고 열이 나는 상태에서 힘겹게 몸을 일으킨다. 당신은 <<him>>에게 <<= $submissive lte 850 ? "불쾌한" : "애원하는">> 눈빛을 보낸다.
@@ -999,11 +999,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br><br>
 
 	레미는 그릇을 내려놓고 <<= $cow gte 2 and $transformationParts.cow.horns isnot "hidden" ? "당신 뿔의 밑동을 문지른다" : "당신 머리를 쓰다듬는다">>. "착한 <<girl>>【이】네. 다음번엔 조심할 거지, 응?"
-	<br><br>
 	<<set Weather.bodyTemperature-->>
-	<<link [[알겠다고 한다|Livestock Passout 2]]>><<set $phase to 0>><<livestock_obey 1>><<transform cow 1>><</link>><<gobey>>
-	<br>
-	<<link [[밀쳐낸다|Livestock Passout 2]]>><<set $phase to 1>><<livestock_obey -1>><<trauma -6>><</link>><<lobey>><<ltrauma>>
 <<else>>
 	"네가 쓰러져서 떨고 있는 걸 발견했어. 걱정 많이 했다고. 하지만 검사해 보니 별문제는 없더군. 그냥 너무 추웠던 것뿐이야." <<He>>【이가】 당신의 머리카락을 쓰다듬는다.
 	<br><br>
@@ -1038,13 +1034,13 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<</if>>
 	<br><br>
 
-	당신이 깨어나자 다른 해적 하나가 제피르 선장을 데려온다. "죽다 살아 돌아왔구먼, 친구. 우리가 발견한 게 천만다행이야. <<print either ("바다에서는 자연도 자비를 베풀지 않는 법이지", "인어들한테는 날것이든 익힌 것이든 상관없다고. 그렇게 혼자 헤엄치다간 큰코다치는 거야")>>."
+	당신이 깨어나자 다른 해적 하나가 제퍼 선장을 데려온다. "죽다 살아 돌아왔구먼, 친구. 우리가 발견한 게 천만다행이야. <<print either ("바다에서는 자연도 자비를 베풀지 않는 법이지", "인어들한테는 날것이든 익힌 것이든 상관없다고. 그렇게 혼자 헤엄치다간 큰코다치는 거야")>>."
 	<br><br>
 
 	<<= !_fullyNaked ? "<<dry_full>>말린 옷을 돌려받고, 수건 한 장" : "수건 한 장">>【이가】 머리 위로 던져진다.<<if $pirate_status gte 50>> 해적 하나가 당신의 머리를 헝클며 물기를 털어준다<<ruffleHair>>.<</if>>
 	<br><br>
 
-	몸이 마르고 다시 두 발로 서자, 제피르 선장이 <<nnpc_his "Zephyr">> 선원들에게 명령한다. "자, 이 개자식들아! 다시 일하러 가!"
+	몸이 마르고 다시 두 발로 서자, 제퍼 선장이 <<nnpc_his "Zephyr">> 선원들에게 명령한다. "자, 이 개자식들아! 다시 일하러 가!"
 	<br><br>
 
 	<<link [[다음|Pirate Cabin]]>><<endevent>><</link>>
@@ -1062,7 +1058,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 
 	"선장님! <<lass>>【이가】 깨어났습니다!" 아래쪽에서 누군가 외치는 소리가 들린다. 몸을 지탱하던 밧줄이 느슨해지며, 돛대를 타고 아래로 미끄러져 내려간다. <<= $feetskill gte 600 ? "발이 땅에 닿는 순간 몸을 가누는가 싶더니, 배가 흔들리는 바람에 결국 바닥에 주저앉는다" : "후들거리는 다리로 바닥에 주저앉는다">>. <<gpain>><<pain 4>>
 	<br><br>
-	<<= $pirate_intro is 1 ? "제피르 선장" : "선장으로 보이는 누군가">>【이가】 다가오자, 널 둘러싸고 있던 해적들이 길을 터준다.
+	<<= $pirate_intro is 1 ? "제퍼 선장" : "선장으로 보이는 누군가">>【이가】 다가오자, 널 둘러싸고 있던 해적들이 길을 터준다.
 	<br><br>
 	<<link [[다음|Pirate Intro]]>><</link>>
 <</if>>
@@ -1298,7 +1294,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 "따뜻한 옷이 필요해 보였어." <<person>>【이가】 설명하듯 말한다. <<He>>【은는】 당신을 아케이드 기계에 기대게 하고, 핫초코 향이 나는 컵을 입술에 가져다준다. 당신은 무의식적으로 한 모금 마신다. 로빈이 떠오른다.<<if $robinmissing isnot 0>><<gtrauma>><<trauma 6>><<else>><<ltrauma>><<trauma -6>><</if>>
 <br><br>
 
-당신은 잠시 그 자리에 머물며 <<person>>【이가】 <<his>> 삶에 대해 이야기하는 것을 듣는다. 잠시 후, <<he>>【이가】 일어선다. "이제 괜찮을 거야, 그래도 몸은 꼭 따뜻하게 해." <<he>>【이가】 말한다. <<He>>【은는】 일어나서 작별 인사를 하고 아케이드를 나선다.
+당신은 잠시 그 자리에 머물며 <<person>>【이가】 <<his>> 삶에 대해 이야기하는 것을 듣는다. 잠시 후, <<he>>【이가】 일어선다. "이제 괜찮을 거야, 그래도 몸은 꼭 따뜻하게 해." <<he>>【이가】 말한다. <<He>>【은는】 일어나서 작별 인사를 하고 오락실을 나선다.
 <br><br>
 
 <<link [[다음|Arcade]]>><<endevent>><</link>>
@@ -1309,7 +1305,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 
 마지막으로 들리는 것은 어떤 <<personssimple>> 목소리다. "잠깐, 저 얼굴 아는데... 사람들이 <<overworld_nickname>>【이】라고 부르지 않나? 병원으로 데려가야겠어." <<He>>【은는】 당신을 안아 올려 차 뒷좌석에 태운다. 차 안은 따뜻했고, 당신은 잠이 들었다.
 <br><br>
-<<link [[일어난다|Hospital Bed]]>><<set $passoutReason to "hypothermia">><</link>>
+<<link [[일어난다|Hospital Bed]]>><<set $passoutReason to "hypothermia">><<endevent>><</link>>
 
 :: Passout Beach Hypothermia Molest
 <<if $molestationstart is 1>>
@@ -1696,9 +1692,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 
 <br><br>
 
-<<link [[키스하기|Passout Bird Hypothermia Thank]]>><<set $phase to 1>><</link>><<kissvirginitywarning>>
+<<link [[키스한다|Passout Bird Hypothermia Thank]]>><<set $phase to 1>><</link>><<kissvirginitywarning>>
 <br>
-<<link [[감사하기|Passout Bird Hypothermia Thank]]>><<set $phase to 0>><</link>>
+<<link [[감사한다|Passout Bird Hypothermia Thank]]>><<set $phase to 0>><</link>>
 
 :: Passout Bird Hypothermia Thank
 <<effects>>
@@ -1711,7 +1707,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek">>
-		"구, 구해줘서 고마워." 당신은 <<bhim>>에게 수줍은 미소를 지으며 말한다.
+		"구-구해줘서 고마워." 당신은 <<bhim>>에게 수줍은 미소를 지으며 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"내 엉덩이를 구해줘서 고맙다, 깃털 대가리야." 당신은 <<bhim>>【을를】 보며 씩 웃는다.
 	<<else>>
@@ -1816,7 +1812,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 		<<person1>><<He>>【이가】 당신의 입술에 병을 기울여, 필사적인 몇 번의 목 넘김으로 전부 마시게 한다.
 	<<else>>
 		<<wearProp "water bottle open">>
-		"자," <<person1>><<he>>【이가】 당신 손에 병을 쥐여주며 말한다. "마셔. 전부 다." 당신은 필사적인 몇 번의 목 넘김으로 전부 마신다.
+		"자." <<person1>><<he>>【이가】 당신 손에 병을 쥐여주며 말한다. "마셔. 전부 다." 당신은 필사적인 몇 번의 목 넘김으로 전부 마신다.
 	<</if>>
 	일부는 목과 가슴을 타고 흘러내린다. 얼음처럼 차갑다.
 	<br><br>
@@ -1828,7 +1824,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br><br>
 
 	<<if C.npc.Whitney.lust gte 60>>
-		"이런," 휘트니가 말한다. "내가 도와줄게." <<He>>【은는】 당신의 <<allTops>>【을를】 벗겨 땅에 떨어뜨린다. 당신은 너무 멍해서 <<him>>【을를】 막지 못한다. <<overupperstrip>><<upperstrip>>
+		"이런." 휘트니가 말한다. "내가 도와줄게." <<He>>【은는】 당신의 <<allTops>>【을를】 벗겨 땅에 떨어뜨린다. 당신은 너무 멍해서 <<him>>【을를】 막지 못한다. <<overupperstrip>><<upperstrip>>
 	<<else>>
 		<<wetUpper>>
 	<</if>>
@@ -1851,7 +1847,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <br>
 <<effects>>
 
-"이 비만으로도 샤워는 충분하지 않나?" 휘트니가 눈썹을 치켜올린다.<<= $whitneyromance is 1 ? '"뇌까지 축축해지기 전에 일어나," <<he>>【이가】 말한다.' : '"언제까지 거기 처박혀 있을 거야? 빨리 나와," <<he>>【이가】 짜증스러운 표정으로 말한다.'>> <<He>>【은는】 당신의 팔을 잡아 분수대 밖으로 끌어낸다.
+"이 비만으로도 샤워는 충분하지 않나?" 휘트니가 눈썹을 치켜올린다.<<= $whitneyromance is 1 ? '"뇌까지 축축해지기 전에 일어나." <<he>>【이가】 말한다.' : '"언제까지 거기 처박혀 있을 거야? 빨리 나와." <<he>>【이가】 짜증스러운 표정으로 말한다.'>> <<He>>【은는】 당신의 팔을 잡아 분수대 밖으로 끌어낸다.
 <br><br>
 <<outfitChecks>>
 <<if _bottomless>>
@@ -1989,18 +1985,18 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br><br>
 	"씨발," 휘트니가 중얼거리는 소리가 들리고, <<his>> 손이 당신의 팔을 더 꽉 움켜쥔다. 당신은 <<his>> 몸이 살짝 떨리는 것을 느끼고 <<he>>【이가】 절정에 달했음을 깨닫는다<<if _orgasm>>. 그 역시 절정하여, 당신의 몸은 한층 더 끈적해졌다<</if>>.<<npcincr Whitney lust -20>><<llust>>
 	<br><br>
-	두 사람 모두 헐떡이며, 쏟아지는 비가 열기를 식혀주기를 기다린다. 팔을 잡은 손의 힘이 풀린다. <<He>>【은는】 당신의 어깨를 밀치며 몸을 뗀다. "아주 잘났어, 네가 한 짓거리 좀 보라고. 이제 씻으러 가야겠잖아. 네 개집으로 돌아가," <<he>>【이가】 말한다. "다른 놈도 맛보고 싶어 하기 전에."
+	두 사람 모두 헐떡이며, 쏟아지는 비가 열기를 식혀주기를 기다린다. 팔을 잡은 손의 힘이 풀린다. <<He>>【은는】 당신의 어깨를 밀치며 몸을 뗀다. "아주 잘났어, 네가 한 짓거리 좀 보라고. 이제 씻으러 가야겠잖아. 네 개집으로 돌아가." <<he>>【이가】 말한다. "다른 놈도 맛보고 싶어 하기 전에."
 	<br><br>
 
 	<<clotheson>>
-	<<whitneyexit>>
+	<<whitneyExit>>
 <</if>>
 
 :: Passout Gwylan Hot Cold
 <<set $outside to 0>><<set $location to "forest_shop">><<effects>><<outfitChecks>>
 <<npc Gwylan>><<person1>><<run statusCheck("Gwylan")>>
 
-서서히 정신이 들면서, 당신이 <<= $forest_shop_intro ? "숲 상점" : "숲 외곽에서 본 적 있는 이상한 가게">>에 있다는 걸 깨닫는다. <<if $leftarm is "bound" and $rightarm is "bound">>팔은 더 이상 묶여 있지 않다. <<unbind>><</if>>
+서서히 정신이 들면서, 당신이 <<= $forest_shop_intro ? "숲속 상점" : "숲 외곽에서 본 적 있는 이상한 가게">>에 있다는 걸 깨닫는다. <<if $leftarm is "bound" and $rightarm is "bound">>팔은 더 이상 묶여 있지 않다. <<unbind>><</if>>
 
 <<if _gwylanLovePercent gte 50 and _gwylanStatus.includes("met")>>
 	<<if $passoutReason is "hypothermia">>
@@ -2018,7 +2014,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	그윌란이 당신을 보고 환하게 웃는다. "휴! 괜찮아?
 <<else>>
 	<<set $daily.gwylan.firstMet to true>>
-	<<personsimple>>【이가】 당신을 보고 환하게 웃는다. 당신과 비슷한 또래로 보이고, 갈색 머리에 살짝 주근깨가 있다. "보기보다 나이는 많아," 마치 당신의 속마음을 읽은 듯 <<he>>【이가】 말한다. "<span class="green">난 그윌란이야.</span>" <<He>>【은는】 손을 내밀어 당신의 손을 들어 올리고는 양손으로 마주 잡고 흔든다. "만나서 반가워. 나는 옷이랑..." <<He>>【은는】 잠시 말을 멈춘다. "아니, <<if $pronoun is "m">>할아버지<<else>>할머니<</if>>께서 옷이랑..." 또 한 번 말을 멈춘다. "여기서 옷이랑 자잘한 물건들을 팔아. <span class="blue">보통 가게에서는 못 볼 만한 것들.</span> 나조차도 지금 뭐가 있는지 몰라!" <<He>>【은는】 뿌듯한 목소리로 말한다.
+	<<personsimple>>【이가】 당신을 보고 환하게 웃는다. 당신과 비슷한 또래로 보이고, 갈색 머리에 살짝 주근깨가 있다. "보기보다 나이는 많아." 마치 당신의 속마음을 읽은 듯 <<he>>【이가】 말한다. "<span class="green">난 그윌란이야.</span>" <<He>>【은는】 손을 내밀어 당신의 손을 들어 올리고는 양손으로 마주 잡고 흔든다. "만나서 반가워. 나는 옷이랑..." <<He>>【은는】 잠시 말을 멈춘다. "아니, <<if $pronoun is "m">>할아버지<<else>>할머니<</if>>께서 옷이랑..." 또 한 번 말을 멈춘다. "여기서 옷이랑 자잘한 물건들을 팔아. <span class="blue">보통 가게에서는 못 볼 만한 것들.</span> 나조차도 지금 뭐가 있는지 몰라!" <<He>>【은는】 뿌듯한 목소리로 말한다.
 	<br><br>
 
 	"아무튼 그건 됐고," <<he>>【이가】 말을 잇는다. "그보다, 괜찮아?
@@ -2043,15 +2039,15 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <<He>>【은는】 재빨리 널 한번 훑어본다.
 <<if $passoutReason is "hyperthermia">>
 	<<if Weather.BodyTemperature.getWarmth() gte 20>>
-		"옷을 좀 벗는 게 좋을 거야," <<he>>【이가】 살피듯 말한다. "열사병 걸리기 싫으면."
+		"옷을 좀 벗는 게 좋을 거야." <<he>>【이가】 살피듯 말한다. "열사병 걸리기 싫으면."
 	<<else>>
-		"너무 무리하면 안 돼," <<he>>【이가】 말한다. "열사병은 심각한 거라고!"
+		"너무 무리하면 안 돼." <<he>>【이가】 말한다. "열사병은 심각한 거라고!"
 	<</if>>
 <<else>>
 	<<if Weather.BodyTemperature.getWarmth() lt 20>>
-		"옷을 좀 더 입는 게 좋을 거야," <<he>>【이가】 살피듯 말한다. "저체온증 걸리기 싫으면."
+		"옷을 좀 더 입는 게 좋을 거야." <<he>>【이가】 살피듯 말한다. "저체온증 걸리기 싫으면."
 	<<else>>
-		"추운 데 너무 오래 있으면 안 돼," <<he>>【이가】 말한다. "저체온증은 심각한 거라고!"
+		"추운 데 너무 오래 있으면 안 돼." <<he>>【이가】 말한다. "저체온증은 심각한 거라고!"
 	<</if>>
 <</if>>
 
@@ -2072,7 +2068,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<</if>>
 묘하게 그리운 느낌이 든다. 건네받은 옷으로 갈아입는다.
 	<<if $passoutReason is "hypothermia">>
-		"미안, 더 따뜻한 건 없어," <<he>>【이가】 미안한 듯 말한다. 당신이 가게를 둘러보는 동안 잠시 말이 없다. "공짜로 줄 수 있는 것 중엔 말이야," <<he>>【이가】 미소를 지으며 덧붙인다.
+		"미안, 더 따뜻한 건 없어." <<he>>【이가】 미안한 듯 말한다. 당신이 가게를 둘러보는 동안 잠시 말이 없다. "공짜로 줄 수 있는 것 중엔 말이야." <<he>>【이가】 미소를 지으며 덧붙인다.
 		<<if $gwylanSeen.includes("yearning")>>
 			"가게 사정 알잖아."
 		<</if>>
@@ -2082,7 +2078,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 
 <<if $passoutReason is "hyperthermia">>
 	<<set Weather.Temperature.override.increase.inside(-5, "선풍기가 몸을 시원하게 식혀준다.")>>
-	나무 의자를 가져와, 그윌란이 돌아가는 선풍기 옆에 널 앉힌다. "여기서 좀 쉬어. 차 좀 타줄게. 물론 차가운 차로," <<he>>【이가】 선언하듯 말한다. <<He>>【은는】 잠시 망설이다 덧붙인다. "따뜻한 차가 더 좋다면 몰라도." 지금 따뜻한 걸 마신다는 생각만 해도 속이 메스꺼워져서, 차가운 음료로 하기로 한다.
+	나무 의자를 가져와, 그윌란이 돌아가는 선풍기 옆에 널 앉힌다. "여기서 좀 쉬어. 차 좀 타줄게. 물론 차가운 차로." <<he>>【이가】 선언하듯 말한다. <<He>>【은는】 잠시 망설이다 덧붙인다. "따뜻한 차가 더 좋다면 몰라도." 지금 따뜻한 걸 마신다는 생각만 해도 속이 메스꺼워져서, 차가운 음료로 하기로 한다.
 <<else>>
 	<<set Weather.Temperature.override.increase.inside(5, "두꺼운 담요가 몸을 따뜻하게 덥혀준다.")>>
 	큰 쿠션을 가져와, <<he>>【이가】 널 벽난로 앞에 앉힌다. <<He>>【은는】 두꺼운 담요를 당신의 어깨에 둘러준다.
@@ -2179,7 +2175,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<<if $speech_attitude is "meek">>
 		"조금 흙 맛이 나요," 나지막이 중얼거리며, 맛을 조금이라도 나아지게 해보려 조심스레 베리를 넣는다.
 	<<elseif $speech_attitude is "bratty">>
-		"잔디 깎은 걸 마시는 것 같네요," 대놓고 말한다. 맛을 어떻게든 살려보려고 베리를 한 움큼 던져 넣는다.
+		"잔디 깎은 걸 마시는 것 같네요." 대놓고 말한다. 맛을 어떻게든 살려보려고 베리를 한 움큼 던져 넣는다.
 	<<else>>
 		"풀 맛이 나네요," 어깨를 으쓱하며 말하고는, 맛의 균형을 맞추려 베리를 넣는다.
 	<</if>>
@@ -2191,9 +2187,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	당신은 <<him>>에게 의아한 눈빛을 보내고, <<he>>【이가】 알 수 없는 미소로 답한다. 어깨를 으쓱하며 차를 한 모금 더 마신다. <<Hes>> 옳다. 베리를 넣으니 낫다.
 <<elseif $gwylanTea is 3>>
 	<<if $speech_attitude is "meek">>
-		억지 미소로 싫은 티를 감추며 조심스레 한 모금 마신다. 맛이 나아지길 바라며 재빨리 베리를 넣는다. "음, 이러면 좀 나을지도 몰라요," 기분 상하게 하고 싶지 않아 나지막이 중얼거린다.
+		억지 미소로 싫은 티를 감추며 조심스레 한 모금 마신다. 맛이 나아지길 바라며 재빨리 베리를 넣는다. "음, 이러면 좀 나을지도 몰라요." 기분 상하게 하고 싶지 않아 나지막이 중얼거린다.
 	<<elseif $speech_attitude is "bratty">>
-		"여전히 밍밍하네요," 과장되게 한숨을 쉬며 베리를 한 움큼 던져 넣고 중얼거린다.
+		"여전히 밍밍하네요." 과장되게 한숨을 쉬며 베리를 한 움큼 던져 넣고 중얼거린다.
 	<<else>>
 		다 안다는 듯 고개를 끄덕이며 한 모금 마신다. "역시 기억했던 그 맛이네요," 씁쓸한 미소를 지으며 말하고는, 풀 맛을 누그러뜨리려 베리를 넣는다.
 	<</if>>
@@ -2206,7 +2202,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	그윌란이 어깨를 으쓱한다. "아, 오래전 일이지. 어릴 때 <<if $pronoun is "m">>할아버지<<else>>할머니<</if>>께서 허브를 기르고 말려서 차 만드는 법을 가르쳐 주셨어."
 <<elseif $gwylanTea gte 4>>
 	<<if $speech_attitude is "meek">>
-		흙 맛이 난다는 걸 잘 알면서도, 또다시 나비콩꽃차를 고른다. "그, 그렇게 좋아하는 맛은 아니지만요," 중얼거리며, 특유의 맛을 상쇄해보려 베리를 더 넣는다.
+		흙 맛이 난다는 걸 잘 알면서도, 또다시 나비콩꽃차를 고른다. "그-그렇게 좋아하는 맛은 아니지만요," 중얼거리며, 특유의 맛을 상쇄해보려 베리를 더 넣는다.
 	<<elseif $speech_attitude is "bratty">>
 		그 맛을 잘 알면서도 또 나비콩꽃차를 고르며, 과장되게 눈을 굴린다. "으, 이걸 어떻게 마시는지 모르겠네요," 투덜대며 마지못해 베리를 넣어 맛을 누그러뜨린다.
 	<<else>>
@@ -2225,7 +2221,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	수줍은 미소와 함께 고개를 끄덕인다. 찻잔 뒤로 부끄러움을 감추며 한 모금 더 마신다. "네... 고, 고마워요, 그윌란."
+	수줍은 미소와 함께 고개를 끄덕인다. 찻잔 뒤로 부끄러움을 감추며 한 모금 더 마신다. "네... 고-고마워요, 그윌란."
 <<elseif $speech_attitude is "bratty">>
 	"더 나을 수도 있었겠죠. 아무튼 고마워요." 구조받아야 했다는 사실에 조금 창피해져서, 아무렇지 않은 척 차를 한 모금 더 마신다.
 <<else>>
@@ -2328,7 +2324,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br><br>
 	<<link [[다음|$safePassage]]>><<endevent>><<set $eventskip to 1>><</link>>
 
-<<elseif $syndromewolves is 1 and $wolfpacktrust gte 24 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<elseif $syndromewolves is 1 and $wolfpacktrust gte 24 and beastSexEnabledForType("wolf", $monster is 1)>>
 	<<if $monster is 1>>
 		<<if $passoutReason is "hyperthermia">>
 			"털가죽도 없는데, <<ppackbrother>>【은는】 아직도 덥나? 집으로 와, 개울이 식혀줄 거다."
@@ -2351,7 +2347,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 		<<bHe>>【은는】 당신을 동굴의 따뜻한 곳으로 재촉한다. <<bHe>>【은는】 당신이 앉을 때까지 안절부절못하며 돌보고, <<bhe>>【은는】 짚 더미를 옮겨 임시 담요처럼 덮어준다. <<bHe>>【은는】 당신 옆에 눕는다.
 	<</if>>
 	<br><br>
-	당신이 <<beasttype>>에게 감사를 중얼거리자, <<bhis>> 꼬리가 당신의 인사에 화답하듯 흔들린다. <<if $monster is 1>>"늑대 동굴은 언제나 <<ppackbrother>>에게 열려 있어," <<bhe>>【이가】 대답한다. "다음번엔, 여기로 와."<</if>>
+	당신이 <<beasttype>>에게 감사를 중얼거리자, <<bhis>> 꼬리가 당신의 인사에 화답하듯 흔들린다. <<if $monster is 1>>"늑대 동굴은 언제나 <<ppackbrother>>에게 열려 있어." <<bhe>>【이가】 대답한다. "다음번엔, 여기로 와."<</if>>
 	<br><br>
 
 	<<if $passoutReason is "hyperthermia">>
@@ -2360,9 +2356,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 		<<link [[다음|Wolf Cave]]>><<endevent>><<set $eventskip to 1>><<set $wolfevent to 0>><</link>>
 	<</if>>
 
-<<elseif $syndromewolves is 1 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<elseif $syndromewolves is 1 and beastSexEnabledForType("wolf", $monster is 1)>>
 	<<if $monster is 1>>
-		"도망, 안 좋아," <<bhe>>【이가】 말한다. "동굴에 있었어야지. <<= $passoutReason is "hyperthermia" ? "거긴 개울이 시원해서, 더위 식히기 좋아" : "말랑한 인간은 온기를 위해 털가죽이 필요해">>." <<bHe>>【은는】 당신을 숲 속으로 끌고 가기 시작한다.
+		"도망, 안 좋아." <<bhe>>【이가】 말한다. "동굴에 있었어야지. <<= $passoutReason is "hyperthermia" ? "거긴 개울이 시원해서, 더위 식히기 좋아" : "말랑한 인간은 온기를 위해 털가죽이 필요해">>." <<bHe>>【은는】 당신을 숲 속으로 끌고 가기 시작한다.
 	<<else>>
 		<<bHe>>【은는】 당신에게 불쾌하게 으르렁거리더니, 길 잃은 강아지처럼 당신의 목덜미를 물고 숲 속으로 끌고 가기 시작한다.
 	<</if>>
@@ -2373,9 +2369,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<</if>>
 	<br><br>
 	<<link [[다음|Wolf Cave]]>><<endevent>><</link>>
-<<elseif $monster is 1 or $settings.bestialityEnabled>>
+<<elseif beastSexEnabledForType("wolf", $monster is 1)>>
 	<<if $monster is 1>>
-		"사냥감이 무력하군," <<bhe>>【이가】 말한다. "우두머리가 기뻐할 거다." <<bHe>>【은는】 당신을 숲 속으로 끌고 가기 시작한다.
+		"사냥감이 무력하군." <<bhe>>【이가】 말한다. "우두머리가 기뻐할 거다." <<bHe>>【은는】 당신을 숲 속으로 끌고 가기 시작한다.
 	<<else>>
 		<<bHe>>【은는】 낮게 으르렁거리더니, 길 잃은 강아지처럼 당신의 목덜미를 물고 숲 속으로 끌고 가기 시작한다.
 	<</if>>
@@ -2437,7 +2433,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<<elseif $speech_attitude is "bratty">>
 		<<person>>【을를】 후려치고 <<him>>의 밑에서 빠져나올 힘을 겨우 짜낸다. "저리 비켜, 변태!" <<personsimple>>【은는】 뺨을 문지르며 인상을 쓴다.
 	<<else>>
-		"우와, 잠깐만," <<person>>의 밑에서 빠져나올 힘을 겨우 짜내며 말한다. "이건 좀 아닌 것 같은데요." <<personsimple>>【은는】 김빠진 듯한 표정이지만 물러선다.
+		"우와, 잠깐만." <<person>>의 밑에서 빠져나올 힘을 겨우 짜내며 말한다. "이건 좀 아닌 것 같은데요." <<personsimple>>【은는】 김빠진 듯한 표정이지만 물러선다.
 	<</if>>
 	<br><br>
 	"<<= $NPCList[0].pronoun is "m" ? "야" : "얘">>, 이 동네는 진짜 되는 일이 없구나?" <<person2>><<person>>【이가】 친구에게 웃으며 말한다.
@@ -2460,14 +2456,14 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br><br>
 	"우, 좋겠다, 친구!" <<person2>><<person>>【이가】 환호한다.
 	<br><br>
-	잠시 후 <<person1>><<He>>【은는】 숨을 헐떡이며 얼떨떨한 얼굴로 입을 뗀다. "미쳤다," <<he>>【이가】 말한다.
+	잠시 후 <<person1>><<He>>【은는】 숨을 헐떡이며 얼떨떨한 얼굴로 입을 뗀다. "미쳤다." <<he>>【이가】 말한다.
 	<br><br>
 	<<if $speech_attitude is "meek">>
-		"차, 찾아줘서 고마워요," 머리카락을 수줍게 배배 꼬며 말한다. "훨씬 나아진 것 같아요."
+		"차, 찾아줘서 고마워요." 머리카락을 수줍게 배배 꼬며 말한다. "훨씬 나아진 것 같아요."
 	<<elseif $speech_attitude is "bratty">>
-		"그래? 너도 나쁘지 않네, 자기<<girl_npc>>," 놀리듯 말한다. "이제 훨씬 낫네."
+		"그래? 너도 나쁘지 않네, 자기<<girl_npc>>." 놀리듯 말한다. "이제 훨씬 낫네."
 	<<else>>
-		"좋았어요," 다정하게 말한다. "훨씬 나아졌어요. 고마워요."
+		"좋았어요." 다정하게 말한다. "훨씬 나아졌어요. 고마워요."
 	<</if>>
 	<br><br>
 	이제 잔뜩 긴장한 <<person>>【은는】 말을 더듬거린다. "다, 당연하지! 어, 그, 뭐, 별거 아니야." <<He>>【은는】 허둥지둥 친구에게 달려간다. "너 저거 봤어? 이 동네 소문이 진짜였네," <<he>>【이가】 친구를 끌고 가며 속삭이고, 당신을 내버려 둔다.
@@ -2488,18 +2484,18 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	"대체 뭘 입고 있는 거야? 이 날씨에?" <<he>>【이가】 혀를 찬다. <<He>>【이가】 <<his>> 패딩 재킷을 당신의 어깨에 걸쳐주고 따뜻한 보온병을 손에 쥐여준다. "자, 이거 마셔. 몸을 데우는 데 도움이 될 거야."
 	<<set Weather.Temperature.override.increase.outside(-5, "로빈의 패딩 재킷이 몸을 따뜻하게 해준다.")>>
 <<else>>
-	"저기... 그, 그렇게 입고 춥지 않아?" <<he>>【이가】 걱정스럽게 묻는다. <<He>>【이가】 당신이 앉는 것을 돕고 따뜻한 보온병을 손에 쥐여준다. "자, 이게 도움이 될 거야."
+	"저기... 그-그렇게 입고 춥지 않아?" <<he>>【이가】 걱정스럽게 묻는다. <<He>>【이가】 당신이 앉는 것을 돕고 따뜻한 보온병을 손에 쥐여준다. "자, 이게 도움이 될 거야."
 	<<set Weather.Temperature.override.increase.outside(-3, "로빈의 핫초코가 몸을 따뜻하게 해준다.")>>
 <</if>>
 <br><br>
 핫초코는 목을 타고 내려가며 따뜻하고 달콤했고, 보온병의 온기가 뻣뻣해진 손가락을 풀어준다.
 <br><br>
-"고, 고마워." 당신은 이를 부딪치며 말한다. 로빈은 당신이 일어서는 것을 돕는다<<if $exposed gte 1>>, 당신의 <<lewdness>>【을를】 똑바로 보지 않으려고 애쓰면서<</if>>. 하지만 당신이 걸어가려 하자 막아선다.
+"고-고마워." 당신은 이를 부딪치며 말한다. 로빈은 당신이 일어서는 것을 돕는다<<if $exposed gte 1>>, 당신의 <<lewdness>>【을를】 똑바로 보지 않으려고 애쓰면서<</if>>. 하지만 당신이 걸어가려 하자 막아선다.
 <br><br>
 <<if C.npc.Robin.dom gte 50>>
 	"이봐, 안 돼." <<he>>【이가】 단호하게 말한다. "집에 데려다줄게. 다른 옷으로 갈아입어야지."
 <<else>>
-	"저, 저기... 집에 가서 옷 갈아입는 게 좋겠어. 내가 같이 가줄까?"
+	"저-저기... 집에 가서 옷 갈아입는 게 좋겠어. 내가 같이 가줄까?"
 <</if>>
 <br><br>
 <<link [[수락한다|Passout Robin Hypothermia Park 2]]>><<set $phase to 0>><</link>>
@@ -2761,7 +2757,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<<elseif Time.season is "spring">>
 		"이상하네." <<he>>【이가】 생각에 잠긴다. "이맘때는 날씨가 따뜻해지는데, 잠수복을 입고 있다니."
 	<<elseif Time.season is "autumn">>
-		"이맘때는 쌀쌀해지니까." <<he>>【이가】 말한다. "더 조심해야 해."
+		"이맘때는 쌀쌀해지니까," <<he>>【이가】 말한다. "더 조심해야 해."
 	<<else>>
 		"겨울에 잠수라니?" 메이슨이 <<his>> 고개를 젓는다. "옷은 갖춰 입었을지 몰라도," <<he>>【이가】 말한다. "<<= Weather.isFrozen("lake") ? "얼음이 위험하다는 걸" : "그러면 안 된다는 걸 알 텐데">>."<<npcincr Mason love -1>><<llove>>
 	<</if>>
@@ -2833,7 +2829,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <<elseif $speech_attitude is "bratty">>
 	"감히 날 건드리지 마." 당신은 얼굴을 찌푸린다. 손가락은 감각이 없지만, 주먹을 쥐는 데는 성공한다.
 <<else>>
-	"감히," 당신은 말한다.
+	"감히." 당신은 말한다.
 <</if>>
 <br><br>
 
@@ -3293,9 +3289,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <br><br>
 <<if random(1,2) is 1>>
 	<<if $phase2 is "mild">>
-		"천만에요," <<person>>【이가】 당신의 어깨에서 <<his>> 손을 떼며 대답한다. "그렇지만, 상부상조하는 의미에서..." <<He>>【은는】 <<his>> 책상을 가리킨다. "제 일을 좀 도와주시면 고맙겠어요. 보수도 드릴게요."
+		"천만에요." <<person>>【이가】 당신의 어깨에서 <<his>> 손을 떼며 대답한다. "그렇지만, 상부상조하는 의미에서..." <<He>>【은는】 <<his>> 책상을 가리킨다. "제 일을 좀 도와주시면 고맙겠어요. 보수도 드릴게요."
 	<<else>> /* offended */
-		"정말로 감사함을 표하고 싶다면..." <<person>>【이가】 <<his>> 책상을 가리킨다. "...제 일을 도와주시면 됩니다. 보수도 드릴게요," <<he>>【은는】 미소를 지으며 덧붙인다.
+		"정말로 감사함을 표하고 싶다면..." <<person>>【이가】 <<his>> 책상을 가리킨다. "...제 일을 도와주시면 됩니다. 보수도 드릴게요." <<he>>【은는】 미소를 지으며 덧붙인다.
 	<</if>>
 	<br><br>
 
@@ -3303,9 +3299,9 @@ To get the previous major area passage, use: $safePassage (for links in the last
 	<br>
 <<else>>
 	<<if $phase2 is "mild">>
-		"천만에요," <<person>>【이가】 대답한다. "그렇지만, 상부상조하는 의미에서..." <<He>>【은는】 남은 손을 당신의 다른 쪽 어깨에 올린다. "잠깐... 말동무나 해주시면 고맙겠어요." <<He>>【은는】 윙크한다. "보수도 드릴게요."
+		"천만에요." <<person>>【이가】 대답한다. "그렇지만, 상부상조하는 의미에서..." <<He>>【은는】 남은 손을 당신의 다른 쪽 어깨에 올린다. "잠깐... 말동무나 해주시면 고맙겠어요." <<He>>【은는】 윙크한다. "보수도 드릴게요."
 	<<else>> /* offended */
-		"정말로 감사함을 표하고 싶다면..." <<person>>【이가】 당신의 양 어깨에 <<his>> 손을 올린다. "...몸으로 보여주시면 됩니다. 보수도 드릴게요," <<he>>【은는】 히죽거리며 덧붙인다.
+		"정말로 감사함을 표하고 싶다면..." <<person>>【이가】 당신의 양 어깨에 <<his>> 손을 올린다. "...몸으로 보여주시면 됩니다. 보수도 드릴게요." <<he>>【은는】 히죽거리며 덧붙인다.
 	<</if>>
 	<br><br>
 
@@ -3564,7 +3560,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <<saveNPC 0 passout_danube_master>>
 
 <<if $speech_attitude is "meek">>
-	"부, 부탁이요...?" 손을 어색하게 만지작거린다.
+	"부-부탁이요...?" 손을 어색하게 만지작거린다.
 <<elseif $speech_attitude is "bratty">>
 	팔짱을 낀다. "무슨 부탁인데요?"
 <<else>>
@@ -3573,13 +3569,13 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <br><br>
 <<if dangerEvent()>>
 	<<persons>> 미소가
-	<<if $rng gte 81 and $settings.bestialityEnabled>>
+	<<if $rng gte 81 and animalSexEnabledForType("dog")>>
 		<<generateBEAST 2 dog>>
 		<<set $NPCList[1].name to $NPCList[1].pronoun is "f" ? $NPC_names_f.random() : $NPC_names_m.random()>>
 
 		음흉하게 변하고, <<he>>【이가】 지나치게 스스럼없이 손을 당신의 팔에 올린다. <<He>>【은는】 날카롭게 휘파람을 불고, 잠시 후 개 한 마리가 꼬리를 신나게 흔들며 방으로 들어온다.
 		<br><br>
-		"착하지," <<he>>【이가】 개를 칭찬한다. 그러고는 다시 널 바라보며 말한다. "우리 <<= window.KR.gatPersonNameDictKR($NPCList[1].name)>>【이가】 요즘 너무 외롭고 답답해했거든... 이 불쌍한 녀석한테 특별히 좀 신경 써주지 않을래?"
+		"착하지." <<he>>【이가】 개를 칭찬한다. 그러고는 다시 널 바라보며 말한다. "우리 <<= window.KR.gatPersonNameDictKR($NPCList[1].name)>>【이가】 요즘 너무 외롭고 답답해했거든... 이 불쌍한 녀석한테 특별히 좀 신경 써주지 않을래?"
 		<br><br>
 		<<hes>> 뭘 부탁하는 건지 <<= $awarelevel gte 1 ? "안다" : "확신은 없지만, 대충 짐작이 간다">>: 이 개가 널 마음대로 하도록 내버려 두라는 뜻이다.
 		<br><br>
@@ -3859,7 +3855,7 @@ To get the previous major area passage, use: $safePassage (for links in the last
 <br><br>
 <<He>>【은는】 이 엉망인 상태를 분명 별거 아닌 것처럼 말했다.
 <br><br>
-"어차피 이걸 치우러 온 게 아니었다면, 이 더러움에 대해 사과라도 했을 텐데 말이죠," <<person>>【이가】 낄낄거리며 말한다. "저기 벽장에 청소 도구가 있을 거예요." <<He>>【은는】 근처 벽장 문을 가리킨다. "다 끝나면, 이 복도 바로 맞은편 방에 있을게요. 다시 한번 고마워요!"
+"어차피 이걸 치우러 온 게 아니었다면, 이 더러움에 대해 사과라도 했을 텐데 말이죠." <<person>>【이가】 낄낄거리며 말한다. "저기 벽장에 청소 도구가 있을 거예요." <<He>>【은는】 근처 벽장 문을 가리킨다. "다 끝나면, 이 복도 바로 맞은편 방에 있을게요. 다시 한번 고마워요!"
 <br><br>
 그 말을 남기고, <<he>>【은는】 당신에게 일을 맡기고 떠난다.
 <br><br>

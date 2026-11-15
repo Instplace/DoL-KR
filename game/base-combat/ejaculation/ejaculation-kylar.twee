@@ -5,7 +5,7 @@
 
 	<!-- Female KYLAR -->
 	<<if condomState("player") is "sabotaged" and $internalejac is 1 and $NPCList[_nn].vagina is "penis">>
-		<<He>>【은는】 경련하며 신음하고, <<his>> 보지가 당신의 자지를 조인다. 카일라는 몸을 빼더니, 한 손을 <<his>> 보지로 가져가 입술을 벌리며, <<his>> 틈에서 흘러나오는 당신의 정액을 자랑하듯 보여준다. "이-이런," <<he>>【은는】 불안한 척하며 말한다. "뭐, 이런 일도 있는 거지." <<His>> 표정은 <<his>> 속마음을 훤히 드러내고 있다.
+		<<He>>【은는】 경련하며 신음하고, <<his>> 보지가 당신의 자지를 조인다. 카일라는 몸을 빼더니, 한 손을 <<his>> 보지로 가져가 입술을 벌리며, <<his>> 틈에서 흘러나오는 당신의 정액을 자랑하듯 보여준다. "이-이런." <<he>>【은는】 불안한 척하며 말한다. "뭐, 이런 일도 있는 거지." <<His>> 표정은 <<his>> 속마음을 훤히 드러내고 있다.
 
 	<<elseif $NPCList[_nn].vagina isnot "none" and $NPCList[_nn].penis is "none">>
 		<<if $consensual is 1>>
@@ -116,7 +116,7 @@
 					<<feetejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "feet" "goo">>
 				<</switch>>
 			<<elseif $NPCList[_nn].vagina is "vagina" and playerChastity("vagina")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
 
 			<<elseif $NPCList[_nn].vagina is "vagina">>
 				<<switch random(1, 5)>>
@@ -176,19 +176,19 @@
 					<<thighejacstat>><<set $hygiene += 500>><<bodyliquid "thigh" "goo">>
 				<</switch>>
 			<<elseif ($NPCList[_nn].vagina is "penisimminent" or $NPCList[_nn].vagina is "penisentrance") and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대 장치용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게. 그럼 날 가득 채워 줄 수 있을 거야."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대 장치용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게. 그럼 날 가득 채워 줄 수 있을 거야."
 
 			<<elseif $NPCList[_nn].vagina is "penisimminent" or $NPCList[_nn].vagina is "penisentrance">>
 				<<He>>【은는】 당신의 <<penis>>에 몸을 비비며 절정에 달한다. "다음엔 제발 날 박아 줘. 제발. 이렇게 애태우면 못 견디겠어. 내 안에 네가 필요해..."
 
 			<<elseif ($NPCList[_nn].vagina is "otheranusfrot" or $NPCList[_nn].vagina is "otheranusentrance") and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게. 그럼 날 가득 채워 줄 수 있을 거야."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게. 그럼 날 가득 채워 줄 수 있을 거야."
 
 			<<elseif $NPCList[_nn].vagina is "otheranusfrot" or $NPCList[_nn].vagina is "otheranusentrance">>
 				<<He>>【은는】 절정에 달하며 당신의 자지에 대고 <<his>> 엉덩이를 튕긴다. <<He>>【은는】 울기 시작한다. "왜 안 박아 주는 거야? 날 사랑하지 않는 거야?"
 
 			<<elseif $NPCList[_nn].vagina is "frot" and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
 
 			<<elseif $NPCList[_nn].vagina is "frot">>
 				<<He>>【은는】 절정에 달하며 당신의 자지에 <<his>> 클리토리스를 거칠게 비벼대고, 당신의 자지에 애액을 쏟아낸다. <<He>>【은는】 당황한 기색으로 묻는다. "왜 삽입하지 않은 거야? 혹시 딴 놈이 있는 거야? 나한텐 솔직히 말해 줘도 되는데..."
@@ -220,7 +220,7 @@
 					<<faceejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "face" "goo">>
 				<</switch>>
 			<<elseif $NPCList[_nn].vagina is "vagina" and playerChastity("vagina")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다.
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다.
 
 			<<elseif $NPCList[_nn].vagina is "vagina">>
 				<<switch random(1, 5)>>
@@ -253,19 +253,19 @@
 				<<He>>【은는】 절정에 달하며 당신의 어깨에 <<his>> 작은 손가락을 파묻고, 쾌감에 몸을 떨며 당신의 자지를 향해 <<his>> 보지를 거칠게 내리찍는다.
 
 			<<elseif ($NPCList[_nn].vagina is "penisimminent" or $NPCList[_nn].vagina is "penisentrance") and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "내 안에 네가 필요해. 저-정조대용 마스터 키가 분명 있을 텐데."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "내 안에 네가 필요해. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 			<<elseif $NPCList[_nn].vagina is "penisimminent" or $NPCList[_nn].vagina is "penisentrance">>
 				<<He>>【은는】 당신의 펄떡이는 자지 위에서 절정에 달하며 신음한다. <<He>>【은는】 눈물을 글썽인다. "왜 안 박은 거야? 혹시 다른 놈이라도 있는 거야? 당장 말해!"
 
 			<<elseif ($NPCList[_nn].vagina is "otheranusfrot" or $NPCList[_nn].vagina is "otheranusentrance") and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "내 안에 네가 필요해. 저-정조대용 마스터 키가 분명 있을 텐데."
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "내 안에 네가 필요해. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 			<<elseif $NPCList[_nn].vagina is "otheranusfrot" or $NPCList[_nn].vagina is "otheranusentrance">>
 				<<He>>【은는】 절정에 달하며 당신의 자지에 대고 <<his>> 엉덩이를 빙글빙글 돌린다. <<He>>【은는】 울기 시작한다. "다음엔 제발 날 박아 줘. 정말 얌전하게 굴게..."
 
 			<<elseif $NPCList[_nn].vagina is "frot" and playerChastity("penis")>>
-				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다.
+				<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다.
 
 			<<elseif $NPCList[_nn].vagina is "frot">>
 				<<He>>【은는】 절정에 달하며 당신의 자지에 <<his>> 클리토리스를 거칠게 문질러댄다. "왜 나한테 안 박아 준 거야? 내가 너한테 부족해? 혹시 다른 사람이라도 있는 거야? 다른 사람이라면 절대 가만 안 둘 거야."
@@ -332,7 +332,7 @@
 				<<tummyejacstat>><<set $hygiene += 500>><<bodyliquid "tummy" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "vaginaentrance" and playerChastity("vagina")>>
-			<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "네 안으로 들어가고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name에 대고 절정에 달하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "네 안으로 들어가고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "vaginaentrance">>
 			<<switch random(1, 7)>>
@@ -351,7 +351,7 @@
 				<<bottomejacstat>><<set $hygiene += 500>><<bodyliquid "bottom" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "vaginaimminent" and playerChastity("vagina")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "vaginaimminent">>
 			<<switch random(1, 7)>>
@@ -387,7 +387,7 @@
 				<<thighejacstat>><<set $hygiene += 500>><<bodyliquid "thigh" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "cheeks" and playerChastity()>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "cheeks">>
 			<<switch random(1, 7)>>
@@ -406,7 +406,7 @@
 				<<bottomejacstat>><<ejacstat>><<set $hygiene += 1000>><<bodyliquid "bottom" "semen" 2>>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "anusentrance" and playerChastity("anus")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "anusentrance">>
 			<<switch random(1, 7)>>
@@ -424,7 +424,7 @@
 				<<bottomejacstat>><<ejacstat>><<set $hygiene += 1000>><<bodyliquid "bottom" "semen" 2>>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "anusimminent" and playerChastity("anus")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "anusimminent">>
 			<<switch random(1, 7)>>
@@ -600,7 +600,7 @@
 
 			<</switch>>
 		<<elseif ($NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent") and playerChastity("penis")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent">>
 			<<switch random(1, 7)>>
@@ -618,7 +618,7 @@
 		<<elseif $NPCList[_nn].penis is "penis" and playerChastity("penis")>>
 			<<switch random(2)>>
 				<<case 0>>
-					<<He>>【은는】 엄청난 양의 정액을 당신의 $worn.genitals.name 전체에 내뿜으며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
+					<<He>>【은는】 엄청난 양의 정액을 당신의 $worn.genitals.name 전체에 내뿜으며 헐떡인다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
 
 				<<case 1>>
 					<<He>>【은는】 환희에 차 신음하며, 당신의 $worn.genitals.name【을를】 뜨거운 정액 줄기로 흠뻑 적신다. "아-안 돼... 우린 꼭 하나가 되어야 해!" <<He>>【은는】 좌절감에 차 헐떡인다.
@@ -738,7 +738,7 @@
 				<<tummyejacstat>><<set $hygiene += 500>><<bodyliquid "tummy" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "vaginaentrance" and playerChastity("vagina")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "vaginaentrance">>
 			<<switch random(1, 7)>>
@@ -757,7 +757,7 @@
 				<<bottomejacstat>><<set $hygiene += 500>><<bodyliquid "bottom" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "vaginaimminent" and playerChastity("vagina")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "vaginaimminent">>
 			<<switch random(1, 7)>>
@@ -793,7 +793,7 @@
 				<<thighejacstat>><<set $hygiene += 500>><<bodyliquid "thigh" "semen">>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "cheeks" and playerChastity()>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "cheeks">>
 			<<switch random(1, 7)>>
@@ -812,7 +812,7 @@
 				<<bottomejacstat>><<ejacstat>><<set $hygiene += 1000>><<bodyliquid "bottom" "semen" 2>>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "anusentrance" and playerChastity("anus")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "anusentrance">>
 			<<switch random(1, 7)>>
@@ -830,7 +830,7 @@
 				<<bottomejacstat>><<ejacstat>><<set $hygiene += 1000>><<bodyliquid "bottom" "semen" 2>>
 			<</switch>>
 		<<elseif $NPCList[_nn].penis is "anusimminent" and playerChastity("anus")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위에 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "anusimminent">>
 			<<switch random(1, 7)>>
@@ -868,7 +868,7 @@
 		<<elseif $NPCList[_nn].penis is "chest">>
 			<<switch random(1, 7)>>
 			<<case 1 2 3>>
-				<<He>>【은는】 사정하면서 당신의 <<breasts>>【을를】 꼬집어 <<his>> 자지 쪽으로 꽉 끌어당기고, 그 위로 정액을 내뿜는다. "이건 내 영역 표시야," <<he>>【은는】 미소 지으며 말한다.
+				<<He>>【은는】 사정하면서 당신의 <<breasts>>【을를】 꼬집어 <<his>> 자지 쪽으로 꽉 끌어당기고, 그 위로 정액을 내뿜는다. "이건 내 영역 표시야." <<he>>【은는】 미소 지으며 말한다.
 
 				<<chestejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "chest" "semen">>
 			<<case 4 5 6>>
@@ -1008,7 +1008,7 @@
 
 			<</switch>>
 		<<elseif ($NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent") and playerChastity("penis")>>
-			<<He>>【은는】 당신의 $worn.genitals.name 위로 사정하며 헐떡인다. "이-이건 못 견디겠어," <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
+			<<He>>【은는】 당신의 $worn.genitals.name 위로 사정하며 헐떡인다. "이-이건 못 견디겠어." <<he>>【은는】 말한다. "널 채워 주고 싶어. 저-정조대용 마스터 키가 분명 있을 텐데."
 
 		<<elseif $NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent">>
 			<<switch random(1, 7)>>
@@ -1026,7 +1026,7 @@
 		<<elseif $NPCList[_nn].penis is "penis" and playerChastity("penis")>>
 			<<switch random(2)>>
 				<<case 0>>
-					<<He>>【은는】 헐떡이며 당신의 $worn.genitals.name 곳곳에 <<his>> 엄청난 양의 정액을 내뿜는다. "저-정조대용 마스터 키가 분명 있을 텐데," <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
+					<<He>>【은는】 헐떡이며 당신의 $worn.genitals.name 곳곳에 <<his>> 엄청난 양의 정액을 내뿜는다. "저-정조대용 마스터 키가 분명 있을 텐데." <<he>>【은는】 말한다. "내가 어떻게든 알아낼게."
 
 				<<case 1>>
 					<<He>>【은는】 황홀경에 차 신음하며 뜨거운 정액 줄기로 당신의 $worn.genitals.name【을를】 흠뻑 적신다. "아-안 돼... 우리는 하나가 되어야만 해!" <<He>>【은는】 절망적으로 헐떡인다.

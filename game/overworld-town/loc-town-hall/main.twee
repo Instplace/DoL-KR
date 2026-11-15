@@ -201,7 +201,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"저, 저기, 바브 가의 다리를 다시 놓았으면 해서요." 당신이 말한다. "운하 위에 있는 거요."
+	"저-저기, 바브 가의 다리를 다시 놓았으면 해서요." 당신이 말한다. "운하 위에 있는 거요."
 <<elseif $speech_attitude is "bratty">>
 	"바브 가의 다리를 재건하러 왔어요." 당신이 말한다. "운하 위에 있는 거요."
 <<else>>
@@ -221,11 +221,13 @@
 <</if>>
 <br><br>
 
-<<person>>【은는】 어깨를 으쓱한다. "마을 예산으로는 그만한 비용을 댈 여유가 없습니다," <<he>>【이가】 말한다. "하지만 비용의 일부를 부담해 주신다면, 추진해 볼 수도 있겠군요. 대략 5백—" <<He>>【은는】 말을 멈춘다. "<<printmoney 1000000>> 정도로 하지요."
+<<set _fee to 1000000>>
+<<formatmoney _fee>>
+<<person>>【은는】 어깨를 으쓱한다. "마을 예산으로는 그만한 비용을 댈 여유가 없습니다." <<he>>【이가】 말한다. "하지만 비용의 일부를 부담해 주신다면, 추진해 볼 수도 있겠군요. 대략 5백—" <<He>>【은는】 말을 멈춘다. "<<printmoney _fee>> 정도로 하지요."
 <br><br>
 
-<<if $money gte 1000000>>
-	<<link [[다리 공사 비용을 댄다 (£10000)|Town Hall Projects Bridge Buy]]>><<money -1000000 "townProject">><<set $town_projects.bridge to 3>><<hope 6>><</link>><<ggghope>>
+<<if $money gte _fee>>
+	<<link [[다리 공사 비용을 댄다 (_printmoney)|Town Hall Projects Bridge Buy]]>><<money `(-_fee)` "townProject">><<set $town_projects.bridge to 3>><<hope 6>><</link>><<ggghope>>
 	<br>
 <<else>>
 	<span class="blue">그런 비용을 감당할 수 없습니다.</span>
@@ -281,11 +283,13 @@
 <</if>>
 <br><br>
 
-<<person>>【은는】 손가락으로 탁자를 두드린다. "무슨 말씀인지는 알겠습니다만, 마을에는 그 비용을 댈 여유가 없습니다. 복구를 원하신다면 <<printmoney 2500000>>【이가】 들 겁니다."
+<<set _fee to 1500000>>
+<<formatmoney _fee>>
+<<person>>【은는】 손가락으로 탁자를 두드린다. "무슨 말씀인지는 알겠습니다만, 마을에는 그 비용을 댈 여유가 없습니다. 복구를 원하신다면 <<printmoney _fee>>【이가】 들 겁니다."
 <br><br>
 
-<<if $money gte 1500000>>
-	<<link [[도로 비용을 낸다 (£25000)|Town Hall Projects Road Buy]]>><<money -2500000 "townProject">><<set $town_projects.road to 3>><<status 25>><</link>><<gggcool>>
+<<if $money gte _fee>>
+	<<link [[도로 비용을 낸다 (_printmoney)|Town Hall Projects Road Buy]]>><<money `(-_fee)`"townProject">><<set $town_projects.road to 3>><<status 25>><</link>><<gggcool>>
 	<br>
 <<else>>
 	<span class="blue">그런 비용을 감당할 수 없습니다.</span>
@@ -336,7 +340,7 @@
 :: Town Hall Projects Diving Refuse
 <<effects>>
 
-"음," 퀸이 말한다. "확실하다면 어쩔 수 없죠. 하지만 흥미로운 주제입니다. 나중에라도 이 문제에 대해 논의하고 싶으면 언제든 다시 오세요."
+"음." 퀸이 말한다. "확실하다면 어쩔 수 없죠. 하지만 흥미로운 주제입니다. 나중에라도 이 문제에 대해 논의하고 싶으면 언제든 다시 오세요."
 <br><br>
 <<He>>【은는】 접수원의 귀에 무언가 속삭인 뒤 문 너머로 사라진다.
 <br><br>
@@ -355,11 +359,11 @@
 	<br><br>
 <</if>>
 
-자, 그럼," 퀸이 <<his>> 책상 뒤 높은 등받이 의자에 앉으며 <<him>> 앞의 다른 의자를 가리키며 말한다. "호수에 고고학 사무소를 세우고 싶다고요?"
+자, 그럼." 퀸이 <<his>> 책상 뒤 높은 등받이 의자에 앉으며 <<him>> 앞의 다른 의자를 가리키며 말한다. "호수에 고고학 사무소를 세우고 싶다고요?"
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"가-가능하다면요," 당신은 말한다.
+	"가-가능하다면요." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"제가 말한 그대로예요." 당신은 말한다.
 <<else>>
@@ -393,14 +397,16 @@
 <</if>>
 <br><br>
 
-"자," <<he>>【이가】 말한다. "세부 사항입니다. 유적은 넓고, 호수를 준설하는 건 선택지가 아닙니다. 소문을 내는 게 좋겠군요." <<He>>【은는】 <<himself>>에게 위스키를 한 잔 더 따른다. "더 많은 잠수를 장려하고, 적절한 전문가들을 초청하는 겁니다."
+"자." <<he>>【이가】 말한다. "세부 사항입니다. 유적은 넓고, 호수를 준설하는 건 선택지가 아닙니다. 소문을 내는 게 좋겠군요." <<He>>【은는】 <<himself>>에게 위스키를 한 잔 더 따른다. "더 많은 잠수를 장려하고, 적절한 전문가들을 초청하는 겁니다."
 <br><br>
 
-"문제가 하나 있습니다." <<He>>【은는】 <<his>> 두 번째 잔을 비운다. "돈이죠. 땅을 사려면 <<printmoney 5000000>>【이가】 들 겁니다."
+<<set _fee to 3000000>>
+<<formatmoney _fee>>
+"문제가 하나 있습니다." <<He>>【은는】 <<his>> 두 번째 잔을 비운다. "돈이죠. 땅을 사려면 <<printmoney _fee>>【이가】 들 겁니다."
 <br><br>
 
-<<if $money gte 3000000>>
-	<<link [[현장 사무소 비용을 낸다 (£50000)|Town Hall Projects Diving Buy]]>><<money -5000000 "townProject">><<set $town_projects.diving to 3>><<npcincr Winter love 15>><</link>><<ggglove "Winter">>
+<<if $money gte _fee>>
+	<<link [[현장 사무소 비용을 낸다 (_printmoney)|Town Hall Projects Diving Buy]]>><<money `(-_fee)` "townProject">><<set $town_projects.diving to 3>><<npcincr Winter love 15>><</link>><<ggglove "Winter">>
 	<br>
 <<else>>
 	<span class="blue">그런 비용을 감당할 수 없습니다.</span>
@@ -514,11 +520,13 @@
 <</if>>
 <br><br>
 
-<<person>>【은는】 한숨을 쉰다. "정원에 침범하는 저 가시덤불 때문에 들어오는 불평은 줄겠군요. 하지만 상관없습니다. 비용은 <<printmoney 1000000>>고, 예산은 없습니다."
+<<set _fee to 500000>>
+<<formatmoney _fee>>
+<<person>>【은는】 한숨을 쉰다. "정원에 침범하는 저 가시덤불 때문에 들어오는 불평은 줄겠군요. 하지만 상관없습니다. 비용은 <<printmoney _fee>>【이】고, 예산은 없습니다."
 <br><br>
 
-<<if $money gte 500000>>
-	<<link [[덤불 관리 비용을 낸다 (£10000)|Town Hall Projects Thicket Buy]]>><<money -1000000 "townProject">><<set $town_projects.thicket to 3>><<hope 6>><</link>><<ggghope>>
+<<if $money gte _fee>>
+	<<link [[덤불 관리 비용을 낸다 (_printmoney)|Town Hall Projects Thicket Buy]]>><<money `(-_fee)` "townProject">><<set $town_projects.thicket to 3>><<hope 6>><</link>><<ggghope>>
 	<br>
 <<else>>
 	<span class="blue">그런 비용을 감당할 수 없습니다.</span>
@@ -572,11 +580,13 @@
 <</if>>
 <br><br>
 
-"인력을 뺄 수 없습니다." <<he>>【이가】 말한다. "도로를 깨끗하게 유지할 돈을 찾는 것만으로도 벅찹니다. 그 일에 손을 대려면 추가로 <<printmoney 3000000>>【이가】 필요합니다."
+<<set _fee to 2000000>>
+<<formatmoney _fee>>
+"인력을 뺄 수 없습니다." <<he>>【이가】 말한다. "도로를 깨끗하게 유지할 돈을 찾는 것만으로도 벅찹니다. 그 일에 손을 대려면 추가로 <<printmoney _fee>>【이가】 필요합니다."
 <br><br>
 
-<<if $money gte 2000000>>
-	<<link [[녹지 관리 비용을 낸다 (£30000)|Town Hall Projects Green Buy]]>><<money -3000000 "townProject">><<set $town_projects.green to 3>><<status 25>><</link>><<gggcool>>
+<<if $money gte _fee>>
+	<<link [[녹지 관리 비용을 낸다 (_printmoney)|Town Hall Projects Green Buy]]>><<money `(-_fee)` "townProject">><<set $town_projects.green to 3>><<status 25>><</link>><<gggcool>>
 	<br>
 <<else>>
 	<span class="blue">그런 비용을 감당할 수 없습니다.</span>
@@ -648,7 +658,7 @@
 <<effects>>
 
 <<npc Quinn 1>><<person1>>
-시장의 이메일을 훑어본다. <<He>>【은는】 마을 곳곳의 인물들과 주고받은 메시지로 여기저기 발을 걸치고 있다. "Dark Elk" 프로젝트에 대한 언급도 있다. 불법적인 무언가의 기미가 보이지만, 퀸은 표현을 조심하고 있으며 어떤 것도 노골적으로 인정하지 않는다.
+시장의 이메일을 훑어본다. <<He>>【은는】 마을 곳곳의 인물들과 주고받은 메시지로 여기저기 발을 걸치고 있다. "어둠의 엘크" 프로젝트에 대한 언급도 있다. 불법적인 무언가의 기미가 보이지만, 퀸은 표현을 조심하고 있으며 어떤 것도 노골적으로 인정하지 않는다.
 <br><br>
 
 <<He>>【은는】 <span class="red">베일리</span>와 나눈 대화도 있다. 가장 최근 것은 몇 주 전이다. 베일리는 간단한 메시지로 시작한다.
@@ -676,7 +686,7 @@
 
 <<npc Winter 2>>
 
-퀸이 윈터를 따라 들어온다. "아," 퀸이 말한다. "예상치 못했는데—"
+퀸이 윈터를 따라 들어온다. "아." 퀸이 말한다. "예상치 못했는데—"
 <br>
 "여기 계셔서 다행입니다." 윈터가 말을 가로챈다. <<person2>><<his>> 발걸음에 활기가 넘친 채, <<he>>【은는】 책상으로 다가가 지도를 펼친다. 퀸은 당신을 다시 한번 찌푸려보지만, 당신의 존재에 대해 묻지는 않는다.
 <br><br>

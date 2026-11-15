@@ -3,3 +3,50 @@
 <<widget "reaction-sydney-expose">>
 	<<sydneyExpose>>
 <</widget>>
+
+/* PC lines (plead / demand / moan). */
+
+<<widget "pc-line-sydney-plead">>
+	<<run statusCheck("Sydney")>>
+	<<if _sydneyStatus.includes("corrupt")>>
+		<<addSpeechLine "plead">>
+			"당신이... 색욕은 죄악이라고 했잖아요..."
+		<</addSpeechLine>>
+	<<else>>
+		<<addSpeechLine "plead">>
+			"잘못했어요, 순결하게 지낼게요! 제발 멈춰주세요!"
+		<</addSpeechLine>>
+	<</if>>
+<</widget>>
+
+<<widget "pc-line-sydney-demand">>
+	<<run statusCheck("Sydney")>>
+	<<if _sydneyStatus.includes("corrupt")>>
+		<<addSpeechLine "demand">>
+			"당신이 순수했을 때가 그리워요. 적어도 이런 짓은 안 했잖아요."
+		<</addSpeechLine>>
+	<<else>>
+		<<addSpeechLine "demand">>
+			"이게 무슨 벌이에요? 저한테서 떨어져요!"
+		<</addSpeechLine>>
+	<</if>>
+<</widget>>
+
+<<widget "pc-line-sydney-moan">>
+	<<run statusCheck("Sydney")>>
+	<<if !_sydneyChastity>>
+		<<if _sydneyStatus.includes("corrupt")>>
+			<<addSpeechLine "moan">>
+				"당신은 모든 죄악 중에서 가장 달콤해요."
+			<</addSpeechLine>>
+		<<else>>
+			<<addSpeechLine "moan">>
+				"영원히, 하나로서."
+			<</addSpeechLine>>
+		<</if>>
+	<<else>>
+		<<addSpeechLine "moan">>
+			"당신은 저를 너무 음탕하게 만들어요."
+		<</addSpeechLine>>
+	<</if>>
+<</widget>>

@@ -152,7 +152,7 @@ and (($worn.upper.type.includes("naked") or $worn.upper.type.includes("swim")) a
 <br><br>
 
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 <<else>>
 	<<loitericon>><<link [[기다린다|School Swimming Late Wait End]]>><<stress 1>><<advancetohour>><</link>><<gstress>>
 	<br>
@@ -208,7 +208,7 @@ and (($worn.upper.type.includes("naked") or $worn.upper.type.includes("swim")) a
 <</if>>
 
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><<endevent>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><<endevent>><</link>>
 <<else>>
 	<<link [[걷는다|School Swimming Late Detention 2]]>><<endevent>><<set $phase to 1>><</link>>
 	<br>

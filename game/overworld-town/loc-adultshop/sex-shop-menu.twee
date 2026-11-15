@@ -17,7 +17,7 @@
 </div>
 <<run window.sexShopGridInit()>>
 <br><br>
-<<if $debug is 1>>
+<<if $debug>>
 	<<ind>><<link [[새로고침|Adult Shop Menu]]>><</link>>
 	<br>
 <</if>>
@@ -37,7 +37,7 @@
 </div>
 <<run window.sexShopGridInit()>>
 <br><br>
-<<if $debug is 1>>
+<<if $debug>>
 	<<ind>><<link [[새로고침|Forest Shop Sex Toys]]>><</link>>
 	<br>
 <</if>>
@@ -60,9 +60,32 @@
 <<run window.patchStraponsWearStatus()>>
 <<run window.sexToysInventoryInit()>>
 
-<<if $debug is 1>>
+<<if $worn.genitals.name is "naked" and $gold_chastity_count gte 1 and playerBellySize() lte 7>>
+	당신은 황금 정조대를 가지고 있다.
+	<br>
+	<<antiqueicon "chastity">><<link [[착용한다|Sextoys Inventory Gold Chastity Belt]]>><</link>>
+	<br><br>
+<</if>>
+
+<<if $debug>>
 	<<link [[새로고침|Sextoys Inventory]]>><</link>>
 	<br>
 <</if>>
 
 <<link [[떠난다|$sextoyInvReturnLink]]>><<unset $sextoyInvReturnLink>><</link>>
+
+:: Sextoys Inventory Gold Chastity Belt
+
+<<effects>><<set $gold_chastity_count -= 1>><<set $antiquemoney -= 2000>>
+
+당신은 손에 든 황금 정조대를 살펴본다. 희미한 빛이 새어 나오는 것 같다. 이렇게 아름다운 물건이 당신의 <<genitals 1>>【을를】 지켜 준다면 어떤 느낌일지 궁금해진다.
+<br><br>
+착용해보고 싶은 충동을 느낀다. 허리에 둘러본다. 딸깍하며 잠기는 소리를 들으며 어딘가에 열쇠가 있을지 궁금해한다.
+<br><br>
+<<clothesstrip>>
+<<genitalswear 3>>
+<<earnFeat "Locked In Gold">>
+<<set $worn.genitals.origin to "Underwater Temple">>
+
+<<link [[다음|Sextoys Inventory]]>><<clotheson>><</link>>
+<br>

@@ -75,7 +75,7 @@
 트랙터가 다시 덜컹거리며 움직인다. 조심스럽게 트레일러로 내려간다. 차량이 빨리 움직이지는 않지만, 지금 떠나면 운전자가 당신을 발견할지도 모른다. 재빨리 움직이지 않는 한 말이다.
 <br><br>
 
-<<link [[달리기|Farmland Exposed Cling Run]]>><</link>><<athleticsdifficulty 1 1000>>
+<<link [[달린다|Farmland Exposed Cling Run]]>><</link>><<athleticsdifficulty 1 1000>>
 <br>
 <<link [[기회를 기다린다|Farmland Exposed Cling Wait]]>><</link>><<difficulty 50>>
 <br>
@@ -450,7 +450,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"나, 나한테 이, 이럴 순 없어." 당신이 말한다.
+	"나-나한테 이-이럴 순 없어." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"그냥 날 만지고 싶은 거잖아." 당신이 쏘아붙인다.
 <<else>>
@@ -521,7 +521,7 @@
 	<<link [[다음|Farmland]]>><<set $eventskip to 1>><</link>>
 	<br>
 <<else>>
-	"ㅊ, 착한, 아, 산울타리야," 당신이 말한다. <span class="red">듣지 않는다.</span>
+	"차-착한, 아, 산울타리야." 당신이 말한다. <span class="red">듣지 않는다.</span>
 	<br><br>
 
 	<<link [[다음|Farmland Exposed Tentacles]]>><<set $molestationstart to 1>><</link>>
@@ -667,9 +667,9 @@
 	<<generate1>><<generate2>><<person1>>
 	<span class="red">"주인 중 한 명인가?"</span> 뒤에서 <<personssimple>> 목소리가 들린다.
 	<br>
-	당신은 깜짝 놀란다. <<covered>>.
+	당신은 깜짝 놀란다. <<covered>>
 	<br>
-	"맞아," 다른 목소리가 대답한다. "저런 차림으로 밖에 나오다니, 변태가 틀림없어."
+	"맞아." 다른 목소리가 대답한다. "저런 차림으로 밖에 나오다니, 변태가 틀림없어."
 	<br><br>
 	<<fameexhibitionism 2>>
 	얼굴이 붉어진 채, 당신은 돌아서서 오두막 옆으로 달려간다.
@@ -713,7 +713,7 @@
 	<br>
 	당신은 허둥지둥 일어나 남은 길을 도망친다.
 	<br>
-	"맞아," 다른 목소리가 대답한다. "저런 옷을 입고 네 발로 기고 있다니, 무슨 짓이야? 변태인가?"
+	"맞아." 다른 목소리가 대답한다. "저런 옷을 입고 네 발로 기고 있다니, 무슨 짓이야? 변태인가?"
 	<br><br>
 
 	당신은 헛간 모퉁이를 돈다. 적어도 그들은 따라오지 않는다.

@@ -15,7 +15,7 @@
 	헛간의 수용자들이 레미의 감시 아래 밖으로 몰아지고 있다.
 <<elseif Time.hour gte 18 and Time.hour lt 21>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		<<livestock_cows "cap">>【이가】 감옥 가장자리에 줄을 서고, 농장 일꾼들이 그들의 몸에 착유기를 부착한다.
 	<<else>>
 		<<livestock_cows "cap">>【이가】 감옥 가장자리에 줄을 서고, 농장 일꾼들이 그들의 몸에 착유기를 부착한다.
@@ -288,11 +288,22 @@
 <<effects>><<set $outside to 0>>
 
 <<milkvolume 20>><<lactation_pressure 10>><<set $breastgrowthtimer -= 150>>
-<<if !hasSexStat("exhibitionism", 6) or $uncomfortable.nude is true>>
-	"팔은 옆에 붙여." <<he>>【이가】 명령한다. 당신은 팔을 움직여 알몸을 드러낸다.
-	<<if $uncomfortable.nude is true>>당신은 수치심을 견디지 못하고 고개를 돌려 눈을 감는다.<</if>>
+<<if !pcAreArmsBound("any")>>
+	<<if !hasSexStat("exhibitionism", 6) or $uncomfortable.nude is true>>
+		"팔은 옆에 붙여." <<he>>【이가】 명령한다. 당신은 팔을 움직여 알몸을 드러낸다.
+		<<if $uncomfortable.nude is true>>당신은 수치심을 견디지 못하고 고개를 돌려 눈을 감는다.<</if>>
+	<<else>>
+		"팔은 옆에 붙여." <<he>>【이가】 명령한다. <<his>> 시선이 당신의 몸을 훑자 전율이 느껴진다.
+	<</if>>
+<<elseif !pcAreArmsBound("both") and pcAreArmsBound("any")>>
+	<<if !hasSexStat("exhibitionism", 6) or $uncomfortable.nude is true>>
+		"팔을 옆에 붙여." <<he>>【이가】 명령한다. 당신은 팔을 움직여 알몸을 드러낸다.
+		<<if $uncomfortable.nude is true>>당신은 수치심을 견디지 못하고 고개를 돌려 눈을 감는다.<</if>>
+	<<else>>
+		"팔을 옆에 붙여." <<he>>【이가】 명령한다. <<his>> 시선이 당신의 몸 위를 스치자 짜릿한 전율이 인다.
+	<</if>>
 <<else>>
-	"팔은 옆에 붙여." <<he>>【이가】 명령한다. <<his>> 시선이 당신의 몸을 훑자 전율이 느껴진다.
+	<<if $uncomfortable.nude is true>>당신은 알몸이 드러난 수치심을 견디지 못하고 고개를 돌려 눈을 감는다.<</if>>
 <</if>>
 <br><br>
 <<if $phase is 1>>
@@ -301,7 +312,7 @@
 	<<if $lactating is 1>>
 		"넌 농장의 자랑이야." <<he>>【이가】 당신을 마사지하며 말한다. <<He>>【이가】 당신의 유두를 비틀자, 유두 끝에서 우유가 새어 나오며 놀라 음메 소리를 낸다. "그래, 착한 <<girl>>." <<he>>【이가】 웃는다.
 	<<else>>
-		<<He>>【이가】 주무르고 마사지하지만 아무 일도 일어나지 않는다. <<He>>【이가】 당신의 유두를 비틀자 놀라서 음메 소리를 내지만, <<he>>【이가】 원하던 결과는 아닌 것 같다. "아직도 안 나와? 이쯤 되면 나올 줄 알았는데." <<he>>【은는】 실망한 듯 고개를 저으며 말한다.
+		<<He>>【이가】 주무르고 마사지하지만 아무 일도 일어나지 않는다. <<He>>【이가】 당신의 유두를 비틀자 놀라서 음메 소리를 내지만, <<he>>【이가】 원하던 결과는 아닌 것 같다. "아직도 안 나와? 이쯤 되면 나올 줄 알았는데," <<he>>【은는】 실망한 듯 고개를 저으며 말한다.
 	<</if>>
 
 	<<He>>【이가】 <<his>> 주머니에서 익숙한 분홍색 젤을 꺼내 당신의 몸 전체에 문지르기 시작한다.<<garousal>><<arousal 600 "breasts">>
@@ -584,8 +595,8 @@
 :: Livestock Handmilking
 <<effects>>
 
-당신은 레미에게 몸을 비비고, <<he>>【은는】 미소 짓는다. "내가 자네한테 약한 거 알지," <<he>>【이가】 킥킥 웃는다.
-"좋아, 엎드려, <<girl>>," <<he>>【이가】 명령한다. 당신은 손과 무릎을 꿇고 엎드리고, <<he>>【은는】 커다란 양동이를 가져와 당신 아래에 놓는다.
+당신은 레미에게 몸을 비비고, <<he>>【은는】 미소 짓는다. "내가 자네한테 약한 거 알지." <<he>>【이가】 킥킥 웃는다.
+"좋아, 엎드려, <<girl>>." <<he>>【이가】 명령한다. 당신은 손과 무릎을 꿇고 엎드리고, <<he>>【은는】 커다란 양동이를 가져와 당신 아래에 놓는다.
 <br><br>
 
 <<He>>【은는】 의자를 끌어와 당신의 유두에 <<his>> 손을 가져간다. <<He>>【은는】 당신의 가슴을 안쪽으로 모으고 가볍게 짠다.
@@ -614,7 +625,7 @@
 
 	<<if $femaleclimax or _deniedOrgasm>>
 		<<unset $livestock.semen>>
-		레미의 최선의 노력에도 불구하고, 당신이 여러 번의 <<if _deniedOrgasm>>망가진 <</if>>절정을 겪는 동안 정액은 모이지 않는다. 레미는 눈살을 찌푸린다. <<if $livestock.milk gte 100>>"뭐, 상관없어," <<he>>【이가】 중얼거린다. "적어도 뭔가 얻었으니까."<</if>> <<He>>【은는】 정액을 좀 더 짜내려는 마지막 시도로 당신의 자지를 다시 한번 <<= $player.penissize lt 2 ? "움켜쥔다" : "쓸어 올린다">>.
+		레미의 최선의 노력에도 불구하고, 당신이 여러 번의 <<if _deniedOrgasm>>망가진 <</if>>절정을 겪는 동안 정액은 모이지 않는다. 레미는 눈살을 찌푸린다. <<if $livestock.milk gte 100>>"뭐, 상관없어." <<he>>【이가】 중얼거린다. "적어도 뭔가 얻었으니까."<</if>> <<He>>【은는】 정액을 좀 더 짜내려는 마지막 시도로 당신의 자지를 다시 한번 <<= $player.penissize lt 2 ? "움켜쥔다" : "쓸어 올린다">>.
 	<<else>>
 		반복되는 절정이 몸을 뒤흔들자 당신은 나지막이 음메 소리를 내며 양동이에 사정한다. 레미의 얼굴이 언뜻 보인다. <<He>>【은는】 <<his>> 솜씨에 만족한 듯하다.
 	<</if>>
@@ -810,7 +821,7 @@
 <<if $settings.breastFeedingEnabled>>
 	<<if $player.penisExist and !playerChastity()>>
 		<<if $player.penissize gte 6>>
-			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 <<penis>> 끝에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이," <<he>>【이가】 지나가는 농장 인부를 부른다. "더 큰 거 하나 줘."
+			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 <<penis>> 끝에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이." <<he>>【이가】 지나가는 농장 인부를 부른다. "더 큰 거 하나 줘."
 			<br><br>
 
 			이번에는 튜브가 딱 맞는다. 다음으로 당신의 <<breasts>>에 비슷한 차가운 압박이 느껴진다. 레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신을 덮친다.
@@ -823,7 +834,7 @@
 			다음으로 당신의 <<breasts>>에 비슷한 차가운 압박이 느껴진다. 레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신을 덮친다.
 			<br><br>
 		<<else>>
-			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 골반에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이," <<he>>【이가】 지나가는 농장 인부를 부른다. "더 작은 거 하나 줘."
+			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 골반에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이." <<he>>【이가】 지나가는 농장 인부를 부른다. "더 작은 거 하나 줘."
 			<br><br>
 
 			이번에는 튜브가 딱 맞는다. 다음으로 당신의 <<breasts>>에 비슷한 차가운 압박이 느껴진다. 레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신의 <<penis>>【와과】 가슴을 덮친다.
@@ -835,7 +846,7 @@
 			<br><br>
 		<</if>>
 
-		"젖 많이 내놔," <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 자지와 유두에 작동하는 채로 남겨두고 걸어간다.
+		"젖 많이 내놔." <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 자지와 유두에 작동하는 채로 남겨두고 걸어간다.
 		<<garousal>><<arousal 300 "genitals">><<arousal 300 "breasts">>
 		<br><br>
 
@@ -856,7 +867,7 @@
 			<br><br>
 		<</if>>
 
-		"젖 많이 내놔," <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 <<nipples>>에 작동하는 채로 남겨두고 걸어간다.
+		"젖 많이 내놔." <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 <<nipples>>에 작동하는 채로 남겨두고 걸어간다.
 		<<garousal>><<arousal 600 "breasts">>
 		<br><br>
 
@@ -868,7 +879,7 @@
 <<else>>
 	<<if $player.penisExist and !playerChastity()>>
 		<<if $player.penissize gte 6>>
-			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 <<penis>> 끝에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이," <<he>>【이가】 지나가는 농장 인부를 부른다. "더 큰 거 하나 줘."
+			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 <<penis>> 끝에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이." <<he>>【이가】 지나가는 농장 인부를 부른다. "더 큰 거 하나 줘."
 			<br><br>
 
 			이번에는 튜브가 딱 맞는다. 레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신의 자지를 덮친다.
@@ -881,14 +892,14 @@
 			레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신의 자지를 덮친다.
 			<br><br>
 		<<else>>
-			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 골반에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이," <<he>>【이가】 지나가는 농장 인부를 부른다. "더 작은 거 하나 줘."
+			레미가 유리 펌프를 손에 든 채 당신의 몸 아래로 몸을 숙인다. 차갑고 단단한 튜브가 당신의 골반에 눌리는 것이 느껴진다. 레미가 얼굴을 찌푸리며 다시 나타난다. "어이." <<he>>【이가】 지나가는 농장 인부를 부른다. "더 작은 거 하나 줘."
 			<br><br>
 
 			이번에는 튜브가 딱 맞는다. 레미는 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 흡입력이 당신의 <<penis>>【을를】 덮친다.
 			<br><br>
 		<</if>>
 
-		"젖 많이 내놔," <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 자지에 작동하는 채로 남겨두고 걸어간다.
+		"젖 많이 내놔." <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 흡입 튜브가 당신의 자지에 작동하는 채로 남겨두고 걸어간다.
 		<<garousal>><<arousal 600 "genitals">>
 		<br><br>
 
@@ -907,7 +918,7 @@
 			<<He>>【은는】 당신의 우리를 떠나며, 문을 쾅 닫는다. <<He>>【은는】 착유기로 다가가 레버를 당긴다. 엄청난 진동이 당신의 가랑이와 가슴을 덮친다.
 			<br><br>
 
-			"재밌게 놀아," <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 진동하는 장난감들이 당신의 민감한 부위에 붙어있는 채로 남겨두고 걸어간다.
+			"재밌게 놀아." <<he>>【이가】 말한다. <<He>>【은는】 당신의 목이 바닥에 묶이고, 진동하는 장난감들이 당신의 민감한 부위에 붙어있는 채로 남겨두고 걸어간다.
 			<<garousal>><<arousal 300 "genitals">><<arousal 300 "breasts">>
 			<br><br>
 
@@ -935,7 +946,7 @@
 :: Livestock None Give 2
 <<effects>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	당신은 <<livestock_cows>>이 축사 위아래로 무릎을 꿇고 쾌감에 겨워 음메 소리를 내며, 황홀경에 얼굴이 일그러진 것을 본다.
 <<else>>
 <</if>>
@@ -1064,7 +1075,7 @@
 :: Livestock Penis Give 2
 <<effects>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	당신은 <<livestock_cows>>이 축사 위아래로 무릎을 꿇고 쾌감에 겨워 음메 소리를 내며, 황홀경에 얼굴이 일그러진 것을 본다.
 <<else>>
 <</if>>
@@ -1187,7 +1198,7 @@
 :: Livestock Breasts Give 2
 <<effects>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	당신은 <<livestock_cows>>이 축사 위아래로 무릎을 꿇고 쾌감에 겨워 음메 소리를 내며, 황홀경에 얼굴이 일그러진 것을 본다.
 <<else>>
 <</if>>
@@ -1314,7 +1325,7 @@
 :: Livestock Both Give 2
 <<effects>>
 <!-- Modified for Monster People -->
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 	당신은 <<livestock_cows>>이 축사 위아래로 무릎을 꿇고 쾌감에 겨워 음메 소리를 내며, 황홀경에 얼굴이 일그러진 것을 본다.
 <<else>>
 <</if>>
@@ -1476,7 +1487,7 @@
 <</if>>
 
 <<if $livestock.obey gte 80>>
-	"착하기도 하지, <<girl>>," <<he>>【이가】 귀 뒤를 긁어주며 말한다. "이제 잘 시간이다." <<he>>【은는】 일어나 문 쪽으로 걸어간다. 쇠창살을 닫으며 <<he>>【이가】 당신에게 미소를 짓는다.
+	"착하기도 하지, <<girl>>." <<he>>【이가】 귀 뒤를 긁어주며 말한다. "이제 잘 시간이다." <<he>>【은는】 일어나 문 쪽으로 걸어간다. 쇠창살을 닫으며 <<he>>【이가】 당신에게 미소를 짓는다.
 <<elseif $livestock.obey gte 20>>
 	<<he>>【이가】 목줄을 손가락으로 감아쥐고 바짝 끌어당긴다. "오늘 밤엔 얌전히 굴어야 한다, 알겠지?" <<he>>【이가】 속삭인다. "다른 가축들 깨우지 말고." <<he>>【은는】 당신을 놓아주고 일어나 문으로 걸어간다. 문이 덜컥 소리를 내며 닫힌다.
 <<else>>
@@ -1525,7 +1536,7 @@
 <<if $worn.face.type.includes("gag")>>
 	항의하려 했지만, $worn.face.name 때문에 말이 제대로 나오지 않는다. 당신은 대신 고개를 젓는다.
 <<elseif $speech_attitude is "meek">>
-	"싫-싫어요," 당신은 말한다.
+	"싫-싫어요." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"꺼져, 이 변태야." 당신은 말한다. "당장 날 풀어줘."
 <<else>>
@@ -1577,7 +1588,7 @@
 	<<clotheson>>
 	<<endcombat>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		농장 인부들이 "소들"에게 착유기를 부착하는 것을 마친다. 그들은 감옥 가장자리에 무릎을 꿇고, 가슴과 성기에 튜브를 연결한 채 만족스럽고 흡족한 표정을 짓고 있다.
 	<<else>>
 		농장 인부들이 소들에게 착유기를 부착하는 것을 마친다.
@@ -1597,7 +1608,7 @@
 	<<clotheson>>
 	<<endcombat>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		농장 인부들이 "소들"에게 착유기를 부착하는 것을 마친다. 그들은 감옥 가장자리에 무릎을 꿇고, 가슴과 성기에 튜브를 연결한 채 만족스럽고 흡족한 표정을 짓고 있다.
 	<<else>>
 		농장 인부들이 소들에게 착유기를 부착하는 것을 마친다.
@@ -1645,7 +1656,7 @@
 <</if>>
 희미한 빛이 높은 창문을 뚫고 들어온다. 새벽이다.
 <<wakingEffects true>>
-<br><br>
+<br>
 
 <<if dangerEvent()>>
 	<<if $livestock.obey gte 80 and C.npc.Remy.love gte 80 and random(80, 110) lte C.npc.Remy.love>>
@@ -1658,20 +1669,21 @@
 			<br><br>
 
 			<<He>>【은는】 감옥 문을 열고 안으로 들어와 당신 옆에 무릎을 꿇는다. "요즘 나한테 정말 착한 <<girl>>【이었였】어. 농장의 자랑이야." <<if $cow gte 6>> 그 생각에 기분이 좋아진다.<<stress -4>><<lstress>><</if>>
+			<br><br>
 		<<else>>
 			<<He>>【이가】 당신에게 미소 지으며 감옥 문을 열고 안으로 들어온다. "요즘 나한테 정말 착한 <<girl>>【이었였】어. 농장의 자랑이야." <<if $cow gte 6>> 그 생각에 기분이 좋아진다.<<stress -4>><<lstress>><</if>>
 			<br><br>
 
 			<<He>>【은는】 당신 옆에 무릎을 꿇고, 당신의 머리를 향해 손을 뻗는다. <<He>>【은는】 당신을 쓰다듬기 시작한다. <<if $cow gte 6>> <<his>> 손이 두피에 닿는 느낌에 따뜻한 전율이 등을 타고 내려온다.<<arousal 800>><<garousal>><</if>>
+			<br><br>
 		<</if>>
-		<br><br>
 
 		<<link [[<<him>>【을를】 계속하게 둔다|Livestock Cell Remy]]>><<set $phase to 0>><<transform cow 1>><</link>>
 		<br>
 		<<link [[몸을 뺀다|Livestock Cell Remy]]>><<set $phase to 1>><</link>>
 	<<else>>
 		<<generate1>><<person1>>
-		눈이 익숙해지자, 당신을 지켜보며 감옥 밖에 서 있는 <<person>>【을를】 본다. <<He>>【은는】 당신의 어깨 너머를 힐끗 본다. "빨리 하면 안 들키겠지," <<he>>【은는】 문을 열면서 혼잣말하듯 중얼거린다. 당신이 일어서려 하지만, <<he>>【은는】 당신을 다시 짚더미 위로 밀어 넘어뜨린다.
+		눈이 익숙해지자, 당신을 지켜보며 감옥 밖에 서 있는 <<person>>【을를】 본다. <<He>>【은는】 당신의 어깨 너머를 힐끗 본다. "빨리 하면 안 들키겠지." <<he>>【은는】 문을 열면서 혼잣말하듯 중얼거린다. 당신이 일어서려 하지만, <<he>>【은는】 당신을 다시 짚더미 위로 밀어 넘어뜨린다.
 		<br><br>
 
 		<<link [[다음|Livestock Cell Rape]]>><<set $molestationstart to 1>><</link>>
@@ -1777,7 +1789,7 @@
 		<br><br>
 		<<He>>【은는】 <<his>> 채찍을 쓰다듬는다. 세 명의 부하가 당신을 둘러싼다. 그중 하나가 음흉하게 당신을 훑어본다.
 		<br><br>
-		"가만히 있어," <<person2>><<person>>【이가】 말한다. <<He>>【은는】 목줄을 들어 보인다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 당신에게 손을 뻗는다.
+		"가만히 있어." <<person2>><<person>>【이가】 말한다. <<He>>【은는】 목줄을 들어 보인다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 당신에게 손을 뻗는다.
 		<br><br>
 		<<link [[가만히 있는다|Livestock Dewintering]]>><<livestock_obey 2>><<set $phase to 0>><</link>><<gobey>>
 		<br>
@@ -1785,7 +1797,7 @@
 	<<else>>
 		레미가 다가오고, 농장 인부 한 명이 <<him>>【와과】 함께 온다. 다른 두 명이 따라오려 하지만, 레미가 <<his>> 손을 흔들자 그들은 다른 <<livestock_cows>>【을를】 돌보러 돌아간다.
 		<br><br>
-		레미가 손을 당신의 턱 밑에 넣고, <<him>>【을를】 보게 하려 고개를 들어 올린다. 당신은 저항하려 들지 않는다. "아직도 착한 <<girl>>【이】지, 그렇지? 어쩌면 무리의 우두머리가 될 수도 있겠군," <<he>>【이가】 중얼거린다. <<He>>【은는】 손을 떼고 농장 인부에게 나가라는 손짓을 한다.
+		레미가 손을 당신의 턱 밑에 넣고, <<him>>【을를】 보게 하려 고개를 들어 올린다. 당신은 저항하려 들지 않는다. "아직도 착한 <<girl>>【이】지, 그렇지? 어쩌면 무리의 우두머리가 될 수도 있겠군." <<he>>【이가】 중얼거린다. <<He>>【은는】 손을 떼고 농장 인부에게 나가라는 손짓을 한다.
 		<br><br>
 		개 몇 마리가 축사 안으로 풀려나, 소들을 뒤에서 몰기 시작한다. 한 마리가 당신의 뒤를 들이받으며 뺨을 핥는다. 당신은 놀라 <<if $cow gte 6>>음매 하고 울고<<else>>비명을 지른다<</if>>. 레미는 웃더니 개를 당신에게서 떼어낸다.
 		<br><br>
@@ -1828,7 +1840,7 @@
 		<span class="blue">레미는 당신을 익숙한 곳과는 다른 축사로 데려간다.</span> <<livestock_cows>>이 어슬렁거리고 있다. 그 주변에는 건초 더미가 쌓여 있다. 공간 난로 몇 대가 축사를 따뜻하게 데우고 있다. 누울 곳은 많다. <<if $cow gte 6>>당신은 쉬고 싶어진다<<else>><<pcow>>처럼 행동한다는 생각이 부끄럽지만 않다면<</if>>.
 		<br><br>
 		<<if !$livestock.seen.includes("winter")>>
-			<<He>>【은는】 당신의 얼굴에 떠오른 혼란을 알아본다. "여기선 널 안전하게 지켜 주겠다고 했잖아, <<girl>>," <<he>>【이가】 말한다.
+			<<He>>【은는】 당신의 얼굴에 떠오른 혼란을 알아본다. "여기선 널 안전하게 지켜 주겠다고 했잖아, <<girl>>." <<he>>【이가】 말한다.
 		<<else>>
 			"너와 나머지 무리를 안전하게 지키는 게 내 일이야." <<he>>【이가】 말한다.
 		<</if>>
@@ -1838,7 +1850,7 @@
 		<<He>>【은는】 당신을 건초 더미로 이끈다. 당신은 먼지 냄새에 코를 찡그린다. <<if $cow gte 6>>풀 냄새가 그리워진다. <</if>><<He>>【은는】 당신의 머리를 쓰다듬는다.
 		<br><br>
 
-		"착한 <<girl>>【으로로】 있으면 사과를 줄게," <<he>>【이가】 말한다. 그 말을 증명이라도 하듯, <<he>>【은는】 주머니에서 사과 하나를 꺼낸다. 당신의 입에 침이 고인다. <<He>>【은는】 당신의 얼굴에서 눈을 떼지 않은 채 사과를 베어 문다.
+		"착한 <<girl>>【으로로】 있으면 사과를 줄게." <<he>>【이가】 말한다. 그 말을 증명이라도 하듯, <<he>>【은는】 주머니에서 사과 하나를 꺼낸다. 당신의 입에 침이 고인다. <<He>>【은는】 당신의 얼굴에서 눈을 떼지 않은 채 사과를 베어 문다.
 		<br><br>
 
 		<<he>>【이가】 걸어가자, 사과 심이 당신 발치에 떨어진다. 당신은 <<if $cow gte 6>>당신의<<else>>그<</if>> 무리와 함께 축사에 남겨진다.
@@ -1878,7 +1890,7 @@
 <<if $livestock.obey gte 80>>
 	"뭐가 씐 거냐?" 레미가 고개를 저으며 말한다. "난 네가 착한 <<girl>>인 줄 알았는데." <<He>>【은는】 두 농장 인부가 더 독방에 들어오는 동안 엄지로 <<his>> 채찍을 쓰다듬는다. 셋이 달려드니 당신을 끌어내는 건 어렵지 않다. 그들은 축사를 떠나는 무리 속으로 당신을 밀어 넣는다. 농장 인부들이 양옆을 지키며 당신이 올바른 방향으로 가도록 몰아붙인다.
 <<elseif $livestock.obey lte 20>>
-	"그럴 줄 알았지," 레미가 말한다. "성가시게 굴 기회는 절대 놓치지 못하는군." <<He>>【은는】 두 농장 인부가 더 독방에 들어오는 동안 엄지로 <<his>> 채찍을 쓰다듬는다. 셋이 달려드니 당신을 끌어내는 건 어렵지 않다. 그들은 축사를 떠나는 무리 속으로 당신을 밀어 넣는다. 농장 인부들이 양옆을 지키며 당신이 올바른 방향으로 가도록 몰아붙인다.
+	"그럴 줄 알았지." 레미가 말한다. "성가시게 굴 기회는 절대 놓치지 못하는군." <<He>>【은는】 두 농장 인부가 더 독방에 들어오는 동안 엄지로 <<his>> 채찍을 쓰다듬는다. 셋이 달려드니 당신을 끌어내는 건 어렵지 않다. 그들은 축사를 떠나는 무리 속으로 당신을 밀어 넣는다. 농장 인부들이 양옆을 지키며 당신이 올바른 방향으로 가도록 몰아붙인다.
 <<else>>
 	"뭐가 문제냐?" 레미가 고개를 저으며 묻는다. "아니면 그냥 고집부리고 싶은 거냐?" <<He>>【은는】 두 농장 인부가 더 독방에 들어오는 동안 엄지로 <<his>> 채찍을 쓰다듬는다. 셋이 달려드니 당신을 끌어내는 건 어렵지 않다. 그들은 축사를 떠나는 무리 속으로 당신을 밀어 넣는다. 농장 인부들이 양옆을 지키며 당신이 올바른 방향으로 가도록 몰아붙인다.
 <</if>>
@@ -1888,11 +1900,11 @@
 	<<generate3>><<generate4>><<person1>>
 	축사 문이 열리고, 문을 지키던 농장 인부 하나가 깜짝 깨어난다. 밖을 보니 <span class="teal">남아 있던 눈은 <<if Weather.isSnow>>대부분<<else>>전부<</if>> 녹아</span> 있고, <<livestock_horses>>이 들판에서 뛰놀고 있다.
 	<br><br>
-	레미가 어두운 표정으로 다가온다. "<<if $livestock.obey lte 20>>장소가 바뀌면 네 태도도 나아질 줄 알았는데<<else>>장소가 바뀌면 네가 기뻐할 줄 알았는데<</if>>," <<he>>【이가】 말한다. "그래도 곧 받아들이게 될 거다. 내가 꺾지 못한 <<pcow>>【은는】 없었으니까."
+	레미가 어두운 표정으로 다가온다. "<<if $livestock.obey lte 20>>장소가 바뀌면 네 태도도 나아질 줄 알았는데<<else>>장소가 바뀌면 네가 기뻐할 줄 알았는데<</if>>." <<he>>【이가】 말한다. "그래도 곧 받아들이게 될 거다. 내가 꺾지 못한 <<pcow>>【은는】 없었으니까."
 	<br><br>
 	<<He>>【은는】 <<his>> 채찍을 쓰다듬는다. 세 명의 부하가 당신을 둘러싼다. 그중 하나가 음흉하게 당신을 훑어본다.
 	<br><br>
-	"가만히 있어," <<person2>><<person>>【이가】 말한다. <<He>>【은는】 목줄을 들어 보인다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 당신에게 손을 뻗는다.
+	"가만히 있어." <<person2>><<person>>【이가】 말한다. <<He>>【은는】 목줄을 들어 보인다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 당신에게 손을 뻗는다.
 	<br><br>
 	<<link [[가만히 있는다|Livestock Dewintering]]>><<livestock_obey 2>><<set $phase to 0>><</link>><<gobey>>
 	<br>
@@ -1923,7 +1935,7 @@
 		<span class="blue">레미는 당신을 익숙한 곳과는 다른 축사로 데려간다.</span> <<livestock_cows>>이 어슬렁거리고 있다. 그 주변에는 건초 더미가 쌓여 있다. 공간 난로 몇 대가 축사를 따뜻하게 데우고 있다. 누울 곳은 많다. <<if $cow gte 6>>당신은 쉬고 싶어진다<<else>><<pcow>>처럼 행동한다는 생각이 부끄럽지만 않다면<</if>>.
 		<br><br>
 		<<if !$livestock.seen.includes("winter")>>
-			<<He>>【은는】 당신의 얼굴에 떠오른 혼란을 알아본다. "여기선 널 안전하게 지켜 주겠다고 했잖아, <<girl>>," <<he>>【이가】 말한다.
+			<<He>>【은는】 당신의 얼굴에 떠오른 혼란을 알아본다. "여기선 널 안전하게 지켜 주겠다고 했잖아, <<girl>>." <<he>>【이가】 말한다.
 		<<else>>
 			너와 나머지 무리를 안전하게 지키는 게 내 일이야." <<he>>【이가】 말한다.
 		<</if>>
@@ -1933,7 +1945,7 @@
 		<<He>>【은는】 당신을 건초 더미로 이끈다. 당신은 먼지 냄새에 코를 찡그린다. <<if $cow gte 6>>풀 냄새가 그리워진다. <</if>><<He>>【은는】 당신의 머리를 쓰다듬는다.
 		<br><br>
 
-		"착한 <<girl>>【으로로】 있으면 사과를 줄게," <<he>>【이가】 말한다. 그 말을 증명이라도 하듯, <<he>>【은는】 주머니에서 사과 하나를 꺼낸다. 당신의 입에 침이 고인다. <<He>>【은는】 당신의 얼굴에서 눈을 떼지 않은 채 사과를 베어 문다.
+		"착한 <<girl>>【으로로】 있으면 사과를 줄게." <<he>>【이가】 말한다. 그 말을 증명이라도 하듯, <<he>>【은는】 주머니에서 사과 하나를 꺼낸다. 당신의 입에 침이 고인다. <<He>>【은는】 당신의 얼굴에서 눈을 떼지 않은 채 사과를 베어 문다.
 		<br><br>
 
 		<<he>>【이가】 걸어가자, 사과 심이 당신 발치에 떨어진다. 당신은 <<if $cow gte 6>>당신의<<else>>그<</if>> 무리와 함께 축사에 남겨진다.
@@ -1958,15 +1970,15 @@
 <<if $phase is 0>>
 	당신이 저항하지 않자 <<person2>><<person>>【이가】 당신의 목줄에 가죽끈을 채운다. 레미는 <<person1>><<his>> 얼굴에 옅은 미소를 띠며 고개를 끄덕인다.
 	<br><br>
-	"착한 <<girl>>," <<he>>【이가】 말한다. "그렇게 어렵지 않지, 안 그래?"
+	"착한 <<girl>>." <<he>>【이가】 말한다. "그렇게 어렵지 않지, 안 그래?"
 <<else>>
 	당신은 주먹을 들어 올린다.
 	<<if $speech_attitude is "meek">>
-		"이-이런 취급은 받지 않을 거예요," 당신은 말한다.
+		"이-이런 취급은 받지 않을 거예요." 당신은 말한다.
 	<<elseif $speech_attitude is "bratty">>
-		"난 굴복하지 않아, 이 멍청아," 당신은 말한다. "시간 낭비하는 거라고."
+		"난 굴복하지 않아, 이 멍청아." 당신은 말한다. "시간 낭비하는 거라고."
 	<<else>>
-		"시간 낭비일 뿐이야," 당신은 말한다. "네 가축처럼 취급당하지 않을 거야."
+		"시간 낭비일 뿐이야." 당신은 말한다. "네 가축처럼 취급당하지 않을 거야."
 	<</if>>
 	<br><br>
 	<<person3>><<person>>【와과】 <<person2>><<person>>【이가】 당신에게 달려든다. 당신은 주먹을 휘둘러 <<person2>><<person>>의 턱을 맞춘다. <<person3>><<person>>【이가】 당신의 손을 잡으려 하지만, 당신은 <<him>>의 정강이를 걷어찬다.
@@ -2242,7 +2254,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"구, 구해주셔서 감사합니다." 당신이 말한다.
+	"구-구해주셔서 감사합니다." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"구해줘서 고마워." 당신이 말한다.
 <<else>>
@@ -2363,9 +2375,10 @@
 농장 인부들이 당신 주위로 원을 그리며 둘러쌉니다. 그들은 개들을 붙잡고 있느라 안간힘을 씁니다. 레미는 <<his>> <<print $remyEscapeSteed>> 위에 올라탄 채, 생각에 잠겨 있습니다.
 <<endevent>>
 
-<<if random(1) and $settings.horsesEnabled>>
+<<set _remyPunishBeast to "dog">>
+<<if random(1)>>
 	<<if $remyEscapeSteed is "centaur">>
-		<<if random(1, 100) lte beastMaleChance()>>
+		<<if random(1, 100) lte beastMaleChanceForType("horse")>>
 			<<if random(1,100) lte $settings.maleNPCVaginaChance>>
 				<<beastNEWinit 1 horse m vagina monster>>
 			<<else>>
@@ -2385,17 +2398,21 @@
 			<<beastNEWinit 1 horse f vagina beast>>
 		<</if>>
 	<</if>>
-	<<set _remyPunishBeast to "horse">>
-<<else>>
+	<<if beastSexEnabledForType("horse", $monster is 1)>>
+		<<set _remyPunishBeast to "horse">>
+	<<else>>
+		<<clearnpc>>
+	<</if>>
+<</if>>
+<<if _remyPunishBeast is "dog">>
 	<<beastNEWinit 1 dog>>
-	<<set _remyPunishBeast to "dog">>
 <</if>>
 <<person1>>
 
 <<unset $livestock.escape>>
 <!-- Modified for Monster People -->
-<<if _remyPunishBeast is "horse" and ($monster is 1 or $settings.bestialityEnabled)>>
-	"네가 무슨 꼴을 당해야 마땅한지 알겠지," <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> <<if $monster is 1>>켄타우로스 승용마<<else>>말<</if>>의 귀 뒤를 쓰다듬으며 말한다. <<beasttype>>【이가】 주인의 손길에 몸을 기댄다. "얘는 말을 아주 잘 들었거든. 네 벌이 얘한테는 상인 셈이지."
+<<if _remyPunishBeast is "horse" and beastSexEnabledForType("horse", $monster is 1)>>
+	"네가 무슨 꼴을 당해야 마땅한지 알겠지." <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> <<if $monster is 1>>켄타우로스 승용마<<else>>말<</if>>의 귀 뒤를 쓰다듬으며 말한다. <<beasttype>>【이가】 주인의 손길에 몸을 기댄다. "얘는 말을 아주 잘 들었거든. 네 벌이 얘한테는 상인 셈이지."
 	<br><br>
 	마음을 정한 <<nnpc_he "Remy">>【은는】 <<nnpc_his "Remy">> 탈것에 박차를 가해 더 가까이 다가온다. 농장 인부 두어 명도 재빨리 달려들어 당신의 팔과 다리를 붙잡는다. 그들은 당신을 근처 건초 더미 위로 끌어 올린다.
 	<<if $monster is 1>>
@@ -2426,8 +2443,8 @@
 	<br><br>
 	<<link [[다음|Livestock Caught Horse Molestation]]>><<set $molestationstart to 1>><</link>>
 	<br>
-<<elseif _remyPunishBeast is "dog" and ($monster is 1 or $settings.bestialityEnabled)>>
-	"네가 무슨 꼴을 당해야 마땅한지 알겠지," <<nnpc_he "Remy">>【이가】 농장 인부들 옆에 웅크려 짖어대는 <<beastsplural>>【을를】 보며 말한다. <<nnpc_He "Remy">>【은는】 그중 한 마리를 고른다. "저 녀석으로 하지. <<if $pronoun is "m">>그놈은<<else>>그년은<</if>> 아주 훌륭한 <<if $pronoun is "m">>수캐<<else>>암캐<</if>>거든. <<if $pronoun is "m">>그놈에게<<else>>그년에게<</if>> 상을 줘." <<bHis>> 꼬리가 세차게 흔들린다. <<person1>><<if $pronoun is "m">>사냥개<<else>>암캐<</if>> 옆에 있던 <<generate2>><<person2>><<person>>【이가】 <<bhis>> 목줄을 풀자, <<bhe>>【은는】 당신을 향해 달려든다.
+<<elseif _remyPunishBeast is "dog" and beastSexEnabledForType("dog", $monster is 1)>>
+	"네가 무슨 꼴을 당해야 마땅한지 알겠지." <<nnpc_he "Remy">>【이가】 농장 인부들 옆에 웅크려 짖어대는 <<beastsplural>>【을를】 보며 말한다. <<nnpc_He "Remy">>【은는】 그중 한 마리를 고른다. "저 녀석으로 하지. <<if $pronoun is "m">>그놈은<<else>>그년은<</if>> 아주 훌륭한 <<if $pronoun is "m">>수캐<<else>>암캐<</if>>거든. <<if $pronoun is "m">>그놈에게<<else>>그년에게<</if>> 상을 줘." <<bHis>> 꼬리가 세차게 흔들린다. <<person1>><<if $pronoun is "m">>사냥개<<else>>암캐<</if>> 옆에 있던 <<generate2>><<person2>><<person>>【이가】 <<bhis>> 목줄을 풀자, <<bhe>>【은는】 당신을 향해 달려든다.
 	<<clearsinglenpc 1>>
 	<br><br>
 
@@ -2437,7 +2454,7 @@
 	<!--<<if $edenwhip is 0>>
 		<<set $edenwhip to 1>>
 	<</if>> -->
-	"네가 무슨 꼴을 당해야 마땅한지 알겠지," <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> 탈것에서 뛰어내리며 말한다. 농장 인부 두 명이 앞으로 달려든다. 그들은 당신의 팔과 다리를 붙잡아 번쩍 들어 올리더니 건초 더미 위로 엎드리게 만든다. 녀석들은 당신의 어깨를 억누르고, 당신의 <<bottom>>【이가】 레미 쪽을 향하도록 고정한다.
+	"네가 무슨 꼴을 당해야 마땅한지 알겠지." <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> 탈것에서 뛰어내리며 말한다. 농장 인부 두 명이 앞으로 달려든다. 그들은 당신의 팔과 다리를 붙잡아 번쩍 들어 올리더니 건초 더미 위로 엎드리게 만든다. 녀석들은 당신의 어깨를 억누르고, 당신의 <<bottom>>【이가】 레미 쪽을 향하도록 고정한다.
 	<br><br>
 
 	<<nnpc_his "Remy">> 채찍이 허공을 가르는 파열음이 울린다. "이건 널 위한 선물이야." <span class="red"><<nnpc_He "Remy">>【이가】 당신의 <<bottom>>【을를】 사정없이 후려치자,</span> 비명이 절로 터져 나온다.
@@ -2448,7 +2465,7 @@
 	<<gggpain>><<pain 24>>
 	<br><br>
 
-	거친 숨을 몰아쉬며 레미가 손을 멈춘다. <<nnpc_He "Remy">>【은는】 채찍을 <<nnpc_his "Remy">> 허리춤에 건다. "나머지 가축들 있는 곳으로 돌려보내," <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> <<print $remyEscapeSteed>>에 다시 올라타며 명령한다. "이번 교훈을 뼛속 깊이 새겨둘 만큼은 머리가 돌아가길 바라야겠군."
+	거친 숨을 몰아쉬며 레미가 손을 멈춘다. <<nnpc_He "Remy">>【은는】 채찍을 <<nnpc_his "Remy">> 허리춤에 건다. "나머지 가축들 있는 곳으로 돌려보내." <<nnpc_he "Remy">>【이가】 <<nnpc_his "Remy">> <<print $remyEscapeSteed>>에 다시 올라타며 명령한다. "이번 교훈을 뼛속 깊이 새겨둘 만큼은 머리가 돌아가길 바라야겠군."
 	<br><br>
 
 	농장 인부들이 당신의 어깨를 짓누르던 손을 떼고, 목줄을 거칠게 잡아당겨 일으켜 세운다.
@@ -2471,7 +2488,7 @@
 /*	The farmhands form a circle around you. They struggle to hold back the dogs. Remy remains on <<his>> <<livestock_horse>>, looking thoughtful.
 	<<unset $livestock.escape>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte random(1, 100) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly) or $settings.bestialityEnabled) and $settings.horsesEnabled>>
+	<<if beastSexEnabledForType("horse", monsterChanceForType("horse") gte random(1, 100) and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("horse")))>>
 		<<if maleChance() lt random(1, 100)>>
 			<<if $settings.femaleNPCPenisChance gte 1>>
 				"I know what you deserve," <<he>> says, stroking <<his>> centaur steed behind the ear. The centaur leans into her master's hand. "This girl has been good. Your punishment is her reward."
@@ -2552,8 +2569,8 @@
 			<<link [[Next|Livestock Field]]>><</link>>
 			<br>
 		<</if>>
-	<<elseif $settings.bestialityEnabled>>
-		<<if beastMaleChance() gte 1 and $settings.horsesEnabled>>
+	<<elseif animalSexEnabledForType("horse")>>
+		<<if beastMaleChanceForType("horse") gte 1>>
 			"I know what you deserve," <<he>> says, stroking <<his>> horse behind the ear. The horse leans into its master's hand. "This boy has been good. Your punishment is his reward."
 			<br><br>
 			Having made up <<his>> mind, <<he>> spurs <<his>> mount closer. A couple of the farmhands act as well, darting forward and grasping your arms and legs. They haul you onto a nearby hay bale. The horse wheels behind you, and you catch a glimpse of its <span class="lewd">gargantuan cock.</span>
@@ -2564,7 +2581,7 @@
 			<<endevent>>
 			<<link [[Next|Livestock Caught Horse Rape]]>><<set $molestationstart to 1>><</link>>
 			<br>
-		<<elseif random(1, 2) is 2 and $settings.horsesEnabled>>
+		<<elseif random(1, 2) is 2>>
 			"I know what you deserve," <<he>> says, stroking <<his>> horse behind the ear. The horse leans into its master's hand. "This girl has been good. Your punishment is her reward."
 			<br><br>
 			Having made up <<his>> mind, <<he>> spurs <<his>> mount closer. A couple of the farmhands act as well, darting forward and grasping your arms and legs. They haul you onto a nearby hay bale. The horse wheels around you, and you catch a glimpse of its <span class="lewd">glistening pussy.</span>
@@ -2648,7 +2665,7 @@
 		<<bhis>> 거대한 자지에서는 여전히 정액이 흘러나와 <<bhim>> 아래 바닥에 고인다.
 	<</if>>
 	<br><br>
-	"착하지," 레미가 몸을 숙여 목을 쓰다듬으며 말한다. <<nnpc_He "Remy">>【이가】 당신을 내려다본다. "다른 애들한테 데려가. 이 교훈을 알아들을 만큼 똑똑하길 바라야지."
+	"착하지." 레미가 몸을 숙여 목을 쓰다듬으며 말한다. <<nnpc_He "Remy">>【이가】 당신을 내려다본다. "다른 애들한테 데려가. 이 교훈을 알아들을 만큼 똑똑하길 바라야지."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -2678,7 +2695,7 @@
 	<<bHe>>【은는】 <<bhis>> 주인이 <<bhis>> 머리채를 잡자 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -2737,7 +2754,7 @@
 	<</if>>
 	<br><br>
 
-	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군," 레미가 <<nnpc_his "Remy">> 애마 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
+	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군." 레미가 <<nnpc_his "Remy">> 애마 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -2760,7 +2777,7 @@
 	<<beasttype>>【은는】 낑낑거리며 건초 더미에서 굴러떨어진다. <<bHe>>【은는】 농장 인부들이 둘러싼 곳으로 기어가 그들의 다리 뒤에 숨는다.
 	<br><br>
 
-	"알겠다," 레미가 <<nnpc_his "Remy">> 애마 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
+	"알겠다." 레미가 <<nnpc_his "Remy">> 애마 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -2818,7 +2835,7 @@
 	<<npc Remy>><<person1>>
 	켄타우로스가 당신에게서 물러서자 관중들이 폭소를 터뜨린다. 그녀의 거대한 남근에서는 여전히 정액이 흘러나와 바닥에 고인다.
 	<br><br>
-	"착한 아이," 레미가 몸을 숙여 그녀의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 아이." 레미가 몸을 숙여 그녀의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -2844,7 +2861,7 @@
 	켄타우로스가 당신에게서 물러선다. "그-그냥 기분이 아니야," 그녀가 체면을 차리려 애쓰며 말을 더듬는다. 주인이 머리채를 잡자 그녀는 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -2904,7 +2921,7 @@
 	<<npc Remy>><<person1>>
 	켄타우로스가 당신에게서 물러서자 관중들이 폭소를 터뜨린다.
 	<br><br>
-	"착한 아이," 레미가 몸을 숙여 그녀의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 아이." 레미가 몸을 숙여 그녀의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -2930,7 +2947,7 @@
 	켄타우로스가 당신에게서 물러선다. "그-그냥 기분이 아니야," 그녀가 체면을 차리려 애쓰며 말을 더듬는다. 주인이 머리채를 잡자 그녀는 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -2989,7 +3006,7 @@
 	<<npc Remy>><<person1>>
 	켄타우로스가 당신에게서 물러서자 관중들이 폭소를 터뜨린다. 그의 거대한 남근에서는 여전히 정액이 흘러나와 바닥에 고인다.
 	<br><br>
-	"착한 녀석," 레미가 몸을 숙여 그의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 녀석." 레미가 몸을 숙여 그의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3014,7 +3031,7 @@
 	켄타우로스가 당신에게서 물러선다. "그-그냥 기분이 아니야," 그가 체면을 차리려 애쓰며 말을 더듬는다. 주인이 머리채를 잡자 그는 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -3073,7 +3090,7 @@
 	<<npc Remy>><<person1>>
 	켄타우로스가 당신에게서 물러서자 관중들이 폭소를 터뜨린다.
 	<br><br>
-	"착한 녀석," 레미가 몸을 숙여 그의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 녀석." 레미가 몸을 숙여 그의 목을 두드리며 말한다. <<He>>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3098,7 +3115,7 @@
 	켄타우로스가 당신에게서 물러선다. "그-그냥 기분이 아니야," 그가 체면을 차리려 애쓰며 말을 더듬는다. 주인이 머리채를 잡자 그는 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -3157,7 +3174,7 @@
 	<<beastejaculation>>
 	말이 당신에게서 물러서자 관중들이 폭소를 터뜨린다. 그 거대한 남근에서는 여전히 정액이 흘러나와 바닥에 고인다.
 	<br><br>
-	"착한 녀석," 레미가 몸을 숙여 그 목을 두드리며 말한다. <<nnpc_He "Remy">>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 녀석." 레미가 몸을 숙여 그 목을 두드리며 말한다. <<nnpc_He "Remy">>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3181,7 +3198,7 @@
 	말이 겁에 질려 울부짖으며 당신에게서 뒷걸음질 친다. 주인이 머리채를 잡자 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 
@@ -3240,7 +3257,7 @@
 	<<beastejaculation>>
 	말이 당신에게서 물러서자 관중들이 폭소를 터뜨린다.
 	<br><br>
-	"착한 아이," 레미가 몸을 숙여 그 목을 두드리며 말한다. <<nnpc_He "Remy">>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"착한 아이." 레미가 몸을 숙여 그 목을 두드리며 말한다. <<nnpc_He "Remy">>【은는】 당신을 내려다본다. "다른 놈들한테 데려가. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3265,7 +3282,7 @@
 	말이 겁에 질려 울부짖으며 당신에게서 뒷걸음질 친다. 주인이 머리채를 잡자 움찔한다.
 	<br><br>
 
-	"알겠다," 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
+	"알겠다." 레미가 당신을 내려다보며 말한다. "다음번엔 훨씬 더 심하게 당할 수도 있어. 이번 교훈을 알아들을 만큼 똑똑하면 좋겠군."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신의 어깨를 놓고 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -3323,7 +3340,7 @@
 	개 수인이 당신 위로 쓰러지자 농장 인부들이 폭소를 터뜨린다. 그들은 당신의 어깨를 놓고 그녀를 땅으로 들어 올린다.
 	<br><br>
 
-	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군," 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
+	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군." 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -3347,7 +3364,7 @@
 	개 수인이 낑낑거리며 건초 더미에서 굴러떨어진다. 그녀는 농장 인부들이 둘러싼 곳으로 기어가 그들의 다리 뒤에 숨는다.
 	<br><br>
 
-	"알겠다," 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
+	"알겠다." 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3402,7 +3419,7 @@
 	개가 당신과의 일을 끝내자 농장 인부들이 웃음을 터뜨린다.
 	<br><br>
 
-	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군," 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
+	"이번 교훈을 알아들을 만큼 똑똑하면 좋겠군." 레미가 <<nnpc_his "Remy">> <<livestock_horse>> 뒤에서 지켜보며 말한다. "늑대들로부터 이놈을 보호해 줄 수 있는 건 나뿐이야."
 	<<clotheson>>
 	<<endcombat>>
 	농장 인부들이 당신을 일으켜 세운다. <<tearful>> 당신은 밀쳐져
@@ -3426,7 +3443,7 @@
 	개는 낑낑거리며 건초 더미에서 굴러떨어진다. 개는 농장 인부들 쪽으로 허둥지둥 달려가 그들의 다리 뒤에 숨는다.
 	<br><br>
 
-	"알겠다," 레미가 <<nnpc_his "Remy">> 애마 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
+	"알겠다." 레미가 <<nnpc_his "Remy">> 애마 위에서 말한다. "하지만 기억해, 저 밖에는 진짜 늑대들이 있어. 그놈들을 상대로는 이렇게 잘 버티지 못할 거야. 널 보호해 줄 수 있는 건 나뿐이라고."
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -3483,9 +3500,9 @@
 		유일하게 눈길을 끄는 것은 자물쇠다. 다른 모든 감옥 문의 자물쇠처럼, 낡고 녹슬어 보인다.
 		<span class="red"> 어쩌면 충분한 힘을 가하면 부술 수 있을지도 모른다.</span>
 		<br><br>
-		<<ind>><<link [[문 흔들기 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
+		<<ind>><<link [[문을 흔든다 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
 		<br>
-		<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
+		<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><<generate1>><</link>>
 
 	<<elseif $livestock.lock.strength isnot undefined and $livestock.return is true>>
 		<<unset $livestock.return>>
@@ -3511,7 +3528,7 @@
 			당신은 창살을 잡고 앞뒤로 흔든다. 시간을 낭비하지 않고, 소리를 지른다. 자극받은 가축들은 곧 죽은 사람도 깨울 만큼 시끄러운 소리를 내기 시작한다.
 			<<person>>【이가】 방으로 뛰어 들어와 진정제 총을 꺼내 들고 <<livestock_cows>>을 잠재우기 시작한다.
 			<br><br>
-			<<ind>><<link [[문 흔들기 (1:00)|Livestock Lock Break]]>><<set $livestock.lock.patrol to 80>><<set $livestock.lock.sequence to 1>><</link>><<gtiredness>>
+			<<ind>><<link [[문을 흔든다 (1:00)|Livestock Lock Break]]>><<set $livestock.lock.patrol to 80>><<set $livestock.lock.sequence to 1>><</link>><<gtiredness>>
 			<br>
 			<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
 
@@ -3520,9 +3537,9 @@
 			문 자물쇠가 낡고 녹슨 것을 발견한다.
 			<span class="red"> 어쩌면 충분한 힘을 가하면 부술 수 있을지도 모른다.</span>
 			<br><br>
-			<<ind>><<link [[문 흔들기 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
+			<<ind>><<link [[문을 흔든다 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
 			<br>
-			<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
+			<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><<generate1>><</link>>
 		<</if>>
 
 	<<else>>
@@ -3530,9 +3547,9 @@
 		문에 다가가니, 낡고 녹슨 자물쇠가 있다.
 		<span class="red"> 어쩌면 충분한 힘을 가하면 부술 수 있을지도 모른다.</span>
 		<br><br>
-		<<ind>><<link [[문 흔들기 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
+		<<ind>><<link [[문을 흔든다 (1:00)|Livestock Lock Intro]]>><<set $livestock.lock.strength -= 1>><<set $livestock.lock.intro to 1>><</link>><<ggtiredness>>
 		<br>
-		<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
+		<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><<generate1>><</link>>
 
 	<</if>>
 
@@ -3589,7 +3606,8 @@
 	이번 것은 꽤 달라 보인다. 강철로 만들어졌을 뿐만 아니라, 새것처럼 보인다.
 	맨손으로는 부술 수 없을 것 같다.<<stress 12>><<ggstress>>
 	<br><br>
-	<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
+	<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><<generate1>><</link>>
+
 
 <<else>>
 
@@ -3599,7 +3617,7 @@
 	당신은 창살을 잡고 앞뒤로 흔든다. 시간을 낭비하지 않고, 소리를 지른다. 자극받은 가축들은 곧 죽은 사람도 깨울 만큼 시끄러운 소리를 내기 시작한다.
 	<<person1>><<person>>【이가】 진정제 총을 들고 방으로 뛰어 들어온다. <<He>>【은는】 흥분한 <<livestock_cows>>을 잠재우기 시작한다.
 	<br><br>
-	<<ind>><<link [[문 흔들기 (1:00)|Livestock Lock Break]]>><<set $livestock.lock.sequence to 1>><<set $livestock.lock.patrol to 80>><</link>><<gtiredness>>
+	<<ind>><<link [[문을 흔든다 (1:00)|Livestock Lock Break]]>><<set $livestock.lock.sequence to 1>><<set $livestock.lock.patrol to 80>><</link>><<gtiredness>>
 	<br>
 	<<getouticon>><<link [[뒤로 물러선다|Livestock Lock Break]]>><<set $livestock.lock.sequence to 2>><</link>>
 <</if>>
@@ -3677,30 +3695,30 @@
 	<<elseif $livestock.lock.quality gte 2 and $livestock.lock.keys isnot true>>
 		당신은 낙담하여 돌아선다. <span class="red">다른 방법을 찾아봐야 할지도 모른다.</span>
 		<br><br>
-		<<link [[다음|Livestock Cell]]>><</link>>
+		<<link [[다음|Livestock Cell]]>><<endevent>><</link>>
 
 	<<elseif $phase is 1>>
 		당신은 밖으로 나가지 않기로 결정한다.
 		<br><br>
 		<<link [[다음|Livestock Cell]]>><<endevent>><</link>>
 	<<else>>
-		<<generate1>><<person1>>
+		<<person1>>
 		문에서 물러나 짚단 위에 누워 자는 척을 한다.
 		<<person>>【이가】 우리로 다가와 당신을 쳐다보더니, 그대로 지나쳐 나머지 가축들에게 마취제를 투여한다. 곧 외양간에 고요가 찾아온다.
 		<<set _guard_speech to random(1,7)>>
 			<<switch _guard_speech>>
 				<<case 1>>
-				"멍청한 소새끼들," <<he>>【이가】 중얼거린다. "이제 여기서 뚱뚱한 궁둥이 놈들이 토사물에 질식하지나 않나 감시해야 하네. 참 대단도 하셔."
+				"멍청한 소새끼들." <<he>>【이가】 중얼거린다. "이제 여기서 뚱뚱한 궁둥이 놈들이 토사물에 질식하지나 않나 감시해야 하네. 참 대단도 하셔."
 				<<case 2>>
 				"멍청한 소들 같으니." <<he>>【이가】 중얼거린다. "커피라도 좀 가져올걸. 눈 한 번 붙일 수만 있다면 내 <<print either("여동생", "남동생")>>【이】라도 팔아넘길 텐데."
 				<<case 3>>
-				"멍청한 소새끼들," <<he>>【이가】 중얼거린다. "이딴 멍청이들 보모 노릇이나 하려고 받는 돈이 아닌데."
+				"멍청한 소새끼들." <<he>>【이가】 중얼거린다. "이딴 멍청이들 보모 노릇이나 하려고 받는 돈이 아닌데."
 				<<case 4>>
-				"멍청한 소새끼들," <<he>>【이가】 중얼거린다. "요즘 놈들이 안달복달하던 게 사실이었나 보네. 러커 놈들만 아니면 좋겠는데."
+				"멍청한 소새끼들." <<he>>【이가】 중얼거린다. "요즘 놈들이 안달복달하던 게 사실이었나 보네. 러커 놈들만 아니면 좋겠는데."
 				<<case 5>>
-				"멍청한 소새끼들," <<he>>【이가】 중얼거린다. "레미한테 약 좀 약한 걸로 바꾸자고 해볼까. 의심병 도진 새끼."
+				"멍청한 소새끼들." <<he>>【이가】 중얼거린다. "레미한테 약 좀 약한 걸로 바꾸자고 해볼까. 의심병 도진 새끼."
 				<<case 6>>
-				"멍청한 소새끼들," <<he>>【이가】 중얼거린다. "오늘 밤 외양간 당번은 내 차례도 아니었는데. 씨발 내가 왜 여기 있는 거야?"
+				"멍청한 소새끼들." <<he>>【이가】 중얼거린다. "오늘 밤 외양간 당번은 내 차례도 아니었는데. 씨발 내가 왜 여기 있는 거야?"
 				<<case 7>>
 			<</switch>>
 
@@ -3781,19 +3799,19 @@
 	<<set _guard_speech to random(1,7)>>
 	<<switch _guard_speech>>
 		<<case 1>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "이제 여기 앉아서 이 뚱뚱한 엉덩이들이 토사물에 질식하지 않는지 확인해야 하다니. 잘됐네."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "이제 여기 앉아서 이 뚱뚱한 엉덩이들이 토사물에 질식하지 않는지 확인해야 하다니. 잘됐네."
 		<<case 2>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "커피라도 좀 가져올걸. 눈 한 번 붙일 수 있다면 내 여동생이라도 팔 텐데."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "커피라도 좀 가져올걸. 눈 한 번 붙일 수 있다면 내 여동생이라도 팔 텐데."
 		<<case 3>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "이런 저능아들을 돌봐주기엔 돈을 너무 적게 받는다고."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "이런 저능아들을 돌봐주기엔 돈을 너무 적게 받는다고."
 		<<case 4>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "요즘 얘들을 괴롭히는 게 있다는 게 사실이었군. 럴커가 아니길 바라야지."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "요즘 얘들을 괴롭히는 게 있다는 게 사실이었군. 럴커가 아니길 바라야지."
 		<<case 5>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "레미한테 약을 좀 덜 센 걸로 바꿔달라고 해야 하나. 편집증 환자 같은 새끼."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "레미한테 약을 좀 덜 센 걸로 바꿔달라고 해야 하나. 편집증 환자 같은 새끼."
 		<<case 6>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "오늘 밤 축사 당번은 내 차례도 아니었는데. 내가 도대체 왜 여기 있는 거야?"
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "오늘 밤 축사 당번은 내 차례도 아니었는데. 내가 도대체 왜 여기 있는 거야?"
 		<<case 7>>
-		"멍청한 소 같으니," <<he>>【이가】 중얼거린다. "그래도 인정할 건 해야지, 몇몇은 꽤 귀엽단 말이야. 적어도 한 마리 정돈 따먹을 텐데."
+		"멍청한 소 같으니." <<he>>【이가】 중얼거린다. "그래도 인정할 건 해야지, 몇몇은 꽤 귀엽단 말이야. 적어도 한 마리 정돈 따먹을 텐데."
 	<</switch>>
 
 	<br><br>

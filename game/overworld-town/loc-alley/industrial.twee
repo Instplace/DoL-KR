@@ -13,7 +13,7 @@
 <br><br>
 <<if $brothelintro is 1 and isPubfameTaskAccepted("briar") and !$pubfame.briar.escape and $cat lte 5>>
 	<<set $pubfame.briar.escape to 1>>
-	근처 하베스트 거리에 있는 사창가가 눈에 띈다. 브라이어의 사무실로 통하는 창문이 있다.
+	근처 하베스트 가에 있는 창관이 눈에 띈다. 브라이어의 사무실로 통하는 창문이 있다.
 	<br><br>
 
 	<span class="blue">좋은 생각이 떠오른다.</span> 사다리를 브라이어의 사무실 쪽에 놓을 수만 있다면, 그 길로 빠져나갈 수 있을 것이다.

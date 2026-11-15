@@ -42,7 +42,7 @@
 
 <!-- Modified for Monster People -->
 <<widget "livestock_cows">>
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		<<if $settings.maleVictimChance is 0>>
 			<<set _text_output to "젖소 소녀들">>
 		<<elseif $settings.maleVictimChance is 100>>
@@ -68,10 +68,10 @@
 <</widget>>
 
 <<widget "livestock_horse">>
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly) or (!$settings.bestialityEnabled)>>
+	<<if monsterCanAppearForType("horse")>>
 		<<set _text_output to "켄타우로스">>
 	<<else>>
-		<<if beastMaleChance() gte random(1, 100)>>
+		<<if beastMaleChanceForType("horse") gte random(1, 100)>>
 			<<set _text_output to "종마">>
 		<<else>>
 			<<set _text_output to "암말">>
@@ -81,7 +81,7 @@
 <</widget>>
 
 <<widget "livestock_horses">>
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly) or (!$settings.bestialityEnabled)>>
+	<<if monsterCanAppearForType("horse")>>
 		<<set _text_output to "켄타우로스들">>
 	<<else>>
 		<<set _text_output to "말들">>
@@ -118,15 +118,15 @@
 		<<addinlineevent "livestock_overhear_winter 1">>
 			"또 청소 당번이 걸리다니 믿을 수가 없군," 한 <<person>>【이가】 불평한다. "청소 당번표가 조작된 게 틀림없어."
 			<br>
-			"그만 좀 징징대," <<person2>><<person>>【이가】 말한다. "실내에 있는 걸 다행으로 알아. 밖에 있는 불쌍한 녀석들은 계속 일해야 한다고."
+			"그만 좀 징징대." <<person2>><<person>>【이가】 말한다. "실내에 있는 걸 다행으로 알아. 밖에 있는 불쌍한 녀석들은 계속 일해야 한다고."
 			<br>
 			"이 녀석들 근처에서 하루 종일 건초나 푸느니 차라리 그게 낫겠어." <<person1>><<He>>【이가】 <<livestock_cows>>【을를】 쏘아본다. "오싹하잖아."
 			<br>
-			"일은 일이지," <<person3>><<person>>【이가】 말한다.
+			"일은 일이지." <<person3>><<person>>【이가】 말한다.
 			<br>
 			"내 생각엔 빌어먹을 일 같은데," <<person1>><<person>>【이가】 중얼거린다.
 			<br>
-			"아무도 안 물어봤어," <<person2>><<person>>【이가】 말한다.
+			"아무도 안 물어봤어." <<person2>><<person>>【이가】 말한다.
 			<br><br>
 			그들이 멀어지면서 말다툼 소리가 잦아든다.
 		<</addinlineevent>>
@@ -152,11 +152,11 @@
 		<<addinlineevent "livestock_overhear_winter 3">>
 			헛간 문이 열리며 차가운 공기가 밀려온다. 농장 일꾼인 <<person>>【이가】 <<person2>><<person>>【이가】 서둘러 들어오자 화들짝 놀라 잠에서 깬다.
 			<br><br>
-			"교대 시간이야," <<person2>><<person>>【이가】 <<his>> 발을 굴러 눈을 털어내며 말한다.
+			"교대 시간이야." <<person2>><<person>>【이가】 <<his>> 발을 굴러 눈을 털어내며 말한다.
 			<br>
 			"말도 안 돼," <<person1>><<person>>【이가】 불평한다. "밖은 얼어 죽을 것 같단 말이야!"
 			<br>
-			<<person2>><<person>>【이가】 <<person1>><<person>>【을를】 의자에서 밀쳐낸다. "빨리 나가," <<person2>><<he>>【이가】 말한다. "이제 내가 따뜻할 차례니까."
+			<<person2>><<person>>【이가】 <<person1>><<person>>【을를】 의자에서 밀쳐낸다. "빨리 나가." <<person2>><<he>>【이가】 말한다. "이제 내가 따뜻할 차례니까."
 			<br><br>
 			<<person1>><<person>>【이가】 작게 욕설을 내뱉는다. <<He>>【은는】 마음을 다잡고 헛간을 나간다.
 			<br><br>
@@ -198,17 +198,17 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear_winter 6">>
-			<<endevent>><<beastNEWinit 1 cow>><<generate2>><<person1>>
+			<<endevent>><<generateBeastVictim 1 cow>><<generate2>><<person1>>
 			헛간 앞쪽의 소란에 당신의 시선이 끌린다. 당신은 <<livestock_cows>>도 그곳을 보고 있다는 것을 알아챈다. 몇몇은 호기심과 짜증이 섞인 울음소리를 낸다.
 			<br><br>
 			두 명의 농장 일꾼이 <<beasttype>>【을를】 붙잡고 문 쪽으로 끌고 가려 실랑이를 벌이고 있다. <<beasttype>>【은는】 항의하듯 <<if $monster is 1>>비명을 지른다<<else>>울음소리를 낸다<</if>>.
 			<br><br>
 			<<if $monster is 1>>
-				"제발요," <<bhe>>【이가】 애원한다. "다시는 안 그럴게요!"
+				"제발요." <<bhe>>【이가】 애원한다. "다시는 안 그럴게요!"
 				<br>
-				"닥쳐," <<person2>><<person>>【이가】 말한다. <<He>>【은는】 <<person1>><<bhim>>【을를】 문 쪽으로 끌고 간다. "거역하면 어떻게 되는지 알고 있었잖아."
+				"닥쳐." <<person2>><<person>>【이가】 말한다. <<He>>【은는】 <<person1>><<bhim>>【을를】 문 쪽으로 끌고 간다. "거역하면 어떻게 되는지 알고 있었잖아."
 				<br>
-				"안 돼요," <<beasttype>>【이가】 말한다. <<bHe>>【은는】 창밖의 무언가를 응시한다. 당신은 <<bhe>>【이가】 무엇을 보고 있는지 볼 수 없지만, <<bhe>>【은는】 극도로 겁에 질려 보인다. "말 잘 들을게요, 약속해요!"
+				"안 돼요." <<beasttype>>【이가】 말한다. <<bHe>>【은는】 창밖의 무언가를 응시한다. 당신은 <<bhe>>【이가】 무엇을 보고 있는지 볼 수 없지만, <<bhe>>【은는】 극도로 겁에 질려 보인다. "말 잘 들을게요, 약속해요!"
 				<br><br>
 				농장 일꾼들이 실랑이를 벌이다 짜증이 났는지 한 명이 <<bhim>>【을를】 걷어차자 <<bhe>>【은는】 조용해진다.
 			<<else>>
@@ -226,9 +226,9 @@
 				<br><br>
 				"오늘 아침에 운전하다가 갑자기 - 쾅! 빙판길에 미끄러질 뻔했지 뭐야. 차가 도로 밖으로 처박힐 뻔했다고," 한 <<person>>【이가】 불평한다.
 				<br>
-				"그거 진짜 싫지," <<person2>><<person>>【이가】 대답한다. "우리 <<print either("여동생", "남동생")>>도 그럴 뻔했어."
+				"그거 진짜 싫지." <<person2>><<person>>【이가】 대답한다. "우리 <<print either("여동생", "남동생")>>도 그럴 뻔했어."
 				<br>
-				"그거 알아," <<person3>><<person>>【이가】 말한다. "스노우 타이어로 바꿔야 해. 예전에 내 목숨을 구한 적이 있거든."
+				"그거 알아." <<person3>><<person>>【이가】 말한다. "스노우 타이어로 바꿔야 해. 예전에 내 목숨을 구한 적이 있거든."
 				<br>
 				<<person4>><<person>>【이가】 웃는다. "우린 그거 살 만큼 돈 못 벌잖아."
 				<br><br>
@@ -237,14 +237,14 @@
 		<</if>>
 
 		<<addinlineevent "livestock_overhear_winter 8">>
-			<<endevent>><<beastNEWinit 1 cow>><<generate2>><<generate3>><<person2>>
+			<<endevent>><<generateBeastVictim 1 cow>><<generate2>><<generate3>><<person2>>
 			한 <<person>>【이가】 헛간 문으로 몰래 들어온다. 근무 중인 농장 일꾼은 <<person3>><<his>> 의자에 앉아 졸고 있다. <<person2>><<person>>【은는】 문을 닫고 주변을 둘러본다. <<His>> 시선이 당신에게 머물렀다가 황급히 시선을 돌린다. 호기심이 생긴 당신은 <<him>>【을를】 지켜본다.
 			<br><br>
 			<<personsimple>>【은는】 무리를 지은 <<livestock_cows>> 중 한 곳으로 다가간다. <<He>>【은는】 그들 사이를 지나 한가운데로 들어간다. 그곳에는 듬성듬성 파인 건초더미가 있다. <<He>>【은는】 그 위에 자리를 잡고 눈을 감는다.
 			<br><br>
 			<<person1>><<beastsplural>> 중 하나가 <<person2>><<personsimple>>의 다리 위에 자신의 머리를 얹는다. <<He>>【이가】 한쪽 눈을 슬그머니 뜬다.
 			<br><br>
-			"좋아," <<he>>【이가】 속삭인다. "이번 한 번만이야."
+			"좋아." <<he>>【이가】 속삭인다. "이번 한 번만이야."
 			<br><br>
 			<<beasttype 0>>【이가】 부드럽게 운다. <<person>>【은는】 미소 지으며 눈을 다시 감는다. 이내, <<he>>【은는】 코를 골기 시작한다.
 			<br><br>
@@ -256,7 +256,7 @@
 		<<addinlineevent "livestock_overhear 1">>
 			"레미는 저 야수 떼를 어떻게 통제하는 거야?" 한 <<person>>【이가】 묻는다.
 			<br>
-			"전혀 모르겠어," <<person2>><<person>>【이가】 대답한다. "다른 사람 말은 아예 안 듣잖아."
+			"전혀 모르겠어." <<person2>><<person>>【이가】 대답한다. "다른 사람 말은 아예 안 듣잖아."
 			<br>
 			"쟤네 전속력으로 달리는 거 본 적 있어?"
 			<br>
@@ -266,9 +266,9 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 2">>
-			"레미는 쫌생이야," <<person>>【이가】 뒤를 돌아보며 말한다.
+			"레미는 쫌생이야." <<person>>【이가】 뒤를 돌아보며 말한다.
 			<br>
-			"맞아," <<person2>><<person>>【이가】 대답한다. "특히 동물들한테 더 그렇지. 사과를 금덩이처럼 취급한다니까."
+			"맞아." <<person2>><<person>>【이가】 대답한다. "특히 동물들한테 더 그렇지. 사과를 금덩이처럼 취급한다니까."
 			<br>
 			"나 예전에 저 말들 앞에서 사과를 먹은 적이 있거든. 사과를 쳐다보는 눈빛이 어찌나 간절한지, 괜히 내가 다 미안해지더라고."
 			<br><br>
@@ -288,9 +288,9 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 4">>
-			"어젯밤에 남쪽에서 이상한 소리가 더 들렸어," 한 <<person>>【이가】 말한다.
+			"어젯밤에 남쪽에서 이상한 소리가 더 들렸어." 한 <<person>>【이가】 말한다.
 			<br>
-			"그냥 짐승이겠지," <<person2>><<person>>【이가】 대답한다. "기껏해야 늑대일 거야. 뭐, 무서워?"
+			"그냥 짐승이겠지." <<person2>><<person>>【이가】 대답한다. "기껏해야 늑대일 거야. 뭐, 무서워?"
 			<br>
 			"네가 직접 못 들어봐서 그래. 비명소리 같았다니까. 레미한테 시간 좀 바꿔달라고 해야겠어."
 			<br><br>
@@ -298,9 +298,9 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 5">>
-			"말도 안 돼," 한 <<person>>【이가】 말한다. "선생님들 중 한 명이라도 나섰을 텐데."
+			"말도 안 돼." 한 <<person>>【이가】 말한다. "선생님들 중 한 명이라도 나섰을 텐데."
 			<br>
-			"아무도 안 나섰어," <<person2>><<person>>【이가】 대답한다. "모르는 걸지도 몰라. 못 믿겠으면 직접 확인해 보든가."
+			"아무도 안 나섰어." <<person2>><<person>>【이가】 대답한다. "모르는 걸지도 몰라. 못 믿겠으면 직접 확인해 보든가."
 			<br>
 			"나 그 동네 안 좋아하는 거 알잖아. 똥냄새 난다고."
 			<br>
@@ -310,7 +310,7 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 6">>
-			"저 의사 왠지 찜찜해," 한 <<person>>【이가】 말한다.
+			"저 의사 왠지 찜찜해." 한 <<person>>【이가】 말한다.
 			<br>
 			"그 애?" <<person2>><<person>>【이가】 웃는다. "바보 같은 소리 마."
 			<br>
@@ -324,7 +324,7 @@
 		<<addinlineevent "livestock_overhear 7">>
 			"저 새로운 <<girls>>【은는】 다 어디서 났대?" 한 <<person>>【이가】 묻는다. "그냥 길거리에서 납치한 거 아니야?"
 			<br>
-			"레미가 몇몇 상인들을 알고 있거든," <<person2>><<person>>【이가】 대답한다. "어떻게 데려오는지는 모르지. 경찰들이 가끔 쓰레기들을 이쪽으로 던지기도 하고."
+			"레미가 몇몇 상인들을 알고 있거든." <<person2>><<person>>【이가】 대답한다. "어떻게 데려오는지는 모르지. 경찰들이 가끔 쓰레기들을 이쪽으로 던지기도 하고."
 			<br>
 			"그래서 경찰차가 있었구나. 우릴 단속하려는 건 줄 알았지."
 			<br>
@@ -334,7 +334,7 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 8">>
-			"저 새로 들어온 <<girl>> 귀엽네," 한 <<person>>【이가】 말한다.
+			"저 새로 들어온 <<girl>> 귀엽네." 한 <<person>>【이가】 말한다.
 			<br>
 			"저 새로 들어온 <<pcow>> 말하는 거지," <<person2>><<person>>【이가】 받아친다.
 			<br>
@@ -346,9 +346,9 @@
 		<</addinlineevent>>
 
 		<<addinlineevent "livestock_overhear 9">>
-			"우리한테 사진 좀 보여줬으면 좋겠어," 한 <<person>>【이가】 말한다.
+			"우리한테 사진 좀 보여줬으면 좋겠어." 한 <<person>>【이가】 말한다.
 			<br>
-			"맞아," <<person2>><<person>>【이가】 대답한다. "그 사진사한테 좀 보자고 했더니. <<nnpc_He "Niki">>【은는】 날 씹어먹을 듯 쳐다보더라고."
+			"맞아." <<person2>><<person>>【이가】 대답한다. "그 사진사한테 좀 보자고 했더니. <<nnpc_He "Niki">>【은는】 날 씹어먹을 듯 쳐다보더라고."
 			<br>
 			"누군가에게 팔고 있는 게 분명해."
 			<br>
@@ -359,9 +359,9 @@
 
 		<<if playerBellyVisible() and $settings.pregnancySpeechEnabled>>
 			<<addinlineevent "livestock_overhear 10">>
-				"저 임신한 <<girl>> 예쁘네," 한 <<person>>【이가】 말한다.
+				"저 임신한 <<girl>> 예쁘네." 한 <<person>>【이가】 말한다.
 				<br>
-				"그러게," <<person2>><<person>>【이가】 대답한다. "또 실험 같은 걸 하는 걸까?"
+				"그러게." <<person2>><<person>>【이가】 대답한다. "또 실험 같은 걸 하는 걸까?"
 				<br>
 				"누가 알아? 말 조심해, 가축들을 놀래키고 싶진 않으니까."
 				<br>
@@ -443,7 +443,7 @@
 <<widget "livestockFieldGrassEvents">>
 	<<if $rng gte 81>>
 		<!-- Modified for Monster People -->
-		<<if ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>>
+		<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 			<<if maleChance() lt random(1, 100)>>
 				카우걸이 당신의 냄새를 맡고 음매 운다. 당신은 그녀의 머리를 쓰다듬는다.
 				<<lstress>><<stress -6>>

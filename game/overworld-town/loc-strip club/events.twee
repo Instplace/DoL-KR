@@ -152,7 +152,11 @@
 	당신은 무릎을 벌려 모두가 당신의 $worn.genitals.name【을를】 똑똑히 볼 수 있게 한다.
 <<else>>
 	<<if $player.penisExist and $player.vaginaExist>>
-		당신은 무릎을 벌려 모두에게 당신의 <<penis>>【을를】 잘 보여준다. 당신이 자지를 옆으로 치워 그 아래의 <<pussy>>【을를】 드러내자 <<person1>><<person>>【이가】 숨을 헐떡인다.
+		<<if $settings.nudeGenderPerception !== 0>>
+			당신은 무릎을 벌려 모두에게 당신의 <<penis>>【을를】 잘 보여준다. 당신이 자지를 옆으로 치워 그 아래의 <<pussy>>【을를】 드러내자 <<person1>><<person>>【이가】 숨을 헐떡인다.
+		<<else>>
+			당신은 무릎을 벌려 모두에게 당신의 <<penis>>【와과】 <<pussy>>【을를】 잘 보여준다.
+		<</if>>
 	<<elseif $player.penisExist>>
 		당신은 무릎을 벌려 모두에게 당신의 <<penis>>【을를】 잘 보여준다.
 	<<else>>
@@ -719,7 +723,7 @@
 <<if $rng gte 81>>
 <<generate2>><<generate3>><<generate4>>
 
-"젠장," 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
+"젠장." 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
 <br><br>
 
 <<person1>><<person>>【이가】 뒤에서 당신을 붙잡는다.
@@ -809,7 +813,7 @@
 	<<if $rng gte 81>>
 		<<generate2>><<generate3>><<generate4>>
 
-		"젠장," 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
+		"젠장." 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
 		<br><br>
 
 		<<person1>><<person>>【이가】 뒤에서 당신을 붙잡는다.
@@ -839,7 +843,7 @@
 	<<if $rng gte 81>>
 	<<generate2>><<generate3>><<generate4>>
 
-	"젠장," 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
+	"젠장." 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
 	<br><br>
 
 	<<person1>><<person>>【이가】 뒤에서 당신을 붙잡는다.
@@ -868,7 +872,7 @@
 
 	<<generate2>><<generate3>><<generate4>>
 
-	"젠장," 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
+	"젠장." 낯선 목소리가 말한다. "귀여운 녀석을 데려왔군." <<person2>><<person>>【와과】, <<person3>><<person>>, 그리고 <<person4>><<person>>【이가】 어둠 속에서 걸어 나온다.
 	<br><br>
 
 	<<person1>><<person>>【은는】 당신 뒤로 다가와 <<his>> 손을 당신의 어깨에 올린다. "내가 말 안 했던가?" <<he>>【이가】 말한다. "내 친구들도 한몫하고 싶대. 문제없겠지?" <<His>> 손에 힘이 들어간다.
@@ -918,7 +922,7 @@
 <<set $outside to 0>><<set $location to "strip_club">><<effects>>
 
 <<if $speech_attitude is "meek">>
-	"화, 화내지 마세요." 당신이 말한다. "하지만 전 이런 건 동의한 적 없어요."
+	"화-화내지 마세요." 당신이 말한다. "하지만 전 이런 건 동의한 적 없어요."
 <<elseif $speech_attitude is "bratty">>
 	"이건 내가 동의한 게 아니잖아." 당신이 말한다. "난 빠질래."
 <<else>>

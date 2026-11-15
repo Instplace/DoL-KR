@@ -26,7 +26,7 @@
 
 	당신은 강제로 문을 통과해 <<person4>><<person>> 앞에 무릎을 꿇게 되고, 그가 몸을 웅크리고 당신의 목을 잡는다.
 	<<He>>【은는】 당신의 머리를 이쪽저쪽으로 돌려 얼굴 양쪽을 살피고, 억지로 입을 벌려 안을 들여다본다.
-	"<<pShe>> 정도면 되겠어," <<he>>【이가】 일어서며 말한다. <<if _virginityShow>>"<<pshe>>【이가】 처녀라고 했지? <<phim>>【을를】 무대로 올려."<</if>>
+	"<<pShe>> 정도면 되겠어." <<he>>【이가】 일어서며 말한다. <<if _virginityShow>>"<<pshe>>【이가】 처녀라고 했지? <<phim>>【을를】 무대로 올려."<</if>>
 	<br><br>
 
 	그러고는 로빈을 보고 똑같이 살핀 뒤, 손전등 불빛 속에서 교활한 미소를 짓는다.<<person1>>"<<He>>【은는】 인기가 많겠군. 딱 봐도 알겠어."
@@ -44,7 +44,7 @@
 	<<generate1>><<person1>>
 	당신은 강제로 문을 통과해 <<person>> 앞에 무릎 꿇려지고, 그는 몸을 웅크려 당신의 목을 잡는다.
 	<<He>>【은는】 당신의 머리를 이쪽저쪽으로 돌려 얼굴 양쪽을 살피고, 억지로 입을 벌려 안을 들여다본다.
-	"<<pShe>> 정도면 되겠어," <<he>>【이가】 일어서며 말한다. <<if _virginityShow>>"<<pshe>>【이가】 처녀라고 했지? <<phim>>【을를】 무대로 올려."<</if>>
+	"<<pShe>> 정도면 되겠어." <<he>>【이가】 일어서며 말한다. <<if _virginityShow>>"<<pshe>>【이가】 처녀라고 했지? <<phim>>【을를】 무대로 올려."<</if>>
 <</if>>
 <br><br>
 
@@ -216,7 +216,7 @@
 	<br><br>
 
 	<<if $wraith.state is "haunt">>
-		<<if $wraithPrison and $wraithPrison.vision is true>>
+		<<if $wraithPrison?.vision is true>>
 			"<span class="wraith">사라져라. 물에 빠져라. 두 번 말하게 하지 마라.</span>"
 		<<else>>
 			"<span class="wraith">홀로. 황량하게. 네 고통은 아직 끝나지 않았다.</span>"
@@ -271,18 +271,18 @@
 	<<run delete $undergroundbrothel.robinSpoke>>
 	<<generate1>><<person1>>
 	<<if C.npc.Avery.init is 1 and $averyUndergroundBrothelReunion is undefined and $avery_fate isnot "fallen" and $avery_fate isnot "kicked" and !$avery_injury>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<<if $undergroundbrothel.robin>>
 			"네 친구는 필요 없을 거야."
 		<</if>>
 		<br><br>
 		<<link [[조용히 따른다|Underground Avery Reunion]]>><<endevent>><</link>>
 	<<elseif $undergroundbrothel.robin>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다. "네 친구도 동행할 거야. 운이 따르길 바라."
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다. "네 친구도 동행할 거야. 운이 따르길 바라."
 		<br><br>
 		<<link [[조용히 따른다|Underground Robin Dice Intro]]>><<endevent>><</link>>
 	<<else>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "공연 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		"섹시하게 춤추도록 해. 손님을 끌지 못하면 그냥 관객 전체가 한 조각씩 맛보게 할 테니까." <<He>>【은는】 당신을 방에서 끌어내려 한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Dance Intro]]>><<endevent>><</link>>
@@ -294,7 +294,7 @@
 	<<run delete $undergroundbrothel.robinSpoke>>
 	<<generate1>><<person1>><<saveNPC 0 handler>>
 	<<if $undergroundbrothel.robin>>
-		불빛이 다시 켜지고, <<person1>><<person>>【이가】 들어온다. "또 공연할 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person1>><<person>>【이가】 들어온다. "또 공연할 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<if !$settings.tentaclesEnabled>>
 			<<link [[조용히 따른다|Underground Robin Stage Intro]]>><<endevent>><</link>>
@@ -313,11 +313,11 @@
 	<<run delete $undergroundbrothel.robinSpoke>>
 	<<generate1>><<person1>>
 	<<if $undergroundbrothel.robin>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Robin Machine Intro]]>><<endevent>><</link>>
 	<<else>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Stage Intro]]>><<endevent>><</link>>
 	<</if>>
@@ -328,11 +328,11 @@
 	<<run delete $undergroundbrothel.robinSpoke>>
 	<<generate1>><<person1>>
 	<<if $undergroundbrothel.robin>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Robin Kiss Intro]]>><<endevent>><</link>>
 	<<else>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "또 공연할 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Film Intro]]>><<endevent>><</link>>
 	<</if>>
@@ -343,11 +343,11 @@
 	<<run delete $undergroundbrothel.robinSpoke>>
 	<<generate1>><<person1>>
 	<<if $undergroundbrothel.robin>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "신선한 공기 좀 쐴 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "신선한 공기 좀 쐴 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Robin Hunt Intro]]>><<endevent>><</link>>
 	<<else>>
-		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "신선한 공기 좀 쐴 시간이다," <<he>>【이가】 <<pull_leash "yanking">> 말한다.
+		불빛이 다시 켜지고, <<person>>【이가】 들어온다. "신선한 공기 좀 쐴 시간이다." <<he>>【이가】 <<pull_leash "yanking">> 말한다.
 		<br><br>
 		<<link [[조용히 따른다|Underground Hunt Intro]]>><<endevent>><</link>>
 	<</if>>
@@ -360,7 +360,7 @@
 		<<generate1>><<generate2>>
 		다시 불이 켜지고, <<fullGroup>>【이가】 들어온다.
 		<<person1>><<person>>【이가】 당신 옆에 웅크리고 앉아, 목을 잡고 <<him>>【을를】 마주보게 돌린다.
-		"그래," <<he>>【이가】 말한다. "<<pHer>> 불은 꺼졌네. 아깝다, <<pshes>> 꽤 예쁜 작은 것인데."
+		"그래." <<he>>【이가】 말한다. "<<pHer>> 불은 꺼졌네. 아깝다, <<pshes>> 꽤 예쁜 작은 것인데."
 		<br><br>
 		그들은 함께 당신의 어깨를 들어 올려 방에서 나른다.
 		그들은 당신을 계단 아래로 데려가 땅에 파인 큰 구멍으로 데려간다. 그들은 당신을 그 안에 던져 넣는다.

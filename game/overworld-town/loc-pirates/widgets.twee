@@ -65,7 +65,7 @@
         어떤 <<person>>【이가】 당신의 손에 대걸레를 쥐여준다. "가만히 서 있지만 말고. 갑판이나 닦아."
         <br><br>
 
-        <<link [[갑판 닦기 (2:00)|Pirate Swab]]>><<endevent>><<pirate_status 1 "mate">><<pass 120>><<tiredness 6>><</link>><<gtiredness>><<grespect "mate">>
+        <<link [[갑판을 닦는다 (2:00)|Pirate Swab]]>><<endevent>><<pirate_status 1 "mate">><<pass 120>><<tiredness 6>><</link>><<gtiredness>><<grespect "mate">>
         <br>
         <<link [[거절한다|Pirate Work Refuse]]>><<handheldon>><</link>>
         <br>
@@ -85,7 +85,7 @@
         "물이 새는 곳을 막아야 해." <<person>>【이가】 웅덩이를 넘어가며 말한다. "너. 당장 시작해."
         <br><br>
 
-        <<link [[구멍 막기 (2:00)|Pirate Bilge Plug]]>><<pirate_status 1 "mate">><<pass 120>><<tiredness 6>><</link>><<gtiredness>><<grespect "mate">>
+        <<link [[구멍을 막는다 (2:00)|Pirate Bilge Plug]]>><<pirate_status 1 "mate">><<pass 120>><<tiredness 6>><</link>><<gtiredness>><<grespect "mate">>
         <br>
         <<link [[거절한다|Pirate Work Refuse]]>><</link>>
         <br>
@@ -187,7 +187,7 @@
     <<cleareventpool>>
     <<addinlineevent "pirate_scum_cabin_1" 1>>
         <<generateRole 0 0 "pirate">><<generateRole 1 0 "pirate">><<generateRole 2 0 "pirate">><<person1>>
-        "어이," 어떤 <<person>>【이가】 당신을 부른다. <<Hes>> <<person2>><<person>> 및 <<person3>><<person>>【와과】 앉아 술을 마시고 있다. "이리 와. 뽀뽀나 한 번 해 줘."
+        "어이." 어떤 <<person>>【이가】 당신을 부른다. <<Hes>> <<person2>><<person>> 및 <<person3>><<person>>【와과】 앉아 술을 마시고 있다. "이리 와. 뽀뽀나 한 번 해 줘."
         <br><br>
         <<link [[시키는 대로 한다|Pirate Scum Cabin Kiss]]>><<sub 1>><</link>><<kissvirginitywarning>>
         <br>
@@ -198,7 +198,7 @@
 
     <<addinlineevent "pirate_scum_cabin_2" 1>>
         <<generateRole 0 0 "pirate">><<person1>>
-        어떤 <<person>>【이가】 선실 벽으로 당신을 밀어붙인다. "내 침대가 저기 있거든," <<he>>【이가】 격벽의 빈 공간을 가리키며 말한다. "너랑 한 번 뒹굴어 봐야겠어, 이 찌꺼기 녀석."
+        어떤 <<person>>【이가】 선실 벽으로 당신을 밀어붙인다. "내 침대가 저기 있거든." <<he>>【이가】 격벽의 빈 공간을 가리키며 말한다. "너랑 한 번 뒹굴어 봐야겠어, 이 찌꺼기 녀석."
         <br><br>
 
         <<link [[밀쳐낸다|Pirate Scum Cabin Shove]]>><<def 1>><<stress 6>><<trauma -6>><<pirate_status 1 "scum">><</link>><<gstress>><<ltrauma>><<grespect "scum">>
@@ -210,7 +210,7 @@
     <<addinlineevent "pirate_scum_cabin_3" 1>>
         <<generateRole 0 0 "pirate">><<person1>>
         <<if $worn.upper.type.includes("naked") and $worn.under_upper.type.includes("naked")>>
-            "가슴 한 번 예쁘네," 어떤 <<person>>【이가】 주머니에서 휴대폰을 꺼내며 낄낄거린다. <<covered>> "어디 좀 더 잘 보이게 해 봐."<<gstress>><<stress 6>>
+            "가슴 한 번 예쁘네." 어떤 <<person>>【이가】 주머니에서 휴대폰을 꺼내며 낄낄거린다. <<covered>> "어디 좀 더 잘 보이게 해 봐."<<gstress>><<stress 6>>
             <br><br>
 
             <<link [[거절한다|Pirate Scum Cabin Breast Refuse]]>><<def 1>><<pirate_status 1 "scum">><<pain 4>><</link>><<gpain>><<grespect "scum">>
@@ -233,10 +233,10 @@
 
     <<addinlineevent "pirate_scum_cabin_4" 0.7>>
         <<generateRole 0 0 "pirate">><<person1>>
-        "어이," 어떤 <<person>>【이가】 손짓으로 당신을 부른다. <<Hes>> 생명줄이라도 되는 양 술병을 꼭 쥔 채 탁자에 몸을 숙이고 있다. "한 번 들어봐, <<lass>>. 넌 정말... 정말 이 이야기를 듣고 싶어질걸."
+        "어이." 어떤 <<person>>【이가】 손짓으로 당신을 부른다. <<Hes>> 생명줄이라도 되는 양 술병을 꼭 쥔 채 탁자에 몸을 숙이고 있다. "한 번 들어봐, <<lass>>. 넌 정말... 정말 이 이야기를 듣고 싶어질걸."
         <br><br>
 
-        <<He>>【은는】 술병을 입으로 가져가지만, 엉뚱한 곳에 대고 들이켠다. "술집에서 들은 얘긴데," <<he>>【이가】 낄낄거린다. "해적이... 잘 들어봐... 해적이 제일 좋아하는 알파벳이 뭔 줄 알아?"
+        <<He>>【은는】 술병을 입으로 가져가지만, 엉뚱한 곳에 대고 들이켠다. "술집에서 들은 얘긴데." <<he>>【이가】 낄낄거린다. "해적이... 잘 들어봐... 해적이 제일 좋아하는 알파벳이 뭔 줄 알아?"
         <br><br>
 
         <<link [[X!|Pirate Scum Cabin Letter]]>><<set $phase to "X">><</link>>

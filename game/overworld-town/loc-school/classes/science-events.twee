@@ -103,7 +103,7 @@
 				<br>
 			<</if>>
 		<<else>>
-			<<He>>【은는】 얼굴을 살짝 붉히고는 당신에게서 시선을 피한다. "아. ㅈ-자리에 앉으렴."
+			<<He>>【은는】 얼굴을 살짝 붉히고는 당신에게서 시선을 피한다. "아. 자-자리에 앉으렴."
 			<<gstress>><<gtrauma>>
 			<br><br>
 			<<link [[자리에 다시 앉는다|Science Lesson]]>><<stress 1>><<trauma 1>><<endevent>><</link>>
@@ -389,7 +389,7 @@
 <<clotheson>>
 <<npc "Leighton">><<person1>>레이튼이 문을 활짝 열고 시리스를 대동한 채 들이닥친다. <<He>>【은는】 옆구리를 붙잡고 있는 학생들을 훑어본 후, 당신에게 시선을 고정한다.
 <<detention 24>>
-"방과 후에 내 사무실로 오도록." <<he>>【이가】 소리친다. "그에 따른 대가가 있을 거다." <<gggdelinquency>>
+"방과 후에 내 사무실로 오도록," <<he>>【이가】 소리친다. "그에 따른 대가가 있을 거다." <<gggdelinquency>>
 <br><br>
 <<He>>【은는】 시리스에게로 <<his>> 주의를 돌린다. "다시 돌아올 일은 없었으면 좋겠군. 네 반을 통제해." <<He>>【은는】 걸어 나간다.
 <br><br>
@@ -703,7 +703,7 @@
 <<else>>
 	<<if $orgasmdown gte 1 and $phase is 1>>
 		<<set $phase to 0>>
-		"이럴 수가," <<person1>><<person>>【이가】 기쁨에 차 소리친다, "이걸로 가버리는 거야?" 구경꾼들은 황홀해 보인다. 당신은 완전한 굴욕감을 느낀다.
+		"이럴 수가." <<person1>><<person>>【이가】 기쁨에 차 소리친다, "이걸로 가버리는 거야?" 구경꾼들은 황홀해 보인다. 당신은 완전한 굴욕감을 느낀다.
 		<<combattrauma 10>>
 	<<else>>
 		모여든 군중이 쇼를 즐기고 있다.
@@ -1008,37 +1008,6 @@
 
 	<<link [[다음|Science Lesson]]>><</link>>
 <</if>>
-
-:: Events Swimming Freed
-<<set $outside to 0>><<set $location to "pool">><<schooleffects>><<effects>>
-
-당신은 수영장 가장자리로 헤엄쳐 가서 몸을 돌린다. 메이슨이 무릎을 꿇고 당신의 결박을 끊어준다. "자. 다른 학생이 이런 짓을 한 게 아니었으면 좋겠군." <<He>>【은는】 물러선다.
-<br><br>
-
-<<endevent>>
-
-<<link [[다음|Swimming Lesson]]>><</link>>
-<br>
-
-:: Events Swimming Freed Refuse
-<<set $outside to 0>><<set $location to "pool">><<schooleffects>><<effects>>
-
-<<if $speech_attitude is "meek">>
-	"아, 아니요." 당신은 말한다. "계속 묶여 있어야 해요."
-<<elseif $speech_attitude is "bratty">>
-	"제가 도와달라고 했나요?" 당신은 선생님을 쏘아보며 말한다.
-<<else>>
-	"전 괜찮아요. 고마워요." 당신은 말한다.
-<</if>>
-<br><br>
-
-메이슨은 혼란스러워 보인다. "네가 그렇다면야. 수영 중에 <<= pcAreArmsBound("any") ? "팔" : "사지">>【을를】 묶는 걸 금지하는 규칙은 없는 것 같으니. 조심하기나 해, 알았지?"
-<br><br>
-
-<<endevent>>
-
-<<link [[다음|Swimming Lesson]]>><</link>>
-<br>
 
 :: Science Kick
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>

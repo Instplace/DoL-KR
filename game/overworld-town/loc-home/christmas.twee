@@ -134,7 +134,7 @@
 		"메리 크리스마스!" <<he>>【이가】 거의 깡충거리며 문을 통과하듯 들어오며 말한다. <<He>>【은는】 은박지에 싸인 작은 물건을 당신의 침대에 내려놓는다. "애들이 고아원에 장식을 달았어. 다들 축하 파티 중이야! 너도 와서 같이 놀자."
 		<br><br>
 
-		"아," <<he>>【이가】 덧붙인다. <span class="gold">"트리 밑에 네 선물도 뒀어!"</span>
+		"아." <<he>>【이가】 덧붙인다. <span class="gold">"트리 밑에 네 선물도 뒀어!"</span>
 		<br><br>
 
 		<<if $robinromance is 1>>
@@ -194,15 +194,15 @@
 		신이 나서, <<he>>【은는】 포장지를 뜯는다. <<he>>【이가】 옷을 꺼내자 <<his>> 밝았던 표정이 혼란으로 바뀐다.
 		<br><br>
 
-		"나한테 선물을 잘못 준 거 아-아닌가 싶어," <<he>>【이가】 확신 없는 표정으로 말한다. "이건 <<if C.npc.Robin.pronoun is "m">>여자애들<<else>>남자애들<</if>>용이잖아."
+		"나한테 선물을 잘못 준 거 아-아닌가 싶어." <<he>>【이가】 확신 없는 표정으로 말한다. "이건 <<if C.npc.Robin.pronoun is "m">>여자애들<<else>>남자애들<</if>>용이잖아."
 		<br><br>
 
 		<<if $speech_attitude is "meek">>
-			"너-너한테 어울릴 거라고 생각했어," 당신이 말한다.
+			"너-너한테 어울릴 거라고 생각했어." 당신이 말한다.
 		<<elseif $speech_attitude is "bratty">>
-			"한번 입어봐," 당신이 말한다. "입은 모습이 마음에 들 거야."
+			"한번 입어봐." 당신이 말한다. "입은 모습이 마음에 들 거야."
 		<<else>>
-			"그걸 입으면 귀여울 것 같았어," 당신이 말한다.
+			"그걸 입으면 귀여울 것 같았어." 당신이 말한다.
 		<</if>>
 		<br><br>
 
@@ -229,48 +229,48 @@
 	<<elseif $christmas_gift_robin is "kimono">>
 		신이 나서, <<he>>【은는】 포장지를 뜯는다. <<He>>【은는】 옷감을 보고 미소를 짓지만, 포장 안에서 그걸 꺼내며 찡그린다. 당신은 <<him>>【을를】 허를 찌른 것이다.
 		<br><br>
-		"이-이건 코스튬 같은 게 아니잖아," <<he>>【이가】 기모노를 조심스럽게 펼치며 말한다. "대체 얼마를 쓴 거야?"
+		"이-이건 코스튬 같은 게 아니잖아." <<he>>【이가】 기모노를 조심스럽게 펼치며 말한다. "대체 얼마를 쓴 거야?"
 		<br><br>
 
 		<<if $robinromance is 1 and C.npc.Robin.dom gte 40>>
 			<<set $christmas_robin_lewd to 1>>
-			당신은 어깨를 으쓱하며 미소 짓는다. "정말 예쁘다," 로빈이 말을 잇는다. "너무 고마워!" <<He>>【은는】 <<his>> 팔로 당신을 껴안으며 속삭인다. <span class="gold">"내 방에서 만나자."</span>
+			당신은 어깨를 으쓱하며 미소 짓는다. "정말 예쁘다." 로빈이 말을 잇는다. "너무 고마워!" <<He>>【은는】 <<his>> 팔로 당신을 껴안으며 속삭인다. <span class="gold">"내 방에서 만나자."</span>
 			<br><br>
 			<<He>>【은는】 복도 한쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
 			<br><br>
 		<<else>>
-			당신은 어깨를 으쓱하며 미소 짓는다. "정말 예쁘다," 로빈이 말을 잇는다. "너무 고마워!" <<He>>【은는】 그걸 <<his>> 가슴에 품고 복도 중 하나를 따라 <<his>> 방 쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
+			당신은 어깨를 으쓱하며 미소 짓는다. "정말 예쁘다." 로빈이 말을 잇는다. "너무 고마워!" <<He>>【은는】 그걸 <<his>> 가슴에 품고 복도 중 하나를 따라 <<his>> 방 쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
 			<br><br>
 		<</if>>
 	<<elseif $christmas_gift_robin is "tuxedo" and C.npc.Robin.pronoun is "m" or $christmas_gift_robin is "gothic gown" and C.npc.Robin.pronoun is "f">>
 		신이 나서, <<he>>【은는】 포장지를 뜯는다. <<He>>【은는】 옷감을 보고 미소를 짓지만, 포장에서 그걸 꺼내면서 침을 꿀꺽 삼키는 소리를 낸다. 당신은 <<him>>【을를】 허를 찌른 것이다.
 		<br><br>
-		"이-이건 평범한 코스튬이 아니잖아," <<he>>【이가】 극도로 조심스럽게 <<print ($christmas_gift_robin is "tuxedo"?"tuxedo":"gothic gown")>>【을를】 펼치며 말한다. "대체 얼마를 쓴 거야? 이거 진짜로 엄청 비싸 보이는데!"
+		"이-이건 평범한 코스튬이 아니잖아." <<he>>【이가】 극도로 조심스럽게 <<print ($christmas_gift_robin is "tuxedo"?"tuxedo":"gothic gown")>>【을를】 펼치며 말한다. "대체 얼마를 쓴 거야? 이거 진짜로 엄청 비싸 보이는데!"
 		<br><br>
 
 		<<if $robinromance is 1 and C.npc.Robin.dom gte 40>>
 			<<set $christmas_robin_lewd to 1>>
-			당신은 어깨를 으쓱하며 미소 짓는다. "너무 예뻐, 빨리 이걸 입은 내 모습을 너한테 보여주고 싶어," 로빈이 말을 잇는다. <<if C.npc.Robin.dom gte 80>>"아니면 벗는 걸 도와달라거나."<<else>>"정말 고마워!"<</if>> <<He>>【은는】 <<his>> 팔로 당신을 껴안으며 속삭인다. <span class="gold">"내 방에서 만나자."</span>
+			당신은 어깨를 으쓱하며 미소 짓는다. "너무 예뻐, 빨리 이걸 입은 내 모습을 너한테 보여주고 싶어." 로빈이 말을 잇는다. <<if C.npc.Robin.dom gte 80>>"아니면 벗는 걸 도와달라거나."<<else>>"정말 고마워!"<</if>> <<He>>【은는】 <<his>> 팔로 당신을 껴안으며 속삭인다. <span class="gold">"내 방에서 만나자."</span>
 			<br><br>
 			<<He>>【은는】 복도 한쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
 			<br><br>
 		<<else>>
-			당신은 어깨를 으쓱하며 미소 짓는다. "너무 예뻐, 빨리 이걸 입은 내 모습을 너한테 보여주고 싶어," 로빈이 말을 잇는다. "정말 고마워!" <<He>>【은는】 그걸 <<his>> 가슴에 품고 복도 중 하나를 따라 <<his>> 방 쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
+			당신은 어깨를 으쓱하며 미소 짓는다. "너무 예뻐, 빨리 이걸 입은 내 모습을 너한테 보여주고 싶어." 로빈이 말을 잇는다. "정말 고마워!" <<He>>【은는】 그걸 <<his>> 가슴에 품고 복도 중 하나를 따라 <<his>> 방 쪽으로 사라진다.<<ggglove>><<npcincr Robin love 10>>
 			<br><br>
 		<</if>>
 	<<elseif $christmas_gift_robin is "tuxedo" and C.npc.Robin.pronoun is "f" or $christmas_gift_robin is "gothic gown" and C.npc.Robin.pronoun is "m">>
 		신이 나서, <<he>>【은는】 포장지를 뜯는다. <<He>>【은는】 옷감을 보고 미소를 짓지만, 포장 안에서 그걸 꺼내며 찡그린다. 당신은 <<him>>【을를】 허를 찌른 것이다.
 		<br><br>
-		"이-이건 코스튬 같은 게 아니잖아," <<he>>【이가】 조심스럽게 <<print ($christmas_gift_robin is "tuxedo"?"tuxedo":"gothic gown")>>【을를】 펼치며 말한다. "대체 얼마를 쓴 거야?"
+		"이-이건 코스튬 같은 게 아니잖아." <<he>>【이가】 조심스럽게 <<print ($christmas_gift_robin is "tuxedo"?"tuxedo":"gothic gown")>>【을를】 펼치며 말한다. "대체 얼마를 쓴 거야?"
 		<br><br>
-		"잠깐! 대답하지 마. 일단 이건," <<he>>【이가】 혼란스러운 표정으로 말한다. "<<if C.npc.Robin.pronoun is "m">>여자애들<<else>>남자애들<</if>>용이잖아, 안 그래?"
+		"잠깐! 대답하지 마. 일단 이건." <<he>>【이가】 혼란스러운 표정으로 말한다. "<<if C.npc.Robin.pronoun is "m">>여자애들<<else>>남자애들<</if>>용이잖아, 안 그래?"
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"너-너한테 어울릴 거라고 생각했어," 당신이 말한다.
+			"너-너한테 어울릴 거라고 생각했어." 당신이 말한다.
 		<<elseif $speech_attitude is "bratty">>
-			"한번 입어봐," 당신이 말한다. "입은 모습이 마음에 들 거야."
+			"한번 입어봐." 당신이 말한다. "입은 모습이 마음에 들 거야."
 		<<else>>
-			"그걸 입으면 귀여울 것 같았어," 당신이 말한다.
+			"그걸 입으면 귀여울 것 같았어." 당신이 말한다.
 		<</if>>
 		<br><br>
 

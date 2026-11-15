@@ -4,7 +4,7 @@
 당신은 레미의 농장 안에 있는 가축 목초지에 있다.
 <<if Weather.isSnow>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		<<livestock_cows "cap">> 눈밭을 돌아다니며 신선한 풀을 찾고 있다. 전기 울타리 옆에 풀이 무성하게 자라 있음에도 불구하고, 그 근처에는 얼씬도 하지 않는다.
 	<<else>>
 		소들이 눈밭을 돌아다니며 신선한 풀을 찾고 있다. 전기 울타리 옆에 풀이 무성하게 자라 있음에도 불구하고, 그 근처에는 얼씬도 하지 않는다.
@@ -19,7 +19,7 @@
 	<</if>>
 <<else>>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>>
+	<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 		<<livestock_cows "cap">> 풀을 우적우적 씹고 있다. 전기 울타리 옆에 풀이 무성하게 자라 있음에도 불구하고, 그 근처에는 얼씬도 하지 않는다.
 	<<else>>
 		소들이 풀을 우적우적 씹고 있다. 전기 울타리 옆에 풀이 무성하게 자라 있음에도 불구하고, 그 근처에는 얼씬도 하지 않는다.
@@ -51,7 +51,7 @@
 	<br><br>
 	<<if $hunger gte 2000>>
 		정신이 아득해진다. <span class="red">굶주리고 있다.</span> 풀이라도 뜯어먹고 싶다는 생각마저 든다.
-		<<gggstress>><<stress 36>>/*<<physique_loss 36>><<willpower 12>>*/
+		<<gggstress>><<stress 36>>/*<<physique -36>><<willpower 12>>*/
 	<<elseif $hunger gte 1600>>
 		뱃속에서 요란한 소리가 울린다. <span class="pink">너무 배가 고프다.</span> 풀이라도 뜯어먹고 싶다는 생각마저 든다.
 		<<ggstress>><<stress 18>>
@@ -151,7 +151,7 @@
 	<<elseif $arousal gte $arousalmax>>
 		<<orgasm>> 무릎에 힘이 풀려 풀밭 위로 쓰러진다.
 		<!-- Modified for Monster People -->
-		<<if ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>>
+		<<if victimsAlwaysMonsterForType("cow") or monsterCanAppearForType("cow")>>
 			<<if maleChance() lt random(1, 100)>>
 				들판 곳곳의 카우걸들이 혼란스러운 표정으로 쳐다본다.
 
@@ -165,7 +165,7 @@
 		<<generate1>><<generate2>><<generate3>><<generate4>><<person1>>
 		들판에 누워 있자, 곧 발소리가 다가오는 것이 들린다. "이게 뭐지?" 옆에서 <<personssimple>> 목소리가 들린다. "어디 아픈가?"
 		<br><br>
-		"손 좀 봐줘야겠는데." <<person2>><<person>>【이가】 당신 옆에 쭈그려 앉아 어깨를 땅에 고정시키며 말한다. 더 많은 농장 인부들이 다가오는 소리가 들린다.
+		"손 좀 봐줘야겠는데," <<person2>><<person>>【이가】 당신 옆에 쭈그려 앉아 어깨를 땅에 고정시키며 말한다. 더 많은 농장 인부들이 다가오는 소리가 들린다.
 		<br><br>
 
 		<<link [[다음|Livestock Field Gang]]>><<set $molestationstart to 1>><</link>>
@@ -205,38 +205,38 @@
 
 	<<else>>
 		<<set $daily.earSlimeGrassEating to true>>
-		<<farmicon "grass">><<link [[풀 먹기 (1:00)|Livestock Field Grass]]>><<pass 60>><<livestock_obey 1>><<transform cow 1>><<hunger -400>><</link>><<gobey>><<lhunger>>
+		<<farmicon "grass">><<link [[풀을 먹는다 (1:00)|Livestock Field Grass]]>><<pass 60>><<livestock_obey 1>><<transform cow 1>><<hunger -400>><</link>><<gobey>><<lhunger>>
 		<br>
-		<<exerciseicon>><<link [[운동하기 (1:00)|Livestock Field Exercise]]>><<tiredness 6>><</link>><<gtiredness>><<gathletics>>
+		<<exerciseicon>><<link [[운동한다 (1:00)|Livestock Field Exercise]]>><<tiredness 6>><</link>><<gtiredness>><<gathletics>>
 		<br>
 		<<if !$livestock.seen.includes("fence")>>
-			<<investigateicon>><<link [[울타리 조사하기|Livestock Field Fence]]>><<set $livestock.seen.push("fence")>><</link>>
+			<<investigateicon>><<link [[울타리를 조사한다|Livestock Field Fence]]>><<set $livestock.seen.push("fence")>><</link>>
 			<br>
 		<<elseif $livestock.dig.fence gte 25>>
-			<<getouticon "dig">><<link [[울타리 아래 터널로 접근하기|Livestock Tunnel]]>><</link>>
+			<<getouticon "dig">><<link [[울타리 아래 터널로 접근한다|Livestock Tunnel]]>><</link>>
 			<br>
 		<<elseif $livestock.dig.fence gte 24 and $physiquesize lte 12000>>
-			<<getouticon "dig">><<link [[울타리 아래 터널로 접근하기|Livestock Tunnel]]>><</link>><<small_text>>
+			<<getouticon "dig">><<link [[울타리 아래 터널로 접근한다|Livestock Tunnel]]>><</link>><<small_text>>
 			<br>
 		<<elseif $livestock.dig.fence gte 23 and $physiquesize lte 9000>>
-			<<getouticon "dig">><<link [[울타리 아래 터널로 접근하기|Livestock Tunnel]]>><</link>><<small_text>>
+			<<getouticon "dig">><<link [[울타리 아래 터널로 접근한다|Livestock Tunnel]]>><</link>><<small_text>>
 			<br>
 		<<elseif $livestock.dig.fence gte 22 and $physiquesize lte 6000>>
-			<<getouticon "dig">><<link [[울타리 아래 터널로 접근하기|Livestock Tunnel]]>><</link>><<small_text>>
+			<<getouticon "dig">><<link [[울타리 아래 터널로 접근한다|Livestock Tunnel]]>><</link>><<small_text>>
 			<br>
 		<<else>>
-			<<getouticon "dig">><<link [[울타리 아래 파기 (1:00)|Livestock Field Dig]]>><<tiredness 6>><</link>><<gtiredness>>
+			<<getouticon "dig">><<link [[울타리 아래를 판다 (1:00)|Livestock Field Dig]]>><<tiredness 6>><</link>><<gtiredness>>
 			<br>
 		<</if>>
 		<<if !$livestock.seen.includes("river")>>
-			<<watericon "stream">><<link [[강 조사하기|Livestock Field River Examine]]>><<set $livestock.seen.push("river")>><</link>>
+			<<watericon "stream">><<link [[강을 조사한다|Livestock Field River Examine]]>><<set $livestock.seen.push("river")>><</link>>
 			<br>
 		<<else>>
-			<<watericon "stream">><<link [[강으로 접근하기|Livestock Field River]]>><</link>>
+			<<watericon "stream">><<link [[강으로 접근한다|Livestock Field River]]>><</link>>
 			<br>
 		<</if>>
 		<<if Time.hour gte 12>>
-			<<animalicon "horse-pick">><<link [[레미의 <<livestock_horses>>에게 접근하기 (0:01)|Livestock Field Horse]]>><<pass 1>><</link>>
+			<<animalicon "horse-pick">><<link [[레미의 <<livestock_horses>>에게 접근한다 (0:01)|Livestock Field Horse]]>><<pass 1>><</link>>
 			<br>
 		<</if>>
 
@@ -289,7 +289,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"하, 하지만 전 <<pcow>>【이가】 아니에요!" 당신은 외친다. "풀은 못 먹어요."
+	"하-하지만 전 <<pcow>>【이가】 아니에요!" 당신은 외친다. "풀은 못 먹어요."
 <<elseif $speech_attitude is "bratty">>
 	"입 닥쳐." 당신은 말한다. "그리고 제대로 된 음식이나 가져와."
 <<else>>
@@ -525,7 +525,7 @@
 	레미가 당신을 찾는 것 같다. <span class="red">나가야 한다.</span>
 	<br><br>
 <<else>>
-	<<mirroricon>><<link [[비친 모습 확인하기|Livestock Field Mirror]]>><<preMirror>><</link>>
+	<<mirroricon>><<link [[비친 모습을 확인한다|Livestock Field Mirror]]>><<preMirror>><</link>>
 	<br><br>
 	<<if !Weather.isFrozen("lake")>>
 		<<skinicon "wash">><<link [[씻는다 (0:15)|Livestock Field Wash]]>><<wash>><<pass 15>><</link>>
@@ -650,7 +650,7 @@
 		속수무책으로 물살에 휩쓸려 배수구까지 떠내려간다. <<if Time.dayState is "night">>늦은 시간인데도, 농장 일꾼 몇 명이 핫초코와 술 냄새가 나는 보온병 주위에 옹기종기 모여 있다.<<else>>추위 속에 몇몇 농장 일꾼들이 서성이고 있다.<</if>><<if $cow gte 6>> 그들을 향해 애처롭게 음매 소리를 낸다.<</if>>
 		<br><br>
 
-		"이것 좀 봐," 그들 중 한 명이 말한다. <<person1>><<He>>【이가】 발로 당신을 툭 친다. "<<if Time.dayState is "night">>이 밤중에 탈주라니? 세상에.<<else>>도망친 녀석을 잡았군.<</if>>"
+		"이것 좀 봐." 그들 중 한 명이 말한다. <<person1>><<He>>【이가】 발로 당신을 툭 친다. "<<if Time.dayState is "night">>이 밤중에 탈주라니? 세상에.<<else>>도망친 녀석을 잡았군.<</if>>"
 		<br><br>
 
 		"밖에서 벌주기엔 너무 춥잖아," 다른 사람이 끼어든다. <<person2>><<He>>【이가】 당신을 음흉하게 쳐다본다. "헛간으로 데려가자."
@@ -764,11 +764,11 @@
 <<else>>
 	"탈출하려던 놈을 또 하나 잡았군." 손의 주인이 당신을 놓아주며 말한다.
 	<br>
-	"그래도 이놈 꽤 섹시한데." <<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. 마침내 당신의 눈이 어둠에 익숙해진다. 바닥에 구멍이 뚫려 강 아래로 접근할 수 있는 지하실처럼 보인다. "<<pcow>>치고는 말이야."
+	"그래도 이놈 꽤 섹시한데," <<him>> 옆에 있던 <<person2>><<person>>【이가】 말한다. 마침내 당신의 눈이 어둠에 익숙해진다. 바닥에 구멍이 뚫려 강 아래로 접근할 수 있는 지하실처럼 보인다. "<<pcow>>치고는 말이야."
 	<br>
 	누군가 당신의 엉덩이를 꼬집자 당신은 펄쩍 뛴다. "우리가, 아, 직접 벌을 준다고 해도 레미는 신경 안 쓸 거야." 범인인 <<person3>><<person>>【이가】 말한다. "수고를 덜어주는 셈이지."
 	<br>
-	"마음에 드는데." 네 번째 목소리가 말한다. 바닥에서 나무 긁히는 소리가 들리고, <<person4>><<person>>【이가】 자리에서 일어선다. "우리가 우리 몫을 못 한다는 소리는 절대 듣지 말아야지."
+	"마음에 드는데," 네 번째 목소리가 말한다. 바닥에서 나무 긁히는 소리가 들리고, <<person4>><<person>>【이가】 자리에서 일어선다. "우리가 우리 몫을 못 한다는 소리는 절대 듣지 말아야지."
 	<br><br>
 <</if>>
 
@@ -1099,7 +1099,7 @@
 
 레미의 말들에게 다가간다.
 
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if monsterCanAppearForType("horse")>>
 	멀리서는 말처럼 보이지만, 가까이 다가가자 머리와 몸통이
 	<<if _horse_gender is "f">>
 		여성이다.
@@ -1124,13 +1124,13 @@
 <br><br>
 
 <<if $livestock.horse.reputation gte 2>>
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if monsterCanAppearForType("horse")>>
 		<span class="green">당신이 다가가자 몇몇이 고개를 끄덕이며 인사한다.</span>
 	<<else>>
 		<span class="green">당신이 다가가자 그들이 더 가까이 다가온다.</span>
 	<</if>>
 <<elseif $livestock.horse.reputation gte 1>>
-	<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+	<<if monsterCanAppearForType("horse")>>
 		당신이 다가가는 것을 지켜본다. 몇몇은 재미있어하는 것 같다.
 	<<else>>
 		당신이 다가가는 것을 지켜본다. 그들은 차분해 보인다.
@@ -1163,7 +1163,7 @@
 	<<clearnpc>><<beastNEWinit 1 horse>>
 
 	<!-- Modified for Monster People -->
-	<<if random(1,2) is 1 and $awareness gte 200 and $daily.livestock.horses_satisfied lt 6 and $settings.horsesEnabled and ($settings.bestialityEnabled or $monster is 1)>>
+	<<if random(1,2) is 1 and $awareness gte 200 and $daily.livestock.horses_satisfied lt 6 and beastSexEnabledForType("horse", $monster is 1)>>
 		뒤쪽에 있는 <<beasttype>> 한 마리가 안절부절못하는 것 같다. <<bHe>>【은는】 다른 이들을 향해 발을 구르며,
 		<<if $monster is 1>>
 			무례하고 까다롭게 굴고 있다.
@@ -1201,9 +1201,9 @@
 <<if $monster is 1>>
 	<<if $phase is 1>>
 		<<if $speech_attitude is "meek">>
-			"화, 화내지 마세요." 당신은 말한다. "그냥 친구가 되고 싶어요."
+			"화-화내지 마세요." 당신은 말한다. "그냥 친구가 되고 싶어요."
 		<<elseif $speech_attitude is "bratty">>
-			"내가 보기엔," 당신이 말한다. "우리는 이 들판을 함께 쓰고 있으니, 서로 익숙해져야 해요."
+			"내가 보기엔." 당신이 말한다. "우리는 이 들판을 함께 쓰고 있으니, 서로 익숙해져야 해요."
 		<<else>>
 			"해칠 생각은 없어요." 당신은 말한다. "그냥 궁금해서요."
 		<</if>>
@@ -1215,7 +1215,7 @@
 		<<elseif $speech_attitude is "bratty">>
 			"넌 날 겁줄 수 없어." 당신은 비웃는다. "난 내가 가고 싶은 곳에 갈 거야."
 		<<else>>
-			"난 여기 있고 싶은데." 당신은 말한다. "그게 문제라도 돼?"
+			"난 여기 있고 싶은데," 당신은 말한다. "그게 문제라도 돼?"
 		<</if>>
 		팔짱을 낀 채, 켄타우로스는 당신을 똑바로 쳐다본다.
 	<</if>>
@@ -1248,7 +1248,7 @@
 	<<set _horse_gender to "b">>
 <</if>>
 
-<<if ($settings.monsterChance gte 1 and $hallucinations gte 1) or ($settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly)>>
+<<if monsterCanAppearForType("horse")>>
 	<<if $livestock.horse.reputation gte 2>>
 		당신은 손가락으로 켄타우로스들의 머리카락을 빗어준다. 켄타우로스들은 자기 차례를 받으려고 서로 밀친다. 등에는 털이 거의 없는데도 등을 긁어달라고 조르기도 한다.
 	<<else>>
@@ -1337,7 +1337,7 @@
 		<</if>>
 	<<else>>
 		<!-- Modified for Monster People -->
-		<<if $daily.livestock.horses_satisfied lt 6 and $settings.horsesEnabled and ($settings.bestialityEnabled or $monster is 1)>>
+		<<if $daily.livestock.horses_satisfied lt 6 and beastSexEnabledForType("horse", $monster is 1)>>
 			<<beasttype>> 한 마리는 당신이 <<bhim>> 빗질해주는 와중에도 불만스러워 보인다. <<bHe>>【은는】 계속해서 당신을 향해 발을 구르며,
 			<<if $monster is 1>>
 				무례하고 까다롭게 군다.
@@ -1430,7 +1430,7 @@
 		"내버려 둬." <<bhe>>【이가】 비웃는다. "아니면 두들겨 패줄 테니."
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"ㄱ-귀찮게 해드려 죄송해요, 켄타우로스 <<print $NPCList[0].gender is "f" ? "아가씨" : "나리">>." 당신이 말한다. "하지만 제가 도울 수 있을 것 같아요."
+			"귀-귀찮게 해드려 죄송해요, 켄타우로스 <<print $NPCList[0].gender is "f" ? "아가씨" : "나리">>." 당신이 말한다. "하지만 제가 도울 수 있을 것 같아요."
 		<<elseif $speech_attitude is "bratty">>
 			"징징거리지 마." 당신이 말한다. "낫고 싶어, 아니면 말고?"
 		<<else>>
@@ -1440,7 +1440,7 @@
 		그것은 당신을 향해 코웃음을 친다.
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"ㄱ-귀찮게 해드려 죄송해요." 당신이 말한다. "하지만 제가 도울 수 있을 것 같아요."
+			"귀-귀찮게 해드려 죄송해요." 당신이 말한다. "하지만 제가 도울 수 있을 것 같아요."
 		<<elseif $speech_attitude is "bratty">>
 			"징징거리지 마." 당신이 말한다. "낫고 싶어, 아니면 말고?"
 		<<else>>
@@ -1595,7 +1595,7 @@
 	당신은 앞으로 기어가 <<beasttypes>> <<horsegenitalsdesc true>> <<npcGenitals>> 쪽으로 향한다.
 
 	<<if $speech_attitude is "meek">>
-		"죄, 죄송해요." 당신은 말한다. "저도 모르게 그만..."
+		"죄-죄송해요." 당신은 말한다. "저도 모르게 그만..."
 
 	<<elseif $speech_attitude is "bratty">>
 		"출입 금지 구역인 줄 어떻게 알았겠어요?" 당신은 말한다.
@@ -1849,11 +1849,11 @@
 	당신은 짚 위에 누워, <<bottom>>【을를】 도발적으로 흔든다.
 
 	<<if $speech_attitude is "meek">>
-		"저, 절 사용해도 돼요," 당신은 말한다. "그 좌절감을 풀기 위해서요."
+		"저, 절 사용해도 돼요." 당신은 말한다. "그 좌절감을 풀기 위해서요."
 	<<elseif $speech_attitude is "bratty">>
 		"뭘 기다리는 거야?" 당신이 묻는다. "겁먹고 꽁무니 뺄 건 아니지?"
 	<<else>>
-		"난 네 거야," 당신은 말한다.
+		"난 네 거야." 당신은 말한다.
 	<</if>>
 	<<deviancy5>>
 
@@ -1924,7 +1924,7 @@
 		<<if $monster is 1>>
 			다른 <<beasttype>> 중 하나가 <<bhim>>에게 다가와 당신을 쳐다본다. "다음은 나야."
 			<br>
-			"어이," 다른 놈이 뒤에서 다가오며 말한다. "레미가 오랫동안 나한테 관심을 안 줬어."
+			"어이." 다른 놈이 뒤에서 다가오며 말한다. "레미가 오랫동안 나한테 관심을 안 줬어."
 		<<else>>
 			다른 <<beasttype>> 중 하나가 <<bhim>>에게 다가와 당신을 쳐다본다. <<bHe>>【이가】 코웃음을 치며 기대하는 눈빛으로 쳐다본다.
 			<br>
@@ -1944,7 +1944,7 @@
 
 		<<if $monster is 1>>
 			<<beasttype>>【이가】 뒷발로 일어서더니 당신에게서 멀리 떨어진 곳에 착지한다.
-			"나한텐 너무 벅차군," <<bhe>>【이가】 <<bhis>> 머리를 흔들며 말한다.
+			"나한텐 너무 벅차군." <<bhe>>【이가】 <<bhis>> 머리를 흔들며 말한다.
 		<<else>>
 			말이 뒷발로 일어서더니, 흥분하기보다는 겁에 질려 당신에게서 멀리 떨어진 곳에 착지한다.
 		<</if>>
@@ -2014,9 +2014,9 @@
 
 :: Livestock Job Slap
 <<effects>>
-당신은 레미의 뺨을 때린다. 너무 빨라서 <<he>>【이가】 피하지 못했다. 농장 인부 중 한 명이 소몰이 막대를 앞으로 찔렀지만, 레미가 그것을 잡고 밀어낸다. "필요 없어," <<he>>【이가】 <<his>> 얼굴을 문지르며 말한다. <<He>>【이가】 가죽끈을 잡아당겨, 당신을 몇 걸음 앞으로 강제로 끌고 간다.
+당신은 레미의 뺨을 때린다. 너무 빨라서 <<he>>【이가】 피하지 못했다. 농장 인부 중 한 명이 소몰이 막대를 앞으로 찔렀지만, 레미가 그것을 잡고 밀어낸다. "필요 없어." <<he>>【이가】 <<his>> 얼굴을 문지르며 말한다. <<He>>【이가】 가죽끈을 잡아당겨, 당신을 몇 걸음 앞으로 강제로 끌고 간다.
 <br><br>
-"그냥 심술이 난 것뿐이야," <<he>>【이가】 말한다. "행동이 나아질 거라고 확신해. 아니면 막대를 사용해야겠지." <<He>>【이가】 다시 잡아당기자, 당신은 <<him>> 뒤에서 비틀거리며 따라간다.
+"그냥 심술이 난 것뿐이야." <<he>>【이가】 말한다. "행동이 나아질 거라고 확신해. 아니면 막대를 사용해야겠지." <<He>>【이가】 다시 잡아당기자, 당신은 <<him>> 뒤에서 비틀거리며 따라간다.
 <br><br>
 <<if $phase is "exam">>
 	<<link [[다음|Livestock Tie Stall Punishment]]>><<set $phase to 1>><</link>>
@@ -2028,9 +2028,9 @@
 :: Livestock Job Disobedient Obey
 <<effects>>
 <<if $livestock.muzzle>>
-	농장 인부들은 긴장하고 있지만, 당신은 레미가 목줄에 가죽끈을 채우고 <span class="purple">얼굴에 재갈을 물리도록</span> 내버려 둔다.<<facewear "bit gag">> "착한 <<girl>>," <<he>>【이가】 말하며 당신을 <<him>> 뒤로 끌고 간다.
+	농장 인부들은 긴장하고 있지만, 당신은 레미가 목줄에 가죽끈을 채우고 <span class="purple">얼굴에 재갈을 물리도록</span> 내버려 둔다.<<facewear "bit gag">> "착한 <<girl>>." <<he>>【이가】 말하며 당신을 <<him>> 뒤로 끌고 간다.
 <<else>>
-	농장 인부들은 긴장하고 있지만, 당신은 레미가 목줄에 가죽끈을 채우도록 내버려 둔다. "착한 <<girl>>," <<he>>【이가】 말하며 당신을 <<him>> 뒤로 끌고 간다.
+	농장 인부들은 긴장하고 있지만, 당신은 레미가 목줄에 가죽끈을 채우도록 내버려 둔다. "착한 <<girl>>." <<he>>【이가】 말하며 당신을 <<him>> 뒤로 끌고 간다.
 <</if>>
 <br><br>
 
@@ -2078,7 +2078,7 @@
 당신은 레미의 뺨을 때린다. 너무 빨라서 <<he>>【이가】 피하지 못했다. 농장 인부 중 한 명이 다시 당신을 감전시킨다.
 <br><br>
 
-"일을 더 어렵게 만들지 마," 레미가 말하며 당신의 가죽끈을 너무 세게 잡아당겨 당신이 몇 걸음 비틀거린다. <<He>>【이가】 당신을 <<him>> 뒤로 끌고 간다.
+"일을 더 어렵게 만들지 마." 레미가 말하며 당신의 가죽끈을 너무 세게 잡아당겨 당신이 몇 걸음 비틀거린다. <<He>>【이가】 당신을 <<him>> 뒤로 끌고 간다.
 <br><br>
 
 <<if $phase is "exam">>
@@ -2148,7 +2148,7 @@
 	발굽 소리가 들린다. <<person1>><<person>>【이가】 고개를 든다. "젠장!" <<he>>【이가】 소리치며 당신에게서 물러선다. 다른 이들도 그 뒤를 따르며, 당신은 <<if $livestock.winter.active>>바닥<<else>>풀밭<</if>>에 홀로 남겨진다.
 	<br><br>
 	<!-- Modified for Monster People -->
-	<<if ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>>
+	<<if monsterCanAppearForType("horse")>>
 		<<if maleChance() lt random(1, 100)>>
 			발굽 소리가 커지더니, 잠시 후 켄타우로스들에게 둘러싸인다. 그들이 당신을 보호하듯 둥글게 에워싸는 동안, 몇몇이 농장 일꾼들을 <<if $livestock.winter.active>>헛간 밖으로<<else>>들판 밖으로<</if>> 쫓아낸다.
 			<br><br>
@@ -2208,7 +2208,7 @@
 당신은 그들을 노려본다. 그들은 서로를 쳐다보며, 누가 먼저 움직일지 서로 부추긴다. 아무도 선뜻 나서지 않는다.
 <br><br>
 
-"엿이나 먹어," <<person1>><<person>>【이가】 말한다. "술이나 마셔야겠어." <<He>>【이가】 돌아서서 걸어간다. 다른 사람들도 곧 따라간다.
+"엿이나 먹어." <<person1>><<person>>【이가】 말한다. "술이나 마셔야겠어." <<He>>【이가】 돌아서서 걸어간다. 다른 사람들도 곧 따라간다.
 <br><br>
 
 <<tearful>> 당신은 숨을 고른다.
@@ -2272,7 +2272,7 @@
 <<effects>>
 
 <<if $livestock.obey gte 60>>
-	당신은 돌아서서 다리를 뻗어 <<his>> 무릎 뒤를 찬다. <<if $worn.face.type.includes("gag")>>항의하려 하지만, $worn.face.name 때문에 목소리가 막힌다.<<else>>"이, 이 병신아," 당신이 말한다. 오랫동안 쓰지 않은 목소리가 떨린다.<</if>>
+	당신은 돌아서서 다리를 뻗어 <<his>> 무릎 뒤를 찬다. <<if $worn.face.type.includes("gag")>>항의하려 하지만, $worn.face.name 때문에 목소리가 막힌다.<<else>>"이, 이 병신아." 당신이 말한다. 오랫동안 쓰지 않은 목소리가 떨린다.<</if>>
 	<br><br>
 
 	<<He>>【이가】 분노에 차서 돌아보며 당신의 머리채를 잡으려다 당신을 알아본다. <<He>>【이가】 눈살을 찌푸리며 당신을 보지만, 더 이상 문제 삼지는 않는다.
@@ -2286,7 +2286,7 @@
 
 	<<link [[다음|Livestock Field]]>><<endevent>><</link>>
 <<else>>
-	당신은 돌아서서 다리를 뻗어 <<his>> 무릎 뒤를 찬다. <<if $worn.face.type.includes("gag")>>당신은 $worn.face.name 너머로 경멸의 소리를 낸다.<<else>>"병신," 당신은 무리 쪽으로 돌아가며 말한다.<</if>>
+	당신은 돌아서서 다리를 뻗어 <<his>> 무릎 뒤를 찬다. <<if $worn.face.type.includes("gag")>>당신은 $worn.face.name 너머로 경멸의 소리를 낸다.<<else>>"병신." 당신은 무리 쪽으로 돌아가며 말한다.<</if>>
 	<br><br>
 
 	<<He>>【이가】 분노에 차서 돌아보며, 당신의 머리채를 잡아 걸음을 멈추게 한다. "너..." <<He>>【이가】 평정을 되찾고 숨을 내쉰 후, 농장 인부 두 명에게 주의를 돌린다. "이 녀석 좀 처리해, 난 이럴 시간 없어."
@@ -2336,7 +2336,7 @@
 
 	농장 인부들은 농담을 주고받으며 걸어간다.
 <<else>>
-	그들은 비틀거리며 물러서서, 당신을 경계하며 쳐다본다. "젠장, 레미가 <<phim>>【을를】 상대하기 싫어했던 게 당연하네," <<person1>><<person>>【이가】 말한다.
+	그들은 비틀거리며 물러서서, 당신을 경계하며 쳐다본다. "젠장, 레미가 <<phim>>【을를】 상대하기 싫어했던 게 당연하네." <<person1>><<person>>【이가】 말한다.
 	<br><br>
 
 	<<person2>><<person>>【이가】 멍든 곳을 어루만진다. "그리고 <<nnpc_he "Remy">>【은는】 우리가 더 나을 거라고 생각했나?"

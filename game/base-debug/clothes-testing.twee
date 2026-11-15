@@ -44,6 +44,7 @@
 			facestyle: "default",
 			facevariant: "default",
 			freckles: false,
+			bodyFreckles: "none",
 			brows: "none",
 			mouth: "none",
 			trauma: false,
@@ -429,6 +430,12 @@
 	<label>초기 태닝: <<numberslider "$characterViewer.skinColour.range" $characterViewer.skinColour.range 0 100 1>></label>
 	<br><br>
 
+	<span class="gold">몸 주근깨</span><br>
+	<label>없음 <<radiobutton "$characterViewer.bodyState.bodyFreckles" "none" autocheck>></label> |
+	<label>상체 <<radiobutton "$characterViewer.bodyState.bodyFreckles" "upper" autocheck>></label> |
+	<label>전신 <<radiobutton "$characterViewer.bodyState.bodyFreckles" "full" autocheck>></label> |
+	<br><br>
+
 	<span class="gold">자지 크기</span>
 	<br>
 	<<set _keys to Object.keys(_penisSize)>>
@@ -518,6 +525,7 @@
 	<<link "초기화">>
 		<<set $characterViewer.bodyState.show_face to true>>
 		<<set $characterViewer.bodyState.freckles to false>>
+		<<set $characterViewer.bodyState.bodyFreckles to "none">>
 		<<set $characterViewer.bodyState.brows to "none">>
 		<<set $characterViewer.bodyState.blush to 0>>
 		<<set $characterViewer.bodyState.mouth to "none">>
@@ -540,6 +548,7 @@
 	<<link "무작위">>
 		<<set $characterViewer.bodyState.show_face to true>>
 		<<set $characterViewer.bodyState.freckles to !random(1)>>
+		<<set $characterViewer.bodyState.bodyFreckles to ["none", "upper", "full"].random()>>
 		<<set $characterViewer.bodyState.brows to _browTypes.random()>>
 		<<set $characterViewer.bodyState.blush to random(4)>>
 		<<set $characterViewer.bodyState.mouth to _mouthTypes.random()>>
@@ -686,7 +695,7 @@
 	<<run setup.hairstyles.fringe.forEach(style => {
 		if (!V.shopClothingFilter || !V.shopClothingFilter.active || !V.shopClothingFilter.traits.length || style.type.find(type => V.shopClothingFilter.traits.includes(type))) T.fringeTypeByName[style.name_cap] = style.variable;
 	})>>
-	<<link "Reset">>
+	<<link "초기화">>
 		<<set $characterViewer.bodyState.hairStage to "none">>
 		<<set $characterViewer.bodyState.hairType to "default">>
 		<<set $characterViewer.colours.hair to Object.values(_hairColorByName)[0]>>
@@ -707,7 +716,7 @@
 			)>>
 		<</if>>
 	<</link>> |
-	<<link "Randomise">>
+	<<link "무작위">>
 		<<set $characterViewer.bodyState.hairStage to _hairLengths.random()>>
 		<<set $characterViewer.bodyState.hairType to Object.values(_hairTypeByName).random()>>
 		<<set $characterViewer.colours.hair to Object.values(_hairColorByName).random()>>
@@ -1368,6 +1377,8 @@
 	/*Skin & tan*/
 	<<set _modeloptions.skin_type to $characterViewer.skinColour.type>>
 	<<set _modeloptions.skin_tone to $characterViewer.skinColour.range>>
+	<<set _modeloptions.freckles to $characterViewer.bodyState.freckles>>
+	<<set _modeloptions.bodyFreckles to $characterViewer.bodyState.bodyFreckles>>
 
 	/*Hair*/
 	<<set _modeloptions.hair_colour_style to $characterViewer.colours.hair_colour_style>>
@@ -1402,7 +1413,6 @@
 	/*Face*/
 	<<set _modeloptions.facestyle to $characterViewer.bodyState.facestyle>>
 	<<set _modeloptions.facevariant to $characterViewer.bodyState.facevariant>>
-	<<set _modeloptions.freckles to $characterViewer.bodyState.freckles>>
 	<<set _modeloptions.brows to $characterViewer.bodyState.brows>>
 	<<set _modeloptions.mouth to $characterViewer.bodyState.mouth>>
 	<<set _modeloptions.trauma to $characterViewer.bodyState.trauma>>

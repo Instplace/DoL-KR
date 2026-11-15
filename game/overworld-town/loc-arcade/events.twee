@@ -58,15 +58,15 @@
 		당신은 <<person>>【와과】 대전을 시작하지만, 금세 뒤처지기 시작한다. 판세를 당신에게 유리하게 바꿀 방법이 있을지 고민한다.
 		<br><br>
 		<<if ($worn.under_upper.name isnot "naked" or !$worn.under_upper.type.includes("naked")) and hasSexStat("exhibitionism", 2)>>
-			<<link [[유혹하기|Arcade fighting cabinet Rigging]]>><<set $phase to 1>><</link>><<exhibitionist2>>
+			<<link [[유혹한다|Arcade fighting cabinet Rigging]]>><<set $phase to 1>><</link>><<exhibitionist2>>
 			<br>
 		<<elseif hasSexStat("exhibitionism", 4)>>
-			<<link [[유혹하기|Arcade fighting cabinet Rigging]]>><<set $phase to 2>><</link>><<exhibitionist4>>
+			<<link [[유혹한다|Arcade fighting cabinet Rigging]]>><<set $phase to 2>><</link>><<exhibitionist4>>
 			<br>
 		<</if>>
-		<<link [[방해하기|Arcade fighting cabinet Rigging]]>><<set $phase to 3>><</link>>
+		<<link [[방해한다|Arcade fighting cabinet Rigging]]>><<set $phase to 3>><</link>>
 		<br>
-		<<link [[정정당당하게 플레이하기|Arcade fighting cabinet Rigging]]>><<set $phase to 4>><</link>>
+		<<link [[정정당당하게 플레이한다|Arcade fighting cabinet Rigging]]>><<set $phase to 4>><</link>>
 	<<else>>
 		당신은 <<person>>에게 큰 차이로 패배한다. <<him>>의 상대가 되지 못했던 것 같다.
 		<<switch random(1,3)>>
@@ -308,7 +308,7 @@
 		<<if $cool gte 160>>
 			한번 해보고 싶지만, 긴장된다고 친구들에게 털어놓는다. 친구들은 당신을 격려하며 등을 떠민다. "<<pShe>> 해보고 싶대!" 그들 중 한 명이 말한다.<<stress 6>><<status 1>><<gstress>><<gcool>>
 		<<else>>
-			당신은 긴장하며 마른침을 삼키고 앞으로 나선다. "저, 저도 해봐도 될까요?"
+			당신은 긴장하며 마른침을 삼키고 앞으로 나선다. "저-저도 해봐도 될까요?"
 		<</if>>
 	<<elseif $speech_attitude is "bratty">>
 		당신은 자신 있게 무대로 올라선다. "덤벼!"

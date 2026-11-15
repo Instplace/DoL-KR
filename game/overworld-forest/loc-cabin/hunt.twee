@@ -91,7 +91,7 @@
 	<<if dangerEvent()>>
 		<<set $daily.eden.huntCaught to 1>>
 
-		<<if $rng gte 81 and $settings.bestialityEnabled and $settings.voreEnabled>>
+		<<if $rng gte 81 and $settings.voreEnabled and animalSexEnabledForType("snake")>>
 			나무를 돌자마자 당신의 얼굴 바로 몇 센티미터 앞에서 떠다니는 한 쌍의 눈과 마주친다. 온몸의 힘이 빠져나가고, 당신은 땅바닥에 쓰러진다. 뱀이 숲 바닥으로 스르르 기어 나온다.
 			<<set $trance to 1>>
 			<br><br>
@@ -101,7 +101,7 @@
 			<!-- Modified for monster people -->
 		<<elseif $rng gte 41>>
 			<<beastNEWinit 1 wolf>>
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("wolf", $monster is 1)>>
 				<<beasttype>> 한 마리가 나무 사이에서 이빨을 드러내며 나타난다.
 				<<if $monster is 1>>
 					<<bHis>> 시선이 당신과 마주친다. "쉿, 쉿, 사냥감. <<nnpc_Title "Eden">>【이가】 널 구해주진 못할 거다."
@@ -470,7 +470,7 @@
 	<<link [[다음|Eden Hunt 3]]>><<set $phase to 0>><</link>>
 	<br>
 <<else>>
-	총성이 울리고 근처 나무에 총알이 박히자, 놀란 두 사람은 서둘러 자신들의 총을 꺼내 든다. 그들은 나무 사이를 노려본다. "누구야?" <<person1>><<person>>【이가】 소리친다. 그에 대한 대답은 또 다른 총성이었다. 이번에는 총알이 더 가까이 떨어진다. 그들은 주위를 휙휙 둘러보지만, 저격수는 보이지 않는다. 또 한 발의 총성. 이번에는 총알이 <<person2>><<persons>> 발밑 땅에 퍽 하고 박힌다. "젠장! 씨발," <<he>>【은는】 눈을 희번덕이며 뒷걸음질 치며 말한다. "여기서 당장 튀자. 이 <<girl>> 때문에 이럴 가치 없어."
+	총성이 울리고 근처 나무에 총알이 박히자, 놀란 두 사람은 서둘러 자신들의 총을 꺼내 든다. 그들은 나무 사이를 노려본다. "누구야?" <<person1>><<person>>【이가】 소리친다. 그에 대한 대답은 또 다른 총성이었다. 이번에는 총알이 더 가까이 떨어진다. 그들은 주위를 휙휙 둘러보지만, 저격수는 보이지 않는다. 또 한 발의 총성. 이번에는 총알이 <<person2>><<persons>> 발밑 땅에 퍽 하고 박힌다. "젠장! 씨발." <<he>>【은는】 눈을 희번덕이며 뒷걸음질 치며 말한다. "여기서 당장 튀자. 이 <<girl>> 때문에 이럴 가치 없어."
 	<br><br>
 
 	그들이 나무 사이로 사라지자, 에덴이 나타나 당신을 향해 성큼성큼 걸어온다.

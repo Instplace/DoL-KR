@@ -11,7 +11,7 @@
 당신은 문으로 걸어가 경비원들과 이야기한다.
 <br><br>
 <<if $speech_attitude is "meek">>
-	"소포를 배달했어요." 당신이 말한다. "ㅈ-제가 나가도 될까요?"
+	"소포를 배달했어요." 당신이 말한다. "제-제가 나가도 될까요?"
 <<elseif $speech_attitude is "bratty">>
 	"다 끝났어요." 당신이 말한다. "이제 보내줄래요?"
 <<else>>
@@ -101,7 +101,7 @@
 			<<beastNEWinit 1 dog>>
 			경비 <<beasttype>> 한 마리가 당신을 향해 달려온다. <<bHe>>【은는】 몇 피트 떨어진 곳에서 멈춰 짖기 시작한다.
 			<br><br>
-			<<if $monster is 1 or $settings.bestialityEnabled>>
+			<<if beastSexEnabledForType("dog", $monster is 1)>>
 				<<if hasSexStat("deviancy", 2)>>
 					<<link [[`<<bhim>>【을를】 진정시키기`|Elk Compound Bestiality]]>><<set $sexstart to 1>><</link>><<deviant2>>
 					<br>
@@ -257,8 +257,9 @@
 <<person>>【은는】 말없이 액체를 살피더니, <<his>> 코트에서 현금 뭉치를 꺼낸다. <<He>>【은는】 쳐다보지도 않고 당신에게 돈을 건네고는 문을 닫는다.
 <br><br>
 
-<<money `($phials_held * 100000)` "compoundPhials">>
-<span class="gold">£<<print ($phials_held * 1000)>>【을를】 벌었습니다.</span>
+<<set _sale to $phials_held * 100_000>>
+<<money _sale "compoundPhials">>
+<span class="gold"><<printmoney _sale>>【을를】 벌었습니다.</span>
 <br><br>
 <<world_corruption "soft" $phials_held>>
 <<set $stat_aphrodisiacs_sold += $phials_held>>
@@ -446,7 +447,7 @@
 :: Elk Compound Bluff
 <<set $outside to 1>><<set $location to "compound">><<effects>>
 <<if $speech_attitude is "meek">>
-	"저, 저기..." 당신은 더듬거린다. "공을 담장 너머로 차버렸어요. 그냥 다시 찾으려고요." 당신은 부끄러운 척 고개를 숙인다.
+	"저-저기..." 당신은 더듬거린다. "공을 담장 너머로 차버렸어요. 그냥 다시 찾으려고요." 당신은 부끄러운 척 고개를 숙인다.
 <<elseif $speech_attitude is "bratty">>
 	당신은 <<him>>【을를】 향해 돌아서서 허리에 손을 얹는다. "실례합니다?" 당신은 말한다. "전 여기 있을 권리가 있어요. 직장을 소중히 여긴다면 귀찮게 굴지 마세요."
 <<else>>
@@ -548,7 +549,7 @@
 :: Elk Compound Experiment
 <<pass 1 hour>><<set $outside to 0>><<set $location to "compound">><<effects>>
 <<resetCompound>>
-당신은 깨어난다. <<if playerChastity()>>$worn.genitals.name【을를】 제외하고는 <</if>>알몸인 채로 금속판에 묶여 있다. 콘크리트 벽에서는 파이프와 전선이 튀어나와 있다. <<generateRole 0 0 "scientist">><<npcClothesType $NPCList[0] "compoundLab">><<person1>>구석의 콘솔에서 <<person>>【이가】 작업하고 있다. <<He>>【은는】 당신을 힐끗 본다. "아하," <<he>>【이가】 말한다. "깨어났군." <<He>>【은는】 의자에 앉은 채로 당신 쪽으로 다가와 <<his>> 실험복에서 전선 뭉치를 꺼낸다.
+당신은 깨어난다. <<if playerChastity()>>$worn.genitals.name【을를】 제외하고는 <</if>>알몸인 채로 금속판에 묶여 있다. 콘크리트 벽에서는 파이프와 전선이 튀어나와 있다. <<generateRole 0 0 "scientist">><<npcClothesType $NPCList[0] "compoundLab">><<person1>>구석의 콘솔에서 <<person>>【이가】 작업하고 있다. <<He>>【은는】 당신을 힐끗 본다. "아하." <<he>>【이가】 말한다. "깨어났군." <<He>>【은는】 의자에 앉은 채로 당신 쪽으로 다가와 <<his>> 실험복에서 전선 뭉치를 꺼낸다.
 <br><br>
 전선 한쪽 끝에는 패드가 달려 있다. <<He>>【은는】 그것들을 당신의 몸에 붙이기 시작한다. <<He>>【은는】 임상적인 전문성으로 <<his>> 일을 처리해서, 당신은 <<lewdness>>에도 불구하고 예상보다 덜 굴욕감을 느낀다. <<he>>【이가】 당신의 <<nipples>> 각각에 하나씩 붙이기 전까지는 말이다.
 <br><br>
@@ -571,8 +572,8 @@
 <</if>>
 "자, 됐군." <<he>>【이가】 전선의 다른 쪽 끝을 <<him>> 옆에 있는 기계에 꽂으며 말한다. "이제 <<girl>>, 말해봐, 누구 밑에서 일하지?"
 <br><br>
-<<if $player.penisExist and $player.vaginaExist>>
-	"운이 좋은 줄 알아." <<he>>【이가】 당신의 성기를 흘끗 보며 덧붙인다. "나한테 달렸다면, 실험을 위해 널 여기 가둬뒀을 거야. 진정한 자웅동체는 드물거든."
+<<if $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
+	"운이 좋은 줄 알아." <<he>>【이가】 당신의 성기를 흘끗 보며 덧붙인다. "나한테 달렸다면, 실험을 위해 널 여기 가둬뒀을 거야. 너 같은 성기를 가진 건 드물거든."
 	<br><br>
 <</if>>
 <i>고통이나 흥분도가 최대치에 도달하면, 당신은 <<him>>에게 모든 것을 말하게 될 것이다.</i>
@@ -584,7 +585,7 @@
 	lie: 0,
 	mock: 0,
 }>>
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Crystal
 <<set $outside to 0>><<set $location to "compound">><<effects>>
@@ -774,7 +775,7 @@
 	<<elseif $compound.interrogation.honest is 2>>
 		"<<if $blackmoney is 0>>차를 털다가 갇혔어요. 차가 절 여기로 데려왔어요<<else>>물건을 훔치러 왔어요<</if>>." 당신이 말한다. "<<if $blackmoney is 0>>정말이에요<<else>>돈 때문에요<</if>>."
 		<br><br>
-		<<He>>【은는】 다시 다이얼을 돌리자, 당신은 다시 한번 부드러운 파동에 휩싸인다. "자," <<he>>【이가】 말한다. "뭘 <<if $blackmoney is 0>>훔치려<</if>> 훔쳤지?"
+		<<He>>【은는】 다시 다이얼을 돌리자, 당신은 다시 한번 부드러운 파동에 휩싸인다. "자." <<he>>【이가】 말한다. "뭘 <<if $blackmoney is 0>>훔치려<</if>> 훔쳤지?"
 	<<elseif $compound.interrogation.honest is 3>>
 		"<<if $blackmoney is 0>>돈<<else>>돈을 훔쳐요<</if>>【이】나 팔 수 있는 건 뭐든지요." 당신이 말한다.
 		<br><br>
@@ -789,7 +790,7 @@
 <</if>>
 <br><br>
 
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Lie
 <<set $outside to 0>><<set $location to "compound">><<effects>>
@@ -819,7 +820,7 @@
 	"그거 안됐군." <<he>>【이가】 다이얼을 돌리며 말한다. "난 한참 여기 있을 수 있거든."
 	<br><br>
 <</if>>
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Mock
 <<set $outside to 0>><<set $location to "compound">><<effects>>
@@ -839,7 +840,7 @@
 	"네 페티쉬를 찾은 것 같다는 생각이 들기 시작하는군." <<He>>【은는】 다이얼을 다시 한번 돌린다.
 	<br><br>
 <<elseif $compound.interrogation.mock is 4>>
-	"이거 익숙해질 수도 있겠는데." 당신은 말한다. "과학 쪽 일이 잘 안 풀리면, 변태 창녀로서 빛나는 경력을 쌓을 수도 있겠어."
+	"이거 익숙해질 수도 있겠는데," 당신은 말한다. "과학 쪽 일이 잘 안 풀리면, 변태 창녀로서 빛나는 경력을 쌓을 수도 있겠어."
 	<br><br>
 	"이거 작동은 하는 건가?" <<he>>【이가】 다이얼을 다시 돌리며 중얼거린다.
 	<br><br>
@@ -849,7 +850,7 @@
 	"닥쳐." <<he>>【이가】 다이얼을 돌리며 말을 끊는다.
 	<br><br>
 <</if>>
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Beg
 <<set $outside to 0>><<set $location to "compound">><<effects>>
@@ -879,7 +880,7 @@
 	"마지막으로 말하는데, 협조하면 보내주겠다." <<He>>【은는】 다이얼을 돌린다.
 	<br><br>
 <</if>>
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Flirt
 <<set $outside to 0>><<set $location to "compound">><<effects>>
@@ -894,7 +895,7 @@
 	<<He>>【이가】 불편하게 몸을 뒤척인다. "달콤한 말로 구슬리려 하지 마. 소용없으니까."
 	<br><br>
 <<elseif $compound.interrogation.flirt is 3>>
-	"여기서 진짜 고문은," 당신이 말한다. "당신의 손길을 거부당하는 거예요."
+	"여기서 진짜 고문은." 당신이 말한다. "당신의 손길을 거부당하는 거예요."
 	<<promiscuity3>>
 
 	<<He>>【이가】 다이얼에서 <<his>> 손을 떼고 <<his>> 관자놀이를 문지른다. "그만 좀 하지 그래?"
@@ -910,7 +911,7 @@
 	"그만! 당장." <<He>>【은는】 진지해 보인다.
 	<br><br>
 <</if>>
-<<compoundoptions>>
+<<compoundOptions>>
 
 :: Elk Compound Interior
 <<set $outside to 0>><<set $location to "compound">><<effects>>

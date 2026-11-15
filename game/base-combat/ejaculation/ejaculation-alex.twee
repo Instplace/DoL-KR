@@ -256,7 +256,7 @@
 		<<if _condomResult is "contained">>
 			<<genericCondomEjaculation>>
 		<<elseif npcHasStrapon(_nn)>>
-			<<He>>【은는】 오르가슴의 희열 속에서 신음하고 몸을 떨며, <<his>> 성기에 스트랩온을 비벼댄다.
+			<<He>>【은는】 오르가슴의 희열 속에서 신음하고 몸을 떨며, <<his>> 성기에 페니스 밴드를 비벼댄다.
 		<<elseif $NPCList[_nn].penis is "idle">>
 			<<He>>【은는】 신음을 내뱉고, 
 			<<if $NPCList[_nn].clothes.lower.name is "naked">>
@@ -648,7 +648,7 @@
 				<<case 1 2 3>>
 					<<He>>【은는】 당신이 <<his>> 입을 범하자 가버리며, 당신의 자지에 대고 숨을 몰아쉰다. "세상에, 너를 너무너무 사랑해."
 
-					<<set $kylarSeen.pushUnique("saidLove")>>
+					<<set $alexSeen.pushUnique("saidLove")>>
 				<<case 4 5>>
 					<<He>>【은는】 당신이 <<his>> 입을 범하는 동안 바닥에 사정한다. <<He>>【은는】 뒤로 물러서며 말한다. "미안해, 더는 못 하겠어. 제발 용서해 줘."
 

@@ -12,7 +12,7 @@
 <<endevent>>
 <br><br>
 <<if Time.hour is 20>>
-종소리가 울린다. "통제 시간이다," <<generate_methodical_guard 0>><<methodical_guard 0>>【이가】 외친다. "다들 감옥으로 돌아가."
+종소리가 울린다. "통제 시간이다." <<generate_methodical_guard 0>><<methodical_guard 0>>【이가】 외친다. "다들 감옥으로 돌아가."
 	<br><br>
 당신은 다른 수감자들과 함께 밀려난다.
 	<br><br>
@@ -316,7 +316,7 @@
 	<<elseif isLoveInterest("Whitney")>>
 		당신은 휘트니를 생각한다. <<nnpc_he Whitney>>【이가】 인정하든 안 하든, <<nnpc_he Whitney>>【이가】 당신을 그리워할 거라고 확신한다.
 	<<elseif isLoveInterest("Eden")>>
-		당신은 이든을 생각한다. <<nnpc_he Eden>>【이가】 너무 걱정하지 않기를 바란다. <<nnpc_he Eden>>조차도 여기까지 올 수는 없을 거라고 생각한다.
+		당신은 에덴을 생각한다. <<nnpc_he Eden>>【이가】 너무 걱정하지 않기를 바란다. <<nnpc_he Eden>>조차도 여기까지 올 수는 없을 거라고 생각한다.
 	<<elseif isLoveInterest("Kylar") and C.npc.Kylar.state is "prison">>
 		당신은 카일라를 생각한다. <<nnpc_he "Kylar">>【이가】 탈출할 수 있을지 궁금하지만, 그럴 수 없을 거라고 생각한다.
 	<<elseif isLoveInterest("Avery")>>
@@ -361,7 +361,7 @@
 
 <<if $prison.shock is 1>>
 	<<if $prison.guards gte 40>>
-		당신은 <<methodical_guard 0>>【을를】 쳐다본다. "죄수 144번," <<he>>【이가】 쏘아붙인다. "<span class="green">한 번 더 기회를 주지.</span> 당장 머리를 숙여."
+		당신은 <<methodical_guard 0>>【을를】 쳐다본다. "죄수 144번." <<he>>【이가】 쏘아붙인다. "<span class="green">한 번 더 기회를 주지.</span> 당장 머리를 숙여."
 		<br><br>
 
 		<<link [[머리를 숙인다|Prison Breakfast Prayer Bow]]>><<sub 1>><<purity 2>><</link>><<gpurity>>
@@ -533,7 +533,7 @@
 		<br>
 	<<elseif $rng gte 61>>
 		<<generate1>><<person1>>
-		"어이," 한 <<person>>【이가】 당신 옆에 <<his>> 쟁반을 쾅 내려놓으며 말한다. "여긴 내 자리야."
+		"어이." 한 <<person>>【이가】 당신 옆에 <<his>> 쟁반을 쾅 내려놓으며 말한다. "여긴 내 자리야."
 		<br><br>
 
 		<<link [[위협한다|Prison Dinner Threaten]]>><<prison_inmates 1>><</link>><<grespect>>

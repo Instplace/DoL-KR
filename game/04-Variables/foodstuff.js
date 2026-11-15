@@ -17,7 +17,6 @@ function initFoodstuff() {
 	/** @type {Dict<FoodstuffItem>} */
 	setup.foodstuff = {
 		red_rose: {
-			index: 0,
 			name: "붉은 장미",
 			singular: "붉은 장미",
 			counter: "송이",
@@ -41,7 +40,6 @@ function initFoodstuff() {
 			},
 		},
 		white_rose: {
-			index: 1,
 			name: "하얀 장미",
 			singular: "하얀 장미",
 			counter: "송이",
@@ -65,7 +63,6 @@ function initFoodstuff() {
 			},
 		},
 		orchid: {
-			index: 2,
 			name: "난초",
 			singular: "난초",
 			counter: "송이",
@@ -89,7 +86,6 @@ function initFoodstuff() {
 			},
 		},
 		daisy: {
-			index: 3,
 			name: "데이지",
 			singular: "데이지",
 			counter: "송이",
@@ -113,7 +109,6 @@ function initFoodstuff() {
 			},
 		},
 		tulip: {
-			index: 4,
 			name: "튤립",
 			singular: "튤립",
 			counter: "송이",
@@ -137,7 +132,6 @@ function initFoodstuff() {
 			},
 		},
 		lotus: {
-			index: 5,
 			name: "연꽃",
 			singular: "연꽃",
 			counter: "송이",
@@ -161,7 +155,6 @@ function initFoodstuff() {
 			},
 		},
 		lily: {
-			index: 6,
 			name: "백합",
 			singular: "백합",
 			counter: "송이",
@@ -185,7 +178,6 @@ function initFoodstuff() {
 			},
 		},
 		poppy: {
-			index: 7,
 			name: "양귀비",
 			singular: "양귀비",
 			counter: "송이",
@@ -209,7 +201,6 @@ function initFoodstuff() {
 			},
 		},
 		apple: {
-			index: 8,
 			name: "사과",
 			singular: "사과",
 			counter: "개",
@@ -228,7 +219,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		orange: {
-			index: 9,
 			name: "오렌지",
 			singular: "오렌지",
 			counter: "개",
@@ -248,7 +238,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		banana: {
-			index: 10,
 			name: "바나나",
 			singular: "바나나",
 			counter: "개",
@@ -268,7 +257,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		lemon: {
-			index: 11,
 			name: "레몬",
 			singular: "레몬",
 			counter: "개",
@@ -287,7 +275,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		blood_lemon: {
-			index: 12,
 			name: "핏빛 레몬",
 			singular: "핏빛 레몬",
 			counter: "개",
@@ -309,7 +296,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		pear: {
-			index: 13,
 			name: "배",
 			singular: "배",
 			counter: "개",
@@ -328,7 +314,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		strawberry: {
-			index: 14,
 			name: "딸기",
 			singular: "딸기",
 			counter: "개",
@@ -347,7 +332,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		peach: {
-			index: 15,
 			name: "복숭아",
 			singular: "복숭아",
 			counter: "개",
@@ -366,7 +350,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		plum: {
-			index: 16,
 			name: "자두",
 			singular: "자두",
 			counter: "개",
@@ -385,7 +368,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		mushroom: {
-			index: 17,
 			name: "버섯",
 			singular: "버섯",
 			counter: "개",
@@ -403,7 +385,6 @@ function initFoodstuff() {
 			},
 		},
 		wolfshroom: {
-			index: 18,
 			name: "늑대버섯",
 			singular: "늑대버섯",
 			counter: "개",
@@ -424,7 +405,6 @@ function initFoodstuff() {
 			},
 		},
 		wild_honeycomb: {
-			index: 19,
 			name: "야생 벌집",
 			singular: "야생 벌집",
 			counter: "통",
@@ -439,7 +419,6 @@ function initFoodstuff() {
 			},
 		},
 		wild_carrot: {
-			index: 20,
 			name: "야생 당근",
 			singular: "야생 당근",
 			counter: "개",
@@ -464,7 +443,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		onion: {
-			index: 21,
 			name: "양파",
 			singular: "양파",
 			counter: "개",
@@ -489,7 +467,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		garlic_bulb: {
-			index: 22,
 			name: "마늘",
 			singular: "마늘",
 			counter: "통",
@@ -514,7 +491,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		potato: {
-			index: 23,
 			name: "감자",
 			singular: "감자",
 			counter: "개",
@@ -539,7 +515,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		strange_flower: {
-			index: 24,
 			name: "이상한 꽃",
 			singular: "이상한 꽃",
 			counter: "송이",
@@ -569,7 +544,6 @@ function initFoodstuff() {
 			},
 		},
 		truffle: {
-			index: 25,
 			name: "송로버섯",
 			singular: "송로버섯",
 			counter: "개",
@@ -587,7 +561,6 @@ function initFoodstuff() {
 			},
 		},
 		bottle_of_milk: {
-			index: 26,
 			name: "우유",
 			singular: "우유",
 			counter: "병",
@@ -609,7 +582,6 @@ function initFoodstuff() {
 			},
 		},
 		chicken_egg: {
-			index: 27,
 			name: "달걀",
 			singular: "달걀",
 			counter: "개",
@@ -631,7 +603,6 @@ function initFoodstuff() {
 			},
 		},
 		bottle_of_breast_milk: {
-			index: 28,
 			name: "모유",
 			singular: "모유",
 			counter: "병",
@@ -646,7 +617,6 @@ function initFoodstuff() {
 			},
 		},
 		bottle_of_semen: {
-			index: 29,
 			name: "정액",
 			singular: "정액",
 			counter: "병",
@@ -665,7 +635,6 @@ function initFoodstuff() {
 			},
 		},
 		cabbage: {
-			index: 30,
 			name: "양배추",
 			singular: "양배추",
 			counter: "통",
@@ -689,7 +658,6 @@ function initFoodstuff() {
 			},
 		},
 		turnip: {
-			index: 31,
 			name: "순무",
 			singular: "순무",
 			counter: "개",
@@ -713,7 +681,6 @@ function initFoodstuff() {
 			},
 		},
 		broccoli: {
-			index: 32,
 			name: "브로콜리",
 			singular: "브로콜리",
 			counter: "송이",
@@ -737,7 +704,6 @@ function initFoodstuff() {
 			},
 		},
 		ghostshroom: {
-			index: 33,
 			name: "유령버섯",
 			singular: "유령버섯",
 			counter: "개",
@@ -755,7 +721,6 @@ function initFoodstuff() {
 			},
 		},
 		blackberry: {
-			index: 34,
 			name: "블랙베리",
 			singular: "블랙베리",
 			counter: "알",
@@ -775,7 +740,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		carnation: {
-			index: 35,
 			name: "카네이션",
 			singular: "카네이션",
 			counter: "송이",
@@ -799,7 +763,6 @@ function initFoodstuff() {
 			},
 		},
 		bird_egg: {
-			index: 36,
 			name: "새 알",
 			singular: "새 알",
 			counter: "개",
@@ -813,7 +776,6 @@ function initFoodstuff() {
 			},
 		},
 		baby_bottle_of_breast_milk: {
-			index: 37,
 			name: "젖병",
 			singular: "젖병",
 			counter: "병",
@@ -831,7 +793,6 @@ function initFoodstuff() {
 			},
 		},
 		plumeria: {
-			index: 38,
 			name: "플루메리아",
 			singular: "플루메리아",
 			counter: "송이",
@@ -855,7 +816,6 @@ function initFoodstuff() {
 			},
 		},
 		oyster_pearl: {
-			index: 39,
 			name: "굴 진주",
 			singular: "굴 진주",
 			counter: "알",
@@ -870,7 +830,6 @@ function initFoodstuff() {
 			},
 		},
 		bread: {
-			index: 40,
 			name: "빵",
 			singular: "빵",
 			counter: "개",
@@ -896,7 +855,6 @@ function initFoodstuff() {
 			},
 		},
 		flour: {
-			index: 41,
 			name: "밀가루",
 			singular: "밀가루",
 			counter: "봉지",
@@ -918,7 +876,6 @@ function initFoodstuff() {
 			},
 		},
 		salt: {
-			index: 42,
 			name: "소금",
 			singular: "소금",
 			counter: "봉지",
@@ -934,7 +891,6 @@ function initFoodstuff() {
 			},
 		},
 		vegetable_oil: {
-			index: 43,
 			name: "식용유",
 			singular: "식용유",
 			counter: "병",
@@ -950,7 +906,6 @@ function initFoodstuff() {
 			},
 		},
 		pizza: {
-			index: 44,
 			name: "피자",
 			singular: "피자",
 			counter: "판",
@@ -976,7 +931,6 @@ function initFoodstuff() {
 			},
 		},
 		tomato: {
-			index: 45,
 			name: "토마토",
 			singular: "토마토",
 			counter: "개",
@@ -1000,7 +954,6 @@ function initFoodstuff() {
 			},
 		},
 		cheese: {
-			index: 46,
 			name: "치즈",
 			singular: "치즈",
 			counter: "덩이",
@@ -1026,7 +979,6 @@ function initFoodstuff() {
 			},
 		},
 		macaroni_cheese: {
-			index: 47,
 			name: "마카로니 치즈",
 			singular: "마카로니 치즈",
 			counter: "접시",
@@ -1051,7 +1003,6 @@ function initFoodstuff() {
 			},
 		},
 		pasta: {
-			index: 48,
 			name: "파스타",
 			singular: "파스타",
 			counter: "접시",
@@ -1076,7 +1027,6 @@ function initFoodstuff() {
 			},
 		},
 		cauliflower_cheese: {
-			index: 49,
 			name: "콜리플라워 치즈",
 			singular: "콜리플라워 치즈",
 			counter: "접시",
@@ -1101,7 +1051,6 @@ function initFoodstuff() {
 			},
 		},
 		wheat: {
-			index: 50,
 			name: "밀",
 			singular: "밀",
 			counter: "개",
@@ -1126,7 +1075,6 @@ function initFoodstuff() {
 			},
 		},
 		prawn_bisque: {
-			index: 51,
 			name: "새우 비스크",
 			singular: "새우 비스크",
 			counter: "접시",
@@ -1151,7 +1099,6 @@ function initFoodstuff() {
 			},
 		},
 		cream: {
-			index: 52,
 			name: "크림",
 			singular: "크림",
 			counter: "통",
@@ -1169,7 +1116,6 @@ function initFoodstuff() {
 			},
 		},
 		chelsea_bun: {
-			index: 53,
 			name: "첼시 번",
 			singular: "첼시 번",
 			counter: "개",
@@ -1194,7 +1140,6 @@ function initFoodstuff() {
 			},
 		},
 		honey: {
-			index: 54,
 			name: "꿀",
 			singular: "꿀",
 			counter: "병",
@@ -1216,7 +1161,6 @@ function initFoodstuff() {
 			},
 		},
 		butter: {
-			index: 55,
 			name: "버터",
 			singular: "버터",
 			counter: "덩이",
@@ -1238,7 +1182,6 @@ function initFoodstuff() {
 			},
 		},
 		naan_bread: {
-			index: 56,
 			name: "난",
 			singular: "난",
 			counter: "장",
@@ -1263,7 +1206,6 @@ function initFoodstuff() {
 			},
 		},
 		pastry: {
-			index: 57,
 			name: "페이스트리",
 			singular: "페이스트리",
 			counter: "개",
@@ -1285,7 +1227,6 @@ function initFoodstuff() {
 			},
 		},
 		quiche: {
-			index: 58,
 			name: "키시",
 			singular: "키시",
 			counter: "판",
@@ -1310,7 +1251,6 @@ function initFoodstuff() {
 			},
 		},
 		bacon: {
-			index: 59,
 			name: "베이컨",
 			singular: "베이컨",
 			counter: "장",
@@ -1326,7 +1266,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		mince_pie: {
-			index: 60,
 			name: "민스 파이",
 			singular: "민스 파이",
 			counter: "개",
@@ -1351,7 +1290,6 @@ function initFoodstuff() {
 			},
 		},
 		sugar: {
-			index: 61,
 			name: "설탕",
 			singular: "설탕",
 			counter: "봉지",
@@ -1367,7 +1305,6 @@ function initFoodstuff() {
 			},
 		},
 		sausage_roll: {
-			index: 62,
 			name: "소시지 롤",
 			singular: "소시지 롤",
 			counter: "개",
@@ -1392,7 +1329,6 @@ function initFoodstuff() {
 			},
 		},
 		sausage: {
-			index: 63,
 			name: "소시지",
 			singular: "소시지",
 			counter: "개",
@@ -1408,7 +1344,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		potato_pancake: {
-			index: 64,
 			name: "감자 팬케이크",
 			singular: "감자 팬케이크",
 			counter: "장",
@@ -1433,7 +1368,6 @@ function initFoodstuff() {
 			},
 		},
 		onion_bhaji: {
-			index: 65,
 			name: "양파 바지",
 			singular: "양파 바지",
 			counter: "개",
@@ -1458,7 +1392,6 @@ function initFoodstuff() {
 			},
 		},
 		chilli_pepper: {
-			index: 66,
 			name: "고추",
 			singular: "고추",
 			counter: "개",
@@ -1482,7 +1415,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		samosa: {
-			index: 67,
 			name: "사모사",
 			singular: "사모사",
 			counter: "개",
@@ -1507,7 +1439,6 @@ function initFoodstuff() {
 			},
 		},
 		sweet_and_sour_chicken: {
-			index: 68,
 			name: "스위트 앤 사워 치킨",
 			singular: "스위트 앤 사워 치킨",
 			counter: "접시",
@@ -1532,7 +1463,6 @@ function initFoodstuff() {
 			},
 		},
 		chicken: {
-			index: 69,
 			name: "닭고기",
 			singular: "닭고기",
 			counter: "마리",
@@ -1548,7 +1478,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		pepper: {
-			index: 70,
 			name: "피망",
 			singular: "피망",
 			counter: "개",
@@ -1573,7 +1502,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		kedgeree: {
-			index: 71,
 			name: "케저리",
 			singular: "케저리",
 			counter: "접시",
@@ -1604,7 +1532,6 @@ function initFoodstuff() {
 			},
 		},
 		rice: {
-			index: 72,
 			name: "쌀",
 			singular: "쌀",
 			counter: "개",
@@ -1629,7 +1556,6 @@ function initFoodstuff() {
 			},
 		},
 		haddock: {
-			index: 73,
 			name: "해덕대구",
 			singular: "해덕대구",
 			counter: "마리",
@@ -1644,7 +1570,6 @@ function initFoodstuff() {
 			},
 		},
 		honeyed_pork: {
-			index: 74,
 			name: "꿀 바른 돼지고기",
 			singular: "꿀 바른 돼지고기",
 			counter: "접시",
@@ -1669,7 +1594,6 @@ function initFoodstuff() {
 			},
 		},
 		beef_wellington: {
-			index: 75,
 			name: "비프 웰링턴",
 			singular: "비프 웰링턴",
 			counter: "접시",
@@ -1694,7 +1618,6 @@ function initFoodstuff() {
 			},
 		},
 		salmon_wellington: {
-			index: 76,
 			name: "연어 웰링턴",
 			singular: "연어 웰링턴",
 			counter: "접시",
@@ -1719,7 +1642,6 @@ function initFoodstuff() {
 			},
 		},
 		hamburger: {
-			index: 77,
 			name: "햄버거",
 			singular: "햄버거",
 			counter: "개",
@@ -1744,7 +1666,6 @@ function initFoodstuff() {
 			},
 		},
 		cheeseburger: {
-			index: 78,
 			name: "치즈버거",
 			singular: "치즈버거",
 			counter: "개",
@@ -1769,7 +1690,6 @@ function initFoodstuff() {
 			},
 		},
 		chips: {
-			index: 79,
 			name: "감자튀김",
 			singular: "감자튀김",
 			counter: "개",
@@ -1794,7 +1714,6 @@ function initFoodstuff() {
 			},
 		},
 		cheese_topped_trout: {
-			index: 80,
 			name: "치즈 얹은 송어",
 			singular: "치즈 얹은 송어",
 			counter: "마리",
@@ -1819,7 +1738,6 @@ function initFoodstuff() {
 			},
 		},
 		salmon: {
-			index: 81,
 			name: "연어",
 			singular: "연어",
 			counter: "마리",
@@ -1838,7 +1756,6 @@ function initFoodstuff() {
 			},
 		},
 		trout: {
-			index: 82,
 			name: "송어",
 			singular: "송어",
 			counter: "마리",
@@ -1857,7 +1774,6 @@ function initFoodstuff() {
 			},
 		},
 		spaghetti_bolognese: {
-			index: 83,
 			name: "스파게티 볼로네제",
 			singular: "스파게티 볼로네제",
 			counter: "접시",
@@ -1882,7 +1798,6 @@ function initFoodstuff() {
 			},
 		},
 		lasagne: {
-			index: 84,
 			name: "라자냐",
 			singular: "라자냐",
 			counter: "접시",
@@ -1913,7 +1828,6 @@ function initFoodstuff() {
 			},
 		},
 		carbonara: {
-			index: 85,
 			name: "까르보나라",
 			singular: "까르보나라",
 			counter: "접시",
@@ -1938,7 +1852,6 @@ function initFoodstuff() {
 			},
 		},
 		chicken_tikka_masala: {
-			index: 86,
 			name: "치킨 티카 마살라",
 			singular: "치킨 티카 마살라",
 			counter: "접시",
@@ -1963,7 +1876,6 @@ function initFoodstuff() {
 			},
 		},
 		chilli_con_carne: {
-			index: 87,
 			name: "칠리 콘 카르네",
 			singular: "칠리 콘 카르네",
 			counter: "접시",
@@ -1988,7 +1900,6 @@ function initFoodstuff() {
 			},
 		},
 		rich_biscuit: {
-			index: 88,
 			name: "리치 비스킷",
 			singular: "리치 비스킷",
 			counter: "개",
@@ -2014,7 +1925,6 @@ function initFoodstuff() {
 			},
 		},
 		shortbread: {
-			index: 89,
 			name: "쇼트브레드",
 			singular: "쇼트브레드",
 			counter: "개",
@@ -2040,7 +1950,6 @@ function initFoodstuff() {
 			},
 		},
 		melting_moment: {
-			index: 90,
 			name: "멜팅 모먼트",
 			singular: "멜팅 모먼트",
 			counter: "개",
@@ -2066,7 +1975,6 @@ function initFoodstuff() {
 			},
 		},
 		choc_chip_cookie: {
-			index: 91,
 			name: "초코칩 쿠키",
 			singular: "초코칩 쿠키",
 			counter: "개",
@@ -2092,7 +2000,6 @@ function initFoodstuff() {
 			},
 		},
 		cocoa_powder: {
-			index: 92,
 			name: "코코아 가루",
 			singular: "코코아 가루",
 			counter: "통",
@@ -2108,7 +2015,6 @@ function initFoodstuff() {
 			},
 		},
 		chocolate: {
-			index: 93,
 			name: "초콜릿",
 			singular: "초콜릿",
 			counter: "개",
@@ -2133,7 +2039,6 @@ function initFoodstuff() {
 			},
 		},
 		apple_strudel: {
-			index: 94,
 			name: "애플 스트루델",
 			singular: "애플 스트루델",
 			counter: "개",
@@ -2158,7 +2063,6 @@ function initFoodstuff() {
 			},
 		},
 		souffle: {
-			index: 95,
 			name: "수플레",
 			singular: "수플레",
 			counter: "개",
@@ -2183,7 +2087,6 @@ function initFoodstuff() {
 			},
 		},
 		tart: {
-			index: 96,
 			name: "타르트",
 			singular: "타르트",
 			counter: "판",
@@ -2208,7 +2111,6 @@ function initFoodstuff() {
 			},
 		},
 		lemon_meringue_pie: {
-			index: 97,
 			name: "레몬 머랭 파이",
 			singular: "레몬 머랭 파이",
 			counter: "판",
@@ -2233,7 +2135,6 @@ function initFoodstuff() {
 			},
 		},
 		sponge_cake: {
-			index: 98,
 			name: "스펀지 케이크",
 			singular: "스펀지 케이크",
 			counter: "판",
@@ -2259,7 +2160,6 @@ function initFoodstuff() {
 			},
 		},
 		swiss_roll: {
-			index: 99,
 			name: "스위스 롤",
 			singular: "스위스 롤",
 			counter: "개",
@@ -2284,7 +2184,6 @@ function initFoodstuff() {
 			},
 		},
 		scone: {
-			index: 100,
 			name: "스콘",
 			singular: "스콘",
 			counter: "개",
@@ -2309,7 +2208,6 @@ function initFoodstuff() {
 			},
 		},
 		brownie: {
-			index: 101,
 			name: "브라우니",
 			singular: "브라우니",
 			counter: "개",
@@ -2334,7 +2232,6 @@ function initFoodstuff() {
 			},
 		},
 		carrot_cake: {
-			index: 102,
 			name: "당근 케이크",
 			singular: "당근 케이크",
 			counter: "판",
@@ -2360,7 +2257,6 @@ function initFoodstuff() {
 			},
 		},
 		creme_brulee: {
-			index: 103,
 			name: "크렘 브륄레",
 			singular: "크렘 브륄레",
 			counter: "접시",
@@ -2385,7 +2281,6 @@ function initFoodstuff() {
 			},
 		},
 		date: {
-			index: 104,
 			name: "대추야자",
 			singular: "대추야자",
 			counter: "개",
@@ -2405,7 +2300,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		sticky_toffee_pudding: {
-			index: 105,
 			name: "스티키 토피 푸딩",
 			singular: "스티키 토피 푸딩",
 			counter: "개",
@@ -2430,7 +2324,6 @@ function initFoodstuff() {
 			},
 		},
 		chicken_vindaloo: {
-			index: 106,
 			name: "치킨 빈달루",
 			singular: "치킨 빈달루",
 			counter: "접시",
@@ -2455,7 +2348,6 @@ function initFoodstuff() {
 			},
 		},
 		flapjack: {
-			index: 107,
 			name: "플랩잭",
 			singular: "플랩잭",
 			counter: "개",
@@ -2481,7 +2373,6 @@ function initFoodstuff() {
 			},
 		},
 		cherry: {
-			index: 108,
 			name: "체리",
 			singular: "체리",
 			counter: "알",
@@ -2501,7 +2392,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		belgian_bun: {
-			index: 109,
 			name: "벨지안 번",
 			singular: "벨지안 번",
 			counter: "개",
@@ -2526,7 +2416,6 @@ function initFoodstuff() {
 			},
 		},
 		lime: {
-			index: 110,
 			name: "라임",
 			singular: "라임",
 			counter: "개",
@@ -2546,7 +2435,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		linguine: {
-			index: 111,
 			name: "링귀네",
 			singular: "링귀네",
 			counter: "접시",
@@ -2571,7 +2459,6 @@ function initFoodstuff() {
 			},
 		},
 		steak: {
-			index: 112,
 			name: "스테이크",
 			singular: "스테이크",
 			counter: "접시",
@@ -2596,7 +2483,6 @@ function initFoodstuff() {
 			},
 		},
 		full_english_breakfast: {
-			index: 113,
 			name: "잉글리시 브렉퍼스트",
 			singular: "잉글리시 브렉퍼스트",
 			counter: "접시",
@@ -2621,7 +2507,6 @@ function initFoodstuff() {
 			},
 		},
 		apple_crumble: {
-			index: 114,
 			name: "애플 크럼블",
 			singular: "애플 크럼블",
 			counter: "접시",
@@ -2646,7 +2531,6 @@ function initFoodstuff() {
 			},
 		},
 		bakewell_tart: {
-			index: 115,
 			name: "베이크웰 타르트",
 			singular: "베이크웰 타르트",
 			counter: "판",
@@ -2672,7 +2556,6 @@ function initFoodstuff() {
 			},
 		},
 		cod: {
-			index: 116,
 			name: "대구",
 			singular: "대구",
 			counter: "마리",
@@ -2691,7 +2574,6 @@ function initFoodstuff() {
 			},
 		},
 		fish_and_chips: {
-			index: 117,
 			name: "피시 앤 칩스",
 			singular: "피시 앤 칩스",
 			counter: "접시",
@@ -2722,7 +2604,6 @@ function initFoodstuff() {
 			},
 		},
 		clam: {
-			index: 118,
 			name: "조개",
 			singular: "조개",
 			counter: "개",
@@ -2741,7 +2622,6 @@ function initFoodstuff() {
 			},
 		},
 		clam_chowder: {
-			index: 119,
 			name: "클램 차우더",
 			singular: "클램 차우더",
 			counter: "접시",
@@ -2766,7 +2646,6 @@ function initFoodstuff() {
 			},
 		},
 		cheese_and_crackers: {
-			index: 120,
 			name: "치즈와 크래커",
 			singular: "치즈와 크래커",
 			counter: "접시",
@@ -2791,7 +2670,6 @@ function initFoodstuff() {
 			},
 		},
 		bangers_and_mash: {
-			index: 121,
 			name: "뱅어스 앤 매시",
 			singular: "뱅어스 앤 매시",
 			counter: "접시",
@@ -2816,7 +2694,6 @@ function initFoodstuff() {
 			},
 		},
 		yorkshire_pudding: {
-			index: 122,
 			name: "요크셔 푸딩",
 			singular: "요크셔 푸딩",
 			counter: "개",
@@ -2841,7 +2718,6 @@ function initFoodstuff() {
 			},
 		},
 		stuffing: {
-			index: 123,
 			name: "스터핑",
 			singular: "스터핑",
 			counter: "접시",
@@ -2866,7 +2742,6 @@ function initFoodstuff() {
 			},
 		},
 		roast_dinner: {
-			index: 124,
 			name: "로스트 디너",
 			singular: "로스트 디너",
 			counter: "접시",
@@ -2904,7 +2779,6 @@ function initFoodstuff() {
 			},
 		},
 		crumpet: {
-			index: 125,
 			name: "크럼펫",
 			singular: "크럼펫",
 			counter: "개",
@@ -2929,7 +2803,6 @@ function initFoodstuff() {
 			},
 		},
 		orange_juice: {
-			index: 126,
 			name: "오렌지 주스",
 			singular: "오렌지 주스",
 			counter: "잔",
@@ -2954,7 +2827,6 @@ function initFoodstuff() {
 			},
 		},
 		lemonade: {
-			index: 127,
 			name: "레모네이드",
 			singular: "레모네이드",
 			counter: "잔",
@@ -2979,7 +2851,6 @@ function initFoodstuff() {
 			},
 		},
 		banana_bread: {
-			index: 128,
 			name: "바나나 빵",
 			singular: "바나나 빵",
 			counter: "개",
@@ -3005,7 +2876,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		red_wine: {
-			index: 129,
 			name: "레드 와인",
 			singular: "레드 와인",
 			counter: "병",
@@ -3020,7 +2890,6 @@ function initFoodstuff() {
 			},
 		},
 		white_wine: {
-			index: 130,
 			name: "화이트 와인",
 			singular: "화이트 와인",
 			counter: "병",
@@ -3035,7 +2904,6 @@ function initFoodstuff() {
 			},
 		},
 		poached_pear: {
-			index: 131,
 			name: "와인에 졸인 배",
 			singular: "와인에 졸인 배",
 			counter: "개",
@@ -3060,7 +2928,6 @@ function initFoodstuff() {
 			},
 		},
 		peach_panzanella: {
-			index: 132,
 			name: "복숭아 판자넬라",
 			singular: "복숭아 판자넬라",
 			counter: "접시",
@@ -3085,7 +2952,6 @@ function initFoodstuff() {
 			},
 		},
 		plum_pudding: {
-			index: 133,
 			name: "자두 푸딩",
 			singular: "자두 푸딩",
 			counter: "개",
@@ -3111,7 +2977,6 @@ function initFoodstuff() {
 			},
 		},
 		spinach: {
-			index: 134,
 			name: "시금치",
 			singular: "시금치",
 			counter: "포기",
@@ -3136,7 +3001,6 @@ function initFoodstuff() {
 			},
 		},
 		salad: {
-			index: 135,
 			name: "샐러드",
 			singular: "샐러드",
 			counter: "접시",
@@ -3161,7 +3025,6 @@ function initFoodstuff() {
 			},
 		},
 		arancini: {
-			index: 136,
 			name: "아란치니",
 			singular: "아란치니",
 			counter: "개",
@@ -3186,7 +3049,6 @@ function initFoodstuff() {
 			},
 		},
 		wolfbrew: {
-			index: 137,
 			name: "늑대맥주",
 			singular: "늑대맥주",
 			counter: "병",
@@ -3211,7 +3073,6 @@ function initFoodstuff() {
 			},
 		},
 		ghostbrew: {
-			index: 138,
 			name: "유령맥주",
 			singular: "유령맥주",
 			counter: "병",
@@ -3236,7 +3097,6 @@ function initFoodstuff() {
 			},
 		},
 		beef: {
-			index: 139,
 			name: "소고기",
 			singular: "소고기",
 			counter: "덩이",
@@ -3256,7 +3116,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		pork: {
-			index: 140,
 			name: "돼지고기",
 			singular: "돼지고기",
 			counter: "덩이",
@@ -3276,7 +3135,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		cauliflower: {
-			index: 141,
 			name: "콜리플라워",
 			singular: "콜리플라워",
 			counter: "통",
@@ -3300,7 +3158,6 @@ function initFoodstuff() {
 			},
 		},
 		oats: {
-			index: 142,
 			name: "귀리",
 			singular: "귀리",
 			counter: "개",
@@ -3320,7 +3177,6 @@ function initFoodstuff() {
 			},
 		},
 		prawn: {
-			index: 143,
 			name: "새우",
 			singular: "새우",
 			counter: "마리",
@@ -3340,7 +3196,6 @@ function initFoodstuff() {
 			is_fishing_bait: true,
 		},
 		omelette: {
-			index: 144,
 			name: "오믈렛",
 			singular: "오믈렛",
 			counter: "개",
@@ -3365,7 +3220,6 @@ function initFoodstuff() {
 			},
 		},
 		porridge: {
-			index: 145,
 			name: "포리지",
 			singular: "포리지",
 			counter: "접시",
@@ -3390,7 +3244,6 @@ function initFoodstuff() {
 			},
 		},
 		turnip_soup: {
-			index: 146,
 			name: "순무 수프",
 			singular: "순무 수프",
 			counter: "접시",
@@ -3415,7 +3268,6 @@ function initFoodstuff() {
 			},
 		},
 		pink_rose: {
-			index: 147,
 			name: "분홍 장미",
 			singular: "분홍 장미",
 			counter: "송이",
@@ -3438,7 +3290,6 @@ function initFoodstuff() {
 			},
 		},
 		valentines_chocolate: {
-			index: 148,
 			name: "발렌타인 초콜릿",
 			singular: "발렌타인 초콜릿",
 			counter: "개",
@@ -3463,7 +3314,6 @@ function initFoodstuff() {
 			},
 		},
 		sunflower: {
-			index: 149,
 			name: "해바라기",
 			singular: "해바라기",
 			counter: "송이",
@@ -3485,8 +3335,7 @@ function initFoodstuff() {
 				sell_price: 300,
 			},
 		},
-				jammie_dodger: {
-			index: 94,
+		jammie_dodger: {
 			name: "잼 도저",
 			singular: "잼 도저",
 			counter: "개",
@@ -3512,7 +3361,6 @@ function initFoodstuff() {
 			},
 		},
 		jam: {
-			index: 95,
 			name: "잼",
 			singular: "잼",
 			counter: "병",
@@ -3534,7 +3382,6 @@ function initFoodstuff() {
 			},
 		},
 		herring: {
-			index: 152,
 			name: "청어",
 			singular: "청어",
 			counter: "마리",
@@ -3548,7 +3395,6 @@ function initFoodstuff() {
 			},
 		},
 		whiting: {
-			index: 153,
 			name: "민대구",
 			singular: "민대구",
 			counter: "마리",
@@ -3562,7 +3408,6 @@ function initFoodstuff() {
 			},
 		},
 		mackerel: {
-			index: 154,
 			name: "고등어",
 			singular: "고등어",
 			counter: "마리",
@@ -3576,7 +3421,6 @@ function initFoodstuff() {
 			},
 		},
 		flounder: {
-			index: 155,
 			name: "가자미",
 			singular: "가자미",
 			counter: "마리",
@@ -3590,7 +3434,6 @@ function initFoodstuff() {
 			},
 		},
 		bass: {
-			index: 156,
 			name: "베스",
 			singular: "베스",
 			counter: "마리",
@@ -3604,7 +3447,6 @@ function initFoodstuff() {
 			},
 		},
 		roach: {
-			index: 157,
 			name: "로치",
 			singular: "로치",
 			counter: "마리",
@@ -3618,7 +3460,6 @@ function initFoodstuff() {
 			},
 		},
 		perch: {
-			index: 158,
 			name: "퍼치",
 			singular: "퍼치",
 			counter: "마리",
@@ -3632,7 +3473,6 @@ function initFoodstuff() {
 			},
 		},
 		chub: {
-			index: 159,
 			name: "처브",
 			singular: "처브",
 			counter: "마리",
@@ -3646,7 +3486,6 @@ function initFoodstuff() {
 			},
 		},
 		pike: {
-			index: 160,
 			name: "꼬치고기",
 			singular: "꼬치고기",
 			counter: "마리",
@@ -3660,7 +3499,6 @@ function initFoodstuff() {
 			},
 		},
 		eel: {
-			index: 162,
 			name: "뱀장어",
 			singular: "뱀장어",
 			counter: "마리",
@@ -3674,7 +3512,6 @@ function initFoodstuff() {
 			},
 		},
 		grayling: {
-			index: 163,
 			name: "사루기",
 			singular: "사루기",
 			counter: "마리",
@@ -3688,7 +3525,6 @@ function initFoodstuff() {
 			},
 		},
 		baitfish: {
-			index: 164,
 			name: "미끼고기",
 			singular: "미끼고기",
 			counter: "마리",
@@ -3703,7 +3539,6 @@ function initFoodstuff() {
 			},
 		},
 		bait_worm: {
-			index: 165,
 			name: "미끼용 지렁이",
 			singular: "미끼용 지렁이",
 			counter: "마리",
@@ -3717,7 +3552,148 @@ function initFoodstuff() {
 				sell_price: 0,
 			},
 		},
+		pumpkin: {
+			name: "호박",
+			singular: "호박",
+			counter: "개",
+			plural: "호박",
+			icon: "pumpkin.png",
+			category: "vegetable",
+			kitchen_item_type_icon: "recipe-vegetable.png",
+			prop_folder: "tending",
+			tending: {
+				affected_by_tending_skill: true,
+				planting_bed: "earth",
+				growth_days: 20,
+				yield_multiplier: 1,
+				has_seeds: true,
+				seasons: ["spring", "summer", "autumn"],
+				tags: [],
+				featCost: 5,
+			},
+			shop: {
+				sell_price: 280,
+			},
+		},
+		pumpkin_spice: {
+			name: "호박 향신료",
+			singular: "호박 향신료",
+			counter: "꼬집",
+			plural: "호박 향신료",
+			icon: "pumpkin-spice.png",
+			category: "ingredient",
+			kitchen_item_type_icon: "recipe-ingredient.png",
+			prop_folder: "ingredient",
+			shop: {
+				sell_price: 10,
+				available_in: ["supermarket"],
+				bought_in_bulk: 10,
+			},
+		},
+		stuffed_pumpkin: {
+			name: "속을 채운 호박",
+			singular: "속을 채운 호박",
+			counter: "개",
+			plural: "속을 채운 호박",
+			icon: "stuffed-pumpkin.png",
+			category: "dish",
+			kitchen_item_type_icon: "recipe-food.png",
+			prop_folder: "food",
+			shop: {
+				sell_price: 1800,
+			},
+			recipe: {
+				recipe_name: "속을 채운 호박",
+				difficulty: 3,
+				cook_minutes: 30,
+				servings: 1,
+				ingredients: ["pumpkin", "chicken", "vegetable_oil", "garlic_bulb", "onion", "cream", "white_wine", "cheese"],
+				tags: [],
+			},
+			food: {
+				tags: ["halloween"],
+			},
+		},
+		pumpkin_pie: {
+			name: "호박 파이",
+			singular: "호박 파이",
+			counter: "개",
+			plural: "호박 파이",
+			icon: "pumpkin-pie.png",
+			category: "dish",
+			kitchen_item_type_icon: "recipe-food.png",
+			prop_folder: "food",
+			shop: {
+				sell_price: 1600,
+			},
+			recipe: {
+				recipe_name: "호박 파이",
+				difficulty: 2,
+				cook_minutes: 30,
+				servings: 1,
+				ingredients: ["pumpkin", "pastry", "chicken_egg", "bottle_of_milk", "sugar", "pumpkin_spice", "cream"],
+				tags: [],
+			},
+			food: {
+				tags: ["vegetarian", "halloween", "sweet"],
+				handheld_gift: true,
+			},
+		},
+		pumpkin_drink: {
+			name: "호박 음료",
+			singular: "호박 음료",
+			counter: "잔",
+			plural: "호박 음료",
+			icon: "pumpkin-drink.png",
+			category: "dish",
+			kitchen_item_type_icon: "recipe-food.png",
+			prop_folder: "drink",
+			shop: {
+				sell_price: 1000,
+			},
+			recipe: {
+				recipe_name: "호박 음료",
+				difficulty: 1,
+				cook_minutes: 10,
+				servings: 1,
+				ingredients: ["pumpkin", "bottle_of_milk", "sugar", "pumpkin_spice", "cream"],
+				tags: [],
+			},
+			food: {
+				tags: ["vegetarian", "halloween", "drink"],
+			},
+		},
 	};
+
+	setup.moddedFoodstuff = {};
+
+	mergeModdedFoodstuff();
 	finalizefoodstuff();
 }
 window.initFoodstuff = initFoodstuff;
+
+/** @param {FoodstuffItem} item */
+function verifyModdedFoodstuffItem(item) {
+	const label = `'${item.name ?? "unnamed"}'${item.modder ? ` from modder '${item.modder}'` : " (no 'modder' field set)"}`;
+	if (!item.modder) console.error(`Modded foodstuff ${label} is missing required field: 'modder'.`);
+	if (item.name === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'name'.`);
+	if (item.singular === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'singular'.`);
+	if (item.plural === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'plural'.`);
+	if (item.icon === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'icon'.`);
+	if (item.category === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'category'.`);
+	if (item.kitchen_item_type_icon === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'kitchen_item_type_icon'.`);
+	if (item.prop_folder === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'prop_folder'.`);
+	if (item.shop === undefined) console.error(`Modded foodstuff ${label} is missing required field: 'shop'.`);
+}
+window.verifyModdedFoodstuffItem = verifyModdedFoodstuffItem;
+
+function mergeModdedFoodstuff() {
+	Object.entries(setup.moddedFoodstuff).forEach(([key, item], i) => {
+		verifyModdedFoodstuffItem(item);
+		if (setup.foodstuff[key]) {
+			console.error(`duplicate foodstuff key detected: ${key}`);
+		}
+		setup.foodstuff[key] = item;
+	});
+}
+window.mergeModdedFoodstuff = mergeModdedFoodstuff;

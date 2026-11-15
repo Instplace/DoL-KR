@@ -192,7 +192,7 @@
 					<</if>>
 					<<trauma 5>><<gtrauma>><<incgpenisinsecurity>>
 				<<else>>
-					소년들 중 하나가 수건으로 당신의 알몸 엉덩이를 찰싹 때리자 탈의실이 폭소로 터져 나온다. "우리가 네 엉덩이를 과녁 삼아 놀게 하고 싶지 않다면 <<print ["cover it", "get dressed", "put something over it", "put something on", "put your clothes on"].pluck()>>【은는】 게 좋을 걸," 그 소년이 말한다.
+					소년들 중 하나가 수건으로 당신의 알몸 엉덩이를 찰싹 때리자 탈의실이 폭소로 터져 나온다. "우리가 네 엉덩이를 과녁 삼아 놀게 하고 싶지 않다면 <<print ["cover it", "get dressed", "put something over it", "put something on", "put your clothes on"].pluck()>>【은는】 게 좋을 걸." 그 소년이 말한다.
 					<<pain 2>><<gpain>>
 				<</if>>
 			<</addinlineevent>>
@@ -247,7 +247,7 @@
 					<br><br>
 					<<orgasm>>
 					<<set $orgasmcurrent to 0>>
-					"누가 봐도 잔뜩 쌓였나 보네," 그가 킥킥거린다.
+					"누가 봐도 잔뜩 쌓였나 보네." 그가 킥킥거린다.
 					<<if $adultshopunlocked and random(1)>>
 						"성인용품점에서 마사지기라도 하나 사보라고, 그거 꽤 재밌거든."
 					<<else>>
@@ -300,7 +300,7 @@
 			<<elseif _infront and (!$player.penisExist or playerChastity("penis") or $player.penissize lte 2)>>
 				"어라, 미안!" 그가 멈춰 서서 자신의 엉덩이를 당신의 사타구니에 문지른다. "야, <<print either("거기 다 잠겨있기라도 한 거야", "고추가 그렇게 쪼만해서 어쩌냐")>>?" 그가 장난스럽게 말한다. 그는 윙크를 날리고는 걸어간다. <<garousal>>
 			<<else>>
-				"어우 미안, 거기 있는 줄 몰랐네. 내가 워낙 덜렁대서 말이야," 그가 짓궂게 말한다. 실수인 것 같지 않다. <<garousal>>
+				"어우 미안, 거기 있는 줄 몰랐네. 내가 워낙 덜렁대서 말이야." 그가 짓궂게 말한다. 실수인 것 같지 않다. <<garousal>>
 			<</if>>
 		<</addinlineevent>>
 	<</if>>
@@ -340,7 +340,7 @@
 			<<outfitChecks>>
 			<<set _one to _underOutfit ? "one" : "some">>
 			<<set _theyd to _underOutfit ? "it'd" : "they'd">>
-			"어머, <<= _underOutfit ? "이거" : "저거">> 예쁘다," 급우 중 한 명이 당신의 <<underbottoms>> <<= _underOutfit ? "넥라인" : "허리밴드">>【을를】 따라 손가락을 스윽 쓸어내리며 말한다. "<<= either("나도 하나 장만해야겠네", "내 방 바닥에 떨어져 있으면 훨씬 더 잘 어울릴 것 같은데", "그 아래는 안 봐도 더 끝내주겠네")>>." 그녀는 은근한 눈길을 보내지만, 옷을 갈아입도록 당신을 내버려 둔다. <<arousal 100>><<garousal>><<if _uncomfortable>><<stress 5>><</if>>
+			"어머, <<= _underOutfit ? "이거" : "저거">> 예쁘다." 급우 중 한 명이 당신의 <<underbottoms>> <<= _underOutfit ? "넥라인" : "허리밴드">>【을를】 따라 손가락을 스윽 쓸어내리며 말한다. "<<= either("나도 하나 장만해야겠네", "내 방 바닥에 떨어져 있으면 훨씬 더 잘 어울릴 것 같은데", "그 아래는 안 봐도 더 끝내주겠네")>>." 그녀는 은근한 눈길을 보내지만, 옷을 갈아입도록 당신을 내버려 둔다. <<arousal 100>><<garousal>><<if _uncomfortable>><<stress 5>><</if>>
 		<</addinlineevent>>
 	<</if>>
 	<<if $player.breastsize lte 2>>
@@ -383,7 +383,7 @@
 				<br><br>
 				<<orgasm>>
 				<<set $orgasmcurrent to 0>>
-				"누가 봐도 잔뜩 쌓였나 보네," 그녀가 킥킥거린다.
+				"누가 봐도 잔뜩 쌓였나 보네." 그녀가 킥킥거린다.
 				<<if $adultshopunlocked and random(1)>>
 					"성인용품점에서 딜도라도 하나 사보라고, 그거 꽤 재밌거든."
 				<<else>>
@@ -411,7 +411,7 @@
 			<<elseif ($player.penisExist and !playerChastity("penis") and $player.penissize gte 4) or playerHasStrapon()>>
 				"어라, 미안!" 그녀가 멈춰 서서 자신의 엉덩이를 당신의 사타구니에 문지른다. "야, 거기 밑에 뭘 그렇게 숨기고 있어?" 그녀가 장난스럽게 말한다. 그녀는 윙크를 날리고는 걸어간다. <<garousal>>
 			<<else>>
-				"어우 미안, 거기 있는 줄 몰랐네. 내가 워낙 덜렁대서 말이야," 그녀가 짓궂게 말한다. 실수인 것 같지 않다. <<garousal>>
+				"어우 미안, 거기 있는 줄 몰랐네. 내가 워낙 덜렁대서 말이야." 그녀가 짓궂게 말한다. 실수인 것 같지 않다. <<garousal>>
 			<</if>>
 		<</addinlineevent>>
 	<</if>>
@@ -566,7 +566,7 @@
 	<<else>>
 		안에는 제각각 옷을 벗고 있던 <<if $changingRoomGender is "girls">>여학생<<else>>남학생<</if>>들이 가득하며, 당신이 들어오자 황급히 몸을 가린다.
 	<</if>>
-	많은 이들이 화난 표정을 짓는다. 한 <<person>>【이가】 가방을 내던지며 앞으로 성큼성큼 걸어 나온다. "이 변태 자식," <<he>>【이가】 말한다. "여기에 자꾸 기어들어 오면 안 되지." <<He>>【이가】 당신의 팔을 붙잡는다.
+	많은 이들이 화난 표정을 짓는다. 한 <<person>>【이가】 가방을 내던지며 앞으로 성큼성큼 걸어 나온다. "이 변태 자식." <<he>>【이가】 말한다. "여기에 자꾸 기어들어 오면 안 되지." <<He>>【이가】 당신의 팔을 붙잡는다.
 	<<detention 3>><<gdelinquency>>
 	<br><br>
 	<<link [[빠져나가려 애쓴다|School Changing Room Escape]]>><</link>><<physiquedifficulty 4000 14000>>

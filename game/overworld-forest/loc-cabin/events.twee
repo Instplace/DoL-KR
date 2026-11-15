@@ -5,9 +5,9 @@
 	<<if $phase isnot 2>>
 		<<if C.npc.Eden.dom gte 75>>
 			부엌에서 재료를 모으는 동안, 손 하나가 당신의 <<genitals>>까지 미끄러져 내려온다. 에덴이 당신의 목덜미에 축축한 키스를 퍼붓고, <<his>> 입술을 당신의 귓가에 가져다 댄다.
-			"마음이 바뀌었어," <<he>>【이가】 말한다. "대신 너를 원해."
+			"마음이 바뀌었어." <<he>>【이가】 말한다. "대신 너를 원해."
 		<<else>>
-			부엌에서 재료를 모으는 동안, 한 쌍의 손이 허리를 타고 올라온다. 에덴이 <<his>> 입술을 당신의 귓가에 가져다 댄다. "마음이 바뀌었어," <<he>>【이가】 말한다.
+			부엌에서 재료를 모으는 동안, 한 쌍의 손이 허리를 타고 올라온다. 에덴이 <<his>> 입술을 당신의 귓가에 가져다 댄다. "마음이 바뀌었어." <<he>>【이가】 말한다.
 			"대신 너를 원해."
 		<</if>>
 	<<else>>
@@ -188,7 +188,7 @@
 	<</if>>
 	<br><br>
 
-	잠시 후, <span class="lewd"><<his>> 얼굴이 붉어지기 시작한다.</span> "요리에 쓰는 버섯 종류는 조심해야 해," <<he>>【이가】 말한다. "어떤 것들은 재미있는 효과가 있거든. 잘못했다는 건 아니야, 맛은 괜찮아."
+	잠시 후, <span class="lewd"><<his>> 얼굴이 붉어지기 시작한다.</span> "요리에 쓰는 버섯 종류는 조심해야 해." <<he>>【이가】 말한다. "어떤 것들은 재미있는 효과가 있거든. 잘못했다는 건 아니야, 맛은 괜찮아."
 
 	<br><br>
 
@@ -218,7 +218,7 @@
 	당신은 헛기침을 한다. <<He>>【은는】 당신을 쳐다본다. 당신이 뭘 원하는지 잠시 어리둥절해하다가 이내 깨닫는다. "아. 고마워." <<He>>【은는】 다시 먹기 시작한다.
 	<br><br>
 
-	<<link [[머리 쓰다듬어달라고 요청하기|Eden Breakfast 2]]>><<npcincr Eden love 1>><<set $phase to 4>><<trauma -6>><<stress -12>><</link>><<glove>><<ltrauma>><<lstress>>
+	<<link [[머리 쓰다듬어달라고 요청한다|Eden Breakfast 2]]>><<npcincr Eden love 1>><<set $phase to 4>><<trauma -6>><<stress -12>><</link>><<glove>><<ltrauma>><<lstress>>
 	<br>
 	<<link [[대화한다|Eden Breakfast 2]]>><<trauma -6>><<stress -12>><<set $phase to 2>><</link>><<ltrauma>><<lstress>>
 	<br>
@@ -333,7 +333,7 @@
 	<<foodicon "eat">><<link [[새로운 것을 만든다 (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 1>><</link>>
 	<br>
 	<<if $edengarden gte 3>>
-		<<foodstufficon "wild_carrot">><<link [[텃밭의 채소 사용하기 (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 3>><<npcincr Eden love 3>><</link>><<gglove>>
+		<<foodstufficon "wild_carrot">><<link [[텃밭의 채소를 사용한다 (0:20)|Eden Breakfast]]>><<pass 20>><<set $phase to 3>><<npcincr Eden love 3>><</link>><<gglove>>
 		<br>
 	<</if>>
 	<<if $edenshrooms gte 3>>
@@ -457,7 +457,7 @@
 <<set $outside to 1>><<set $location to "cabin">><<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저도 같이 들어가도 될까요?" 당신이 묻는다.
+	"저-저도 같이 들어가도 될까요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"같이 들어가도 될까?" 당신이 묻는다.
 <<else>>
@@ -703,13 +703,13 @@
 	<<link [[다음|Eden Bath Sex]]>><<set $sexstart to 1>><</link>>
 	<br>
 <<else>>
-"지금은 아니야," <<he>>【이가】 말한다. "그냥 좀 쉬고 싶어."
+"지금은 아니야." <<he>>【이가】 말한다. "그냥 좀 쉬고 싶어."
 	<br><br>
 
 	<i><<He>>【은는】 오랫동안 섹스를 하지 않을수록 더 음탕해지고 유혹하기 쉬워진다.</i>
 	<br><br>
 
-	<<link [[에덴 씻겨주기|Eden Bath 2]]>><<set $phase to 1>><<npcincr Eden love 1>><</link>><<glove>>
+	<<link [[에덴을 씻겨준다|Eden Bath 2]]>><<set $phase to 1>><<npcincr Eden love 1>><</link>><<glove>>
 	<br>
 	<<link [[몸의 긴장을 푼다|Eden Bath 2]]>><<set $phase to 2>><<stress -12>><</link>><<lstress>>
 	<br>
@@ -753,15 +753,15 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>><<npcincr Eden lust -20>><<npcincr Eden love 1>>
 
-	"정말 더러운 <<girl>>【이】군, 마음에 들어," <<he>>【이가】 말한다.<<glove>><<lllust>>
+	"정말 더러운 <<girl>>【이】군, 마음에 들어." <<he>>【이가】 말한다.<<glove>><<lllust>>
 <<elseif $enemyhealth lte 0>>
 
-	"이 배은망덕한 암캐 같으니," <<he>>【이가】 말한다. "차라리 널 쫓아내서 늑대들에게나 던져줄까!" <<He>>【은는】 얼굴을 찡그리며 <<his>> 옆구리를 붙잡는다. "따뜻한 물이 도움이 될지도 모르겠군."
+	"이 배은망덕한 암캐 같으니." <<he>>【이가】 말한다. "차라리 널 쫓아내서 늑대들에게나 던져줄까!" <<He>>【은는】 얼굴을 찡그리며 <<his>> 옆구리를 붙잡는다. "따뜻한 물이 도움이 될지도 모르겠군."
 	<br><br>
 
 	<<tearful>> 당신은 욕조에 기댄다. 에덴은 더 이상 당신을 귀찮게 하지도, 말을 많이 걸지도 않는다.
 <<elseif $finish is 1>>
-	"이 작은 말썽꾸러기 같으니," <<he>>【이가】 말한다. "끝까지 갈 생각도 없으면서 날 흥분시키지 마."
+	"이 작은 말썽꾸러기 같으니." <<he>>【이가】 말한다. "끝까지 갈 생각도 없으면서 날 흥분시키지 마."
 <</if>>
 <br><br>
 <<wash>>
@@ -849,14 +849,14 @@
 		<br>
 		<<if Time.days % 2 is 0>>
 			<<if $eden_shoot gte 1>>
-				<<edenicon "target">><<link [[사격 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+				<<edenicon "target">><<link [[사격을 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
 				<br>
 			<<else>>
 				<<edenicon "target">><<link [[사격술을 배우고 싶다고 말한다 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
 				<br>
 			<</if>>
 		<<else>>
-			<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁하기 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
+			<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁한다 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
 			<br>
 		<</if>>
 		<<getouticon>><<link [[일어선다|Cabin Eden Actions]]>><</link>>
@@ -886,14 +886,14 @@
 	<br>
 	<<if Time.days % 2 is 0>>
 		<<if $eden_shoot gte 1>>
-			<<edenicon "target">><<link [[사격 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+			<<edenicon "target">><<link [[사격을 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
 			<br>
 		<<else>>
-			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말하기 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
+			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말한다 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 	<<else>>
-		<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁하기 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
+		<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁한다 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
 		<br>
 	<</if>>
 	<<getouticon>><<link [[일어선다|Cabin Eden Actions]]>><</link>>
@@ -936,15 +936,15 @@
 "널 건드리려고 한 놈들은 누구든 쏴버렸어야 했는데." <<His>> 포옹은 이제 거의 고통스럽다. "내가... 했어야..." <<his>> 포옹의 힘에 당신이 움찔한다. 에덴은 즉시 당신을 잡은 팔의 힘을 풀고 다시 조용해진다.
 <br><br>
 
-시간이 좀 걸렸지만, 당신은 마침내 말할 기운을 낸다. 속삭임으로, 당신은 <<him>>에게 괜찮다고 말한다. 당신이 겪은 일에 대해 <<he>>【은는】 <<himself>>【을를】 탓할 필요가 없다고. 에덴은 당신의 말에 복잡한 표정을 짓는다. "어떻게 도와줘야 할지 모르겠다," <<he>>【은는】 말한다.
+시간이 좀 걸렸지만, 당신은 마침내 말할 기운을 낸다. 속삭임으로, 당신은 <<him>>에게 괜찮다고 말한다. 당신이 겪은 일에 대해 <<he>>【은는】 <<himself>>【을를】 탓할 필요가 없다고. 에덴은 당신의 말에 복잡한 표정을 짓는다. "어떻게 도와줘야 할지 모르겠다." <<he>>【은는】 말한다.
 "내가 무언가 할 수 있었으면 좋았을 텐데. 뭐라도." <<He>>【은는】 다시 당신을 꽉 쥐기 시작하다가, <<himself>>【을를】 멈춘다. 당신의 상상일 수도 있지만, <<his>> 팔이 떨리는 것처럼 느껴진다.
 <br><br>
 <<if $speech_attitude is "meek">>
-	"ㅈ-지금 나랑 얘기해주고 있잖아," 당신은 말한다. "그걸로 됐어."
+	"지-지금 나랑 얘기해주고 있잖아." 당신은 말한다. "그걸로 됐어."
 <<elseif $speech_attitude is "bratty">>
-	"지금 나랑 얘기해주고 있잖아," 당신은 말한다. "그것도 뭐, 나쁘지 않지."
+	"지금 나랑 얘기해주고 있잖아." 당신은 말한다. "그것도 뭐, 나쁘지 않지."
 <<else>>
-	"적어도 지금은 나랑 얘기해주고 있잖아," 당신은 말한다.
+	"적어도 지금은 나랑 얘기해주고 있잖아." 당신은 말한다.
 <</if>>
 <br><br>
 
@@ -956,21 +956,21 @@
 :: Eden Cuddle Trauma Honest 3
 <<set $outside to 0>><<set $location to "cabin">><<effects>>
 
-"네가 다시 떠나지 않았으면 좋겠다," <<he>>【은는】 말한다. 당신은 <<him>>【을를】 올려다본다. "너무 위험해." 당신은 <<his>> 말에 눈살을 찌푸린다.
+"네가 다시 떠나지 않았으면 좋겠다." <<he>>【은는】 말한다. 당신은 <<him>>【을를】 올려다본다. "너무 위험해." 당신은 <<his>> 말에 눈살을 찌푸린다.
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"ㄴ-난 그럴 수 없어," 당신은 말한다.
+	"나-난 그럴 수 없어." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"내가 그럴 수 없다는 거 알잖아," 당신은 말한다.
+	"내가 그럴 수 없다는 거 알잖아." 당신은 말한다.
 <<else>>
-	"난 그럴 수 없어," 당신은 말한다.
+	"난 그럴 수 없어." 당신은 말한다.
 <</if>>
 <br>
 "왜 안 돼?" <<he>>【은는】 묻는다. "여기 네게 필요한 건 다 있잖아."
 <br>
 <<if $speech_attitude is "meek">>
-	"ㄴ-나한텐 해야 할 일이 있어." 당신은 <<his>> 시선을 피한다. "넌 이기적이야."
+	"나-나한텐 해야 할 일이 있어." 당신은 <<his>> 시선을 피한다. "넌 이기적이야."
 <<elseif $speech_attitude is "bratty">>
 	"마을에 해야 할 일이 있어. 날 여기 머물게 하는 건 이기적인 거야."
 <<else>>
@@ -980,7 +980,7 @@
 "내가 이기적이라고?" <<He>>【은는】 격앙된 목소리다. "난 널 지키려는 거잖아!"
 <br>
 <<if $speech_attitude is "meek">>
-	"ㅇ-알아," 당신은 속삭인다. "하지만, 언젠가는 돌아가야 해."
+	"아-알아." 당신은 속삭인다. "하지만, 언젠가는 돌아가야 해."
 <<elseif $speech_attitude is "bratty">>
 	"알아, 하지만 그게 뭘 바꾸진 않아. 어차피 언젠가는 돌아가야 한다고."
 <<else>>
@@ -988,8 +988,8 @@
 <</if>>
 <br><br>
 
-에덴은 반박하려다, 시선을 돌리고 한숨을 쉰다. "알았어," <<he>>【은는】 말한다. "막지 않을게." 당신은 <<him>>에게 힘없이 미소 짓고 <<his>> 가슴에 얼굴을 묻는다. <<He>>【은는】 그에 응답하듯 당신의 머리카락을 쓰다듬는다.
-잠시 동안, 두 사람은 서로의 팔에 얽힌 채 만족하며 조용히 있는다. 평화는 에덴의 목소리에 잠시 깨진다. "내가 필요하면 여기 있을게," <<he>>【은는】 말한다.
+에덴은 반박하려다, 시선을 돌리고 한숨을 쉰다. "알았어." <<he>>【은는】 말한다. "막지 않을게." 당신은 <<him>>에게 힘없이 미소 짓고 <<his>> 가슴에 얼굴을 묻는다. <<He>>【은는】 그에 응답하듯 당신의 머리카락을 쓰다듬는다.
+잠시 동안, 두 사람은 서로의 팔에 얽힌 채 만족하며 조용히 있는다. 평화는 에덴의 목소리에 잠시 깨진다. "내가 필요하면 여기 있을게." <<he>>【은는】 말한다.
 당신은 고개를 끄덕인다. 두 사람은 밤 속으로 타들어 가는 불씨를 바라본다.
 <br><br>
 
@@ -1009,16 +1009,16 @@
 <<elseif $rng gte 96>>
 	당신은 에덴에게 마을에 대해 묻는다. <<He>>【은는】 긴장한다. "그곳은 위험해. 진심이야." <<He>>【은는】 당신을 더 가까이 끌어당긴다. "가까이 가지 마."
 <<elseif $rng gte 91>>
-	당신은 에덴에게 숲에 대해 묻는다. "여긴 좋지," <<he>>【이가】 말한다. "하지만 외로워져." 당신은 이제 <<him>>【와과】 함께라고 에덴에게 말한다. <<He>>【은는】 미소 짓는다.
+	당신은 에덴에게 숲에 대해 묻는다. "여긴 좋지." <<he>>【이가】 말한다. "하지만 외로워져." 당신은 이제 <<him>>【와과】 함께라고 에덴에게 말한다. <<He>>【은는】 미소 짓는다.
 <<elseif $rng gte 86>>
-	당신은 에덴에게 불에 대해 이야기한다. 당신이 말하는 동안 <<He>>【은는】 불씨를 뒤적인다. "숲의 밤은 추울 수 있어," <<he>>【이가】 말한다. "그래서 땔감은 충분히 있어야 해."
+	당신은 에덴에게 불에 대해 이야기한다. 당신이 말하는 동안 <<He>>【은는】 불씨를 뒤적인다. "숲의 밤은 추울 수 있어." <<he>>【이가】 말한다. "그래서 땔감은 충분히 있어야 해."
 <<elseif $rng gte 81>>
 	당신은 에덴에게 <<his>> 가족에 대해 묻는다. "할 말 없어." <<He>>【은는】 당신의 시선을 피한다.
 <<elseif $rng gte 76>>
 	당신은 에덴에게 <<his>> 낡은 낚시 잡지를 어디서 구했는지 묻는다. "오랜 친구한테서," <<he>>【이가】 말한다.
 	<br><br>
 	<<if $speech_attitude is "meek">>
-		"ㄴ-누구였어?" 당신이 묻는다.
+		"누-누구였어?" 당신이 묻는다.
 	<<elseif $speech_attitude is "bratty">>
 		"네 친구가 누군데?" 당신이 묻는다.
 	<<else>>
@@ -1027,55 +1027,55 @@
 	<br><br>
 	에덴은 아무 말도 하지 않지만, 킥킥 웃으며 당신을 더 가까이 끌어당긴다.
 <<elseif $rng gte 71>>
-	당신은 에덴에게 <<his>> 이름에 대해 묻는다. "낙원이라는 뜻이야," <<he>>【이가】 당신을 더 가까이 껴안으며 말한다. <span class="green"><<his>> 품에서 안전함과 평화를 느낀다.</span><<trauma -1>><<stress -1>><<lstress>><<ltrauma>>
+	당신은 에덴에게 <<his>> 이름에 대해 묻는다. "낙원이라는 뜻이야." <<he>>【이가】 당신을 더 가까이 껴안으며 말한다. <span class="green"><<his>> 품에서 안전함과 평화를 느낀다.</span><<trauma -1>><<stress -1>><<lstress>><<ltrauma>>
 <<elseif $rng gte 66>>
-	당신은 에덴에게 <<his>> 오두막에 대해 묻는다. "좀 휑하지만, 내 집이야," <<he>>【이가】 말한다.
+	당신은 에덴에게 <<his>> 오두막에 대해 묻는다. "좀 휑하지만, 내 집이야." <<he>>【이가】 말한다.
 <<elseif $rng gte 61>>
 	당신은 에덴에게 <<his>> 농작물에 대해 묻는다. "힘들 때도 있지," <<he>>【이가】 인정한다. "하지만 나름의 보람이 있어."
 <<elseif $rng gte 56>>
-	당신은 에덴에게 버섯에 대해 묻는다. "그것들 때문에 멀리 헤맬 필요가 없어서 좋아," <<he>>【이가】 말한다.
+	당신은 에덴에게 버섯에 대해 묻는다. "그것들 때문에 멀리 헤맬 필요가 없어서 좋아." <<he>>【이가】 말한다.
 <<elseif $rng gte 51>>
 	당신은 에덴에게 <<him>>【이가】 사냥감의 가죽을 벗길 때 나는 냄새 때문에 속이 메스꺼워진다고 말한다. <<He>>【은는】 킥킥 웃는다. "좀 지나면 익숙해질 거야."
 <<elseif $rng gte 46>>
 	당신은 에덴에게 숲속 동물들에 대해 묻는다. "야생 동물은 위험해." <<He>>【은는】 당신을 더 가까이 끌어당긴다. "오두막 근처에 있어."
 <<elseif $rng gte 41>>
-	당신은 에덴에게 독서에 대해 묻는다. "시간 보내기 좋지," <<he>>【이가】 말한다.
+	당신은 에덴에게 독서에 대해 묻는다. "시간 보내기 좋지." <<he>>【이가】 말한다.
 <<elseif $rng gte 36>>
-	당신은 에덴에게 숲에서 얼마나 오래 살았는지 묻는다. "좀 됐어," <<he>>【이가】 말한다. <<He>>【은는】 자세히 말하지 않는다.
+	당신은 에덴에게 숲에서 얼마나 오래 살았는지 묻는다. "좀 됐어." <<he>>【이가】 말한다. <<He>>【은는】 자세히 말하지 않는다.
 <<elseif $rng gte 31>>
 	당신은 에덴에게 학교에 대해 묻는다. <<He>>【은는】 어깨를 으쓱한다. "난 항상 직접 부딪히면서 배우는 쪽이었어."
 <<elseif $rng gte 26>>
-	당신은 에덴에게 <<his>> 총에 대해 묻는다. "가진 지 좀 됐어," <<he>>【이가】 말한다.
+	당신은 에덴에게 <<his>> 총에 대해 묻는다. "가진 지 좀 됐어." <<he>>【이가】 말한다.
 <<elseif $rng gte 21>>
-	당신은 에덴에게 사냥에 대해 묻는다. "여기선 필수야," <<he>>【이가】 말한다.
+	당신은 에덴에게 사냥에 대해 묻는다. "여기선 필수야." <<he>>【이가】 말한다.
 <<elseif $rng gte 16>>
 	<<if $edenradiointro is 2>>
 		당신은 에덴에게 라디오에 대해 묻는다. "그전까지 내가 춤꾼이라고는 생각해 본 적도 없는데," <<he>>【이가】 킥킥 웃는다.
 	<<else>>
-		당신은 에덴에게 춤에 대해 묻는다. 당신의 질문에 <<He>>【은는】 <<his>> 눈썹을 치켜올린다. "경험이 별로 없어," <<he>>【이가】 말한다.
+		당신은 에덴에게 춤에 대해 묻는다. 당신의 질문에 <<He>>【은는】 <<his>> 눈썹을 치켜올린다. "경험이 별로 없어." <<he>>【이가】 말한다.
 	<</if>>
 <<elseif $rng gte 11>>
-	당신은 에덴에게 <<his>> 여분의 텃밭에 대해 묻는다. "필요 없었어," <<he>>【이가】 말한다. "네가 원하면 마음대로 써도 돼."
+	당신은 에덴에게 <<his>> 여분의 텃밭에 대해 묻는다. "필요 없었어." <<he>>【이가】 말한다. "네가 원하면 마음대로 써도 돼."
 <<elseif $rng gte 6>>
-	당신은 에덴에게 샘에 대해 묻는다. "유지하기가 힘들어서 신경 안 썼어," <<he>>【이가】 말한다.
+	당신은 에덴에게 샘에 대해 묻는다. "유지하기가 힘들어서 신경 안 썼어." <<he>>【이가】 말한다.
 <<else>>
 	당신은 에덴에게 생필품 쇼핑에 대해 묻는다. <<He>>【은는】 한숨을 쉰다. "할 수만 있다면 안 했을 거야."
 <</if>>
 <br><br>
 
 <<if Time.hour isnot 0>>
-	<<couchicon>><<link [[계속 껴안기 (0:30)|Eden Cuddle]]>><<trauma -3>><<stress -6>><<pass 30>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>><<lstress>>
+	<<couchicon>><<link [[계속 껴안는다 (0:30)|Eden Cuddle]]>><<trauma -3>><<stress -6>><<pass 30>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>><<lstress>>
 	<br>
 	<<if Time.days % 2 is 0>>
 		<<if $eden_shoot gte 1>>
-			<<edenicon "target">><<link [[사격 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+			<<edenicon "target">><<link [[사격을 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
 			<br>
 		<<else>>
-			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말하기 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
+			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말한다 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 	<<else>>
-		<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁하기 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
+		<<schoolicon "library">><<link [[에덴에게 책을 읽어달라고 부탁한다 (0:30)|Eden Read]]>><<pass 30>><<trauma -3>><<npcincr Eden love 1>><</link>><<glove>><<ltrauma>>
 		<br>
 	<</if>>
 	<<getouticon>><<link [[일어선다|Cabin Eden Actions]]>><</link>>
@@ -1204,10 +1204,10 @@
 	<br>
 	<<if Time.days % 2 is 0>>
 		<<if $eden_shoot gte 1>>
-			<<edenicon "target">><<link [[사격 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+			<<edenicon "target">><<link [[사격을 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
 			<br>
 		<<else>>
-			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말하기 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
+			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말한다 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 	<<else>>
@@ -1335,10 +1335,10 @@
 	<br>
 	<<if Time.days % 2 is 0>>
 		<<if $eden_shoot gte 1>>
-			<<edenicon "target">><<link [[사격 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
+			<<edenicon "target">><<link [[사격을 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -3>><</link>><<lstress>>
 			<br>
 		<<else>>
-			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말하기 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
+			<<edenicon "target">><<link [[사격하는 법을 배우고 싶다고 말한다 (0:05)|Eden Shoot Ask]]>><<pass 5>><</link>>
 			<br>
 		<</if>>
 	<<else>>
@@ -1601,7 +1601,7 @@
 
 <br><br>
 
-"성적인 체액이 식물에 좋다고 들었어," <<he>>【이가】 말한다. "어쨌든, 마음에 드는 생각이군. 시험해 보자.
+"성적인 체액이 식물에 좋다고 들었어." <<he>>【이가】 말한다. "어쨌든, 마음에 드는 생각이군. 시험해 보자.
 
 <<if $arousal gte ($arousalmax / 5) * 4>>
 	이미 젖었으니, 오래 걸리진 않겠어."
@@ -1611,7 +1611,7 @@
 <br><br>
 <<set _genitalsLockedAway to (!$player.penisExist or playerChastity("penis")) and (!$player.vaginaExist or playerChastity("vagina"))>>
 <<if _genitalsLockedAway and $settings.analEnabled and !playerChastity("anus")>>
-	<<his>> 손가락이 당신의 항문을 맴도는 것이 느껴진다. 당신의 <<bottom>>에 닿는 거친 굳은살 때문에 몸이 떨린다. <<his>> 손가락 끝이 당신을 파고든다. 본능적으로 움찔한다. <<He>>【은는】 당신이 움직이지 못하게 엉덩이를 붙잡는다. <<if C.npc.Eden.lust lte 30>><<His>> 엄지손가락이 당신의 엉덩이뼈 위에서 부드럽게 원을 그리며 문지른다<<else>><<His>> 엄지손가락이 멍이 들 정도로 세게 당신을 파고든다<</if>>. "가만히 있어," <<he>>【이가】 <<if C.npc.Eden.lust lte 30>>말한다<<else>>경고한다<</if>>.
+	<<his>> 손가락이 당신의 항문을 맴도는 것이 느껴진다. 당신의 <<bottom>>에 닿는 거친 굳은살 때문에 몸이 떨린다. <<his>> 손가락 끝이 당신을 파고든다. 본능적으로 움찔한다. <<He>>【은는】 당신이 움직이지 못하게 엉덩이를 붙잡는다. <<if C.npc.Eden.lust lte 30>><<His>> 엄지손가락이 당신의 엉덩이뼈 위에서 부드럽게 원을 그리며 문지른다<<else>><<His>> 엄지손가락이 멍이 들 정도로 세게 당신을 파고든다<</if>>. "가만히 있어." <<he>>【이가】 <<if C.npc.Eden.lust lte 30>>말한다<<else>>경고한다<</if>>.
 	<br><br>
 	<<he>>【이가】 손가락을 더 깊이 밀어 넣자 당신은 몸을 떤다. <<he>>【이가】 <<if $player.sex isnot "f">>당신의 전립선을 탐색하는<<else>>당신의 내벽을 문지르는<</if>> <<his>> 모든 움직임이 느껴진다. 당신의 <<genitals 1>>에 열기가 맴돌고, 당신은 $worn.genitals.name에 손을 뻗는다.
 	<br><br>
@@ -1620,7 +1620,7 @@
 	<<He>>【은는】 <<if C.npc.Eden.lust lte 30>>관능적으로<<else>>거칠게<</if>> 당신의 엉덩이 바깥쪽을 따라 <<his>> 손으로 쓰다듬는다. 당신의 매끄러운 피부에 닿는 <<his>> 강하고 굳은살 박인 손의 감촉에 몸을 떤다.
 	<br><br>
 	<<if playerChastity("anus") and $settings.analEnabled>>
-		"이렇게 가둬 둬야 할 정도면 정말 음탕한가 보군," <<he>>【이가】 말한다. <<His>> 손가락이 당신의 애널 실드 위를 쓰다듬는다. <<if C.npc.Eden.lust lte 30>>"벗고 싶으면 말해."<<else>>"그냥 찢어버려야 할지도 모르겠군." <<gstress>><<stress 5>><</if>>
+		"이렇게 가둬 둬야 할 정도면 정말 음탕한가 보군." <<he>>【이가】 말한다. <<His>> 손가락이 당신의 애널 실드 위를 쓰다듬는다. <<if C.npc.Eden.lust lte 30>>"벗고 싶으면 말해."<<else>>"그냥 찢어버려야 할지도 모르겠군." <<gstress>><<stress 5>><</if>>
 		<br><br>
 	<</if>>
 	<<He>>【은는】 손을 당신의 <<breasts>>【으로로】 옮긴다. <<He>>【은는】 <<if C.npc.Eden.lust lte 30>>부드럽게 쥐어본다<<else>>거칠게 꽉 쥔다<</if>>. 당혹스러운 흥분감에 얼굴이 달아오른다. <<garousal>><<arousal 600 "breasts">>
@@ -1635,14 +1635,14 @@
 	<<He>>【은는】 당신의 유두가 단단해질 때까지 주변을 원을 그리며 문지른다. <<He>>【이가】 그것들을 꼬집자 당신은 숨을 헐떡인다. 등 뒤로 <<his>> <<if C.npc.Eden.penis isnot "none">>발기<<else>>젖은 감촉<</if>>【이가】 느껴진다. 그에 반응해 흥분이 솟구친다. <<arousal 600 "breasts">>
 	<<if $arousal lt ($arousalmax / 5) * 4>>
 		<br><br>
-		<<his>> 최선의 노력에도 불구하고, 당신을 오르가즘에 이르게 하기엔 역부족이었고, <<he>>【이가】 손을 떼자 당신은 낑낑거린다. "그럴 기분이 아닌가 보군," <<he>>【이가】 말한다.
+		<<his>> 최선의 노력에도 불구하고, 당신을 오르가즘에 이르게 하기엔 역부족이었고, <<he>>【이가】 손을 떼자 당신은 낑낑거린다. "그럴 기분이 아닌가 보군." <<he>>【이가】 말한다.
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"아, 안 돼, 제발 멈추지 마," 당신은 애원한다.
+			"아, 안 돼, 제발 멈추지 마." 당신은 애원한다.
 		<<elseif $speech_attitude is "bratty">>
-			"이봐, 당신이 시작했잖아," 당신은 말한다. "책임지고 끝내."
+			"이봐, 당신이 시작했잖아." 당신은 말한다. "책임지고 끝내."
 		<<else>>
-			"제발 지금 멈추지 마," 당신은 말한다. "거의 다 왔단 말이야."
+			"제발 지금 멈추지 마." 당신은 말한다. "거의 다 왔단 말이야."
 		<</if>>
 		<br><br>
 		"이 작은 창녀 같으니," <<he>>【이가】 좌절하며 당신의 엉덩이를 때린다. "그냥 이걸 부숴버리고 제대로 다뤄줘야겠군." <<gstress>><<stress 5>>
@@ -1675,7 +1675,7 @@
 
 	<<orgasm>>
 	<<if settings.watersportsEnabled>><span class="lewd">자극 때문에 방광을 통제할 수 없게 된다.</span> 당신은 음란한 체액뿐만 아니라 다른 것으로도 식물에 '물'을 준다.<</if>>
-	"<<if settings.watersportsEnabled>>예상과는 다르지만... <</if>>착한 <<girl>>【이】네, 이 식물들에게 시원하게 한 잔 줘," 당신의 몸이 경련하는 동안 <<he>>【이가】 말한다. <<He>>【은는】 당신의 체액이 흙에 떨어지도록 당신을 단단히 붙잡는다. 당신의 <<if !settings.watersportsEnabled>>오르가즘이 가라앉을<<else>>소변이 멈출<</if>> 때, <<He>>【은는】 당신의 뺨에 키스한다. "그렇게 나쁘진 않았지, 안 그래?" <<tearful>> 당신은 힘겹게 일어선다. 에덴은 사라지고 없다.
+	"<<if settings.watersportsEnabled>>예상과는 다르지만... <</if>>착한 <<girl>>【이】네, 이 식물들에게 시원하게 한 잔 줘." 당신의 몸이 경련하는 동안 <<he>>【이가】 말한다. <<He>>【은는】 당신의 체액이 흙에 떨어지도록 당신을 단단히 붙잡는다. 당신의 <<if !settings.watersportsEnabled>>오르가즘이 가라앉을<<else>>소변이 멈출<</if>> 때, <<He>>【은는】 당신의 뺨에 키스한다. "그렇게 나쁘진 않았지, 안 그래?" <<tearful>> 당신은 힘겹게 일어선다. 에덴은 사라지고 없다.
 	<br><br>
 
 	적어도 밭은 더 깔끔해 보인다.
@@ -2488,7 +2488,7 @@
 <</if>>
 <br><br>
 
-<<link [[에덴 유혹하기|Eden Spring Seduce]]>><</link>>
+<<link [[에덴을 유혹한다|Eden Spring Seduce]]>><</link>>
 <br>
 <<link [[그냥 껴안는다 (0:30)|Eden Spring 2]]>><<pass 30>><</link>>
 
@@ -2704,7 +2704,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"저기," 당신은 말한다. "뭐, 뭐 하는 거예요?"
+	"저기." 당신은 말한다. "뭐, 뭐 하는 거예요?"
 <<elseif $speech_attitude is "bratty">>
 	"거기 아래서 뭐 해요?" 당신이 묻는다. "뭐 잃어버렸어요?"
 <<else>>
@@ -2747,11 +2747,11 @@
 복잡한 장치를 바라본다. <<hes>> 이것에 공을 들인 것이 분명하다.
 <br><br>
 
-<<link [[키스로 고마워하기|Eden Hot Spring Creation Response]]>><<set $phase to "kiss">><</link>><<glove>><<ldom>>
+<<link [[키스로 고마워한다|Eden Hot Spring Creation Response]]>><<set $phase to "kiss">><</link>><<glove>><<ldom>>
 <br>
-<<link [[고마워하기|Eden Hot Spring Creation Response]]>><<set $phase to "thank">><</link>><<glove>><<gdom>>
+<<link [[고마워한다|Eden Hot Spring Creation Response]]>><<set $phase to "thank">><</link>><<glove>><<gdom>>
 <br>
-<<link [[떠나기|Eden Hot Spring Creation Response]]>><<set $phase to "leave">><</link>><<lllove>>
+<<link [[떠난다|Eden Hot Spring Creation Response]]>><<set $phase to "leave">><</link>><<lllove>>
 
 :: Eden Hot Spring Creation Response
 <<if $phase is "leave">>
@@ -2800,7 +2800,7 @@
 	<<He>>【은는】 당신이 총을 만지기 전에 조작법을 설명해준다. 요점은 파악한 것 같다. <<He>>【은는】 총을 건네고, 당신은 표적을 향해 총을 겨눈다. "그렇게 하는 거 아니야." <<he>>【이가】 바로 뒤로 다가오며 말한다. <<His>> 팔이 당신의 어깨를 감싸고, <<he>>【은는】 더 잘 보여주기 위해 <<his>> 손으로 당신의 손을 잡는다. "이렇게 잡아."
 	<br><br>
 
-	<<edenicon "target">><<link [[집중하기|Eden Shoot First Focus]]>><</link>>
+	<<edenicon "target">><<link [[집중한다|Eden Shoot First Focus]]>><</link>>
 	<br>
 	<<ind>><<link [[에덴의 사타구니에 엉덩이를 비빈다|Eden Shoot Rub]]>><<npcincr Eden lust 5>><<arousal 600 "bottom">><</link>><<glust>><<garousal>>
 	<br>
@@ -2808,7 +2808,7 @@
 	에덴의 지시에 따라 밖에서 사격 연습을 한다. <<He>>【은는】 직접 손을 대며 가르치는 방식을 택한다. "그렇게 하는 거 아니야." <<he>>【이가】 바로 뒤로 다가오며 말한다. <<His>> 팔이 당신의 어깨를 감싸고, <<he>>【은는】 더 잘 보여주기 위해 <<his>> 손으로 당신의 손을 잡는다. "이렇게 잡아."
 	<br><br>
 
-	<<edenicon "target">><<link [[집중하기|Eden Shoot Focus]]>><</link>>
+	<<edenicon "target">><<link [[집중한다|Eden Shoot Focus]]>><</link>>
 	<br>
 	<<ind>><<link [[에덴의 사타구니에 엉덩이를 비빈다|Eden Shoot Rub]]>><<npcincr Eden lust 5>><<arousal 600 "bottom">><</link>><<glust>><<garousal>>
 	<br>
@@ -2817,10 +2817,10 @@
 	당신은 에덴의 지시에 따라 밖에서 사격 연습을 한다. 연습이 끝나기 전에 사슴 모양 표적에 새로운 구멍 몇 개가 생긴다.
 	<br><br>
 	<<if Time.hour isnot 0>>
-		<<edenicon "target">><<link [[계속 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -6>><</link>><<lstress>>
+		<<edenicon "target">><<link [[계속 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -6>><</link>><<lstress>>
 		<br>
 	<</if>>
-	<<getouticon>><<link [[안으로 들어가기|Eden Cabin]]>><<endevent>><</link>>
+	<<getouticon>><<link [[안으로 들어간다|Eden Cabin]]>><<endevent>><</link>>
 <</if>>
 
 :: Eden Shoot First Focus
@@ -2831,10 +2831,10 @@
 당신은 에덴의 조언을 들으며 계속 연습한다. 많은 것을 배우고, 곧 빗나가는 것보다 맞히는 경우가 더 많아진다.
 <br><br>
 <<if Time.hour isnot 0>>
-	<<edenicon "target">><<link [[계속 연습하기 (0:30)|Eden Shoot]]>><<pass 30>><<stress -6>><</link>><<lstress>>
+	<<edenicon "target">><<link [[계속 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -6>><</link>><<lstress>>
 	<br>
 <</if>>
-<<getouticon>><<link [[안으로 들어가기|Eden Cabin]]>><<endevent>><</link>>
+<<getouticon>><<link [[안으로 들어간다|Eden Cabin]]>><<endevent>><</link>>
 
 :: Eden Shoot Focus
 <<effects>>
@@ -2849,7 +2849,7 @@
 	<<edenicon "target">><<link [[계속 연습한다 (0:30)|Eden Shoot]]>><<pass 30>><<stress -6>><</link>><<lstress>>
 	<br>
 <</if>>
-<<getouticon>><<link [[안으로 들어가기|Eden Cabin]]>><<endevent>><</link>>
+<<getouticon>><<link [[안으로 들어간다|Eden Cabin]]>><<endevent>><</link>>
 
 :: Eden Shoot Rub
 <<effects>>
@@ -2955,7 +2955,7 @@
 <<npc Eden>><<person1>>*/
 <<effects>>
 <<if $speech_attitude is "meek">>
-	"ㅅ-사격, 배울 수 있을까요?" 당신이 묻는다.
+	"사-사격, 배울 수 있을까요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"저거 쏴보고 싶어." 당신은 말한다.
 <<else>>
@@ -3061,7 +3061,7 @@
 <<location "forest">><<effects>><<wearProp "blood lemon">>
 
 <<if $speech_attitude is "meek">>
-	"ㅃ-빨간 레몬?" <<he>>【이가】 건네주자 당신은 묻는다.
+	"빠-빨간 레몬?" <<he>>【이가】 건네주자 당신은 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"이상하게 생긴 레몬이네." <<he>>【이가】 건네주자 당신은 말한다.
 <<else>>
@@ -3072,7 +3072,7 @@
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"ㄷ-달이 왜 빨개?" 당신은 묻는다.
+	"다-달이 왜 빨개?" 당신은 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"달은 또 왜 저래?" 당신은 묻는다.
 <<else>>
@@ -3084,7 +3084,7 @@
 <br>
 
 <<if $speech_attitude is "meek">>
-	"ㅁ-무슨 뜻이야?"
+	"무-무슨 뜻이야?"
 <<elseif $speech_attitude is "bratty">>
 	"자세히 설명해 보시지?"
 <<else>>
@@ -3501,7 +3501,7 @@
 	"폭풍이 불지 않아도 숲은 충분히 무서워요." 당신이 대답한다. "에덴, 여기선 아무것도 신경 쓰이지 않아요?"
 <</if>>
 <br><br>
-<<He>>【은는】 인정하듯 끙 소리를 내지만, 대답하기까지는 시간이 걸린다. "글쎄, 난 무서운 게 별로 없어." 에덴이 말한다. "특히 폭풍은." <<He>>【은는】 깨끗한 헝겊에 손을 닦기 전, 당신의 실망한 표정을 잠시 살핀다. "하지만 네가 궁금해하니," <<he>>【이가】 다시 말한다. "떠오르는 게 하나 있긴 해."
+<<He>>【은는】 인정하듯 끙 소리를 내지만, 대답하기까지는 시간이 걸린다. "글쎄, 난 무서운 게 별로 없어." 에덴이 말한다. "특히 폭풍은." <<He>>【은는】 깨끗한 헝겊에 손을 닦기 전, 당신의 실망한 표정을 잠시 살핀다. "하지만 네가 궁금해하니." <<he>>【이가】 다시 말한다. "떠오르는 게 하나 있긴 해."
 <br><br>
 <<link [[이야기를 들려달라고 한다|Eden Story Begins]]>><<pass 10>><</link>>
 <br>

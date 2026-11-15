@@ -70,25 +70,25 @@
 		이런 곳에서 가버리다니!<<llcontrol>><<gtrauma>><<trauma 6>><<control -25>>
 		<br><br>
 
-		<<link [[다음|Trash]]>><<set $eventskip to 1>><</link>>
+		<<link [[다음|Trash]]>><<set $eventskip to 1>><<endevent>><</link>>
 		<br>
 	<</if>>
 <<elseif dangerEvent() and $eventskip is 0>>
 	<<eventstrash>>
 <<else>>
 
-	<<investigateicon>><<link [[귀중품 찾기 (1:00)|Trash Search]]>><<pass 60>><</link>><<crime "thievery">>
+	<<investigateicon>><<link [[귀중품을 찾는다 (1:00)|Trash Search]]>><<pass 60>><</link>><<crime "thievery">>
 	<br>
 
 	<<if $trash lte 99>>
-		<<getinicon>><<link [[중장비 소리가 나는 쪽으로 가기 (0:10)|Trash]]>><<pass 10>><<set $trash += 10>><</link>>
+		<<getinicon>><<link [[중장비 소리가 나는 쪽으로 간다 (0:10)|Trash]]>><<pass 10>><<set $trash += 10>><</link>>
 		<br>
 	<<elseif $trash gte 100 and $robinmissing is "landfill" and $robinmistknown>>
-		<<getinicon>><<link [[중장비 소리가 나는 쪽으로 가기 (0:10)|Robin Mist Intro]]>><<pass 10>><</link>>
+		<<getinicon>><<link [[중장비 소리가 나는 쪽으로 간다 (0:10)|Robin Mist Intro]]>><<pass 10>><</link>>
 		<br>
 	<</if>>
 	<<if $trash gte 1>>
-		<<getouticon>><<link [[차량 소음이 나는 쪽으로 가기 (0:10)|Trash]]>><<pass 10>><<set $trash -= 10>><</link>>
+		<<getouticon>><<link [[차량 소음이 나는 쪽으로 간다 (0:10)|Trash]]>><<pass 10>><<set $trash -= 10>><</link>>
 		<br>
 	<</if>>
 
@@ -98,10 +98,10 @@
 			<br>
 		<<else>>
 			<<if $trash_key is 1>>
-				<<lockicon "old key">><<link [[열쇠 사용하기 (0:10)|Trash Leave]]>><<pass 10>><<set $trash_unlocked to 1>><</link>>
+				<<lockicon "old key">><<link [[열쇠를 사용한다 (0:10)|Trash Leave]]>><<pass 10>><<set $trash_unlocked to 1>><</link>>
 				<br>
 			<<else>>
-				<<lockicon "gate">><<link [[문 시도해보기 (0:05)|Trash Gate Leave]]>><<pass 5>><</link>>
+				<<lockicon "gate">><<link [[문을 시도해본다 (0:05)|Trash Gate Leave]]>><<pass 5>><</link>>
 				<br>
 			<</if>>
 		<</if>>
@@ -119,7 +119,7 @@
 	자세히 보니 자물쇠가 열려 있다. 누군가 당신이 여기 있기를 원하는 게 틀림없다.
 	<br><br>
 
-	<<getinicon>><<link [[들어가기|Trash]]>><<set $trash to 0>><</link>>
+	<<getinicon>><<link [[들어간다|Trash]]>><<set $trash to 0>><</link>>
 	<br>
 <<else>>
 	<<set $lock to 800>>
@@ -127,7 +127,7 @@
 		<span class="green">당신이 찾은 열쇠에 딱 맞는 것 같다.</span>
 		<br><br>
 
-		<<lockicon "old key">><<link [[열쇠 사용하기 (0:05)|Trash Enter]]>><<set $trash_unlocked to 1>><<pass 5>><</link>>
+		<<lockicon "old key">><<link [[열쇠를 사용한다 (0:05)|Trash Enter]]>><<set $trash_unlocked to 1>><<pass 5>><</link>>
 		<br>
 	<<elseif currentSkillValue('skulduggery') gte $lock>>
 		<<if pcAreArmsBound("both")>>
@@ -137,7 +137,7 @@
 			<<wearProp "lockpick">>
 			<span class="green">자물쇠는 따기 쉬워 보인다.</span>
 			<br><br>
-			<<lockicon "pick">><<link [[자물쇠 따기 (0:05)|Trash Lock Enter]]>><<pass 5>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
+			<<lockicon "pick">><<link [[자물쇠를 딴다 (0:05)|Trash Lock Enter]]>><<pass 5>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
 			<br>
 		<</if>>
 	<<else>>
@@ -148,7 +148,7 @@
 	<</if>>
 <</if>>
 
-<<elkicon>><<link [[떠나기|Elk Street]]>><</link>>
+<<elkicon>><<link [[떠난다|Elk Street]]>><</link>>
 <br>
 
 :: Trash Gate Leave
@@ -167,7 +167,7 @@
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
 
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:05)|Trash Lock Leave]]>><<pass 5>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:05)|Trash Lock Leave]]>><<pass 5>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
 		<br>
 	<</if>>
 <<else>>
@@ -175,7 +175,7 @@
 	<br><br>
 <</if>>
 
-<<getouticon>><<link [[떠나기|Trash]]>><</link>>
+<<getouticon>><<link [[떠난다|Trash]]>><</link>>
 
 :: Trash Lock Enter
 <<set $location to "landfill">><<set $outside to 1>><<effects>>
@@ -220,138 +220,138 @@
 <br><br>
 
 <<if $trash_key isnot 1 and $trash_unlocked isnot 1>>
-	크고 낡은 쇠 열쇠를 발견했다. 근처에 이걸로 열 수 있는 게 있을지 궁금하다.
+	크고 낡은 쇠 열쇠를 발견한다. 근처에 이걸로 열 수 있는 게 있을지 궁금하다.
 	<<set $trash_key to 1>>
 	<<wearProp "iron key">>
 
 <<elseif $trash gte 100>>
 	<<if $brothel_machine_repair is 2>>
 		<<wearProp "aphrodisiac jar">>
-		압축기 바닥에서 분홍빛이 반사되는 것을 발견했다. 조사해 보니 작은 용기가 나왔다. 옆면의 유리창 너머로 분홍빛 젤이 빛나고 있다. <span class="gold">이것은 창관의 섹스 머신에 사용되는 연료임이 틀림없다.</span>
+		압축기 바닥에서 분홍빛이 반사되는 것을 발견한다. 조사해 보니 작은 용기가 나온다. 옆면의 유리창 너머로 분홍빛 젤이 빛나고 있다. <span class="gold">이것은 창관의 섹스 머신에 사용되는 연료임이 틀림없다.</span>
 		<<set $brothel_machine_repair to 3>>
 	<<elseif $rng gte 81>>
 		<<wearProp "antique incense">>
-		고대 향로를 발견했다. 분명 골동품이다. 왜 이런 걸 버렸는지 알 수 없다.
+		고대 향로를 발견한다. 분명 골동품이다. 왜 이런 걸 버렸는지 알 수 없다.
 		<<set $antiquemoney += 100>><<museumAntiqueStatus "antiquetrashburner" "found">><<crimeUp 100 "thievery">>
 
 	<<elseif $rng gte 61>>
 		<<rng>>
 		<<wearProp "stolen purse">>
 		<<if $rng gte 81>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 100 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 100 true true>>【이가】 남아있다.
 		<<elseif $rng gte 61>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 80 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 80 true true>>【이가】 남아있다.
 		<<elseif $rng gte 41>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 60 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 60 true true>>【이가】 남아있다.
 		<<elseif $rng gte 21>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
 		<<else>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
 		<</if>>
 	<<elseif $rng gte 31>>
-		쓰레기가 작은 산사태처럼 무너지며, <span class="red">사악한 눈동자가 드러난다.</span> 그것은 당신을 꿰뚫어 보더니, 쓰레기 더미 속으로 사라졌다. 너무 순식간에 일어난 일이라 상상했을 수도 있지만, 눈을 감으면 여전히 그곳에서 지켜보고 있다.<<ghallucinogens>><<ggstress>><<set $hallucinogen += 90>><<stress 12>>
+		쓰레기가 작은 산사태처럼 무너지며, <span class="red">사악한 눈동자가 드러난다.</span> 그것은 당신을 꿰뚫어 보더니, 쓰레기 더미 속으로 사라진다. 너무 순식간에 일어난 일이라 상상했을 수도 있지만, 눈을 감으면 여전히 그곳에서 지켜보고 있다.<<ghallucinogens>><<ggstress>><<set $hallucinogen += 90>><<stress 12>>
 	<<else>>
-		아무것도 찾지 못했다.
+		아무것도 찾지 못한다.
 	<</if>>
 <<elseif $trash gte 50>>
 	<<if $rng gte 81>>
 		<<wearProp "manila envelope">>
-		누군가의 개인 정보로 가득 찬, 얼룩진 봉투를 발견했다. 은행 정보, 사회 보장 번호 등등. 누군가는 이것에 돈을 지불할 의향이 있을 것이다.
+		누군가의 개인 정보로 가득 찬, 얼룩진 봉투를 발견한다. 은행 정보, 사회 보장 번호 등등. 누군가는 이것에 돈을 지불할 의향이 있을 것이다.
 		<<crimeUp 50 "thievery">><<set $blackmoney += 50>>
 	<<elseif $rng gte 61>>
 		<<rng>>
 		<<wearProp "stolen purse">>
 		<<if $rng gte 81>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 50 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 50 true true>>【이가】 남아있다.
 		<<elseif $rng gte 61>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
 		<<elseif $rng gte 41>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
 		<<elseif $rng gte 21>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
 		<<else>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
 		<</if>>
 	<<elseif $rng gte 31>>
-		근처 단지의 로고가 새겨진 버려진 용기를 발견했다. 당신이 그것을 건드리자, 내부의 화학 반응이 완료되어 뚜껑이 하늘로 솟구치고 공기는 달콤한 분홍빛 안개로 가득 찬다.
+		근처 단지의 로고가 새겨진 버려진 용기를 발견한다. 당신이 그것을 건드리자, 내부의 화학 반응이 완료되어 뚜껑이 하늘로 솟구치고 공기는 달콤한 분홍빛 안개로 가득 찬다.
 		<br><br>
 
-		당신은 기침하며 물러섰다. <span class="pink">이상한 온기가 느껴진다.</span><<gdrugged>><<garousal>><<arousal 600>><<set $drugged += 90>>
+		당신은 기침하며 물러선다. <span class="pink">이상한 온기가 느껴진다.</span><<gdrugged>><<garousal>><<arousal 600>><<set $drugged += 90>>
 	<<else>>
-		아무것도 찾지 못했다.
+		아무것도 찾지 못한다.
 	<</if>>
 <<elseif $trash gte 30>>
 	<<if $rng gte 81>>
 		<<wearProp "keycard">>
-		은행 카드를 발견했다. 누군가 버리기 전에 못 쓰게 만들려고 대충 노력한 흔적이 있지만, 다시 구부려 원래 모양으로 만들었다. 적절한 사람들에게는 가치가 있을 것이다.
+		은행 카드를 발견한다. 누군가 버리기 전에 못 쓰게 만들려고 대충 노력한 흔적이 있지만, 다시 구부려 원래 모양으로 만든다. 적절한 사람들에게는 가치가 있을 것이다.
 		<<crimeUp 30 "thievery">><<set $blackmoney += 30>>
 	<<elseif $rng gte 61>>
 		<<rng>>
 		<<wearProp "stolen purse">>
 		<<if $rng gte 81>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 40 true true>>【이가】 남아있다.
 		<<elseif $rng gte 61>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
 		<<elseif $rng gte 41>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
 		<<elseif $rng gte 21>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
 		<<else>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
 		<</if>>
 	<<elseif $rng gte 31>>
-		이상한 슬라임을 제외하고는 흥미로운 것을 찾지 못했다. <<random_goo>>
+		이상한 슬라임을 제외하고는 흥미로운 것을 찾지 못한다. <<random_goo>>
 	<<else>>
-		아무것도 찾지 못했다.
+		아무것도 찾지 못한다.
 	<</if>>
 <<elseif $trash gte 10>>
 	<<if $rng gte 81>>
 		<<wearProp "antique cup">>
-		얼룩진 금속 컵을 발견했다. 때를 닦아내자, 그 아래에서 은빛 광택이 드러난다. 박물관에 있어야 할 물건처럼 보인다.
+		얼룩진 금속 컵을 발견한다. 때를 닦아내자, 그 아래에서 은빛 광택이 드러난다. 박물관에 있어야 할 물건처럼 보인다.
 		<<set $antiquemoney += 50>><<museumAntiqueStatus "antiquetrashcup" "found">><<crimeUp 20 "thievery">>
 	<<elseif $rng gte 61>>
 		<<rng>>
 		<<wearProp "stolen purse">>
 		<<if $rng gte 81>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 30 true true>>【이가】 남아있다.
 		<<elseif $rng gte 61>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 25 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 25 true true>>【이가】 남아있다.
 		<<elseif $rng gte 41>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
 		<<elseif $rng gte 21>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
 		<<else>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
 		<</if>>
 	<<elseif $rng gte 31>>
-		오래되고 가치 없는 포르노 잡지 외에는 아무것도 찾지 못했다.<<garousal>><<arousal 600>>
+		오래되고 가치 없는 포르노 잡지 외에는 아무것도 찾지 못한다.<<garousal>><<arousal 600>>
 	<<else>>
-		아무것도 찾지 못했다.
+		아무것도 찾지 못한다.
 	<</if>>
 <<else>>
 	<<if $rng gte 81>>
 		<<wearProp "telephone">>
-		오래되었지만 작동하는 휴대폰을 발견했다. 적어도 어느 정도 가치는 있을 것이다.
+		오래되었지만 작동하는 휴대폰을 발견한다. 적어도 어느 정도 가치는 있을 것이다.
 		<<crimeUp 30 "thievery">><<set $blackmoney += 30>>
 		<i>아마도 쓰레기 매립지 더 깊은 곳에서 더 귀중한 물건을 찾을 수 있을 것이다.</i>
 	<<elseif $rng gte 61>>
 		<<rng>>
 		<<wearProp "stolen purse">>
 		<<if $rng gte 81>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 25 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 25 true true>>【이가】 남아있다.
 		<<elseif $rng gte 61>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 20 true true>>【이가】 남아있다.
 		<<elseif $rng gte 41>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 15 true true>>【이가】 남아있다.
 		<<elseif $rng gte 21>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 10 true true>>【이가】 남아있다.
 		<<else>>
-			버려진 지갑을 발견했다. 안에는 아직 <<moneyGain 5 true true>>【이가】 남아있다.
+			버려진 지갑을 발견한다. 안에는 아직 <<moneyGain 5 true true>>【이가】 남아있다.
 		<</if>>
 	<<elseif $rng gte 31>>
-		날카로운 것에 손가락을 찔렸다.<<gpain>><<pain 1>>
+		날카로운 것에 손가락을 찔린다.<<gpain>><<pain 1>>
 	<<else>>
-		아무것도 찾지 못했다.
+		아무것도 찾지 못한다.
 	<</if>>
 <</if>>
 <br><br>
@@ -444,7 +444,7 @@
 			<<set _insecurityType to "penis_big">>
 			<<set _kind to true>>
 		<<case 6>>
-			"세상에," <<trashSelect>><<person>>【이가】 속삭인다. "씨발 완전 괴물이잖아." 나머지 <<group>>【은는】 충격에 빠져 입을 떡 벌린다.
+			"세상에." <<trashSelect>><<person>>【이가】 속삭인다. "씨발 완전 괴물이잖아." 나머지 <<group>>【은는】 충격에 빠져 입을 떡 벌린다.
 			<<set _notInsecure to $acceptance_penis_big gte 1000>>
 			<<set _insecurityType to "penis_big">>
 			<<set _penisEnvy to !_noFollowUp and $trashCompare.enviousPenisIds.length gte 1 and hasSexStat("deviancy", 4)>>
@@ -487,7 +487,7 @@
 <</for>>
 <<person1>>
 
-목소리를 따라가자 고철 더미 속에 숨어 서로 옹기종기 모여 있는 나이 많은 <<group>> 무리를 발견했다. 뭘 하는지는 보이지 않지만, 서로 속삭이는 소리는 들린다.
+목소리를 따라가자 고철 더미 속에 숨어 서로 옹기종기 모여 있는 나이 많은 <<group>> 무리를 발견한다. 뭘 하는지는 보이지 않지만, 서로 속삭이는 소리는 들린다.
 <br><br>
 <<link [[몰래 엿본다|Trash Compare Spy]]>><</link>>
 <br>
@@ -495,7 +495,7 @@
 
 :: Trash Compare Spy
 <<effects>>
-그들이 뭘 하는지 내려다보기 위해 더 높은 곳으로 올라갔다. 숨을 만한 적당한 고철 더미를 찾아 꼭대기 너머로 <<group>> 무리를 엿보던 당신은 충격에 거의 넘어질 뻔했다.
+그들이 뭘 하는지 내려다보기 위해 더 높은 곳으로 올라간다. 숨을 만한 적당한 고철 더미를 찾아 꼭대기 너머로 <<group>> 무리를 엿보던 당신은 충격에 거의 넘어질 뻔한다.
 <<if $trashCompare.girl gte 1 and $trashCompare.penis gte 1>>
 	/* At least one girl, and at least one NPC with a penis */
 	<span class="lewd">그들은 가슴과 성기를 비교하고 있다.</span>
@@ -525,7 +525,7 @@
 
 :: Trash Compare Greet
 <<effects>>
-무리에게 다가가자 <<fullGroup>> 무리가 있는 것을 발견했다. 그들은 당신의 소리를 듣고 조용해지더니, 당황하며 무언가를 더듬거린다. 당신이 그들에게 도착했을 때쯤, 그들은 당신을 마주보며 모여 있던 무언가를 숨긴 것처럼 보였다. "뭘 원해?" <<person1>><<person>>【이가】 당신에게 묻는다.
+무리에게 다가가자 <<fullGroup>> 무리가 있는 것을 발견한다. 그들은 당신의 소리를 듣고 조용해지더니, 당황하며 무언가를 더듬거린다. 당신이 그들에게 도착할 때쯤, 그들은 당신을 마주보며 모여 있던 무언가를 숨긴 것처럼 보인다. "뭘 원해?" <<person1>><<person>>【이가】 당신에게 묻는다.
 <br><br>
 "고철 더미에서 소리가 들려서 다들 뭘 하나 보러 왔어요. 여기서 누구를 만날 줄은 몰랐네요."
 <br><br>
@@ -555,7 +555,7 @@
 	<<set $trashCompare.phasePool to [0,1,2,3,4,5]>>
 	<<set $trashCompare.enviousPenisIds to []>>
 	<<set $trashCompare.enviousBreastIds to []>>
-	그들은 초조하게 당신에게 더 가까이 오라고 손짓하더니, 당신이 나타나기 전에 옹기종기 모여 있던 원 안으로 당신을 끌어들인다. "자, 그러니까 말이야," <<person1>><<person>>【이가】 원 정반대편에서 당신을 마주보며 말한다. "다른 사람들은 어떤지 궁금했던 적 있어? 그러니까..."
+	그들은 초조하게 당신에게 더 가까이 오라고 손짓하더니, 당신이 나타나기 전에 옹기종기 모여 있던 원 안으로 당신을 끌어들인다. "자, 그러니까 말이야." <<person1>><<person>>【이가】 원 정반대편에서 당신을 마주보며 말한다. "다른 사람들은 어떤지 궁금했던 적 있어? 그러니까..."
 	<<if $trashCompare.girl gte 1 and $trashCompare.penis gte 1>>
 		<<He>>【은는】 <<his>> 가슴을 두드린다. "위쪽, 그리고..." <<He>>【은는】 다른 손으로 <<his>> 가랑이를 가리킨다. "아래쪽."
 	<<elseif $trashCompare.girl gte 1>>
@@ -568,21 +568,21 @@
 	<<if !hasSexStat("promiscuity", 5)>>
 		당신은 충격받은 채 <<him>>【을를】 쳐다본다. 예상치 못한 일이었다.
 		<<if !hasSexStat("promiscuity", 3)>>
-			"아, 아니," 당신은 말을 더듬는다.
+			"아-아니," 당신은 말을 더듬는다.
 			<br><br>
-			"음, 약속했잖아," <<person>>【이가】 말한다. "물러서지 않는 게 좋을걸."
+			"음, 약속했잖아." <<person>>【이가】 말한다. "물러서지 않는 게 좋을걸."
 		<<else>>
 			당신은 <<his>> 눈을 피하며 초조하게 꼼지락거리기 시작한다. 잠시 후, 당신은 겨우 "조금은"이라고 더듬거리며 말한다.
 			<br><br>
-			"음, 우리가 하려는 게 바로 그거야," <<person>>【이가】 자신 있는 척 가슴을 부풀리며 말한다.
+			"음, 우리가 하려는 게 바로 그거야." <<person>>【이가】 자신 있는 척 가슴을 부풀리며 말한다.
 		<</if>>
 	<<else>>
-		당신은 <<him>>【을를】 보며 킥킥 웃는다. "물론이지," 당신은 다 안다는 듯한 미소를 지으며 말한다.
+		당신은 <<him>>【을를】 보며 킥킥 웃는다. "물론이지." 당신은 다 안다는 듯한 미소를 지으며 말한다.
 		<br><br>
-		"음, 그럼 잘됐네, 우리가 하려는 게 바로 그거야. 비교하는 거," <<person>>【이가】 당신의 반응에 약간 당황하며 대답한다.
+		"음, 그럼 잘됐네, 우리가 하려는 게 바로 그거야. 비교하는 거." <<person>>【이가】 당신의 반응에 약간 당황하며 대답한다.
 	<</if>>
 	<br><br>
-	"우리 모두 같은 생각인 것 같으니," <<person>>【이가】 초조하게 말한다, "내가 먼저 할게."
+	"우리 모두 같은 생각인 것 같으니." <<person>>【이가】 초조하게 말한다, "내가 먼저 할게."
 <</if>>
 
 <<personselect $phase>><<set _npc to clone($NPCList[$phase])>>
@@ -599,14 +599,14 @@
 			<<personselect $phase>><<person>>【은는】 <<his>> 젖꼭지를 가리고 얼굴을 붉힌다. "나, 난 작은 게 좋아!" <<he>>【이가】 항변한다. 당신은 <<he>>【이가】 당신과 무리는커녕 자신을 설득하고 있다고도 생각하지 않는다.
 			<<set $trashCompare.enviousBreastIds.push($index, $index, $index)>>
 		<<case 1 2 3>>
-			<<group>>【이가】 재잘거리는 동안 당신은 그것들을 본다. "좀 작은 편이네," <<trashSelect>><<person>>【이가】 킥킥 웃는다.
+			<<group>>【이가】 재잘거리는 동안 당신은 그것들을 본다. "좀 작은 편이네." <<trashSelect>><<person>>【이가】 킥킥 웃는다.
 			<br><br>
 			<<trashSelect>><<person>>【은는】 <<his>> 고개를 젓는다. "아니, 난 그 사이즈 신경 안 써. 정말 완벽해." <<He>>【은는】 <<his>> 손가락을 음란하게 꿈틀거린다.
 			<br><br>
 			"너희 중 누굴 더 싫어해야 할지 모르겠네," <<personselect $phase>><<person>>【이가】 중얼거려 웃음을 자아낸다.
 			<<set $trashCompare.enviousBreastIds.push($index, $index)>>
 		<<case 4 5 6>>
-			<<group>>【이가】 재잘거리는 동안 당신은 그것들을 본다. "저건 이상적인 가슴이야," <<trashSelect>><<person>>【이가】 말한다. "잡지 표지에서나 볼 법한 가슴이라고."
+			<<group>>【이가】 재잘거리는 동안 당신은 그것들을 본다. "저건 이상적인 가슴이야." <<trashSelect>><<person>>【이가】 말한다. "잡지 표지에서나 볼 법한 가슴이라고."
 			<br><br>
 			"...고마워...?" <<personselect $phase>><<person>>【이가】 어떻게 받아들여야 할지 몰라 말을 더듬는다.
 			<<set $trashCompare.enviousBreastIds.push($index)>>
@@ -644,13 +644,13 @@
 	<<switch _npc.penissize>>
 		<<case -1 0>>
 			/* Currently unused. Prepared for if micropenis NPCs ever become a thing */
-			당신은 그 광경에 웃음을 참으려 애쓴다. <<group>>【이가】 폭소를 터뜨리자 <<person>>【은는】 얼굴을 붉힌다. "그, 그렇게 작지 않아," <<he>>【이가】 속삭인다.
+			당신은 그 광경에 웃음을 참으려 애쓴다. <<group>>【이가】 폭소를 터뜨리자 <<person>>【은는】 얼굴을 붉힌다. "그-그렇게 작지 않아." <<he>>【이가】 속삭인다.
 			<br><br>
-			"오, 작아," <<trashSelect>><<person>>【이가】 킥킥 웃는다. "그냥 클리토리스잖아!"
+			"오, 작아." <<trashSelect>><<person>>【이가】 킥킥 웃는다. "그냥 클리토리스잖아!"
 		<<case 1>>
 			<<group>>【이가】 킥킥거릴 때 당신은 씩 웃는 것을 억누른다. "걱정 마," <<trashSelect>><<person>>【이가】 달랜다. "언젠가는 자랄 거야."
 			<br><br>
-			<<personselect $phase>><<person>>【은는】 입을 삐죽 내밀고 돌아선다. "난 이 사이즈가 좋을지도 몰라," <<he>>【이가】 중얼거린다.
+			<<personselect $phase>><<person>>【은는】 입을 삐죽 내밀고 돌아선다. "난 이 사이즈가 좋을지도 몰라." <<he>>【이가】 중얼거린다.
 			<<set $trashCompare.enviousPenisIds.push($index, $index, $index)>>
 		<<case 2>>
 			<<group>>【이가】 재잘거리는 동안 당신은 그것을 본다. "별거 없네," <<trashSelect>><<person>>【이가】 하품한다. "다음으로 넘어가도 될까?"
@@ -658,7 +658,7 @@
 			"야, 야!" <<personselect $phase>><<person>>【이가】 항의한다. "방금 내 거시기를 보여줬는데, '별거 없다'가 할 말의 전부야? 이봐!"
 			<<set $trashCompare.enviousPenisIds.push($index, $index)>>
 		<<case 3>>
-			<<group>>【이가】 숨을 헐떡일 때 당신의 입이 '오' 모양이 된다. "이게 바로 물건이라는 거지," <<trashSelect>><<person>>【이가】 씨익 웃는다. "거시기는 다 거시기지만, 이런 건 물건이라고 부르는 거야. 이게 바로 물건이지."
+			<<group>>【이가】 숨을 헐떡일 때 당신의 입이 '오' 모양이 된다. "이게 바로 물건이라는 거지." <<trashSelect>><<person>>【이가】 씨익 웃는다. "거시기는 다 거시기지만, 이런 건 물건이라고 부르는 거야. 이게 바로 물건이지."
 			<br><br>
 			<<personselect $phase>><<person>>【은는】 지루한 척하며 <<his>> 손을 <<his>> 머리 뒤로 넘긴다. "아직 완전히 발기하지도 않았어. 아직 아무것도 못 본 거라고."
 			<<set $trashCompare.enviousPenisIds.push($index)>>
@@ -675,16 +675,16 @@
 		<<case 0>>
 			<<group>>【은는】 그 광경에 '우' 소리를 낸다. "아주 예쁘네," <<trashSelect>><<person>>【이가】 조금의 부끄러움도 없이 선언한다.
 		<<case 1>>
-			<<group>>【은는】 그 광경에 눈살을 찌푸린다. "이봐," <<trashSelect>><<person>>【이가】 중얼거린다. "속옷 취향이 정말... 끔찍하네."
+			<<group>>【은는】 그 광경에 눈살을 찌푸린다. "이봐." <<trashSelect>><<person>>【이가】 중얼거린다. "속옷 취향이 정말... 끔찍하네."
 			<br><br>
 			"야, 편하단 말이야!" <<personselect $phase>><<person>>【이가】 칭얼거린다. "내버려 둬."
 		<<case 2>>
-			<<group>>【은는】 잠시 서로 재잘거리다가, <<trashSelect>><<person>>【이가】 앞으로 나선다. "좋네," <<he>>【이가】 엄지를 치켜세우며 말한다. "잘했어."
+			<<group>>【은는】 잠시 서로 재잘거리다가, <<trashSelect>><<person>>【이가】 앞으로 나선다. "좋네." <<he>>【이가】 엄지를 치켜세우며 말한다. "잘했어."
 			<br><br>
 			"고마워!" <<personselect $phase>><<person>>【이가】 눈을 깜박인다. "잠깐. 내가 뭘 잘했는데?"
 		<<case 3>>
 			<br><br>
-			"이제 네 엉덩이를 보여줘," <<trashSelect>><<person>>【이가】 즉시 말한다.
+			"이제 네 엉덩이를 보여줘." <<trashSelect>><<person>>【이가】 즉시 말한다.
 			<<set _firstPerson to $index>>
 			<br><br>
 			<<personselect $phase>><<person>>【와과】 나머지 <<group>>【은는】 <<personselect _firstPerson>><<him>>【을를】 이상하게 쳐다보지만, <<personselect $phase>><<person>>【은는】 그럼에도 불구하고 돌아서서 <<his>> 엉덩이를 내민다.
@@ -694,7 +694,7 @@
 			<<He>>【은는】 심지어 <<his>> 보지를 벌려 당신과 무리에게 안을 보여주기까지 한다. 여기저기서 감탄하는 소리가 들리지만, 아무도 말을 하지는 않는다.
 			<br><br>
 
-			"잠깐, 잠깐, 잠깐," <<trashSelect>><<person>>【이가】 불쑥 말한다. "다시 해봐. 마음에 들었어. 아주 많이."
+			"잠깐, 잠깐, 잠깐." <<trashSelect>><<person>>【이가】 불쑥 말한다. "다시 해봐. 마음에 들었어. 아주 많이."
 			<<set _firstPerson to $index>><<personselect $phase>>
 			<br><br>
 
@@ -703,7 +703,7 @@
 				<<person>>【은는】 강렬하게 쳐다보고, <<personselect $phase>><<person>>【은는】 천천히 점점 더 흥분하다가, <<trashSelect>><<person>>【이가】 미묘한 헛기침으로 순간을 끝낸다.
 			<<else>>
 				"정말? 흠," <<person>>【은는】 <<personselect _firstPerson>><<person>>【을를】 쳐다본다. 먼저 <<his>> 눈을, 그리고 <<his>>
-				<<if $pronoun is "f">>노출된 <<= window.KR.getBreastSizeKr($NPCList[$index].breastsdesc)>><<else>><<npcGenitals>><</if>>【을를】 바라본다. "물론이지," <<he>>【이가】 씨익 웃으며 말한다, "이거 끝나고 같이 놀자."
+				<<if $pronoun is "f">>노출된 <<= window.KR.getBreastSizeKr($NPCList[$index].breastsdesc)>><<else>><<npcGenitals>><</if>>【을를】 바라본다. "물론이지." <<he>>【이가】 씨익 웃으며 말한다, "이거 끝나고 같이 놀자."
 				<br><br>
 				<<trashSelect>><<person>>【이가】 크게 헛기침을 한다.
 			<</if>>
@@ -711,7 +711,7 @@
 			"너 질질 흘리고 있어!" <<trashSelect>><<person>>【이가】 웃는다. 정말로, <<personselect $phase>><<person>>【은는】 흥분으로 질질 흘리고 있다.
 			<br><br>
 			<<if $trashCompare.girl gte 1 or ($pronoun is "m" and maleChance($pronoun) lt 100) or ($pronoun is "f" and maleChance($pronoun) gt 0)>>
-				"나, 나는 그러니까..." <<He>>【은는】 <<trashSelect>><<persons>> 노출된
+				"나-나는 그러니까..." <<He>>【은는】 <<trashSelect>><<persons>> 노출된
 				<<if $pronoun is "f">>
 					<<print window.KR.getBreastSizeKr($NPCList[$index].breastsdesc)>>【을를】 힐끗 본다.
 				<<else>>
@@ -727,7 +727,7 @@
 
 <<if $phase is 5>>
 	<<personselect $phase>>
-	<<group>>【은는】 기대에 찬 눈으로 당신을 쳐다본다. "자," <<person>>【이가】 말한다. "네 차례야. 네 <<if $player.gender_appearance is "f">>가슴<<else>>물건<</if>>【을를】 보여줘."
+	<<group>>【은는】 기대에 찬 눈으로 당신을 쳐다본다. "자." <<person>>【이가】 말한다. "네 차례야. 네 <<if $player.gender_appearance is "f">>가슴<<else>>물건<</if>>【을를】 보여줘."
 	<br><br>
 
 	<<link [[빠져나가려고 한다|Trash Compare Back Out]]>><</link>>
@@ -843,7 +843,7 @@
 :: Trash Compare Secret
 <<effects>><<set _audience to [0,1,2,3,4,5]>>
 <<set _target to ($phase is 1 ? "자지" : "가슴")>><<set _it to ($phase is 1 ? "그것" : "그것들")>>
-"그걸 도와줄 방법이 있는데." 당신은 부러워하는 <<personsimple>>에게 말한다.
+"그걸 도와줄 방법이 있는데," 당신은 부러워하는 <<personsimple>>에게 말한다.
 모든 <<group>>의 귀가 쫑긋 선다. 당신이 그들의 흥미를 끈 것이 분명하다. "네 _target을 영구적으로 크게 만들 방법이 있어." 당신은 자신 있게 말한다. "알려줄 테니, 돈은 내야 할 거야."
 <br><br>
 

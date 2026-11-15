@@ -24,7 +24,7 @@
 			<<link [[돌아서서 창살을 잡는다|Prison Scarred Bars]]>><<set $prison.scarred_level to 1>><<prison_rep scarred 5>><</link>><<ggperlove>>
 			<br>
 		<<case 1>>
-			"마침 보고 싶었던 <<bitch>>인데." <<he>>【이가】 말하며, <<his>> 바지 속에 <<his>> 손을 넣고 끈 한 조각을 꺼낸다. "돌아서서 창살을 잡아, <<bitch>>."
+			"마침 보고 싶었던 <<bitch>>인데," <<he>>【이가】 말하며, <<his>> 바지 속에 <<his>> 손을 넣고 끈 한 조각을 꺼낸다. "돌아서서 창살을 잡아, <<bitch>>."
 			<br><br>
 
 			<<link [[돌아서서 창살을 잡는다|Prison Scarred Pair]]>><<set $prison.scarred_level to 2>><<prison_rep scarred 5>><</link>><<ggperlove>>
@@ -41,7 +41,7 @@
 			<<link [[뒤돌아선다|Prison Scarred Turn]]>><<prison_rep scarred 5>><</link>><<ggperlove>>
 			<br>
 		<<default>>
-			"마침 보고 싶었던 <<bitch>>인데." <<he>>【이가】 <<his>> 침대에서 일어나며 말한다. <<his>> 손에는 이미 끈 한 조각이 들려 있다. "뒤돌아, <<bitch>>."
+			"마침 보고 싶었던 <<bitch>>인데," <<he>>【이가】 <<his>> 침대에서 일어나며 말한다. <<his>> 손에는 이미 끈 한 조각이 들려 있다. "뒤돌아, <<bitch>>."
 			<br><br>
 
 			<<link [[뒤돌아선다|Prison Scarred Turn]]>><<prison_rep scarred 5>><</link>><<ggperlove>>
@@ -543,7 +543,7 @@
 :: Prison Scarred Walk 2
 <<effects>>
 
-<<scarred_inmate 0 cap>>【은는】 교도소 구역을 따라 당신을 타고 가며, 주기적으로 당신의 <<bottom>>【을를】 때린다. 다른 죄수들은 그 광경에 재미있어하며 지켜본다. 몇몇은 다른 방식으로 당신을 탈 수 있는지 묻는다. <<scarred_inmate 0 cap>>【은는】 이를 고려하지만, 당신을 <<himself>> 위해 두기로 결정한다.<<lrespect>><<prison_inmates -1>>
+<<scarred_inmate 0 cap>>【은는】 감옥 구역을 따라 당신을 타고 가며, 주기적으로 당신의 <<bottom>>【을를】 때린다. 다른 죄수들은 그 광경에 재미있어하며 지켜본다. 몇몇은 다른 방식으로 당신을 탈 수 있는지 묻는다. <<scarred_inmate 0 cap>>【은는】 이를 고려하지만, 당신을 <<himself>> 위해 두기로 결정한다.<<lrespect>><<prison_inmates -1>>
 <br><br>
 
 <<He>>【은는】 당신을 마지막으로 한 번 때리고, 당신의 등에서 내려온다. "이제 모두가 네가 내 것이라는 걸 알 거야." <<he>>【이가】 끈을 풀며 말한다.
@@ -560,7 +560,7 @@
 :: Prison Scarred Yard
 <<effects>>
 
-<<scarred_inmate 0 cap>>【은는】 교도소 구역을 따라 당신을 타고 가며, 주기적으로 당신의 <<bottom>>【을를】 때린다. <<he>>【이가】 당신을 밖으로 이끌자 다른 죄수들이 뒤따른다.
+<<scarred_inmate 0 cap>>【은는】 감옥 구역을 따라 당신을 타고 가며, 주기적으로 당신의 <<bottom>>【을를】 때린다. <<he>>【이가】 당신을 밖으로 이끌자 다른 죄수들이 뒤따른다.
 <br><br>
 
 <<He>>【은는】 당신을 마당 중앙으로 몰고 가, 당신의 목줄을 뒤로 당긴다. 더 많은 죄수들이 걸어와 당신 주위에 원을 형성한다. <<scarred_inmate 0 cap>>【은는】 당신의 등에서 내려오지만, 당신의 목줄은 꽉 잡고 있다. <<He>>【은는】 잔디에 앉아, 당신을 <<his>> 무릎 위로 끌어당기고, 날카롭게 때린다.<<gpain>><<pain 4>>
@@ -592,7 +592,7 @@
 <br><br>
 
 <<if $prison.scarred gte 85>>
-	<<scarred_inmate 0 cap>>【은는】 주위를 둘러보더니, <span class="green">당신을 교도소 건물 쪽으로 다시 끌고 간다.</span> "어디 조용한 데 좀 찾아보자."
+	<<scarred_inmate 0 cap>>【은는】 주위를 둘러보더니, <span class="green">당신을 감옥 건물 쪽으로 다시 끌고 간다.</span> "어디 조용한 데 좀 찾아보자."
 	<br><br>
 	죄수 중 한 명이 당신을 더듬으려 하지만, <<scarred_inmate 0>>【은는】 <<him>>에게 코피를 터뜨린다.
 	<br><br>

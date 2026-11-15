@@ -50,10 +50,10 @@
 :: Estate Cards Steeds 2
 <<effects>>
 
-<<if $settings.monsterChance gte 1 and $hallucinations gte 1 or $settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly or !$settings.bestialityEnabled>>
-	<<if beastMaleChance() is 100>>
+<<if monsterCanAppearForType("cow")>>
+	<<if beastMaleChanceForType("cow") is 100>>
 		<<set _estate_cards_monsters to "bulls">>
-	<<elseif beastMaleChance() is 0>>
+	<<elseif beastMaleChanceForType("cow") is 0>>
 		<<set _estate_cards_monsters to "cows">>
 	<<else>>
 		<<set _estate_cards_monsters to "both">>
@@ -146,10 +146,10 @@
 	<br><br>
 	<<switch _estate_cards_monsters>>
 	<<case "bulls" "cows" "both">>
-		켄타우로스가 으르렁거리며 렌에게 달려들지만, 렌은 제때 물러선다. "오," 렌이 말을 잇는다. "성질머리가 좀 있네. 넌 사과 없어." <<He>>【은는】 당신과 <<his>> 동료들에게 돌아온다.
+		켄타우로스가 으르렁거리며 렌에게 달려들지만, 렌은 제때 물러선다. "오." 렌이 말을 잇는다. "성질머리가 좀 있네. 넌 사과 없어." <<He>>【은는】 당신과 <<his>> 동료들에게 돌아온다.
 		<br><br>
 	<<default>>
-		말이 코웃음을 치며 렌을 물려고 하지만, 렌은 제때 물러선다. "오," 렌이 말을 잇는다. "성질머리가 좀 있네. 넌 사과 없어." <<He>>【은는】 당신과 <<his>> 동료들에게 돌아온다.
+		말이 코웃음을 치며 렌을 물려고 하지만, 렌은 제때 물러선다. "오." 렌이 말을 잇는다. "성질머리가 좀 있네. 넌 사과 없어." <<He>>【은는】 당신과 <<his>> 동료들에게 돌아온다.
 		<br><br>
 	<</switch>>
 
@@ -375,18 +375,18 @@
 :: Estate Cards Cattle 2
 <<effects>>
 
-<<if $settings.monsterChance gte 1 and $hallucinations gte 1 or $settings.monsterChance gte 1 and !$settings.monsterHallucinationsOnly or !$settings.bestialityEnabled>>
-	<<if beastMaleChance() is 100>>
+<<if monsterCanAppearForType("cow")>>
+	<<if beastMaleChanceForType("cow") is 100>>
 		<<set _estate_cards_monsters to "bulls">>
-	<<elseif beastMaleChance() is 0>>
+	<<elseif beastMaleChanceForType("cow") is 0>>
 		<<set _estate_cards_monsters to "cows">>
 	<<else>>
 		<<set _estate_cards_monsters to "both">>
 	<</if>>
 <<else>>
-	<<if beastMaleChance() is 100>>
+	<<if beastMaleChanceForType("cow") is 100>>
 		<<set _estate_cards_monsters to "beast_bulls">>
-	<<elseif beastMaleChance() is 0>>
+	<<elseif beastMaleChanceForType("cow") is 0>>
 		<<set _estate_cards_monsters to "beast_cows">>
 	<<else>>
 		<<set _estate_cards_monsters to "beast_both">>

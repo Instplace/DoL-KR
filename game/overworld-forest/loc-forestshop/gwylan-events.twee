@@ -9,7 +9,7 @@
 	<br><br>
 
 	<<if _gwylanStatus.includes("cautious")>>
-		"안녕, 얘야," <<he>>【이가】 돌아보지 않고 말한다. "무슨 필요한 거라도 있니?"
+		"안녕, 얘야." <<he>>【이가】 돌아보지 않고 말한다. "무슨 필요한 거라도 있니?"
 	<<else>>
 		그윌란은 자세 잡는 것을 마치고, <<his>> 손을 <<his>> 허리에 얹고 그것을 훑어본다. 그러고는 미소를 지으며 당신에게 몸을 돌린다. "안녕, 얘야. 뭐 필요한 거라도 있니?"
 	<</if>>
@@ -41,9 +41,9 @@
 		<<elseif _gwylanLastSeenDays gte 3>>
 			"여기 있었구나! 며칠 늦었네. 내가 널 완전히 겁줘서 쫓아낸 줄 알고 걱정했잖아.
 		<<elseif _gwylanLastSeenDays is 2>>
-			"어제는 나타나지 않았더구나," <<he>>【이가】 말한다. "내가 널 겁줘서 쫓아낸 줄 알고 걱정했어.
+			"어제는 나타나지 않았더구나." <<he>>【이가】 말한다. "내가 널 겁줘서 쫓아낸 줄 알고 걱정했어.
 		<<else>>
-			"마침 잘 왔어," <<he>>【이가】 말한다. "거의 다 준비됐어.
+			"마침 잘 왔어." <<he>>【이가】 말한다. "거의 다 준비됐어.
 		<</if>>
 		와주기로 해서 기뻐."
 	<</if>>
@@ -186,7 +186,7 @@
 <<set $gwylanSeen.pushUnique("tattoos_intro")>>
 <<switch $speech_attitude>>
 	<<case "meek">>
-		"저, 저기... 문신 예쁘네요." 당신이 말한다. "배에 있는 거요."
+		"저-저기... 문신 예쁘네요." 당신이 말한다. "배에 있는 거요."
 	<<case "bratty">>
 		"배에 꽤 강렬한 문신이 있네요." 당신이 말한다.
 	<<default>>
@@ -195,7 +195,7 @@
 <br><br>
 
 그윌란은 얼굴을 붉히며 보이지 않게 하려는 듯 <<his>> 손을 <<his>> 배로 가져간다.
-"고, 고마워. 가문의 상징이야. 아니, 정확히는 우리 가문에 전해 내려오는 상징이지." <<he>>【이가】 스스로를 정정한다.
+"고-고마워. 가문의 상징이야. 아니, 정확히는 우리 가문에 전해 내려오는 상징이지." <<he>>【이가】 스스로를 정정한다.
 <br><br>
 
 <<He>>【은는】 잠시 마음을 가다듬는다. 당신은 왜 그런 간단한 말에 <<him>>【이가】 당황했는지 알 수 없다.
@@ -250,7 +250,7 @@
 
 	<<if !$gwylanSeen.includes("cafe_walk")>>
 		<<set $gwylanSeen.pushUnique("cafe_walk")>>
-		"나도 일과가 있지만, 너를 위해 시간 낼 수 있어," <<he>>【이가】 말한다. "원하는 날 언제든, <span class="gold">학교 가는 날 <<ampm 7>> 이후에 <<if $bus is "domus">>도무스<<else>>다뉴브<</if>> 거리에서 만나거나, 그 직전에 내 가게로 와</span>."
+		"나도 일과가 있지만, 너를 위해 시간 낼 수 있어." <<he>>【이가】 말한다. "원하는 날 언제든, <span class="gold">학교 가는 날 <<ampm 7>> 이후에 <<if $bus is "domus">>도무스<<else>>다뉴브<</if>> 거리에서 만나거나, 그 직전에 내 가게로 와</span>."
 		<br><br>
 	<</if>>
 	<<link [[다음|Gwylan Ocean Breeze]]>><<endevent>><<set $location to "cafe">><<set $phase to 1>><</link>>
@@ -261,13 +261,13 @@
 		<<case "meek">>
 			"죄송해요..." 당신은 발을 끌며 말한다. "오늘 아침엔 다른 일정이 있어서요. 내-내일은 어떨까요?"
 		<<case "bratty">>
-			"오늘은 안 돼," 당신이 말한다. "할 일이 있거든. 다른 날 오면 대답이 바뀔지도 모르지."
+			"오늘은 안 돼." 당신이 말한다. "할 일이 있거든. 다른 날 오면 대답이 바뀔지도 모르지."
 		<<default>>
-			"유감이지만 안 되겠어요," 당신이 말한다. "처리해야 할 일들이 좀 있거든요. 다음엔 어때요?"
+			"유감이지만 안 되겠어요." 당신이 말한다. "처리해야 할 일들이 좀 있거든요. 다음엔 어때요?"
 	<</switch>>
 	<br><br>
 
-	그윌란이 당신의 머리를 쓰다듬는다. "아아. 알았어, 억지로 시키진 않을게.<<if $location isnot "forest_shop" and $avery_mansion and ["ascended", "saved"].includes($avery_fate)>>" <<He>>【은는】 잠시 주위를 둘러본다. <<if $bus is "danube">><<His>> 시선이 다뉴브 거리를 훑는다.<</if>> "그냥, 몸 조심해, 알았지?<</if>>
+	그윌란이 당신의 머리를 쓰다듬는다. "아아. 알았어, 억지로 시키진 않을게.<<if $location isnot "forest_shop" and $avery_mansion and ["ascended", "saved"].includes($avery_fate)>>" <<He>>【은는】 잠시 주위를 둘러본다. <<if $bus is "danube">><<His>> 시선이 다뉴브 가를 훑는다.<</if>> "그냥, 몸 조심해, 알았지?<</if>>
 	그래도 마음이 바뀌면,
 	<<if !$gwylanSeen.includes("cafe_walk")>>
 		<<set $gwylanSeen.pushUnique("cafe_walk")>>
@@ -349,7 +349,7 @@
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
-		"아무래도 <<nnpc_he "Gwylan">>【은는】 안 올 것 같아. 그냥 학교로 가는 게 낫겠어," 당신이 말한다.
+		"아무래도 <<nnpc_he "Gwylan">>【은는】 안 올 것 같아. 그냥 학교로 가는 게 낫겠어." 당신이 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"<<nnpc_He "Gwylan">>【은는】 안 오네, 늦기 전에 그냥 가자.<<if Weather.temperature gte 30>> 여기서 녹아버리겠어.<<elseif Weather.temperature lte 0>> 여기서 얼어 죽겠어.<</if>>" 당신이 말한다.
 	<<else>>
@@ -513,7 +513,7 @@
 	<br><br>
 	친구들은 놀란 기색이지만, 그윌란만큼은 아니다.
 	<br><br>
-	"네 <<mum>>【이가】 저렇게 핫할 줄은 몰랐는데." 다른 애가 말한다.
+	"네 <<mum>>【이가】 저렇게 핫할 줄은 몰랐는데," 다른 애가 말한다.
 	<br><br>
 	<<He>>【은는】 당황한 표정을 짓는다. "잠깐... 난 아—"
 	<br><br>
@@ -527,7 +527,7 @@
 <<elseif $phase is 1>>
 	친구들은 놀란 기색이다.
 	<br><br>
-	"네 <<mum>>【이가】 저렇게 핫할 줄은 몰랐는데." 다른 애가 말한다. "<<He>>【은는】 그렇게 나이 들어 보이지도 않잖아."
+	"네 <<mum>>【이가】 저렇게 핫할 줄은 몰랐는데," 다른 애가 말한다. "<<He>>【은는】 그렇게 나이 들어 보이지도 않잖아."
 	<br><br>
 	당신은 당황스럽지만, 최소한 놀림을 당하고 있지는 않다. <<stress 3>><<trauma -2>><<gstress>><<ltrauma>>
 <<else>>
@@ -583,7 +583,7 @@
 	<br><br>
 
 	<<if $cool gte 160>>
-		친구 몇 명이 다가오자, 당신은 이 일로 평생 놀림받을 것이라 직감한다. "너희 둘 다 고아원에 사는 줄 알았는데." 한 명이 말한다.
+		친구 몇 명이 다가오자, 당신은 이 일로 평생 놀림받을 것이라 직감한다. "너희 둘 다 고아원에 사는 줄 알았는데," 한 명이 말한다.
 		<br>
 		"방금 분 네 <<mum>> 아니지?" 다른 아이가 거든다. "<<He>>【은는】 너무 젊어 보이는데. 잠깐, 너희 둘 형제자매야?"
 		<br><br>
@@ -674,9 +674,9 @@
 			<br><br>
 
 			<<if _gwylanStatus.includes("aurigaScarConfront")>>
-				<<link [[모든 것이 암전된다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
 			<<else>>
-				<<link [[모든 것이 암전된다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
 			<</if>>
 			<br>
 		<<else>>
@@ -696,7 +696,7 @@
 		<br><br>
 		<<set $gwylanSeen.pushUnique("cafe")>>
 		<<if $speech_attitude is "meek">>
-			"ㅇ-외로워 보여서요," 당신은 말한다. "앉아도 될까요?"
+			"외-외로워 보여서요." 당신은 말한다. "앉아도 될까요?"
 		<<elseif $speech_attitude is "bratty">>
 			"누가 옆에 있어 줘야 할 것 같은데," 당신은 말한다. "이 자리 비었죠?"
 		<<else>>
@@ -714,7 +714,7 @@
 		<<He>>【이가】 음식 부스러기를 녀석에게 튕겨주자, 갈매기는 그것을 입으로 받아 물고는 날아간다.
 		<br><br>
 
-		"같이 있어 주는 건 괜찮아," 마침내 <<he>>【이가】 말한다.
+		"같이 있어 주는 건 괜찮아." 마침내 <<he>>【이가】 말한다.
 		<<if $worn.handheld.type.includes("bookbag")>><<set $cafe_study to $worn.handheld.name>><</if>><<handheldundress "cafe_balcony">>
 	<<else>>
 		<<if $gwylanRescue?.failed>>
@@ -756,7 +756,7 @@
 			<<He>>【은는】 곁눈질로 당신을 알아챈다. 눈 깜짝할 사이에 당신은 <<his>> 따뜻한 품에 안긴다. <<if _gwylanTF.known>><<His>> 꼬리가 당신을 감싼다. 아주 부드럽다.<</if>>
 			<br><br>
 
-			"오, 자기야," <<he>>【이가】 속삭인다. "너무 오래 없어서, 다시는 돌아오지 않는 줄 알았어. 무슨 일 있었어?"
+			"오, 자기야." <<he>>【이가】 속삭인다. "너무 오래 없어서, 다시는 돌아오지 않는 줄 알았어. 무슨 일 있었어?"
 		<<else>>
 			<<He>>【은는】 곁눈질로 당신을 알아챈다. <<He>>【은는】 활짝 웃는다. "여기 있었구나!" <<He>>【은는】 다가와 당신을 껴안는다. "날 잊어버린 건 아닌지 궁금해지기 시작했어. 무슨 일 있었어?"
 		<</if>>
@@ -791,9 +791,9 @@
 			<br><br>
 
 			<<if _gwylanStatus.includes("aurigaScarConfront")>>
-				<<link [[모든 것이 암전된다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Nowhere Passout]]>><<pass 1 hour>><<endevent>><</link>>
 			<<else>>
-				<<link [[모든 것이 암전된다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
+				<<link [[모든 것이 어둠 속으로 사라진다...|Forest Shop Taken Start]]>><<pass 1 hour>><<endevent>><</link>>
 			<</if>>
 		<<else>>
 			<<He>>【은는】 잠시 더 당신을 안고 있다가 놓아준다.
@@ -812,7 +812,7 @@
 		<br><br>
 		<<set $gwylanSeen.pushUnique("cafe")>>
 		<<if $speech_attitude is "meek">>
-			"ㅇ-외로워 보여서요," 당신은 말한다. "같이 있어도 될까요?"
+			"외-외로워 보여서요." 당신은 말한다. "같이 있어도 될까요?"
 		<<elseif $speech_attitude is "bratty">>
 			"누가 좀 같이 있어줘야 할 것 같은데," 당신은 말한다. "내 자리도 있었으면 좋겠네."
 		<<else>>
@@ -829,7 +829,7 @@
 		<<he>>【은는】 킥킥 웃으며 말한다. 커다란 갈매기 한 마리가 난간에 내려앉아 <<him>>【을를】 향해 고개를 갸웃거린다. <<He>>【이가】 빵 부스러기를 튕겨주자, 갈매기는 그것을 입으로 받아 물고는 날아간다.
 		<br><br>
 
-		"같이 있는 거 괜찮아," <<he>>【이가】 마침내 말한다.
+		"같이 있는 거 괜찮아." <<he>>【이가】 마침내 말한다.
 	<<else>>
 		<<if Weather.precipitation isnot "none">>
 			<<his>> 우산 아래에는 당신을 위한 충분한 공간이 있다.
@@ -925,6 +925,7 @@
 	<<if $gwylanTalked.includes("bird")>>매와 함께 오래된 성에서 보낸 시간.<br><</if>>
 	<<if $gwylanTalked.includes("prison")>>교도소에서의 감금 생활.<br><</if>>
 	<<if $gwylanTalked.includes("asylum")>>정신병원에서의 치료.<br><</if>>
+	<<if $gwylanTalked.includes("mine")>>광산에서의 노예 생활.<br><</if>>
 	<<if $gwylanTalked.includes("temple_confessor")>>주교가 당신에게 말해준 끔찍한 진실.<br><</if>>
 	<<if $gwylanTalked.includes("temple_exorcist")>>댄스 일을 하다가 어두운 의식에서 누군가를 구해낸 일.<br><</if>>
 	<<if $gwylanTalked.includes("temple_sexy")>>세상의 독을 정화하려 애쓰면서 짊어지게 된 세상의 짐.<br><</if>>
@@ -1047,7 +1048,7 @@
 				<<if $stress gte ($stressmax / 5) * 3 or $trauma gte ($traumamax / 5) * 2>>
 					<<set $gwylanSeen.pushUnique("bad_day_drinking")>>
 					<<He>>【이가】 걱정스러운 표정을 짓는다. "판단하려는 건 아니지만, 술은 좋은 날을 더 좋게 만들려고 마셔야지. 기분 나쁘게 듣진 마, 지금도 충분히 힘들어 보이거든."
-				<<elseif _gwylanLovePercent gte 50>>
+				<<elseif _gwylanLovePercent gte 40>>
 					<<if npcIsPregnant("Gwylan")>>
 						<<He>>【이가】 입을 삐죽인다. "지금 내 앞에서 술을 마시다니 너무 무례하잖아." <<He>>【은는】 <<his>> <<bellyDescription "Gwylan">>【을를】 부드럽게 문지른다.
 					<<else>>
@@ -1289,7 +1290,7 @@
 						<br>
 					<<else>>
 						<<if $money gte 200>>
-							<<foodicon "coffee">><<link [[로빈에게 커피 사주기 (£2)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<foodicon "coffee">><<link [[로빈에게 커피를 사준다 (£2)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "coffee">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 								<<set $phase to "coffee">><<set $phase2 to 2>><<money -200 "cafe">>
 							<</link>><<glove "Robin">><<if $phase is "coffee">><<gdom "Robin">><</if>>
@@ -1298,28 +1299,28 @@
 						<<if $money gte 700 and !npcIsPregnant("Robin")>>
 							<<if Time.season is "winter">>
 								<<foodicon "winterale">>
-								<<link [[로빈에게 겨울 에일 사주기 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
+								<<link [[로빈에게 겨울 에일을 사준다 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
 									<<if $phase is "winter ale">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 									<<set $phase to "winter ale">><<set $phase2 to 2>><<money -700 "cafe">>
 								<</link>><<glove "Robin">><<if $phase is "winter ale">><<gdom "Robin">><</if>>
 								<br>
 							<<elseif Time.season is "spring">>
 								<<foodicon "fruityale">>
-								<<link [[로빈에게 과일 에일 사주기 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
+								<<link [[로빈에게 과일 에일을 사준다 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
 									<<if $phase is "fruity ale">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 									<<set $phase to "fruity ale">><<set $phase2 to 2>><<money -700 "cafe">>
 								<</link>><<glove "Robin">><<if $phase is "fruity ale">><<gdom "Robin">><</if>>
 								<br>
 							<<elseif Time.season is "summer">>
 								<<foodicon "shandy">>
-								<<link [[로빈에게 섄디 사주기 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
+								<<link [[로빈에게 섄디를 사준다 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
 									<<if $phase is "shandy">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 									<<set $phase to "shandy">><<set $phase2 to 2>><<money -700 "cafe">>
 								<</link>><<glove "Robin">><<if $phase is "shandy">><<gdom "Robin">><</if>>
 								<br>
 							<<else>>
 								<<foodicon "autumnale">>
-								<<link [[로빈에게 가을 에일 사주기 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
+								<<link [[로빈에게 가을 에일을 사준다 (£7)|Gwylan Ocean Breeze Robin Buy]]>>
 									<<if $phase is "autumn ale">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 									<<set $phase to "autumn ale">><<set $phase2 to 2>><<money -700 "cafe">>
 								<</link>><<glove "Robin">><<if $phase is "autumn ale">><<gdom "Robin">><</if>>
@@ -1331,7 +1332,7 @@
 						<</if>>
 						<<if $money gte 500>>
 							<<foodicon "fruitsalad">>
-							<<link [[로빈에게 과일 샐러드 사주기 (£5)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<link [[로빈에게 과일 샐러드를 사준다 (£5)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "fruit salad">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 								<<set $phase to "fruit salad">><<set $phase2 to 2>><<money -500 "cafe">>
 							<</link>><<glove "Robin">><<if $phase is "fruit salad">><<gdom "Robin">><</if>>
@@ -1339,7 +1340,7 @@
 						<</if>>
 						<<if $money gte 600 and Time.season is "winter">>
 							<<foodicon "gingerbread">>
-							<<link [[로빈에게 진저브레드 사주기 (£6)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<link [[로빈에게 진저브레드를 사준다 (£6)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "gingerbread">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 								<<set $phase to "gingerbread">><<set $phase2 to 2>><<money -600 "cafe">>
 							<</link>><<glove "Robin">><<if $phase is "gingerbread">><<gdom "Robin">><</if>>
@@ -1347,13 +1348,13 @@
 						<</if>>
 						<<if $money gte 1000>>
 							<<foodicon "pancakes">>
-							<<link [[로빈에게 팬케이크 사주기 (£10)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<link [[로빈에게 팬케이크를 사준다 (£10)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "pancakes">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 								<<set $phase to "pancakes">><<set $phase2 to 2>><<money -1000 "cafe">>
 							<</link>><<glove "Robin">><<if $phase is "pancakes">><<gdom "Robin">><</if>>
 							<br>
 							<<foodicon "crepes">>
-							<<link [[로빈에게 크레이프 사주기 (£10)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<link [[로빈에게 크레이프를 사준다 (£10)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "crepes">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 1>>
 								<<set $phase to "crepes">><<set $phase2 to 2>><<money -1000 "cafe">>
 							<</link>><<glove "Robin">><<if $phase is "crepes">><<gdom "Robin">><</if>>
@@ -1361,7 +1362,7 @@
 						<</if>>
 						<<if $money gte 5000>>
 							<<foodicon "creambun">>
-							<<link [[로빈에게 디럭스 크림빵 사주기 (£50)|Gwylan Ocean Breeze Robin Buy]]>>
+							<<link [[로빈에게 디럭스 크림빵을 사준다 (£50)|Gwylan Ocean Breeze Robin Buy]]>>
 								<<if $phase is "deluxe cream bun">><<npcincr Robin dom 1>><</if>><<npcincr Robin love 2>>
 								<<set $phase to "deluxe cream bun">><<set $phase2 to 2>><<money -5000 "cafe">>
 							<</link>><<gglove "Robin">><<if $phase is "deluxe cream bun">><<gdom "Robin">><</if>>
@@ -1587,9 +1588,9 @@
 			<<if $player.virginity.kiss === true>>
 				당신은 그런 키스가 어떤 느낌일지 궁금해진다.
 			<<elseif $loveInterest.primary is "Black Wolf">>
-				당신의 마음은 검은 늑대의 <<if $blackwolfmonster is 1>>입술이 당신의 입술에 닿았던 것을<<else>>젖은 혀가 당신의 얼굴을 핥았던 것을<</if>> 떠올린다.
+				당신의 마음은 검은 늑대의 <<if resolveIfNamedBeastIsMonster("blackwolf")>>입술이 당신의 입술에 닿았던 것을<<else>>젖은 혀가 당신의 얼굴을 핥았던 것을<</if>> 떠올린다.
 			<<elseif $loveInterest.primary is "Great Hawk">>
-				당신의 마음은 거대 매의 <<if $greathawkmonster is 1>>입술이 당신의 입술에 닿았던 것을<<else>>부리가 부드럽게 당신을 다듬어주던 것을<</if>> 떠올린다.
+				당신의 마음은 거대 매의 <<if resolveIfNamedBeastIsMonster("greathawk")>>입술이 당신의 입술에 닿았던 것을<<else>>부리가 부드럽게 당신을 다듬어주던 것을<</if>> 떠올린다.
 			<<else>>
 				당신의 마음은 <<= window.KR.gatPersonNameDictKR($loveInterest.primary)>>의 입술이 당신의 입술에 닿았던 것을 떠올린다.
 			<</if>>
@@ -1598,12 +1599,12 @@
 	<</addinlineevent>>
 
 	<<addinlineevent "gwylan_watch_sea_gulls" 1>>
-		"갈매기 소리 듣는 걸 좋아해. 들을 마음만 있다면, 할 말이 아주 많거든<<if _robinPresent>>," 그윌란이 말한다.<<else>>."<</if>>
+		"갈매기 소리 듣는 걸 좋아해. 들을 마음만 있다면, 할 말이 아주 많거든<<if _robinPresent>>." 그윌란이 말한다.<<else>>."<</if>>
 		<br><br>
 	<</addinlineevent>>
 
 	<<addinlineevent "gwylan_watch_sea_nature" 1>>
-		물고기 한 마리가 물 밖으로 뛰어올라 기다리던 새의 발톱에 잡힌다. 몇 번 퍼덕이다가 이내 잠잠해진다. "자연은 잔인해. 하지만 그게 또 나름의 방식으로 아름다운 거지<<if _robinPresent>>," 그윌란이 말한다.<<else>>."<</if>>
+		물고기 한 마리가 물 밖으로 뛰어올라 기다리던 새의 발톱에 잡힌다. 몇 번 퍼덕이다가 이내 잠잠해진다. "자연은 잔인해. 하지만 그게 또 나름의 방식으로 아름다운 거지<<if _robinPresent>>." 그윌란이 말한다.<<else>>."<</if>>
 		<br><br>
 	<</addinlineevent>>
 
@@ -1846,36 +1847,36 @@
 				"여기 위는 괜찮나요? 뭐 필요한 거라도 있으세요?"
 				<br><br>
 
-				"전부 괜찮아," 그윌란이 말한다. <<if $gwylanSeen.includes("yearning")>><<person1>><<He>>【이가】 당신의 손을 잡는다. <</if>>"여기 올라오게 해줘서 고마워, 샘."<<if $gwylanSeen.includes("yearning")>> <<takeHandholdingVirginity "Gwylan" `(V.gwylanSeen.includes("partners") ? "romantic" : "consensual")`>><</if>>
+				"전부 괜찮아." 그윌란이 말한다. <<if $gwylanSeen.includes("yearning")>><<person1>><<He>>【이가】 당신의 손을 잡는다. <</if>>"여기 올라오게 해줘서 고마워, 샘."<<if $gwylanSeen.includes("yearning")>> <<takeHandholdingVirginity "Gwylan" `(V.gwylanSeen.includes("partners") ? "romantic" : "consensual")`>><</if>>
 				<br><br>
 
-				"언제든지요!" 샘이 환하게 웃는다. "그윌란은 제 최고의 손님이에요," <<person3>><<he>>【이가】 당신에게 말한다. <span class="lewd">"항상 크림빵을 사 가거든요."</span>
+				"언제든지요!" 샘이 환하게 웃는다. "그윌란은 제 최고의 손님이에요." <<person3>><<he>>【이가】 당신에게 말한다. <span class="lewd">"항상 크림빵을 사 가거든요."</span>
 				<br><br>
 
 				<<if $gwylanSeen.includes("cafe_chef_truth") or $chef_speech is "truth">>그윌란은 얼굴을 붉히며 당신을 쳐다보지 못한다.<<else>>그윌란이 어깨를 으쓱한다.<</if>> "내가 뭘 어쩌겠어? 맛있는 걸."
 				<br><br>
 
-				"다음 건 서비스로 드릴게요," 샘이 말한다. <<He>>【은는】 손을 흔들어 작별 인사를 한다. 그윌란이 한숨을 쉰다.
+				"다음 건 서비스로 드릴게요." 샘이 말한다. <<He>>【은는】 손을 흔들어 작별 인사를 한다. 그윌란이 한숨을 쉰다.
 				<br><br>
 
-				"<<He>>【은는】 정말 다정한 사람이야," <<person1>><<he>>【이가】 말한다. <<person3>><<if $chef_state gte 9>>"네가 <<him>>【을를】 많이 도와줘서 기뻐. 카페는 <<him>>에게 전부나 마찬가지거든."<<else>>"<<He>>【은는】 이 카페를 사랑하고, 확장되길 바라고 있어. 언젠가 그럴 수 있으면 좋겠네."<</if>>
+				"<<He>>【은는】 정말 다정한 사람이야." <<person1>><<he>>【이가】 말한다. <<person3>><<if $chef_state gte 9>>"네가 <<him>>【을를】 많이 도와줘서 기뻐. 카페는 <<him>>에게 전부나 마찬가지거든."<<else>>"<<He>>【은는】 이 카페를 사랑하고, 확장되길 바라고 있어. 언젠가 그럴 수 있으면 좋겠네."<</if>>
 			<<else>>
 				"여기 밖은 괜찮나요?"
 				<br><br>
 
-				"전부 괜찮아," 그윌란이 말한다. <<if $gwylanSeen.includes("yearning")>><<person1>><<He>>【이가】 당신의 손을 잡는다. <</if>>"그냥 내 일과가 그리워서 그래."<<if $gwylanSeen.includes("yearning")>> <<takeHandholdingVirginity "Gwylan" `(V.gwylanSeen.includes("partners") ? "romantic" : "consensual")`>><</if>>
+				"전부 괜찮아." 그윌란이 말한다. <<if $gwylanSeen.includes("yearning")>><<person1>><<He>>【이가】 당신의 손을 잡는다. <</if>>"그냥 내 일과가 그리워서 그래."<<if $gwylanSeen.includes("yearning")>> <<takeHandholdingVirginity "Gwylan" `(V.gwylanSeen.includes("partners") ? "romantic" : "consensual")`>><</if>>
 				<br><br>
 
-				"오래 걸리지 않을 거예요! 금방 리모델링이 끝날 겁니다," 샘이 환하게 웃는다. "그윌란은 제 최고의 손님이에요," <<person3>><<he>>【이가】 당신에게 말한다. <span class="lewd">"항상 크림빵을 사 가거든요."</span>
+				"오래 걸리지 않을 거예요! 금방 리모델링이 끝날 겁니다." 샘이 환하게 웃는다. "그윌란은 제 최고의 손님이에요." <<person3>><<he>>【이가】 당신에게 말한다. <span class="lewd">"항상 크림빵을 사 가거든요."</span>
 				<br><br>
 
 				<<if $gwylanSeen.includes("cafe_chef_truth") or $chef_speech is "truth">>그윌란은 얼굴을 붉히며 당신을 쳐다보지 못한다.<<else>>그윌란이 어깨를 으쓱한다.<</if>> "내가 뭘 어쩌겠어? 맛있는 걸."
 				<br><br>
 
-				"다시 열면, 첫 번째는 서비스로 드릴게요," 샘이 말한다. <<He>>【은는】 손을 흔들어 작별 인사를 한다. 그윌란이 한숨을 쉰다.
+				"다시 열면, 첫 번째는 서비스로 드릴게요." 샘이 말한다. <<He>>【은는】 손을 흔들어 작별 인사를 한다. 그윌란이 한숨을 쉰다.
 				<br><br>
 
-				"<<He>>【은는】 정말 다정한 사람이야," <<person1>><<he>>【이가】 말한다. <<person3>> "네가 <<him>>【을를】 많이 도와줘서 기뻐. 카페는 <<him>>에게 전부나 마찬가지거든."
+				"<<He>>【은는】 정말 다정한 사람이야." <<person1>><<he>>【이가】 말한다. <<person3>> "네가 <<him>>【을를】 많이 도와줘서 기뻐. 카페는 <<him>>에게 전부나 마찬가지거든."
 			<</if>>
 			<br><br>
 		<</addinlineevent>>
@@ -1922,7 +1923,7 @@
 	<</addinlineevent>>
 
 	<<addinlineevent "gwylan_watch_sea_world" 1>>
-		"밖에선 조심해," 그윌란이 말한다. "우리가 사는 세상은 위험하니까."
+		"밖에선 조심해." 그윌란이 말한다. "우리가 사는 세상은 위험하니까."
 		<br><br>
 
 		<<if $trauma gte ($traumamax / 5) * 3>>
@@ -1938,7 +1939,7 @@
 	<<if !$gwylanSeen.includes("horse_fingers")>>
 		<<addinlineevent "gwylan_watch_sea_horse" 1>>
 			<<set $gwylanSeen.pushUnique("horse_fingers")>>
-			"말은 우리 손가락과 다르지 않은 뼈로 달려," 그윌란이 뜬금없이 말한다. "그래서 수를 셀 때 땅을 발로 긁을 수 있는 거야."
+			"말은 우리 손가락과 다르지 않은 뼈로 달려." 그윌란이 뜬금없이 말한다. "그래서 수를 셀 때 땅을 발로 긁을 수 있는 거야."
 			<br><br>
 
 			<<He>>【은는】 <<his>> 검지로 시범을 보인다. 당신은 <<if $tending gte 400>>이미 알고 있었지만, <<if _robinPresent>>로빈은 매료된 듯 보인다<<else>>그럼에도 시범을 즐긴다<</if>>.<<else>>믿기 어렵지만, 그윌란의 말이 맞을 거라고 믿는다.<<if _robinPresent>> 로빈은 매료된 듯 보인다.<</if>> <<tending 10>><<gtending>><</if>>
@@ -1948,7 +1949,7 @@
 
 	<<addinlineevent "gwylan_watch_sea_song" 1>>
 		<<if $seabird_lullaby gte 2>>
-			<<if _robinPresent>>그윌란<<else>><<He>><</if>>【이가】 <span class="teal">바다새의 자장가</span>를 흥얼거리기 시작한다. 당신은 <<if $harpy gte 6>>맑고 아름다운 목소리로<<else>>최선을 다해<</if>> 따라 부른다. <<he>>【은는】 함께 있는 걸 기뻐하는 것 같다.
+			<<if _robinPresent>>그윌란<<else>><<He>><</if>>【이가】 <span class="teal">바닷새의 자장가</span>를 흥얼거리기 시작한다. 당신은 <<if $harpy gte 6>>맑고 아름다운 목소리로<<else>>최선을 다해<</if>> 따라 부른다. <<he>>【은는】 함께 있는 걸 기뻐하는 것 같다.
 		<<else>>
 			<<if _robinPresent>>그윌란<<else>><<He>><</if>>【이가】 <span class="teal">어렴풋이 익숙한 멜로디</span>를 흥얼거리기 시작한다.
 		<</if>>
@@ -2204,7 +2205,7 @@
 	<<if $robinpaid is 1>>
 		<<switch $speech_attitude>>
 			<<case "meek">>
-				"저, 저기, 로빈. 내가 네 빚을 대신 내주고 있긴 하지만, 네 돈은 내 부담을 덜어주는 데 써야 하는 거잖아..." 당신이 중얼거린다.
+				"저-저기, 로빈. 내가 네 빚을 대신 내주고 있긴 하지만, 네 돈은 내 부담을 덜어주는 데 써야 하는 거잖아..." 당신이 중얼거린다.
 			<<case "bratty">>
 				"지금 뭐 하는 짓이야? 난 우리 둘 다 먹여 살리려고 죽어라 일하는데, 넌 아무 생각 없이 돈을 펑펑 쓰고 있잖아!" 당신이 고함친다.
 			<<default>>
@@ -2302,8 +2303,8 @@
 	<<person1>><<He>>【은는】 <<person2>><<personssimple>> 귀 뒤로 손을 뻗어 큰 지폐 한 장을 꺼낸다. <<personsimple>>【은는】 울음을 그친다. "자, 이걸로 더 맛있는 걸 사 먹으렴."
 	<br><br>
 
-	<<person1>><<He>>【은는】 돈을 쥔 <<person2>><<personssimple>>의 주먹을 쥐어준다. <<personsimple>>【은는】 그윌란을 멍하니 바라본다. "이...... 이렇게 큰돈을요," <<he>>【이가】 말한다. <<He>>【은는】 눈물이 핑 돈 채 미소를 지으며 일어선다.
-	<<person1>>"<<print either("고마워요, <<if $pronoun is 'm'>>아저씨<<else>>아줌마<</if>>!", "신난다!", "최고예요!", "우리 <<print either('아빠', '엄마')>>처럼 진짜 착하시네요.", "그럴게요! 고마워요.", "고, 고맙습니다......", "정말 친절하시네요.", "<<print either('아빠', '엄마')>>가 모르는 사람이랑 말하지 말랬는데...... 착한 분 같아요!", "지금까지 본 어른 중에 제일 멋져요!", "고마워요. 저...... 모자 진짜 멋져요.", "내 <<print either('친구', '남동생', '여동생')>>한테도 하나 사줘야겠어요!")>>"
+	<<person1>><<He>>【은는】 돈을 쥔 <<person2>><<personssimple>>의 주먹을 쥐어준다. <<personsimple>>【은는】 그윌란을 멍하니 바라본다. "이...... 이렇게 큰돈을요." <<he>>【이가】 말한다. <<He>>【은는】 눈물이 핑 돈 채 미소를 지으며 일어선다.
+	<<person1>>"<<print either("고마워요, <<if $pronoun is 'm'>>아저씨<<else>>아줌마<</if>>!", "신난다!", "최고예요!", "우리 <<print either('아빠', '엄마')>>처럼 진짜 착하시네요.", "그럴게요! 고마워요.", "고-고맙습니다......", "정말 친절하시네요.", "<<print either('아빠', '엄마')>>가 모르는 사람이랑 말하지 말랬는데...... 착한 분 같아요!", "지금까지 본 어른 중에 제일 멋져요!", "고마워요. 저...... 모자 진짜 멋져요.", "내 <<print either('친구', '남동생', '여동생')>>한테도 하나 사줘야겠어요!")>>"
 	<<person2>><<He>>【은는】 활짝 웃으며 판잣길 쪽으로 달려간다.
 	<br><br>
 
@@ -2424,9 +2425,9 @@
 <br><br>
 
 <<if $location is "cafe" and !(between($chef_state, 7, 8) and $chef_rework lte 30)>>
-	<<link [[다음|Ocean Breeze]]>><<endevent>><</link>>
+	<<link [[다음|Ocean Breeze]]>><<endevent>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 <<elseif $location is "cafe">>
-	<<link [[다음|Cliff Street]]>><<endevent>><<set $eventskip to 1>><</link>>
+	<<link [[다음|Cliff Street]]>><<endevent>><<set $eventskip to 1>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 <<else>>
 	<<link [[다음|Forest Shop Entrance]]>><<endevent>><</link>>
 <</if>>
@@ -2870,14 +2871,14 @@
 
 <<if $location is "cafe" and !(between($chef_state, 7, 8) and $chef_rework lte 30)>>
 	<<if $daily.robin_in_cafe and Time.schoolDay>>
-		<<getouticon>><<link [[밖에서 로빈 만나기 (0:01)|Gwylan Talk Struggles Meet Robin]]>><<pass 1>><<set $phase to 0>><<endevent "phaseless">><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
+		<<getouticon>><<link [[밖에서 로빈을 만난다 (0:01)|Gwylan Talk Struggles Meet Robin]]>><<pass 1>><<set $phase to 0>><<endevent "phaseless">><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 	<<elseif $daily.robin_in_cafe>>
-		<<getouticon>><<link [[안에서 로빈 만나기 (0:01)|Gwylan Talk Struggles Meet Robin]]>><<pass 1>><<set $phase to 1>><<endevent "phaseless">><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
+		<<getouticon>><<link [[안에서 로빈을 만난다 (0:01)|Gwylan Talk Struggles Meet Robin]]>><<pass 1>><<set $phase to 1>><<endevent "phaseless">><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 	<<else>>
-		<<getouticon>><<link [[안으로 돌아가기 (0:01)|Ocean Breeze]]>><<pass 1>><<endevent>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
+		<<getouticon>><<link [[안으로 돌아간다 (0:01)|Ocean Breeze]]>><<pass 1>><<endevent>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 	<</if>>
 <<else>>
-	<<getouticon>><<link [[떠나기 (0:01)|Cliff Street]]>><<pass 1>><<endevent>><<set $eventskip to 1>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
+	<<getouticon>><<link [[떠난다 (0:01)|Cliff Street]]>><<pass 1>><<endevent>><<set $eventskip to 1>><<unset $cafe_study>><<storeon "cafe_balcony">><</link>>
 <</if>>
 
 :: Gwylan Talk Struggles Meet Robin
@@ -3170,16 +3171,16 @@
 <<if $fox gte 6>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"미, 미안. 나 같은 여우가 또 있을 줄은 몰랐어." 당신은 말한다.
+			"미-미안. 나 같은 여우가 또 있을 줄은 몰랐어." 당신은 말한다.
 		<<case "bratty">>
-			"왜 나한테 숨겼어? 나 같은 여우가 또 있을 줄은 몰랐단 말이야. 나 혼자인 줄 알았는데." 당신은 말한다.
+			"왜 나한테 숨겼어? 나 같은 여우가 또 있을 줄은 몰랐단 말이야. 나 혼자인 줄 알았는데," 당신은 말한다.
 		<<default>>
 			"나 같은 여우가 또 있을 줄은 몰랐어." 당신은 말한다. "뭐라고 해야 할지 모르겠네."
 	<</switch>>
 <<elseif $wolfgirl gte 6 or $cat gte 6 or $cow gte 6 or $harpy gte 6 or $fallenangel gte 2 or $angel gte 6 or $demon gte 6>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"미, 미안. 나 같은 존재가 또 있을 줄은 몰랐어." 당신은 말한다.
+			"미-미안. 나 같은 존재가 또 있을 줄은 몰랐어." 당신은 말한다.
 		<<case "bratty">>
 			"뭐라고 해야 할지 모르겠네. 나 같은 존재가 또 있을 줄은 몰랐어." 당신은 말한다.
 		<<default>>
@@ -3188,7 +3189,7 @@
 <<else>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"고, 고맙게 생각해. 그냥 놀랐을 뿐이야." 당신은 말한다.
+			"고-고맙게 생각해. 그냥 놀랐을 뿐이야." 당신은 말한다.
 		<<case "bratty">>
 			"고맙게 생각해. 하지만 뭐라고 해야 할지 모르겠네." 당신은 말한다.
 		<<default>>
@@ -3210,11 +3211,11 @@
 당신은 계속 쳐다본다.
 <br><br>
 
-"이제 그만하지? 손님들도 받아야 하니까." <<he>>【이가】 말한다. 평소처럼 가게 안은 두 사람 외에는 텅 비어 있다.
+"이제 그만하지? 손님들도 받아야 하니까," <<he>>【이가】 말한다. 평소처럼 가게 안은 두 사람 외에는 텅 비어 있다.
 <br><br>
 
 <<switch $speech_attitude>>
-	<<case "meek">>"귀, 귀여워." 당신은 말한다.
+	<<case "meek">>"귀-귀여워." 당신은 말한다.
 	<<case "bratty">>"그래도 너무 귀여운걸!" 당신은 말한다.
 	<<default>>"정말 귀여워." 당신은 말한다.
 <</switch>>
@@ -3236,7 +3237,7 @@
 <<effects>><<run statusCheck("Gwylan")>>
 <<switch $speech_attitude>>
 	<<case "meek">>
-		"꼬, 꼬리도 보여줄 수 있어?" 당신은 묻는다.
+		"꼬-꼬리도 보여줄 수 있어?" 당신은 묻는다.
 	<<case "bratty">>
 		"숨기지 말고, 꼬리도 보여줘." 당신은 말한다.
 	<<default>>
@@ -3324,7 +3325,7 @@
 
 	<<He>>【이가】 고개를 끄덕인다. "눈치 빠른 줄은 알았지만. 영원히 숨길 수는 없는 노릇이지."
 <<else>>
-	"난 널 아니까." 당신은 간단히 말한다. "내가 잊을 거라고 생각했어?"
+	"난 널 아니까," 당신은 간단히 말한다. "내가 잊을 거라고 생각했어?"
 	<br><br>
 
 	<<He>>【이가】 얼굴을 찌푸린다. "대부분은 잊어버리거든." <<He>>【은는】 앞으로 몸을 기울여 손으로 머리를 괸다. "그럼 최면 때문이었군. 성가시게 됐네."
@@ -3437,9 +3438,9 @@
 <<effects>>
 <<if $phase is 1>>
 	<<switch $speech_attitude>>
-		<<case "meek">>"괜찮아...? 네가 술 마시는 건 처음 보는데." 라고 당신은 말한다.
+		<<case "meek">>"괜찮아...? 네가 술 마시는 건 처음 보는데," 라고 당신은 말한다.
 		<<case "bratty">>"네가 취해 있을 줄은 몰랐네." 당신은 말한다. "괜찮아?"
-		<<default>>"괜찮아? 별로 좋아 보이진 않는데." 라고 당신은 말한다.
+		<<default>>"괜찮아? 별로 좋아 보이진 않는데," 라고 당신은 말한다.
 	<</switch>>
 	<br><br>
 
@@ -3814,7 +3815,7 @@
 <</if>>
 <br><br>
 
-"와줘서 기뻐," <<he>>【이가】 말한다. <<He>>【은는】 웃고 있지만, <span class="blue">하지만 <<his>> 눈가가 붉은 것을 보니 울었다는 것을 알 수 있다</span>.
+"와줘서 기뻐." <<he>>【이가】 말한다. <<He>>【은는】 웃고 있지만, <span class="blue">하지만 <<his>> 눈가가 붉은 것을 보니 울었다는 것을 알 수 있다</span>.
 "가게 다른 곳에 불 켜는 걸 깜빡했나 봐. 나를 찾는 게 너무 어렵진 않았으면 좋겠네."
 <br><br>
 
@@ -3874,7 +3875,7 @@
 <br><br>
 
 <<if !$yearningTalk.clothes>>
-	<<link [[<<him>>에게 왜 그렇게 특이한 옷을 입고 있는지 물어보기|Gwylan Yearning Talk Clothes]]>><<set $yearningTalk.clothes to true>><</link>>
+	<<link [[<<him>>에게 왜 그렇게 특이한 옷을 입고 있는지 물어본다|Gwylan Yearning Talk Clothes]]>><<set $yearningTalk.clothes to true>><</link>>
 	<br>
 <</if>>
 <<link [[<<him>>에게 뭐가 그렇게 급했는지 묻는다|Gwylan Yearning Talk Urgent]]>><<set $yearningTalk.urgent to true>><</link>>
@@ -3896,7 +3897,7 @@
 <br><br>
 
 <<if !$yearningTalk.cry>>
-	<<link [[<<him>>에게 왜 울고 있었는지 물어보기|Gwylan Yearning Talk Cry]]>><<set $yearningTalk.cry to true>><</link>>
+	<<link [[<<him>>에게 왜 울고 있었는지 물어본다|Gwylan Yearning Talk Cry]]>><<set $yearningTalk.cry to true>><</link>>
 	<br>
 <<elseif $yearningTalk.cry and !$yearningTalk.hug>>
 	<<link [[<<him>>【을를】 안아준다|Gwylan Yearning Talk Hug]]>><<set $yearningTalk.hug to true>><</link>>
@@ -4190,7 +4191,7 @@
 <<He>>【은는】 당신을 문으로 이끈다. 문이 열리자, 숲속 상점의 메인 룸으로 내려가는 짧은 계단만 보인다. 더 이상 어둡지 않다.
 <br><br>
 
-"곧 또 보자," <<he>>【이가】 말한다. "네 이야기를 더 들을 수 있길 기대하고 있을게."
+"곧 또 보자." <<he>>【이가】 말한다. "네 이야기를 더 들을 수 있길 기대하고 있을게."
 <br><br>
 
 <<link [[다음|Forest Shop Entrance]]>><<endevent>><</link>>
@@ -4475,7 +4476,7 @@
 <<elseif $phase is "sea">>
 	"바다의 말을 해요." <<His>> 눈이 커진다. 당신은 왜 그런 말을 했는지 확신할 수 없다. 그냥 말이 나왔을 뿐이다.
 <<elseif $phase is "burden">>
-	"누군가와 짐을 나눠 져," 당신이 말한다. "나와." <<He>>【은는】 잠시 슬퍼 보인다. 아니, 슬픈 게 아니다. 향수에 젖은 표정이다.
+	"누군가와 짐을 나눠 져." 당신이 말한다. "나와." <<He>>【은는】 잠시 슬퍼 보인다. 아니, 슬픈 게 아니다. 향수에 젖은 표정이다.
 <<else>>
 	당신은 아무 말도 하지 않는다. 그럴 필요가 없다. 당신들 둘 다 이미 알고 있다.
 <</if>>

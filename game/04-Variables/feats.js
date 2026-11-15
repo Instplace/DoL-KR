@@ -5,8 +5,10 @@
 	softLockable: true, //Will disable the unlocking of the feat if softmode is enabled
 	pregnancyLockable: true, //Will disable the unlocking of the feat if certain pregnancy settings are too low
 	hidden: true, //Will hide the feat at all times unless unlocked, best for feats for unreleased content
-	alt: "altTitle", //Alternate title to display if the feat is unlocked and altCond is met
-	altCond: "conditional" //Conditional evaluated to decide whether or not to display the altTitle (the feat must be owned in the current save for this to happen, regardless of the conditional)
+	altTitle: "altTitleText", //Alternate title to display if the feat is unlocked and altTitleCond is met
+	altTitleCond: "conditional" //Conditional evaluated to decide whether or not to display the altTitleText (the feat must be owned in the current save for this to happen, regardless of the conditional)
+	altDesc: "altDescText", //Alternate description to display if the feat is unlocked and altDescCond is met
+	altDescCond: "conditional" //Conditional evaluated to decide whether or not to display the altDescText (the feat must be owned in the current save for this to happen, regardless of the conditional)
 */
 setup.feats = {
 	"Pocket Change": {
@@ -20,7 +22,7 @@ setup.feats = {
 	"Money Maker": {
 		title: "돈벌레",
 		desc: "£10,000 보유하기.",
-		difficulty: 1,
+		difficulty: 2,
 		series: "money",
 		filter: ["All", "General"],
 		softLockable: true,
@@ -28,7 +30,7 @@ setup.feats = {
 	Tycoon: {
 		title: "재벌",
 		desc: "£100,000 보유하기.",
-		difficulty: 2,
+		difficulty: 3,
 		series: "money",
 		filter: ["All", "General"],
 		softLockable: true,
@@ -36,7 +38,7 @@ setup.feats = {
 	Millionaire: {
 		title: "백만장자",
 		desc: "£1,000,000 보유하기.",
-		difficulty: 3,
+		difficulty: 4,
 		series: "money",
 		filter: ["All", "General"],
 		softLockable: true,
@@ -57,24 +59,24 @@ setup.feats = {
 		filter: ["All", "General"],
 	},
 	"Being a Boy": {
-		title: "소년의 삶",
-		desc: "소년으로서 50일 차에 도달하기.",
+		title: "힘든 시절",
+		desc: "음경을 가진 채로 시작해 50일 차에 도달하기.",
 		difficulty: 1,
 		series: "",
 		filter: ["All", "General"],
 		softLockable: true,
 	},
 	"Being a Girl": {
-		title: "소녀의 삶",
-		desc: "소녀로서 50일 차에 도달하기.",
+		title: "비좁은 틈",
+		desc: "질을 가진 채로 시작해 50일 차에 도달하기.",
 		difficulty: 1,
 		series: "",
 		filter: ["All", "General"],
 		softLockable: true,
 	},
 	"Being a Hermaphrodite": {
-		title: "후타나리의 삶",
-		desc: "후타나리로서 50일 차에 도달하기.",
+		title: "이중고",
+		desc: "음경과 질을 모두 가진 채로 시작해 50일 차에 도달하기.",
 		difficulty: 1,
 		series: "",
 		filter: ["All", "General"],
@@ -253,14 +255,14 @@ setup.feats = {
 	"Most Aware": {
 		title: "세상 물정에 밝은",
 		desc: "당신은 남들이 못 보는 것을 봅니다.",
-		difficulty: 1,
+		difficulty: 2,
 		series: "",
 		filter: ["All", "Stats"],
 	},
 	"Most Innocent": {
 		title: "가장 순수한 자",
 		desc: "모든 게 다 괜찮을 거예요.",
-		difficulty: 1,
+		difficulty: 2,
 		series: "",
 		filter: ["All", "Stats"],
 	},
@@ -334,8 +336,8 @@ setup.feats = {
 		difficulty: 3,
 		series: "",
 		filter: ["All", "Stats"],
-		alt: "Degree in Lewdity",
-		altCond: "random(100) is 100",
+		altTitle: "음란학 학위",
+		altTitleCond: "random(100) is 100",
 	},
 	"Perfect Record": {
 		title: "완벽한 성적표",
@@ -375,7 +377,7 @@ setup.feats = {
 	Merchant: {
 		title: "상인",
 		desc: "시장을 장악하세요.",
-		difficulty: 2,
+		difficulty: 3,
 		series: "market",
 		filter: ["All", "Stats"],
 	},
@@ -441,6 +443,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Robin'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Hungry Orphan": {
 		title: "배고픈 고아",
@@ -462,6 +466,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Whitney'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"The Bully's Tithe": {
 		title: "일진의 상납금",
@@ -497,6 +503,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Kylar'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Not for Rats": {
 		title: "쥐를 위한 게 아냐",
@@ -511,6 +519,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Eden'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Sweet and Tender": {
 		title: "달콤하고 부드럽게",
@@ -525,6 +535,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Avery'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	Kept: {
 		title: "후원받는 자",
@@ -541,6 +553,8 @@ setup.feats = {
 		series: "",
 		filter: ["All", "Social"],
 		hint: "힌트: 부유한 후원자에게 역공을 가하세요.",
+		altDesc: "에이버리를 <<nnpc_his 'Avery'>> 지하실에 묶어버렸습니다.",
+		altDescCond: "true",
 	},
 	"Most Exclusive": {
 		title: "최고의 VIP",
@@ -571,6 +585,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Leighton'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Alex the Robust": {
 		title: "건장한 알렉스",
@@ -578,6 +594,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Alex'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Home Cooking": {
 		title: "집밥",
@@ -613,6 +631,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Wren'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Great Wolf the Alpha": {
 		title: "우두머리 검은 늑대",
@@ -620,6 +640,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<if resolveIfNamedBeastIsMonster('blackwolf')>><<nnpc_him 'Black Wolf'>>에게<<else>>그것에게<</if>> 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Encroaching Civilisation": {
 		title: "잠식하는 문명",
@@ -634,6 +656,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "<<nnpc_He 'Sydney'>>【이가】 당신에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	Communion: {
 		title: "교감",
@@ -648,6 +672,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Harper'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Morgan the Lost": {
 		title: "길 잃은 모건",
@@ -655,6 +681,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Morgan'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Gwylan the Bewitching": {
 		title: "매혹적인 그윌란",
@@ -663,6 +691,8 @@ setup.feats = {
 		series: "gwylanVirginity",
 		hint: "힌트: 호기심이 처녀/동정을 죽였습니다.",
 		filter: ["All", "Social"],
+		altDesc: "당신은 <<nnpc_him 'Gwylan'>>에게 순결을 바쳤습니다.",
+		altDescCond: "true",
 	},
 	"Coven Comforts": {
 		title: "마녀의 위안",
@@ -720,6 +750,8 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
+		altDesc: "메이슨이 말하고 싶어 하지 않는 것을 공유하도록 설득하기.",
+		altDescCond: "true",
 	},
 	"Mason's Shame": {
 		title: "메이슨의 수치",
@@ -771,6 +803,14 @@ setup.feats = {
 		difficulty: 1,
 		series: "",
 		hint: "힌트: 카일라 저택의 비밀을 발견하세요.",
+		filter: ["All", "Social"],
+	},
+	"Sancta Vexatio": {
+		title: "Sancta Vexatio",
+		desc: "Sancta Vexatio.",
+		difficulty: 1,
+		series: "",
+		hint: "힌트: 신전의 악의를 발견하십시오.",
 		filter: ["All", "Social"],
 	},
 	"Warmest Winter": {
@@ -904,7 +944,7 @@ setup.feats = {
 	"Broodmother Zoologist": {
 		title: "동물학자 무리의 어미",
 		desc: "기생충 노트를 완성했습니다.",
-		difficulty: 3,
+		difficulty: 4,
 		series: "",
 		filter: ["All", "Pregnancy"],
 		hint: "힌트: 남겨진 모든 것들을 조심스럽게 기록하세요.",
@@ -944,7 +984,7 @@ setup.feats = {
 	"Life Comes in Threes": {
 		title: "세 쌍둥이의 탄생",
 		desc: "세 쌍둥이를 낳았습니다.",
-		difficulty: 2,
+		difficulty: 3,
 		series: "",
 		filter: ["All", "Pregnancy"],
 		hint: "힌트: 세 가지의 같은 종류.",
@@ -952,7 +992,7 @@ setup.feats = {
 	},
 	"Life begins when you least expect": {
 		title: "예상치 못한 생명의 탄생",
-		desc: "남성의 몸으로 아이를 낳았습니다.",
+		desc: "질이 없는데도 아이를 낳았습니다.",
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Pregnancy"],
@@ -961,10 +1001,19 @@ setup.feats = {
 	"Diversity of Life": {
 		title: "생명의 다양성",
 		desc: "수많은 다양한 종의 아이들을 낳았습니다.",
-		difficulty: 4,
+		difficulty: 3,
 		series: "",
 		filter: ["All", "Pregnancy"],
 		hint: "힌트: 다양한 형태의 존재.",
+		pregnancyLockable: true,
+	},
+	"Pregnant Pause": {
+		title: "진통 속의 정적",
+		desc: "진통이 와서 베일리가 집세를 추궁하던 자리를 중단시켰습니다.",
+		difficulty: 2,
+		series: "",
+		filter: ["All", "Pregnancy"],
+		hint: "힌트: 보호자에게 '행복한' 작은 선물을 안기십시오.",
 		pregnancyLockable: true,
 	},
 	/* "Broken Dam":{ //Not in the code right now
@@ -1030,6 +1079,8 @@ setup.feats = {
 		series: "",
 		filter: ["All", "Special"],
 		hint: "힌트: 고아원의 골칫거리.",
+		altDesc: "<<nnpc_him 'Bailey'>>【을를】 절정에 달하게 만들기.",
+		altDescCond: "true",
 	},
 	"Leighton's Nightmare": {
 		title: "레이튼의 악몽",
@@ -1038,14 +1089,18 @@ setup.feats = {
 		series: "",
 		filter: ["All", "Special"],
 		hint: "힌트: 학교의 골칫거리.",
+		altDesc: "<<nnpc_him 'Leighton'>>【을를】 절정에 달하게 만들기.",
+		altDescCond: "true",
 	},
 	"Alex's Partner": {
 		title: "알렉스의 파트너",
 		desc: "그가 절정에 달하게 만들기.",
-		difficulty: 3,
+		difficulty: 2,
 		series: "",
 		filter: ["All", "Special"],
 		hint: "힌트: 즐거움이 가득한 밭.",
+		altDesc: "<<nnpc_him 'Alex'>>【을를】 절정에 달하게 만들기.",
+		altDescCond: "true",
 	},
 	"Harper's Bane": {
 		title: "하퍼의 골칫거리",
@@ -1054,6 +1109,8 @@ setup.feats = {
 		series: "",
 		filter: ["All", "Special"],
 		hint: "힌트: 자업자득을 맛보여주세요.",
+		altDesc: "하퍼가 <<nnpc_his 'Harper'>> 혈청을 마시게 만들기.",
+		altDescCond: "true",
 	},
 	Laughingstock: {
 		title: "웃음거리",
@@ -1607,6 +1664,15 @@ setup.feats = {
 		filter: ["All", "Discoveries-Town"],
 		hint: "힌트: 깨끗이 지우고 도망치세요.",
 	},
+	"Thugged It Out": {
+		title: "불량배 정리",
+		desc: "베일리의 불량배들을 완전히 망신시켰습니다.",
+		difficulty: 2,
+		series: "",
+		filter: ["All", "Discoveries-Town"],
+		hint: "힌트: 계획과 자원의 낭비.",
+		softLockable: true,
+	},
 	"Life of the Party": {
 		title: "파티의 주인공",
 		desc: "당신의 춤으로 파티장 사람들에게 깊은 인상 남기기.",
@@ -1719,9 +1785,27 @@ setup.feats = {
 		title: "저 깊은 곳",
 		desc: "광산 노예 생활에서 탈출하기.",
 		difficulty: 2,
-		series: "",
+		series: "Mines",
 		filter: ["All", "Discoveries-Other"],
 		hint: "힌트: 오래된 산업 현장에서 탈출하세요.",
+		softLockable: true,
+	},
+	"The Time is Now": {
+		title: "지금이 바로 그때",
+		desc: "광산을 영구히 가동 중단시켰습니다.",
+		difficulty: 3,
+		series: "Mines",
+		filter: ["All", "Discoveries-Other"],
+		hint: "힌트: 당신을 가둔 자들에게 반격하십시오.",
+		softLockable: true,
+	},
+	"Rock Bottom": {
+		title: "밑바닥",
+		desc: "광산의 바닥에 도달했습니다.",
+		difficulty: 2,
+		series: "Mines",
+		filter: ["All", "Discoveries-Other"],
+		hint: "힌트: 바닥까지 내려가십시오.",
 		softLockable: true,
 	},
 	"Bridging the Past": {
@@ -1938,6 +2022,24 @@ setup.feats = {
 		series: "Flyers",
 		filter: ["All", "Discoveries-Town"],
 		hint: "힌트: 니키와 함께 일하십시오.",
+		softLockable: true,
+	},
+	"Pumpkin Master": {
+		title: "호박 장인",
+		desc: "할로윈 호박 조각 대회에서 우승하기.",
+		difficulty: 1,
+		series: "",
+		filter: ["All", "Discoveries-Town"],
+		hint: "힌트: 할로윈 대회에 참가하십시오.",
+		softLockable: true,
+	},
+	"Nothing Copied": {
+		title: "베낀 것 없음",
+		desc: "신전 서예가가 되었습니다.",
+		difficulty: 1,
+		series: "",
+		filter: ["All", "Discoveries-Town"],
+		hint: "힌트: 신전 필사가들을 도우십시오.",
 		softLockable: true,
 	},
 	"Max Those Shots": {

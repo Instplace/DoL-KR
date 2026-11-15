@@ -141,7 +141,7 @@
 <<set $daily.school.attended.housekeeping to true>>
 
 <<if Time.weekDay is 5 and Time.minute gte 37>>
-	"모두 주방으로," 리버가 말한다. "시험 시간이다."<<gstress>><<stress 6>>
+	"모두 주방으로." 리버가 말한다. "시험 시간이다."<<gstress>><<stress 6>>
 	<br><br>
 
 	<<npc River>><<person1>>

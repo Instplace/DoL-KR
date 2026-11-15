@@ -721,10 +721,10 @@
 		"네 안대 어디 있어?" <<he>>【이가】 묻는다. "따라오시지."
 		<<set $phase to 1>>
 	<<elseif $prison.active_punishments.includes("topless") and ($worn.upper.name isnot "naked" or $worn.under_upper.name isnot "naked")>>
-		"너 윗도리는 벗고 있어야 할 텐데," <<he>>【이가】 말한다. "따라와."
+		"너 윗도리는 벗고 있어야 할 텐데." <<he>>【이가】 말한다. "따라와."
 		<<set $phase to 1>>
 	<<elseif $prison.active_punishments.includes("bottomless") and ($worn.lower.name isnot "naked" or $worn.under_lower.name isnot "naked")>>
-		"너 아랫도리는 벗고 있어야 할 텐데," <<he>>【이가】 말한다. "따라와."
+		"너 아랫도리는 벗고 있어야 할 텐데." <<he>>【이가】 말한다. "따라와."
 		<<set $phase to 1>>
 	<<elseif $prison.active_punishments.includes("leash") and ($worn.neck.collared isnot 1 or !$worn.neck.type.includes("leash"))>>
 		<<if $worn.neck.collared is 1>>
@@ -743,19 +743,19 @@
 		"네 재갈 어딨어?" <<he>>【이가】 묻는다. "따라와."
 		<<set $phase to 1>>
 	<<elseif $prison.active_punishments.includes("bindings") and !pcAreArmsBound("both")>>
-		"팔이 자유로워서는 안 될 텐데," <<he>>【이가】 말한다. "따라와."
+		"팔이 자유로워서는 안 될 텐데." <<he>>【이가】 말한다. "따라와."
 		<<set $phase to 1>>
 	<<elseif $worn.feet.type.includes("shackle") and !$prison.active_punishments.includes("cuffs")>>
 		"그건 어디서 났어?" <<he>>【이가】 당신의 족쇄를 내려다보며 묻는다. <<He>>【은는】 <<his>> 주머니에서 열쇠를 꺼낸다.
 		<<set $phase to 2>>
 	<<elseif $worn.neck.type.includes("leash") and !$prison.active_punishments.includes("leash")>>
-		"너 묶여있으면 안 될 텐데," <<he>>【이가】 <<his>> 주머니에서 펜치를 꺼내며 말한다.
+		"너 묶여있으면 안 될 텐데." <<he>>【이가】 <<his>> 주머니에서 펜치를 꺼내며 말한다.
 		<<set $phase to 3>>
 	<<elseif !$prison.active_punishments.includes("blindfold") and $worn.face.type.includes("blindfold")>>
-		"이제 그 안대 벗을 시간이다," <<he>>【이가】 말한다. <<him>>【이가】 다가오는 소리가 들린다.
+		"이제 그 안대 벗을 시간이다." <<he>>【이가】 말한다. <<him>>【이가】 다가오는 소리가 들린다.
 		<<set $phase to 4>>
 	<<elseif !$prison.active_punishments.includes("gag") and $worn.face.type.includes("gag")>>
-		"이제 그 재갈 풀 시간이다," <<he>>【이가】 당신에게 다가오며 말한다.
+		"이제 그 재갈 풀 시간이다." <<he>>【이가】 당신에게 다가오며 말한다.
 		<<set $phase to 5>>
 	<<else>>
 		<<switch _args[0]>>
@@ -802,7 +802,7 @@
 			<<elseif $prison.relaxed gte 30>>
 				<<He>>【이가】 씩 웃는다. "슬슬 심심해지던 참이었어." <<He>>【은는】 가볍게 웃으며 뒤로 기대어 <<his>> 손바닥 위에서 주사위를 굴린다.
 			<<else>>
-				"여전히 처참한 꼬락서니구만," <<he>>【이가】 공중에 주사위를 던지며 낄낄거린다.
+				"여전히 처참한 꼬락서니구만." <<he>>【이가】 공중에 주사위를 던지며 낄낄거린다.
 				<<if random(1, 20) is 1>>
 					<<He>>【은는】 그걸 잡지 못한다. 주사위 하나가 <<his>> 머리에 튕겨 바닥에 굴러떨어지는 것을 당신은 지켜본다.
 					<br>
@@ -815,7 +815,7 @@
 			<<if $prison.anxious gte 45>>
 				<<He>>【은는】 당신을 보자 진정한다. <<his>> 얼굴에 잠깐 미소가 번졌다가, 이내 엄격한 표정으로 가다듬는다.
 				<br><br>
-				"멍청한 짓은 하지 마십쇼," <<he>>【이가】 말한다.
+				"멍청한 짓은 하지 마십쇼." <<he>>【이가】 말한다.
 				<<switch random(0, 2)>>
 					<<case 2>>
 						"안경잡이 새끼가 널 데려가 버리면 어찌 해야 할지 모르겠네."
@@ -951,14 +951,14 @@
 		<<set $prison.schedule to "free time">>
 		<<generate_anxious_guard 0>>
 		<<person1>>
-		"<<phim>>【을를】 찾았습니다," 뒤에서 <<anxious_guard 0>>【이가】 소리친다. 고개를 돌리자, 교도관이 당신을 향해 걸어오는 것이 보인다.
+		"<<phim>>【을를】 찾았습니다." 뒤에서 <<anxious_guard 0>>【이가】 소리친다. 고개를 돌리자, 교도관이 당신을 향해 걸어오는 것이 보인다.
 		<br><br>
 		<<set $prison.hours_worked to 0>>
 		<<set $prison_event_trigger to "hunt">>
 		<<set $prison.morning to 1>>
 	<<elseif $prison.schedule is "revolt">>
 		<<prison_attention 1>>
-		교도소 전체가 무정부 상태에 빠져 있다.
+		감옥 전체가 무정부 상태에 빠져 있다.
 		<br><br>
 	<<elseif ($worn.neck.name is "free use collar" or $worn.neck.name is "free use collar with leash") and random(1, 2) is 2>>
 		<<set _rng to random(1, 5)>>
@@ -988,19 +988,19 @@
 				<</if>>
 				<br>
 				<<if random(1, 2) is 2>>
-					"좋은 생각이야," 다른 누군가 말한다.
+					"좋은 생각이야." 다른 누군가 말한다.
 				<<else>>
 					"갇혀있는 보람이 다 있다니까," 다른 누군가 말한다.
 				<</if>>
 				<br>
 				<<if random(1, 2) is 2>>
 					<<if $NPCList[2].penis isnot "none">>
-						"어디든 내 정액을 싸지르고 싶어서 근질근질해," 또 다른 누군가 말한다.
+						"어디든 내 정액을 싸지르고 싶어서 근질근질해." 또 다른 누군가 말한다.
 					<<else>>
-						"못 기다리겠어. 내 보지가 쑤셔온단 말이야," 또 다른 누군가 말한다.
+						"못 기다리겠어. 내 보지가 쑤셔온단 말이야." 또 다른 누군가 말한다.
 					<</if>>
 				<<else>>
-					"그 녀석을 내 <<bitch>>【으로로】 만들고 싶지만, 너무 귀찮아," 또 다른 누군가 말한다.
+					"그 녀석을 내 <<bitch>>【으로로】 만들고 싶지만, 너무 귀찮아." 또 다른 누군가 말한다.
 				<</if>>
 				<br><br>
 				<<set $prison_event_trigger to "three">>
@@ -1128,7 +1128,7 @@
 				<<if $worn.neck.type.includes("leash")>>
 					<<person>>【이가】 당신의 목줄을 잡아당겨 당신을 앞쪽으로 확 끌어당겼고, 당신은 가까스로 그 줄을 낚아채서 떼어낸다.<<ggattention prison>><<prison_attention 2>>
 				<<else>>
-					<<person>>【이가】 히죽 웃는다. "목걸이가 잘 어울리네," <<he>>【이가】 스쳐 지나가며 말한다. "바깥에서도 차고 다녔을 게 분명해."<<gattention prison>><<prison_attention 1>>
+					<<person>>【이가】 히죽 웃는다. "목걸이가 잘 어울리네." <<he>>【이가】 스쳐 지나가며 말한다. "바깥에서도 차고 다녔을 게 분명해."<<gattention prison>><<prison_attention 1>>
 				<</if>>
 				<<endevent>>
 				<br><br>
@@ -1221,20 +1221,20 @@
 		<<generate_veteran_guard 0>><<generate_scarred_inmate 1>><<person1>><<generate3>><<generate4>>
 		<<set $prison.protection to 0>>
 		<<if pcAreArmsBound("both")>>
-			거친 목소리가 울려퍼진다. "수감자," <<veteran_guard 0>>【이가】 말한다. "벽에 기대라!"
+			거친 목소리가 울려퍼진다. "수감자." <<veteran_guard 0>>【이가】 말한다. "벽에 기대라!"
 		<<else>>
-			거친 목소리가 울려퍼진다. "수감자," <<veteran_guard 0>>【이가】 말한다. "벽에 손 대!"
+			거친 목소리가 울려퍼진다. "수감자." <<veteran_guard 0>>【이가】 말한다. "벽에 손 대!"
 		<</if>>
 		<<He>>【은는】 곤봉을 쥔 채 다가온다. <span class="green">그러다 <<he>>【은는】 잠시 멈칫하더니,</span> 당신의 어깨너머를 바라본다.
 		<br><br>
 
-		<<scarred_inmate 1 cap>>【이가】 당신 곁에 다가온다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 <<person2>><<him>>【을를】 호위하고 있다. "마침 딱 보고 싶었던 <<bitch>>【이】네," 당신의 <<bottom>>【을를】 찰싹 치며 <<he>>【이가】 말한다. <<He>>【은는】 <<veteran_guard 0>>【을를】 바라본다. "너 얘한테 무슨 볼일이라도 있냐? 다른 간수들한테도 다 알려줘?"
+		<<scarred_inmate 1 cap>>【이가】 당신 곁에 다가온다. <<person3>><<person>>【와과】 <<person4>><<person>>【이가】 <<person2>><<him>>【을를】 호위하고 있다. "마침 딱 보고 싶었던 <<bitch>>【이】네." 당신의 <<bottom>>【을를】 찰싹 치며 <<he>>【이가】 말한다. <<He>>【은는】 <<veteran_guard 0>>【을를】 바라본다. "너 얘한테 무슨 볼일이라도 있냐? 다른 간수들한테도 다 알려줘?"
 		<br><br>
 
 		<<veteran_guard 0 cap>>【이가】 비웃으며 떠났다.
 		<br><br>
 
-		"나중에 보자, 창녀야," <<scarred_inmate 1>>【이가】 말한다. <span class="red">당신은 흉터 있는 죄수의 보호를 잃었다.</span>
+		"나중에 보자, 창녀야." <<scarred_inmate 1>>【이가】 말한다. <span class="red">당신은 흉터 있는 죄수의 보호를 잃었다.</span>
 		<br><br>
 
 		<<destination_prison>>
@@ -1243,9 +1243,9 @@
 		<<generate_veteran_guard 0>><<person1>>
 		<<set $prison.protection to 0>>
 		<<if pcAreArmsBound("both")>>
-			거친 목소리가 울려퍼진다. "수감자," <<veteran_guard 0>>【이가】 말한다. "벽에 기대라!"
+			거친 목소리가 울려퍼진다. "수감자." <<veteran_guard 0>>【이가】 말한다. "벽에 기대라!"
 		<<else>>
-			거친 목소리가 울려퍼진다. "수감자," <<veteran_guard 0>>【이가】 말한다. "벽에 손 대!"
+			거친 목소리가 울려퍼진다. "수감자." <<veteran_guard 0>>【이가】 말한다. "벽에 손 대!"
 		<</if>>
 		<<He>>【은는】 곤봉을 쥔 채 성큼성큼 다가온다. <span class="pink"><<He>>【은는】 뭔가 고약한 속셈을 품고 있다.</span>
 		<br><br>
@@ -1272,7 +1272,7 @@
 <<widget "prison_laundry_options">>
 	<<if Time.hour is 12>>
 		<<endevent>>
-		<<generate_relaxed_guard 0>><<person1>>"움직여," <<relaxed_guard 0>>【이가】 외친다. "점심시간이다."
+		<<generate_relaxed_guard 0>><<person1>>"움직여." <<relaxed_guard 0>>【이가】 외친다. "점심시간이다."
 		<br><br>
 		당신은 다른 죄수들과 함께 방 밖으로 터덜터덜 나간다.
 		<br><br>
@@ -1281,7 +1281,7 @@
 		<br>
 	<<elseif Time.hour is 18>>
 		<<endevent>>
-		<<generate_relaxed_guard 0>><<person1>>"이동해," <<relaxed_guard 0>>【이가】 소리친다. "저녁시간이다."
+		<<generate_relaxed_guard 0>><<person1>>"이동해." <<relaxed_guard 0>>【이가】 소리친다. "저녁시간이다."
 		<br><br>
 		당신은 다른 수감자들과 함께 방을 터덜터덜 빠져나간다.
 		<br><br>
@@ -1310,14 +1310,14 @@
 <<widget "prison_medical_options">>
 	<<if Time.hour is 12>>
 		<<endevent>>
-		<<generate_methodical_guard 0>><<person1>>"점심시간입니다," <<methodical_guard 0>>【이가】 말한다. <<He>>【은는】 <<his>> 주머니에서 기도서를 꺼내고, 문을 향해 걸어간다.
+		<<generate_methodical_guard 0>><<person1>>"점심시간입니다." <<methodical_guard 0>>【이가】 말한다. <<He>>【은는】 <<his>> 주머니에서 기도서를 꺼내고, 문을 향해 걸어간다.
 		<br><br>
 
 		<<link [[다음|Prison Medical]]>><<endevent>><</link>>
 		<br>
 	<<elseif Time.hour is 18>>
 		<<endevent>>
-		<<generate_methodical_guard 0>><<person1>>"저녁시간입니다," <<methodical_guard 0>>【이가】 말한다. <<He>>【은는】 <<his>> 주머니에서 기도서를 꺼내고, 문을 향해 뚜벅뚜벅 걸어간다.
+		<<generate_methodical_guard 0>><<person1>>"저녁시간입니다." <<methodical_guard 0>>【이가】 말한다. <<He>>【은는】 <<his>> 주머니에서 기도서를 꺼내고, 문을 향해 뚜벅뚜벅 걸어간다.
 		<br><br>
 
 		<<link [[다음|Prison Medical]]>><<endevent>><</link>>
@@ -1342,14 +1342,14 @@
 <<widget "prison_spire_options">>
 	<<if Time.hour is 12>>
 		<<endevent>>
-		<<generate_anxious_guard 0>><<person1>>"점심시간이다," <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 한 번 하더니 계단을 향해 달려 내려간다.
+		<<generate_anxious_guard 0>><<person1>>"점심시간이다." <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 한 번 하더니 계단을 향해 달려 내려간다.
 		<br><br>
 
 		<<link [[다음|Prison Spire]]>><<endevent>><</link>>
 		<br>
 	<<elseif Time.hour gte 18>>
 		<<endevent>>
-		<<generate_anxious_guard 0>><<person1>>"저녁시간이다," <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 한 번 하더니 계단을 향해 달려 내려간다.
+		<<generate_anxious_guard 0>><<person1>>"저녁시간이다." <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 한 번 하더니 계단을 향해 달려 내려간다.
 		<br><br>
 
 		<<link [[다음|Prison Spire]]>><<endevent>><</link>>
@@ -1361,7 +1361,7 @@
 		<<endevent>>
 		<br><br>
 		<<generate_anxious_guard 0>><<person1>>
-		"안돼 안돼 안돼," <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 하더니 안전한 통제실을 벗어난다. "그, 그만 좀 싸워 이것들아," <<he>>【이가】 말한다. "떨어지라고 했잖아."
+		"안돼 안돼 안돼." <<anxious_guard 0>>【이가】 말한다. <<He>>【은는】 심호흡을 하더니 안전한 통제실을 벗어난다. "그-그만 좀 싸워 이것들아." <<he>>【이가】 말한다. "떨어지라고 했잖아."
 		<br><br>
 
 		위험에 처한 녀석이 발버둥치며 빠져나오지만, 나머지 한 놈이 <<anxious_guard 0>>에게로 눈을 돌린다. <<He>>【은는】 즉시 몸을 돌리지만 충분히 빠르지 않다. 날갯짓 소리와 함께 괴물이 <<him>>【을를】 바닥에서 집어 올린다.
@@ -1477,7 +1477,7 @@
 			<<pregnancyPassout "prison">>
 		<</if>>
 	<<else>>
-		<<link [[모든 것이 어둠에 잠긴다...|Passout Prison]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Passout Prison]]>><</link>>
 	<</if>>
 <</widget>>
 
@@ -1486,7 +1486,7 @@
 		<<set $bus to "cell_block">>
 		<<passout_prison>>
 	<<else>>
-		<<link [[모든 것이 어둠에 잠긴다...|Passout Rut]]>><</link>>
+		<<link [[모든 것이 어둠 속으로 사라진다...|Passout Rut]]>><</link>>
 	<</if>>
 <</widget>>
 

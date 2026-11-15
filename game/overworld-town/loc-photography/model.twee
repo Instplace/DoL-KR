@@ -96,7 +96,7 @@
 <<set _colour to _colour || 0>>
 
 <<if $worn.face.type.includes("mask")>>
-	<<if $earSlime.forcedDressing and $earSlime.forcedDressing.type is "m">>
+	<<if $earSlime.forcedDressing?.type is "m">>
 		<span class="red">귀 슬라임이 여성스러운 의상을 입는 것을 거부합니다.</span>
 	<<else>>
 		<<link [[가면을 쓰고 여성스러운 의상을 입는다|Photo Model 2]]>>
@@ -110,7 +110,7 @@
 		<</link>>
 	<</if>>
 	<br>
-	<<if $earSlime.forcedDressing and $earSlime.forcedDressing.type is "f">>
+	<<if $earSlime.forcedDressing?.type is "f">>
 		<span class="red">귀 슬라임이 남성스러운 의상을 입는 것을 거부합니다.</span>
 	<<else>>
 		<<link [[가면을 쓰고 남성스러운 의상을 입는다|Photo Model 2]]>>
@@ -125,7 +125,7 @@
 	<</if>>
 	<br><br>
 <</if>>
-<<if $earSlime.forcedDressing and $earSlime.forcedDressing.type is "m">>
+<<if $earSlime.forcedDressing?.type is "m">>
 	<span class="red">귀 슬라임이 여성스러운 의상을 입는 것을 거부합니다.</span>
 <<else>>
 	<<link [[옷을 벗고 여성스러운 의상을 입는다|Photo Model 2]]>>
@@ -139,7 +139,7 @@
 	<</link>>
 <</if>>
 <br>
-<<if $earSlime.forcedDressing and $earSlime.forcedDressing.type is "f">>
+<<if $earSlime.forcedDressing?.type is "f">>
 	<span class="red">귀 슬라임이 남성스러운 의상을 입는 것을 거부합니다.</span>
 <<else>>
 	<<link [[옷을 벗고 남성스러운 의상을 입는다|Photo Model 2]]>>
@@ -228,7 +228,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송해요." 당신은 말한다. "하지만 구경꾼이 있는 채로는 안 할래요."
+	"죄-죄송해요." 당신은 말한다. "하지만 구경꾼이 있는 채로는 안 할래요."
 <<elseif $speech_attitude is "bratty">>
 	"이건 믿을 수 없어요." 당신은 말한다. "장단 맞춰주지 않을 거예요."
 <<else>>
@@ -283,9 +283,9 @@
 	<br><br>
 <<elseif $phase is 1>>
 	<<if $speech_attitude is "meek">>
-		"제, 제발요." 당신은 말한다. "그렇게 음란하게는 말고요."
+		"제-제발요." 당신은 말한다. "그렇게 음란하게는 말고요."
 	<<elseif $speech_attitude is "bratty">>
-		"이 옷 모델을 하는 거지," 당신은 말한다. "내 엉덩이 모델이 아니라고요."
+		"이 옷 모델을 하는 거지." 당신은 말한다. "내 엉덩이 모델이 아니라고요."
 	<<else>>
 		"그런 식의 사진은 불편해요." 당신은 말한다.
 	<</if>>
@@ -328,7 +328,7 @@
 
 <<if $phase is 1>>
 	<<if $speech_attitude is "meek">>
-		"그, 그거 만지면 안 될 것 같은데요." 당신은 말한다.
+		"그-그거 만지면 안 될 것 같은데요." 당신은 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"그 손 안 치워?" 당신은 말한다.
 	<<else>>
@@ -545,7 +545,7 @@
 	당신은 조용히 있는다. <<person>>【은는】 입을 열지만, 밖에서 들려오는 쾅 소리에 방해받는다.
 <<elseif $phase is 1>>
 	<<if $speech_attitude is "meek">>
-		"제, 제발 그러지 마세요." 당신은 말한다.
+		"제-제발 그러지 마세요." 당신은 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"이러지 마세요." 당신은 말한다.
 	<<else>>
@@ -616,7 +616,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송해요." 당신은 말한다. "그건 불편해서요."
+	"죄-죄송해요." 당신은 말한다. "그건 불편해서요."
 <<elseif $speech_attitude is "bratty">>
 	"관심 없어요." 당신은 말한다.
 <<else>>
@@ -976,7 +976,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"제, 제발 그러지 마세요." 당신은 말한다. "전 돈이 필요해서 여기 온 것뿐이에요."
+	"제-제발 그러지 마세요." 당신은 말한다. "전 돈이 필요해서 여기 온 것뿐이에요."
 <<elseif $speech_attitude is "bratty">>
 	"그 손 안 치워?" 당신은 말한다. "모델 일 하러 온 거지, 더듬거리라고 온 게 아니야."
 <<else>>
@@ -994,7 +994,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㅎ-해치지 마세요." 당신은 말한다. "안 그러면 니키가 화낼 거예요."
+	"해-해치지 마세요." 당신은 말한다. "안 그러면 니키가 화낼 거예요."
 <<elseif $speech_attitude is "bratty">>
 	"가만 안 둘 거야." 당신은 말한다. "니키도 같이 팰걸."
 <<else>>

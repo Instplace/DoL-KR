@@ -196,7 +196,7 @@
 		당신은 움직이려 하지만, <span class="red">소용없다.</span>
 	<</if>>
 	<br><br>
-	"이거 일이겠는데." <<person1>><<person>>【이가】 말한다. "내가 엉덩이를 잡을게. 어깨로 메는 게 제일 나을 것 같아."
+	"이거 일이겠는데," <<person1>><<person>>【이가】 말한다. "내가 엉덩이를 잡을게. 어깨로 메는 게 제일 나을 것 같아."
 	<br><br>
 	<<person1>><<person>>【은는】 당신을 어깨에 메기 위해 무릎을 꿇고, 그러면서 당신의 <<bottom>>【을를】 더듬는다. <<person2>><<person>>【은는】 비슷한 방식으로 당신을 잡는데, <<his>> 팔이 당신의 <<breasts>> 위에 놓인다.<<gstress>><<stress 6>><<petrified_chance -5>><<lescape_chance>>
 	<br><br>

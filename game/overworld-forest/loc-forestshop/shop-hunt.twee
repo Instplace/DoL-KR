@@ -822,7 +822,7 @@
 			<<shopHuntActorName $_actor.id "cap">>【은는】 한 손으로 당신의 얼굴을 감싸 쥐고 눈을 들여다본다.
 			<<if $shopHunt.actors.some(x => x.type is "eden" and x.team isnot $_actor.team)>>
 				<<set $shopHunt.commands.pushUnique("towardEden")>>
-				"<span class="witch"><<nnpc_title 'Eden'>>에게서 멀리 떨어져</span>, <<pcpetname "Gwylan">>," <<shopHuntPronoun "he">>【이가】 나직이 말한다. <<hypnosisText "당신의 정신은 <<shopHuntPronoun 'his'>> 말을 받아들인다.">> 에덴에게서 떨어지라는 것은 너무나 합당한 요구다.
+				"<span class="witch"><<nnpc_title 'Eden'>>에게서 멀리 떨어져</span>, <<pcpetname "Gwylan">>." <<shopHuntPronoun "he">>【이가】 나직이 말한다. <<hypnosisText "당신의 정신은 <<shopHuntPronoun 'his'>> 말을 받아들인다.">> 에덴에게서 떨어지라는 것은 너무나 합당한 요구다.
 			<<else>>
 				<<shopHuntActorName $_actor.id "cap">>【은는】 아무 말도 하지 않는다. <<shopHuntPronoun "He">>【은는】 그럴 필요가 없다. <<hypnosisText "당신의 의지는 <<shopHuntPronoun 'his'>> 의지 앞에서 흔들린다.">>
 			<</if>>
@@ -873,12 +873,12 @@
 				<<case "mirror">>
 					<<shopHuntActorSetState _args[0] "check" "player">>
 					<<if $_actor.role is "enemy">>
-						"여기 있었군," <<shopHuntActorName _args[0]>>【이가】 으르렁거린다. <<shopHuntPronoun "He">>【은는】 당신을 향해 성큼성큼 다가온다. "장난은 그쯤 해둬. 넌 집으로 갈 거니까."
+						"여기 있었군." <<shopHuntActorName _args[0]>>【이가】 으르렁거린다. <<shopHuntPronoun "He">>【은는】 당신을 향해 성큼성큼 다가온다. "장난은 그쯤 해둬. 넌 집으로 갈 거니까."
 					<<else>>
 						<<if $shopHunt.shop.shuffle.count gte 1>>
-							"거기 있었구나," <<shopHuntActorName _args[0]>>【이가】 헐떡인다. <<shopHuntPronoun "He">>【은는】 당신을 향해 걸어온다. "이번엔 떨어지지 마."
+							"거기 있었구나." <<shopHuntActorName _args[0]>>【이가】 헐떡인다. <<shopHuntPronoun "He">>【은는】 당신을 향해 걸어온다. "이번엔 떨어지지 마."
 						<<else>>
-							"여기 있었네," <<shopHuntActorName _args[0]>>【이가】 헐떡인다. <<shopHuntPronoun "He">>【은는】 당신을 향해 걸어온다. "빛을 쓰다니, 머리 잘 썼어. 가자. 넌 이제 집으로 돌아간다."
+							"여기 있었네." <<shopHuntActorName _args[0]>>【이가】 헐떡인다. <<shopHuntPronoun "He">>【은는】 당신을 향해 걸어온다. "빛을 쓰다니, 머리 잘 썼어. 가자. 넌 이제 집으로 돌아간다."
 						<</if>>
 					<</if>>
 				<<case "inside">>
@@ -3168,11 +3168,11 @@
 					<<if $_playerSeesEden>>
 						<<shopHuntActorName $_eden.id>> 주위에서 유령 같은 목소리가 메아리친다. "<span class="witch">네가 빗나간 총알로 맞힌 모든 나무들. 네가 썩도록 내버려 둔 모든 시체들. 너의 죄는 기억되고 있어.</span>"
 						<br>
-						<<shopHuntPronoun "him">> 주위로 발소리가 메아리치자 "정말 기억에 남을 만한 걸 하나 주지," 하고 <<shopHuntPronoun "he">>【이가】 말한다.
+						<<shopHuntPronoun "him">> 주위로 발소리가 메아리치자 "정말 기억에 남을 만한 걸 하나 주지." 하고 <<shopHuntPronoun "he">>【이가】 말한다.
 					<<else>>
 						<<shopHuntDirKr $_edenDirection>> 방향에서 유령 같은 목소리가 메아리친다. "<span class="witch">네가 빗나간 총알로 맞힌 모든 나무들. 네가 썩도록 내버려 둔 모든 시체들. 너의 죄는 기억되고 있어.</span>"
 						<br>
-						"정말 기억에 남을 만한 걸 하나 주지," 하고 <<shopHuntPronoun "he">>【이가】 말한다. 같은 방향에서 질주하는 발소리가 들린다.
+						"정말 기억에 남을 만한 걸 하나 주지." 하고 <<shopHuntPronoun "he">>【이가】 말한다. 같은 방향에서 질주하는 발소리가 들린다.
 					<</if>>
 				<<default>>
 					<<if $_playerSeesEden>>
@@ -3465,7 +3465,7 @@
 										어둠 속에서 <<shopHuntActorName $_edenTarget.id>>【이가】 킥킥 웃는 소리가 들린다.
 									<</if>>
 									"또 7년 동안 끔찍한 불운을 겪겠네."
-								<<elseif $_edenTargetHit and $_edenTargetHit.health lte 0>>
+								<<elseif $_edenTargetHit?.health lte 0>>
 									<<switch random(1,4)>>
 										<<case 1>>"넌 파괴하는 것밖에 모르지?"
 										<<case 2>>"그건 모두 네 위로 무너져 내릴 거야."
@@ -3735,7 +3735,7 @@
 <<set $location to "forest_shop">><<set $outside to 0>><<effects>>
 <br><br>
 
-<<link [[정원 열쇠 찾기|Forest Shop Hunt Intro]]>><<set $phase to "garden">><</link>><<note "완료!" "green">>
+<<link [[정원 열쇠를 찾는다|Forest Shop Hunt Intro]]>><<set $phase to "garden">><</link>><<note "완료!" "green">>
 <br>
 <<link [[숨바꼭질 게임|Forest Shop Hunt Intro]]>><<npc Gwylan>><<person1>><<set $phase to "game">><</link>><<note "일부 구현됨" "orange">>
 <br>
@@ -3889,7 +3889,7 @@
 
 	<<shopHuntIcon _locRaw "hide">><<link [[계속 숨어있는다|Forest Shop Hunt]]>><<set $shopHunt.player.action to "hide">><</link>>
 	<br>
-	<<shopHuntIcon _locRaw>><<link [[<<shopHuntLocName shopHuntFind("player") "simple">>【을를】 떠나기|Forest Shop Hunt]]>><<set $shopHunt.player.hide to 0>><<set $shopHunt.player.action to "insideExit">><</link>>
+	<<shopHuntIcon _locRaw>><<link [[<<shopHuntLocName shopHuntFind("player") "simple">>【을를】 떠난다|Forest Shop Hunt]]>><<set $shopHunt.player.hide to 0>><<set $shopHunt.player.action to "insideExit">><</link>>
 <<elseif _actorDrag or _dragStarted>>
 	<<shopHuntDragOptions _dragStarted>>
 <<elseif $shopHunt.actors.filter(x => x.state is "hold").length gte 1>>

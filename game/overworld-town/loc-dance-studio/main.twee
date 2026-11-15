@@ -40,17 +40,17 @@
 				<span class="blue">찰리가 다음 주에 또 다른 일거리를 줄 겁니다.</span>
 				<br>
 			<<else>>
-				<<socialiseicon "ask">><<link [[일거리 요청하기|Dance Job Ask]]>><</link>>
+				<<socialiseicon "ask">><<link [[일거리를 요청한다|Dance Job Ask]]>><</link>>
 				<br>
 			<</if>>
 		<</if>>
 		<<if $exposed lt 1>>
 			<<if $money gte 1200>>
 				<<if $danceskill gte 800 and $danceStudio.intro and !$danceStudio.jobOffered>>
-					<<dancestudioicon>><<link [[댄스 레슨 받기 (£12 1:00)|Dancing Lesson Job Intro]]>><</link>><<gtiredness>><<note "+ + 춤 스킬" "green">>
+					<<dancestudioicon>><<link [[댄스 레슨을 받는다 (£12 1:00)|Dancing Lesson Job Intro]]>><</link>><<gtiredness>><<note "+ + 춤 스킬" "green">>
 					<br>
 				<<else>>
-					<<dancestudioicon>><<link [[댄스 레슨 받기 (£12 1:00)|Dancing Lesson]]>><<set $phase to 0>><<money -1200 "danceStudioLessons">><<set $danceStudio.stage to 0>><</link>><<gtiredness>><<note "+ + 춤 스킬" "green">>
+					<<dancestudioicon>><<link [[댄스 레슨을 받는다 (£12 1:00)|Dancing Lesson]]>><<set $phase to 0>><<money -1200 "danceStudioLessons">><<set $danceStudio.stage to 0>><</link>><<gtiredness>><<note "+ + 춤 스킬" "green">>
 					<br>
 				<</if>>
 			<<else>>
@@ -60,20 +60,20 @@
 		<</if>>
 		<<if (Time.weekDay is 3 or Time.weekDay is 5) and $worn.feet.type.includes("heels")>>
 			<<if $money gte 1200 and $exposed lt 1>>
-				<<heelsicon>><<link [[하이힐 레슨 받기 (£12 0:30)|Heel Lesson]]>><<set $phase to 0>><<money -1200 "danceStudioLessons">><<pass 30>><</link>><<ggtiredness>><<gfeetskill>>
+				<<heelsicon>><<link [[하이힐 레슨을 받는다 (£12 0:30)|Heel Lesson]]>><<set $phase to 0>><<money -1200 "danceStudioLessons">><<pass 30>><</link>><<ggtiredness>><<gfeetskill>>
 				<br>
 			<</if>>
 		<<else>>
-			<<heelsicon>><<link [[하이힐 레슨에 대해 문의하기|Heel Lesson Inquiry]]>><</link>>
+			<<heelsicon>><<link [[하이힐 레슨에 대해 문의한다|Heel Lesson Inquiry]]>><</link>>
 			<br>
 		<</if>>
 		<<if (Time.weekDay is 2 or Time.weekDay is 4 or Time.weekDay is 6)>>
 			<<if $money gte 2200>>
-				<<icon "yoga.png">><<link [[요가 레슨 받기 (£22 1:00)|Yoga Classes Change Room]]>><</link>><<gtiredness>><<if !$daily.yogaWillpower>><<gwillpower>><</if>><<llstress>>
+				<<icon "yoga.png">><<link [[요가 레슨을 받는다 (£22 1:00)|Yoga Classes Change Room]]>><</link>><<gtiredness>><<if !$daily.yogaWillpower>><<gwillpower>><</if>><<llstress>>
 			<</if>>
 			<br>
 		<<else>>
-			<<socialiseicon "ask">><<link [[요가 레슨에 대해 문의하기|Yoga Classes Inquire]]>><</link>>
+			<<socialiseicon "ask">><<link [[요가 레슨에 대해 문의한다|Yoga Classes Inquire]]>><</link>>
 			<br>
 		<</if>>
 	<</if>>
@@ -82,7 +82,7 @@
 		<br>
 	<</if>>
 	<<if !Time.openingHours() and Time.hour isnot $closinghour and !$weekly.theft.danceStudio>>
-		<<shopicon "register">><<link [[금전 등록기 살펴보기|Dance Studio Register]]>><</link>>
+		<<shopicon "register">><<link [[금전 등록기를 살펴본다|Dance Studio Register]]>><</link>>
 		<br>
 	<</if>>
 	<br>
@@ -134,7 +134,7 @@
 		<<wearProp "lockpick">>
 		<span class="green">자물쇠는 쉽게 딸 수 있을 것 같다.</span>
 		<br><br>
-		<<lockicon "pick">><<link [[자물쇠 따기 (0:10)|Dance Studio]]>><<pass 10>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
+		<<lockicon "pick">><<link [[자물쇠를 딴다 (0:10)|Dance Studio]]>><<pass 10>><<crimeUp 5 "trespassing">><</link>><<crime "trespassing">>
 		<br>
 	<</if>>
 <<else>>
@@ -336,7 +336,7 @@
 			<</if>>
 		<</if>>
 	<<else>> /* noinstructor */
-		접수원은 문 틈으로 고개를 내밀고 찰리를 보았고, 찰리는 그녀의 의도를 파악한 것 같다. "난 좀 쉬다 올게," <<he>>【이가】 말한다. "계속 연습해, 금방 돌아올 거니까."
+		접수원은 문 틈으로 고개를 내밀고 찰리를 보았고, 찰리는 그녀의 의도를 파악한 것 같다. "난 좀 쉬다 올게." <<he>>【이가】 말한다. "계속 연습해, 금방 돌아올 거니까."
 		<br><br>
 		<<endevent>>
 		<<if $danceStudio.anger gte 10>>
@@ -563,14 +563,14 @@
 					찰리가 당신의 <<bellyDescription>>【을를】 보며 끄덕이고는 요즘 기분이 어떤지 묻는다.
 					<br><br>
 					<<if $speech_attitude is "meek">>
-						"잘 버티고 있어요," 당신은 소심하게 작은 미소를 지으며 말한다. "최근엔 약간 현기증이 나서요. 오늘 아침엔 쓰러질까 봐 걱정했어요."
+						"잘 버티고 있어요." 당신은 소심하게 작은 미소를 지으며 말한다. "최근엔 약간 현기증이 나서요. 오늘 아침엔 쓰러질까 봐 걱정했어요."
 					<<elseif $speech_attitude is "bratty">>
-						"뭐, 그냥 그래요," 당신은 어깨를 으쓱하며 말한다. "오늘은 어지럼증 때문에 죽을 맛이네요."
+						"뭐, 그냥 그래요." 당신은 어깨를 으쓱하며 말한다. "오늘은 어지럼증 때문에 죽을 맛이네요."
 					<<else>>
 						"조금 어지러워요," 당신은 털어놓는다. "하지만 그 외엔 괜찮아요."
 					<</if>>
 					<br><br>
-					찰리가 끄덕인다. "예상했던 일이죠," <<nnpc_he "Charlie">>【이가】 말한다. "오늘 수업은 회복 요가로 가볍게 진행할 거예요. 혈액 순환을 고르게 하고 중심 감각을 개선해 어지러움을 완화하는 자세들이 있거든요." <<nnpc_He "Charlie">>【이가】 몇 가지 자세를 보여주고, 루틴을 마친 후 당신은 발걸음이 한결 안정된 것을 느낀다.
+					찰리가 끄덕인다. "예상했던 일이죠." <<nnpc_he "Charlie">>【이가】 말한다. "오늘 수업은 회복 요가로 가볍게 진행할 거예요. 혈액 순환을 고르게 하고 중심 감각을 개선해 어지러움을 완화하는 자세들이 있거든요." <<nnpc_He "Charlie">>【이가】 몇 가지 자세를 보여주고, 루틴을 마친 후 당신은 발걸음이 한결 안정된 것을 느낀다.
 				<<else>>
 					수업이 계속된다. 당신은 큰 어려움 없이 따라갈 수 있다.
 				<</if>>
@@ -622,7 +622,7 @@
 			<<case 2>>
 				수업이 진행되던 중, 찰리가 교실 밖으로 호출된다. <<nnpc_He "Charlie">>【은는】 모두에게 자세를 유지하라고 말하며, <<nnpc_he "Charlie">>【이가】 곧 돌아오겠다고 한다. 당신은 <<nnpc_he "Charlie">>의 말대로 하려 노력하지만, 곧 누군가의 손이 당신의 엉덩이를 만지는 것이 느껴진다.
 				<br><br>
-				"조용히 있는 게 좋을 거야," <<person1>><<person>>【이가】 말한다. "괜한 소란을 피우고 싶진 않겠지?"
+				"조용히 있는 게 좋을 거야." <<person1>><<person>>【이가】 말한다. "괜한 소란을 피우고 싶진 않겠지?"
 				<br><br>
 				<<link [[다음|Yoga Classes Molestation]]>><<set $molestationstart to 1>><</link>>
 		<</switch>>
@@ -630,7 +630,7 @@
 		<<endevent>><<generate1>><<generate2>><<generate3>><<generate4>>
 		수업이 진행되던 중, 찰리가 교실 밖으로 호출된다. <<nnpc_He "Charlie">>【은는】 모두에게 자세를 유지하라고 말하며, <<nnpc_he "Charlie">>【이가】 곧 돌아올 것이라고 한다. 당신은 <<nnpc_he "Charlie">>의 말대로 하려 노력하지만, 곧 누군가의 손이 당신의 엉덩이를 만지는 것이 느껴진다.
 		<br><br>
-		"이런 옷차림으로 여기에 오다니," <<person1>><<person>>【이가】 말한다. "아주 대놓고 바라는 거 맞지?"
+		"이런 옷차림으로 여기에 오다니." <<person1>><<person>>【이가】 말한다. "아주 대놓고 바라는 거 맞지?"
 		<br><br>
 		주위를 둘러보자, 여러 다른 사람들도 어느새 다가와 욕정에 찬 눈빛으로 당신의 <<lewdness>>【을를】 응시하고 있는 것이 보인다.
 		<br><br>
@@ -660,20 +660,22 @@
 탈의실에 들어가서 수업에 어떤 옷을 입을지 생각해본다.
 <br><br>
 <<dancingclothes>>
-<<if _store_check is 1>>
-	<<getinicon>><<link [[들어가기|Yoga Classes Enter]]>><</link>>
+<<if _store_check is 1 and $exposed is 0>>
+	<<getinicon>><<link [[들어간다|Yoga Classes Enter]]>><</link>>
 	<br>
 <</if>>
-<<getouticon>><<link [[나가기|Dance Studio]]>><</link>>
-<br>
 <<if hasSexStat("exhibitionism", 5)>>
-	<<getinicon>><<link [[알몸으로 가기|Yoga Classes Enter]]>><<strip>><</link>><<exhibitionist5>>
+	<<getinicon>><<link [[알몸으로 들어간다|Yoga Classes Enter]]>><<strip>><<set $danceStudio.nudeYoga to 1>><</link>><<exhibitionist5>>
 	<br>
+<<else>>
+	<<insufficientStat "exhibitionism" "노출된 채로 수업을 받기엔">><br>
 <</if>>
+<<getouticon>><<link [[나간다|Dance Studio]]>><</link>>
+<br>
 
 :: Yoga Classes Enter
 <<effects>>
-<<set $danceStudio.stage to 0>>
+<<set $danceStudio.stage to 0>><<unset $danceStudio.nudeYoga>>
 <<if !$danceStudio.intro>>
 	<<danceStudioIntro "Yoga Classes Start 2">>
 <<elseif $worn.under_upper.type.includes("dance")>>
@@ -828,7 +830,9 @@
 <<effects>>
 <<if $enemyhealth lte 0>>
 	당신은 공격자들을 모두 쓰러뜨리며 훨씬 더 고통스러운 종류의 요가를 연습하게 만든다.
-	<<clotheson>>
+	<<if !$danceStudio.nudeYoga>>
+		<<clotheson>>
+	<</if>>
 	<<endcombat>>
 	교실 문이 열리자 모두가 재빨리 자신의 매트로 돌아간다. 찰리는 멍들고 떨고 있는 많은 학생들을 쳐다본다. 그럼에도 <<nnpc_he "Charlie">>【은는】 아무 말도 하지 않고, 그저 <<nnpc_his "Charlie">> 매트에 앉는다.
 	<br><br>
@@ -838,7 +842,9 @@
 	<br>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	<<clotheson>>
+	<<if !$danceStudio.nudeYoga>>
+		<<clotheson>>
+	<</if>>
 	<<endcombat>>
 	교실 문이 열리자 공격자들이 재빨리 자신의 매트로 돌아간다. 찰리는 더 이상 자세를 유지하지 못하는 많은 학생들을 쳐다본다. 그럼에도 <<nnpc_he "Charlie">>【은는】 아무 말도 하지 않고, 그저 <<nnpc_his "Charlie">> 매트에 앉는다.
 	<br><br>
@@ -847,7 +853,9 @@
 	<<link [[다음|Yoga Classes Start 2]]>><</link>>
 	<br>
 <<else>>
-	<<clotheson>>
+	<<if !$danceStudio.nudeYoga>>
+		<<clotheson>>
+	<</if>>
 	<<endcombat>>
 	교실 문이 열리자 공격자들이 재빨리 자신의 매트로 돌아간다. 찰리는 더 이상 자세를 유지하지 못하는 많은 학생들을 쳐다본다. 그럼에도 <<nnpc_he "Charlie">>【은는】 아무 말도 하지 않고, 그저 <<nnpc_his "Charlie">> 매트에 앉는다.
 	<br><br>
@@ -892,7 +900,7 @@
 	<<feetskill 45>>
 	<span class="gold">발로 쾌감을 주는 능력에 더 자신감이 생긴다.</span>
 	<br><br>
-	<<link [[마무리하기|Heel Lesson Video]]>><</link>>
+	<<link [[마무리한다|Heel Lesson Video]]>><</link>>
 <</if>>
 
 :: Heel Lesson Video
@@ -917,4 +925,4 @@
 <</if>>
 <br><br>
 <<endevent>>
-<<link [[나가기|Dance Studio]]>><</link>>
+<<link [[나간다|Dance Studio]]>><</link>>

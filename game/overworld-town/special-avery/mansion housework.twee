@@ -13,16 +13,16 @@
 	<<socialiseicon "angry">><<link [[에이버리의 경고를 무시하고 침실을 청소한다|Mansion Housework]]>><<set $avery_mansion.bedroom_state to "ignored">><</link>>
 <<elseif $avery_mansion.bedroom gte 1 and $avery_mansion.schedule is "sleep" and $avery_mansion.bedroom_state>>
 	<<set _avery_mansion_time_bedroom to _avery_mansion_time + $avery_mansion.bedroom * _avery_housekeeping>>
-	침실까지 모두 청소하면 _avery_mansion_time_bedroom분이 걸리고, 침실을 건드리지 않으면 _avery_mansion_time분이 걸린다. 가사 스킬은 실내 작업을 빠르게 해준다. 관리 스킬은 정원 일을 빠르게 해준다.
+	침실까지 모두 청소하려면 <<printTime _avery_mansion_time_bedroom>>【이가】 걸리고, 침실을 건드리지 않으면 _avery_mansion_time 분이 걸린다. 가사 스킬은 실내 작업을 빠르게 해준다. 관리 스킬은 정원 일을 빠르게 해준다.
 	<br><br>
 
 	<<socialiseicon "angry">><<link [[에이버리의 경고를 무시하고 전부 청소한다|Mansion Housework]]>><<set $avery_mansion.bedroom_state to "ignored">><</link>>
 	<br>
 	<<icon "clothes/feather-duster.png">><<link [[침실을 제외하고 모두 청소한다|Mansion Housework]]>><<set $avery_mansion.bedroom_state to "off-limits">><</link>>
 <<else>>
-    <<set _avery_mansion_time_bedroom to _avery_mansion_time + $avery_mansion.bedroom * _avery_housekeeping>>
-    모두 청소하는 데 총 _avery_mansion_time_bedroom분이 소요된다. 가사 기술이 높을수록 실내 작업 속도가 빨라지며, 관리 기술이 높을수록 정원 작업 속도가 빨라진다.
-    <br><br>
+	<<set _avery_mansion_time_bedroom to _avery_mansion_time + $avery_mansion.bedroom * _avery_housekeeping>>
+	모두 청소하는 데 총 <<printTime _avery_mansion_time_bedroom>>【이가】 걸린다. 가사 기술이 높을수록 실내 작업 속도가 빨라지며, 관리 기술이 높을수록 정원 작업 속도가 빨라진다.
+	<br><br>
 
 	<<icon "clothes/feather-duster.png">><<link [[청소한다|Mansion Housework]]>><</link>>
 <</if>>
@@ -65,7 +65,7 @@
 
 당신은 일하는 동안 <<bottom>>【을를】 뒤로 내밀고, 일정한 리듬으로 흔든다.<<exhibitionism1>>
 
-에이버리가 일어나 당신의 엉덩이를 붙잡는다. "잘했어, 자기." <<he>>【이가】 당신을 제 품으로 끌어당기며 말한다. "이제 내가 긴장 푸는 것 좀 도와주는 건 어때요?"
+에이버리가 일어나 당신의 엉덩이를 붙잡는다. "잘했어, 자기." <<he>>【이가】 당신을 제 품으로 끌어당기며 말한다. "이제 내가 긴장 푸는 것 좀 도와주는 건 어때?"
 <br><br>
 
 <<if hasSexStat("promiscuity", 2)>>
@@ -92,7 +92,7 @@
 <</if>>
 <br><br>
 
-에이버리가 몸을 똑바로 일으킨다. "난 내가 살면서 본 그 누구보다도 열심히 일해요, 자기." <<he>>【이가】 비웃듯 말한다.
+에이버리가 몸을 똑바로 일으킨다. "난 내가 살면서 본 그 누구보다도 열심히 일해, 자기." <<he>>【이가】 비웃듯 말한다.
 
 <<if C.npc.Avery.rage gte random(20, 100) and $averyragerevealed gte 1>>
 	"하지만 그냥 보고만 있는 것 이상의 무언가를 해줘야겠군." <<He>>【은는】 자리에서 일어나 위협적인 태도로 당신에게 다가온다.
@@ -101,7 +101,7 @@
 	<<link [[다음|Mansion Housework Lounge Rape]]>><<set $molestationstart to 1>><</link>>
 	<br>
 <<else>>
-	<<He>>【은는】 굳은 손을 털듯 쥐었다 펴더니, 다시 팔꿈치를 괸 채 기대앉는다. "그냥 좀 쉬려는 것뿐이에요."
+	<<He>>【은는】 굳은 손을 털듯 쥐었다 펴더니, 다시 팔꿈치를 괸 채 기대앉는다. "그냥 좀 쉬려는 것뿐이야."
 	<br><br>
 
 	방을 나설 때까지 에이버리의 시선이 등 뒤를 집요하게 쫓지만, 당신은 애써 <<him>>【을를】 무시한다.
@@ -134,7 +134,7 @@
 <</if>>
 <br><br>
 
-에이버리가 당신에게서 물러나며, 음흉한 눈빛으로 미소를 짓는다. "자기 일하는 걸 방해할 생각은 없어요." <<He>>【은는】 다시 자리에 앉으면서도, 계속해서 당신을 응시한다.
+에이버리가 당신에게서 물러나며, 음흉한 눈빛으로 미소를 짓는다. "자기 일하는 걸 방해할 생각은 없어." <<He>>【은는】 다시 자리에 앉으면서도, 계속해서 당신을 응시한다.
 <br><br>
 <<endevent>>
 <<avery_mansion_end_links "housework">>
@@ -190,7 +190,7 @@
 <<set $outside to 0>><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	에이버리가 만족한 듯 소파에 기대 눕는다. "조금 어질렀네," <<he>>【이가】 방 안에 흩어진 쿠션들을 보며 말한다. "네가 알아서 치우겠지."<<avery_housework_change "lounge" 1>><<larage>><<npcincr Avery rage -1>>
+	에이버리가 만족한 듯 소파에 기대 눕는다. "조금 어질렀네." <<he>>【이가】 방 안에 흩어진 쿠션들을 보며 말한다. "네가 알아서 치우겠지."<<avery_housework_change "lounge" 1>><<larage>><<npcincr Avery rage -1>>
 	<br><br>
 	<<tearful>> 당신은 몸을 털어낸다.
 	<br><br>
@@ -199,7 +199,7 @@
 <<elseif $enemyhealth lte 0>>
 	에이버리가 뒤로 물러나다가 방 중앙의 탁자에 걸려 넘어진다. 탁자가 <<his>> 몸은 받아냈지만, <<his>> 표정을 보면 자존심까지 받아내지는 못한 듯하다.<<garage>><<npcincr Avery rage 1>>
 	<br><br>
-	<<tearful>> 당신은 몸을 털어낸다. 에이버리가 몸을 일으키지만, <<his>> 눈은 여전히 당신에게 고정되어 있다. "앞으로는 더 얌전히 굴어야 할 거야," <<he>>【이가】 다시 앉으며 말한다. "네 신상에 좋을 테니까. 이제 이 난장판이나 치워."<<avery_housework_change "lounge" 2>>
+	<<tearful>> 당신은 몸을 털어낸다. 에이버리가 몸을 일으키지만, <<his>> 눈은 여전히 당신에게 고정되어 있다. "앞으로는 더 얌전히 굴어야 할 거야." <<he>>【이가】 다시 앉으며 말한다. "네 신상에 좋을 테니까. 이제 이 난장판이나 치워."<<avery_housework_change "lounge" 2>>
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -242,7 +242,7 @@
 <<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	에이버리가 소파에 기대 누워 손수건으로 <<his>> 얼굴을 닦고, 그것을 당신 위에 떨어뜨린다. "조금 어질렀네," <<he>>【이가】 방 안에 흩어진 쿠션들을 보며 말한다. "네가 알아서 치우겠지."<<avery_housework_change "lounge" 1>><<gdom>><<npcincr Avery dom 1>><<larage>><<npcincr Avery rage -1>>
+	에이버리가 소파에 기대 누워 손수건으로 <<his>> 얼굴을 닦고, 그것을 당신 위에 떨어뜨린다. "조금 어질렀네." <<he>>【이가】 방 안에 흩어진 쿠션들을 보며 말한다. "네가 알아서 치우겠지."<<avery_housework_change "lounge" 1>><<gdom>><<npcincr Avery dom 1>><<larage>><<npcincr Avery rage -1>>
 	<br><br>
 	<<tearful>> 당신은 몸을 털어낸다.
 	<br><br>
@@ -251,7 +251,7 @@
 <<elseif $enemyhealth lte 0>>
 	에이버리가 뒤로 물러나다가 방 중앙의 탁자에 걸려 넘어진다. 탁자가 <<his>> 몸은 받아냈지만, <<his>> 표정을 보면 자존심까지 받아내지는 못한 듯하다.<<ldom>><<npcincr Avery dom -1>>
 	<br><br>
-	<<tearful>> 당신은 몸을 털어낸다. 에이버리가 몸을 일으키지만, <<his>> 눈은 여전히 당신에게 고정되어 있다. "앞으로는 더 얌전히 굴어야 할 거야," <<he>>【이가】 다시 앉으며 말한다. "네 신상에 좋을 테니까. 이제 이 난장판이나 치워."<<avery_housework_change "lounge" 2>>
+	<<tearful>> 당신은 몸을 털어낸다. 에이버리가 몸을 일으키지만, <<his>> 눈은 여전히 당신에게 고정되어 있다. "앞으로는 더 얌전히 굴어야 할 거야." <<he>>【이가】 다시 앉으며 말한다. "네 신상에 좋을 테니까. 이제 이 난장판이나 치워."<<avery_housework_change "lounge" 2>>
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
@@ -265,7 +265,7 @@
 당신은 에이버리 옆에 앉아 음료를 한 모금 들이켠다. 독하다. 물 한 방울 타지 않은 원액 그대로다. 에이버리가 당신의 허리에 팔을 두르며 제 잔을 채운다.
 <br><br>
 
-"더 마셔요, 자기." <<he>>【이가】 당신의 잔을 가리키며 말한다. "빼지 말고."
+"더 마셔, 자기." <<he>>【이가】 당신의 잔을 가리키며 말한다. "빼지 말고."
 <br><br>
 
 <<if playerIsPregnant() and playerAwareTheyArePregnant()>>
@@ -328,7 +328,7 @@
 
 당신은 주방에서 크림을 가져와 에이버리에게 건넨다.
 <br><br>
-"잠깐." 당신이 돌아서려 하자 <<he>>【이가】 부른다. <<He>>【은는】 손가락으로 크림을 듬뿍 떠내더니 당신에게 내민다. "핥아봐요, 자기."
+"잠깐." 당신이 돌아서려 하자 <<he>>【이가】 부른다. <<He>>【은는】 손가락으로 크림을 듬뿍 떠내더니 당신에게 내민다. "핥아봐, 자기."
 <br><br>
 
 <<link [[에이버리의 손가락에 묻은 크림을 핥는다|Mansion Housework Cream Lick]]>><<npcincr Avery love 1>><</link>><<glove>>
@@ -385,70 +385,125 @@
 :: Mansion Housework Cream Lick
 <<effects>>
 
-당신은 혀를 내밀어 에이버리의 손가락에 묻은 크림을 조심스레 핥아낸다. <<He>>【은는】 무표정한 얼굴로 크림에 손가락을 다시 푹 담갔다가 내민다.
-<br><br>
+<<if $cat gte 6>>
+	/*Removed the option to get back to work, due to the like of the cream*/
+	당신은 에이버리의 손가락에 묻은 크림을 핥는다. 달콤한 크림 맛에 군침이 돈다. <<stress -6>><<lstress>>
+	<br><br>
+	에이버리는 당신의 만족스러운 표정을 알아챈 듯, <<his>> 손가락을 크림에 다시 담갔다가 한 번 더 맛보라는 듯 내민다.
+	<br><br>
 
-<<link [[핥는다|Mansion Housework Cream Lick 2]]>><<npcincr Avery love 1>><</link>><<glove>>
-<br>
-<<link [[빤다|Mansion Housework Cream Suck]]>><<npcincr Avery love 1>><</link>><<promiscuous1>><<glove>>
-<br>
-<<link [[핑계를 댄다|Mansion Housework Cream Excuse]]>><</link>>
-<br>
+	<<link [[핥는다|Mansion Housework Cream Lick 2]]>><<npcincr Avery love 1>><</link>><<glove>><<transform cat 1>>
+	<br>
+	<<link [[빤다|Mansion Housework Cream Suck]]>><<npcincr Avery love 1>><</link>><<promiscuous1>><<glove>>
+	<br>
+<<else>>
+	당신은 혀를 내밀어 에이버리의 손가락에 묻은 크림을 조심스레 핥아낸다. <<He>>【은는】 무표정한 얼굴로 크림에 손가락을 다시 푹 담갔다가 내민다. <<transform cat 1>>
+	<br><br>
+
+	<<link [[핥는다|Mansion Housework Cream Lick 2]]>><<npcincr Avery love 1>><</link>><<glove>><<transform cat 1>>
+	<br>
+	<<link [[빤다|Mansion Housework Cream Suck]]>><<npcincr Avery love 1>><</link>><<promiscuous1>><<glove>>
+	<br>
+	<<link [[변명한다|Mansion Housework Cream Excuse]]>><</link>>
+	<br>
+<</if>>
 
 :: Mansion Housework Cream Lick 2
 <<effects>>
 
-당신은 혀를 내밀어 몇 번 날름거리며 남은 크림을 말끔히 핥아낸다. 에이버리의 입가에 만족스러운 미소가 번진다. "착한 아이네, 자기. 이제 일하러 가봐요."
+<<if $cat gte 6>>
+	당신은 조심스레 혀를 내밀어 크림을 재빨리 핥아 올린다. 크림이 혀에 닿자 만족감에 가르랑거리는 소리가 절로 새어 나온다. <<stress -6>><<lstress>>
+	<br><br>
+	"사랑스럽군요." 에이버리가 가르랑거리듯 말한다. "착한 고양이죠, 그렇지 않나요?
+<<else>>
+	당신은 혀를 내밀어 재빠르게 몇 번 날름거리며 크림을 말끔히 핥아낸다. 에이버리의 입가에 만족스러운 미소가 번진다. "착한 <<girl>>이네요.
+<</if>>
+
+이제 일하러 가 봐요."
 <br><br>
 <<He>>【은는】 아무 말 없이 디저트를 먹으면서도, 당신에게서 시선을 떼지 않는다.
 <br><br>
-<<endevent>>
 
+<<endevent>>
 <<avery_mansion_end_links "housework">>
 
 :: Mansion Housework Cream Suck
 <<effects>>
 
-<<set $seductiondifficulty to 8000>>
-<<seductioncheck>>
-<<seductionskilluptext>>
-<<seductionskilluse>>
-
 당신은 눈을 반쯤 내리깐 채, 에이버리의 손가락을 혀로 감싸 쥐며 입안 깊숙이 머금는다.
 <<promiscuity1>>
 
-<<if $seductionrating gte $seductionrequired>>
-
-	당신은 에이버리의 눈을 똑바로 응시한다. <span class="green"><<He>>【은는】 넋을 잃고 홀린 듯한 표정이다.</span> 당신은 자국이 남을 만큼 살짝 힘을 주어 <<his>> 손가락을 깨문다. 입에서 손가락을 빼낸 뒤에도 <<he>>【은는】 여전히 당신에게 시선을 고정한 채다.<<gglove>><<npcincr Avery love 1>><<larage>><<npcincr Avery rage -1>>
+<<if $cat gte 6>>
+	당신은 에이버리의 손가락을 빨기 시작하는 것을 멈출 수 없다. 크림의 맛이 온몸에 쾌감을 퍼뜨린다. <<stress -6>><<lstress>>
+	<br><br>
+	당신은 눈을 감고 <<his>> 손가락을 위아래로 핥는다.
+	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
+		<<his>> 손가락을 따라 조심스레 핥아 올리며 살며시 빤다.
+	<<elseif $speech_attitude is "bratty">>
+		<<his>> 손가락을 자국이 남을 만큼 세게 깨문다.
+	<<else>>
+		<<his>> 손가락을 따라 혀를 길게 끌며 빤다.
+	<</if>>
+	입안에서 <<his>> 손가락을 가지고 노는 동안, 크림을 더 원하며 저도 모르게 가르랑거린다. <<transform cat 1>>
+	<br><br>
+	당신은 눈을 뜨고 <<him>>【을를】 올려다본다. <span class="green"><<He>>【은는】 넋을 잃은 듯한 표정이다.</span> <<gglove>><<npcincr Avery love 1>><<larage>><<npcincr Avery rage -1>>
 	<br><br>
 
 	<<link [[놀린다|Mansion Housework Cream Tease]]>><</link>>
 	<br>
 	<<link [[그냥 일하러 돌아간다|Mansion Housework Cream Return]]>><</link>>
 	<br>
-
 <<else>>
+	<<set $seductiondifficulty to 8000>>
+	<<seductioncheck>>
+	<<seductionskilluptext>>
+	<<seductionskilluse>>
+	
+	<<if $seductionrating gte $seductionrequired>>
+		당신은 에이버리의 눈을 똑바로 응시한다. <span class="green"><<He>>【은는】 넋을 잃고 홀린 듯한 표정이다.</span>
+		<<if $speech_attitude is "meek" or $speech_attitude_avery>>
+			당신은 <<his>> 손가락을 따라 조심스레 핥아 올리며 살며시 빤다.
+		<<elseif $speech_attitude is "bratty">>
+			당신은 자국이 남을 만큼 세게 <<his>> 손가락을 깨문다.
+		<<else>>
+			당신은 <<his>> 손가락을 따라 혀를 길게 끌며 빤다.
+		<</if>>
+		당신이 입에서 손가락을 빼낸 뒤에도 <<He>>【은는】 여전히 당신에게서 시선을 떼지 않는다.<<gglove>><<npcincr Avery love 1>><<larage>><<npcincr Avery rage -1>><<transform cat 1>>
+		<br><br>
 
-	턱을 타고 침 한 줄기가 흘러내리는 순간, <span class="red">분위기를 망쳐버렸다는 것을 깨닫는다.</span> 에이버리가 헛웃음을 짓는다. "그쯤 해둬요, 자기."
-	<br><br>
+		<<link [[놀린다|Mansion Housework Cream Tease]]>><</link>>
+		<br>
+		<<link [[그냥 일로 돌아간다|Mansion Housework Cream Return]]>><</link>>
+		<br>
+	<<else>>
+		턱을 타고 침 한 줄기가 흘러내리는 순간, <span class="red">분위기를 망쳐버렸다는 것을 깨닫는다.</span> 에이버리가 헛웃음을 짓는다. "그쯤 해둬, 자기."
+		<br><br>
+		<<He>>【은는】 디저트를 먹는 동안 말없이 당신을 지켜본다.
+		<br><br>
 
-	<<He>>【은는】 디저트를 먹는 동안 말없이 당신을 지켜본다.
-	<br><br>
-
-	<<endevent>>
-	<<avery_mansion_end_links "housework">>
-
+		<<endevent>>
+		<<avery_mansion_end_links "housework">>
+	<</if>>
 <</if>>
 
 :: Mansion Housework Cream Tease
 <<effects>>
-
-<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-	"그거 다 드실 건가요?" 당신이 묻는다. 에이버리는 마치 처음 보는 것처럼 자기 앞의 디저트를 보고 눈살을 찌푸린다.
-<<elseif $speech_attitude is "bratty">>
-	"저 잘하죠, 그렇죠?" 당신이 말한다. 에이버리는 씩 웃고는 다시 <<his>> 디저트를 먹기 시작한다.
+<<if $cat gte 6>>
+	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
+		"다 드시지 않을 거면, 제가 먹어도 될까요?" 당신이 묻는다. 에이버리는 마치 처음 보는 것처럼 자기 앞의 디저트를 보고 눈살을 찌푸린다.
+	<<elseif $speech_attitude is "bratty">>
+		"당신이 왜 그렇게 디저트를 좋아하는지 알겠네." 당신이 입술을 핥으며 말한다. 에이버리는 씩 웃고는 다시 <<his>> 접시로 돌아간다.
+	<<else>>
+		"왜 멈춰요?" 당신이 묻는다. 에이버리는 정신을 차리고 다시 <<his>> 디저트로 돌아간다.
+	<</if>>
 <<else>>
-	"무슨 문제라도 있어?" 당신이 묻는다. 에이버리는 정신을 차리고 다시 <<his>> 디저트로 돌아간다.
+	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
+		"그거 다 드실 건가요?" 당신이 묻는다. 에이버리는 마치 처음 보는 것처럼 자기 앞의 디저트를 보고 눈살을 찌푸린다.
+	<<elseif $speech_attitude is "bratty">>
+		"저 잘하죠, 그렇죠?" 당신이 말한다. 에이버리는 씩 웃고는 다시 <<his>> 디저트를 먹기 시작한다.
+	<<else>>
+		"무슨 문제라도 있나요?" 당신이 묻는다. 에이버리는 정신을 차리고 다시 <<his>> 디저트로 돌아간다.
+	<</if>>
 <</if>>
 <br><br>
 당신은 아무 일도 없었다는 듯 일로 돌아간다. 에이버리가 정신을 차리는 데는 잠시 시간이 걸린다.
@@ -492,7 +547,7 @@
 <<elseif $speech_attitude is "bratty">>
 	"당신 손가락이 어디에 있었는지 모르잖아요." 당신이 말한다. "숟가락을 쓰세요."
 <<else>>
-	"아니요, 괜찮습니다." 당신이 말한다. "그건 제 아침 식사가 아니잖아요."
+	"아니요, 괜찮아요." 당신이 말한다. "그건 제 아침 식사가 아니잖아요."
 <</if>>
 <br><br>
 
@@ -560,13 +615,13 @@
 <<elseif $speech_attitude is "bratty">>
 	"가위 이리 줘봐요." 당신이 말한다. "어떻게 하는 건지 보여줄게요."
 <<else>>
-	"제가 도와드릴게요," 당신은 전지가위를 달라는 듯 손을 내밀며 말한다.
+	"제가 도와드릴게요." 당신은 전지가위를 달라는 듯 손을 내밀며 말한다.
 <</if>>
 <br><br>
 <<if C.npc.Avery.love gte 70>>
 	에이버리가 잠시 멈추더니, <span class="green">당신에게 전지가위를 건넨다.</span> <<He>>【은는】 턱을 손바닥에 괸 채 당신이 홀리를 다듬는 모습을 지켜본다.
 	<br><br>
-	"손재주가 좋네," 당신이 끝내자 <<he>>【이가】 말한다. "뭐, 이미 알고 있었지만."<<gglove>><<npcincr Avery love 3>>
+	"손재주가 좋네." 당신이 끝내자 <<he>>【이가】 말한다. "뭐, 이미 알고 있었지만."<<gglove>><<npcincr Avery love 3>>
 	<br><br>
 	<<He>>【은는】 전지가위를 돌려받고 계속 다듬는다. 당신의 솜씨를 그대로 써먹는다.
 	<br><br>
@@ -798,14 +853,14 @@
 <<if $speech_disable is "meek">>
 	"청소하는 중이었어요." 당신이 말한다. "그냥 일하게 해주세요."
 <<elseif $speech_disable is "bratty">>
-	"하던 일이 있었는데." 당신이 말한다. "다음에 수영장 근처에서 볼일 볼 땐 발밑 조심하는 게 좋을 거예요."
+	"하던 일이 있었는데," 당신이 말한다. "다음에 수영장 근처에서 볼일 볼 땐 발밑 조심하는 게 좋을 거예요."
 <<else>>
 	"제가 당신을 그렇게 수영장으로 밀어버리면 기분이 어떻겠어요?" 당신이 묻는다.
 <</if>>
 <br><br>
 
 <<if C.npc.Avery.rage gte 20 and $averyragerevealed is 1>>
-	에이버리의 얼굴이 어두워진다. "그냥 조금 장난친 것뿐이야," <<he>>【이가】 말한다. "내 수영장에서 그 정도도 못 해?"<<gstress>><<stress 6>>
+	에이버리의 얼굴이 어두워진다. "그냥 조금 장난친 것뿐이야." <<he>>【이가】 말한다. "내 수영장에서 그 정도도 못 해?"<<gstress>><<stress 6>>
 	<br><br>
 
 	<<link [[사과한다|Mansion Housework Pool Apologise]]>><<trauma 6>><<stress 6>><<npcincr Avery dom 1>><</link>><<gtrauma>><<gstress>><<gdom>>
@@ -1116,7 +1171,7 @@
 
 <<if $phase is 1>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		"저, 저기..." 당신이 말한다. "죄송해요. 돈이 필요했어요."
+		"저-저기..." 당신이 말한다. "죄송해요. 돈이 필요했어요."
 	<<elseif $speech_attitude is "bratty">>
 		"팔았어요." 당신이 말한다. "당신한테는 장식품일 뿐이지만, 저한테는 돈이 더 유용하니까요."
 	<<else>>
@@ -1124,7 +1179,7 @@
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		"저, 저기..." 당신이 말한다. "죄송해요. 돈이 필요했어요."
+		"저-저기..." 당신이 말한다. "죄송해요. 돈이 필요했어요."
 	<<elseif $speech_attitude is "bratty">>
 		"팔았어요." 당신이 말한다. "당신한테는 장식품일 뿐이지만, 저한테는 돈이 더 유용하니까요."
 	<<else>>
@@ -1135,9 +1190,9 @@
 
 <<if C.npc.Avery.rage gte random(20, 100) and $averyragerevealed is 1>>
 	<<if $phase is 1>>
-		"네가 팔았군," 에이버리가 분노로 떨며 가까이 다가와 말한다. "씨발, 네가 팔아버렸어." <<He>>【은는】 당신의 팔을 붙잡는다.<<gggarage>><<gtrauma>><<gstress>><<npcincr Avery rage 12>><<trauma 6>><<stress 6>>
+		"네가 팔았군." 에이버리가 분노로 떨며 가까이 다가와 말한다. "씨발, 네가 팔아버렸어." <<He>>【은는】 당신의 팔을 붙잡는다.<<gggarage>><<gtrauma>><<gstress>><<npcincr Avery rage 12>><<trauma 6>><<stress 6>>
 	<<else>>
-		"네가 팔았군," 에이버리가 분노로 떨며 가까이 다가와 말한다. "씨발, 네가 팔아버렸어." <<He>>【은는】 당신의 팔을 붙잡는다.<<gggarage>><<gtrauma>><<gstress>><<npcincr Avery rage 12>><<trauma 6>><<stress 6>>
+		"네가 팔았군." 에이버리가 분노로 떨며 가까이 다가와 말한다. "씨발, 네가 팔아버렸어." <<He>>【은는】 당신의 팔을 붙잡는다.<<gggarage>><<gtrauma>><<gstress>><<npcincr Avery rage 12>><<trauma 6>><<stress 6>>
 	<</if>>
 	<br><br>
 
@@ -1148,7 +1203,7 @@
 	<<if $phase is 1>>
 		"네가 팔 수 있는 게 아니었어." <<he>>【이가】 말한다.
 	<<else>>
-		"그건 네가 팔 물건이 아니었어," <<he>>【이가】 말한다.
+		"그건 네가 팔 물건이 아니었어." <<he>>【이가】 말한다.
 	<</if>>
 	<br><br>
 	<<He>>【은는】 잠시 더 생각하다가 돌아선다. "이걸로 끝난 게 아니야."
@@ -1162,7 +1217,7 @@
 
 <<if $phase is 1>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		"저, 저기..." 당신이 말한다. "박물관에 가져다 놨어요. 죄송해요."
+		"저-저기..." 당신이 말한다. "박물관에 가져다 놨어요. 죄송해요."
 	<<elseif $speech_attitude is "bratty">>
 		"박물관에 있어야 할 물건들이에요." 당신이 말한다. "그리고 지금 거기 있고요."
 	<<else>>
@@ -1170,7 +1225,7 @@
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		"저, 저기..." 당신이 말한다. "박물관에 가져다 놨어요. 죄송해요."
+		"저-저기..." 당신이 말한다. "박물관에 가져다 놨어요. 죄송해요."
 	<<elseif $speech_attitude is "bratty">>
 		"박물관에 있어야 할 물건이에요." 당신이 말한다. "그리고 지금 거기 있고요."
 	<<else>>
@@ -1198,7 +1253,7 @@
 
 <<if $phase is 1>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		베, 베일리가 가져갔어요, <<sir>>." 당신이 말한다. "파티 때요."
+		"베-베일리가 가져갔어요, <<sir>>." 당신이 말한다. "파티 때요."
 	<<elseif $speech_attitude is "bratty">>
 		베일리가 파티 때 <<nnpc_his "Bailey">> 주머니에 쑤셔 넣었어요." 당신이 말한다. "제가 경고했잖아요."
 	<<else>>
@@ -1206,7 +1261,7 @@
 	<</if>>
 <<else>>
 	<<if $speech_attitude is "meek" or $speech_attitude_avery>>
-		베, 베일리가 가져갔어요, <<sir>>." 당신이 말한다. "파티 때요."
+		"베-베일리가 가져갔어요, <<sir>>." 당신이 말한다. "파티 때요."
 	<<elseif $speech_attitude is "bratty">>
 		베일리가 파티 때 <<nnpc_his "Bailey">> 주머니에 쑤셔 넣었어요." 당신이 말한다. "제가 경고했잖아요."
 	<<else>>

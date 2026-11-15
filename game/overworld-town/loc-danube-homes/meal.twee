@@ -157,7 +157,7 @@
 	<<if _robin.trauma gte 70>>
 		로빈은 그들의 공격에 거의 반응하지 않고, <<his>> 눈은 텅 빈 채 크게 뜨여 있다.
 	<<elseif _robin.dom gte 50>>
-		"보, 보지 마! 괜찮을 거야!" 로빈이 당신을 향해 소리친다.
+		"보-보지 마! 괜찮을 거야!" 로빈이 당신을 향해 소리친다.
 	<<else>>
 		"그만! 제발 그만해요!" 로빈이 울부짖는다.
 	<</if>>
@@ -183,7 +183,7 @@
 
 <br><br>
 
-<<if ($monster is 1 or $settings.bestialityEnabled)>>
+<<if beastSexEnabledForType("dog", $monster is 1)>>
 	<<link [[다음|Danube Meal Dogs]]>><<set $molestationstart to 1>><</link>>
 	<br>
 <<else>>

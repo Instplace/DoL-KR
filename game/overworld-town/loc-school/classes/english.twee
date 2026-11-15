@@ -401,7 +401,7 @@
 :: English Kylar Move
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<if C.npc.Kylar.love gte 90>>
-	당신은 다른 자리로 옮기기 위해 짐을 챙긴다. 카일라가 당신의 허벅지에 손을 얹는다. <<His>> 손에는 칼이 쥐어져 있다. "어, 어디 가, 내 사랑?" <<he>>【이가】 말한다. "우리 자리는 이미 여기잖아."
+	당신은 다른 자리로 옮기기 위해 짐을 챙긴다. 카일라가 당신의 허벅지에 손을 얹는다. <<His>> 손에는 칼이 쥐어져 있다. "어-어디 가, 내 사랑?" <<he>>【이가】 말한다. "우리 자리는 이미 여기잖아."
 	<br><br>
 	<<link [[다음|English Lesson]]>><<endevent>><</link>>
 	<br>

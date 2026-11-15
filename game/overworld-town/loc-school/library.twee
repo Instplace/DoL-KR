@@ -242,7 +242,7 @@
 <</if>>
 <<sydneySchedule>>
 <<if $stress gte $stressmax>>
-	<<link [[눈앞이 캄캄해진다...|School Passout]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|School Passout]]>><</link>>
 <<elseif _sydney_location is "library" and ($sydneyLeightonConfront is 1 or $leightonAssaulted is 1) and $exposed lte 0 and C.npc.Leighton.init is 1 and $pillory.tenant.special.name isnot "Leighton" and !$sydneyLeightonConfrontTimer>>
 	<<unset $sydneyLeightonConfront>><<set $sydneyLeightonConfrontTimer to 7>><<set $corruptionEvent to 1>>
 	<<if ($bookStolenKnown isnot undefined and $bookStolenKnown gte 3) or $libraryMoneyStolen gte 1000 or $leightonAssaulted is 1>>
@@ -297,22 +297,22 @@
 
 		<<projectoptions>>
 		<<if $exposed gte 1>>
-			<<scienceicon>><<link [[과학 공부하기 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 1>><</link>><<gscience>>
+			<<scienceicon>><<link [[과학을 공부한다 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 1>><</link>><<gscience>>
 			<br>
-			<<mathicon>><<link [[수학 공부하기 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 2>><</link>><<gmaths>>
+			<<mathicon>><<link [[수학을 공부한다 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 2>><</link>><<gmaths>>
 			<br>
-			<<englishicon>><<link [[영어 공부하기 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 3>><</link>><<genglish>>
+			<<englishicon>><<link [[영어를 공부한다 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 3>><</link>><<genglish>>
 			<br>
-			<<historyicon>><<link [[역사 공부하기 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 4>><</link>><<ghistory>>
+			<<historyicon>><<link [[역사를 공부한다 (0:20)|Library Study Exposed]]>><<pass 20>><<set $phase to 4>><</link>><<ghistory>>
 			<br>
 		<<else>>
-			<<scienceicon>><<link [[과학 공부하기 (0:20)|Library Study]]>><<pass 20>><<set $phase to 1>><</link>><<gscience>>
+			<<scienceicon>><<link [[과학을 공부한다 (0:20)|Library Study]]>><<pass 20>><<set $phase to 1>><</link>><<gscience>>
 			<br>
-			<<mathicon>><<link [[수학 공부하기 (0:20)|Library Study]]>><<pass 20>><<set $phase to 2>><</link>><<gmaths>>
+			<<mathicon>><<link [[수학을 공부한다 (0:20)|Library Study]]>><<pass 20>><<set $phase to 2>><</link>><<gmaths>>
 			<br>
-			<<englishicon>><<link [[영어 공부하기 (0:20)|Library Study]]>><<pass 20>><<set $phase to 3>><</link>><<genglish>>
+			<<englishicon>><<link [[영어를 공부한다 (0:20)|Library Study]]>><<pass 20>><<set $phase to 3>><</link>><<genglish>>
 			<br>
-			<<historyicon>><<link [[역사 공부하기 (0:20)|Library Study]]>><<pass 20>><<set $phase to 4>><</link>><<ghistory>>
+			<<historyicon>><<link [[역사를 공부한다 (0:20)|Library Study]]>><<pass 20>><<set $phase to 4>><</link>><<ghistory>>
 			<br>
 		<</if>>
 		/*indev - scarlet book possible to be taken. English 200+ required*/
@@ -325,6 +325,14 @@
 		<</if>>
 		<<if (Time.monthName is "November" and Time.monthDay gte 24) or Time.monthName is "December">>
 			<<oliveicon>><<link [[바구니에서 올리브색 책을 꺼낸다 (0:01)|Olive Book 1]]>><<set $oliveExitPassage to "School Library">><<pass 1>><</link>>
+			<br>
+		<</if>>
+		<<if $kylar_manor_secret gte 3 and $kylar_sleep_abduction gte 1 and !$kylar_altar_research.includes("library") and $kylar_altar_library lt 100>>
+			<<ind>><<link [[숲 속 제단을 조사한다 (0:20)|Library Altar Research]]>><<pass 20>><</link>><<skill_difficulty currentSkillValue('history') "역사" 1 1000>>
+			<br>
+		<</if>>
+		<<if $pumpkin_carving_knowledge and !$pumpkin_carving_knowledge.includes("library")>>
+			<<icon "pumpkin-carving.png">><<link [[호박 조각을 공부한다 (0:30)|Library Pumpkin]]>><<pass 30>><</link>>
 			<br>
 		<</if>>
 	<br>
@@ -352,65 +360,7 @@
 <br><br>
 
 <<if dangerEvent() and Time.schoolDay and $schoolstate isnot "early" and $schoolstate isnot "late">>
-	<<if $scienceprojectwon is 1 and $rng gte 91>>
-		<<generates1>><<person1>>한 <<person>>【이가】 당신의 테이블에 멈춰 선다. "저기, 너 과학 경진대회에서 우승한 그 <<girl>>, 맞지?"
-		<br><br>
-
-		<<if $speech_attitude is "meek">>
-			"아, 그렇게 대단한 건 아니었는데..." 당신은 수줍게 고개를 끄덕이며 시선을 피한다.
-		<<elseif $speech_attitude is "bratty">>
-			당신은 자랑스럽게 공중에 엄지를 치켜세운다. "바로 나야!"
-		<<else>>
-			"내가 그랬지." 당신은 고개를 끄덕인다. "무슨 일이야?"
-		<</if>>
-		<br><br>
-
-		그 <<personsimple>>【은는】 미소를 지으며 고개를 끄덕여 화답한다. "대단하다! 네 프로젝트는 정말 잘 연구됐더라, 뭘 해야 할지 제대로 알고 있었어! 나도 너처럼 될 수 있으면 좋을 텐데! 나도 과학 경진대회에 참가했는데, 선생님들은 내 테이블에 와보지도 않으셨어."
-		<br><br>
-
-		<<He>>【은는】 한숨을 쉰다. "<<nnpc_title "Leighton">> 교장 선생님조차도. 아마 내가 내세울 만한 성적이 없어서 그런가 봐, 하지만 가끔은 수업에 집중하기가 너무 힘들어! 특히 몇몇 학생들이 계속 나를 만지고 장난을 치거나, 학용품이 계속 사라질 때, 그리고 지각을 좀 많이 해서 벌을 받아야 했을 때—"
-		<br><br>
-
-		<<He>>【은는】 몸을 굳히더니, 이내 <<his>> 고개를 젓는다. "...미안, 내가 너무 떠들었네."
-		<br><br>
-
-		<<link [[계속 공부한다|Library Study Science Fair]]>><<set $phase to 0>><<stress -4>><</link>><<lstress>>
-		<br>
-		<<link [[도와준다 (0:10)|Library Study Science Fair]]>><<set $phase to 1>><<pass 10>><<status 6>><</link>><<gcool>>
-		<br>
-	<<elseif $rng gte 51>>
-		<<generatey1>><<generatey2>>당신이 하던 일에 집중하고 있을 때, 한 <<fullGroup>>【이가】 당신을 괴롭히기 시작한다.
-		<br><br>
-
-		<<link [[무시한다|School Library Harass]]>><<set $phase to 0>><<trauma 2>><<stress 2>><</link>><<gtrauma>><<gstress>>
-		<br>
-		<<link [[사서에게 도움을 요청한다|School Library Harass]]>><<set $phase to 1>><<status -10>><</link>><<llcool>>
-		<br>
-		<<if C.npc.Sydney.init is 1 and $sydneySeen.includes("library") and _sydney_location is "library">>
-			<<link [[시드니에게 도움을 요청한다|School Library Harass]]>><<set $phase to 2>><</link>>
-			<br>
-		<</if>>
-	<<elseif _wraithEvent>>
-		얼마 후, 당신은 불안감을 느끼기 시작한다. 당신은 교과서를 책장에 다시 꽂으려고 움직인다.
-		<br><br>
-		반대편 틈새로 창백한 얼굴이 언뜻 보인다. <<stress 12>><<ggstress>><<trauma 4>><<gtrauma>>
-		<br><br>
-		<<link [[다음|School Library]]>><<endevent>><</link>>
-		<br>
-	<<else>>
-		<<outfitChecks>>
-		<<set _bottom.integrity -= 10>>
-		<<if _bottom.integrity lte 0>>
-			의자에서 일어설 때, 무언가 찢어지는 소리가 들린다. 당신의 <<bottoms>>【이가】 책상에 걸렸다. <<= _bottom.plural ? "그것들을" : "그것을">> 빼내려 하지만, <<= _bottom.plural ? "그것들은" : "그것은">> 몸에서 완전히 찢어져 당신의 <<= _bottomUnder?.name || "<<undies>>">>【을를】 드러낸다.
-			<<integritycheck no_text>>
-			<br><br>
-		<<else>>
-			자리에서 일어설 때, 무언가 찢어지는 소리가 들린다. 당신의 <<bottoms>>【이가】 책상에 걸렸다.
-			<br><br>
-		<</if>>
-		<<link [[다음|School Library]]>><<endevent>><</link>>
-		<br>
-	<</if>>
+	<<events_school_library_study>>
 <<else>>
 	<<link [[다음|School Library]]>><<endevent>><</link>>
 	<br>
@@ -561,7 +511,7 @@
 <br><br>
 "강간해 줘." 당신이 말하자, <<him>>【은는】 잠시 얼어붙는다.
 <br><br>
-"이거 대박이네, 마침 그럴 생각이었는데." <<he>>【이가】 대답한다. <<He>>【은는】 더 가까이 다가오면서 <<his>> 곤봉을 만지작거리더니, 당신에게 달려든다.
+"이거 대박이네, 마침 그럴 생각이었는데," <<he>>【이가】 대답한다. <<He>>【은는】 더 가까이 다가오면서 <<his>> 곤봉을 만지작거리더니, 당신에게 달려든다.
 <br><br>
 <<link [[다음|Library Exposed Molestation]]>><<set $molestationstart to 1>><<set $libraryStudyEarSlime to true>><</link>>
 
@@ -884,7 +834,7 @@
 	<<default>>
 		<<if Time.schoolDay and $schoolstate isnot "early" and $schoolstate isnot "late" and _counterApproach is 1>>
 			아무도 없다. 당신은 벨을 울린다. 아무도 응답하지 않는다.
-			<<if Time.hour lt 8 and $sydneyLate is 1 and $sydneySeen and $sydneySeen.includes("library")>>
+			<<if Time.hour lt 8 and $sydneyLate is 1 and $sydneySeen?.includes("library")>>
 				시드니가 지각한 것 같다<<if $sydneySeen.includes("science")>>. 또<</if>>.
 			<</if>>
 		<</if>>
@@ -1135,3 +1085,222 @@
 	<<getouticon>><<link [[떠난다|School Library]]>><<endevent>><<set $eventskip to 1>><</link>>
 	<br>
 <</if>>
+
+:: Library Altar Research
+<<effects>><<sydneySchedule>>
+<<set _historySuccess to currentSkillValue('history') gte random(1, 1000)>>
+<<rng 3>>
+<<if $rng is 3>>
+	당신은 지역 역사에 관한 책을 훑어보며, 숲에 관한 내용이 나올 때마다 멈춰서 읽는다.
+	<<if _historySuccess>>
+		<<set $kylar_altar_library += 15>>
+		<span class="green">설명을 하나 찾는다.</span> 수 세기 전 숲까지 뻗어 있던 신전 부지의 도면도 함께 실려 있다.<<gggresearch>>
+		<br><br>
+	<<else>>
+		<<set $kylar_altar_library += 5>>
+		<span class="blue">쓸 만한 내용은 찾지 못한다.</span> 이곳저곳에서 스치듯 보일 뿐이다.<<gresearch>>
+		<br><br>
+	<</if>>
+<<elseif $rng is 2>>
+	당신은 숲에서 발견한 제단에 관한 정보가 있기를 바라며, 지역 신전과 종교를 다룬 두툼한 책을 힘겹게 읽어 나간다.
+	<<if _historySuccess>>
+		<<set $kylar_altar_library += 15>>
+		<span class="green">고대 의식을 상세히 다룬 대목을 찾는다.</span> 당신이 발견한 것과 같은 돌 제단을 썼다. 귀중품을 제물로 그곳에 바쳤다고 한다.<<gggresearch>>
+		<br><br>
+	<<else>>
+		<<set $kylar_altar_library += 5>>
+		<span class="blue">쓸 만한 내용은 찾지 못한다.</span> 이곳저곳에서 스치듯 보일 뿐이다.<<gresearch>>
+		<br><br>
+	<</if>>
+<<else>>
+	당신은 옛 풍습을 다룬 책을 훑어보며, 숲과 관련된 장에 더 주의를 기울인다.
+	<<if _historySuccess>>
+		<<set $kylar_altar_library += 15>>
+		<span class="green">제단의 삽화를 찾는다.</span> <<generatev1>><<person1>>제단 위에 묶인 <<person>>, 그 주위로 춤추는 형상들이 그려져 있다. 당신은 그 <<person>>【이가】 웃고 있는 건지 비명을 지르고 있는 건지 알 수 없다.<<gggresearch>>
+		<br><br>
+		<<endevent>>
+	<<else>>
+		<<set $kylar_altar_library += 5>>
+		<span class="blue">쓸 만한 내용은 찾지 못한다.</span> 이곳저곳에서 스치듯 보일 뿐이다.<<gresearch>>
+		<br><br>
+	<</if>>
+<</if>>
+
+<<set $kylar_altar_library to Math.clamp($kylar_altar_library, 0, 100)>>
+
+<<if $kylar_altar_library gte 100 and _sydney_location is "library" and ($sydneySeen isnot undefined and $sydneySeen.includes("library"))>>
+	<<npc Sydney>><<person1>>
+	<<if $sydney_romance is 1>>
+		두 팔이 뒤에서 당신을 감싸고, 머리 하나가 어깨에 얹힌다. 시드니다.
+		<br><br>
+		"잡았어요." <<he>>【이가】 말하고는 당신의 뺨에 쪽 입 맞춘다. "요즘 숲에 엄청 관심이 많아졌더라고요. 제가 도울 일 있어요?" <<He>>【은는】 당신의 귀 쪽으로 몸을 기울여 속삭인다. "금지된 방에 몰래 데려가 줄 수도 있어요."
+		<br><br>
+	<<else>>
+		"책장 사이를 서성이는 걸 봤어요." 뒤에서 목소리가 들린다. 시드니다. "뭘 찾고 있어요?" <<He>>【은는】 당신 앞의 책을 보더니, 비밀스러운 속삭임으로 말을 잇는다. "숲에 관한 책이 더 있어요. 금지된 방에요. 제가 보여줄까요?"
+	<</if>>
+	<br><br>
+	<<link [[금지된 방을 뒤진다 (0:05)|Library Altar Forbidden]]>><<pass 5>><</link>>
+	<br>
+	<<link [[다음 기회로 미룬다|Library Altar Refuse]]>><<set $kylar_altar_sydney_accost to true>><</link>>
+	<br>
+<<elseif $kylar_altar_library gte 100>>
+	이곳의 책은 다 훑어봤다. 어쩌면 사서가 더 잘 알지도 모른다. 카운터에 사람이 있을 때 <span class="gold">카운터에 가서 확인해 보는 편이 좋겠다.</span>
+	<br><br>
+
+	<<link [[다음|School Library]]>><<endevent>><</link>>
+	<br>
+<<elseif dangerEvent() and Time.schoolDay and $schoolstate isnot "early" and $schoolstate isnot "late">>
+	<<events_school_library_study>>
+<<else>>
+	<<link [[다음|School Library]]>><<endevent>><</link>>
+	<br>
+<</if>>
+
+:: Library Altar Counter
+<<effects>>
+
+시드니가 비밀스러운 미소를 짓는다. "뭘 하고 다니나 했어요." <<he>>【이가】 목소리를 낮추며 말한다. "숲에 관한 책이 더 있어요. 금지된 방에요. 제가 보여줄까요?"
+<br><br>
+
+<<link [[금지된 방을 뒤진다 (0:05)|Library Altar Forbidden]]>><<pass 5>><</link>>
+<br>
+<<link [[다음 기회로 미룬다|Library Altar Refuse]]>><<set $kylar_altar_sydney_accost to true>><</link>>
+<br>
+
+:: Library Altar Forbidden
+<<effects>>
+
+시드니가 고개를 끄덕이고는 속삭이듯 말을 잇는다. "따라와요."
+<br><br>
+
+당신은 시드니를 따라 책장 사이를 누비다가, 주위 벽과 같은 색으로 칠해진 표식 없는 문 앞에 이른다. 문이 삐걱 열리며 칠흑 같은 내부가 드러난다. 시드니가 당신을 들여보낸 뒤 문을 닫자, 두 사람은 어둠 속에 잠긴다.
+<br><br>
+
+"불이 여기 어딘가 있을 텐데요." 쿵 하고 부딪히는 소리가 들린다. "아야."
+<br><br>
+
+불빛이 깜빡이며 켜지고, 골판지 상자 더미가 드러난다. "보세요, 금지된 방이에요." 시드니가 그렇게 말하고는 특정한 상자 더미로 서둘러 달려간다. "이거예요." 시드니가 머리를 문지르며 말한다. <<He>>【은는】 상자 몇 개를 옆으로 치우고 다른 상자를 연다. 안에는 책이 쌓여 있다.
+<br><br>
+
+<<link [[다음|Library Altar Forbidden 2]]>><</link>>
+<br>
+
+:: Library Altar Forbidden 2
+<<effects>>
+
+맨 위의 책들은 숲과 아무 상관이 없어 보인다. 시드니는 제목이 간신히 보이는 낡은 책 한 권이 나올 때까지 뒤진다.
+<br><br>
+"윈터에게는 이 책이 여기 있다고 말하지 마세요." 시드니가 말한다. <<He>>【은는】 책 중간을 펼쳐 한 장 넘기더니 얼굴을 찌푸린다. <<He>>【은는】 앞뒤로 책장을 넘겨 본다.
+<br><br>
+"분명 더 있었는데요." <<he>>【이가】 말한다. 당신은 쪽수를 확인한다. 몇 장이 건너뛰어져 있다. 시드니도 알아챈다. "누가 뜯어낸 것 같아요. 안타깝네요." <<He>>【은는】 잠시 말을 멈추고 생각에 잠긴다.
+<br><br>
+
+<<link [[누가 떼어 갔을지 묻는다|Library Altar Forbidden Ask]]>><</link>>
+<br>
+<<link [[침묵한다|Library Altar Forbidden Silent]]>><</link>>
+<br>
+
+:: Library Altar Forbidden Ask
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"이런 짓을 할 만한 사람이 있을까요?" 당신이 묻는다.
+<<elseif $speech_attitude is "bratty">>
+	"누가 책에서 페이지를 훔쳐 가요?" 당신이 묻는다. "책을 통째로 훔칠 수도 있었잖아요."
+<<else>>
+	"누가 가져갔을지 아세요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+시드니가 고개를 젓는다. "수수께끼예요. 이 책이 여기 있다는 건 리버와 저만 알았는데, 리버는 <<nnpc_he "River">>【이가】 누가 책을 훼손했다는 걸 알면 기절할 거예요. 혹시," <<he>>【이가】 말을 멈춘다. "한 번 누군가에게 말한 적이 있어요. 신전에서 고해성사를 하다가요. 리버가 읽지 말라고 했는데 저는 읽어 버렸거든요. 죄책감이 들었어요."
+<br><br>
+
+<<link [[신전 사람이 그 페이지를 가져갔을지도 모른다고 말한다|Library Altar Forbidden Temple]]>><</link>>
+<br>
+<<link [[침묵한다|Library Altar Forbidden Silent 2]]>><</link>>
+<br>
+
+
+:: Library Altar Forbidden Silent
+<<effects>>
+
+당신은 침묵을 지킨다.
+<br><br>
+
+"누가 이런 짓을 했는지 모르겠어요." 시드니가 말한다. "이 책이 여기 있다는 건 리버와 저만 알았고, 리버는 <<nnpc_he "River">>【이가】 누가 책을 훼손했다는 걸 알면 기절할 거예요. 혹시," <<he>>【이가】 말을 멈춘다. "한 번 누군가에게 말한 적이 있어요. 신전에서 고해성사를 하다가요. 리버가 읽지 말라고 했는데 저는 읽어 버렸거든요. 죄책감이 들었어요."
+<br><br>
+
+<<link [[신전 사람이 그 페이지를 가져갔을지도 모른다고 말한다|Library Altar Forbidden Temple]]>><</link>>
+<br>
+<<link [[침묵한다|Library Altar Forbidden Silent 2]]>><</link>>
+<br>
+
+:: Library Altar Forbidden Temple
+<<effects>>
+
+<<if $speech_attitude is "meek">>
+	"의심하고 싶진 않지만요." 당신이 말한다. "신전이 이 일과 관련이 있을지도 몰라요."
+<<elseif $speech_attitude is "bratty">>
+	"신전에서 슬쩍했을지도 모르죠." 당신이 말한다. "옛 지식을 쟁여 두는 걸 좋아하잖아요."
+<<else>>
+	"신전이 이 일과 관련이 있을 거라고 생각해요?" 당신이 묻는다.
+<</if>>
+<br><br>
+
+시드니가 웃는다. "그분들이 왜 그런 짓을 하겠어요? 리버라면 원한다고 하면 책을 통째로 내줬을 텐데요. 별로 도움이 못 돼서 미안해요." <<He>>【은는】 고개를 까딱여 절하는 시늉을 한다.
+<br><br>
+
+당신은 방을 나선다. 시드니가 불을 끄고 뒤따라 나온다. "사람들이 어질러 놓기 전에 일하러 돌아가는 게 좋겠어요." <<He>>【은는】 책장 사이로 사라진다.
+<br><br>
+
+<span class="gold">사라진 페이지는 신전에 있을지도 모른다.</span>
+<<set $kylar_altar_research.pushUnique("library")>>
+<<unset $kylar_altar_library>>
+<br><br>
+
+<<link [[다음|School Library]]>><<endevent>><</link>>
+<br>
+
+:: Library Altar Forbidden Silent 2
+<<effects>>
+
+당신은 침묵을 지킨다.
+<br><br>
+"별로 도움이 못 돼서 미안해요." 시드니가 말한다. <<He>>【은는】 고개를 까딱여 절하는 시늉을 한다.
+<br><br>
+
+당신은 방을 나선다. 시드니가 불을 끄고 뒤따라 나온다. "사람들이 어질러 놓기 전에 일하러 돌아가는 게 좋겠어요." <<He>>【은는】 책장 사이로 사라진다.
+<br><br>
+
+<span class="gold">사라진 페이지는 신전에 있을지도 모른다.</span>
+<<set $kylar_altar_research.pushUnique("library")>>
+<<unset $kylar_altar_library>>
+<br><br>
+
+<<link [[다음|School Library]]>><<endevent>><</link>>
+<br>
+
+:: Library Altar Refuse
+<<effects>>
+
+시드니가 고개를 끄덕인다. "마음이 바뀌면 알려 주세요." <<He>>【은는】 책장 뒤로 사라진다.
+<br><br>
+
+<<link [[다음|School Library]]>><<endevent>><</link>>
+<br>
+
+:: Library Pumpkin
+<<effects>>
+<<set $pumpkin_carving_knowledge.pushUnique("library")>>
+당신은 호박 조각에 관한 책을 찾아 서가를 뒤진다. 그렇게 전문적인 책은 없지만, 관련 단락이 실린 할로윈 책을 한 권 찾아낸다. 유용한 요령이 나와 있고, 호박을 아래쪽부터 파라고 권한다.
+<br><br>
+
+<<if ($pumpkin_carving + ($pumpkin_carving_knowledge?.length * 5)) gte 15 and ($pumpkin_carving + ($pumpkin_carving_knowledge?.length * 5)) lte 19>>
+	<span class="gold">지식: 호박 조각 특성을 얻었다.</span>
+<<else>>
+	<span class="gold">호박 조각을 훨씬 더 잘 이해하게 된 것 같다.</span>
+<</if>>
+<br><br>
+
+<<link [[다음|School Library]]>><</link>>
+<br>

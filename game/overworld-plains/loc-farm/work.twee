@@ -261,13 +261,13 @@
 	<<set $farm_end to 1>>
 	<<npc Alex>><<person1>>
 	<<if $exposed gt 0 and Time.season is "winter">>
-		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네," <<he>>【이가】 얼굴을 붉히며 말한다. "날씨가 꽤 추워지는데, 좀 더 따뜻하게 입는 게 좋겠어." <<glust>><<npcincr Alex lust 1>>
+		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네." <<he>>【이가】 얼굴을 붉히며 말한다. "날씨가 꽤 추워지는데, 좀 더 따뜻하게 입는 게 좋겠어." <<glust>><<npcincr Alex lust 1>>
 		<br><br>
 	<<elseif $exposed gt 0>>
-		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네," <<he>>【이가】 얼굴을 붉히며 말한다. "앞으로 더 추워질 테니까, 조금 더 챙겨 입는 게 좋겠어." <<glust>><<npcincr Alex lust 1>>
+		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네." <<he>>【이가】 얼굴을 붉히며 말한다. "앞으로 더 추워질 테니까, 조금 더 챙겨 입는 게 좋겠어." <<glust>><<npcincr Alex lust 1>>
 		<br><br>
 	<<else>>
-		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네," <<he>>【이가】 미소 지으며 말한다.
+		알렉스가 이마의 땀을 닦으며 당신에게 다가온다. "오늘도 끝났네." <<he>>【이가】 미소 지으며 말한다.
 		<br><br>
 	<</if>>
 	<<if $farm_count gte 1 and $farm_stage lte 6>>
@@ -365,7 +365,7 @@
 	<br><br>
 
 	<<npc Alex>><<person1>>
-	"여기서 쉬고 있었어," <<he>>【이가】 몸을 일으키며 말한다. "머리 위의 가지들을 보고 있으면 어쩐지 안전하다는 기분이 들어."
+	"여기서 쉬고 있었어." <<he>>【이가】 몸을 일으키며 말한다. "머리 위의 가지들을 보고 있으면 어쩐지 안전하다는 기분이 들어."
 	<br><br>
 
 	<<link [[당신도 안전하다고 느낀다고 말한다|Farm Woodland Safe]]>><<npcincr Alex love 1>><</link>><<glove>>
@@ -414,7 +414,7 @@
 	<<run $farm.build_finished.delete("barn 2")>>
 	<<npc Alex>><<person1>>
 	<<loadNPC 1 "alexs_parent1">>
-	<span class="gold">당신은 확장된 축사로 들어간다.</span> 알렉스는 이미 그곳에서 성질 사나운 신입 <<farm_text cattle>> 하나를 달래고 있다. <<He>>【은는】 당신에게 손을 흔든다. "활기찬 무리가 됐어," <<he>>【이가】 말한다. "거의 <<person2>><<mum>> 쪽만큼 커졌네. 직접 관리하는 무리 말이야."
+	<span class="gold">당신은 확장된 축사로 들어간다.</span> 알렉스는 이미 그곳에서 성질 사나운 신입 <<farm_text cattle>> 하나를 달래고 있다. <<He>>【은는】 당신에게 손을 흔든다. "활기찬 무리가 됐어." <<he>>【이가】 말한다. "거의 <<person2>><<mum>> 쪽만큼 커졌네. 직접 관리하는 무리 말이야."
 	<br><br>
 
 	<<person1>><<He>>【은는】 문을 닫고, 지나가며 당신의 어깨에 손을 얹는다.
@@ -426,7 +426,7 @@
 	<<run $farm.build_finished.delete("stable 1")>>
 	<span class="gold">당신은 확장된 마구간으로 다가간다.</span> 안에서는 부드러운 클래식 음악이 흐른다.
 	<br><br>
-	<<if $farm_work.horse.monster_roll is true and (($hallucinations gte 1 or !$settings.monsterHallucinationsOnly) or !$settings.bestialityEnabled)>>
+	<<if $farm_work.horse.monster>>
 		"이게 더 적합하군." 당신이 지나가자 <<farm_text horse>>【이가】 말한다. "고맙다."
 		<br><br>
 	<<else>>
@@ -508,7 +508,7 @@
 	<<elseif $NPCList[0].traits.includes("sociable")>>
 		"어떻게 지내?" 당신의 경비원인 <<print window.KR.gatPersonNameDictKR($NPCList[0].name)>>【이가】 말한다. <<He>>【은는】 당신에게 다가온다. "내 급여 때문에 왔어."
 	<<elseif $NPCList[0].traits.includes("brooding")>>
-		당신의 경비원인 <<print window.KR.gatPersonNameDictKR($NPCList[0].name)>>【이가】 다가온다. "급여 받으러 왔어," <<he>>【이가】 말한다. "줄 수 있지?"
+		당신의 경비원인 <<print window.KR.gatPersonNameDictKR($NPCList[0].name)>>【이가】 다가온다. "급여 받으러 왔어." <<he>>【이가】 말한다. "줄 수 있지?"
 	<<else>>
 		"저기 <<pshe>> 있군." 당신의 경비원인 <<print window.KR.gatPersonNameDictKR($NPCList[0].name)>>【이가】 당신을 향해 거들먹거리며 다가오며 말한다. "네가 내가 제일 좋아하는 <<girl>>인 거 알아? 특히 네가 돈을 줄 때 말이야." <<He>>【은는】 <<his>> 손을 내민다.
 	<</if>>
@@ -533,13 +533,13 @@
 		"무슨 일이야?" 당신이 묻는다. <<him>>에게 다가가자, <<his>> 허벅지를 따라 체액이 흘러내리는 것이 보인다.
 		<br>
 
-		"시작된 것 같아," <<he>>【이가】 말한다.
+		"시작된 것 같아." <<he>>【이가】 말한다.
 		<br><br>
 
 		심장이 평소보다 더 빨리 뛰는 것이 느껴진다. "병원에 데려다줄까?" 당신이 묻는다.<<gstress>><<stress 6>>
 		<br><br>
 
-		"아니, 괜찮아. 그런 곳은 별로 좋아하지 않아. 그냥 안으로 들어가자," <<he>>【이가】 말한다.
+		"아니, 괜찮아. 그런 곳은 별로 좋아하지 않아. 그냥 안으로 들어가자." <<he>>【이가】 말한다.
 		<br>
 
 		당신은 <<him>>【이가】 오두막 안으로 들어가 소파에 눕도록 돕는다. "동네 의사 좀 불러 줄래?" <<he>>【이가】 주머니에서 휴대폰을 꺼내 당신에게 건네며 말한다.
@@ -555,7 +555,7 @@
 		<<if $speech_attitude is "meek">>
 			"무-무슨 일 있어요?" 당신이 묻는다.
 		<<elseif $speech_attitude is "bratty">>
-			"괜찮아? 안 그래 보이는데." 당신이 묻는다.
+			"괜찮아? 안 그래 보이는데," 당신이 묻는다.
 		<<else>>
 			"무슨 일 있어요?" 당신이 묻는다.
 		<</if>>
@@ -577,7 +577,7 @@
 				<<He>>【은는】 실망한 목소리다.
 				<br><br>
 
-				"그, 그럼 몸이 안 좋을 때는 언제든 농장 일을 쉬어도 돼," <<he>>【이가】 말한다.
+				"그-그럼 몸이 안 좋을 때는 언제든 농장 일을 쉬어도 돼." <<he>>【이가】 말한다.
 				<br><br>
 
 				<<link [[다음|Farm Work]]>><<endevent>><</link>>
@@ -594,7 +594,7 @@
 			<</if>>
 
 		<<else>>
-			당신은 알렉스가 당신의 배를 바라보고 있다는 것을 알아차린다. "아, 임신했어? 너무 힘들 것 같으면 농장 일은 쉬어도 돼. 난 괜찮아," <<he>>【이가】 말한다.
+			당신은 알렉스가 당신의 배를 바라보고 있다는 것을 알아차린다. "아, 임신했어? 너무 힘들 것 같으면 농장 일은 쉬어도 돼. 난 괜찮아." <<he>>【이가】 말한다.
 			<br><br>
 
 			<<link [[다음|Farm Work]]>><<endevent>><</link>>
@@ -614,7 +614,7 @@
 				<<if $speech_attitude is "meek">>
 					"무-무슨 일 있어요?" 당신이 묻는다.
 				<<elseif $speech_attitude is "bratty">>
-					"괜찮아? 안 그래 보이는데." 당신이 묻는다.
+					"괜찮아? 안 그래 보이는데," 당신이 묻는다.
 				<<else>>
 					"무슨 일 있어요?" 당신이 묻는다.
 				<</if>>
@@ -661,7 +661,7 @@
 		<<He>>【은는】 슬픈 눈으로 당신의 배를 바라본다. "있잖아, 우리 아이들이 어딘가에서 고아처럼 살아간다는 생각은 견딜 수가 없어. 여기 오두막에는 아이들이 지낼 공간이 있어. 밭일이랑, 그다음엔 보육실만 좀 도와주면 돼. 네가 생각해 준다면, 선택지는 있어."
 		<br><br>
 
-		<<if Time.dayState isnot "night">>"난 다시 일하러 가야 해<<else>>난 좀 쉬어야 해<</if>>," <<he>>【이가】 말한다. <<his>> 눈의 슬픔은 조금도 옅어지지 않는다. <<He>>【은는】 몸을 기울여 당신을 짧게 안아 준 뒤 걸어간다.
+		<<if Time.dayState isnot "night">>"난 다시 일하러 가야 해<<else>>난 좀 쉬어야 해<</if>>." <<he>>【이가】 말한다. <<his>> 눈의 슬픔은 조금도 옅어지지 않는다. <<He>>【은는】 몸을 기울여 당신을 짧게 안아 준 뒤 걸어간다.
 		<br><br>
 
 		<span class="gold">알렉스는 <<his>> 아이들을 농장에서 키울 의향이 있지만, 먼저 <<him>>【을를】 도와야 합니다.</span>
@@ -677,7 +677,7 @@
 		당신은 알렉스에게 다가간다. "베일리에게 이미 돈을 지불했어, 언제든지 우리 아이들을 데리러 갈 수 있어." 당신이 말한다.
 		<br><br>
 
-		<<He>>【은는】 미소 지으며 당신을 끌어안는다. "드디어," <<he>>【이가】 말한다. "드디어 우리 모두 진짜 가족처럼 살 수 있게 됐어."
+		<<He>>【은는】 미소 지으며 당신을 끌어안는다. "드디어." <<he>>【이가】 말한다. "드디어 우리 모두 진짜 가족처럼 살 수 있게 됐어."
 		<br>
 
 		당신도 <<him>>【을를】 끌어안는다. 둘은 서로를 놓기 전까지 한동안 그대로 안고 있는다.
@@ -689,7 +689,7 @@
 		알렉스가 웃는다. "알아, 바보야. 내가 정말 그럴 거라고 생각하진 않았지, 그렇지?" <<he>>【이가】 묻는다.
 		<br>
 
-		"그래, 생각 안 해본 건 아닌데, 그래도 우리 부모님이 도와줄 수 있을 것 같아. 전화해 볼게," <<he>>【이가】 휴대폰을 집어 들며 말한다.
+		"그래, 생각 안 해본 건 아닌데, 그래도 우리 부모님이 도와줄 수 있을 것 같아. 전화해 볼게." <<he>>【이가】 휴대폰을 집어 들며 말한다.
 		<br><br>
 
 		<<He>>【은는】 전화를 걸어 <<his>> 부모에게 상황을 설명한다. 그러면서 가끔 당신을 바라보고 얼굴을 붉힌다.
@@ -859,7 +859,7 @@
 		<<if $speech_attitude is "meek">>
 			"뭐, 뭐 잘못됐나요?" 당신은 묻는다. "옷이 찢어질까 봐 걱정돼서, 좀 덜 입기로 했어요."
 		<<elseif $speech_attitude is "bratty">>
-			"눈은 여기 있거든," 당신은 말한다. "옷 망가지기 싫었던 거지, 마음대로 쳐다봐도 된다는 뜻은 아니야."
+			"눈은 여기 있거든." 당신은 말한다. "옷 망가지기 싫었던 거지, 마음대로 쳐다봐도 된다는 뜻은 아니야."
 		<<else>>
 			"놀라게 할 생각은 아니었어요." 당신은 말한다. "하지만 옷이 찢어질까 봐 걱정돼서요."
 		<</if>>
@@ -867,14 +867,14 @@
 		<<if $speech_attitude is "meek">>
 			"뭐, 뭐 잘못됐나요?" 당신은 묻는다. "맨날 젖은 옷 갈아입는 거 지긋지긋해서요."
 		<<elseif $speech_attitude is "bratty">>
-			"눈은 여기 있거든," 당신은 말한다. "옷은 또 젖을 뿐이야. 그냥 버틸래."
+			"눈은 여기 있거든." 당신은 말한다. "옷은 또 젖을 뿐이야. 그냥 버틸래."
 		<<else>>
 			"놀라게 할 생각은 아니었어요." 당신은 말한다. "하지만 맨날 젖은 옷 갈아입는 게 지긋지긋해서요."
 		<</if>>
 	<</if>>
 	<<exhibitionism5>>
 
-	알렉스는 얼굴을 붉히며 다시 시선을 피한다. "아, 알았어." <<he>>【이가】 더듬거린다. "조, 조심해." <<He>>【은는】 서둘러 가던 길을 가지만, 나중에 힐끔거릴 것 같은 느낌이 든다.
+	알렉스는 얼굴을 붉히며 다시 시선을 피한다. "아, 알았어." <<he>>【이가】 더듬거린다. "조-조심해." <<He>>【은는】 서둘러 가던 길을 가지만, 나중에 힐끔거릴 것 같은 느낌이 든다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><<endevent>><</link>>
@@ -890,7 +890,7 @@
 		<<if $speech_attitude is "meek">>
 			"뭐, 뭐 잘못됐나요?" 당신은 묻는다. "옷이 찢어질까 봐 걱정돼서, 좀 덜 입기로 했어요."
 		<<elseif $speech_attitude is "bratty">>
-			"눈은 여기 있거든," 당신은 말한다. "옷 망가지기 싫었던 거지, 마음대로 쳐다봐도 된다는 뜻은 아니야."
+			"눈은 여기 있거든." 당신은 말한다. "옷 망가지기 싫었던 거지, 마음대로 쳐다봐도 된다는 뜻은 아니야."
 		<<else>>
 			"놀라게 할 생각은 아니었어요." 당신은 말한다. "하지만 옷이 찢어질까 봐 걱정돼서요."
 		<</if>>
@@ -898,13 +898,13 @@
 		<<if $speech_attitude is "meek">>
 			"뭐, 뭐 잘못됐나요?" 당신은 묻는다. "맨날 젖은 옷 갈아입는 거 지긋지긋해서요."
 		<<elseif $speech_attitude is "bratty">>
-			"눈은 여기 있거든," 당신은 말한다. "옷은 또 젖을 뿐이야. 그냥 버틸래."
+			"눈은 여기 있거든." 당신은 말한다. "옷은 또 젖을 뿐이야. 그냥 버틸래."
 		<<else>>
 			"놀라게 할 생각은 아니었어요." 당신은 말한다. "하지만 맨날 젖은 옷 갈아입는 게 지긋지긋해서요."
 		<</if>>
 	<</if>>
 
-	알렉스는 얼굴을 붉히며 다시 시선을 피한다. "아, 알았어." <<he>>【이가】 더듬거린다. "조, 조심해." <<He>>【은는】 서둘러 가던 길을 가지만, 나중에 힐끔거릴 것 같은 느낌이 든다.
+	알렉스는 얼굴을 붉히며 다시 시선을 피한다. "아, 알았어." <<he>>【이가】 더듬거린다. "조-조심해." <<He>>【은는】 서둘러 가던 길을 가지만, 나중에 힐끔거릴 것 같은 느낌이 든다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><<endevent>><</link>>
@@ -930,9 +930,9 @@
 <<if $speech_attitude is "meek">>
 	"아, 알렉스." 당신은 끽 소리를 낸다. "사고가 있었어. 뭐, 뭐 말릴 만한 거 있어?"
 <<elseif $speech_attitude is "bratty">>
-	"이봐," 당신은 소리친다. "알렉스. 뭐 말릴 만한 거 있어?"
+	"이봐." 당신은 소리친다. "알렉스. 뭐 말릴 만한 거 있어?"
 <<else>>
-	"알렉스," 당신은 말한다. "사고가 있었어. 뭐 말릴 만한 거 있어?"
+	"알렉스." 당신은 말한다. "사고가 있었어. 뭐 말릴 만한 거 있어?"
 <</if>>
 <<exhibitionism1>>
 
@@ -969,9 +969,9 @@
 <<if $speech_attitude is "meek">>
 	"아, 알렉스." 당신은 끽 소리를 낸다. "사고가 있었어. 뭐, 뭐 입을 만한 옷 있어?"
 <<elseif $speech_attitude is "bratty">>
-	"이봐," 당신은 소리친다. "알렉스. 뭐 입을 만한 거 있어?"
+	"이봐." 당신은 소리친다. "알렉스. 뭐 입을 만한 거 있어?"
 <<else>>
-	"알렉스," 당신은 말한다. "사고가 있었어. 뭐 입을 만한 옷 있어?"
+	"알렉스." 당신은 말한다. "사고가 있었어. 뭐 입을 만한 옷 있어?"
 <</if>>
 <<exhibitionism1>>
 
@@ -1075,7 +1075,7 @@
 <br><br>
 
 <<if dangerEvent()>>
-	<<if $settings.bestialityEnabled and $settings.lurkersEnabled>>
+	<<if $settings.lurkersEnabled>>
 		막 일을 끝내려던 참에, <<if Weather.isSnow>>눈<<else>>낙엽<</if>> 더미에서 무언가 튀어나온다!<<gstress>><<stress 6>>
 		<br><br>
 		<<if hasSexStat("deviancy", 4)>>
@@ -1113,7 +1113,7 @@
 
 <<if dangerEvent()>>
 	<<farm_gen dog>>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("dog", $farm_work.dog.monster)>>
 		<<if $farm_work.dog.monster is true>>
 			<<beastNEWinit 1 dog $farm_work.dog.gender $farm_work.dog.genitals monster>>
 		<<else>>
@@ -1245,7 +1245,7 @@
 -->
 <<if _fullyNaked or dangerEvent(1.25)>>
 <!-- Modified for monster people -->
-   <<if ($settings.bestialityEnabled or $farm_work.pig.monster is true)>>
+	<<if beastSexEnabledForType("pig", $farm_work.pig.monster)>>
 		<<if $farm_work.pig.monster is true>>
 			마지막 녀석이 당신의 <<hairDetails>>【을를】 잡고, 땅으로 넘어뜨리려 한다.
 		<<else>>
@@ -1287,10 +1287,10 @@
 <<wearProp "bucket">>
 
 
-마당을 가로지르는 알렉스를 발견했다. 양손에는 무거운 양동이가 들려 있다.
+마당을 가로지르는 알렉스를 발견한다. 양손에는 무거운 양동이가 들려 있다.
 
 <<if $speech_attitude is "meek">>
-	"도, 도와줄까?" 당신이 묻는다.
+	"도-도와줄까?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	당신은 양동이 중 하나로 손을 뻗는다. "내가 도와줄게." 당신이 말한다.
 <<else>>
@@ -1335,8 +1335,8 @@
 			currentSkillValue("skulduggery") gte random(100, 300)
 		]>>
 		<<set _attemptOne to random(0, 2)>>
-		<<if ($settings.bestialityEnabled or $farm_work.pig.monster is true) and _checkResults[_attemptOne]>>
-			구유에서 돌아서는데 무언가 당신의
+		<<if beastSexEnabledForType("pig", $farm_work.pig.monster) and _checkResults[_attemptOne]>>
+			무언가 당신의
 			<<if _attemptOne is 0>> <<hairDetails>>
 			<<elseif _attemptOne is 1>> _top.name
 			<<else>> _bottom.name
@@ -1345,7 +1345,7 @@
 
 			<<if $farm.beasts.pigs lte -20 and $rng gte 51>>
 				<<farm_text_many pig>> 중 한 마리가 울타리 너머로 몸을 쑥 내밀고 있다.
-				<<if $farm_work.pig.monster is true>>"아직 안 끝났어," <<farm_he pig>>【이가】 말한다. <</if>>
+				<<if $farm_work.pig.monster is true>>"아직 안 끝났어." <<farm_he pig>>【이가】 말한다. <</if>>
 				<<farm_He pig>>【은는】 당신을 안으로 끌어당기려 한다.
 				<br><br>
 
@@ -1359,13 +1359,13 @@
 					<<npcincr Alex love 1>><<npcincr Alex dom -1>><<glove>><<ldom>>
 					<br><br>
 				<<else>>
-					"저, 저리 가!" 당신이 말한다. 당신이 <<farm_his pig>> <<= $farm_work.pig.monster is true ? "팔을" : "주둥이를">> 뿌리치려 해보지만, 목소리가 떨리는 바람에 <<farm_text pig>>【은는】 당신을 무시한다. <<farm_He pig>>【은는】 당신을 울타리 너머로 홱 잡아당긴다.
+					"저-저리 가!" 당신이 말한다. 당신이 <<farm_his pig>> <<= $farm_work.pig.monster is true ? "팔을" : "주둥이를">> 뿌리치려 해보지만, 목소리가 떨리는 바람에 <<farm_text pig>>【은는】 당신을 무시한다. <<farm_He pig>>【은는】 당신을 울타리 너머로 홱 잡아당긴다.
 					<!-- Bonus pain if the PC was grabbed by their hair. -->
 					<<if _attemptOne is 0>> <<violence 1>><<gpain>> <</if>>
 					<br><br>
 
 					"저리 가!" 호통 소리가 들리더니, 알렉스가 갈퀴로 <<farm_text pig>>의 머리를 콩 쥐어박는다.
-					그가 웃으며 당신이 일어나는 것을 돕는다. "미안해," <<he>>【이가】 말한다. "얘네가 이렇게 까불 때는 좀 더 단호하게 굴어 봐."
+					그가 웃으며 당신이 일어나는 것을 돕는다. "미안해." <<he>>【이가】 말한다. "얘네가 이렇게 까불 때는 좀 더 단호하게 굴어 봐."
 					<<stress 6>><<npcincr Alex dom 1>><<gstress>><<gdom>>
 					<br><br>
 				<</if>>
@@ -1389,7 +1389,7 @@
 					<<farm_pigs 1>><<grespect>>
 					<br><br>
 
-					알렉스는 돼지우리에 마지막 양동이를 비운다. "잘했어," <<he>>【이가】 말한다. 당신은 고개를 끄덕인다.
+					알렉스는 돼지우리에 마지막 양동이를 비운다. "잘했어." <<he>>【이가】 말한다. 당신은 고개를 끄덕인다.
 					<<npcincr Alex love 1>><<npcincr Alex dom -1>><<glove>><<ldom>>
 					<br><br>
 
@@ -1397,7 +1397,7 @@
 					<br>
 
 				<<else>>
-					"저, 저리 가!" 당신이 말하지만, <span class="red">목소리가 떨린다.</span>
+					"저-저리 가!" 당신이 말하지만, <span class="red">목소리가 떨린다.</span>
 
 					<<if _attemptOne is 0>>
 						<<farm_text pig>>【은는】 알렉스가 다가오는 것을 보고, 마지막으로 당신의 머리카락을 한 번 더 잡아당긴다.<<gpain>><<violence 1>>
@@ -1467,7 +1467,7 @@
 		<<if $pronoun is "f">>치마<<else>>반바지<</if>>【을를】 붙잡고 있다.
 		<br><br>
 
-		<<link [[<<farm_text pig>> 꾸짖기|Farm Pigs Alex Scold]]>><</link>><<tendingdifficulty 1 600>>
+		<<link [[<<farm_text pig>>【을를】 꾸짖는다|Farm Pigs Alex Scold]]>><</link>><<tendingdifficulty 1 600>>
 		<br>
 		<<link [[지켜본다|Farm Pigs Alex Watch]]>><<npcincr Alex lust 1>><<arousal 600>><</link>><<glust>><<garousal>>
 		<br>
@@ -1486,7 +1486,7 @@
 <<pigsOpinion>>
 
 <!--
-	PC's  with at least 14,000 Physique will be able to feed the pigs twice as fast, halving their number of required interactions. This reduces the number of times the PC can interact with them to raise their respect, so they also gain +1 Pig's Respect as compensation.
+	PC's with at least 14,000 Physique will be able to feed the pigs twice as fast, halving their number of required interactions. This reduces the number of times the PC can interact with them to raise their respect, so they also gain +1 Pig's Respect as compensation.
 -->
 <<if currentSkillValue('physique') gte 14000>>
 	양동이 몇 개에 사료를 쏟아붓고 들판을 가로지른다. 양동이는 무겁지만, <span class="green">당신의 근력으로는 아무 문제 없다.</span>
@@ -1521,13 +1521,13 @@
 	<<set _attemptTwo to random(0, 2)>>
 	<<set _grabbed to ((_checkResults[_attemptOne]) or (not _checkResults[3] and _checkResults[_attemptTwo]))>>
 
-	<<if ($settings.bestialityEnabled or $farm_work.pig.monster is true) and !$weekly.farmNauseaEvent and $rng gte 86 and playerIsPregnant() and playerAwareTheyArePregnant() and between(pregnancyProgress(getPlayerPregnancy()), 0.1, 0.3)>>
+	<<if beastSexEnabledForType("pig", $farm_work.pig.monster) and !$weekly.farmNauseaEvent and $rng gte 86 and playerIsPregnant() and playerAwareTheyArePregnant() and between(pregnancyProgress(getPlayerPregnancy()), 0.1, 0.3)>>
 		양동이를 들어 올리자 그 안의 음식물 쓰레기에서 지독한 냄새가 훅 끼친다. 즉시 속이 뒤틀리고, 냄새에서 벗어나려 서두르다 양동이를 거의 떨어뜨릴 뻔한다. 진정하려고 애쓰며 두어 걸음 뒷걸음질 친다.
 		<br><br>
 
 		<<if random(0, 2) is 0>>
 			울타리에 기대어 몸을 지탱한다. 밀려오는 구역질을 억누르기 위해 눈을 감고 있는데, 등 뒤에서 으르렁거리는 소리가 들린다. 뒤돌아보자 <<farm_text dog>>【이가】 당신의 엉덩이 냄새를 맡고 있다.
-			<<if $farm_work.dog.monster is true>> "좋은 냄새가 나. 마음에 들어. 원해," <<farm_he dog>>【이가】 말한다. <</if>><<farm_He dog>>【은는】 당신의 위로 올라타려 한다. <<farm_him dog>>【을를】 떼어내려 해보지만, 너무 기운이 빠져 저항할 수 없다.
+			<<if $farm_work.dog.monster is true>> "좋은 냄새가 나. 마음에 들어. 원해." <<farm_he dog>>【이가】 말한다. <</if>><<farm_He dog>>【은는】 당신의 위로 올라타려 한다. <<farm_him dog>>【을를】 떼어내려 해보지만, 너무 기운이 빠져 저항할 수 없다.
 			<br><br>
 
 			<<link [[다음|Farm Dogs Rape]]>><<set $molestationstart to 1>><</link>>
@@ -1594,7 +1594,7 @@
 				<<link [[다음|Farm Work]]>><</link>>
 			<</if>>
 		<</if>>
-	<<elseif ($settings.bestialityEnabled or $farm_work.pig.monster is true) and _grabbed>>
+	<<elseif beastSexEnabledForType("pig", $farm_work.pig.monster) and _grabbed>>
 		<<if _checkResults[_attemptOne]>>
 			<<set _firstSuccess to _attemptOne>>
 		<<else>>
@@ -1610,7 +1610,7 @@
 
 		<<if $farm.beasts.pigs lte -20 and $rng gte 51>>
 			<<farm_text_many pig>> 중 한 마리가 울타리 너머로 몸을 쑥 내밀고 있다.
-			<<if $farm_work.pig.monster is true>>"아직 안 끝났어," <<farm_he pig>>【이가】 말한다. <</if>>
+			<<if $farm_work.pig.monster is true>>"아직 안 끝났어." <<farm_he pig>>【이가】 말한다. <</if>>
 			<<farm_He pig>>【은는】 당신을 안으로 끌어당기려 한다.
 			<br><br>
 
@@ -1678,36 +1678,36 @@
 :: Farm Pigs Feed Nausea
 <<effects>><<set $weekly.farmNauseaEvent to true>>
 
-"어이! 뭐-" 알렉스의 당황한 반응은 당신의 얼굴 표정을 보자마자 멈췄다. 당신은 몸을 돌려 앞으로 숙이고 무릎에 손을 얹었다. 목구멍에서 경련이 일어나는 것을 삼키려 애썼다. <<gpain>><<violence 3>>
+"어이! 뭐-" 알렉스의 당황한 반응은 당신의 얼굴 표정을 보자마자 멈춘다. 당신은 몸을 돌려 앞으로 숙이고 무릎에 손을 얹는다. 목구멍에서 경련이 일어나는 것을 삼키려 애쓴다. <<gpain>><<violence 3>>
 <br><br>
 
 <<if $farm_stage gte 7 and $alex_countdown is undefined>>
-	갑자기, <<his>> 손이 <<if $hairlength gte 400>>당신의 머리카락을 뒤로 넘겨주고<</if>> 등을 부드럽게 원을 그리며 문지르는 것이 느껴졌다. "괜찮아, 파트너." 알렉스가 달래는 목소리로 속삭였다. "내가 있잖아."
+	갑자기, <<his>> 손이 <<if $hairlength gte 400>>당신의 머리카락을 뒤로 넘겨주고<</if>> 등을 부드럽게 원을 그리며 문지르는 것이 느껴진다. "괜찮아, 파트너." 알렉스가 달래는 목소리로 속삭인다. "내가 있잖아."
 	<br><br>
 
-	몇 분 후, 속이 진정되어 다시 몸을 바로 세울 수 있었다. <<if $hairlength gte 400>>알렉스가 당신의 머리카락에서 손을 뗐지만, <<his>> 손은 당신의 등에 머물러 있었다. <<else>>알렉스의 손이 당신의 등에 머물러 있었다.<</if>> 그리고 <<he>>【이가】 당신의 얼굴을 들여다볼 때 <<his>> 시선은 걱정으로 가득했다.
+	몇 분 후, 속이 진정되어 다시 몸을 바로 세울 수 있다. <<if $hairlength gte 400>>알렉스가 당신의 머리카락에서 손을 뗐지만, <<his>> 손은 당신의 등에 머물러 있다. <<else>>알렉스의 손이 당신의 등에 머물러 있다.<</if>> 그리고 <<he>>【이가】 당신의 얼굴을 들여다볼 때 <<his>> 시선은 걱정으로 가득하다.
 	<br><br>
 
-	<<His>> 손이 당신의 어깨를 더 꽉 잡았다. "이리 와." <<He>>【은는】 당신을 농장 집으로 이끌기 시작했다. "좀 쉬어야 해."
+	<<His>> 손이 당신의 어깨를 더 꽉 잡는다. "이리 와." <<He>>【은는】 당신을 농장 집으로 이끌기 시작한다. "좀 쉬어야 해."
 
 <<else>>
-	몇 분 후, 속이 진정되어 다시 몸을 바로 세울 수 있었다. 돌아보니 알렉스가 예의상 고개를 돌린 채 기다리고 있었지만, 당신을 계속 주시하고 있었다는 것을 알 수 있었다. "저... 괜찮아?"
+	몇 분 후, 속이 진정되어 다시 몸을 바로 세울 수 있다. 돌아보니 알렉스가 예의상 고개를 돌린 채 기다리고 있지만, 당신을 계속 주시하고 있었다는 것을 알 수 있다. "저... 괜찮아?"
 	<br><br>
 
-	당신은 고개를 끄덕였지만, <<he>>【은는】 납득하지 못한 표정이었다. "이봐, 좀 쉬는 게 어때? 내가 차 끓여줄게."
+	당신은 고개를 끄덕이지만, <<he>>【은는】 납득하지 못한 표정이다. "이봐, 좀 쉬는 게 어때? 내가 차 끓여줄게."
 <</if>>
 <br><br>
 
 <<if $speech_attitude is "meek">>
-	"아, 아니에요, 괜찮아요." 당신이 말했다. "이제 괜찮아졌어요. 아직 도울 수 있어요."
+	"아-아니에요, 괜찮아요." 당신이 말한다. "이제 괜찮아졌어요. 아직 도울 수 있어요."
 <<elseif $speech_attitude is "bratty">>
-	"쉴 필요 없어요." 당신이 말했다. "어차피 할 일이 너무 많잖아요."
+	"쉴 필요 없어요." 당신이 말한다. "어차피 할 일이 너무 많잖아요."
 <<else>>
-	"괜찮아요." 당신이 말했다. "계속 일할 수 있어요."
+	"괜찮아요." 당신이 말한다. "계속 일할 수 있어요."
 <</if>>
 <br><br>
 
-<<He>>【은는】 당신의 항의를 무시하고 집으로 데려갔다.
+<<He>>【은는】 당신의 항의를 무시하고 집으로 데려간다.
 <br><br>
 
 <<link [[다음|Farm Pigs Feed Nausea 2]]>><</link>>
@@ -1715,13 +1715,13 @@
 :: Farm Pigs Feed Nausea 2
 <<effects>>
 
-<<He>>【은는】 당신을 소파에 앉히고는 부엌으로 들어갔다. 몇 분 후, 차 끓이는 냄새가 났다. <<He>>【은는】 당신에게 컵을 가져다주었다. 한 모금 마셔보니 평소보다 그리 진하지 않았다.
+<<He>>【은는】 당신을 소파에 앉히고는 부엌으로 들어간다. 몇 분 후, 차 끓이는 냄새가 난다. <<He>>【은는】 당신에게 컵을 가져다준다. 한 모금 마셔보니 평소보다 그리 진하지 않다.
 <br><br>
 
-"난 돼지들 밥 마저 주러 갈게." 알렉스가 말했다. <<He>>【은는】 당신의 어깨를 부드럽게 쥐었다. "넌 여기서 좀 쉬고 있어."
+"난 돼지들 밥 마저 주러 갈게." 알렉스가 말한다. <<He>>【은는】 당신의 어깨를 부드럽게 쥔다. "넌 여기서 좀 쉬고 있어."
 <br><br>
 
-당신은 부엌에서 잠시 쉬며 차를 마셨다. 짧은 휴식으로 기운을 차리고 다시 일하러 돌아갔다. <<gdom>><<lstress>><<ltiredness>><<npcincr Alex dom 1>><<stress -6>><<tiredness -4>>
+당신은 부엌에서 잠시 쉬며 차를 마신다. 짧은 휴식으로 기운을 차리고 다시 일하러 돌아간다. <<gdom>><<lstress>><<ltiredness>><<npcincr Alex dom 1>><<stress -6>><<tiredness -4>>
 <br><br>
 
 <<endevent>>
@@ -1732,22 +1732,22 @@
 
 <<pigsOpinion>>
 
-당신은 <<farm_text_many pig>>을 돼지우리로 다시 몰아넣었다. 몇몇은 움직이기를 꺼리는 듯해서, 구슬려야 했다.
+당신은 <<farm_text_many pig>>을 돼지우리로 다시 몰아넣는다. 몇몇은 움직이기를 꺼리는 듯해서, 구슬려야 한다.
 
 <<if _fullyNaked or dangerEvent(1.25)>>
-   <<if $settings.bestialityEnabled or $farm_work.pig.monster is true>>
-       당신은 간신히 마지막 녀석을 일으켜 세운다. 당신이 <<farm_him pig>>【을를】 안으로 이끌려 할 때, <<farm_he pig>>【이가】
-       <<= $farm_work.pig.monster is true ? "당신의 팔을 움켜쥐고는" : "뒷다리로 일어서더니">> 억지로 당신을 바닥에 눕히려 한다.
-       <br><br>
+	<<if beastSexEnabledForType("pig", $farm_work.pig.monster)>>
+		당신은 간신히 마지막 녀석을 일으켜 세운다. 당신이 <<farm_him pig>>【을를】 안으로 이끌려 할 때, <<farm_he pig>>【이가】
+		<<= $farm_work.pig.monster is true ? "당신의 팔을 움켜쥐고는" : "뒷다리로 일어서더니">> 억지로 당신을 바닥에 눕히려 한다.
+		<br><br>
 
-       <<link [[꾸짖기|Farm Pigs Scold]]>><</link>><<tendingdifficulty 1 600>>
+       <<link [[꾸짖는다|Farm Pigs Scold]]>><</link>><<tendingdifficulty 1 600>>
        <br>
-       <<link [[<<farm_him pig>>【을를】 밀쳐내기|Farm Pigs Shove]]>><</link>><<physiquedifficulty 1 12000>>
+       <<link [[<<farm_him pig>>【을를】 밀쳐낸다|Farm Pigs Shove]]>><</link>><<physiquedifficulty 1 12000>>
        <br>
-       <<link [[견뎌내기|Farm Pigs Endure]]>><<trauma 6>><<stress 6>><<farm_pigs -1>><</link>><<gtrauma>><<gstress>><<lrespect>>
+       <<link [[견딘다|Farm Pigs Endure]]>><<trauma 6>><<stress 6>><<farm_pigs -1>><</link>><<gtrauma>><<gstress>><<lrespect>>
        <br>
        <<if hasSexStat("deviancy", 3)>>
-           <<link [[<<farm_him pig>>【을를】 손으로 도와주기|Farm Pigs Hand]]>><<set $sexstart to 1>><</link>><<deviant3>>
+           <<link [[<<farm_him pig>>【을를】 손으로 도와준다|Farm Pigs Hand]]>><<set $sexstart to 1>><</link>><<deviant3>>
            <br>
        <</if>>
    <<else>>
@@ -1758,7 +1758,7 @@
 		<br>
 	<</if>>
 <<else>>
-	마지막 녀석을 일으켜 세워 안으로 이끌었다.
+	마지막 녀석을 일으켜 세워 안으로 이끈다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><</link>>
@@ -1769,17 +1769,18 @@
 :: Farm Horses Out
 <<effects>>
 
-당신은 각 마구간을 열어 안에 있는 <<farm_text_many horse>>을 풀어주었다. 그들은 어디로 가야 할지 알고 있었지만, 당신은 그들을 길 아래로 이끌고 들판으로 가는 문을 열어주었다.
+당신은 각 마구간을 열어 안에 있는 <<farm_text_many horse>>을 풀어준다. 그들은 어디로 가야 할지 알고 있지만, 당신은 그들을 길 아래로 이끌고 들판으로 가는 문을 열어준다.
 <br><br>
 
-<<if dangerEvent() and $settings.horsesEnabled>>
+
+<<if dangerEvent() and beastSexEnabledForType("horse")>>
 <!-- Modified for Monster People -->
-	<<if $settings.bestialityEnabled or $farm_work.pig.monster is true>>
-		대부분은 다리를 뻗고 싶어 안달이 나 달려갔지만, 두어 마리는 뒤에 남았다.
+	<<if beastSexEnabledForType("horse", $farm_work.horse.monster)>>
+		대부분은 다리를 뻗고 싶어 안달이 나 달려가지만, 두어 마리는 뒤에 남는다.
 		<<if $farm_work.horse.monster is true>>
-			그중 하나가 당신 앞에 서서 문에서 밀어냈다. "우릴 가둬두는 건 달갑지 않아." 뒤에서 한 쌍의 강력한 손이 당신의 어깨를 붙잡자 <<farm_he horse>>【이가】 말했다. "사과의 의미로 뭐 좀 해주는 게 어때?"
+			그중 하나가 당신 앞에 서서 문에서 밀어낸다. "우릴 가둬두는 건 달갑지 않아." 뒤에서 한 쌍의 강력한 손이 당신의 어깨를 붙잡자 <<farm_he horse>>【이가】 말한다. "사과의 의미로 뭐 좀 해주는 게 어때?"
 			<br><br>
-			그 손은 당신의 팔을 타고 내려와 옆구리에 고정시켰고, 앞에 있던 켄타우로스는 당신의 가슴을 따라 손가락을 쓸어내렸다.<<gstress>><<stress 6>>
+			그 손은 당신의 팔을 타고 내려와 옆구리에 고정시키고, 앞에 있던 켄타우로스는 당신의 가슴을 따라 손가락을 쓸어내린다.<<gstress>><<stress 6>>
 			<br><br>
 
 			<<link [[꾸짖는다|Farm Horses Scold]]>><</link>><<tendingdifficulty 1 800>>
@@ -1789,7 +1790,7 @@
 			<<link [[참는다|Farm Horses Endure]]>><<trauma 6>><<stress 6>><</link>><<gtrauma>><<gstress>>
 			<br>
 		<<else>>
-			한 마리가 코로 당신을 문에서 밀어냈고, 다른 한 마리는 당신의 탈출로를 막았다.<<gstress>><<stress 6>>
+			한 마리가 코로 당신을 문에서 밀어내고, 다른 한 마리는 당신의 탈출로를 막는다.<<gstress>><<stress 6>>
 			<br><br>
 
 			<<if $farm.beasts.horses lte -20>>
@@ -1805,14 +1806,14 @@
 			<br>
 		<</if>>
 	<<else>>
-		그들은 다리를 뻗고 싶어 안달이 나 달려갔다. 한 마리가 지나가면서 당신을 밀쳐 땅에 넘어뜨렸다.<<gpain>><<pain 4>><<gstress>><<stress 6>>
+		그들은 다리를 뻗고 싶어 안달이 나 달려간다. 한 마리가 지나가면서 당신을 밀쳐 땅에 넘어뜨린다.<<gpain>><<pain 4>><<gstress>><<stress 6>>
 		<br><br>
 
 		<<link [[다음|Farm Work]]>><</link>>
 		<br>
 	<</if>>
 <<else>>
-	그들은 다리를 뻗고 싶어 안달이 나 달려갔다.
+	그들은 다리를 뻗고 싶어 안달이 나 달려간다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><</link>>
@@ -1824,7 +1825,7 @@
 
 <<if $rng gte 51>>
 
-	당신은 솔을 손에 들고 <<farm_text horse>>에게 다가갔다.
+	당신은 솔을 손에 들고 <<farm_text horse>>에게 다가간다.
 
 	<<if $farm.beasts.horses gte 5>>
 		<<farm_He horse>>【은는】 열망하며 당신을 향해 달려온다.
@@ -1836,13 +1837,13 @@
 	<<farm_brush>>
 
 <<else>>
-	<<farm_text_many horse>>【이가】 들판을 뛰어다녔다. 당신은 한 마리에게 멈추라고 소리쳤지만, <<farm_he horse>>【은는】 너무 즐거워하고 있었다.
+	<<farm_text_many horse>>【이가】 들판을 뛰어다닌다. 당신은 한 마리에게 멈추라고 소리치지만, <<farm_he horse>>【은는】 너무 즐거워하고 있다.
 	<br><br>
 
 	<<link [[쫓아간다|Farm Horses Chase]]>><<tiredness 2>><</link>><<athleticsdifficulty 1 1000>><<gtiredness>>
 	<br>
 	<!-- Modified for Monster People -->
-	<<if hasSexStat("deviancy", 2) and $settings.horsesEnabled and ($settings.bestialityEnabled or $farm_work.horse.monster is true)>>
+	<<if hasSexStat("deviancy", 2) and beastSexEnabledForType("horse", $farm_work.horse.monster)>>
 		<<link [[유혹한다|Farm Horses Seduce]]>><</link>><<deviant2>>
 		<br>
 	<</if>>
@@ -1853,7 +1854,7 @@
 :: Farm Horses Lewd
 <<effects>>
 
-당신은 <<farm_text horse>>에게 다가갔다. 당신은 <<farm_his horse>> 고삐를 손에 잡고 들판 구석, 숲이 우거져 시야가 가려진 곳으로 이끌었다. 농장 본채에서는 아무도 당신의 소리를 들을 수 없을 만큼 멀리 떨어져 있었다.
+당신은 <<farm_text horse>>에게 다가간다. 당신은 <<farm_his horse>> 고삐를 손에 잡고 들판 구석, 숲이 우거져 시야가 가려진 곳으로 이끈다. 농장 본채에서는 아무도 당신의 소리를 들을 수 없을 만큼 멀리 떨어져 있다.
 <br><br>
 
 <<link [[손을 사용한다 (0:05)|Farm Horses Lewd Hands]]>><<pass 5>><<farm_count 5>><<farm_yield 1>><<set $farm_work.horses_satisfied += 1>><<handskill 5>><<set $handstat += 1>><<set $handejacstat += 1>><</link>><<deviant3>><<gfarm>><<ghandskill>>
@@ -1874,37 +1875,37 @@
 :: Farm Horses Lewd Hands
 <<effects>>
 
-당신은 <<farm_text horse>> 옆에 무릎을 꿇고, <<farm_his horse>> <<if $farm_work.horse.genitals is "vagina">>말 보지<<else>>거대한 자지<</if>>【을를】 관찰했다. 당신은 손을 뻗어 그것을 만졌다.
+당신은 <<farm_text horse>> 옆에 무릎을 꿇고, <<farm_his horse>> <<if $farm_work.horse.genitals is "vagina">>말 보지<<else>>거대한 자지<</if>>【을를】 관찰한다. 당신은 손을 뻗어 그것을 만진다.
 <<deviancy3>>
 
 <<if $farm_work.horse.monster is true>>
-	"생각하는 게 마음에 드는군." <<farm_text horse>>【이가】 말했다. "부드럽게 할 필요 없어."
+	"생각하는 게 마음에 드는군." <<farm_text horse>>【이가】 말한다. "부드럽게 할 필요 없어."
 <<else>>
 
 <</if>>
 
 <<if $farm_work.horse.genitals is "vagina">>
-	당신은 양손으로 문지르며, 손가락을 안으로 밀어 넣었다. 더 나은 각도를 잡기 위해 몸을 움직였다.
+	당신은 양손으로 문지르며, 손가락을 안으로 밀어 넣는다. 더 나은 각도를 잡기 위해 몸을 움직인다.
 <<else>>
-	당신은 <<farm_his horse>> 자지를 양손으로 잡았고, 당신의 손길 아래 <<farm_him horse>> 발기하는 것을 느꼈다. 당신은 문지르며, 더 나은 각도를 잡기 위해 몸을 움직였다.
+	당신은 <<farm_his horse>> 자지를 양손으로 잡고, 당신의 손길 아래 <<farm_him horse>> 발기하는 것을 느낀다. 당신은 문지르며, 더 나은 각도를 잡기 위해 몸을 움직인다.
 <</if>>
 
 <br><br>
 <<if currentSkillValue("handskill") gte random(1, 1000)>>
-	<<farm_He horse>>【은는】 당신의 손에 대고 몸을 흔들기 시작했지만, <span class="green">당신은 그럭저럭 따라잡았다.</span> <<farm_He horse>>【은는】 더 빨리 움직였고, 마침내 <<farm_his horse>> 온몸이 절정에 떨렸다.
+	<<farm_He horse>>【은는】 당신의 손에 대고 몸을 흔들기 시작하지만, <span class="green">당신은 그럭저럭 따라잡는다.</span> <<farm_He horse>>【은는】 더 빨리 움직이고, 마침내 <<farm_his horse>> 온몸이 절정에 떤다.
 
 	<<if $farm_work.horse.genitals is "penis">>
-		정액이 <<farm_his horse>> 자지에서 뿜어져 나와 아래 풀밭에 고였다.
+		정액이 <<farm_his horse>> 자지에서 뿜어져 나와 아래 풀밭에 고인다.
 	<</if>>
 	<br><br>
 
-	당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끌었다.
+	당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끈다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><</link>>
 	<br>
 <<else>>
-	<<farm_He horse>>【은는】 당신에게 몸을 흔들기 시작했다. 따라가기 어려웠다.
+	<<farm_He horse>>【은는】 당신에게 몸을 흔들기 시작한다. 따라가기 어렵다.
 	<br><br>
 
 	<<link [[계속한다 (0:10)|Farm Horses Lewd Hands 2]]>><<pass 10>><<farm_count 10>><</link>>
@@ -1914,14 +1915,14 @@
 :: Farm Horses Lewd Hands 2
 <<effects>>
 
-당신은 <<farm_text horse>>【이가】 절정에 몸을 떨 때까지 계속했다.
+당신은 <<farm_text horse>>【이가】 절정에 몸을 떨 때까지 계속한다.
 
 <<if $farm_work.horse.genitals is "penis">>
-	정액이 <<farm_his horse>> 자지에서 뿜어져 나와 아래 풀밭에 고였다.
+	정액이 <<farm_his horse>> 자지에서 뿜어져 나와 아래 풀밭에 고인다.
 <</if>>
 <br><br>
 
-당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끌었다.
+당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끈다.
 <br><br>
 
 <<link [[다음|Farm Work]]>><</link>>
@@ -1930,39 +1931,39 @@
 :: Farm Horses Lewd Mouth
 <<effects>>
 
-당신은 <<farm_text horse>> 옆에 무릎을 꿇고, <<farm_his horse>> <<if $farm_work.horse.genitals is "vagina">>말 보지<<else>>거대한 자지<</if>>【을를】 관찰했다. 당신은 앞으로 몸을 숙여 혀부터 내밀어 핥았다.
+당신은 <<farm_text horse>> 옆에 무릎을 꿇고, <<farm_his horse>> <<if $farm_work.horse.genitals is "vagina">>말 보지<<else>>거대한 자지<</if>>【을를】 관찰한다. 당신은 앞으로 몸을 숙여 혀부터 내밀어 핥는다.
 <<deviancy4>>
 
 <<if $farm_work.horse.monster is true>>
-	"네가 그러길 바라고 있었어." <<farm_text horse>>【이가】 말했다.
+	"네가 그러길 바라고 있었어." <<farm_text horse>>【이가】 말한다.
 <<else>>
 
 <</if>>
 
 <<if $farm_work.horse.genitals is "vagina">>
-	당신은 혀를 안에서 꿈틀거렸다. 훨씬 더 큰 것을 위해 만들어진 것이라, 당신은 재주로 보완하며 이리저리 꿈틀거리며 약점을 찾으려 애썼다.
+	당신은 혀를 안에서 꿈틀거린다. 훨씬 더 큰 것을 위해 만들어진 것이라, 당신은 재주로 보완하며 이리저리 꿈틀거리며 약점을 찾으려 애쓴다.
 <<else>>
-	당신은 <<farm_his horse>> 자지를 따라 혀를 움직였고, 맥박이 뛸 때마다 <<farm_his horse>> 자지가 발기하는 것을 느꼈다. 그렇게 큰 것을 입에 넣을 수는 없었지만, 당신의 혀는 할 수 있는 한 최대한의 애무를 해주었다.
+	당신은 <<farm_his horse>> 자지를 따라 혀를 움직이고, 맥박이 뛸 때마다 <<farm_his horse>> 자지가 발기하는 것을 느낀다. 그렇게 큰 것을 입에 넣을 수는 없지만, 당신의 혀는 할 수 있는 한 최대한의 애무를 해준다.
 <</if>>
 
 <br><br>
 
 <<if currentSkillValue("oralskill") gte random(1, 1000)>>
-	<<farm_He horse>>【은는】 당신의 얼굴에 대고 몸을 흔들기 시작했다. 당신은 <<farm_his horse>> 뒷다리를 붙잡고, <span class="green">간신히 자세를 유지했다.</span> <<farm_He horse>>【은는】 더 빨리 움직였고, 마침내 <<farm_his horse>> 온몸이 절정에 떨렸다.
+	<<farm_He horse>>【은는】 당신의 얼굴에 대고 몸을 흔들기 시작한다. 당신은 <<farm_his horse>> 뒷다리를 붙잡고, <span class="green">간신히 자세를 유지한다.</span> <<farm_He horse>>【은는】 더 빨리 움직이고, 마침내 <<farm_his horse>> 온몸이 절정에 떤다.
 
 	<<if $farm_work.horse.genitals is "penis">>
-		정액이 <<farm_his horse>> 자지에서 뿜어져 나와 당신의 얼굴에 튀고 <<breasts>> 위로 흘러내렸다.
+		정액이 <<farm_his horse>> 자지에서 뿜어져 나와 당신의 얼굴에 튀고 <<breasts>> 위로 흘러내린다.
 		<<bodyliquid "face" "semen">><<bodyliquid "chest" "semen">><<faceejacstat>><<ejacstat>>
 	<</if>>
 	<br><br>
 
-	당신은 <<farm_text horse>>에게 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끌었다.
+	당신은 <<farm_text horse>>에게 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끈다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><</link>>
 	<br>
 <<else>>
-	<<farm_He horse>>【은는】 당신의 얼굴에 대고 몸을 흔들기 시작했고, 이는 일을 더 어렵게 만들었다.
+	<<farm_He horse>>【은는】 당신의 얼굴에 대고 몸을 흔들기 시작하고, 이는 일을 더 어렵게 만든다.
 	<br><br>
 
 	<<link [[계속한다 (0:10)|Farm Horses Lewd Mouth 2]]>><<pass 10>><<farm_count 10>><</link>>
@@ -1975,12 +1976,12 @@
 어려움에도 불구하고, 당신은 <<farm_text horse>>의 몸이 절정으로 떨릴 때까지 버텼다.
 
 <<if $farm_work.horse.genitals is "penis">>
-	정액이 <<farm_his horse>> 자지에서 뿜어져 나와 당신의 얼굴에 튀고 <<breasts>> 위로 흘러내렸다.
+	정액이 <<farm_his horse>> 자지에서 뿜어져 나와 당신의 얼굴에 튀고 <<breasts>> 위로 흘러내린다.
 	<<bodyliquid "face" "semen">><<bodyliquid "chest" "semen">><<faceejacstat>><<ejacstat>>
 <</if>>
 <br><br>
 
-당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끌었다.
+당신은 <<farm_him horse>> 회복할 시간을 준 다음, 활기찬 걸음걸이로 들판으로 다시 이끈다.
 <br><br>
 
 <<link [[다음|Farm Work]]>><</link>>
@@ -1989,7 +1990,7 @@
 :: Farm Horses Lewd Mount
 <<effects>>
 
-당신은 건초 더미 위로 몸을 숙이고, <<farm_text horse>>【을를】 당신 위로 서게 할 때까지 끌어당겼다. 거기서부터는 본능이 이끌었다.<<deviancy5>>
+당신은 건초 더미 위로 몸을 숙이고, <<farm_text horse>>【을를】 당신 위로 서게 할 때까지 끌어당긴다. 거기서부터는 본능이 이끈다.<<deviancy5>>
 
 <<link [[다음|Farm Horses Sex]]>><<set $sexstart to 1>><</link>>
 <br>
@@ -2041,12 +2042,12 @@
 
 	<<beastejaculation>>
 
-	당신은 <<farm_he horse>>【이가】 당신 위에서 몸을 떠는 동안 <<farm_text horse>>의 고삐를 잡고 있었다. 당신은 건초 더미에서 내려왔다.<<gfarm>><<farm_yield 1>><<set $farm_work.horses_satisfied += 1>>
+	당신은 <<farm_he horse>>【이가】 당신 위에서 몸을 떠는 동안 <<farm_text horse>>의 고삐를 잡고 있다. 당신은 건초 더미에서 내려온다.<<gfarm>><<farm_yield 1>><<set $farm_work.horses_satisfied += 1>>
 	<br><br>
 
 	<<clotheson>>
 
-	<<tearful>> 당신은 <<farm_him horse>> 들판으로 다시 이끌었다. <<farm_He horse>>【은는】 활기찬 걸음걸이를 보였다.
+	<<tearful>> 당신은 <<farm_him horse>> 들판으로 다시 이끈다. <<farm_He horse>>【은는】 활기찬 걸음걸이를 보인다.
 	<br><br>
 
 	<<endcombat>>
@@ -2056,10 +2057,10 @@
 
 <<elseif $enemyhealth lte 0>>
 
-	<<farm_text horse>>【은는】 들판으로 도망쳤다.
+	<<farm_text horse>>【은는】 들판으로 도망친다.
 	<br><br>
 
-	<<tearful>> 당신은 건초 더미에서 내려왔다.
+	<<tearful>> 당신은 건초 더미에서 내려온다.
 	<br><br>
 
 	<<clotheson>>
@@ -2071,13 +2072,13 @@
 <<else>>
 
 	<<if $farm_work.horse.monster is true>>
-		"정말 애태우는군." 켄타우로스가 말했다. <<farm_He horse>>【은는】 몸을 돌려 들판으로 다시 달려갔다.
+		"정말 애태우는군." 켄타우로스가 말한다. <<farm_He horse>>【은는】 몸을 돌려 들판으로 다시 달려간다.
 	<<else>>
-		<<farm_text horse>>【은는】 좌절하며 울부짖고는 들판으로 다시 달려갔다.
+		<<farm_text horse>>【은는】 좌절하며 울부짖고는 들판으로 다시 달려간다.
 	<</if>>
 	<br><br>
 
-	<<tearful>> 당신은 건초 더미에서 내려왔다.
+	<<tearful>> 당신은 건초 더미에서 내려온다.
 	<br><br>
 
 	<<clotheson>>
@@ -2091,11 +2092,11 @@
 :: Farm Horses In
 <<effects>>
 
-당신은 <<farm_text_many horse>>을 불러 들판에서 이끌어냈다. 그들은 떠나는 것을 꽤 기뻐하는 듯했다.
+당신은 <<farm_text_many horse>>을 불러 들판에서 이끌어낸다. 그들은 떠나는 것을 꽤 기뻐하는 듯하다.
 <br><br>
 
 <<if dangerEvent()>>
-	당신은 밤을 위해 각 말을 마구간에 가두었다. 마지막 녀석이 말을 듣지 않고 밖에 남겠다고 고집을 부렸다. <<farm_He horse>>【은는】 너무 커서 힘으로 움직일 수 없었다.
+	당신은 밤을 위해 각 말을 마구간에 가둔다. 마지막 녀석이 말을 듣지 않고 밖에 남겠다고 고집을 부린다. <<farm_He horse>>【은는】 너무 커서 힘으로 움직일 수 없다.
 	<br><br>
 
 	<<link [[격려한다|Farm Horses In Encourage]]>><</link>><<tendingdifficulty 1 800>>
@@ -2103,13 +2104,13 @@
 	<<link [[알렉스를 부른다|Farm Horses In Alex]]>><<npcincr Alex dom 1>><<farm_horses -1>><</link>><<lrespect>><<gdom "Alex">>
 	<br>
 	<!-- Modified for Monster People -->
-	<<if hasSexStat("deviancy", 2) and $settings.horsesEnabled and ($settings.bestialityEnabled or $farm_work.horse.monster is true)>>
+	<<if hasSexStat("deviancy", 2) and beastSexEnabledForType("horse", $farm_work.horse.monster)>>
 		<<link [[유혹한다|Farm Horses In Seduce]]>><</link>><<deviant2>>
 	<</if>>
 	<br>
 
 <<else>>
-	당신은 밤을 위해 각 말을 마구간에 가두었다.
+	당신은 밤을 위해 각 말을 마구간에 가둔다.
 	<br><br>
 
 	<<link [[다음|Farm Work]]>><</link>>
@@ -2119,22 +2120,22 @@
 :: Farm Cattle Out
 <<effects>>
 
-당신은 헛간 문을 열고, 우리에서 <<farm_text_many cattle>>을 풀어주었다. 그들은 재촉하지 않아도 들판으로 달려갔다.
+당신은 헛간 문을 열고, 우리에서 <<farm_text_many cattle>>을 풀어준다. 그들은 재촉하지 않아도 들판으로 달려간다.
 <br><br>
 <<outfitChecks>>
 
 <<if dangerEvent() and _top>>
 	<<set _top.integrity -= 10>>
 	<<if _top.integrity lte 0>>
-		한 마리가 지나가면서 <<farm_his cattle>> 뿔로 당신의 _top.name【을를】 걸어, <span class="pink">당신의 몸에서 <<it _top.slot>> 찢어냈다.</span>
+		한 마리가 지나가면서 <<farm_his cattle>> 뿔로 당신의 _top.name【을를】 걸어, <span class="pink">당신의 몸에서 <<it _top.slot>> 찢어낸다.</span>
 		<<integritycheck no_text>><<exposure>>
-		<<covered>> <<farm_text cattle>>【은는】 찢어진 잔해를 <<farm_his cattle>> 얼굴에 걸친 채 계속 나아갔다.
+		<<covered>> <<farm_text cattle>>【은는】 찢어진 잔해를 <<farm_his cattle>> 얼굴에 걸친 채 계속 나아간다.
 		<br><br>
 
 		<<link [[다음|Farm Work]]>><</link>>
 		<br>
 	<<else>>
-		한 마리가 지나가면서 <<farm_his cattle>> 뿔로 당신의 _top.name【을를】 걸어, <<it _top.slot>> 더 낡게 만들었다.
+		한 마리가 지나가면서 <<farm_his cattle>> 뿔로 당신의 _top.name【을를】 걸어, <<it _top.slot>> 더 낡게 만든다.
 		<br><br>
 
 		<<link [[다음|Farm Work]]>><</link>>
@@ -2148,7 +2149,7 @@
 :: Farm Cattle Milk
 <<effects>>
 
-당신은 소 헛간으로 들어갔다.
+당신은 소 헛간으로 들어간다.
 <<if $farm.barn gte 1>>
 	크고 빛나는 착유기가 중앙에 놓여 있다.
 <<else>>
@@ -2164,9 +2165,9 @@
 
 당신은 <<farm_text_many cattle>>【을를】 축사로 이끌고, 기계에 묶는다.
 
-<<if $settings.bestialityEnabled or $farm_work.cattle.monster is true>>
+<<if beastSexEnabledForType("cow", $farm_work.cattle.monster)>>
 	<<if $cattle_milked lte 6>>
-		<<if $farm_work.cattle.monster_roll is true and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)>>
+		<<if $farm_work.cattle.monster>>
 			<<if $farm_work.cattle.gender_plural is "m">>
 				<<if $settings.maleNPCVaginaChance gte 100>>
 					알렉스가 간단한 지시를 내렸지만, 그들의 젖꼭지에 흡입 튜브를 부착할 때가 되자 당신은 망설인다.
@@ -2194,7 +2195,7 @@
 			<</if>>
 		<</if>>
 	<<elseif $cattle_milked lte 1200>>
-		<<if $farm_work.cattle.monster_roll is true and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)>>
+		<<if $farm_work.cattle.monster>>
 			<<if $farm_work.cattle.gender_plural is "m">>
 				<<if $settings.maleNPCVaginaChance gte 100>>
 					요령을 터득하고 있는 것 같지만, 그들의 젖꼭지에 흡입 튜브를 부착할 때가 되면 여전히 시선을 피한다.
@@ -2222,7 +2223,7 @@
 			<</if>>
 		<</if>>
 	<<else>>
-		<<if $farm_work.cattle.monster_roll is true and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)>>
+		<<if $farm_work.cattle.monster>>
 			<<if $farm_work.cattle.gender_plural is "m">>
 				<<if $settings.maleNPCVaginaChance gte 100>>
 					당신은 몽상을 하며 그들의 젖꼭지에 흡입 튜브를 부착한다. 숙련된 손이 자동적으로 움직인다.
@@ -2309,7 +2310,7 @@
 <<if $settings.watersportsEnabled and $NPCList[0].penis isnot "none" and $rng gte 96>>
 	양동이가 우유 대신 소변으로 채워지고 있는 것을 발견한다. 당신은 그것을 버린다.
 <<else>>
-	당신은 <<beasttype>> 우유로 가득 찬 양동이를 얻었다.
+	당신은 <<beasttype>> 우유로 가득 찬 양동이를 얻는다.
 <</if>>
 <br><br>
 
@@ -2494,7 +2495,7 @@
 
 <<else>>
 
-	<span class="red">맨살의 일부만 간신히 보았을 때 문이 쾅 닫힌다.</span> "이 변태야," 알렉스가 문 뒤에서 소리친다. "나 좀 평화롭게 샤워하게 내버려 둬."<<llove>><<ldom>><<npcincr Alex love -1>><<npcincr Alex dom -1>><<glust>><<npcincr Alex lust 1>><<gstress>><<stress 6>>
+	<span class="red">맨살의 일부만 간신히 보았을 때 문이 쾅 닫힌다.</span> "이 변태야." 알렉스가 문 뒤에서 소리친다. "나 좀 평화롭게 샤워하게 내버려 둬."<<llove>><<ldom>><<npcincr Alex love -1>><<npcincr Alex dom -1>><<glust>><<npcincr Alex lust 1>><<gstress>><<stress 6>>
 	<br><br>
 
 	<<skulduggeryuse>>
@@ -2762,11 +2763,11 @@
 
 	<<if _alex.love gte 10>>
 		<<if _alex.dom gte 10>>
-			"쉬고 싶으면 쉬어," <<he>>【이가】 말한다. "그럴 자격 있잖아."
+			"쉬고 싶으면 쉬어." <<he>>【이가】 말한다. "그럴 자격 있잖아."
 		<<elseif _alex.dom lte -10>>
-			"와줘서 반가워," <<he>>【이가】 말한다. "옆에 좀 앉을래?"
+			"와줘서 반가워." <<he>>【이가】 말한다. "옆에 좀 앉을래?"
 		<<else>>
-			"올 줄 알았어," <<he>>【이가】 옆자리를 가리키며 말한다.
+			"올 줄 알았어." <<he>>【이가】 옆자리를 가리키며 말한다.
 		<</if>>
 	<<elseif _alex.love lte -10>>
 		<<if _alex.dom gte 10>>
@@ -2778,11 +2779,11 @@
 		<</if>>
 	<<else>>
 		<<if _alex.dom gte 10>>
-			"뭐 도와줄 거 있으면 말해," <<he>>【이가】 말한다.
+			"뭐 도와줄 거 있으면 말해." <<he>>【이가】 말한다.
 		<<elseif _alex.dom lte -10>>
-			"가끔 쉬는 것도 괜찮지," <<he>>【이가】 말한다.
+			"가끔 쉬는 것도 괜찮지." <<he>>【이가】 말한다.
 		<<else>>
-			"같이 앉아도 돼," <<he>>【이가】 말한다. "가끔 쉬는 것도 나쁘지 않으니까."
+			"같이 앉아도 돼." <<he>>【이가】 말한다. "가끔 쉬는 것도 나쁘지 않으니까."
 		<</if>>
 	<</if>>
 	<br><br>
@@ -2801,11 +2802,11 @@
 	<<if $phase is 1>>
 		<<if npcIsPregnant("Alex") and talkedAboutPregnancy("Alex","pc")>>
 			당신이 알렉스의 <<bellyDescription "Alex">>에 손을 얹자, <<he>>【이가】 당신의 관자놀이에 입을 맞춘다. 그러는 동안, 당신은 아기가 발로 차는 것을 느끼고 - 당연히 <<he>> 역시 그것을 느낀다.
-			"안에 있는 녀석 힘이 세네," <<he>>【이가】 웃으며 말한다. "아는 누구 하나가 생각나는걸." <<He>>【은는】 당신을 향해 미소 짓는다.
+			"안에 있는 녀석 힘이 세네." <<he>>【이가】 웃으며 말한다. "아는 누구 하나가 생각나는걸." <<He>>【은는】 당신을 향해 미소 짓는다.
 			<br><br>
 		<<elseif playerIsPregnant() and playerAwareTheyArePregnant() and playerBellyVisible() and getActivePregnancies("pc").some(p => p.donor === "Alex") and talkedAboutPregnancy("pc","Alex")>>
 			알렉스가 당신의 <<bellyDescription "pc">>에 <<his>> 손을 얹고 관자놀이에 입을 맞춘다. 그러는 동안, 당신은 아기가 발로 차는 것을 느끼고 - 분명히, <<he>> 역시 그것을 느낀다.
-			"안에 있는 녀석 힘이 세네," <<he>>【이가】 웃으며 말한다. "아는 누구 하나가 생각나는걸." <<He>>【은는】 당신을 향해 미소 짓는다.
+			"안에 있는 녀석 힘이 세네." <<he>>【이가】 웃으며 말한다. "아는 누구 하나가 생각나는걸." <<He>>【은는】 당신을 향해 미소 짓는다.
 			<br><br>
 		<</if>>
 	<</if>>
@@ -2843,7 +2844,8 @@
 	<<link [[거절한다|Farm Rest Refuse]]>><</link>>
 	<br>
 
-<<elseif C.npc.Alex.love gte 60 and $phase isnot 5 and Weather.precipitation isnot "rain" and $rng gte 81 and $exposed lte 0>>
+<<elseif C.npc.Alex.love gte 60 and $phase isnot 5 and Weather.precipitation isnot "rain" and $rng gte 81 and $exposed lte 0 and !$daily.alexMeadowDate>>
+	<<set $daily.alexMeadowDate to true>>
 	"오늘 어디 좀 나가볼래? 다리도 좀 풀 겸 괜찮을 것 같은데."
 	<br><br>
 
@@ -2901,7 +2903,7 @@
 "혼술은 좋지 않다고들 하잖아." 당신은 알렉스의 목소리를 최대한 흉내 내며 덧붙인다.
 <br><br>
 
-<<He>>【은는】 참지 못하고 웃음을 터뜨렸고, 당신은 다음 20분 동안 <<him>>【와과】 함께 웃었다. 끝날 무렵, 당신들은 크림 같은 간식을 함께 나눠 먹었다.
+<<He>>【은는】 참지 못하고 웃음을 터뜨리고, 당신은 다음 20분 동안 <<him>>【와과】 함께 웃는다. 끝날 무렵, 당신들은 크림 같은 간식을 함께 나눠 먹는다.
 "달달한 거 고마워." <<he>>【은는】 눈물을 닦으며 헐떡인다. 숨을 고른 후, 당신들은 헤어진다.
 <br><br>
 
@@ -2991,7 +2993,7 @@
 <br><br>
 
 <!-- Modified for Monster People -->
-<<if dangerEvent() and $farm.beasts.dogs lte -20 and ($settings.bestialityEnabled or $farm_work.dog.monster is true)>>
+<<if dangerEvent() and $farm.beasts.dogs lte -20 and beastSexEnabledForType("dog", $farm_work.dog.monster)>>
 	당신은 <<farm_text_many dog>>【이가】 먹도록 두고 들판에서 걸어 나오지만, 발소리가 다가오는 것을 듣는다.
 	<<if $farm_work.dog.monster is true>>
 		돌아서기도 전에, 한 쌍의 손이 당신의 어깨에 놓인다. 무게에 짓눌려 당신은 땅으로 넘어진다.
@@ -3003,7 +3005,7 @@
 	<<link [[다음|Farm Dogs Rape]]>><<set $molestationstart to 1>><</link>>
 	<br>
 <!-- Modified for Monster People -->
-<<elseif (dangerEvent() or $farm.beasts.dogs lte -5) and ($settings.bestialityEnabled or $farm_work.dog.monster is true)>>
+<<elseif (dangerEvent() or $farm.beasts.dogs lte -5) and beastSexEnabledForType("dog", $farm_work.dog.monster)>>
 	당신은 <<farm_text_many dog>>【이가】 먹도록 두고 들판에서 걸어 나오지만, 발소리가 다가오는 것을 듣는다.
 	<<if $farm_work.dog.monster is true>>
 		<<farm_text dog>> 한 마리가 <<farm_his dog>> 팔로 당신의 목을 감싸고, <<farm_his dog>> 골반을 당신에게 비벼댄다.
@@ -3015,7 +3017,7 @@
 	<br>
 	<<link [[참는다|Farm Dogs Endure]]>><<sub 1>><<farm_dogs -1>><<trauma 6>><<stress 6>><</link>><<lrespect>><<gtrauma>><<gstress>>
 	<br>
-	<<if $settings.bestialityEnabled or $farm_work.dog.monster is true>>
+	<<if beastSexEnabledForType("dog", $farm_work.dog.monster)>>
 		<<if hasSexStat("deviancy", 2)>>
 			<<link [[무릎 꿇는다|Farm Dogs Drop]]>><</link>><<deviant2>>
 			<br>
@@ -3604,7 +3606,7 @@
 	당신은 알렉스에게서 내려와 침대에서 멀어진다. <<He>>【은는】 혼란스러운 듯 당신을 쳐다보며 <<his>> 얼굴을 문지른다.
 	<br><br>
 
-	"그렇게 거칠게 할 필요는 없었는데." 알렉스가 상체를 일으키며 신음한다. "그냥 일하러 가자."
+	"그렇게 거칠게 할 필요는 없었는데," 알렉스가 상체를 일으키며 신음한다. "그냥 일하러 가자."
 
 <<else>>
 	당신이 <<him>>에게서 내려오자 알렉스는 실망한 표정을 짓는다. <<He>>【은는】 상체를 일으킨다.
@@ -3629,7 +3631,7 @@
 
 	<<if $arousal gte 6000>>
 		<<if $speech_attitude is "meek">>
-			"나, 나중에 놀면 되잖아..." 당신이 말한다.
+			"나-나중에 놀면 되잖아..." 당신이 말한다.
 			<br><br>
 
 			알렉스가 킥킥 웃더니 침대에서 상체를 일으킨다. "알았어, 파트너. 약속은 지켜야 해." 알렉스가 씩 웃는다. "자, 이제 가자."
@@ -3650,7 +3652,7 @@
 
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"네, 네가 이런 상태일 땐 싫어..." 당신이 말한다. 알렉스는 한숨을 쉰다.
+			"네-네가 이런 상태일 땐 싫어..." 당신이 말한다. 알렉스는 한숨을 쉰다.
 			<br><br>
 
 			"알았어, 파트너. 그럼 일하러 가자." <<He>>【은는】 <<his>> 얼굴을 문지르며 살짝 미소 짓는다.

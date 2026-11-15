@@ -14,7 +14,7 @@
 		"침입자다! 침입자! 친구인가?"
 	<</if>>
 	<br><br>
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("dog", $monster is 1)>>
 		<<link [[유혹한다|Domus House Tease]]>><<transform cat 2>><</link>><<deviant1>>
 		<br>
 	<</if>>
@@ -110,7 +110,7 @@
 
 <<addinlineevent "domus_delivery" .5>>
 	<<generate1>><<person1>>
-	한 <<person>>【이가】 문을 연다. "오, 귀염둥이네," <<he>>【이가】 말한다. "내가 뭐 도와줄 거라도 있어?"
+	한 <<person>>【이가】 문을 연다. "오, 귀염둥이네." <<he>>【이가】 말한다. "내가 뭐 도와줄 거라도 있어?"
 	<br><br>
 
 	<<socialiseicon "ask">><<link [[일거리를 구한다|Domus Delivery Intro]]>><</link>>
@@ -121,7 +121,7 @@
 
 <<addinlineevent "domus_babysit" .5>>
 	<<generate1>><<person1>>
-	한 <<person>>【이가】 문을 연다. "마지막으로 말하는데, 돈은 꼭... 잠깐. 내 사채업자가 아니잖아," <<he>>【이가】 말한다. <<He>>【은는】 피곤해 보이고, <<his>> 옷은 엉망이다.
+	한 <<person>>【이가】 문을 연다. "마지막으로 말하는데, 돈은 꼭... 잠깐. 내 사채업자가 아니잖아." <<he>>【이가】 말한다. <<He>>【은는】 피곤해 보이고, <<his>> 옷은 엉망이다.
 	<br><br>
 
 	안쪽 방에서 희미한 콧노래 소리가 들리는 것 같다.
@@ -141,7 +141,7 @@
 	<br><br>
 
 	<<if $fame.prostitution gte 600 and random(1,2) is 1>>
-		"베일리네 그 창녀야," <<person1>><<person>>【이가】 말한다.
+		"베일리네 그 창녀야." <<person1>><<person>>【이가】 말한다.
 		<br><br>
 		<<if random(1,4) is 1>>
 			"그래... 근데 보자마자 바로 알아보는 이유는...?"
@@ -152,9 +152,9 @@
 
 		"닥쳐." <<He>>【이가】 눈을 굴리더니, 당신에게로 다시 돌아선다. "네?"
 	<<elseif $fame.exhibitionism gte 600 and random(1,2) is 1>>
-		"고아원의 그 바바리<<girl>>【이】야," <<person1>><<person>>【이가】 말한다.
+		"고아원의 그 바바리<<girl>>【이】야." <<person1>><<person>>【이가】 말한다.
 	<<else>>
-		"그냥 어떤 <<girl>>【이】야," <<person1>><<person>>【이가】 말한다.
+		"그냥 어떤 <<girl>>【이】야." <<person1>><<person>>【이가】 말한다.
 	<</if>>
 	<br><br>
 
@@ -284,7 +284,7 @@
 
 :: Domus Babysitting Accept
 <<effects>>
-"좋아," <<he>>【이가】 말한다. "고마워. 들어와, 애들이 물진 않으니까."
+"좋아." <<he>>【이가】 말한다. "고마워. 들어와, 애들이 물진 않으니까."
 <br><br>
 
 작은 집으로 들어가자 뒷방에서 놀고 있는 아이들을 만난다. 끔찍하게 어리다. 둘째는 말도 못 한다. 아이들의 부모는 떠나기 전 짧게 당부한다.
@@ -341,7 +341,7 @@
 :: Domus Tech Support Intro
 <<effects>>
 
-"텔레비전이 좀 이상해," <<he>>【이가】 설명한다. "원인을 알아내면 <<printmoney 1000>>【을를】 줄게."
+"텔레비전이 좀 이상해." <<he>>【이가】 설명한다. "원인을 알아내면 <<printmoney 1000>>【을를】 줄게."
 <br><br>
 
 <<getinicon>><<link [[수락한다 (0:15)|Domus Tech Support Accept]]>><</link>>
@@ -436,7 +436,7 @@
 <br><br>
 
 <<if $seductionrating gte $seductionrequired>>
-	<<He>>【이가】 손을 뻗어 당신의 뺨을 어루만진다. "있잖아, 수리가 필요한 건 TV뿐만이 아닌 것 같은데." <<he>>【이가】 낄낄거린다.
+	<<He>>【이가】 손을 뻗어 당신의 뺨을 어루만진다. "있잖아, 수리가 필요한 건 TV뿐만이 아닌 것 같은데," <<he>>【이가】 낄낄거린다.
 	<br><br>
 
 	<<link [[다음|Domus Tech Support Sex]]>><<set $sexstart to 1>><</link>>
@@ -633,7 +633,7 @@
 	<<refuseicon>><<link [[거절한다|Domus Street]]>><<endevent>><</link>>
 	<br>
 <<else>>
-	"잘 모르겠는데." <<he>>【이가】 말한다. "부모님 계실 때 다시 와야 할 거야."
+	"잘 모르겠는데," <<he>>【이가】 말한다. "부모님 계실 때 다시 와야 할 거야."
 	<br><br>
 
 	<<dooricon "domus">><<link [[다른 집을 찾아본다 (0:02)|Domus House Knock]]>><<endevent>><<pass 2>><</link>>
@@ -755,9 +755,9 @@
 		"거래를 하자." <<he>>【이가】 말한다. "이 사진들을 지우게 해줄게, 그 대가로 너와 더 친밀하게 알아가고 싶어.
 
 		<<if !playerChastity() and $worn.under_lower.vagina_exposed is 1>>
-			<<if $player.penisExist and $player.vaginaExist>>
+			<<if $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
 				네가 양쪽 성기를 다 가지고 있다는 걸 사람들이 알길 원하진 않겠지, 안 그래?"
-			<<elseif isCrossdressing()>>
+			<<elseif isCrossdressing() and $settings.nudeGenderPerception !== 0>>
 				네가 <<print ($player.gender_appearance is "m" ? "남자애" : "여자애")>>처럼 입는 걸 좋아한다는 걸 사람들이 알길 원하진 않겠지, 안 그래?"
 			<<else>>
 				네 <<genitals>>【을를】 보고 싶어 할 변태들이 많을 거라고 확신해."
@@ -910,7 +910,7 @@
 
 <<if dangerEvent()>>
 
-	벽 한 면을 다 칠하고 뒤로 물러서서 당신의 솜씨를 감상하려는데, 허벅지를 당기는 힘이 느껴진다. 아래를 내려다보니 당신의 $worn.lower.name【이가】 벽에 붙어 있다. 떼어내려고 애써보지만, 정말 단단히 붙어버렸다.
+	벽 한 면을 다 칠하고 뒤로 물러서서 당신의 솜씨를 감상하려는데, 허벅지를 당기는 힘이 느껴진다. 아래를 내려다보니 당신의 $worn.lower.name【이가】 벽에 붙어 있다. 떼어내려고 애써보지만, 정말 단단히 붙어 있다.
 	<br><br>
 
 	<<link [[더 세게 당긴다|Domus Painting Force]]>><</link>>
@@ -1108,21 +1108,21 @@
 	<br><br>
 
 	<<set $skulduggerydifficulty to 300>>
-	<<link [[£10 가져가기|Domus Delivery3]]>><<set $phase to 3>><<money 1000>><</link>><<skulduggerydifficulty>>
+	<<link [[£10을 가져간다|Domus Delivery3]]>><<set $phase to 3>><<money 1000>><</link>><<skulduggerydifficulty>>
 	<br>
 	<<set $skulduggerydifficulty to 500>>
-	<<link [[£30 가져가기|Domus Delivery3]]>><<set $phase to 4>><<money 3000>><</link>><<skulduggerydifficulty>>
+	<<link [[£30을 가져간다|Domus Delivery3]]>><<set $phase to 4>><<money 3000>><</link>><<skulduggerydifficulty>>
 	<br>
 	<<set $skulduggerydifficulty to 700>>
-	<<link [[£100 가져가기|Domus Delivery3]]>><<set $phase to 5>><<money 10000>><</link>><<skulduggerydifficulty>>
+	<<link [[£100을 가져간다|Domus Delivery3]]>><<set $phase to 5>><<money 10000>><</link>><<skulduggerydifficulty>>
 	<br>
-	<<link [[아무것도 가져가지 않기|Domus Delivery3]]>><</link>>
+	<<link [[아무것도 가져가지 않는다|Domus Delivery3]]>><</link>>
 	<br>
 <<else>>
 	봉투를 열어 내용물을 확인한다. 외국어로 된 쪽지만 들어있다.
 	<br><br>
 
-	<<link [[계속하기|Domus Delivery3]]>><</link>>
+	<<link [[계속한다|Domus Delivery3]]>><</link>>
 	<br>
 <</if>>
 
@@ -1286,7 +1286,8 @@
 :: Domus Entrance Pet
 <<set $outside to 0>><<set $location to "town">><<effects>>
 
-<<if dangerEvent() and ($monster is 1 or $settings.bestialityEnabled)>>
+
+<<if dangerEvent() and beastSexEnabledForType("dog", $monster is 1)>>
 
 	당신은 무릎을 꿇고 손을 내민다. <<bHe>>【은는】 으르렁거리는 것을 멈추지만, 이제는 좀 지나치게 친근해 보인다. <<bHe>>【은는】 당신에게 올라타려고 한다.
 	<<if $monster is 1>>
@@ -1310,7 +1311,7 @@
 :: Domus Entrance Run
 <<set $outside to 0>><<set $location to "town">><<effects>>
 
-<<if $rng gte 91 and ($monster is 1 or $settings.bestialityEnabled)>>
+<<if $rng gte 91 and beastSexEnabledForType("dog", $monster is 1)>>
 	당신은 돌아서서 도망치려 하지만, 호스에 걸려 얼굴을 바닥에 박고 넘어진다. <<beasttype>>【이가】 당신 위로 뛰어오른다.
 	<<if $monster is 1>>
 		"마음이 바뀌었어. 잠시만 같이 있어!"
@@ -1326,7 +1327,7 @@
 	<</if>>
 	<br><br>
 	<<endevent>>
-	<<domusquick>>
+	<<domusQuick>>
 <</if>>
 
 :: Domus Entrance Dog
@@ -1409,7 +1410,7 @@
 		<<if $speech_attitude is "bratty">>
 			"멍청하게 쳐다보지 말고, 이 <<beasttype>> 좀 떼어내." 당신은 말한다.
 		<<elseif $speech_attitude is "meek">>
-			"도, 도와주세요. 개 <<bitch>>【이가】 되고 싶지 않아요." 당신은 말한다.
+			"도-도와주세요. 개 <<bitch>>【이가】 되고 싶지 않아요." 당신은 말한다.
 		<<else>>
 			"제발 도와주세요." 당신은 말한다.
 		<</if>>
@@ -1442,7 +1443,7 @@
 		<<if $speech_attitude is "bratty">>
 			"멍청하게 쳐다보지 말고, 이 <<beasttype 0>> 좀 떼어내." 당신은 말한다.
 		<<elseif $speech_attitude is "meek">>
-			"도, 도와주세요." 당신은 말한다.
+			"도-도와주세요." 당신은 말한다.
 		<<else>>
 			"제발 도와주세요." 당신은 말한다.
 		<</if>>
@@ -1473,7 +1474,7 @@
 		<<if $speech_attitude is "bratty">>
 			"멍청하게 쳐다보지 말고, 이 <<beasttype 0>> 좀 떼어내." 당신은 말한다.
 		<<elseif $speech_attitude is "meek">>
-			"도, 도와주세요." 당신은 말한다.
+			"도-도와주세요." 당신은 말한다.
 		<<else>>
 			"제발 도와주세요." 당신은 말한다.
 		<</if>>
@@ -1495,7 +1496,7 @@
 	<<clotheson>>
 	<<endcombat>>
 
-	<<domusquick>>
+	<<domusQuick>>
 <</if>>
 
 :: Domus Gutters Molestation
@@ -1546,7 +1547,7 @@
 당신은 <<moneyGain 25>>【을를】 벌었다.
 <br><br>
 <<endevent>>
-<<domusquick>>
+<<domusQuick>>
 
 :: Domus Gutters Molestation Finish
 <<if $enemyhealth lte 0>>
@@ -1628,7 +1629,7 @@
 <<if !dangerEvent() or random(1,2) is 1>> /* default - occurs slightly more than half the time. ~50% chance. */
 	<<strip>>
 	<<pass 2 hour>>
-	<<if $player.penisExist and $player.vaginaExist>>
+	<<if $player.penisExist and $player.vaginaExist and $settings.nudeGenderPerception !== 0>>
 		<<if $fame.exhibitionism gte 600>>
 			당신이 무대에 오르자 한 <<personsimple>>【이가】 웃는다. "<<phim>>에게 돈 주고 옷을 벗게 했다고?! 난 <<phim>>【이가】 옷 입은 걸 본 적이 없는 것 같은데."
 			<br><br>
@@ -1687,11 +1688,9 @@
 		<<fameexhibitionism 10 "pic">><<famemodel 2 art>>
 		<<if playerBellyVisible()>><<famepregnancy `Math.ceil(playerBellySize() / 10)`>><</if>>
 	<<else>>
-		라이프 아트라는 명목은 유지하고 있지만, 사실 그들은 그저
-		<<if $player.sex is "h">>
-			양성구유가
-		<<else>>
-			<<girl>>【이가】
+		라이프 아트라는 명목은 유지하고 있지만, 사실 그들은 그저 <<girl>>【이가】
+		<<if $player.sex is "h" and $settings.nudeGenderPerception !== 0>>
+			그렇게 독특한 성기를 지닌 채
 		<</if>>
 		그들이 보고 싶어 하는 음란한 자세로 <<pherself>>【을를】 드러내는 걸 즐길 뿐이다.
 		많은 사람이 그림을 그리는 척조차 하지 않지만, <<person>>【은는】 모두를 줄 세우고 통제한다.
@@ -1713,7 +1712,7 @@
 		<<else>>
 			자지와 엉덩이,
 		<</if>>
-		위주지만, 상상력이 풍부한 한 '예술가'는 당신이 다양한 사람, 동물, 신화 속 야수들에게 윤간당하는 모습을 묘사했다.
+		위주지만, 상상력이 풍부한 한 '예술가'는 당신이 다양한 사람, 동물, 신화 속 야수들에게 윤간당하는 모습을 묘사한다.
 		<<garousal>><<arousal 200>><<fameexhibitionism 10 "pic">>
 	<</if>>
 	<br>
@@ -1726,7 +1725,7 @@
 		<<person2>>
 		당신이 무대에 오르자 다른 문이 열리고, 당신과 비슷한 나이의 <<person>>【이가】 당신처럼 완전히 벌거벗은 채 방으로 들어온다. <<He>>【은는】 당신에게 고개를 끄덕이고 무대로 올라온다.
 		<br>
-		"만나서 반가워," <<he>>【이가】 속삭인다.
+		"만나서 반가워." <<he>>【이가】 속삭인다.
 		<<if $beauty gte ($beautymax / 7) * 2>>
 			<<if $beauty gte ($beautymax / 7) * 4>>
 				"정말 <<print either("눈부시네!","아름다워!","멋지네!","존나 섹시하네!","확실히 나아졌네!")>>
@@ -1746,7 +1745,7 @@
 		<<He>>【이가】 <<his>> 입을 열어 대답하려는 순간 문이 다시 열리고, 훨씬 나이 든 <<person3>><<person>>【이가】 역시 알몸으로 들어온다.
 		<<He>>【은는】 두 사람을 바라보더니 관객들에게 과장되게 엄지를 치켜든다.
 		<br>
-		"또 <<Him>>【아야】," <<person2>><<person>>【이가】 속삭인다.
+		"또 <<Him>>【아야】." <<person2>><<person>>【이가】 속삭인다.
 		<<switch random(1, 9)>>
 			<<case 1>><<He>>【은는】 한숨을 쉰다.
 			<<case 2>><<He>>【은는】 미소 짓는다.
@@ -1820,7 +1819,7 @@
 		<</if>>
 		<<person1>><<person>>【은는】 방 안의 사람들에게 말한다.
 		<br>
-		"이유가 뭐든 간에," <<he>>【이가】 말한다. "이 마을은 성욕의 가장 어둡고 원초적인 측면에 독특한 매력을 가지고 있습니다.
+		"이유가 뭐든 간에." <<he>>【이가】 말한다. "이 마을은 성욕의 가장 어둡고 원초적인 측면에 독특한 매력을 가지고 있습니다.
 		권력, 강간, 학대가 슬프게도 만연해 있습니다. 오늘 우리는 이것을 예술로 탐구할 것입니다.
 		<br>
 		"<<pher>> 젊은 외모에도 불구하고 우리 모델은 숙련된 전문가이며 이 모든 장비를 완벽하게 안전하게 사용할 수 있습니다.
@@ -1837,7 +1836,7 @@
 		<<else>>
 			<<He>>【은는】 
 		<</if>>
-		구비된 장비들을 사용해 당신에게 다양한 고통스러운 자세를 강요한다. 여기에는 손과 발을 수갑으로 연결해 무릎 꿇리기, 테이블 위에 묶어놓고 패들로 엉덩이 때리기, 바닥에 대자로 묶어놓고 당신의 얼굴에 <<his>> 사타구니 문지르기, 그리고 마지막으로 볼 개그를 물리고 형틀에 가둔 뒤 무방비한 당신의 엉덩이에 <<his>> <<if $pronoun is "f">>스트랩온을<<else>>좆을<</if>> 억지로 박아넣는 시늉하기 등이 포함된다. 무리는 그 장면을 세밀하게 그려낸다.
+		구비된 장비들을 사용해 당신에게 다양한 고통스러운 자세를 강요한다. 여기에는 손과 발을 수갑으로 연결해 무릎 꿇리기, 테이블 위에 묶어놓고 패들로 엉덩이 때리기, 바닥에 대자로 묶어놓고 당신의 얼굴에 <<his>> 사타구니 문지르기, 그리고 마지막으로 볼 개그를 물리고 형틀에 가둔 뒤 무방비한 당신의 엉덩이에 <<his>> <<if $pronoun is "f">>페니스 밴드를<<else>>좆을<</if>> 억지로 박아넣는 시늉하기 등이 포함된다. 무리는 그 장면을 세밀하게 그려낸다.
 		<br><br>
 
 		<<if currentSkillValue('english') gte 500>>
@@ -1869,7 +1868,7 @@
 		<</if>>
 		<<person1>><<person>>【은는】 방 안의 사람들에게 말한다.
 		<br>
-		"이유가 뭐든 간에," <<he>>【이가】 말한다. "이 마을은 성욕의 가장 어둡고 원초적인 측면에 독특한 매력을 가지고 있습니다.
+		"이유가 뭐든 간에." <<he>>【이가】 말한다. "이 마을은 성욕의 가장 어둡고 원초적인 측면에 독특한 매력을 가지고 있습니다.
 		권력, 강간, 학대가 슬프게도 만연해 있습니다. 오늘 우리는 이것을 예술로 탐구할 것입니다.
 		<br>
 		"<<pher>> 어려 보이는 외모와 달리, 우리 모델은 이 모든 도구의 사용법을 시연하러 온 숙련된 전문가입니다. <<phim>>【을를】 돕기 위해 제 조수가 보조할 겁니다. 그러니 붓을 준비하세요. 시작합시다." <<he>>【은는】 무대 위 당신 옆에 나타난 <<person2>><<person>>【을를】 가리킨다.
@@ -1888,7 +1887,7 @@
 		<br><br>
 
 		<<if currentSkillValue('english') gte 500>>
-			"연기 좋네," <<person1>><<person>>【이가】 말한다. "하지만 이제 <span class="red">좀 더 진짜 같은 게 필요할 때인 것 같군.</span>"
+			"연기 좋네." <<person1>><<person>>【이가】 말한다. "하지만 이제 <span class="red">좀 더 진짜 같은 게 필요할 때인 것 같군.</span>"
 			<br>
 			<<He>>【은는】 <<person2>><<person>>에게 고개를 끄덕인다. "해."
 			<<famemodel 2 art>>
@@ -1898,7 +1897,7 @@
 		<br><br>
 		<<set $model_host to clone($NPCList[0])>>
 		<<set $model_dom to clone($NPCList[1])>>
-		<<if $rng gte 51 and ($settings.bestialityEnabled or $settings.monsterChance gte 100 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly))>><!-- Modified for Monster People -->
+		<<if $rng gte 51 and beastSexEnabledForType("dog", monsterChanceForType("dog") gte 100 and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("dog")))>><!-- Modified for Monster People -->
 			<<endevent>>/*clears out the people*/
 			<<beastNEWinit 1 dog>>
 			"진짜처럼? <span class="red">딱 맞는 게 있지.</span>" 허리를 잡고 있던 손이 풀리고, 뒤에서 발소리가 들린다. 문이 열리고 휘파람 소리가 난다.
@@ -1906,7 +1905,7 @@
 			<br><br>
 			<<link [[다음|Domus Model Dog]]>><<set $molestationstart to 1>><<bindtemp>><<facewear "gag">><</link>>
 		<<else>>
-			"드디어," <<person2>><<person>>【이가】 중얼거린다. 단단한 무언가가 당신의 엉덩이를 스치는 것이 느껴진다.
+			"드디어." <<person2>><<person>>【이가】 중얼거린다. 단단한 무언가가 당신의 엉덩이를 스치는 것이 느껴진다.
 			<br><br>
 			<<endevent>> /* clears out the initial person1 from combat */
 			<<generate1>><<set $NPCList[0] to clone($model_dom)>> /* sets the dom character to person1*/
@@ -2355,7 +2354,7 @@
 		<</if>>
 		<<garousal>><<arousal 100 "breasts">>
 		<br><br>
-		"네," <<he>>【이가】 말한다. "이 정도면 나이 증명으로 받아들일 수 있겠네요." <<He>>【은는】 잠시 더 당신을 더듬다가, 당신이 몸을 가리는 동안 음료를 가지러 돌아선다.
+		"네." <<he>>【이가】 말한다. "이 정도면 나이 증명으로 받아들일 수 있겠네요." <<He>>【은는】 잠시 더 당신을 더듬다가, 당신이 몸을 가리는 동안 음료를 가지러 돌아선다.
 		<br><br>
 		<<He>>【은는】 커다란 맥주 상자를 건네준다. "좋은 하루 보내세요."
 		<br><br>
@@ -2384,7 +2383,7 @@
 				<<garousal>><<arousal 100 "genitals">>
 				<br><br>
 			<</if>>
-			"좋아요," <<he>>【이가】 말한다. "이 정도면 나이 증명으로 받아들일 수 있겠네요." <<He>>【은는】 잠시 더 당신을 더듬다가, <<his>> 손을 뺀다.
+			"좋아요." <<he>>【이가】 말한다. "이 정도면 나이 증명으로 받아들일 수 있겠네요." <<He>>【은는】 잠시 더 당신을 더듬다가, <<his>> 손을 뺀다.
 			<br><br>
 			<<He>>【은는】 카운터 뒤를 뒤적이더니, 커다란 맥주 상자를 건네준다. "좋은 하루 보내세요."
 			<br><br>
@@ -2431,7 +2430,7 @@
 	<br><br>
 	"저한테는 안 팔던데요."
 	<br><br>
-	"젠장," <<he>>【이가】 말한다.
+	"젠장." <<he>>【이가】 말한다.
 	<<if Weather.precipitation is "rain">>
 		<<He>>【은는】 흠뻑 젖어 엉망이 된 당신의 모습을 본다. "음, 노력은 한 게 분명하군." <<He>>【은는】 망설이다가, 동정하는 표정으로 <<moneyGain 5>>【을를】 건네준다.
 	<<elseif random(1,2) is 1>>
@@ -2459,7 +2458,7 @@
 		<br><br>
 		"씨발, 씨발, 씨발," <<he>>【은는】 문을 쾅 닫고 서둘러 안으로 들어간다.
 	<<else>>
-		"고마워. 덕분에 살았어," <<he>>【은는】 문을 닫으며 말한다.
+		"고마워. 덕분에 살았어." <<he>>【은는】 문을 닫으며 말한다.
 	<</if>>
 	<br><br>
 <<else>>
@@ -2479,7 +2478,7 @@
 <<if fameSum("sex","rape","prostitution") gte 400 and dangerEvent(0.5,6000)>> /*Keeps access to the other scenes*/
 	문 바로 안쪽에서 <<person1>><<person>>【이가】 당신을 옆으로 끌어당긴다.
 	<br>
-	"있잖아," <<he>>【이가】 거의 속삭이듯 말한다.
+	"있잖아." <<he>>【이가】 거의 속삭이듯 말한다.
 	"솔직하게 말할게. 너 돌아다니는 거 몇 번 봤어. 꽤... 개방적이라고 소문이 자자하더군. 성적으로 말이야."
 	<br><br>
 
@@ -2552,7 +2551,7 @@
 
 		그 직후, <<person1>><<person>>【이가】 당신을 방 밖으로 이끈다.
 		<br>
-		"고맙다," <<he>>【이가】 말한다.
+		"고맙다." <<he>>【이가】 말한다.
 		<<if random(1,2) is 1>>
 			"와. 이런 결과가 나올 줄은 몰랐네. 내 <<person2>><<daughter>>【이가】. 그래도, 이건 큰 발전이야. <<He>>【은는】 몇 년 동안 이렇게 말한 적이 없었어. 고맙다."
 		<<else>>
@@ -2565,7 +2564,7 @@
 
 		<<link [[다음|Domus Street]]>><<endevent>><</link>>
 		<br>
-	<<elseif hasSexStat("deviancy", 3) and $rng lte 33 and ($monster is 1 or $settings.bestialityEnabled)>>
+	<<elseif hasSexStat("deviancy", 3) and $rng lte 33 and beastSexEnabledForType("dog", $monster is 1)>>
 		<<pass 60>>
 		얼굴을 붉힌다. 아래를 내려다본다.
 		<br>
@@ -2586,7 +2585,7 @@
 		<<He>>【은는】 더욱 흥분한다.
 		<br><br>
 
-		"모두가 동물을 사랑한다고 말하지만, 실제로 그런 사람은 거의 없죠," 당신이 말한다.
+		"모두가 동물을 사랑한다고 말하지만, 실제로 그런 사람은 거의 없죠." 당신이 말한다.
 		<br>
 		그 <<person>>【은는】 신나서 고개를 끄덕이는 반면, <<person1>><<person>>【은는】 하품을 한다.
 		<br><br>
@@ -2609,11 +2608,11 @@
 		멈춘다. 한참 동안 당신을 빤히 쳐다본다.
 		<br><br>
 
-		"네 머리카락," <<he>>【이가】 속삭인다.
+		"네 머리카락." <<he>>【이가】 속삭인다.
 		<br>
 		"네?"
 		<br>
-		"네 머리카락은 정말 길고 아름다워," <<he>>【이가】 속삭인다. "마치... 내가 땋아도 될까. 제발. 머리 땋게 해줄래?"
+		"네 머리카락은 정말 길고 아름다워." <<he>>【이가】 속삭인다. "마치... 내가 땋아도 될까. 제발. 머리 땋게 해줄래?"
 		<br>
 		<<person1>><<person>>【은는】 기대에 찬 눈으로 당신을 바라본다.
 		<br><br>
@@ -2800,7 +2799,7 @@
 	작별의 키스와 함께, 당신은 매우 행복해 보이는 <<person>>【을를】 남겨두고 떠난다.
 	<br><br>
 
-	복도에서, 당신은 문 옆 테이블 위에 놓인 <<moneyGain 100>>【을를】 발견한다. 당신은 나가는 길에 그것을 챙긴다.
+	복도에서, 당신은 문 옆 테이블 위에 놓인 <<moneyGain 80>>【을를】 발견한다. 당신은 나가는 길에 그것을 챙긴다.
 	<br>
 	부모는 어디에도 보이지 않는다.
 	<br><br>
@@ -2970,7 +2969,7 @@
 
 		<<person1>><<person>>【은는】 당신을 문으로 바래다주며 큰 충격을 받은 표정이다. <<He>>【은는】 벽을 응시한다.
 		<br>
-		"음," <<he>>【이가】 말한다. "정말 강렬했네. <<person2>><<he>>【이가】 힘들어하는 건 알았지만, 하지만—" <<person1>><<He>>【은는】 말을 멈춘다.
+		"음." <<he>>【이가】 말한다. "정말 강렬했네. <<person2>><<he>>【이가】 힘들어하는 건 알았지만, 하지만—" <<person1>><<He>>【은는】 말을 멈춘다.
 		"알았어. 이-이건 내가 해결할게. 여기 <<moneyGain 80>>. 이게 내가 가진 전부야. 제발 이 일은 아무에게도 말하지 말아줘. 내가 해결할게. 어떻게든."
 		<br><br>
 		문이 닫힌다.
@@ -2980,7 +2979,7 @@
 
 		한 시간이 끝나자, <<person1>><<person>>【은는】 당신을 다시 문으로 데려간다. 어깨를 으쓱한다.
 		<br>
-		"음," <<he>>【이가】 당신에게 <<moneyGain 20>>【을를】 건네며 말한다. "적어도 <<person2>><<him>>의 기분은 풀어준 것 같네. 고마워."
+		"음." <<he>>【이가】 당신에게 <<moneyGain 20>>【을를】 건네며 말한다. "적어도 <<person2>><<him>>의 기분은 풀어준 것 같네. 고마워."
 	<</if>>
 <<else>>
 	"난 죽은 사람들이 보여." <<he>>【이가】 말한다.
@@ -2996,7 +2995,7 @@
 <<if $domusLoft>>
 	<<if $domusLoft is "violent">>
 		<<if $speech_attitude is "meek">>
-			"ㅇ, 이번에는 협조할게요." 당신은 말한다.
+			"이-이번에는 협조할게요." 당신은 말한다.
 		<<elseif $speech_attitude is "bratty">>
 			"돈을 주면 협조할게요." 당신은 말한다.
 		<<else>>
@@ -3004,7 +3003,7 @@
 		<</if>>
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"ㅈ, 정말 돈이 필요해요." 당신은 말한다.
+			"저-정말 돈이 필요해요." 당신은 말한다.
 		<<elseif $speech_attitude is "bratty">>
 			"이거 빨리 끝내버리죠." 당신은 말한다.
 		<<else>>
@@ -3232,11 +3231,11 @@
 				<<set $domusLoftMachine.difficultyMin -= 1000>><<set $domusLoftMachine.difficultyMax -= 1000>>
 				<<switch $domusLoftMachine.breakFreeSuccess>>
 					<<case 1 2>>
-						<span class="green">결박이 약간 헐거워졌다.</span>
+						<span class="green">결박이 약간 헐거워진다.</span>
 					<<case 3>>
 						<span class="green">거의 다 풀렸다!</span>
 					<<default>>
-						<span class="green">팔을 자유롭게 빼냈다!</span>
+						<span class="green">팔을 자유롭게 빼낸다!</span>
 				<</switch>>
 			<<else>>
 				<<set $domusLoftMachine.breakFreeFailure++>>
@@ -3423,7 +3422,7 @@
 <br>
 <<storeon "domusLoft">><<clotheson>>
 
-기다리는 동안, 당신은 기계를 자세히 살펴본다. 정교해 보이는 이 기계는 다락방에 있는 다른 모든 것을 합친 것보다 더 비싸 보였다. 기계 전체에 뱀이 그려져 있고, 심지어 섹스 토이와 채찍조차 작은 장난감 뱀처럼 생겼다. 당신은 다시 <<person>>【을를】 쳐다본다.
+기다리는 동안, 당신은 기계를 자세히 살펴본다. 정교해 보이는 이 기계는 다락방에 있는 다른 모든 것을 합친 것보다 더 비싸 보인다. 기계 전체에 뱀이 그려져 있고, 심지어 섹스 토이와 채찍조차 작은 장난감 뱀처럼 생겼다. 당신은 다시 <<person>>【을를】 쳐다본다.
 "네가 얌전히 굴었으면 돈을 더 벌었을 텐데." <<He>>【은는】 당신에게 지폐 몇 장을 건네주고는 아래층으로 서둘러 내려가 문밖으로 내쫓고, 등 뒤에서 문을 쾅 닫아버린다. 당신은 <<moneyGain 40>>【을를】 벌었다.
 <br><br>
 
@@ -3495,7 +3494,7 @@
 
 :: Domus Loft Reversal
 <<effects>>
-"쇼를 하고 싶었어?" 당신은 기계에 손을 얹으며 묻는다. 정교해 보이는 이 기계는 다락방에 있는 다른 모든 것을 합친 것보다 더 비싸 보였다. 기계 전체에 뱀이 그려져 있고, 심지어 섹스 토이와 채찍조차 작은 장난감 뱀처럼 생겼다. 당신이 레버를 당기자, 기계가 윙 소리를 내며 다시 작동하기 시작한다.
+"쇼를 하고 싶었어?" 당신은 기계에 손을 얹으며 묻는다. 정교해 보이는 이 기계는 다락방에 있는 다른 모든 것을 합친 것보다 더 비싸 보인다. 기계 전체에 뱀이 그려져 있고, 심지어 섹스 토이와 채찍조차 작은 장난감 뱀처럼 생겼다. 당신이 레버를 당기자, 기계가 윙 소리를 내며 다시 작동하기 시작한다.
 <br><br>
 
 <<His>> 눈이 공포로 휘둥그레진다. 장난감들은 <<his>> 옷 때문에 제대로 파고들지 못하지만, 채찍은 여전히 닿는다. <<He>>【은는】 채찍이 <<him>>【을를】 때릴 때마다 고통에 찬 비명을 지른다. "그만! 그만! 제발!"
@@ -3523,7 +3522,7 @@
 
 당신은 <<his>> 말을 잠시 고민한다.
 <<if $farmland_maze_key is undefined>>
-	"내, 내가 그만한 가치를 만들어 줄 수 있어! <span class="gold">박물관에 가면 큰돈을 받을 수 있는 물건이 어디 있는지 알아!</span> 어차피 여기선 나한테 아무 쓸모도 없고, 그걸 사줄 만한 사람한테는 200피트 이내로 접근도 못 하게 되어 있거든."
+	"내-내가 그만한 가치를 만들어 줄 수 있어! <span class="gold">박물관에 가면 큰돈을 받을 수 있는 물건이 어디 있는지 알아!</span> 어차피 여기선 나한테 아무 쓸모도 없고, 그걸 사줄 만한 사람한테는 200피트 이내로 접근도 못 하게 되어 있거든."
 <</if>>
 <br><br>
 
@@ -3562,7 +3561,7 @@
 <<else>>
 	<<set _score to Math.floor(30 + ($domusLoftMachine.takeIt * 4) + ($domusLoftMachine.enjoyIt * 10) + ($domusLoftMachine.orgasms * 20) + ($fame.exhibitionism / 20))>>
 	<<unset $domusLoftMachine>>
-	"어... 여기." <<He>>【은는】 당신에게 <<moneyGain _score>>【을를】 건넨다. "제, 제발 이제 가줘."
+	"어... 여기." <<He>>【은는】 당신에게 <<moneyGain _score>>【을를】 건넨다. "제-제발 이제 가줘."
 	<br><br>
 
 	당신은 그 영상을 그대로 둔 것이 현명한 선택이었는지 궁금해하며 순순히 따른다.
@@ -3590,7 +3589,7 @@
 <<else>>
 	<<set _score to Math.floor(80 + ($domusLoftMachine.takeIt * 4) + ($domusLoftMachine.enjoyIt * 10) + ($domusLoftMachine.orgasms * 20) + ($fame.exhibitionism / 20))>>
 	<<unset $domusLoftMachine>>
-	"어... 여기." <<He>>【은는】 당신에게 <<moneyGain _score>>【을를】 건넨다. "제, 제발 이제 가줘."
+	"어... 여기." <<He>>【은는】 당신에게 <<moneyGain _score>>【을를】 건넨다. "제-제발 이제 가줘."
 	<br><br>
 
 	당신은 그 영상을 그대로 둔 것이 현명한 선택이었는지 궁금해하며 순순히 따른다.

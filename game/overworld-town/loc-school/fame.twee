@@ -42,7 +42,7 @@
 
 		<<endevent>>
 
-		<<npc Leighton>><<person1>>레이튼이 군중을 헤치고 나온다. "여기 볼 건 없다," <<he>>【이가】 말한다. "너희에게는 갈 곳이 더 있을 텐데." 군중은 흩어진다. 몇몇 학생은 벽에서 사진을 몰래 떼어내 가방에 숨긴다.
+		<<npc Leighton>><<person1>>레이튼이 군중을 헤치고 나온다. "여기 볼 건 없다." <<he>>【이가】 말한다. "너희에게는 갈 곳이 더 있을 텐데." 군중은 흩어진다. 몇몇 학생은 벽에서 사진을 몰래 떼어내 가방에 숨긴다.
 		<br><br>
 
 		레이튼은 사진들을 떼어내기 시작하지만, 그것들을 <<his>> 주머니에 넣는다. <<He>>【은는】 당신을 알아보지 않는다. <<He>>【은는】 마지막 사진까지 떼어내고, 복도에 당신을 홀로 남겨둔 채 떠난다.
@@ -505,7 +505,7 @@
 <<set $outside to 0>><<set $location to "school">><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"착한 <<girl>>." <<he>>【이가】 말한다. "잊지 마, 매일 등교할 때마다 널 보고 싶으니까."
+	"착한 <<girl>>." <<he>>【이가】 말한다.
 	<<if $phase is 1>>
 		<<He>>【은는】 당신에게 <<printmoney 15000>><<money 15000 "prostitution">>【을를】 건넨다.
 	<<elseif $phase is 0>>

@@ -39,18 +39,18 @@
 	<<set _rng to random(1, 5)>>
 	<<switch _rng>>
 		<<case 1>>
-			하지만 바닥에 빈티지 잡지가 한 권 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 10>>
+			하지만 바닥에 빈티지 잡지가 한 권 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 1>>
 		<<case 2>>
 			<<wearProp "cash two">>
-			하지만 옆 테이블에 외국 지폐 £20가 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 20>>
+			하지만 옆 테이블에 외국 지폐 £20가 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 2>>
 		<<case 3>>
 			<<wearProp "pearl necklace">>
-			하지만 옆 테이블에 진주 목걸이가 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 30>>
+			하지만 옆 테이블에 진주 목걸이가 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 5>>
 		<<case 4>>
-			하지만 옆 테이블에 금 커프스 단추 한 쌍이 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 40>>
+			하지만 옆 테이블에 금 커프스 단추 한 쌍이 놓여 있다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 10>>
 		<<default>>
 			<<wearProp "honeycomb ring">>
-			하지만 옆 테이블에 빈티지 반지가 하나 있다. 이상한 벌집 모양이지만 진짜 금으로 만들어졌다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 80>>
+			하지만 옆 테이블에 빈티지 반지가 하나 있다. 이상한 벌집 모양이지만 진짜 금으로 만들어졌다. 암시장에서 어느 정도 가치가 있을지도 모른다.<<set _blackmoney += 30>>
 	<</switch>>
 	<br><br>
 
@@ -87,10 +87,10 @@
 		<<link [[이 아파트를 조사한다|Flats Sneak Investigate]]>><</link>>
 		<br>
 	<<else>>
-		아파트에서 귀중품을 찾아보니, 매트리스 밑에서 <<printmoney 3000>>을 발견한다.
+		아파트에서 귀중품을 찾아보니, 매트리스 밑에서 <<printmoney 500>>을 발견한다.
 		<br><br>
 
-		<<link [[가져간다|Flats]]>><<moneyGain 30>><<crimeUp 30 "petty">><</link>><<crime "petty">>
+		<<link [[가져간다|Flats]]>><<moneyGain 5>><<crimeUp 5 "petty">><</link>><<crime "petty">>
 		<br>
 		<<link [[그대로 둔다|Flats]]>><</link>>
 		<br>
@@ -139,7 +139,7 @@
 	소파에서 <<person>>【이가】 코를 골고 있다. 당신은 발소리를 죽이며 훔칠 만한 것을 찾는다. 침실에서 보석 상자를 발견한다. 대단한 것은 아니지만, 암시장에서 어느 정도 값은 쳐줄지도 모른다.
 	<br><br>
 
-	<<link [[가져간다|Flats Sneak Snore]]>><<set $blackmoney += 30>><<crimeUp 30 "thievery">><</link>><<crime "thievery">>
+	<<link [[가져간다|Flats Sneak Snore]]>><<set $blackmoney += 10>><<crimeUp 10 "thievery">><</link>><<crime "thievery">>
 	<br>
 	<<link [[나간다|Flats]]>><<endevent>><</link>>
 	<br>
@@ -150,20 +150,20 @@
 	구운 채소 냄새가 풍겨온다. <<person>>【이가】 부엌에 서서, 창밖을 내다보며 통화 중이다.
 	<br><br>
 
-	<<him>>에게서 그리 멀지 않은 테이블 위에 <<his>> <<wallet>>【이가】 놓여 있다. 안에는 <<printmoney 4000>>【이가】 들어 있다.
+	<<him>>에게서 그리 멀지 않은 테이블 위에 <<his>> <<wallet>>【이가】 놓여 있다. 안에는 <<printmoney 1000>>【이가】 들어 있다.
 	<br><br>
 
-	<<link [[가져간다|Flats Sneak Wallet]]>><<moneyGain 40>><<crimeUp 40 "petty">><</link>><<crime "petty">>
+	<<link [[가져간다|Flats Sneak Wallet]]>><<moneyGain 10>><<crimeUp 10 "petty">><</link>><<crime "petty">>
 	<br>
 	<<link [[나간다|Flats]]>><<endevent>><</link>>
 	<br>
 <</addinlineevent>>
 
 <<addinlineevent "flats_sneak_8" 1>>
-	벽에 골동품 총이 걸려 있지만, 너무 단단히 고정되어 있어 떼어낼 수 없다. 당신은 주위를 뒤져 서랍에서 <<printmoney 2000>>【을를】 찾아낸다.
+	벽에 골동품 총이 걸려 있지만, 너무 단단히 고정되어 있어 떼어낼 수 없다. 당신은 주위를 뒤져 서랍에서 <<printmoney 500>>【을를】 찾아낸다.
 	<br><br>
 
-	<<link [[가져간다|Flats]]>><<moneyGain 20>><<crimeUp 20 "petty">><</link>><<crime "petty">>
+	<<link [[가져간다|Flats]]>><<moneyGain 5>><<crimeUp 5 "petty">><</link>><<crime "petty">>
 	<br>
 	<<link [[나간다|Flats]]>><<endevent>><</link>>
 	<br>
@@ -174,7 +174,7 @@
 	구석에서 라바 램프가 빛나며 구식 가구들을 은은하게 비춘다. 신발 상자에 숨겨진 보석 몇 점을 찾아내긴 했지만, 챙겨 갈 만한 귀중품은 거의 없다.
 	<br><br>
 
-	<<link [[가져간다|Flats]]>><<set $blackmoney += 30>><<crimeUp 30 "thievery">><</link>><<crime "thievery">>
+	<<link [[가져간다|Flats]]>><<set $blackmoney += 10>><<crimeUp 10 "thievery">><</link>><<crime "thievery">>
 	<br>
 	<<link [[나간다|Flats]]>><</link>>
 	<br>
@@ -186,6 +186,20 @@
 	<<link [[나간다|Flats]]>><<endevent>><</link>>
 	<br>
 <</addinlineevent>>
+
+<<if !$mine?.freed>>
+	<<addinlineevent "flats_sneak_11" 1.5>>
+		<<generate1>><<generate2>>
+
+		집에는 상자 여러 개와 옷더미가 여기저기 흩어져 있다. 갈라진 문틈으로 불빛이 새어 나온다. 그 뒤에서 두 사람의 목소리가 들린다. 방을 둘러보다가, 옷더미 하나에서 작은 반짝임을 발견한다.
+
+		<br><br>
+		<<link [[가져간다|Flats Sneak Mine]]>><</link>><<difficulty 30>>
+		<br>
+		<<link [[떠난다|Flats]]>><<endevent>><</link>>
+		<br>
+	<</addinlineevent>>
+<</if>>
 
 <<runeventpool>>
 
@@ -331,7 +345,7 @@
 <span class="red">"경찰 현장 도착," 목소리가 알린다. "좋은 하루 보내십시오."</span> 셔터가 열리고, 두 명의 경찰관, <<person1>><<person>>【와과】 <<person2>><<person>>【이가】 들어온다.
 <br><br>
 
-"얌전히 따라올 준비가 된 것 같군," <<person1>><<person>>【이가】 낄낄거린다. "가만히 있어." <<person2>><<person>>【이가】 수갑을 들고 다가온다.
+"얌전히 따라올 준비가 된 것 같군." <<person1>><<person>>【이가】 낄낄거린다. "가만히 있어." <<person2>><<person>>【이가】 수갑을 들고 다가온다.
 <br><br>
 
 <<link [[얌전히 따라간다|Hospital Arrest Journey]]>><<flats_alarm_end>><</link>>
@@ -352,11 +366,11 @@
 <span class="red">"경찰 현장 도착," 목소리가 알린다. "좋은 하루 보내십시오."</span> 셔터가 열리고, 두 명의 경찰관, <<person1>><<person>>【와과】 <<person2>><<person>>【이가】 들어온다.
 <br><br>
 
-"내가 찬장을 확인하지," <<person1>><<person>>【이가】 말한다.
+"내가 찬장을 확인하지." <<person1>><<person>>【이가】 말한다.
 <br>
-"그럴 필요 없어," <<person2>><<person>>【이가】 당신 쪽으로 고개를 끄덕이며 대답한다. "<<pShe>>【은는】 테이블 밑에 있군."
+"그럴 필요 없어." <<person2>><<person>>【이가】 당신 쪽으로 고개를 끄덕이며 대답한다. "<<pShe>>【은는】 테이블 밑에 있군."
 <br>
-"얌전히 따라오는 게 좋을 거야," <<person1>><<person>>【이가】 <<his>> 파트너가 수갑을 들고 다가오자 웃으며 말한다.
+"얌전히 따라오는 게 좋을 거야." <<person1>><<person>>【이가】 <<his>> 파트너가 수갑을 들고 다가오자 웃으며 말한다.
 <br><br>
 
 <<link [[얌전히 따라간다|Hospital Arrest Journey]]>><<flats_alarm_end>><</link>>
@@ -455,11 +469,11 @@
 <<seductionskilluse>>
 
 <<if $speech_attitude is "meek">>
-	"ㅊ-침입해서 죄송합니다," 당신은 말한다. "누군가 저를 고용해서 동행해달라고 했어요. 주소를 잘못 찾았나 봐요."
+	"치-침입해서 죄송합니다." 당신은 말한다. "누군가 저를 고용해서 동행해달라고 했어요. 주소를 잘못 찾았나 봐요."
 <<elseif $speech_attitude is "bratty">>
 	"방을 잘못 찾았나요?" 당신은 묻는다. "알려주셔서 다행이네요. 저는 에스코트거든요. 이미 돈도 받았고요."
 <<else>>
-	"방을 잘못 찾았나 봐요," 당신은 말한다. "저는 에스코트인데, 즐거움을 제공하라는 돈을 받았어요."
+	"방을 잘못 찾았나 봐요." 당신은 말한다. "저는 에스코트인데, 즐거움을 제공하라는 돈을 받았어요."
 <</if>>
 당신은 떠나기 위해 돌아선다.
 <<promiscuity2>>
@@ -522,7 +536,7 @@
 	<<tearful>> 당신은 아파트에서 탈출한다.
 	<br><br>
 <<else>>
-	"대단한 창녀 납셨네," <<person1>><<person>>【이가】 비웃는다. "꺼져."
+	"대단한 창녀 납셨네." <<person1>><<person>>【이가】 비웃는다. "꺼져."
 	<br><br>
 	<<tearful>> 당신은 아파트를 떠난다.
 	<br><br>
@@ -585,7 +599,7 @@
 	<<tearful>> 당신은 몸을 일으켜 선다.
 	<br><br>
 <<elseif $enemyhealth lte 0>>
-	당신은 <<person1>><<person>>【을를】 밀쳐내고, <<he>>【이가】 넘어질 때 시계를 움켜쥔다. 그 힘에 <<his>> 손목에서 시계가 뜯겨 나간다.<<set $blackmoney += 80>><<crimeUp 80 "thievery">><<crimeUp 20 "assault">><<crimes "assault" "thievery">>
+	당신은 <<person1>><<person>>【을를】 밀쳐내고, <<he>>【이가】 넘어질 때 시계를 움켜쥔다. 그 힘에 <<his>> 손목에서 시계가 뜯겨 나간다.<<set $blackmoney += 20>><<crimeUp 20 "thievery">><<crimeUp 20 "assault">><<crimes "assault" "thievery">>
 	<br><br>
 	<<tearful>> 당신은 아파트에서 탈출한다.
 	<br><br>
@@ -641,10 +655,10 @@
 :: Flats Sneak Investigate
 <<effects>>
 
-당신은 아파트에서 귀중품을 찾다가 매트리스 밑에서 <<printmoney 3000>>【을를】 발견한다.
+당신은 아파트에서 귀중품을 찾다가 매트리스 밑에서 <<printmoney 500>>【을를】 발견한다.
 <br><br>
 
-<<link [[가져간다|Flats]]>><<moneyGain 30>><<crimeUp 30 "petty">><</link>><<crime "petty">>
+<<link [[가져간다|Flats]]>><<moneyGain 5>><<crimeUp 5 "petty">><</link>><<crime "petty">>
 <br>
 <<link [[내버려 둔다|Flats]]>><</link>>
 <br>
@@ -712,7 +726,7 @@
 <<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
-	"필요했어," <<he>>【이가】 당신을 문 쪽으로 밀치며 말한다. "이제 꺼져."
+	"필요했어." <<he>>【이가】 당신을 문 쪽으로 밀치며 말한다. "이제 꺼져."
 	<br><br>
 	<<tearful>> 당신은 등 뒤에서 문이 쾅 닫히는 소리를 듣는다.
 	<br><br>
@@ -728,3 +742,33 @@
 
 <<link [[다음|Flats]]>><<endevent>><</link>>
 <br>
+
+:: Flats Sneak Mine
+<<effects>>
+
+당신은 소리가 나지 않게 애쓰며 방을 가로질러 살금살금 걸어간다.
+<<if $rng gte 31>>
+	<!-- Fail -->
+	<span class="red">문이 활짝 열리며 방 안으로 빛이 쏟아진다.</span> "여기 뭐가 있나 볼까?" <<person1>><<person>>【이가】 당신 뒤로 다가오며 말한다.
+	<br>
+	"<<pShes>> 딱 좋은 후보야." <<person2>><<person>>【이가】 <<his>> 주머니에서 헝겊을 꺼내며 말한다. <<person1>><<person>>【이가】 뒤에서 당신을 붙잡고, <<person2>><<person>>【이가】 헝겊을 당신의 얼굴에 짓누른다.
+	<br><br>
+	"파는 쪽이 돈이 더 되겠어. <<pshe>>【이가】 어차피 같은 곳으로 가게 될 테니까," 어떤 목소리가 말한다. <span class="red">세상이 어둠 속으로 사라진다.</span>
+
+	<br><br>
+	<<passout>>
+	<<link [[다음|Flats Auction]]>><<endevent>><</link>>
+<<else>>
+	<!-- Success -->
+	당신은 더미 속으로 손을 넣어 <span class="green">작은 보석</span>을 꺼낸다. 돈이 될지도 모른다.<<set $blackmoney += 400>>
+	<<if !$mine>>
+		<<set $foundMineGem to 1>>
+	<<else>>
+		<<set $mine.heldGem to "small gem">>
+	<</if>>
+	<br><br>
+	당신은 망설이지 않고 방을 빠져나간다.
+
+	<br><br>
+	<<link [[떠난다|Flats]]>><<endevent>><</link>>
+<</if>>

@@ -21,11 +21,11 @@
 		<<set _askShow to 0>>
 	<</if>>
 
-	<<if $settings.bestialityEnabled and ($passage is "Briar's Office Show Ask" or !$showExplanations.includes("Pig"))>>
+	<<if animalSexEnabledForType("pig") and !victimsAlwaysMonsterForType("pig") and ($passage is "Briar's Office Show Ask" or !$showExplanations.includes("Pig"))>>
 		<<if !$showExplanations.includes("Pig")>><<run $showExplanations.push("Pig")>><</if>>
 		"아니면," <<he>>【이가】 말을 잇는다. "근처 농장에서 돼지 한 마리를 데려올 수도 있지. 관객들의 흥미를 위해 돼지와 지저분한 짓을 하는 거야. 얼마나 많은 사람이 좋아할지는 모르겠지만, 입방아에 오르내리기엔 딱 좋겠지. 우리가 원하는 게 바로 그거고. 그 대가로 <<printmoney 150000 "green">>를 받게 될 거야."
 		<br><br>
-	<<elseif $settings.monsterChance gte 1 and ($passage is "Briar's Office Show Ask" or !$showExplanations.includes("Pig")) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)>>
+	<<elseif (victimsAlwaysMonsterForType("pig") or monsterCanAppearForType("pig")) and ($passage is "Briar's Office Show Ask" or !$showExplanations.includes("Pig"))>>
 		<<if !$showExplanations.includes("Pig")>><<run $showExplanations.push("Pig")>><</if>>
 		"아니면," <<he>>【이가】 말을 잇는다. "근처 농장에서 돼지 인간을 한 명 데려올 수도 있지. 관객들의 흥미를 위해 녀석과 지저분한 짓을 하는 거야. 얼마나 많은 사람이 좋아할지는 모르겠지만, 입방아에 오르내리기엔 딱 좋겠지. 우리가 원하는 게 바로 그거고. 그 대가로 <<printmoney 150000 "green">>를 받게 될 거야."
 		<br><br>
@@ -40,14 +40,14 @@
 	<<if $brothel_machine_repair gte 4 and ($passage is "Briar's Office Show Ask" or !$showExplanations.includes("Machine"))>>
 		<<if !$showExplanations.includes("Machine")>><<run $showExplanations.push("Machine")>><</if>>
 		<<if ($player.vaginaExist or $settings.analEnabled)>>
-			"수리된 섹스 머신도 있어," <<he>>【이가】 별생각 없었다는 듯 덧붙인다. "비공개 쇼로 진행해야 해. 입이 가벼운 녀석들은 절대 사절이니까. 관객들도 그 신선함엔 만족하겠지만, <span class="lewd">진짜 삽입하는 걸 보고 싶어 할 거야.</span> 끝까지 해낸다면 <<printmoney 150000 "green">>다."
+			"수리된 섹스 머신도 있어." <<he>>【이가】 별생각 없었다는 듯 덧붙인다. "비공개 쇼로 진행해야 해. 입이 가벼운 녀석들은 절대 사절이니까. 관객들도 그 신선함엔 만족하겠지만, <span class="lewd">진짜 삽입하는 걸 보고 싶어 할 거야.</span> 끝까지 해낸다면 <<printmoney 150000 "green">>다."
 			<br><br>
 			<<if $settings.tentaclesEnabled>>
 				<<He>>【이가】 턱을 톡톡 두드린다. "그게 더 마음에 든다면 촉수 모드도 있을 거다. 보수는 같고, 여전히 삽입은 필수야."
 				<br><br>
 			<</if>>
 		<<elseif $settings.tentaclesEnabled>>
-			"수리된 섹스 머신도 있어," <<he>>【이가】 별생각 없었다는 듯 덧붙인다. "촉수 모드가 지원되지. 비공개 쇼로 진행해야 해. 입이 가벼운 녀석들은 절대 사절이니까. 관객들도 그 신선함엔 만족하겠지만, <span class="lewd">진짜 삽입하는 걸 보고 싶어 할 거야.</span> 끝까지 해낸다면 <<printmoney 150000 "green">>다."
+			"수리된 섹스 머신도 있어." <<he>>【이가】 별생각 없었다는 듯 덧붙인다. "촉수 모드가 지원되지. 비공개 쇼로 진행해야 해. 입이 가벼운 녀석들은 절대 사절이니까. 관객들도 그 신선함엔 만족하겠지만, <span class="lewd">진짜 삽입하는 걸 보고 싶어 할 거야.</span> 끝까지 해낸다면 <<printmoney 150000 "green">>다."
 			<br><br>
 		<</if>>
 	<</if>>
@@ -100,12 +100,14 @@
 			<br>
 		<</if>>
 
-		<<if hasSexStat("deviancy", 5) and ($settings.bestialityEnabled or ($settings.monsterChance gte 1 and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)))>>
-			<<animalicon "pig">><<link [[돼지|Briar's Office Show 2]]>><<acceptbrothelshow "pig">><</link>> | <span class="green">+</span><<printmoney 150000 "green">><<deviant5>>
-			<br>
-		<<else>>
-			<<animalicon "pig">><<insufficientStat "deviancy" "돼지 쇼에 참여하기에는">>
-			<br>
+		<<if beastSexEnabledForType("pig", victimsAlwaysMonsterForType("pig") or monsterCanAppearForType("pig"))>>
+			<<if hasSexStat("deviancy", 5)>>
+				<<animalicon "pig">><<link [[돼지|Briar's Office Show 2]]>><<acceptbrothelshow "pig">><</link>> | <span class="green">+</span><<printmoney 150000 "green">><<deviant5>>
+				<br>
+			<<else>>
+				<<animalicon "pig">><<insufficientStat "deviancy" "돼지 쇼에 참여하기에는">>
+				<br>
+			<</if>>
 		<</if>>
 
 		<<if $settings.swarmsEnabled>>
@@ -140,10 +142,10 @@
 		<br>
 	<</if>>
 
-	<<if $demon gte 6 or (hasSexStat("deviancy", 5) and $farm_stage gte 7 and $farm.steed and ($settings.bestialityEnabled or $per_npc.saddled_steed.monster is "monster"))>>
+	<<if $demon gte 6 or (hasSexStat("deviancy", 5) and $farm_stage gte 7 and $farm.steed and beastSexEnabledForType("horse", $per_npc.saddled_steed.monster is "monster"))>>
 		쇼 제안하기:
 		<br>
-		<<if hasSexStat("deviancy", 5) and $farm_stage gte 7 and $farm.steed and ($settings.bestialityEnabled or $per_npc.saddled_steed.monster is "monster")>>
+		<<if hasSexStat("deviancy", 5) and $farm_stage gte 7 and $farm.steed and beastSexEnabledForType("horse", $per_npc.saddled_steed.monster is "monster")>>
 			<<animalicon "horse">><<link [[말|Briar's Office Show 2]]>><<acceptbrothelshow "horse">><</link>> | <span class="green">+</span><<printmoney 200000 "green">><<deviant5>>
 			<br>
 		<</if>>

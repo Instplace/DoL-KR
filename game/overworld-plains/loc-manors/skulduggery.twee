@@ -17,7 +17,7 @@
 	모든 것이 너무 벅차다. 당신은 기절한다.
 	<br><br>
 
-	<<link [[모든 것이 암전된다...|Farmland Dungeon Wake]]>><</link>>
+	<<link [[모든 것이 어둠 속으로 사라진다...|Farmland Dungeon Wake]]>><</link>>
 	<br>
 <<else>>
 	<<lockicon "pick">><<link [[저택에 침입한다 (0:05)|Farmland Manors Lock]]>><<pass 5>><</link>>
@@ -102,7 +102,7 @@
 	등 뒤에서 작은 방울 소리가 들린다. 이어서 두 번째, 세 번째 소리가 들린다. <<beastsplural>> 세 마리가 각기 다른 방에서 나타나, 당신을 보며 이빨을 드러낸다.
 	<br><br>
 
-	<<if $monster is 1 or $settings.bestialityEnabled>>
+	<<if beastSexEnabledForType("dog", $monster is 1)>>
 		<<link [[스스로를 방어한다|Farmland Manors Dog Sex]]>><<set $molestationstart to 1>><</link>>
 		<br>
 		<<if hasSexStat("deviancy", 3)>>
@@ -646,7 +646,7 @@
 	<<neutral 1>>
 	<<molested>>
 	<<maninit>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<set $noBodyWriting to 1>>
 <</if>>
 
@@ -833,7 +833,7 @@
 
 문을 통과한다. 복도는 양팔을 뻗으면 양쪽 벽에 닿을 만큼 좁다.
 <br><br>
-<<generateRole 0 "strange" "creature">><<person1>>
+<<generateStrangeCreature 1>><<person1>>
 벽이 당신에게서 멀어지며 휘어지는 가운데, 앞에서 갑자기 물방울 떨어지는 소리가 들린다. 수많은 물방울이 연달아 떨어지더니, 이내 조용해진다. 그러다 으르렁거리는 소리와 함께 발소리가 점점 커진다.
 <br><br>
 
@@ -873,7 +873,7 @@
 	<<neutral 1>>
 	<<molested>>
 	<<maninit>>
-	<<set $speechdisable to 1>>
+	<<set $speechDisable to 1>>
 	<<set $noBodyWriting to 1>>
 <</if>>
 
@@ -1115,7 +1115,7 @@
 	당신은 몸을 돌려 달린다.
 	<br><br>
 
-	<<link [[목걸이를 가지고 간다|Farmland Manors]]>><<set $blackmoney += 400>><<crimeUp 400 "thievery">><<endevent>><</link>><<crime "thievery">>
+	<<link [[목걸이를 가지고 간다|Farmland Manors]]>><<set $blackmoney += 200>><<crimeUp 200 "thievery">><<endevent>><</link>><<crime "thievery">>
 	<br>
 	<<link [[두고 간다|Farmland Manors]]>><</link>>
 	<br>
@@ -1143,10 +1143,10 @@
 :: Farmland Manors Easier
 <<effects>>
 
-당신은 저택의 나머지 부분을 수색하며 값나가는 물건을 찾는다. <<printmoney 4000>> 상당의 전리품을 긁어모은다.
+당신은 저택의 나머지 부분을 수색하며 값나가는 물건을 찾는다. <<printmoney 2000>> 상당의 전리품을 긁어모은다.
 <br><br>
 
-<<link [[가져가서 떠난다|Farmland Manors]]>><<set $blackmoney += 40>><<crimeUp 40 "thievery">><<endevent>><</link>><<crime "thievery">>
+<<link [[가져가서 떠난다|Farmland Manors]]>><<set $blackmoney += 20>><<crimeUp 20 "thievery">><<endevent>><</link>><<crime "thievery">>
 <br>
 <<link [[그냥 떠난다|Farmland Manors]]>><<endevent>><</link>>
 <br>
@@ -1297,7 +1297,7 @@
 	<<clotheson>>
 	<<endcombat>>
 
-	<<link [[물건을 챙겨 떠난다|Farmland Manors]]>><<set $blackmoney += 150>><<crimeUp 150 "thievery">><</link>><<crime "thievery">>
+	<<link [[물건을 챙겨 떠난다|Farmland Manors]]>><<set $blackmoney += 75>><<crimeUp 75 "thievery">><</link>><<crime "thievery">>
 	<br>
 	<<link [[그냥 떠난다|Farmland Manors]]>><</link>>
 	<br>
@@ -1325,13 +1325,13 @@
 	<br><br>
 	파일이 첨부되어 있다. 이름 목록이 들어있다. 퀸 시장을 포함한 많은 중요 인물들을 알아볼 수 있다.
 	<br><br>
-	이 정보는 꽤 값어치가 나갈 것이다.<<crimeUp 100 "thievery">><<set $blackmoney += 100>>
+	이 정보는 꽤 값어치가 나갈 것이다.<<crimeUp 50 "thievery">><<set $blackmoney += 50>>
 <<elseif $rng gte 61>>
 	음악. 포르노. 주변 시골을 찍은 아마추어 사진이 좀 있지만, 가치 있는 것은 아무것도 없다. 적어도 노트북 자체는 값어치가 있다.
 <<elseif $rng gte 41>>
-	하나의 파일이 비밀번호로 보호되어 있다. 직접 열 수는 없지만, 암시장에서 약간의 가치가 있을지도 모른다.<<crimeUp 20 "thievery">><<set $blackmoney += 20>>
+	하나의 파일이 비밀번호로 보호되어 있다. 직접 열 수는 없지만, 암시장에서 약간의 가치가 있을지도 모른다.<<crimeUp 10 "thievery">><<set $blackmoney += 10>>
 <<elseif $rng gte 21>>
-	오래된 항공권. 연도별 세금 신고서. 누군가에게는 유용할 수 있다. 예상보다 조금 더 받을 수 있을 것이다.<<crimeUp 50 "thievery">><<set $blackmoney += 50>>
+	오래된 항공권. 연도별 세금 신고서. 누군가에게는 유용할 수 있다. 예상보다 조금 더 받을 수 있을 것이다.<<crimeUp 25 "thievery">><<set $blackmoney += 25>>
 <<else>>
 	여기에는 가치 있는 것이 아무것도 없다. 하나의 은밀한 폴더가 많은 공간을 차지하지만, 포르노로 가득 차 있을 뿐이다. 적어도 노트북 자체는 값어치가 있다.
 <</if>>
@@ -1368,22 +1368,22 @@
 	<<elseif $rng gte 61>>
 		음악. 포르노. 주변 시골을 찍은 아마추어 사진 몇 장이 있지만, 가치 있는 것은 없다. 적어도 노트북 자체는 가치가 있다.
 		<br><br>
-		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 100 "thievery">><<set $blackmoney += 100>><</link>><<crime "thievery">>
+		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 50 "thievery">><<set $blackmoney += 50>><</link>><<crime "thievery">>
 		<br>
 	<<elseif $rng gte 41>>
 		파일 하나가 비밀번호로 보호되어 있다. 직접 열 수는 없지만, 암시장에서 약간의 가치가 있을지도 모른다.
 		<br><br>
-		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 120 "thievery">><<set $blackmoney += 120>><</link>><<crime "thievery">>
+		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 60 "thievery">><<set $blackmoney += 60>><</link>><<crime "thievery">>
 		<br>
 	<<elseif $rng gte 21>>
 		오래된 비행기 표. 연도별 세금 환급 서류. 누군가에게는 유용할 수 있다. 예상보다 조금 더 값을 받을 수 있을 것이다.
 		<br><br>
-		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 150 "thievery">><<set $blackmoney += 150>><</link>><<crime "thievery">>
+		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 75 "thievery">><<set $blackmoney += 75>><</link>><<crime "thievery">>
 		<br>
 	<<else>>
 		여기에는 가치 있는 것이 없다. 숨겨진 폴더 하나가 공간을 많이 차지하지만, 포르노로 가득 차 있을 뿐이다. 적어도 노트북 자체는 가치가 있다.
 		<br><br>
-		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 100 "thievery">><<set $blackmoney += 100>><</link>><<crime "thievery">>
+		<<link [[훔쳐서 도망친다|Farmland Manors Laptop Snatch]]>><<crimeUp 50 "thievery">><<set $blackmoney += 50>><</link>><<crime "thievery">>
 		<br>
 	<</if>>
 	<br><br>
@@ -1467,7 +1467,7 @@
 중요한 것 같다. 무엇이든 간에 암시장에서 가치가 있을지도 모른다.
 <br><br>
 
-<<link [[가져간다|Farmland Manors Plants]]>><<set $blackmoney += 200>><<crimeUp 200 "thievery">><</link>><<crime "thievery">>
+<<link [[가져간다|Farmland Manors Plants]]>><<set $blackmoney += 100>><<crimeUp 100 "thievery">><</link>><<crime "thievery">>
 <br>
 <<link [[내버려 둔다|Farmland Manors]]>><</link>>
 <br>
@@ -1770,7 +1770,7 @@
 "고마워." 밖으로 나오자 <<he>>【이가】 말한다. <<He>>【은는】 마치 부끄러운 듯 눈을 마주치지 않는다. "여기서부터 집으로 가는 길은 알아." <<He>>【은는】 당신을 놀라게 하며 껴안은 후, 걸어간다.
 <br><br>
 
-<<link [[훔친 은식기를 가지고 떠난다|Farmland Manors]]>><<endevent>><<crimeUp 80 "thievery">><<set $blackmoney += 80>><<clearNPC "farmland_manors_victim">><</link>><<crime "thievery">>
+<<link [[훔친 은식기를 가지고 떠난다|Farmland Manors]]>><<endevent>><<crimeUp 40 "thievery">><<set $blackmoney += 40>><<clearNPC "farmland_manors_victim">><</link>><<crime "thievery">>
 <br>
 <<link [[그냥 떠난다|Farmland Manors]]>><<endevent>><<clearNPC "farmland_manors_victim">><</link>>
 <br>
@@ -2065,7 +2065,7 @@
 :: Farmland Manors Bound Loss
 <<effects>>
 
-<<person>>【이가】 당신 양옆으로 발을 딛고 선다. "자," <<he>>【이가】 말한다. "너를 어떻게 해줄까? 알겠다." <<He>>【은는】 근처 서랍장에서 두건을 꺼내 당신 머리에 씌우고는, 당신을 일으켜 세운다. <<He>>【은는】 당신을 밀어 움직이게 한다.
+<<person>>【이가】 당신 양옆으로 발을 딛고 선다. "자." <<he>>【이가】 말한다. "너를 어떻게 해줄까? 알겠다." <<He>>【은는】 근처 서랍장에서 두건을 꺼내 당신 머리에 씌우고는, 당신을 일으켜 세운다. <<He>>【은는】 당신을 밀어 움직이게 한다.
 <br><br>
 
 <<link [[다음|Farmland Dungeon Hood]]>><<set $phase to 1>><</link>>
@@ -2106,7 +2106,7 @@
 "난 이 마을을 떠날 거라, 이 돈 대부분이 필요해. 자." <<He>>【은는】 현금 뭉치를 내민다.
 <br><br>
 
-<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 280 true true>><<endevent>><</link>><<crime "thievery">>
+<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 100 true true>><<endevent>><</link>><<crime "thievery">>
 <br>
 <<link [[그냥 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<endevent>><</link>>
 <br>
@@ -2131,7 +2131,7 @@
 "난 이 마을을 떠날 거라, 이 돈 대부분이 필요해. 자." <<He>>【은는】 현금 뭉치를 내민다.
 <br><br>
 
-<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 280 true true>><<endevent>><</link>><<crime "thievery">>
+<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 100 true true>><<endevent>><</link>><<crime "thievery">>
 <br>
 <<link [[그냥 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<endevent>><</link>>
 <br>
@@ -2147,7 +2147,7 @@
 "난 이 마을을 떠날 거라, 이 돈 대부분이 필요해. 자." <<He>>【은는】 현금 뭉치를 내민다.
 <br><br>
 
-<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 280 true true>><<endevent>><</link>><<crime "thievery">>
+<<link [[돈을 받고 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<moneyGain 100 true true>><<endevent>><</link>><<crime "thievery">>
 <br>
 <<link [[그냥 떠난다|Farmland Manors]]>><<clearNPC "farmland_manors_bound_villain">><<clearNPC "farmland_manors_bound_victim">><<endevent>><</link>>
 <br>

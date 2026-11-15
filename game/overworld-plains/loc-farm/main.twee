@@ -229,10 +229,10 @@
 
 알렉스가 당신을 닭장 주변으로 이끌어 길쭉한 돌 건물 쪽으로 향한다. 꿀꿀거리는 소리가 들린다. "돼지들은 먹이 주기가 더 힘들어요. 배고픈 녀석들이라. 그걸 다 나르는 게 일이죠." 돼지우리에 들어간다.
 <!-- Modified for monster people -->
-<<if ($settings.monsterChance gte random(1, 100) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)) or (!$settings.bestialityEnabled)>>
-	<<if beastMaleChance() gte 100>>
+<<if monsterChanceForType("pig") gte random(1, 100) and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("pig"))>>
+	<<if beastMaleChanceForType("pig") gte 100>>
 		여러 돼지 소년들이 우리 안에 앉아 있다.
-	<<elseif beastMaleChance() gte 1>>
+	<<elseif beastMaleChanceForType("pig") gte 1>>
 		여러 돼지 소년 소녀들이 우리 안에 앉아 있다.
 	<<else>>
 		여러 돼지 소녀들이 우리 안에 앉아 있다.
@@ -254,8 +254,8 @@
 
 <<He>>【이가】 당신을 돼지우리에서 멀리 이끌어, 낡은 나무 문을 지나 포장된 길로 들어선다. 저 앞에 마구간이 보인다.
 <!-- Modified for monster people -->
-<<if ($settings.monsterChance gte random(1, 100) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)) or (!$settings.bestialityEnabled)>>
-	<<if beastMaleChance() lte $rng>>
+<<if monsterChanceForType("horse") gte random(1, 100) and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("horse"))>>
+	<<if beastMaleChanceForType("horse") lte $rng>>
 		<<set _horse_gender to "f">>
 	<<else>>
 		<<set _horse_gender to "m">>
@@ -293,19 +293,19 @@
 알렉스를 따라 들판을 가로질러 헛간으로 향한다. 개 한 마리가 입을 벌리고 혀를 내민 채 밖에 앉아 있다.
 <br><br>
 <!-- Modified for monster people -->
-<<if ($settings.monsterChance gte random(1, 100) and ($hallucinations gte 1 or !$settings.monsterHallucinationsOnly)) or (!$settings.bestialityEnabled)>>
-	<<if beastMaleChance() gte 100>>
+<<if monsterChanceForType("cow") gte random(1, 100) and ($hallucinations gte 1 or !monsterHallucinationsOnlyForType("cow"))>>
+	<<if beastMaleChanceForType("cow") gte 100>>
 		안에는 여러 황소 소년들이 네 발로 서 있고, 각각의 자지에 튜브가 연결되어 있다. 그들은 쾌감에 음메 소리를 낸다.
-	<<elseif beastMaleChance() lte 0>>
+	<<elseif beastMaleChanceForType("cow") lte 0>>
 		안에는 여러 암소 소녀들이 네 발로 서 있고, 각각의 가슴에 두 개의 튜브가 연결되어 있다. 그들은 쾌감에 음메 소리를 낸다.
 	<<else>>
 		안에는 여러 암소 소녀들과 황소 소년들이 네 발로 서 있고, 각각 착유기에 연결되어 있다. 그들은 쾌감에 음메 소리를 낸다.
 	<</if>>
 
 <<else>>
-	<<if beastMaleChance() gte 100>>
+	<<if beastMaleChanceForType("cow") gte 100>>
 		안에는 여러 황소들이 서 있고, 각각 착유기에 연결되어 있다.
-	<<elseif beastMaleChance() lte 0>>
+	<<elseif beastMaleChanceForType("cow") lte 0>>
 		안에는 여러 암소들이 서 있고, 각각 착유기에 연결되어 있다.
 	<<else>>
 		안에는 여러 소들이 서 있고, 각각 착유기에 연결되어 있다.
@@ -495,11 +495,11 @@
 	"여긴 뭐가 있으려나?" 어떤 목소리가 들린다. 고개를 돌려보니, 농장 가장자리 울타리에 <<person>>【이가】 기대어 있다. "알렉스가 <<person1>>조수를 구했네. 그것도 꽤 귀여운 조수 말이야. 그 엉덩이 이쪽으로 좀 내밀어 보는 게 어때?"
 	<br><br>
 
-	"꺼져," 또 다른 목소리가 말한다. 알렉스다. <<he>>【은는】 <<person2>><<person>>【을를】 노려본다. "한 번 더 무단 침입하면 어떻게 될지 말했을 텐데."
+	"꺼져." 또 다른 목소리가 말한다. 알렉스다. <<he>>【은는】 <<person2>><<person>>【을를】 노려본다. "한 번 더 무단 침입하면 어떻게 될지 말했을 텐데."
 	<br>
 	<<person>>【은는】 두 손을 들어 올리지만, 얼굴엔 전혀 두려움이 없다. "무단 침입 아니야. 보이지? 우리 <<if $pronoun is "f">>여자애들<<else>>남자애들<</if>>【은는】 그냥 네가 우리 제안을 다시 생각해 봤나 해서 온 것뿐이라고."
 	<br>
-	"너희 도움은 필요 없어," 알렉스가 당신 곁으로 다가서며 대답한다.
+	"너희 도움은 필요 없어." 알렉스가 당신 곁으로 다가서며 대답한다.
 	<br>
 	"이 도시 출신 <<girl>> 하나로 충분할 거라고 생각하나? 아주 재밌게 돌아가겠네." <<he>>【은는】 돌아서서 길을 따라 걸어간다.
 	<br><br>
@@ -510,10 +510,10 @@
 
 <<widget "farmStage4">>
 	<<npc Alex>><<person1>>
-	"우리가 해냈어," 알렉스가 말한다. 피곤한 목소리에, <<his>> 옷은 찢어지고 <<his>> 머리는 땀으로 엉망이지만, 얼굴에는 미소가 번져 있다. "두 번째 밭을 개간했어."
+	"우리가 해냈어." 알렉스가 말한다. 피곤한 목소리에, <<his>> 옷은 찢어지고 <<his>> 머리는 땀으로 엉망이지만, 얼굴에는 미소가 번져 있다. "두 번째 밭을 개간했어."
 	<br><br>
 
-	<<he>>【은는】 개간된 밭으로 당신을 이끌고 가다, 울타리 앞에 멈춰 선다. <<he>>【이가】 자리에 앉으며 당신에게 따라오라고 손짓한다. "너 없이는 절대 못 했을 거야," <<he>>【이가】 말하며
+	<<he>>【은는】 개간된 밭으로 당신을 이끌고 가다, 울타리 앞에 멈춰 선다. <<he>>【이가】 자리에 앉으며 당신에게 따라오라고 손짓한다. "너 없이는 절대 못 했을 거야." <<he>>【이가】 말하며
 
 	<<if C.npc.Alex.pregnancy.selfKnowledge is true and npcIsPregnant("Alex") and talkedAboutPregnancy("Alex","pc")>>
 		<<his>> 주머니에서 유리병 두 개를 꺼내더니, 하나를 입가로 가져간다.
@@ -522,7 +522,7 @@
 		<<him>>에게 엄격한 눈빛을 보낸다.
 		<br><br>
 
-		"미안," <<he>>【이가】 말하며 병을 집어넣는다. "나쁜 버릇이야."
+		"미안." <<he>>【이가】 말하며 병을 집어넣는다. "나쁜 버릇이야."
 		<br><br>
 
 		<<link [[다음|Farm Stage 4]]>><<set $phase to 1>><<set $farm_stage to 4>><<set $farm.clearing to 100>><</link>>
@@ -550,7 +550,7 @@
 
 <<widget "farmStage5">>
 	<<npc Alex 1>><<npc Remy 2>><<person1>>
-	"끝났어," 알렉스가 농가 벽에 기대어 말한다. "또 다른 밭이 준비됐어." <<he>>【이가】 주머니로 손을 뻗지만, 길에서 말발굽 소리가 다가오자 멈칫한다.
+	"끝났어." 알렉스가 농가 벽에 기대어 말한다. "또 다른 밭이 준비됐어." <<he>>【이가】 주머니로 손을 뻗지만, 길에서 말발굽 소리가 다가오자 멈칫한다.
 	<br><br>
 	<<person2>>
 	<<if ($avery_fate is "saved" or $avery_fate is "fallen" or $avery_fate is "kicked") and !$remy_mask>>
@@ -570,14 +570,14 @@
 		<br><br>
 		<<he>>【은는】 말에서 내려, <<his>> 장갑을 벗는다. <<he>>【은는】 당신을 향해, 그리고 알렉스를 향해 미소 짓는다. <<his>> 초록색 눈이 번뜩인다.
 		<br><br>
-		"연락 없이 찾아와서 미안하군," <<he>>【이가】 말한다. "연락하기가 영 힘들어서 말이야. 사업 이야기를 하러 왔어."
+		"연락 없이 찾아와서 미안하군." <<he>>【이가】 말한다. "연락하기가 영 힘들어서 말이야. 사업 이야기를 하러 왔어."
 		<br><br>
 	<<elseif $remySeen.includes("riding_school")>>
 		<<farm_text horse>> 한 마리가 농장으로 들어온다. 근처 승마장의 주인인 레미가 등에 타고 있다. <<if $pronoun is "m">><<his>> 옅은 갈색 머리칼이 바람에 흩날린다<<else>><<his>> 옅은 갈색 머리가 깔끔하게 올려 묶여 있다<</if>>.
 		<br><br>
 		<<he>>【은는】 말에서 내려, <<his>> 장갑을 벗는다. <<he>>【은는】 당신을 향해, 그리고 알렉스를 향해 미소 짓는다. <<his>> 초록색 눈이 번뜩인다.
 		<br><br>
-		"연락 없이 찾아와서 미안하군," <<he>>【이가】 말한다. "연락하기가 영 힘들어서 말이야. 사업 이야기를 하러 왔어."
+		"연락 없이 찾아와서 미안하군." <<he>>【이가】 말한다. "연락하기가 영 힘들어서 말이야. 사업 이야기를 하러 왔어."
 		<br><br>
 	<<else>>
 		<<farm_text horse>>【이가】 농장으로 들어온다. <<woman_npc>>【이가】 <<if $pronoun is "m">>짧은 옅은 갈색 머리를 바람에 흩날리며<<else>>옅은 갈색 머리를 깔끔하게 올려 묶은 채<</if>> <<farm_his horse>> 등에 타고 있다. 알렉스의 미소가 사라진다.
@@ -607,7 +607,7 @@
 	<</if>>
 	<br><br>
 
-	"끝났어," <<he>>【이가】 말한다. "마지막 밭. 우리가 농장을 복구한 거야."
+	"끝났어." <<he>>【이가】 말한다. "마지막 밭. 우리가 농장을 복구한 거야."
 	<br><br>
 	<<loadNPC 1 "alexs_parent1">>
 	<<He>>【은는】 농가 현관에 털썩 주저앉아 당신을 쳐다본다. "나 혼자서는 해낼 수 없었을 거야. <<person2>><<Mum>>【이가】 이게 얼마나 위험한지 알았더라면-" <<person1>><<He>>【은는】 시선을 돌린다. "난 가족들 도움 없이도 해낼 수 있다는 걸 증명하고 싶었어. 이젠 증명했지."
@@ -624,7 +624,7 @@
 	<<npc Alex>><<person1>>
 	알렉스가 <<his>> 헛간에서 나온다. 걱정스러운 표정이다. "이 냄새 나?" <<he>>【이가】 묻는다. 아주 희미하지만, 무언가 타는 냄새가 난다.
 	<br><br>
-	"이웃이 모닥불을 피우다가 불이 번졌을지도 몰라," <<he>>【은는】 연기가 나지 않는지 수평선을 살피며 말한다. "조심해서 나쁠 건 없지. 헛간 쪽 좀 확인해 줄래? 난 농장 외곽을 돌아볼게."
+	"이웃이 모닥불을 피우다가 불이 번졌을지도 몰라." <<he>>【은는】 연기가 나지 않는지 수평선을 살피며 말한다. "조심해서 나쁠 건 없지. 헛간 쪽 좀 확인해 줄래? 난 농장 외곽을 돌아볼게."
 	<br><br>
 
 	<<link [[다음|Farm Stage 7]]>><<set $farm_countdown to 7>><<set $farm_stage to 7>><<set $alex_countdown to 3>><<set $wardrobes.alexFarm.unlocked to true>><</link>>
@@ -645,7 +645,7 @@
 
 	"비싸긴 하죠," <<person>>【이가】 고개를 끄덕인다. "하지만 보안이 목적이시라면, 돈값을 톡톡히 할 겁니다."
 	<br>
-	"고맙습니다," 알렉스가 대답한다. "연락드리겠습니다."
+	"고맙습니다." 알렉스가 대답한다. "연락드리겠습니다."
 	<br><br>
 
 	<<if $exposed gte 1>>
@@ -697,7 +697,7 @@
 	당신은 알렉스가 <<farm_fence>> 밑에 무릎을 꿇고 있는 것을 본다. <<he>>【은는】 이상한 보라색 꽃을 바라보고 있다. <<he>>【이가】 꽃을 건드리자 <<his>> 손바닥 위로 씨앗이 흩어진다.
 	<br><br>
 
-	"이런 잡초를 전에 본 적 있어," <<he>>【이가】 말한다. "어떤 책에서도 찾아볼 수 없었고, 씨앗을 맺는 건 한 번도 못 봤지." <<he>>【이가】 자리에서 일어난다. "우리가 이걸 재배할 수 있을까? 레미도 이걸 키우고 있거든. 분명 가치가 있을 거야."
+	"이런 잡초를 전에 본 적 있어." <<he>>【이가】 말한다. "어떤 책에서도 찾아볼 수 없었고, 씨앗을 맺는 건 한 번도 못 봤지." <<he>>【이가】 자리에서 일어난다. "우리가 이걸 재배할 수 있을까? 레미도 이걸 키우고 있거든. 분명 가치가 있을 거야."
 	<br><br>
 
 	<<link [[자신 있게 답한다|Farm Stage 11 Confident]]>><<set $farm_stage to 11>><<set $farm.clearing to 100>><<add_plot farm earth 3 large>><</link>>
@@ -837,7 +837,7 @@
 <<He>>【은는】 전화를 끊고 당신에게 돌아선다. "<<person2>><<He>>【은는】 이 근처에 계셔서 잠깐 들르신대." <<person1>><<he>>【이가】 더 이상 흥분을 감추려 하지 않고 말한다. "주전자에 물을 올려야겠어."
 
 <<if $exposed gte 1>>
-	<<He>>【은는】 당신의 <<lewdness>>【을를】 보고 얼굴을 붉힌다. 마치 이제야 기억났다는 듯이. "뭐, 뭐라도 입어야 해." <<He>>【은는】 계단을 서둘러 올라간다.
+	<<He>>【은는】 당신의 <<lewdness>>【을를】 보고 얼굴을 붉힌다. 마치 이제야 기억났다는 듯이. "뭐-뭐라도 입어야 해." <<He>>【은는】 계단을 서둘러 올라간다.
 
 	잠시 후 계단에서 옷가지 뭉치가 떨어진다.
 
@@ -983,11 +983,11 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"하, 하지만 너무 섹시한걸." 당신은 수건을 쥔 채 훌쩍인다.
+	"하-하지만 너무 섹시한걸." 당신은 수건을 쥔 채 훌쩍인다.
 <<elseif $speech_attitude is "bratty">>
-	"난 이 모습이 더 좋은데." 당신은 수건을 쥔 채 씩 웃으며 말한다.
+	"난 이 모습이 더 좋은데," 당신은 수건을 쥔 채 씩 웃으며 말한다.
 <<else>>
-	"꽤 보기 좋은데." 당신은 수건을 쥔 채 말한다.
+	"꽤 보기 좋은데," 당신은 수건을 쥔 채 말한다.
 <</if>>
 <br><br>
 알렉스는 불안한 듯 창밖을 힐끗 쳐다본 다음, 다시 바구니로 몸을 돌린다. <<He>>【은는】 한 손으로 <<his>> 엉덩이를 가린 채 다른 손으로 바구니를 뒤적인다.
@@ -1339,23 +1339,23 @@
 <br><br>
 
 <<if $farm_fight.shelf isnot 1>>
-	<<link [[선반 수색하기|Farm Fight Search Shelf]]>><<set $farm_fight.shelf to 1>><</link>>
+	<<link [[선반을 수색한다|Farm Fight Search Shelf]]>><<set $farm_fight.shelf to 1>><</link>>
 	<br>
 <</if>>
 <<if $farm_fight.toolbox isnot 1>>
-	<<link [[공구함 수색하기|Farm Fight Search Toolbox]]>><<set $farm_fight.toolbox to 1>><</link>>
+	<<link [[공구함을 수색한다|Farm Fight Search Toolbox]]>><<set $farm_fight.toolbox to 1>><</link>>
 	<br>
 <</if>>
 <<if $farm_fight.cupboard isnot 1>>
-	<<link [[찬장 수색하기|Farm Fight Search Cupboard]]>><<set $farm_fight.cupboard to 1>><</link>>
+	<<link [[찬장을 수색한다|Farm Fight Search Cupboard]]>><<set $farm_fight.cupboard to 1>><</link>>
 	<br>
 <</if>>
 <<if $farm_fight.rakes isnot 1>>
-	<<link [[갈퀴 수색하기|Farm Fight Search Rakes]]>><<set $farm_fight.rakes to 1>><</link>>
+	<<link [[갈퀴를 수색한다|Farm Fight Search Rakes]]>><<set $farm_fight.rakes to 1>><</link>>
 	<br>
 <</if>>
 <<if $farm_fight.sheet isnot 1>>
-	<<link [[천으로 덮인 물건 수색하기|Farm Fight Search Sheet]]>><<set $farm_fight.sheet to 1>><</link>>
+	<<link [[천으로 덮인 물건을 수색한다|Farm Fight Search Sheet]]>><<set $farm_fight.sheet to 1>><</link>>
 	<br>
 <</if>>
 
@@ -1419,7 +1419,7 @@
 	그들은 당신 손에 들린 굉음을 내는 전기톱을 응시하며, 더 가까이 다가오기를 두려워한다.
 	<br><br>
 
-	"씨, 씨발," <<person2>><<person>>【이가】 소리친다. "저걸 대체 어디서 구한 거야?"
+	"씨-씨발." <<person2>><<person>>【이가】 소리친다. "저걸 대체 어디서 구한 거야?"
 	<br>
 	"진정해, <<girl>>." <<person3>><<person>>【이가】 말한다. <<He>>【은는】 더 차분해 보이며, 한 걸음 더 다가온다. "그 장난감 내려놔."
 	<br><br>
@@ -1497,7 +1497,7 @@
 	<br><br>
 	베일리가 <<nnpc_his Bailey>> 고개를 젓는다. "난 이만 가보겠어." <<nnpc_He Bailey>>【은는】 당신에게 다시 돌아선다. <span class="red">"찾아갈게."</span> <<nnpc_He Bailey>>【은는】 성큼성큼 걸어간다.
 	<br><br>
-	"저 냄새," 알렉스가 헛간 지붕 너머를 보며 말한다. <span class="red">그리 멀지 않은 곳에서 연기 기둥이 피어오르고 있다.</span> "밭이야. 밭을 확인해야 해!"
+	"저 냄새." 알렉스가 헛간 지붕 너머를 보며 말한다. <span class="red">그리 멀지 않은 곳에서 연기 기둥이 피어오르고 있다.</span> "밭이야. 밭을 확인해야 해!"
 	<br><br>
 	<<link [[다음|Farm Fight End 3]]>><</link>>
 	<br>
@@ -1527,7 +1527,7 @@
 
 
 <<if $speech_attitude is "meek">>
-	"여, 여긴 왜 온 거야?" 당신이 묻는다.
+	"여-여긴 왜 온 거야?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"여기서 대체 뭘 하는 거야?" 당신이 묻는다.
 <<else>>
@@ -1605,7 +1605,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"다, 다시 감자를 키울 수 있어." 당신이 말한다. "그들은 농장을 망가뜨리고 싶어 하지 않아. 널 상처 입히고 싶어 하는 거야."
+	"다-다시 감자를 키울 수 있어." 당신이 말한다. "그들은 농장을 망가뜨리고 싶어 하지 않아. 널 상처 입히고 싶어 하는 거야."
 <<elseif $speech_attitude is "bratty">>
 	"그냥 흉작인 거야." 당신이 말한다. "더 키우면 돼. 다음번엔 우리가 준비되어 있을 거야."
 <<else>>
@@ -1648,7 +1648,7 @@
 당신은 식탁 위에 컵을 놓는다. <<He>>【은는】 컵에 <<his>> 손을 녹이며, 액체를 응시한다. <<He>>【은는】 길게 한 모금 마신다.
 <br><br>
 
-"그 <<nnpc_gender "Bailey">>," <<he>>【이가】 말한다. "그게 베일리, 고아원 관리인이었어?" 당신은 고개를 끄덕인다. 알렉스는 <<his>> 고개를 젓는다. "레미가 그런 부류와 거래하는 게 놀랍지도 않네."<br><br>
+"그 <<nnpc_gender "Bailey">>." <<he>>【이가】 말한다. "그게 베일리, 고아원 관리인이었어?" 당신은 고개를 끄덕인다. 알렉스는 <<his>> 고개를 젓는다. "레미가 그런 부류와 거래하는 게 놀랍지도 않네."<br><br>
 
 <<link [[알렉스가 베일리에 대해 아는 것을 묻는다|Farm Fight End Ask]]>><</link>>
 <br>
@@ -1672,7 +1672,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"이, 이건 다 내 잘못이야." 당신이 말한다. "베일리가 온 건 단지—"
+	"이-이건 다 내 잘못이야." 당신이 말한다. "베일리가 온 건 단지—"
 <<elseif $speech_attitude is "bratty">>
 	"내가 부주의했어." 당신이 말한다. "베일리가 온 건—"
 <<else>>
@@ -1694,7 +1694,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"나, 나는 베일리와 레미를 상대할 때 네 옆에 있으면 더 안전할 것 같아." 당신이 말한다.
+	"나-나는 베일리와 레미를 상대할 때 네 옆에 있으면 더 안전할 것 같아." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"베일리와 레미가 힘을 합친다면," 당신이 말한다, "우리도 그래야 해."
 <<else>>
@@ -1714,7 +1714,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"고, 고마워." 당신이 말한다. "최선을 다할게."
+	"고-고마워." 당신이 말한다. "최선을 다할게."
 <<elseif $speech_attitude is "bratty">>
 	"좋아." 당신이 말한다. "출세했네."
 <<else>>
@@ -1744,7 +1744,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"그, 그건 너무 큰 책임이야." 당신이 거절한다.
+	"그-그건 너무 큰 책임이야." 당신이 거절한다.
 <<elseif $speech_attitude is "bratty">>
 	"이 농장은 이대로도 일이 충분해." 당신이 말한다.
 <<else>>
@@ -1775,15 +1775,15 @@
 
 <<if pcAreArmsBound("both")>>
 	<<set _clothed = ![V.worn.upper.name, V.worn.lower.name, V.worn.under_upper.name, V.worn.under_lower.name, V.worn.over_upper.name, V.worn.over_lower.name].every(x => x == 'naked')>>
-	<<bathroomicon "shower">><<link [["샤워하기 " + (_clothed ? " 옷 입은 채로 " : "") + "(0:30)"->Farm Shower]]>><<water>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+	<<bathroomicon "shower">><<link [["샤워한다 " + (_clothed ? "(옷 입은 채) " : "") + "(0:30)"->Farm Shower]]>><<water>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
 <<else>>
-	<<bathroomicon "shower">><<link [[샤워하기 (0:30)|Farm Shower]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
+	<<bathroomicon "shower">><<link [[샤워한다 (0:30)|Farm Shower]]>><<strip>><<pass 30>><<stress -6>><<set $hygiene to 0>><</link>><<lstress>>
 <</if>>
 <br>
 <<personalUpkeep>>
 <<pregnancyTest "Farm Shed">>
 <br><br>
-<<getouticon>><<link [[나가기 (0:01)|Farm Work]]>><<endevent>><<pass 1>><</link>>
+<<getouticon>><<link [[나간다 (0:01)|Farm Work]]>><<endevent>><<pass 1>><</link>>
 <br>
 
 :: Farm Shower
@@ -1806,12 +1806,12 @@
 		문이 삐걱거리며 열리고 빛이 쏟아져 들어오는 소리가 들린다. <<covered>> 알렉스다. <<He>>【은는】 시선을 피하지만, <<his>> 눈은 다시 당신에게로 돌아와 힐끗 훔쳐본다.<<gstress>><<stress 6>>
 		<br><br>
 
-		"미, 미안." <<he>>【이가】 말한다. "네가 여기 있는 줄 몰랐어."
+		"미-미안." <<he>>【이가】 말한다. "네가 여기 있는 줄 몰랐어."
 		<br><br>
 
-		<<link [[소리 지르기|Farm Shower Scream]]>><<npcincr Alex love -1>><<stress -6>><</link>><<llove>><<lstress>>
+		<<link [[소리를 지른다|Farm Shower Scream]]>><<npcincr Alex love -1>><<stress -6>><</link>><<llove>><<lstress>>
 		<br>
-		<<link [[알렉스에게 나가달라고 요청하기|Farm Shower Leave]]>><</link>>
+		<<link [[알렉스에게 나가달라고 요청한다|Farm Shower Leave]]>><</link>>
 		<br>
 		<<if hasSexStat("exhibitionism", 4)>>
 			<<link [[알렉스가 보게 둔다 (0:05)|Farm Shower Watch]]>><<npcincr Alex lust 5>><<pass 5>><</link>><<exhibitionist4>><<glust>>
@@ -1837,16 +1837,16 @@
 		<br>
 	<</if>>
 <<else>>
-	<<skinicon "masturbate">><<link [[자위하기|Farm Shower Masturbation]]>><<set $masturbationstart to 1>><</link>>
+	<<skinicon "masturbate">><<link [[자위한다|Farm Shower Masturbation]]>><<set $masturbationstart to 1>><</link>>
 	<br>
-	<<getouticon>><<link [[나가기|Farm Work]]>><<clotheson>><</link>>
+	<<getouticon>><<link [[나간다|Farm Work]]>><<clotheson>><</link>>
 	<br>
 <</if>>
 
 :: Farm Shower Scream
 <<effects>>
 
-당신이 소리를 지른다. 알렉스가 당황해서 문을 쾅 닫는다. "미, 미안!" <<he>>【이가】 소리친다. 서두르는 발소리가 헛간에서 멀어진다.
+당신이 소리를 지른다. 알렉스가 당황해서 문을 쾅 닫는다. "미-미안!" <<he>>【이가】 소리친다. 서두르는 발소리가 헛간에서 멀어진다.
 <br><br>
 <<tearful>> 당신은 옷을 집어 든다.
 <br><br>
@@ -1858,7 +1858,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"보, 보지 마." 당신이 말한다. "제발 나가줘."
+	"보-보지 마." 당신이 말한다. "제발 나가줘."
 <<elseif $speech_attitude is "bratty">>
 	"나가." 당신이 말한다. "변태."
 <<else>>
@@ -2015,16 +2015,16 @@
 <<He>>【은는】 당황스러운 갈망으로 쳐다본다.
 <br><br>
 
-<<link [[씻어달라고 초대하기|Farm Shower Invite]]>><<npcincr Alex lust 5>><</link>><<exhibitionist4>><<gglust>>
+<<link [[씻어달라고 초대한다|Farm Shower Invite]]>><<npcincr Alex lust 5>><</link>><<exhibitionist4>><<gglust>>
 <br>
-<<link [[끝내기|Farm Shower Finish]]>><</link>>
+<<link [[끝낸다|Farm Shower Finish]]>><</link>>
 <br>
 
 :: Farm Shower Invite
 <<effects>><<wearProp "sponge">>
 
 <<if $speech_attitude is "meek">>
-	"ㅈ, 저 씻겨주실래요?" 당신은 알렉스에게 스펀지를 내밀며 묻는다. "손이 안 닿는 곳이 있어서요."
+	"저-저 씻겨주실래요?" 당신은 알렉스에게 스펀지를 내밀며 묻는다. "손이 안 닿는 곳이 있어서요."
 <<elseif $speech_attitude is "bratty">>
 	"쓸모있는 짓 좀 해봐." 당신은 알렉스에게 스펀지를 던지며 말한다.
 <<else>>
@@ -2099,7 +2099,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"누, 누구였어요?" 당신이 묻는다. "별일 없는 거죠?"
+	"누-누구였어요?" 당신이 묻는다. "별일 없는 거죠?"
 <<elseif $speech_attitude is "bratty">>
 	"무슨 일이었어요?" 당신이 묻는다. "걱정해야 할 일인가요?"
 <<else>>
@@ -2151,7 +2151,7 @@
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
-		"뭐, 뭐였—" 당신은 겨우 말한다.
+		"뭐-뭐였—" 당신은 겨우 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"그 이상한 것들 중 하나였네." 당신이 말한다. "쟤네 뭐야?"
 	<<else>>
@@ -2172,7 +2172,7 @@
 
 당신은 <<him>>【을를】 일으켜 세워준다.
 <<if $speech_attitude is "meek">>
-	"뭐, 뭐였—" 당신은 겨우 말한다.
+	"뭐-뭐였—" 당신은 겨우 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"그 이상한 것들 중 하나였네." 당신이 말한다. "쟤네 뭐야?"
 <<else>>
@@ -2247,7 +2247,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"여, 여기서 뭔가 유용한 일을 하는 줄 알았어요." 당신이 말한다.
+	"여-여기서 뭔가 유용한 일을 하는 줄 알았어요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"내가 뼈 빠지게 일하는 동안 여기서 시간 낭비나 하고 있었다는 거야?" 당신이 말한다.
 <<else>>
@@ -2281,7 +2281,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"그, 그건 마약이에요." 당신이 말한다. "그리고 최음제고요."
+	"그-그건 마약이에요." 당신이 말한다. "그리고 최음제고요."
 <<elseif $speech_attitude is "bratty">>
 	"요즘 유행하는 마약 같아요." 당신이 말한다. "그 최음제요."
 <<else>>
@@ -2312,7 +2312,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"우, 우리에겐 돈이 필요하긴 해요." 당신이 말한다.
+	"우-우리에겐 돈이 필요하긴 해요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"이제 우리도 제대로 한몫 챙길 때가 됐지." 당신이 말한다.
 <<else>>
@@ -2336,7 +2336,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저는 마약에 연루되고 싶지 않아요." 당신이 말한다. "위험하게 들려요."
+	"저-저는 마약에 연루되고 싶지 않아요." 당신이 말한다. "위험하게 들려요."
 <<elseif $speech_attitude is "bratty">>
 	"제정신이야?" 당신이 묻는다. "마약 거래는 문제를 자초하는 짓이야."
 <<else>>
@@ -2472,9 +2472,9 @@
 <<set $lurkers_stored to 0>>
 <<set $lurkers_held to 0>>
 <<if $speech_attitude is "meek">>
-	"나, 나는 그렇게 잘 던질 수 없을 것 같아." 당신은 말한다.
+	"나-나는 그렇게 잘 던질 수 없을 것 같아." 당신은 말한다.
 <<elseif $speech_attitude is "bratty">>
-	"막대기가 더 유용할 것 같은데." 당신은 말한다.
+	"막대기가 더 유용할 것 같은데," 당신은 말한다.
 <<else>>
 	"실용적으로 보이진 않네." 당신은 말한다.
 <</if>>
@@ -2516,7 +2516,7 @@
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
-		"다, 다음에 뭘 해야 할지 모르겠어." 당신은 인정한다.
+		"다-다음에 뭘 해야 할지 모르겠어." 당신은 인정한다.
 	<<elseif $speech_attitude is "bratty">>
 		"네가 있어야 할 곳이지." 당신은 말한다. "이제 널 어떻게 해줄까?"
 	<<else>>
@@ -2543,7 +2543,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"너, 너무 놀랐잖아." 당신은 말한다. "침입자인 줄 알았어."
+	"너-너무 놀랐잖아." 당신은 말한다. "침입자인 줄 알았어."
 <<elseif $speech_attitude is "bratty">>
 	"몰래 다가오지 마." 당신은 말한다. "때릴 뻔했잖아."
 <<else>>
@@ -2608,7 +2608,7 @@
 :: Farm Love Turn
 <<effects>>
 
-알렉스가 다가오자 당신은 고개를 돌린다. 미처 알아차리기도 전에 <<his>> 입술이 당신의 뺨에 살짝 닿는다. <<He>>【은는】 순간 풀이 죽어 시선을 돌리더니, 이내 평정심을 되찾는다. "포기 안 해," <<he>>【이가】 말한다. "조만간 넌 내 사람이 될 거야."<br><br>
+알렉스가 다가오자 당신은 고개를 돌린다. 미처 알아차리기도 전에 <<his>> 입술이 당신의 뺨에 살짝 닿는다. <<He>>【은는】 순간 풀이 죽어 시선을 돌리더니, 이내 평정심을 되찾는다. "포기 안 해." <<he>>【이가】 말한다. "조만간 넌 내 사람이 될 거야."<br><br>
 
 <<He>>【은는】 자리에서 일어나 다시 일하러 돌아간다.
 <br><br>
@@ -2654,7 +2654,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아, 아니요." 당신은 말한다. "차, 차를 타드리고 싶지 않아요."
+	"아-아니요." 당신은 말한다. "차-차를 타드리고 싶지 않아요."
 <<elseif $speech_attitude is "bratty">>
 	"난 당신 하인이 아니야." 당신은 말한다. "직접 타 마셔."
 <<else>>
@@ -2681,7 +2681,7 @@
 <br>
 <<if $farm.stock.truffles gte 1>>
 	<<set _farm_stocked to true>>
-	<<foodstufficon "truffle">><<link [[가져가기|Farm Stock]]>><<set $phase2 to "truffle">><<tending_give truffle $farm.stock.truffles>><<set $farm.stock.truffles to 0>><</link>>
+	<<foodstufficon "truffle">><<link [[가져간다|Farm Stock]]>><<set $phase2 to "truffle">><<tending_give truffle $farm.stock.truffles>><<set $farm.stock.truffles to 0>><</link>>
 	<br>
 <</if>>
 <br>
@@ -2689,7 +2689,7 @@
 <br>
 <<if $farm.stock.eggs gte 1>>
 	<<set _farm_stocked to true>>
-	<<foodstufficon "chicken_egg">><<link [[가져가기|Farm Stock]]>><<set $phase2 to "chicken egg">><<tending_give chicken_egg $farm.stock.eggs>><<set $farm.stock.eggs to 0>><</link>>
+	<<foodstufficon "chicken_egg">><<link [[가져간다|Farm Stock]]>><<set $phase2 to "chicken egg">><<tending_give chicken_egg $farm.stock.eggs>><<set $farm.stock.eggs to 0>><</link>>
 	<br>
 <</if>>
 <br>
@@ -2697,7 +2697,7 @@
 <br>
 <<if $farm.stock.milk gte 1>>
 	<<set _farm_stocked to true>>
-	<<foodstufficon "bottle_of_milk">><<link [[가져가기|Farm Stock]]>><<set $phase2 to "bottle of milk">><<tending_give bottle_of_milk $farm.stock.milk>><<set $farm.stock.milk to 0>><</link>>
+	<<foodstufficon "bottle_of_milk">><<link [[가져간다|Farm Stock]]>><<set $phase2 to "bottle of milk">><<tending_give bottle_of_milk $farm.stock.milk>><<set $farm.stock.milk to 0>><</link>>
 	<br>
 <</if>>
 <br>
@@ -2705,14 +2705,14 @@
 <br>
 <<if $farm.stock.cream gte 1>>
 	<<set _farm_stocked to true>>
-	<<foodstufficon "cream">><<link [[가져가기|Farm Stock]]>><<set $phase2 to "cream">><<tending_give cream $farm.stock.cream>><<set $farm.stock.cream to 0>><</link>>
+	<<foodstufficon "cream">><<link [[가져간다|Farm Stock]]>><<set $phase2 to "cream">><<tending_give cream $farm.stock.cream>><<set $farm.stock.cream to 0>><</link>>
 	<br>
 <</if>>
 <br>
 
 <<if _farm_stocked is true>>
 	<<icon "tending/basket.png">>
-	<<link [[모두 가져가기|Farm Cottage]]>>
+	<<link [[모두 가져간다|Farm Cottage]]>>
 		<<if $farm.stock.truffles gte 1>>
 			<<tending_give truffle $farm.stock.truffles>><<set $farm.stock.truffles to 0>>
 		<</if>>
@@ -2730,14 +2730,14 @@
 	<br>
 <</if>>
 
-<<getouticon>><<link [[떠나기|Farm Cottage]]>><</link>>
+<<getouticon>><<link [[떠난다|Farm Cottage]]>><</link>>
 <br>
 
 :: Farm Stage 11 Confident
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"해, 해볼게." 당신은 말한다. "여기 흙이 좋아."
+	"해-해볼게." 당신은 말한다. "여기 흙이 좋아."
 <<elseif $speech_attitude is "bratty">>
 	"난 어디서든 뭐든지 키울 수 있어." 당신은 자랑한다.
 <<else>>
@@ -2759,7 +2759,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"기, 기분이 이상해져." 당신은 말한다. "레미가 키우는 거라면 위험할 수도 있어."
+	"기-기분이 이상해져." 당신은 말한다. "레미가 키우는 거라면 위험할 수도 있어."
 <<elseif $speech_attitude is "bratty">>
 	"이 식물들은 위험해." 당신은 말한다. "정말 이걸 건드리고 싶어?"
 <<else>>
@@ -2824,7 +2824,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"나, 나는 너한테 의지하고 있어." 당신은 말한다. "넌 너무 자책하는 것 같아."
+	"나-나는 너한테 의지하고 있어." 당신은 말한다. "넌 너무 자책하는 것 같아."
 <<elseif $speech_attitude is "bratty">>
 	"자기 연민은 너한테 어울리지 않아." 당신은 말한다. "네가 여기서 얼마나 중요한지 알잖아."
 <<else>>
@@ -2907,7 +2907,7 @@
 :: Farm Stage 12 End
 <<effects>>
 
-알렉스가 <<him>> 옆에 있는 나무 기둥을 주먹으로 쳐서 <<farm_text_many dog>>【을를】 놀라게 한다. "레미가 아무리 애써봤자," <<he>>【이가】 말한다. "<<nnpc_He Remy>>【은는】 이기지 못할 거야. 내가 널 가지고 있는 한은."
+알렉스가 <<him>> 옆에 있는 나무 기둥을 주먹으로 쳐서 <<farm_text_many dog>>【을를】 놀라게 한다. "레미가 아무리 애써봤자." <<he>>【이가】 말한다. "<<nnpc_He Remy>>【은는】 이기지 못할 거야. 내가 널 가지고 있는 한은."
 <br><br>
 
 <span class="pink">레미는 더 이상 당신의 농장을 착취하는 데 관심이 없습니다. 당신은 위협이 되었습니다. <<nnpc_He Remy>>【은는】 <<nnpc_his Remy>> 공격에 더욱 전념할 것입니다.</span>

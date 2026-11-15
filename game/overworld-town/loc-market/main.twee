@@ -103,7 +103,7 @@
 	팔 물건이 없으니, 가판대에 있을 이유가 거의 없다.
 	<br><br>
 	<<if _foodstuffSample isnot undefined>>
-		<<ind>><<link [[새 농산물 진열하기|Stall Rent Return]]>><</link>>
+		<<ind>><<link [[새 농산물을 진열한다|Stall Rent Return]]>><</link>>
 	<</if>>
 	<br>
 	<<connudatusicon>><<link [[떠난다|Connudatus Street]]>><<endevent>><<endstall>><<clotheson>><</link>>
@@ -111,7 +111,7 @@
 <<elseif _inventory_in_stall isnot 1>>
 	진열된 것이 없으니, 가판대에 있을 이유가 거의 없다.
 	<br><br>
-	<<icon "project-maths.png">><<link [[가판대 관리하기|Stall Manage]]>><</link>>
+	<<icon "project-maths.png">><<link [[가판대를 관리한다|Stall Manage]]>><</link>>
 	<br>
 	<<connudatusicon>><<link [[떠난다|Connudatus Street]]>><<endevent>><<endstall>><<clotheson>><</link>>
 	<br>
@@ -153,7 +153,7 @@
 <<if _inventory_in_stall isnot 1>>
 	진열된 것이 없으니, 가판대에 있을 이유가 거의 없다.
 	<br><br>
-	<<icon "project-maths.png">><<link [[가판대 관리하기|Stall Manage]]>><</link>>
+	<<icon "project-maths.png">><<link [[가판대를 관리한다|Stall Manage]]>><</link>>
 	<br>
 	<<connudatusicon>><<link [[떠난다|Connudatus Street]]>><<endevent>><<endstall>><<clotheson>><</link>>
 	<br>
@@ -253,7 +253,7 @@
 	<<endcombat>>
 
 	<<if _stall_masturbation_caught is 1>>
-		<<generate1>><<person1>><<person>>【이가】 당신을 기다리고 있다. "아," 당신이 나타나자 <<he>>【이가】 말한다. "마침 찾던 사람이었는데, 어떻게—"
+		<<generate1>><<person1>><<person>>【이가】 당신을 기다리고 있다. "아." 당신이 나타나자 <<he>>【이가】 말한다. "마침 찾던 사람이었는데, 어떻게—"
 		<br><br>
 		소용없다. 당신의 몸이 절정으로 경련하고, 간신히 신음을 억누른다.
 		<br><br>
@@ -309,7 +309,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"아, 아니에요." 당신이 말한다. "제발 그런 끔찍한 소리 하지 마세요."
+	"아-아니에요." 당신이 말한다. "제발 그런 끔찍한 소리 하지 마세요."
 <<elseif $speech_attitude is "bratty">>
 	"지금 그딴 식으로 말하는 거 기분 나쁘네." 당신은 겨우 말한다. "살 거 아니면 꺼져."
 <<else>>
@@ -326,7 +326,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"뭐, 뭐라도 사실 건가요?" 당신이 묻는다.
+	"뭐-뭐라도 사실 건가요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"서둘러요." 당신이 말한다. "손님들 길 막고 있잖아요."
 <<else>>
@@ -354,7 +354,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"뭐, 뭐라도 사실 건가요?" 당신이 묻는다.
+	"뭐-뭐라도 사실 건가요?" 당신이 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"서둘러요." 당신이 말한다. "손님들 길 막고 있잖아요."
 <<else>>
@@ -405,7 +405,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄, 죄송하지만," 당신이 말한다. "뭐라도 사실 건가요?"
+	"죄-죄송하지만," 당신이 말한다. "뭐라도 사실 건가요?"
 <<elseif $speech_attitude is "bratty">>
 	"하루 종일 기다려줄 순 없어요." 당신이 말한다. "빨리 뭐라도 사세요."
 <<else>>
@@ -447,7 +447,7 @@
 :: Stall Honest
 <<effects>>
 
-<<set _supermarketItem to (V.foodstuff[V.stall_foodstuff]?.supermarket >= 0)>>
+<<set _supermarketItem to (V.foodstuff[V.stall_foodstuff]?.supermarket lt Math.trunc(3000 / setup.foodstuff[$stall_foodstuff].shop.sell_price))>>
 
 <<if _supermarketItem>>
 	<<if $speech_attitude is "meek">>
@@ -463,26 +463,26 @@
 <<else>>
 	<<if $phase is 1>>
 		<<if $speech_attitude is "meek">>
-			"네, 제가 직접 잡았어요," 당신이 말한다.
+			"네, 제가 직접 잡았어요." 당신이 말한다.
 		<<elseif $speech_attitude is "bratty">>
-			"당연하지," 당신이 말한다. "물속에서 바로 낚아챘다고."
+			"당연하지." 당신이 말한다. "물속에서 바로 낚아챘다고."
 		<<else>>
-			"네, 이건 제가 직접 잡은 거예요," 당신이 말한다.
+			"네, 이건 제가 직접 잡은 거예요." 당신이 말한다.
 		<</if>>
 		<br><br>
 
-		"대단하네요," <<person1>><<person>>【이가】 말한다. "갓 잡은 것만큼 좋은 건 없죠."
+		"대단하네요." <<person1>><<person>>【이가】 말한다. "갓 잡은 것만큼 좋은 건 없죠."
 	<<else>>
 		<<if $speech_attitude is "meek">>
-			"다 제가 만든 거예요," 당신이 말한다.
+			"다 제가 만든 거예요." 당신이 말한다.
 		<<elseif $speech_attitude is "bratty">>
-			"그래," 당신이 말한다.
+			"그래." 당신이 말한다.
 		<<else>>
-			"네, 직접 만들었어요," 당신이 말한다.
+			"네, 직접 만들었어요." 당신이 말한다.
 		<</if>>
 		<br><br>
 
-		"멋지네요," <<person1>><<person>>【이가】 말한다. "저한테도 그런 재주가 있으면 좋겠어요."
+		"멋지네요." <<person1>><<person>>【이가】 말한다. "저한테도 그런 재주가 있으면 좋겠어요."
 	<</if>>
 <</if>>
 <<He>>【은는】 <<stall_check_text>>. "이거 <span class="green"><<stall_amount>></span>개에 얼마인가요?"
@@ -495,7 +495,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"죄송해요," 당신은 말한다. "아무에게도 말하고 싶지 않아요."
+	"죄송해요." 당신은 말한다. "아무에게도 말하고 싶지 않아요."
 <<elseif $speech_attitude is "bratty">>
 	"상관할 바 아니잖아요." 당신은 말한다.
 <<else>>
@@ -512,7 +512,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"뭐, 뭐라도 사실 건가요?" 당신은 진열된 상품을 가리키며 묻는다.
+	"뭐-뭐라도 사실 건가요?" 당신은 진열된 상품을 가리키며 묻는다.
 <<elseif $speech_attitude is "bratty">>
 	"저는 파는 게 아니에요." 당신은 진열된 상품을 가리키며 말한다. "저것들이 파는 거죠."
 <<else>>
@@ -539,7 +539,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"저, 저는 이거 팔러 왔어요." 당신은 진열된 상품을 가리키며 말한다. "저는 안 팔아요. 보통은요."
+	"저-저는 이거 팔러 왔어요." 당신은 진열된 상품을 가리키며 말한다. "저는 안 팔아요. 보통은요."
 <<elseif $speech_attitude is "bratty">>
 	"이것도 못 살 형편이면," 당신은 진열된 상품을 가리키며 말한다. "저도 못 사요."
 <<else>>
@@ -558,7 +558,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"제, 제발 혼자 있게 해주세요." 당신은 말한다. "여긴 그런 곳이 아니에요."
+	"제-제발 혼자 있게 해주세요." 당신은 말한다. "여긴 그런 곳이 아니에요."
 <<elseif $speech_attitude is "bratty">>
 	"제 가판대를 창관으로 착각하셨나 보군요." 당신은 말한다. "한 번은 용서해드리죠."
 <<else>>
@@ -839,7 +839,7 @@
 		<span class="green">당신은 목표물에 가까워지고,</span> <<him>>【을를】 골목으로 몰아넣는다. 막다른 길이다.
 		<br><br>
 
-		"죄, 죄송해요." <<he>>【이가】 <<print setup.foodstuff[$stall_expensive].name>>【을를】 내밀며 당신의 시선을 피하며 말한다. "제 <<print $stallThiefPartner>>에게 주고 싶었는데, 돈이 없었어요. 잘못했어요."
+		"죄-죄송해요." <<he>>【이가】 <<print setup.foodstuff[$stall_expensive].name>>【을를】 내밀며 당신의 시선을 피하며 말한다. "제 <<print $stallThiefPartner>>에게 주고 싶었는데, 돈이 없었어요. 잘못했어요."
 		<br><br>
 
 		<<link [[가지게 둔다|Stall Keep]]>><<famegood 4>><</link>>
@@ -933,7 +933,7 @@
 <<if $speech_attitude is "meek">>
 	"<<if $pronoun is "m">>저, 손님<<else>>저, 손님<</if>>!" 당신은 부른다. "제 농산물 좀 보시겠어요?"
 <<elseif $speech_attitude is "bratty">>
-	"어이," 당신은 말한다. "거기 어슬렁거리는 사람. 뭐라도 사든지, 아니면 꺼지든지."
+	"어이." 당신은 말한다. "거기 어슬렁거리는 사람. 뭐라도 사든지, 아니면 꺼지든지."
 <<else>>
 	"제 상품에 관심 있으신가요?" 당신은 말한다. "여기서 생산된 것들이에요."
 <</if>>
@@ -976,7 +976,7 @@
 <</if>>
 <br><br>
 
-당신은 <<person>>에게 속임수에 대한 몇 가지 조언을 해준다. <<He>>【은는】 당신이 그런 솔직함으로 이것을 공유하는 것에 충격을 받는다. "고, 고마워요." 당신이 말을 마치자 <<he>>【은는】 약간 위축된 채로 말한다. "저, 저는 도둑이 아니에요. 보통 이런 짓 안 해요."
+당신은 <<person>>에게 속임수에 대한 몇 가지 조언을 해준다. <<He>>【은는】 당신이 그런 솔직함으로 이것을 공유하는 것에 충격을 받는다. "고-고마워요." 당신이 말을 마치자 <<he>>【은는】 약간 위축된 채로 말한다. "저-저는 도둑이 아니에요. 보통 이런 짓 안 해요."
 <br><br>
 
 그 말에 당신은 웃는다. 당신은 가판대로 돌아간다.
@@ -988,7 +988,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"괜, 괜찮아요." 당신은 말한다. "당신의 <<print $stallThiefPartner>>에게 주세요."
+	"괜-괜찮아요." 당신은 말한다. "당신의 <<print $stallThiefPartner>>에게 주세요."
 <<elseif $speech_attitude is "bratty">>
 	"애정을 표현하는 더 저렴한 방법을 생각해보는 게 좋을 거예요." 당신은 말한다. "하지만 이번만은 눈감아줄게요. 가지세요."
 <<else>>
@@ -1123,7 +1123,7 @@
 	<<set $stall_foodstuff to $foodstuff_inventory.random()>>
 	<<stall_update>>
 
-	<<He>>【은는】 당신의 가판대로 돌아와 <span class="green"><<print setup.foodstuff[$stall_foodstuff].name>></span> 앞에 멈춘다. "이, 이거 <span class="green"><<stall_amount>>개</span>에 얼마예요?"
+	<<He>>【은는】 당신의 가판대로 돌아와 <span class="green"><<print setup.foodstuff[$stall_foodstuff].name>></span> 앞에 멈춘다. "이-이거 <span class="green"><<stall_amount>>개</span>에 얼마예요?"
 	<br><br>
 
 	<<stall_trust>>
@@ -1423,7 +1423,7 @@
 당신은 <<person>>에게서 몸을 뺀다.
 
 <<if $speech_attitude is "meek">>
-	"오, 오해가 있었나 봐요." 당신은 말한다. "여기서 파는 건 이게 아니에요."
+	"오-오해가 있었나 봐요." 당신은 말한다. "여기서 파는 건 이게 아니에요."
 <<elseif $speech_attitude is "bratty">>
 	"손대지 마세요." 당신은 말한다. "아니면 경비를 부를 거예요."
 <<else>>

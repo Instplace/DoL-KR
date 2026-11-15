@@ -1,0 +1,21 @@
+:: Widgets reaction-Alex [widget]
+
+/* PC lines (plead / demand / moan). */
+
+<<widget "pc-line-alex-plead">>
+	<<addSpeechLine "plead">>
+		"알렉스, 이성 좀 차려!"
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-alex-demand">>
+	<<addSpeechLine "demand">>
+		"알렉스, 이 바보야! 정신 차려."
+	<</addSpeechLine>>
+<</widget>>
+
+<<widget "pc-line-alex-moan">>
+	<<addSpeechLine "moan">>
+		"더 좋은 파트너는 바랄 수도 없어."
+	<</addSpeechLine>>
+<</widget>>

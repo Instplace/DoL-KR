@@ -225,7 +225,7 @@
 	<<elseif $NPCList[0].traits.includes("brooding")>>
 		"잘했어." <<he>>【이가】 말한다. "도움이 됐으면 좋겠네."
 	<<else>>
-		"거기서 날 봤어야 했는데." <<he>>【이가】 말한다. "세—" <<He>>【은는】 잠시 멈춘다. "아니, 다섯 명의 건장한 괴물들이 탑 옆을 기어 올라왔지만, 내가 쫓아버렸어."
+		"거기서 날 봤어야 했는데," <<he>>【이가】 말한다. "세—" <<He>>【은는】 잠시 멈춘다. "아니, 다섯 명의 건장한 괴물들이 탑 옆을 기어 올라왔지만, 내가 쫓아버렸어."
 	<</if>>
 	<br><br>
 <<else>>
@@ -1444,7 +1444,7 @@
 		<</if>>
 	<</for>>
 <<elseif $enemyhealth lte 0>>
-	"젠장," <<person1>><<person>>【이가】 말한다. "베일리가 좋아하지 않을 텐데."
+	"젠장." <<person1>><<person>>【이가】 말한다. "베일리가 좋아하지 않을 텐데."
 	<<if $enemynomax gte 2>>
 		<span class="green">베일리의 부하들이 들판에서 도망친다,</span> 밤 속으로 사라지면서.
 	<<else>>
@@ -1467,7 +1467,7 @@
 <<else>>
 	당신은 땅에 쓰러진다. 너무 다쳐서 싸움을 계속할 수 없다.
 	<br><br>
-	<<person1>><<person>>【이가】 당신 위로 웅크린다. "미안," <<he>>【이가】 말한다. "하지만 이게 세상의 이치야."
+	<<person1>><<person>>【이가】 당신 위로 웅크린다. "미안." <<he>>【이가】 말한다. "하지만 이게 세상의 이치야."
 	<br><br>
 	당신은 <<he>>【이가】 당신의 팔다리를 한데 묶고 입에 재갈을 물리는 것을 막을 수 없다. "나중에 보자, <<girl>>."
 	<br><br>
@@ -1859,7 +1859,7 @@
 		<</if>>
 	<</for>>
 <<elseif $enemyhealth lte 0>>
-	"젠장," <<person1>><<person>>【이가】 말한다. "베일리가 좋아하지 않을 텐데."
+	"젠장." <<person1>><<person>>【이가】 말한다. "베일리가 좋아하지 않을 텐데."
 	<<if $enemynomax gte 2>>
 		<span class="green">베일리의 부하들이 들판에서 도망친다,</span> 밤 속으로 사라지면서.
 	<<else>>
@@ -1885,7 +1885,7 @@
 <<else>>
 	당신은 땅에 쓰러진다. 너무 다쳐서 싸움을 계속할 수 없다.
 	<br><br>
-	<<person1>><<person>>【이가】 당신 위로 웅크린다. "미안," <<he>>【이가】 말한다. "하지만 이게 세상의 이치야." <<He>>【은는】 밧줄 한 뭉치와 재갈을 꺼낸다.
+	<<person1>><<person>>【이가】 당신 위로 웅크린다. "미안." <<he>>【이가】 말한다. "하지만 이게 세상의 이치야." <<He>>【은는】 밧줄 한 뭉치와 재갈을 꺼낸다.
 	<br><br>
 	<<endcombat>>
 	<<npc Alex>><<person1>><<generate2>>
@@ -1918,7 +1918,7 @@
 		<<loadNPC 0 "farm_tower_guard">><<person1>>
 
 		<<if $NPCList[0].traits.includes("relaxed")>>
-			"자," <<he>>【이가】 구석에 몰렸지만, 굴하지 않고 말한다. "제대로 해봐."
+			"자." <<he>>【이가】 구석에 몰렸지만, 굴하지 않고 말한다. "제대로 해봐."
 		<<elseif $NPCList[0].traits.includes("sociable")>>
 			"너희 같은 놈들보다 더한 놈들도 상대해봤어." <<he>>【이가】 말한다. "덤벼. 어떻게 되는지 보자고."
 		<<elseif $NPCList[0].traits.includes("brooding")>>
@@ -2024,13 +2024,13 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 
 	<<loadNPC 0 "farm_tower_guard">><<person1>>
 	<<if $NPCList[0].traits.includes("relaxed")>>
-		"이상한 방식으로 싸우시네요," $farm.tower_guard【이가】 말한다. "효과만 있으면 됐죠."
+		"이상한 방식으로 싸우시네요." $farm.tower_guard【이가】 말한다. "효과만 있으면 됐죠."
 	<<elseif $NPCList[0].traits.includes("sociable")>>
 		"성매매 쪽으로 가고 싶어 하는 친구들이 있는데," $farm.tower_guard【이가】 말한다. "당신한테 배울 게 있겠어요."
 	<<elseif $NPCList[0].traits.includes("brooding")>>
-		"그런 방법도 있군요," $farm.tower_guard【이가】 말한다. "전 판단하지 않아요. 우린 어떻게든 살아남아야 하니까."
+		"그런 방법도 있군요." $farm.tower_guard【이가】 말한다. "전 판단하지 않아요. 우린 어떻게든 살아남아야 하니까."
 	<<else>>
-		"나한테도 그렇게 해줬으면 좋았을 텐데," $farm.tower_guard【이가】 웃는다.
+		"나한테도 그렇게 해줬으면 좋았을 텐데." $farm.tower_guard【이가】 웃는다.
 	<</if>>
 	<<gstress>><<stress 6>>
 	<<endevent>>
@@ -2110,11 +2110,11 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 				<<if $NPCList[0].traits.includes("relaxed")>>
 					"괜찮아요?" <<he>>【이가】 묻는다. "필요하면 나머지는 쉬고 있어요. 알렉스에게는 제가 계속 상황을 알려줄게요."
 				<<elseif $NPCList[0].traits.includes("sociable")>>
-					"좀 쉬고 있어요," <<he>>【이가】 말한다. "제가 정신없는 동안 다른 놈들이 별 말썽 안 부렸으면 좋겠네요."
+					"좀 쉬고 있어요." <<he>>【이가】 말한다. "제가 정신없는 동안 다른 놈들이 별 말썽 안 부렸으면 좋겠네요."
 				<<elseif $NPCList[0].traits.includes("brooding")>>
-					"너무 위험하게 굴지 말아요," <<he>>【이가】 말한다. "페이스 조절을 해요."
+					"너무 위험하게 굴지 말아요." <<he>>【이가】 말한다. "페이스 조절을 해요."
 				<<else>>
-					"안색이 안 좋아 보이네요," <<he>>【이가】 말한다. "다행히 주변에 이용해 먹을 변태는 없군요. 저 빼고요. 하지만 전 당신한테 고용됐잖아요."
+					"안색이 안 좋아 보이네요." <<he>>【이가】 말한다. "다행히 주변에 이용해 먹을 변태는 없군요. 저 빼고요. 하지만 전 당신한테 고용됐잖아요."
 				<</if>>
 				<br><br>
 				<<tearful>> 당신은 계단을 내려간다.
@@ -2197,13 +2197,13 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 
 	<<loadNPC 0 "farm_tower_guard">><<person1>>
 	<<if $NPCList[0].traits.includes("relaxed")>>
-		"이상한 방식으로 싸우시네요," $farm.tower_guard【이가】 말한다. "효과만 있으면 됐죠."
+		"이상한 방식으로 싸우시네요." $farm.tower_guard【이가】 말한다. "효과만 있으면 됐죠."
 	<<elseif $NPCList[0].traits.includes("sociable")>>
 		"성매매 쪽으로 가고 싶어 하는 친구들이 있는데," $farm.tower_guard【이가】 말한다. "당신한테 배울 게 있겠어요."
 	<<elseif $NPCList[0].traits.includes("brooding")>>
-		"그런 방법도 있군요," $farm.tower_guard【이가】 말한다. "전 판단하지 않아요. 우린 어떻게든 살아남아야 하니까."
+		"그런 방법도 있군요." $farm.tower_guard【이가】 말한다. "전 판단하지 않아요. 우린 어떻게든 살아남아야 하니까."
 	<<else>>
-		"나한테도 그렇게 해줬으면 좋았을 텐데," $farm.tower_guard【이가】 웃는다.
+		"나한테도 그렇게 해줬으면 좋았을 텐데." $farm.tower_guard【이가】 웃는다.
 	<</if>>
 	<<gstress>><<stress 6>>
 	<<endevent>>
@@ -2283,11 +2283,11 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 				<<if $NPCList[0].traits.includes("relaxed")>>
 					"괜찮아요?" <<he>>【이가】 묻는다. "필요하면 나머지는 쉬고 있어요. 알렉스에게는 제가 계속 상황을 알려줄게요."
 				<<elseif $NPCList[0].traits.includes("sociable")>>
-					"좀 쉬고 있어요," <<he>>【이가】 말한다. "제가 정신없는 동안 다른 놈들이 별 말썽 안 부렸으면 좋겠네요."
+					"좀 쉬고 있어요." <<he>>【이가】 말한다. "제가 정신없는 동안 다른 놈들이 별 말썽 안 부렸으면 좋겠네요."
 				<<elseif $NPCList[0].traits.includes("brooding")>>
-					"너무 위험하게 굴지 말아요," <<he>>【이가】 말한다. "페이스 조절을 해요."
+					"너무 위험하게 굴지 말아요." <<he>>【이가】 말한다. "페이스 조절을 해요."
 				<<else>>
-					"안색이 안 좋아 보이네요," <<he>>【이가】 말한다. "다행히 주변에 이용해 먹을 변태는 없군요. 저 빼고요. 하지만 전 당신한테 고용됐잖아요."
+					"안색이 안 좋아 보이네요." <<he>>【이가】 말한다. "다행히 주변에 이용해 먹을 변태는 없군요. 저 빼고요. 하지만 전 당신한테 고용됐잖아요."
 				<</if>>
 				<br><br>
 				<<tearful>> 당신은 계단을 내려간다.
@@ -2345,7 +2345,7 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 	<<elseif $NPCList[0].traits.includes("brooding")>>
 		"잘했어." $farm.tower_guard【이가】 말한다. "난 다시 일하러 갈게."
 	<<else>>
-		"우리 제법 잘 맞는 팀인데." $farm.tower_guard【이가】 말한다. "나중엔 다른 방식으로도 팀을 이뤄볼까." <<He>>【은는】 웃는다.
+		"우리 제법 잘 맞는 팀인데," $farm.tower_guard【이가】 말한다. "나중엔 다른 방식으로도 팀을 이뤄볼까." <<He>>【은는】 웃는다.
 	<</if>>
 	<br><br>
 
@@ -2403,7 +2403,7 @@ $farm.tower_guard【이가】 근처에서 싸우고 있다.
 	<<elseif $NPCList[0].traits.includes("brooding")>>
 		"잘했어." $farm.tower_guard【이가】 말한다. "난 다시 일하러 갈게."
 	<<else>>
-		"우리 제법 잘 맞는 팀인데." $farm.tower_guard【이가】 말한다. "나중엔 다른 방식으로도 팀을 이뤄볼까." <<He>>【은는】 웃는다.
+		"우리 제법 잘 맞는 팀인데," $farm.tower_guard【이가】 말한다. "나중엔 다른 방식으로도 팀을 이뤄볼까." <<He>>【은는】 웃는다.
 	<</if>>
 	<br><br>
 

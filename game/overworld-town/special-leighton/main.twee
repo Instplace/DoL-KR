@@ -2,11 +2,11 @@
 <<set $outside to 0>><<effects>>
 	<<endevent>>
 	<<npc Leighton>><<person1>>
-	당신은 레이튼을 무대 뒤로 이끈다. 비어 있는 방을 찾고 있을 때 <<he>>【이가】 당신의 팔을 붙잡는다. "이 방," <<he>>【이가】 닫힌 문을 가리키며 말한다. 당신은 문을 연다.
+	당신은 레이튼을 무대 뒤로 이끈다. 비어 있는 방을 찾고 있을 때 <<he>>【이가】 당신의 팔을 붙잡는다. "이 방." <<he>>【이가】 닫힌 문을 가리키며 말한다. 당신은 문을 연다.
 	<<endevent>>
 	<<beastNEWinit 1 dog>>
 	<<promiscuity3>>
-<<if $headblackmailed is 1 and $rng gte 61 and ($monster is 1 or $settings.bestialityEnabled)>><!-- Modified for Monster People -->
+<<if $headblackmailed is 1 and $rng gte 61 and beastSexEnabledForType("dog", $monster is 1)>><!-- Modified for Monster People -->
 	구석에는 삼각대에 올려진 카메라가 서 있다. 그 옆에는 <<beasttype 0>>【이가】 벽에 사슬로 묶인 채 앉아 있다. <<bHe 0>>【이가】 으르렁댄다. <<if $monster is 1>><<bHes 0>> 완전히 벌거벗었지만 신경 쓰지 않는 듯하다. "날 풀어줘! 나도 즐기고 싶어!"<</if>>
 	<br><br>
 
@@ -92,7 +92,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"학교에서 보지," 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 7000>>【을를】 얻었다.<<money 7000 "prostitution">>.
+	"학교에서 보지." 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 7000>>【을를】 얻었다.<<money 7000 "prostitution">>.
 	<br><br>
 	<<fameprostitution 30 "vid">><<set $prostitutionstat += 1>>
 	<<clotheson>>
@@ -163,7 +163,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	"학교에서 보지," 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 3000>>【을를】 얻었다.<<money 3000 "prostitution">>.
+	"학교에서 보지." 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 3000>>【을를】 얻었다.<<money 3000 "prostitution">>.
 	<br><br>
 	<<famerape 30 "vid">><<set $forcedprostitutionstat += 1>><<fameprostitution 30 "vid">>
 	<<clotheson>>
@@ -221,7 +221,7 @@
 :: Leighton Club Blackmail Beast Sex Finish
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<beastejaculation>>
-	"학교에서 보지," 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 10000>>【을를】 얻었다.<<money 10000 "prostitution">>.
+	"학교에서 보지." 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. <<tearful>> 당신은 돈을 센다. <<printmoney 10000>>【을를】 얻었다.<<money 10000 "prostitution">>.
 	<br><br>
 	<<if $monster is 1>>
 		"재밌었어." <<beasttype>>【이가】 갑자기 말한다. "더러운 인간들이 많이 드나들던데. 넌 재밌네. 마음에 들어."
@@ -247,7 +247,7 @@
 
 :: Leighton Club Blackmail Beast Refuse
 <<effects>>
-당신은 거절한다. 레이튼이 미소 짓는다. "그러기엔 늦었네," <<nnpc_he "Leighton">>【이가】 말한다. <<nnpc_He "Leighton">>【은는】 사슬을 벽에서 풀어낸다. <<nnpc_he "Leighton">>【이가】 카메라를 켜는 동안 <<beasttype 0>>【이가】 당신을 향해 달려든다.
+당신은 거절한다. 레이튼이 미소 짓는다. "그러기엔 늦었네." <<nnpc_he "Leighton">>【이가】 말한다. <<nnpc_He "Leighton">>【은는】 사슬을 벽에서 풀어낸다. <<nnpc_he "Leighton">>【이가】 카메라를 켜는 동안 <<beasttype 0>>【이가】 당신을 향해 달려든다.
 <br><br>
 <<link [[다음|Leighton Club Blackmail Beast Refuse Sex]]>><<set $molestationstart to 1>><</link>>
 
@@ -289,7 +289,7 @@
 
 	<<beastejaculation>>
 
-	"그 자세가 잘 어울리는군," 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. "학교에서 보지." <<tearful>> 당신은 돈을 센다. <<printmoney 10000>>【을를】 얻었다.<<money 10000 "prostitution">>.
+	"그 자세가 잘 어울리는군." 레이튼은 카메라를 집어 들고 테이블 위에 지폐 몇 장을 떨어뜨리며 말한다. "학교에서 보지." <<tearful>> 당신은 돈을 센다. <<printmoney 10000>>【을를】 얻었다.<<money 10000 "prostitution">>.
 	<br><br>
 	<<famebestiality 30 "vid">><<famerape 30 "vid">><<set $forcedprostitutionstat += 1>><<fameprostitution 30 "vid">>
 
@@ -356,7 +356,7 @@
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>><<fameprostitution 2>><<set $prostitutionstat += 1>>
 
-	"타고났군," 레이튼은 잔을 테이블 위에 내려놓고, 지폐 몇 장도 함께 놓으며 말한다. "학교에서 보지." <<tearful>> 당신은 돈을 센다. <<printmoney 8000>>【을를】 얻었다.<<money 8000 "prostitution">>.
+	"타고났군." 레이튼은 잔을 테이블 위에 내려놓고, 지폐 몇 장도 함께 놓으며 말한다. "학교에서 보지." <<tearful>> 당신은 돈을 센다. <<printmoney 8000>>【을를】 얻었다.<<money 8000 "prostitution">>.
 	<br><br>
 
 	<<clotheson>>
@@ -387,7 +387,7 @@
 <<if $seductionrating gte $seductionrequired>>
 	그냥 구경만 할 거야?" 당신은 <<person>> 옆에 앉으며 말한다.
 	<br>
-	"기회를 놓치게 될 텐데," 당신은 <<his>> 가슴을 감싸며 말한다.
+	"기회를 놓치게 될 텐데." 당신은 <<his>> 가슴을 감싸며 말한다.
 	<br>
 	"가르칠 기회를," 당신은 <<his>> 가슴을 마사지하기 시작한다.
 	<br>
@@ -395,19 +395,19 @@
 	<br>
 	매끄럽군." 당신은 손가락을 <<his>> 배 아래로 쓸어내린다.
 	<br>
-	"궁금하군." 당신은 손끝을 더 아래로 미끄러뜨린다.
+	"호기심 많은." 당신은 손끝을 더 아래로 미끄러뜨린다.
 	<br>
 	"학생들." 당신이 <<his>> 가랑이에 손을 뻗자 <<person>>【이가】 신음한다.
 	<br>
 	"사랑하는 법을," 당신은 말을 끝내고, <<person>>【은는】 당신을 끌어당겨 키스한다.<<takeKissVirginity $NPCList[0] "consensual">>
 	<br><br>
 
-	레이튼이 미소 짓는다. "내 지위에 대한 모욕이 되겠지, 내가 직접 지도하지 않는다면. 아주 좋아." 교장은 <<person>> 앞에 무릎을 꿇고, <<if $NPCList[0].penis isnot "none">><<his>> 자지를 <<endevent>><<npc Leighton>><<person1>><<his>> 입에 넣는다.<<else>><<his>> 보지를 핥기 시작한다.<<endevent>><<npc Leighton>><<person1>><</if>> <<He>>【은는】 당신의 팔을 붙잡고 가까이 끌어당긴다.
+	레이튼이 미소 짓는다. "내 지위에 대한 모욕이 되겠지, 내가 직접 지도하지 않는다면. 아주 좋군." 교장은 <<person>> 앞에 무릎을 꿇고, <<if $NPCList[0].penis isnot "none">><<his>> 자지를 <<endevent>><<npc Leighton>><<person1>><<his>> 입에 넣는다.<<else>><<his>> 보지를 핥기 시작한다.<<endevent>><<npc Leighton>><<person1>><</if>> <<He>>【은는】 당신의 팔을 붙잡고 가까이 끌어당긴다.
 	<<set $leightonseduce to true>>
 	<br><br>
 	<<link [[다음|Leighton Private 2 Join Sex]]>><<set $sexstart to 1>><</link>>
 <<else>>
-	같이 안 할 건가요?" 당신은 <<person>> 옆에 앉으며 말한다. "우리만 즐기는 건 불공평하잖아요."
+	"같이 안 할 건가요?" 당신은 <<person>> 옆에 앉으며 말한다. "우리만 즐기는 건 불공평하잖아요."
 	<br><br>
 
 	<<person>>【이가】 당신을 끌어당겨 키스하자 레이튼은 잠시 멈췄다가 미소 짓는다. 교장은 <<if C.npc.Leighton.pronoun is "m">><<nnpc_his "Leighton">> 바지 앞섶을 연다<<else>><<nnpc_his "Leighton">> 치마를 들어 올린다<</if>>, <<nnpc_his "Leighton">> <<if C.npc.Leighton.gender is "m">>발기한 <<print window.KR.getPenisDescKr(C.npc.Leighton.penisdesc)>><<else>>보지<</if>>【을를】 드러낸다.
@@ -447,13 +447,13 @@
 
 <<if $finish is 1>>
 
-	"실망스럽군," 레이튼은 <<his>> 주머니에서 돈을 꺼내며 말한다. <<tearful>> <<he>>【이가】 방을 떠나는 동안 당신은 돈을 센다. <<printmoney 8500>>【을를】 벌었다.<<money 8500 "prostitution">>.
+	"실망스럽군." 레이튼은 <<his>> 주머니에서 돈을 꺼내며 말한다. <<tearful>> <<he>>【이가】 방을 떠나는 동안 당신은 돈을 센다. <<printmoney 8500>>【을를】 벌었다.<<money 8500 "prostitution">>.
 	<br><br>
 
 <<elseif $enemyarousal gte $enemyarousalmax>>
 <<ejaculation>><<set $prostitutionstat += 1>><<fameprostitution 2>>
 
-	학생은 레이튼의 얼굴에 몸을 경련시키고, 의자 위로 쓰러지듯 기대 앉는다. "깨우침을 주는 수업이었길 바라네," <<he>>【은는】 주머니에서 손수건을 꺼내 <<his>> 입을 닦으며 말한다. <<He>>【은는】 나가는 길에 당신 위로 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. <<printmoney 12000>>【을를】 벌었다.<<money 12000 "prostitution">>.
+	학생은 레이튼의 얼굴에 몸을 경련시키고, 의자 위로 쓰러지듯 기대 앉는다. "깨우침을 주는 수업이었길 바라네." <<he>>【은는】 주머니에서 손수건을 꺼내 <<his>> 입을 닦으며 말한다. <<He>>【은는】 나가는 길에 당신 위로 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. <<printmoney 12000>>【을를】 벌었다.<<money 12000 "prostitution">>.
 	<br><br>
 
 <<else>>
@@ -500,7 +500,7 @@
 
 <<if $finish is 1>>
 
-	"날 이렇게 흥분시켜 놓고 그냥 멈추겠다고?" 레이튼이 명백히 실망한 어조로 말한다. "나가."
+	"나를 이렇게 흥분시켜 놓고 그냥 멈추겠다는 건가?" 레이튼이 명백히 실망한 어조로 말한다. "나가라."
 	<br><br>
 
 	<<tearful>> 당신은 방을 떠난다.
@@ -510,7 +510,7 @@
 	<<ejaculation>><<set $prostitutionstat += 1>><<fameprostitution 2>>
 
 	<<if C.npc.Leighton.gender is "m">>
-		레이튼은 일어서서 <<persons>> 얼굴 위에 사정한다. "스스로 닦게," 잠시 뒤 <<nnpc_he "Leighton">>【이가】 말하며 <<person>> 위에 손수건을 떨어뜨리고, <<his>> 나가는 길에 당신 위로 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. <<printmoney 8500>>【을를】 벌었다.<<money 8500 "prostitution">>.
+		레이튼은 일어서서 <<persons>> 얼굴 위에 사정한다. "스스로 닦게." 잠시 뒤 <<nnpc_he "Leighton">>【이가】 말하며 <<person>> 위에 손수건을 떨어뜨리고, <<his>> 나가는 길에 당신 위로 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. <<printmoney 8500>>【을를】 벌었다.<<money 8500 "prostitution">>.
 		<br><br>
 	<<else>>
 		레이튼은 <<nnpc_his "Leighton">> 눈을 감고 몸을 떨더니, 일어서서 <<persons>> 머리카락을 움켜쥔다. <<nnpc_He "Leighton">>【은는】 <<nnpc_his "Leighton">> 손가락을 하나씩 <<persons>> 입안에 밀어 넣어, 깨끗이 빨리게 한다. <<nnpc_He "Leighton">>【은는】 <<his>> 나가는 길에 당신 위로 지폐 몇 장을 떨어뜨린다. <<tearful>> 당신은 돈을 센다. <<printmoney 8500>>【을를】 벌었다.<<money 8500 "prostitution">>.
@@ -553,7 +553,7 @@
 
 :: Leighton Club Confront
 <<set $outside to 0>><<effects>>
-당신은 물러서지 않기로 한다. 레이튼이 돌아선다. "그렇게 겁먹은 얼굴을 할 필요는 없네," <<he>>【이가】 미소 지으며 말한다. "군중 속의 나를 알아차리지 못했군. 아니면 부끄러운 건가. 쉽게 해주지." <<He>>【은는】 카메라를 꺼낸다. "작은 분장 놀이를 해보자. 어울려주면 약간의 돈을 들고 나가게 해주겠네." <<He>>【은는】 잠시 멈춘다. "그리고 자네의 품위도 대부분은 남겨주지."
+당신은 물러서지 않기로 한다. 레이튼이 돌아선다. "그렇게 겁먹은 얼굴을 할 필요는 없네." <<he>>【이가】 미소 지으며 말한다. "군중 속의 나를 알아차리지 못했군. 아니면 부끄러운 건가. 쉽게 해주지." <<He>>【은는】 카메라를 꺼낸다. "작은 분장 놀이를 해보자. 어울려주면 약간의 돈을 들고 나가게 해주겠네." <<He>>【은는】 잠시 멈춘다. "그리고 자네의 품위도 대부분은 남겨주지."
 <br><br>
 
 <<link [[수락한다 (1:00)|Club Cosplay]]>><<pass 60>><</link>>
@@ -564,13 +564,13 @@
 :: Leighton Club Hide
 <<set $outside to 0>><<effects>>
 <<if $rng gte 31 and $physiquesize lte 6000 or $rng gte 41 and $physiquesize lte 9000 or $rng gte 51 and $physiquesize lte 12000 or $rng gte 61>>
-당신은 <<he>>【이가】 돌아서기 직전 옷장 안에 숨는다. 당신은 틈새로 엿본다. "소리 들었어." 레이튼이 방을 훑어보며 말한다. "무서워할 필요 없어."
+당신은 <<he>>【이가】 돌아서기 직전 옷장 안에 숨는다. 당신은 틈새로 엿본다. "소리를 들었네." 레이튼이 방을 훑어보며 말한다. "무서워할 필요 없네."
 <br><br>
 
 발소리가 들린다. "뒷문으로 나갔나 보군." <<person2>><<personsimple>> 목소리가 말한다.
 <br><br>
 
-"그럼 이미 다른 놈한테 붙잡혔겠네," 세 번째 목소리가 말한다.
+"그럼 이미 다른 놈한테 붙잡혔겠네." 세 번째 목소리가 말한다.
 <br><br>
 
 레이튼이 시야에서 사라지고, <span class="green">문이 닫히는 소리가 들린다.</span> 당신은 몇 분 기다린 뒤 숨어 있던 곳에서 나온다.
@@ -582,13 +582,13 @@
 <br>
 <<else>>
 
-당신은 <<he>>【이가】 돌아서기 직전 옷장 안에 숨는다. 당신은 틈새로 엿본다. "소리 들었어." 레이튼이 방을 훑어보며 말한다. "무서워할 필요 없어."
+당신은 <<he>>【이가】 돌아서기 직전 옷장 안에 숨는다. 당신은 틈새로 엿본다. "소리를 들었네." 레이튼이 방을 훑어보며 말한다. "무서워할 필요 없네."
 <br><br>
 <<endevent>><<generate1>><<generate2>><<person1>>
 발소리가 들리더니, <<person>> 한 명이 시야에 들어온다. "뒷문으로 나갔나 보군." <<he>>【이가】 말한다.
 <br><br>
 
-예고도 없이 <span class="red">옷장 문이 벌컥 열린다.</span> 씩 웃는 <<person2>><<person>>【이가】 모습을 드러낸다. "잡았다," <<he>>【이가】 당신의 어깨를 움켜쥐며 말한다. <<He>>【은는】 당신을 레이튼 앞으로 밀쳐낸다. 당신은 <<person1>><<person>>【이가】 카메라를 설치하는 모습을 얼핏 본다. 레이튼은 실망한 듯 <<nnpc_his "Leighton">> 고개를 젓더니, 둘에게 고개를 끄덕인다.
+예고도 없이 <span class="red">옷장 문이 벌컥 열린다.</span> 씩 웃는 <<person2>><<person>>【이가】 모습을 드러낸다. "잡았다." <<he>>【이가】 당신의 어깨를 움켜쥐며 말한다. <<He>>【은는】 당신을 레이튼 앞으로 밀쳐낸다. 당신은 <<person1>><<person>>【이가】 카메라를 설치하는 모습을 얼핏 본다. 레이튼은 실망한 듯 <<nnpc_his "Leighton">> 고개를 젓더니, 둘에게 고개를 끄덕인다.
 <br><br>
 
 <<link [[다음|Leighton Club Caught]]>><<set $molestationstart to 1>><</link>>
@@ -624,7 +624,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 
-	만족한 <<fullGroup>>【은는】 옷매무새를 고친다. <<endevent>><<npc Leighton>><<person1>>레이튼은 미소 지으며 카메라 쪽으로 걸어간다. "이걸 보는 재미가 있겠군," <<he>>【이가】 말하며 당신에게 동전 몇 개를 던진다. <<printmoney 3000>>【을를】 벌었다.<<money 3000 "prostitution">>.
+	만족한 <<fullGroup>>【은는】 옷매무새를 고친다. <<endevent>><<npc Leighton>><<person1>>레이튼은 미소 지으며 카메라 쪽으로 걸어간다. "이걸 보는 재미가 있겠군." <<he>>【이가】 말하며 당신에게 동전 몇 개를 던진다. <<printmoney 3000>>【을를】 벌었다.<<money 3000 "prostitution">>.
 	<br><br>
 
 	<<tearful>> 당신은 레이튼과 <<his>> 친구들이 방을 떠나는 것을 바라본다.
@@ -678,7 +678,7 @@
 
 <br><br>
 
-"그래도 쓸모가 있긴 하군," <<he>>【이가】 말하며 당신에게 돈을 건네고 옷을 입게 둔 채 떠난다. <<tearful>> 당신은 돈을 센다. <<printmoney 7500>>【을를】 벌었다.<<money 7500 "prostitution">>.
+"그래도 쓸모가 있긴 하군." <<he>>【이가】 말하며 당신에게 돈을 건네고 옷을 입게 둔 채 떠난다. <<tearful>> 당신은 돈을 센다. <<printmoney 7500>>【을를】 벌었다.<<money 7500 "prostitution">>.
 <br><br>
 
 <<clotheson>>
@@ -689,7 +689,7 @@
 :: Club Cosplay Rape
 <<set $outside to 0>><<effects>>
 
-"물어본 게 아니야." 이번에는 레이튼이 큰 소리로 말한다.
+"물어본 게 아니다." 이번에는 레이튼이 큰 소리로 말한다.
 
 <<endevent>><<generate1>><<generate2>><<person1>>
 
@@ -729,7 +729,7 @@
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 	<<endevent>><<npc Leighton>><<person1>>
-	"집중했길 바란다." 레이튼이 땅에 지폐 몇 장을 떨어뜨리며 말한다. "다시 가르치긴 싫거든." <<he>>【와과】 <<his>> 친구들이 방을 나가며 <<he>>【이가】 웃는다.
+	"집중했길 바란다." 레이튼이 땅에 지폐 몇 장을 떨어뜨리며 말한다. "다시 가르치긴 싫군." <<he>>【와과】 <<his>> 친구들이 방을 나가며 <<he>>【이가】 웃는다.
 	<br><br>
 
 	<<tearful>> 당신은 돈을 센다. <<printmoney 3000>>【을를】 벌었다.<<money 3000 "prostitution">>.
@@ -769,7 +769,7 @@
 당신은 레이튼의 어깨에 기대고, <<he>>【은는】 어떤 댄서와 <<he>>【이가】 떡치고 싶어 하는지 이야기한다. 당신은 미소 지으며 관심 있는 척 맞장구친다. <<He>>【은는】 만족한 듯하다.
 <br><br>
 
-"타고났군." <<he>>【이가】 말한다. "돈을 주고 있다는 걸 거의 잊을 뻔했어." <<He>>【은는】 <<he>>【이가】 흔들던 지폐를 당신 앞 테이블에 놓고는 군중 속으로 사라진다.
+"타고났군." <<he>>【이가】 말한다. "돈을 주고 있다는 걸 거의 잊을 뻔했군." <<He>>【은는】 <<he>>【이가】 흔들던 지폐를 당신 앞 테이블에 놓고는 군중 속으로 사라진다.
 <br><br>
 
 <<printmoney 7500>>【을를】 벌었다.<<money 7500 "prostitution">>
@@ -799,7 +799,7 @@
 <<effects>>
 "당신은 선생님이잖아요." 당신이 말한다. "이러시면 안 되죠."
 <br><br>
-레이튼은 웃으며 지폐를 다시 <<his>> 주머니에 접어 넣는다. "마음대로 하게," <<he>>【이가】 말하며 댄서 중 하나를 향해 돌아선다.
+레이튼은 웃으며 지폐를 다시 <<his>> 주머니에 접어 넣는다. "마음대로 하게." <<he>>【이가】 말하며 댄서 중 하나를 향해 돌아선다.
 <br><br>
 <<endevent>>
 <<link [[다음|Brothel]]>><</link>>

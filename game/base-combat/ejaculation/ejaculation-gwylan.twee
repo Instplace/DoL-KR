@@ -35,7 +35,7 @@
 			<</if>>
 
 		<<elseif $NPCList[_nn].vagina is "leftDildo" or $NPCList[_nn].vagina is "rightDildo">>
-			<<his>> 몸이 경련하고, <<his>> 허벅지가 당신의 $currentSexToyLeft.name【을를】 조이며 떨리자, <<He>>【은는】 얕은 숨을 내뱉는다. "어머나," 잠시 후 <<he>>【이가】 말한다. "진짜로도 이렇게까지는 안 가는데, 장난감이라니."
+			<<his>> 몸이 경련하고, <<his>> 허벅지가 당신의 $currentSexToyLeft.name【을를】 조이며 떨리자, <<He>>【은는】 얕은 숨을 내뱉는다. "어머나." 잠시 후 <<he>>【이가】 말한다. "진짜로도 이렇게까지는 안 가는데, 장난감이라니."
 			<<handejacstat>><<ejacstat>><<set $hygiene += 500>>
 			<<if $NPCList[_nn].vagina is "leftDildo">><<bodyliquid "leftarm" "goo">><<else>><<bodyliquid "rightarm" "goo">><</if>>
 			<<if $hypnosis_traits.devotion gte 3>>
@@ -43,7 +43,7 @@
 			<</if>>
 
 		<<elseif $NPCList[_nn].vagina is "leftDildoAnus" or $NPCList[_nn].vagina is "rightDildoAnus">>
-			<<his>> 몸이 경련하고, <<his>> 허벅지가 당신의 $currentSexToyLeft.name【을를】 조이며 떨리자, <<He>>【은는】 얕은 숨을 내뱉는다. "어머나," 잠시 후 <<he>>【이가】 말한다. "이런 건 보통 나한텐 잘 안 듣는데."
+			<<his>> 몸이 경련하고, <<his>> 허벅지가 당신의 $currentSexToyLeft.name【을를】 조이며 떨리자, <<He>>【은는】 얕은 숨을 내뱉는다. "어머나." 잠시 후 <<he>>【이가】 말한다. "이런 건 보통 나한텐 잘 안 듣는데."
 			<<handejacstat>><<ejacstat>>
 
 		<<elseif $NPCList[_nn].vagina is "feet">>
@@ -52,7 +52,7 @@
 
 		<<elseif $NPCList[_nn].vagina is "vagina" and playerChastity("vagina")>>
 			<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 			<<else>>
 				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 			<</if>>
@@ -94,13 +94,13 @@
 				<<else>>
 					<<He>>【은는】 당신에게 강하게 몸을 밀착하고, 당신의 <<penis>>에 몸을 문지르다 절정으로 몸을 파르르 떤다.
 				<</if>>
-				<<His>> 애액이 당신의 허벅지로 흘러내린다. "어쩜 부끄럽기도 해라," <<he>>【이가】 낄낄거린다. "고작 장난감에 져버리다니."
+				<<His>> 애액이 당신의 허벅지로 흘러내린다. "어쩜 부끄럽기도 해라." <<he>>【이가】 낄낄거린다. "고작 장난감에 져버리다니."
 			<</if>>
 			<<thighejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "thigh" "goo">>
 
 		<<elseif $NPCList[_nn].vagina is "otheranus" and playerChastity("penis")>>
 			<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 			<<else>>
 				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 			<</if>>
@@ -162,7 +162,7 @@
 					<</if>>
 					두 번째 절정이 <<him>>【을를】 덮치며 <<He>>【은는】 다시금 몸을 떤다.
 				<<else>>
-					두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마," 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
+					두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마." 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
 					<<if $internalejac>>
 						당신의 정액 일부가 흘러나온다.
 					<</if>>
@@ -201,7 +201,7 @@
 				<<else>>
 					<<He>>【은는】 당신에게 강하게 몸을 밀착하고, 당신의 <<penis>>에 몸을 문지르다 절정으로 몸을 파르르 떤다.
 				<</if>>
-				"어쩜 부끄럽기도 해라," <<he>>【이가】 낄낄거린다. "고작 장난감에 져버리다니."
+				"어쩜 부끄럽기도 해라." <<he>>【이가】 낄낄거린다. "고작 장난감에 져버리다니."
 			<</if>>
 
 		<<elseif $NPCList[_nn].vagina is "penis">>
@@ -282,7 +282,7 @@
 					<</if>>
 					두 번째 절정이 <<him>>【을를】 덮치며 <<He>>【은는】 다시금 몸을 떤다.
 				<<else>>
-					두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마," 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
+					두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마." 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
 					<<if $internalejac>>
 						당신의 정액 일부가 흘러나온다.
 					<</if>>
@@ -306,7 +306,7 @@
 
 		<<elseif ($NPCList[_nn].vagina is "penisimminent" or $NPCList[_nn].vagina is "penisentrance") and playerChastity("penis")>>
 			<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 			<<else>>
 				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 			<</if>>
@@ -324,7 +324,7 @@
 
 		<<elseif ($NPCList[_nn].vagina is "otheranusfrot" or $NPCList[_nn].vagina is "otheranusentrance") and playerChastity("penis")>>
 			<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 			<<else>>
 				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 			<</if>>
@@ -341,7 +341,7 @@
 
 		<<elseif $NPCList[_nn].vagina is "frot" and playerChastity("penis")>>
 			<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 			<<else>>
 				<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 			<</if>>
@@ -358,7 +358,7 @@
 			<<ejacstat>><<set $hygiene += 500>><<bodyliquid "penis" "goo">>
 
 		<<elseif $NPCList[_nn].mouth is "penis" and playerHasStrapon()>>
-			<<He>>【은는】 당신의 <<penis>>【을를】 전부 삼키며 몸을 파르르 떨고는, 입을 떼고 숨을 고른다. "역시 진짜가 맛이 더 좋네," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 당신의 <<penis>>【을를】 전부 삼키며 몸을 파르르 떨고는, 입을 떼고 숨을 고른다. "역시 진짜가 맛이 더 좋네." <<he>>【이가】 투덜거린다.
 
 		<<elseif $NPCList[_nn].mouth is "penis">>
 			<<switch $player.penissize>>
@@ -394,7 +394,7 @@
 			<<He>>【은는】 <<his>> 발로 당신의 <<penis>>【을를】 내리누르며 가볍게 몸을 떨었다. <<His>> 발가락이 꿈틀거린다.
 
 		<<else>>
-			<<He>>【은는】 절정의 쾌락에 취해 조용히 경련한다. "이번엔 내가 당했네," <<he>>【이가】 숨을 헐떡이며 낄낄거린다.
+			<<He>>【은는】 절정의 쾌락에 취해 조용히 경련한다. "이번엔 내가 당했네." <<he>>【이가】 숨을 헐떡이며 낄낄거린다.
 
 		<</if>>
 		<br><br>
@@ -421,7 +421,7 @@
 
 	<<elseif $NPCList[_nn].penis is "vaginaentrance" and playerChastity("vagina")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -439,7 +439,7 @@
 
 	<<elseif $NPCList[_nn].penis is "vaginaimminent" and playerChastity("vagina")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -513,7 +513,7 @@
 				<<He>>【은는】 당신에게 계속해서 몸을 비빈다. 움직일 때마다 당신은 쾌락에 찬 앓는 소리를 낸다. <<He>>【은는】 가볍게 낄낄거린다. "<<pcPetname "Gwylan" "good">>... 너도 이런 거, 좋아하지?"
 				마침내, 퐁 하는 소리와 함께 그것이 빠져나오고, 두 사람 모두 느릿한 신음을 낸다. <<his>> 정액 일부가 흘러나온다.
 			<<else>>
-				두 사람은 <<his>> 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "이-이건 칭찬이야," 잠시 후 그윌란이 말한다. "나 진짜 좋았거든." 마침내, 퐁 하는 소리와 함께 <<his>> 노트가 당신에게서 빠져나온다.
+				두 사람은 <<his>> 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "이-이건 칭찬이야." 잠시 후 그윌란이 말한다. "나 진짜 좋았거든." 마침내, 퐁 하는 소리와 함께 <<his>> 노트가 당신에게서 빠져나온다.
 				<<his>> 정액 일부가 흘러나온다.
 			<</if>>
 			<<He>>【은는】 얼굴이 더욱 붉어지더니 잠시 조용해진다. 당신이 다시 아래를 내려다보니, <<his>> 자지는 정상으로 돌아와 있다.
@@ -535,7 +535,7 @@
 
 	<<elseif $NPCList[_nn].penis is "cheeks" and playerChastity()>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -548,7 +548,7 @@
 
 	<<elseif $NPCList[_nn].penis is "anusentrance" and playerChastity("anus")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -561,7 +561,7 @@
 
 	<<elseif $NPCList[_nn].penis is "anusimminent" and playerChastity("anus")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -617,7 +617,7 @@
 				<<He>>【은는】 당신에게 계속해서 몸을 비빈다. 움직일 때마다 당신은 쾌락에 찬 앓는 소리를 낸다. <<He>>【은는】 가볍게 낄낄거린다. "<<pcPetname "Gwylan" "good">>... 너도 이런 거, 좋아하지?"
 				마침내, 퐁 하는 소리와 함께 그것이 빠져나오고, 두 사람 모두 느릿한 신음을 낸다. <<his>> 정액 일부가 흘러나온다.
 			<<else>>
-				두 사람은 <<his>> 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "이-이건 칭찬이야," 잠시 후 그윌란이 말한다. "나 진짜 좋았거든." 마침내, 퐁 하는 소리와 함께 <<his>> 노트가 당신에게서 빠져나온다.
+				두 사람은 <<his>> 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "이-이건 칭찬이야." 잠시 후 그윌란이 말한다. "나 진짜 좋았거든." 마침내, 퐁 하는 소리와 함께 <<his>> 노트가 당신에게서 빠져나온다.
 				<<his>> 정액 일부가 흘러나온다.
 			<</if>>
 			<<He>>【은는】 얼굴이 더욱 붉어지더니 잠시 조용해진다. 당신이 다시 아래를 내려다보니, <<his>> 자지는 정상으로 돌아와 있다.
@@ -682,7 +682,7 @@
 			<<He>>【은는】 낄낄거리며 당신의 얼굴을 향해 손가락 하나를 치켜든다. "<<gwylanCommand "깨끗이 핥아.">>" <<hypnosisText "몸이 <<his>> 명령에 복종한다.">>
 			당신은 게걸스럽게 <<his>> 정액을 핥아 올리며, 심지어 <<his>> <<npcPenis>>에 남은 마지막 방울까지 싹싹 핥아먹는다. 당신이 그렇게 하는 동안 <<He>>【은는】 미소 지으며 당신을 내려다보고 머리를 쓰다듬는다. <<trauma -1>><<ltrauma>>
 		<<else>>
-			"놀라운걸," <<he>>【이가】 낄낄거리며 말한다.
+			"놀라운걸." <<he>>【이가】 낄낄거리며 말한다.
 		<</if>>
 		<<handejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "leftarm" "semen">><<bodyliquid "rightarm" "semen">>
 
@@ -693,7 +693,7 @@
 			<<He>>【은는】 낄낄거리며 당신의 얼굴을 향해 손가락 하나를 치켜든다. "<<gwylanCommand "깨끗이 핥아.">>" <<hypnosisText "몸이 <<his>> 명령에 복종한다.">>
 			당신은 게걸스럽게 <<his>> 정액을 핥아 올리며, 심지어 <<his>> <<npcPenis>>에 남은 마지막 방울까지 싹싹 핥아먹는다. 당신이 그렇게 하는 동안 <<He>>【은는】 미소 지으며 당신을 내려다보고 머리를 쓰다듬는다. <<trauma -1>><<ltrauma>>
 		<<else>>
-			"놀라운걸," <<he>>【이가】 낄낄거리며 말한다.
+			"놀라운걸." <<he>>【이가】 낄낄거리며 말한다.
 		<</if>>
 		<<handejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "leftarm" "semen">>
 
@@ -753,7 +753,7 @@
 					당신의 정액 일부가 흘러나온다.
 				<</if>>
 			<<else>>
-				두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마," 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
+				두 사람은 당신의 노트가 가라앉기를 기다리며 어색한 침묵 속에 앉아 있다. "오해하지 마." 잠시 후 그윌란이 말한다. "나 이거 맘에 들어." <<He>>【은는】 다시 한번 당신에게 몸을 비비며 부드러운 신음을 흘린다. 마침내, 퐁 하는 소리와 함께 그것이 <<him>>에게서 빠져나온다.
 				<<if $internalejac>>
 					당신의 정액 일부가 흘러나온다.
 				<</if>>
@@ -777,7 +777,7 @@
 
 	<<elseif ($NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent") and playerChastity("penis")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -788,7 +788,7 @@
 
 	<<elseif $NPCList[_nn].penis is "penis" and playerChastity("penis")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>
-			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것," <<he>>【이가】 투덜거린다.
+			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "빌어먹을 이 끔찍한 것." <<he>>【이가】 투덜거린다.
 		<<else>>
 			<<He>>【은는】 조용히 당신의 $worn.genitals.name 위에서 가버린다. "귀찮은 것," <<he>>【이가】 입을 삐죽인다.
 		<</if>>
@@ -874,7 +874,7 @@
 			<</if>>
 		<<elseif $consensual is 1 and $orgasmdown and (_gwylanStatus.includes("lust") or $gwylanSeen.includes("partners"))>>
 			<<He>>【은는】 당신의 목덜미에 <<his>> 머리를 밀어 넣는다. <<he>>【이가】 당신의 머리카락 사이로 <<his>> 손을 집어넣어 장난을 치는 동안 당신은 몇 분 동안 그곳에 앉아 있다.
-			"함께 가버리는 건 언제나 기분이 훨씬 좋아," <<he>>【이가】 속삭인다. <<trauma -2>><<ltrauma>>
+			"함께 가버리는 건 언제나 기분이 훨씬 좋아." <<he>>【이가】 속삭인다. <<trauma -2>><<ltrauma>>
 		<<elseif $consensual is 0 and (_gwylanStatus.includes("lust") or $gwylanSeen.includes("partners"))>>
 			<<He>>【은는】 당신의 목덜미에 <<his>> 머리를 밀어 넣고 풀밭에 누운 채 당신을 안는다. <<he>>【이가】 당신의 머리카락 사이로 <<his>> 손을 집어넣어 장난을 치는 동안 당신은 몇 분 동안 그곳에 앉아 있다.
 			"너무 거칠었어. 미안. 그래도 좋았어." 짓밟힌 느낌에도 불구하고, <<his>> 목소리가 당신을 진정시킨다. <<stress -3>><<lstress>>

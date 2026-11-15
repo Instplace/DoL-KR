@@ -29,13 +29,13 @@
 <<effects>>
 
 <<if dangerEvent(1, 8000, 300*$officeFloor)>>
-	<<if $rng gte 51 or (!$settings.bestialityEnabled and $monster isnot 1)>>
+	<<if $rng gte 51 or !beastSexEnabledForType("dog", $monster is 1)>>
 		<<person3>><<person>>【이가】 방으로 들어와 당신 옆에 앉는다.
 		<br><br>
 		<<if $NPCList[1].skills.security gte 600>>
 			"이거 재미있는 회의가 되겠군." <<he>>【은는】 음탕한 시선으로 당신을 보며 말한다.
 		<<elseif $NPCList[1].skills.security lte 300>>
-			<<He>>【은는】 실수로 <<his>> 서류 가방으로 당신을 친다. "죄, 죄송합니다." <<he>>【은는】 초조하게 말한다.
+			<<He>>【은는】 실수로 <<his>> 서류 가방으로 당신을 친다. "죄-죄송합니다." <<he>>【은는】 초조하게 말한다.
 		<<else>>
 			<<He>>【은는】 아무 말도 하지 않지만, 당신은 <<he>>【이가】 당신을 여러 번 쳐다보는 것을 알아차린다.
 		<</if>>
@@ -167,7 +167,7 @@
 			"저항하는 모습이 마음에 드는군." <<he>>【이가】 속삭이며 계속 문지른다.
 			<<set $assaultEnergy += 3>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"ㅁ-미안해요." <<he>>【이가】 긴장한 듯 말하며 당신의 다리를 잡은 손에 힘을 푼다.
+			"미-미안해요." <<he>>【이가】 긴장한 듯 말하며 당신의 다리를 잡은 손에 힘을 푼다.
 			<<set $assaultEnergy -= 5>>
 		<<else>>
 			<<He>>【은는】 아무 말 없이 계속 문지른다.
@@ -175,9 +175,9 @@
 	<<elseif $meetingPhase is 3>>
 		<<person>>【은는】 더욱 대담해져서
 		<<if setup.clothes.lower[clothesIndex('lower', $worn.lower)].skirt is 1>>
-			당신의 $worn.lower.name 아래로 <<his>> 손을 슬쩍 넣어 <<undies>> 위로 당신을 문지른다.
+			당신의 $worn.lower.name 아래로 <<his>> 손을 슬쩍 넣어 당신의 <<undies>>【을를】 문지르기 시작한다.
 		<<else>>
-			당신의 $worn.lower.name 안으로 <<his>> 손을 쑤셔 넣어 <<undies>> 위로 당신을 문지른다.
+			당신의 $worn.lower.name 아래로 <<his>> 손을 쑤셔 넣고 당신의 <<undies>>【을를】 문지르기 시작한다.
 		<</if>>
 		<<His>> 단단한 손길에 당신은 몸을 떤다.<<garousal>> <<arousal 200 "genitals">>
 		<br><br>
@@ -198,7 +198,7 @@
 			<<He>>【은는】 계속 문지르며 말한다.
 			<<set $assaultEnergy += 3>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"이, 이거 싫어요?" <<he>>【이가】 침울하게 말한다.
+			"이-이거 싫어요?" <<he>>【이가】 침울하게 말한다.
 			<<set $assaultEnergy -= 5>>
 		<<else>>
 			<<He>>【은는】 당신의 요구를 무시하고 계속 문지른다.
@@ -215,7 +215,7 @@
 		<<if $speech_attitude is "bratty">>
 			당신은 움직임을 방해하기 위해 <<his>> 손 위에 당신의 손을 단호하게 올려놓는다. "그 손 빼, 변태야."
 		<<elseif $speech_attitude is "meek">>
-			"ㅇ-이러시면 안 돼요." 당신은 <<him>>【와과】 맞서려 애쓰며 <<hers>> 손을 꽉 붙잡고 말한다.
+			"이-이러시면 안 돼요." 당신은 <<him>>【와과】 맞서려 애쓰며 <<hers>> 손을 꽉 붙잡고 말한다.
 		<<else>>
 			"제발 만지지 마세요." 당신은 당신의 $worn.lower.name에서 <<him>>의 손을 떼어내려 하며 <<him>>에게 말한다.
 		<</if>>
@@ -229,7 +229,7 @@
 			이제 와서 어떻게 그만두라고 할 수 있겠어?" <<he>>【이가】 계속 문지르며 말한다.
 			<<set $assaultEnergy += 3>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"하, 하지만," <<he>>【이가】 기어들어 가는 목소리로 말한다. <<He>>【은는】 뭔가 더 말하고 싶어 하는 것 같지만 입을 다문다.
+			"하-하지만," <<he>>【이가】 기어들어 가는 목소리로 말한다. <<He>>【은는】 뭔가 더 말하고 싶어 하는 것 같지만 입을 다문다.
 			<<set $assaultEnergy -= 5>>
 		<<else>>
 			<<He>>【은는】 당신의 요구를 무시하고 계속 문지른다.
@@ -266,14 +266,16 @@
 			"모두 앞에서 싸게 만들어 주지." <<he>>【이가】 악랄하게 말한다.
 			<<set $assaultEnergy += 3>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"ㅎ-하지만 거의 다 됐는데." <<he>>【이가】 말한다.
+			"하-하지만 거의 다 됐는데," <<he>>【이가】 말한다.
 			<<set $assaultEnergy -= 5>>
 		<<else>>
 			<<He>>【은는】 당신의 요구를 무시하고 계속 문지른다.
 		<</if>>
 	<<else>>
 		<<person>>【은는】 격렬하게
-		<<if $player.penisExist>>
+		<<if $player.penisExist and $player.vaginaExist>>
+			당신의 <<genitals>>【을를】 문지른다.
+		<<elseif $player.penisExist>>
 			당신의 <<genitals>>【을를】 흔든다.
 		<<else>>
 			당신의 <<genitals>>【을를】 손가락으로 희롱한다.
@@ -310,7 +312,7 @@
 	<<if $NPCList[1].skills.security gte 600>>
 		"재미없군." <<he>>【이가】 말하며 <<his>> 손을 뗀다.
 	<<elseif $NPCList[1].skills.security lte 300>>
-		"ㅁ-미안해요." <<he>>【이가】 긴장한 듯 말하며, 얌전히 <<his>> 손을 뗀다. "그냥... 해보고 싶었어요. 한 번쯤은 제가 주도권을 잡고 싶었어요." <<He>>【은는】 부끄러운 듯 시선을 피한다.
+		"미-미안해요." <<he>>【이가】 긴장한 듯 말하며, 얌전히 <<his>> 손을 뗀다. "그냥... 해보고 싶었어요. 한 번쯤은 제가 주도권을 잡고 싶었어요." <<He>>【은는】 부끄러운 듯 시선을 피한다.
 		<<set $assaultEnergy -= 5>>
 	<<else>>
 		<<He>>【은는】 조용히 <<his>> 손을 뗀다.
@@ -342,7 +344,7 @@
 			"이거 어때?" <<he>>【이가】 당신의 허벅지를 문지르며 속삭인다.
 			<<set $assaultEnergy -= 5>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"이, 이거 좋아?" <<he>>【이가】 당신의 허벅지를 부드럽게 문지르며 초조하게 묻는다.
+			"이-이거 좋아?" <<he>>【이가】 당신의 허벅지를 부드럽게 문지르며 초조하게 묻는다.
 			<<set $assaultEnergy += 3>>
 		<<else>>
 			<<He>>【은는】 말없이 당신의 허벅지를 문지른다.
@@ -362,7 +364,7 @@
 			"입으로는 아무 말 안 하지만, 네 몸은 모든 걸 말해주고 있군." <<he>>【이가】 계속 문지르며 말한다.
 			<<set $assaultEnergy -= 5>>
 		<<elseif $NPCList[1].skills.security lte 300>>
-			"계, 계속할까?" <<he>>【이가】 부드럽게 묻는다.
+			"계-계속할까?" <<he>>【이가】 부드럽게 묻는다.
 			<<set $assaultEnergy += 3>>
 		<<else>>
 			<<He>>【은는】 침묵을 지킨다.
@@ -449,7 +451,7 @@
 	<<if $NPCList[1].skills.security gte 600>>
 		"재미없긴." <<he>>【이가】 말하며 <<his>> 손을 뗀다.
 	<<elseif $NPCList[1].skills.security lte 300>>
-		"미, 미안." <<he>>【이가】 초조하게 말하며 얌전히 <<his>> 손을 뗀다. "지금쯤이면 뭔가 일어났어야 했는데, 난 그저..." <<He>>【은는】 수치스러운 듯 시선을 피한다.
+		"미-미안." <<he>>【이가】 초조하게 말하며 얌전히 <<his>> 손을 뗀다. "지금쯤이면 뭔가 일어났어야 했는데, 난 그저..." <<He>>【은는】 수치스러운 듯 시선을 피한다.
 	<<else>>
 		<<He>>【은는】 말없이 <<his>> 손을 뗀다.
 	<</if>>

@@ -219,19 +219,13 @@
 						<span class="purple">요리하기엔 너무 지쳤습니다.</span>
 					<<elseif $_setupItem.recipe.ingredients.every(ingredient => $foodstuff[ingredientUsed(ingredient, $lastRecipeViewed)].amount gte 1 or _ingredientsSupplied?.includes(ingredientUsed(ingredient, $lastRecipeViewed)))>>
 						만들기:
-						<<set _hours to Math.floor($_setupItem.recipe.cook_minutes / 60)>>
-						<<set _minutes to $_setupItem.recipe.cook_minutes % 60>>
-						<<set _timeString to " (" + (_hours lt 10 ? "0": "") +_hours+":"+(_minutes lt 10 ? "0": "")+_minutes+")">>
-						<<link [["1인분" + _timeString|$passage]]>><<make_recipe $lastRecipeViewed 1>><</link>>
+						<<link [["1 " + printTime($_setupItem.recipe.cook_minutes, true)|$passage]]>><<make_recipe $lastRecipeViewed 1>><</link>>
 						<<if $_setupItem.recipe.ingredients.every(ingredient => $foodstuff[ingredientUsed(ingredient, $lastRecipeViewed)].amount gte 3 or _ingredientsSupplied?.includes(ingredientUsed(ingredient, $lastRecipeViewed)))>>
-							<<set _hours to Math.floor(($_setupItem.recipe.cook_minutes * 3) / 60)>>
-							<<set _minutes to ($_setupItem.recipe.cook_minutes * 3) % 60>>
-							<<set _timeString to " (" + (_hours lt 10 ? "0": "") +_hours+":"+(_minutes lt 10 ? "0": "")+_minutes+")">>
+							<<set _wait to $_setupItem.recipe.cook_minutes*3>>
 
 							/* Prevent passing too much time */
 							<<set _futureTime to new DateTime(Time.date.timeStamp)>>
-							<<set _futureTime to _futureTime.addHours(_hours)>>
-							<<set _futureTime to _futureTime.addMinutes(_minutes)>>
+							<<set _futureTime to _futureTime.addMinutes(_wait)>>
 
 							/* Prevent using limited provided ingredients */
 							<<if $bus is "loft_kitchen" and $_setupItem.recipe.ingredients.filter(x => $loftIngredients?.[x] lt 3).length gte 1>>
@@ -239,7 +233,7 @@
 							<</if>>
 
 							<<if (!_hourRestriction or _futureTime.hour lt _hourRestriction or _futureTime.minute lte 15) and !_limitedIngredientRestriction>>
-								| <<link [["3인분" + _timeString|$passage]]>><<make_recipe $lastRecipeViewed 3>><</link>>
+								| <<link [["3 " + printTime(_wait, true)|$passage]]>><<make_recipe $lastRecipeViewed 3>><</link>>
 							<</if>>
 						<</if>>
 						<br>
@@ -622,15 +616,15 @@ Should probably be removed once said feature has been implemented
 		<span class="black">음식 항목 "_args[0]"은 조리 가능한 레시피가 아닙니다! 제보해 주세요!</span>
 	<<else>>
 		<<if _difficultyNotice is 1>>
-			"먼저 간단한 레시피부터 시작하지," 리버가 말한다. "만들기는 쉽지만, 그래도 유용하거나 맛있는 것들이다. 첫 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." <<He>>【은는】 목을 가다듬는다.
+			"먼저 간단한 레시피부터 시작하지." 리버가 말한다. "만들기는 쉽지만, 그래도 유용하거나 맛있는 것들이다. 첫 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." <<He>>【은는】 목을 가다듬는다.
 		<<elseif _difficultyNotice is 2>>
-			"이제 한 단계 올라간다," 리버가 말한다. "기초는 알고 있다는 걸 보여줬으니 됐다. 다음 요리들은 더 복잡하다. 오늘은 <<recipe_name _args[0] "difficulty">> 만드는 법을 배울 거다." <<He>>【은는】 목을 가다듬는다.
+			"이제 한 단계 올라간다." 리버가 말한다. "기초는 알고 있다는 걸 보여줬으니 됐다. 다음 요리들은 더 복잡하다. 오늘은 <<recipe_name _args[0] "difficulty">> 만드는 법을 배울 거다." <<He>>【은는】 목을 가다듬는다.
 		<<elseif _difficultyNotice is 3>>
-			"오늘은 고급 요리로 넘어간다," 리버가 말한다. "대체로 어려운 요리일수록 만들 가치도 커진다. 물론 주관적인 이야기지만. 첫 고급 시험 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." <<He>>【은는】 목을 가다듬는다.
+			"오늘은 고급 요리로 넘어간다." 리버가 말한다. "대체로 어려운 요리일수록 만들 가치도 커진다. 물론 주관적인 이야기지만. 첫 고급 시험 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." <<He>>【은는】 목을 가다듬는다.
 		<<elseif _difficultyNotice is 4>>
 			리버가 손뼉을 쳐서 학생들의 주의를 끈다. "오늘부터는 더 어려운 요리를 배울 거다. 내가 가르칠 수 있는 요리도 이제 많이 남지 않았다. 앞으로 몇 번의 시험은 이 수업에서 치른 것 중 가장 어려울 거다. 그 첫 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." <<He>>【은는】 목을 가다듬는다.
 		<<else>>
-			"오늘 배울 레시피는 <<recipe_name _args[0] "difficulty">>【이】다," 리버가 말한다.
+			"오늘 배울 레시피는 <<recipe_name _args[0] "difficulty">>【이】다." 리버가 말한다.
 		<</if>>
 
 		<<switch _args[0]>>
@@ -691,7 +685,7 @@ Should probably be removed once said feature has been implemented
 			<<case "creme_brulee">>
 				"최상의 효과를 내려면 토치가 필요하다는 레시피를 봤을지도 모른다. 사실은 그렇지 않다. 브로일러로 구워도 충분히 잘 된다."
 			<<case "fish_and_chips">>
-				"마을 어느 펍에 가도 이걸 팔고 있을 거다." <<He>>【은는】 잠시 멈춘다. "일반론을 말한 거다. 펍에 가라는 권유가 아니다."
+				"마을 어느 술집에 가도 이걸 팔고 있을 거다." <<He>>【은는】 잠시 멈춘다. "일반론을 말한 거다. 술집에 가라는 권유가 아니다."
 			<<case "flapjack">>
 				"팬케이크가 아니다. 이건 아침식사용이 아니라 간식용으로 만든다."
 			<<case "flour">>
@@ -759,6 +753,10 @@ Should probably be removed once said feature has been implemented
 				"버블 앤 스퀴크와 아주 비슷하지만, 곁들이는 채소가 없다. 그래서 감자 팬케이크는 아침식사나 간식으로 더 어울린다."
 			<<case "prawn_bisque">>
 				"새우를 끓이기 전에는 껍질을 벗기지 마라. 그래야 육수에 그냥 잃어버렸을 맛이 많이 우러난다. 껍질은 나중에 걸러낸다."
+			<<case "pumpkin_drink">>
+				"시나몬과 넛메그를 살짝 얹으면 쌀쌀한 밤에 꽤 근사한 별미다. 설탕은 조심해라. 라떼가 아니라서 상쇄해 줄 커피의 쓴맛이 없다."
+			<<case "pumpkin_pie">>
+				"일부 지역에서는 고전적인 가을 디저트다. 과육을 충분히 으깨도록 해라. 호박 커스터드는 매끄러워야 한다. 신선한 휘핑크림을 얹어 먹을 때 가장 맛있다."
 			<<case "quiche">>
 				"아니다, 이건 그냥 짭짤한 파이가 아니다. 정말로 둘의 공통점은 파이 크러스트를 쓴다는 것 정도뿐이다."
 			<<case "rich_biscuit">>
@@ -787,6 +785,8 @@ Should probably be removed once said feature has been implemented
 				"분명 많은 학생이 이걸 기다렸을 거다. 솔직히 말하면, 나도 기다렸다."
 			<<case "sticky_toffee_pudding">>
 				"모든 케이크가 그렇듯, 너무 오래 굽지 않도록 조심해라. 확신이 없으면 이쑤시개 요령을 써라."
+			<<case "stuffed pumpkin">>
+				"온갖 재료로 속을 채울 수 있지만, 우리는 단순하게 가겠다. 껍질에 기름을 충분히 문질러 발라라. 그래야 제 맛이 난다."
 			<<case "stuffing">>
 				"추수감사절은 해외처럼 여기서 제대로 된 명절은 아니다. 그러니 죄책감 없이 일 년 중 아무 때나 이걸 만들 수 있다는 뜻이다."
 			<<case "sweet_and_sour_chicken">>
@@ -803,22 +803,22 @@ Should probably be removed once said feature has been implemented
 			<<case "yorkshire_pudding">>
 				"이건 디저트로 먹는 그런 푸딩이 아니다. 로스트비프와 함께 만들 거라면, 고기 육즙을 써서 풍미를 더해라."
 			<<case "valentines_chocolate">>
-				"작은 하트 모양으로 빚어 과일 필링을 채운 초콜릿이다. 밸런타인 초콜릿이라고 불리며, 적절한 시기에는 많은 사람들이 특별하게 여긴다."
+				"작은 하트 모양으로 빚어 과일 필링을 채운 초콜릿이다. 발렌타인 초콜릿이라고 불리며, 적절한 시기에는 많은 사람들이 특별하게 여긴다."
 			<<default>>
 				"바로 시작하지."
-				<<if $debug is 1 or $options.debugdisable is "f">>
+				<<if $debug or $options.debugdisable is "f">>
 					<span class="black">음식 항목 "_args[0]"에는 시험 설명이 없습니다!</span>
 				<</if>>
 		<</switch>>
 		<<if setup.foodstuff[_args[0]].recipe.ingredients.includes("chicken_egg") and !$housekeepingTips.includes("alternativeEgg")>>
 			<<set $housekeepingTips.pushUnique("alternativeEgg")>>
 			<br><br>
-			"대부분의 레시피는 표준 달걀, 즉 닭의 알을 요구한다," <<he>>【이가】 덧붙인다. "하지만 닭의 알이 없다면 <span class="gold">어떤 종류의 알이든 대체 재료로 사용할 수 있다</span>는 점을 기억해라."
+			"대부분의 레시피는 표준 달걀, 즉 닭의 알을 요구한다." <<he>>【이가】 덧붙인다. "하지만 닭의 알이 없다면 <span class="gold">어떤 종류의 알이든 대체 재료로 사용할 수 있다</span>는 점을 기억해라."
 		<</if>>
 		<<if _args[0] is "lasagne" and !$housekeepingTips.includes("alternativeLasagne")>>
 			<<set $housekeepingTips.pushUnique("alternativeLasagne")>>
 			<br><br>
-			"라자냐는 보통 소고기로 만든다," <<he>>【이가】 덧붙인다. "하지만 소고기가 없거나 다른 맛을 원한다면 <span class="gold">닭고기로 대체할 수도 있다</span>. 돼지고기는 안 된다."
+			"라자냐는 보통 소고기로 만든다." <<he>>【이가】 덧붙인다. "하지만 소고기가 없거나 다른 맛을 원한다면 <span class="gold">닭고기로 대체할 수도 있다</span>. 돼지고기는 안 된다."
 		<</if>>
 	<</if>>
 	<br><br>

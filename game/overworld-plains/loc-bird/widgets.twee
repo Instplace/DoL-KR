@@ -86,7 +86,7 @@
 			<<hunger _args[0]>>
 			<<if $hunger gte 2000>>
 				<<trauma `_args[0] / 4`>>
-				<<physique_loss `_args[0] / 10`>>
+				<<physique `_args[0] / -10`>>
 				<<willpower `_args[0] / 10`>>
 			<</if>>
 		<</if>>
@@ -869,7 +869,7 @@
 		<<set $_rescueChance += Math.floor($moor / 5)>>
 		<<if $_rescueChance gte random(1, 100)>><<enable_rescue>><</if>>
 	<</if>>
-	<<if $bird and $bird.injured gt 1>>
+	<<if $bird?.injured gt 1>>
 		<<set $_rescueChance to 0>>
 	<</if>>
 <</widget>>
@@ -885,9 +885,9 @@
 <<widget "hawkCaughtYouSpeech">>
 	<<if $monster is 1>>
 		<<if $birdescaped gte 1>>
-			"<<Wife>>【은는】 <<if $birdescaped gte 2>>계속 도망쳐서는<<else>>도망쳐서는<</if>> 안 돼," <<bhe>>【이가】 말한다. "<<if $harpy gte 6>><<Wife>>【은는】 아직 나는 법도 모르잖아<<else>>지상을 돌아다니는 건 위험해<</if>>."
+			"<<Wife>>【은는】 <<if $birdescaped gte 2>>계속 도망쳐서는<<else>>도망쳐서는<</if>> 안 돼." <<bhe>>【이가】 말한다. "<<if $harpy gte 6>><<Wife>>【은는】 아직 나는 법도 모르잖아<<else>>지상을 돌아다니는 건 위험해<</if>>."
 		<<else>>
-			"잡았다," <<bhis>> 등 뒤의 날개를 맹렬하게 퍼덕이며 <<bhe>>【이가】 말한다.
+			"잡았다." <<bhis>> 등 뒤의 날개를 맹렬하게 퍼덕이며 <<bhe>>【이가】 말한다.
 		<</if>>
 	<<else>>
 		<<beasttype>>【은는】 
@@ -901,7 +901,7 @@
 <</widget>>
 
 <<widget "your_bird_text">><<silently>>
-	<<if $greathawkmonster is 2 or ($greathawkmonster is 1 and $hallucinations gte 1)>>
+	<<if resolveIfNamedBeastIsMonster("greathawk")>>
 		<<set _text_output to "harpy">>
 	<<else>>
 		<<set _text_output to "hawk">>
@@ -966,7 +966,7 @@
 			<<endevent>>
 			<<npc "Great Hawk">>
 			<<if $monster gte 1>>
-				<<beasttype>>【은는】 <<bhis>> 팔로 당신을 안아올린다. "밤이 왔어," <<bhe>>【이가】 말한다. "내가 널 침대로 데려가게 해 줘."
+				<<beasttype>>【은는】 <<bhis>> 팔로 당신을 안아올린다. "밤이 왔어." <<bhe>>【이가】 말한다. "내가 널 침대로 데려가게 해 줘."
 				<br><br>
 			<<else>>
 				<<beasttype>>【은는】 횃대에서 내려와 둥지를 향해 폴짝거린다. <<bHe>>【은는】 당신을 힐끗 쳐다본다.
@@ -1164,7 +1164,7 @@
 	<<if _args[1] isnot "silent" and !$settings.blindStatsEnabled>>
 		<<set $_printAlerts to true>>
 	<</if>>
-	<<if $bird.hunts and $bird.hunts.weight>>
+	<<if $bird.hunts?.weight>>
 		/* this is not always an integer */
 		<<set _flightTimeBase += $bird.hunts.weight>>
 	<</if>>
@@ -1452,6 +1452,7 @@
 
 			<<flight_distance_check>>
 			<<flight_time_check _returnTime "silent">>
+			<<passout>>
 			<<link [[다음 (?:??)|Bird Hunt Passout]]>><<bird_pass _returnTime>><</link>>
 			<br>
 		<</if>>
@@ -1460,7 +1461,7 @@
 			<<endevent>>
 			<<npc "Great Hawk">><<person1>>
 			<<if $monster is 1>>
-				"다쳤구나," <<your_bird_text>>【이가】 말한다. "당장 집으로 돌아간다."
+				"다쳤구나." <<your_bird_text>>【이가】 말한다. "당장 집으로 돌아간다."
 			<<else>>
 				<<your_bird_text "cap">>【이가】 당신에게 까악 소리를 내며, <<bhis>> 날개로 당신을 매만진다. 당신은 고통에 움찔한다. 부상이 심해 더 이상 사냥을 계속할 수 없다. 당신은 경로를 바꿔 집으로 향한다.
 			<</if>>
@@ -1680,19 +1681,19 @@
 			<<set $bird.hunts.loot[$_looted] += $_amount>>
 			<<set $bird.hunts.lootAmount += $_amount>>
 			<span class="green"><<birdicon $_looted>> $_amount
-		<<switch $_looted>>
-			<<case "tools">>
-				도구 상자
-			<<case "sticks">>
-				<<pluralise $_amount "나뭇가지" "나뭇가지">>
-			<<case "leaves">>
-				<<pluralise $_amount "나뭇잎" "나뭇잎">>
-			<<case "lurkers">>
-				<<pluralise $_amount "럴커" "럴커">>
-			<<case "feathers">>
-				<<pluralise $_amount "깃털" "깃털">>
-			<<default>>
-				$_looted
+			<<switch $_looted>>
+				<<case "tools">>
+					도구 상자
+				<<case "sticks">>
+					<<pluralise $_amount "나뭇가지" "나뭇가지">>
+				<<case "leaves">>
+					<<pluralise $_amount "나뭇잎" "나뭇잎">>
+				<<case "lurkers">>
+					<<pluralise $_amount "럴커" "럴커">>
+				<<case "feathers">>
+					<<pluralise $_amount "깃털" "깃털">>
+				<<default>>
+					$_looted
 			<</switch>>
 			추가되었습니다.</span>
 		<</if>>
@@ -2200,7 +2201,7 @@
 				<span class="pink">화덕에 불을 피우면 과정이 빨라질 것이다.</span>
 			<</if>>
 			<br>
-			<<if $debug is 1>>
+			<<if $debug>>
 				<span class="gold">DEBUG:</span> 럴커 남은 시간
 				<br>
 				<<for $_i to 0; $_i lt _lurkersDrying.length; $_i++>>
@@ -3421,11 +3422,11 @@
 <</widget>>
 
 /* Orphan hawk preview pronouns. */
-<<widget "orphanHawkHe">><<if $orphanHawkPreview.gender is "m">>He<<else>>She<</if>><</widget>>
-<<widget "orphanHawkhe">><<if $orphanHawkPreview.gender is "m">>he<<else>>she<</if>><</widget>>
-<<widget "orphanHawkHis">><<if $orphanHawkPreview.gender is "m">>His<<else>>Her<</if>><</widget>>
-<<widget "orphanHawkhis">><<if $orphanHawkPreview.gender is "m">>his<<else>>her<</if>><</widget>>
-<<widget "orphanHawkhim">><<if $orphanHawkPreview.gender is "m">>him<<else>>her<</if>><</widget>>
-<<widget "orphanHawkhers">><<if $orphanHawkPreview.gender is "m">>his<<else>>hers<</if>><</widget>>
-<<widget "orphanHawkson">><<if $orphanHawkPreview.gender is "m">>son<<else>>daughter<</if>><</widget>>
-<<widget "orphanHawktype">><<if $orphanHawkPreview.features.monster is "monster">>nestling<<else>>chick<</if>><</widget>>
+<<widget "orphanHawkHe">><<if $orphanHawkPreview.gender is "m">>그<<else>>그녀<</if>><</widget>>
+<<widget "orphanHawkhe">><<if $orphanHawkPreview.gender is "m">>그<<else>>그녀<</if>><</widget>>
+<<widget "orphanHawkHis">><<if $orphanHawkPreview.gender is "m">>그의<<else>>그녀의<</if>><</widget>>
+<<widget "orphanHawkhis">><<if $orphanHawkPreview.gender is "m">>그의<<else>>그녀의<</if>><</widget>>
+<<widget "orphanHawkhim">><<if $orphanHawkPreview.gender is "m">>그<<else>>그녀<</if>><</widget>>
+<<widget "orphanHawkhers">><<if $orphanHawkPreview.gender is "m">>그의 것<<else>>그녀의 것<</if>><</widget>>
+<<widget "orphanHawkson">><<if $orphanHawkPreview.gender is "m">>아들<<else>>딸<</if>><</widget>>
+<<widget "orphanHawktype">><<if $orphanHawkPreview.features.monster is "monster">>새끼 하피<<else>>새끼 매<</if>><</widget>>

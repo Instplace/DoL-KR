@@ -30,7 +30,7 @@
 	<<init_locations>>
 	<<init_tips>>
 
-	<<set setup.baseNNPC = {penis : 0, vagina: 0, gender: "none", description: 0, title: 0, insecurity: 0, pronoun: "none", penissize: 0, penisdesc: "none", bottomsize: 0, ballssize: 0, breastsize: 0, breastdesc: 0, breastsdesc: 0, skincolour: 0, teen: 0, adult: 0, init: 0, intro: 0, type: "human", trust: 0, love: 0, dom: 0, lust: 0, rage: 0, state: "", trauma: 0, eyeColour: 0, hairColour: 0, chastity: {penis: "", vagina: "", anus: ""}}>>
+	<<set setup.baseNNPC = {penis : 0, vagina: 0, gender: "none", description: 0, title: 0, insecurity: 0, pronoun: "none", penissize: 0, penisdesc: "none", bottomsize: 0, ballssize: 0, breastsize: 0, breastdesc: 0, breastsdesc: 0, teen: 0, adult: 0, init: 0, intro: 0, type: "human", trust: 0, love: 0, dom: 0, lust: 0, rage: 0, state: "", trauma: 0, eyeColour: 0, hairColour: 0, chastity: {penis: "", vagina: "", anus: ""}}>>
 	<<set setup.NPCNameList = ["Avery","Bailey","Briar","Charlie","Darryl","Doren","Eden","Gwylan","Harper","Jordan","Kylar","Landry","Leighton","Mason","Morgan","River","Robin","Sam","Sirris","Whitney","Winter","Black Wolf","Niki","Quinn","Remy","Alex","Great Hawk","Wren","Sydney","Ivory Wraith","Zephyr","Night Monster"]>>
 
 	<<set setup.loveInterestNpc = ["Robin","Whitney","Kylar","Sydney","Eden","Avery","Black Wolf","Great Hawk","Alex","Gwylan"]>>
@@ -68,17 +68,17 @@
 		"Sydney": () => "사랑",
 		"Ivory Wraith": () => "사랑",
 		"Zephyr": () => "관심",
-		"Night Monster": () => "사랑",
+		"Night Monster": () => "관심",
 
 		/* Persistent NPC */
-		"anxious_guard": () => "존경",
+		"anxious_guard": () => "신뢰",
 		"hacker": () => "존경",
 		"manager": () => "애정",
-		"methodical_guard": () => "존경",
-		"relaxed_guard": () => "존경",
+		"methodical_guard": () => "신뢰",
+		"relaxed_guard": () => "신뢰",
 		"scarred_inmate": () => "애정",
 		"tattooed_inmate": () => "관심",
-		"veteran_guard": () => "존경"
+		"veteran_guard": () => "신뢰"
 	}>>
 
 	<<set setup.perName to {
@@ -111,9 +111,9 @@
 	<<set setup.crimeDescs to {
 		default: "일반 범죄",
 		legacy: "법망을 빠져나간 범죄 기록들",
-		escape: "교도소 탈옥",
+		escape: "감옥 탈옥",
 		cake: "귀족의 웨딩 케이크와 관련된 고위급 절도 사건",
-		kylarPrison: "교도소 탈옥 조력",
+		kylarPrison: "감옥 탈옥 조력",
 		food: "심각한 식품 안전 위반",
 		debug: "혼방 직물을 입다니, 정말 끔찍한 취향이군요",
 	}>>
@@ -163,7 +163,8 @@
 			{ hStart: 25, hEnd: 20, sStart: 0.15, sEnd: 0.15, bStart: 1.8, bEnd: 0.8 },
 		],
 		slime: { hStart: 200, hEnd: 200, sStart: 0.3, sEnd: 0.5,bStart: 3.6, bEnd: 3.1 },
-		dft: { hStart: 45, hEnd: 45, sStart: 0.2, sEnd: 0.4, bStart: 4.5, bEnd: 0.7}
+		dft: { hStart: 45, hEnd: 45, sStart: 0.2, sEnd: 0.4, bStart: 4.5, bEnd: 0.7},
+		wraith: { hStart: 0, hEnd: 0, sStart: 0, sEnd: 0, bStart: 5, bEnd: 5 }
 	}>>
 
 	<<set setup.tanImg to {
@@ -908,6 +909,8 @@
 		minesEscapedBasement: "지하실 입구를 발견함",
 		minesEscapedDrain: "마을 하수도를 발견함",
 		minesEscapedPassoutDrain: "기절 후 마을 하수도를 발견함",
+		minesEscapedMaze: "광산의 터널을 헤쳐 나옴",
+		minesRevolt: "광산 경비병에게 반란을 일으킴",
 		minesSold: "광산에 팔림",
 		poundMistake: "개로 오인받음",
 		poundSubmitted: "검은 개를 풀어준 뒤 굴복함",
@@ -937,6 +940,7 @@
 		uDungeonSaved: "인간형 식물에게 구출됨",
 		uFarmBetrayedLost: "밴 주인에게 배신당한 뒤 싸움에서 짐",
 		uFarmBetrayed: "밴 주인에게 배신당함",
+		uFarmRidingSchool: "엉뚱한 사람을 따라감",
 		uFarmEscapedCentaurKiss: "켄타우로스에게 키스한 뒤 탈출함",
 		uFarmEscapedCentaurThank: "켄타우로스에게 감사를 표한 뒤 탈출함",
 		uFarmEscapedHorse: "말을 타고 탈출함",

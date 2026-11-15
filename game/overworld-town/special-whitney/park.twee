@@ -1,6 +1,6 @@
 :: Whitney Milkshake
 <<set $outside to 0>><<effects>>
-	휘트니는 당신 손에 들린 밀크쉐이크를 보고 놀라 힐끗 쳐다본다. 순간 <<his>> 얼굴이 살짝 붉어진 것 같다. "이거 존나 의왼데, 암캐야."
+	휘트니는 당신 손에 들린 밀크쉐이크를 보고 놀라 힐끗 쳐다본다. 순간 <<his>> 얼굴이 살짝 붉어진 것 같다. "이거 존나 의외인데, 암캐야."
 	<br><br>
 	<<link [[같이 마신다|Whitney Milkshake Share]]>><</link>>
 	<br>
@@ -92,7 +92,7 @@
 		<<if $location is "park">>
 			<<link [[다음|Park]]>><<endevent>><</link>>
 		<<else>>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<<else>>
 		휘트니가 갑자기 당신을 보며 음흉하게 웃는다. 당신은 <<his>> 머릿속에 무슨 생각이 떠올랐는지 대충 짐작할 수 있다. 한 번 거칠게 잡아당겨, <<npcUndressText $NPCList[0] "lower" true>>.
@@ -180,7 +180,7 @@
 		당신이 고개를 들려 하자, 휘트니는 당신을 바닥으로 거칠게 밀치며 뒤돌아선다. 얼굴이 붉어진 것처럼 보이는데, 기분 탓일까?<<npcincr Whitney love 1>><<npcincr Whitney lust -5>><<glove>><<llust>>
 		<br><br>
 
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 		<br>
 	<</if>>
 
@@ -231,7 +231,7 @@
 		<<unset $whitneyRefusal>>
 		휘트니가 당신을 노려보며 바닥으로 거칠게 밀친다. "내 말을 귓등으로 처들은 모양인데. 당장 입 대, 암캐 새끼야."
 	<<else>>
-		"일을 하다 말고 멈추는 법이 어딨어, 암캐 새끼야. 좋은 말로 할 때 계속해라, 두 번 말 안 한다."
+		"일을 하다 말고 멈추는 법이 어딨어, 암캐 새끼야. 좋은 말로 할 때 계속해, 두 번 말 안 해."
 		휘트니가 머리채를 잡아끌며, 안달이 난 듯 당신의 얼굴에 마구 비벼댄다.
 	<</if>>
 <</if>>
@@ -285,13 +285,13 @@
 		<br>
 	<<else>>
 		<<npc Whitney>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 		<br>
 	<</if>>
 
 :: Whitney Milkshake Protest
 <<if $speech_attitude is "meek">>
-		"ㅈ, 제발 돌려줘." 당신은 휘트니를 보며 입술을 비죽 내밀고 말한다.
+		"제-제발 돌려줘." 당신은 휘트니를 보며 입술을 비죽 내밀고 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"당장 내놔." 당신은 휘트니를 쏘아보며 따진다. "안 그러면..."
 	<<else>>
@@ -308,7 +308,7 @@
 		<<link [[다음|Whitney Park]]>><</link>>
 	<<else>>
 		<<npc Whitney>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 	<br>
 
@@ -353,7 +353,7 @@
 	<<npcincr Whitney love 2>><<npcincr Whitney lust 10>><<gglove>><<gglust>>
 	<br><br>
 
-	<<whitneyoptions>>
+	<<whitneyOptions>>
 
 :: Whitney Milkshake Give
 휘트니는 당신이 <<him>>에게 밀크쉐이크를 건네자 깜짝 놀란 표정을 짓더니, 거칠게 <<his>> 팔을 당신의 어깨에 두른다.
@@ -365,7 +365,7 @@
 	<<npcincr Whitney love 1>><<glove>>
 	<br><br>
 
-	<<whitneyoptions>>
+	<<whitneyOptions>>
 
 :: Whitney Milkshake Fail
 	<<set _whitney to C.npc.Whitney>>
@@ -379,7 +379,7 @@
 	<<npcincr Whitney love 2>><<npcincr Whitney lust 10>><<gglove>><<gglust>>
 	<br><br>
 
-	<<whitneyoptions>>
+	<<whitneyOptions>>
 	<br>
 
 :: Whitney Milkshake Cherry
@@ -392,7 +392,7 @@
 	"욕심 많은 새끼." <<He>>【이가】 당신을 보며 씨익 웃는다. "어쩌면 내가 원했을지도 모르지."
 	<br><br>
 	<<if $speech_attitude is "meek">>
-		죄책감이 당신을 덮친다. "...아! 저, 정말 미안해! 그, 그랬어?"<<stress 6>><<gstress>>
+		죄책감이 당신을 덮친다. "...아! 나, 나 정말 미안해! 그-그랬어?"<<stress 6>><<gstress>>
 	<<elseif $speech_attitude is "bratty">>
 		"내가 산 거잖아. 내가 먹는 게 공평하지," 당신은 툴툴댄다.
 	<<else>>
@@ -409,7 +409,7 @@
 	<<He>>【은는】 당신의 이마를 튕긴다. "안 그러면."<<pain 1>><<gpain>>
 	<br><br>
 	<<if $speech_attitude is "meek">>
-		"그, 그럼... 언젠가 밀크쉐이크를 또 갖다 달라는 말이야?" 당신이 교태로운 미소를 지으며 묻는다.
+		"그-그럼... 언젠가 밀크쉐이크를 또 갖다 달라는 말이야?" 당신이 교태로운 미소를 지으며 묻는다.
 	<<elseif $speech_attitude is "bratty">>
 		"그럼 이게 아주 싫지는 않다는 뜻이야?" 당신이 <<his>> 팔에 기대며 묻는다. "그리고 우리 언젠가 또 이럴 수 있는 거야?"
 	<<else>>
@@ -431,18 +431,18 @@
 		<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <<elseif $phase is 1>> /* Ask for the cherry */
 	<<if $speech_attitude is "meek">>
-		"저, 저기... 괜찮으면, 체, 체리 좀 줄 수 있을까?" 당신이 묻는다.
+		"저-저기... 괜찮으면, 체-체리 좀 줄 수 있을까?" 당신이 묻는다.
 	<<elseif $speech_attitude is "bratty">>
 		"그거 먹을 거야, 말 거야?" 당신이 묻는다.
 	<<else>>
 		"체리 나 주면 안 돼?" 당신이 묻는다.
 	<</if>>
 	<br><br>
-	휘트니가 컵 안을 들여다본 뒤 당신을 본다. "갖고 싶냐?" <<He>>【은는】 씩 웃는다. "걸레야, <<= C.npc.Whitney.dom gte 8 ? "네가 그걸 받을 자격이 있다고 왜 생각하는데" : "내가 왜 네게 줘야 하는데">>?"
+	휘트니가 컵 안을 들여다본 뒤 당신을 본다. "갖고 싶냐?" <<He>>【은는】 씩 웃는다. "걸레야, <<= C.npc.Whitney.dom gte 8 ? "네가 그걸 받을 자격이 있다고 왜 생각하는데" : "내가 왜 너한테 줘야 하는데">>?"
 	<br><br>
 
 	<<if hasSexStat("promiscuity", 2)>>
@@ -464,7 +464,7 @@
 	마침내 그것이 <<his>> 눈에 들어오자, <<he>>【은는】 빨대로 체리를 찔러 집어 먹는다. <<He>>【은는】 당신이 <<him>>【을를】 보고 있다는 것을 깨닫는다. "뭐?" <<he>>【이가】 <<his>> 입에 가득 문 채 묻는다.
 	<br><br>
 	<<if $speech_attitude is "meek">>
-		"아, 아무것도 아니야!" 당신이 말을 더듬는다.
+		"아-아무것도 아니야!" 당신이 말을 더듬는다.
 	<<elseif $speech_attitude is "bratty">>
 		"아무것도 아니야." 당신이 씨익 웃는다.
 	<<else>>
@@ -483,7 +483,7 @@
 		<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <</if>>
 
@@ -495,7 +495,7 @@
 	"입 안에서 꼭지를 묶을 수도 있는데."
 	<<promiscuity2>>
 
-	휘트니의 눈이 반짝인다. "오 그래? <<= either("증명해 봐", "그거 꼭 봐야겠네")>>," 컵을 당신에게 내밀며 <<he>>【이가】 말한다.
+	휘트니의 눈이 반짝인다. "오 그래? <<= either("증명해 봐", "그거 꼭 봐야겠네")>>." 컵을 당신에게 내밀며 <<he>>【이가】 말한다.
 	<br><br>
 	당신은 기분 좋은 콧노래를 부르며 체리를 먹고, 꼭지를 입 안에 쏙 집어넣는다.
 
@@ -507,16 +507,16 @@
 		"제법인데," 그것을 유심히 살피며 휘트니가 말한다. <<He>>【은는】 진심으로 감탄한 눈치다. "내 걸레가 입 쓰는 건 진짜 최고란 말이지, 엉?" <<He>>【은는】 당신을 <<his>> 품으로 끌어당기더니 혀를 아주 깊숙이 얽으며 키스한다. "뭐, 우리 둘 다 이미 알고 있던 거지만."<<npcincr Whitney love 1>><<glove>>
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			당신은 입술을 깨물고 얌전하게 시선을 내린다. "저, 저기, 음... 저한테 팬<<nnpc_gendery "Whitney">>【이가】 있는 줄은 몰랐네요..."
+			당신은 입술을 깨물고 얌전하게 시선을 내린다. "저-저기, 음... 나한테 팬<<nnpc_gendery "Whitney">>【이가】 있는 줄은 몰랐네..."
 		<<elseif $speech_attitude is "bratty">>
-			"당연히 내 열렬한 팬<<nnpc_gendery "Whitney">>라면 알 줄 알았지," 당신이 윙크하며 말한다.
+			"당연히 내 열렬한 팬<<nnpc_gendery "Whitney">>라면 알 줄 알았지." 당신이 윙크하며 말한다.
 		<<else>>
 			"그래도 내 가장 열렬한 팬<<nnpc_gendery "Whitney">>한테 들으니 기분 좋네."
 		<</if>>
 		<br><br>
 		휘트니의 양 볼이 새빨개진다. <<He>>【은는】 <<his>> 손바닥으로 당신의 얼굴을 밀쳐내며 그 사실을 숨긴다. "한 번만 더 그렇게 부르면 씨발 내장을 다 뽑아버릴 줄 알아." <<He>>【은는】 빨대를 잘근잘근 씹으며 시선을 피한다.
 		<br><br>
-		당신들은 몇 분 만에 밀크셰이크를 같이 비운다. "구경 잘했다, 걸레야," 밀크셰이크가 바닥나자 <<he>>【이가】 말한다. "이제 가서 딴 새끼나 귀찮게 해."
+		당신들은 몇 분 만에 밀크셰이크를 같이 비운다. "구경 잘했다, 걸레야." 밀크셰이크가 바닥나자 <<he>>【이가】 말한다. "이제 가서 딴 새끼나 귀찮게 해."
 		<<if $location is "park">>
 			<<He>>【은는】 나무 밑 <<his>> 자리로 돌아간다.
 		<</if>>
@@ -526,7 +526,7 @@
 			<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 			<br>
 		<<else>>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<<else>>
 		당신은 혀로 꼭지를 이리저리 굴린다. 휘트니는 미심쩍은 표정으로 실실 웃으며 쳐다본다. <<him>>【이가】 이토록 빤히 쳐다보는 것은 꽤나 부담스럽다.<<stress 6>><<gstress>>
@@ -549,7 +549,7 @@
 			당신은 가벼운 대화를 나누며 남은 밀크셰이크를 나누어 마시는 데 몇 분을 보낸다. 셰이크가 동나자, 휘트니는 일어나 기지개를 켠다. <<his>> 배가 살짝 드러나는 것이 보인다.
 			<br><br>
 			<<if $location is "park">>
-				"씨발," 불붙이지 않은 담배를 입술에 물며 <<he>>【이가】 피식 웃는다. "그 꼴을 봤더니 담배 말리네."
+				"씨발." 불붙이지 않은 담배를 입술에 물며 <<he>>【이가】 피식 웃는다. "그 꼴을 봤더니 담배 말리네."
 
 				<<if playerBellyVisible()>>
 					<<He>>【은는】 습관처럼 <<his>> 라이터를 꺼내려다가, 불룩해진 당신의 배를 보고 멈칫한다. <<He>>【은는】 앓는 소리를 내며 눈을 굴리더니 라이터를 다시 집어넣는다.
@@ -562,18 +562,18 @@
 				<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 				<br>
 			<<else>>
-				<<whitneyoptions>>
+				<<whitneyOptions>>
 			<</if>>
 		<</if>>
 	<</if>>
 
 <<elseif $phase is 1>> /* Offer a kiss */
 	<<if $speech_attitude is "meek">>
-		"그, 그게... 내가 키스해 줄게?" 당신은 간신히 쥐어짜듯 말한다.
+		"그-그게... 내가 키스해 줄게?" 당신은 간신히 쥐어짜듯 말한다.
 	<<elseif $speech_attitude is "bratty">>
 		"네 잘나가는 <<girlfriend>>【이가】 해주는 키스는 어때?" 당신은 가르랑거리듯 묻는다.
 	<<else>>
-		"대신 뽀뽀해 줄게," 당신이 말한다. "공평한 거래잖아!"
+		"대신 뽀뽀해 줄게." 당신이 말한다. "공평한 거래잖아!"
 	<</if>>
 	<<promiscuity1>>
 
@@ -606,7 +606,7 @@
 		<<else>>
 			휘트니가 컹컹 웃음을 터뜨리더니, <span class="red"><<himself>>【이가】 직접 체리를 먹어버린다.</span><<stress 6>><<npcincr Whitney dom 1>><<gstress>><<gdom>>
 			<br><br>
-			"네 주인이 누군지 까먹지 마, 걸레야. 난 씨발 내가 원할 땐 언제든 너한테 키스할 수 있거든," <<he>>【이가】 말한다. "사실 지금 당장 꼴리기도 하고."
+			"네 주인이 누군지 까먹지 마, 걸레야. 난 씨발 내가 원할 땐 언제든 너한테 키스할 수 있거든." <<he>>【이가】 말한다. "사실 지금 당장 꼴리기도 하고."
 			<br><br>
 			휘트니는 한 손으로 당신의 얼굴을 거칠게 움켜쥐고, 당신의 입술을 들이대며 아찔한 키스를 퍼붓는다. <<takeKissVirginity "Whitney" `($whitneyromance is 1?"loveInterest":"romantic")`>>
 			<<if _pcKissVirginityTaken>>
@@ -617,7 +617,7 @@
 			<<if $speech_attitude is "meek">>
 				"너, 휘트니..."<<arousal 200>><<garousal>>
 			<<elseif $speech_attitude is "bratty">>
-				당신은 쏘아보며 몸을 비틀어 <<his>> 손아귀에서 빠져나온다. <<He>>【이가】 날카로운 눈초리로 당신을 바라보자, 반항심이 쏙 들어간다. "너야," 당신은 굴복한 채 한숨 쉰다.<<stress 6>><<gstress>>
+				당신은 쏘아보며 몸을 비틀어 <<his>> 손아귀에서 빠져나온다. <<He>>【이가】 날카로운 눈초리로 당신을 바라보자, 반항심이 쏙 들어간다. "너야." 당신은 굴복한 채 한숨 쉰다.<<stress 6>><<gstress>>
 			<<else>>
 				"너, 휘트니..."<<arousal 200>><<garousal>>
 			<</if>>
@@ -625,16 +625,16 @@
 			<<He>>【은는】 당신의 뺨을 톡톡 친다. "착한 <<girl>>."<<npcincr Whitney lust 5>><<glust>>
 			<br><br>
 			<<if $location is "park">>
-				당신이 속으로 조용히 뾰루퉁해 있는 동안, 휘트니는 만족스러운 미소를 지으며 밀크셰이크를 다시 빨아먹기 시작한다. <<He>>【은는】 <<= Weather.precipitation is "snow" ? "당신의 어깨에" : "벤치 등받이에">> 팔을 걸치고 당신의 머리카락을 가지고 논다. 다 놀고 나면, <<he>>【은는】 당신의 관자놀이에 키스한다. "이건 고마워, 걸레야," 나무 밑 <<his>> 자리로 느긋하게 걸어가기 전 <<he>>【이가】 말한다.<<npcincr Whitney love 1>><<glove>>
+				당신이 속으로 조용히 뾰루퉁해 있는 동안, 휘트니는 만족스러운 미소를 지으며 밀크셰이크를 다시 빨아먹기 시작한다. <<He>>【은는】 <<= Weather.precipitation is "snow" ? "당신의 어깨에" : "벤치 등받이에">> 팔을 걸치고 당신의 머리카락을 가지고 논다. 다 놀고 나면, <<he>>【은는】 당신의 관자놀이에 키스한다. "이건 고마워, 걸레야." 나무 밑 <<his>> 자리로 느긋하게 걸어가기 전 <<he>>【이가】 말한다.<<npcincr Whitney love 1>><<glove>>
 				<br><br>
 
 				<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 				<br>
 			<<else>>
-				휘트니는 만족스러운 미소를 지으며 계속해서 밀크셰이크를 빨아먹는다. <<He>>【은는】 당신의 어깨에 팔을 얹고 머리카락을 가지고 놀더니, 이내 당신의 관자놀이에 키스한다. "이건 고마워, 걸레야," <<he>>【이가】 말한다.
+				휘트니는 만족스러운 미소를 지으며 계속해서 밀크셰이크를 빨아먹는다. <<He>>【은는】 당신의 어깨에 팔을 얹고 머리카락을 가지고 놀더니, 이내 당신의 관자놀이에 키스한다. "이건 고마워, 걸레야." <<he>>【이가】 말한다.
 				<br><br>
 
-				<<whitneyoptions>>
+				<<whitneyOptions>>
 			<</if>>
 		<</if>>
 	<<else>>
@@ -642,14 +642,14 @@
 		"어느 동네에서 그게 공평한 거래냐?" 휘트니가 코웃음 친다. "난 그것보단 더 좋은 걸 원해."
 		<br><br>
 		<<if $speech_attitude is "meek">>
-			"그, 그럼... 내 키스로는 부족하다는 거야...?" 당신은 최대한 뾰로통한 표정을 지어 보인다.
+			"그-그럼... 내 키스로는 부족하다는 거야...?" 당신은 최대한 뾰로통한 표정을 지어 보인다.
 		<<elseif $speech_attitude is "bratty">>
 			"내 입술보다 더 좋은 게 어딨다고 그래?" 당신은 똑같이 코웃음 치며 받아친다.
 		<<else>>
 			"지금 나랑 키스하기 싫다는 거야?" 당신이 묻는다.
 		<</if>>
 		<br><br>
-		<<His>> 시선이 당신의 입술로 향한다. "좋아," 컵을 내밀며 <<he>>【이가】 말한다. 당신은 체리를 한입에 먹어 치운다. "근데 진짜 기깔나게 해주는 게 좋을 거다."
+		<<His>> 시선이 당신의 입술로 향한다. "좋아." 컵을 내밀며 <<he>>【이가】 말한다. 당신은 체리를 한입에 먹어 치운다. "근데 진짜 기깔나게 해주는 게 좋을 거야."
 		<br><br>
 		당신은 <<him>>【을를】 당겨 안고 몇 분간 딥키스를 나눈다. 당신이 몸을 떼려 할 때마다, 휘트니는 당신의 뒤통수에 손을 얹어 못 가게 막는다. <<He>>【은는】 당신의 입안으로 혀를 미끄러뜨리기 전 따뜻한 혀로 아랫입술을 핥는다. 두 사람의 혀가 얽히고, 관능적인 소리를 내며 서로의 호흡에 맞춰 입술을 부딪힌다. 마침내 <<he>>【이가】 떨어지자 왠지 아쉽다.<<arousal 600 "mouth">><<npcincr Whitney lust 5>><<garousal>><<glust>>
 		<br><br>
@@ -663,7 +663,7 @@
 		<<elseif $speech_attitude is "bratty">>
 			당신의 입가에 걸린 호기로운 미소가 자신감을 대변한다. "어때? 나 키스 존나 잘하지?"
 		<<else>>
-			"체리 줘서 고마워," 당신이 말한다. "그럴 만한 가치가 있었길 바라."
+			"체리 줘서 고마워." 당신이 말한다. "그럴 만한 가치가 있었길 바라."
 		<</if>>
 		<br><br>
 		<<He>>【은는】 대수롭지 않다는 듯 콧방귀를 뀐다.
@@ -677,7 +677,7 @@
 		<<else>>
 			당신들은 몇 분 동안 침묵 속에서 남은 밀크셰이크를 나눠 먹는다. 다 먹고 나자, <<he>>【은는】 빈 컵을 쓰레기통에 쳐넣는다.
 			<br><br>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<</if>>
 
@@ -705,7 +705,7 @@
 		<</if>>
 		"다신 그 지랄 하지 마."<<stress 6>><<gstress>>
 		<br><br>
-		당신은 쭈뼛거리며 <<him>> 옆자리에 앉아 휘트니가 큰 소리를 내며 다 빨아먹을 때까지 셰이크를 나눠 먹는다. <<He>>【은는】 빈 컵을 당신 손에 쥐여준다. "자. 네가 좋아 죽는 밀크셰이크 나눠 먹어 줬다.<<= $location is "park" ? " 이제 가서 딴 새끼나 귀찮게 해." : "">>"
+		당신은 쭈뼛거리며 <<him>> 옆자리에 앉아 휘트니가 큰 소리를 내며 다 빨아먹을 때까지 셰이크를 나눠 먹는다. <<He>>【은는】 빈 컵을 당신 손에 쥐여준다. "자. 네 멍청한 밀크셰이크 나눠 먹어 줬잖아.<<= $location is "park" ? " 이제 가서 딴 새끼나 귀찮게 해." : "">>"
 		<<if $location is "park">>
 			<<He>>【은는】 나무 밑 <<his>> 자리로 돌아간다.
 			<br><br>
@@ -714,7 +714,7 @@
 			<br>
 		<<else>>
 			<br><br>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<<else>>
 		휘트니의 눈이 동그래진다. <<He>>【은는】 당신 생각보다 훨씬 재빠르게 반응하여, 당신이 가리킨 곳을 보려고 몸을 돌리는 동시에 당신을
@@ -736,34 +736,34 @@
 			<br><br>
 
 			<<endevent>>
-			<<whitneyexit>>
+			<<whitneyExit>>
 		<<else>>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<</if>>
 
 <<else>> /* Beg */
 	<<wearProp "cherry">>
-	당신은 휘트니에게 최대한 입술을 삐죽이는 표정을 지어 보이며 가까이 다가간다. "제발, 체리 주면 안 될까? 나, 나 저거 진짜 꼭 먹고 싶어. 나 그동안 진짜 착한 <<girl>>【이었였】잖아, 그, 그렇지? 제, 제발, 휘트니?"
+	당신은 휘트니에게 최대한 입술을 삐죽이는 표정을 지어 보이며 가까이 다가간다. "제발, 체리 주면 안 될까? 나, 나 저거 진짜 꼭 먹고 싶어. 나 그동안 진짜 착한 <<girl>>【이었였】잖아, 그-그렇지? 제-제발, 휘트니?"
 	<br><br>
 	휘트니가 피식 웃더니, <<himself>>【이가】 직접 컵에서 체리를 집어 든다. "뭐, 이거?" <<He>>【은는】 자기가 먹을 것처럼 <<his>> 입 위에서 체리를 달랑거린다. "그것보다 더 간절하게 빌지 못하면, 그냥 내가 먹어버려야겠는데."
 	<br><br>
 	"아, 안 돼! 제발!" 당신이 말한다. "네가 하라는 거 다 할게..."
 	<br><br>
-	그 말에 <<his>> 흥미가 돋는다. "뭐든, 엉? 글쎄다..." 당신이 계속해서 애처롭게 앓는 소리를 내며 애원하는 동안 <<He>>【은는】 낄낄거리지만, 결국 당신에게 체리를 내민다.
+	그 말에 <<his>> 흥미가 돋는다. "뭐든, 엉? 글쎄..." 당신이 계속해서 애처롭게 앓는 소리를 내며 애원하는 동안 <<He>>【은는】 낄낄거리지만, 결국 당신에게 체리를 내민다.
 	<br><br>
 	<<if C.npc.Whitney.dom gte 16>>
-		"좋아," <<he>>【이가】 못 이기는 척 말한다.
+		"좋아." <<he>>【이가】 못 이기는 척 말한다.
 		<br><br>
 		당신이 막 한입 베어 물려던 찰나, <<he>>【이가】 체리를 홱 빼더니 <span class="red"><<himself>>【이가】 낼름 먹어버린다.</span> "구걸이나 하는 <<= $worn.neck.collared is 1 ? "개새끼" : "걸레">>랑은 협상 안 해서 어쩌냐."<<stress 6>><<gstress>>
 		<br><br>
-		당신은 굴복하여 어깨를 늘어뜨리지만, 휘트니는 <<if $worn.neck.collared is 1>>당신의 목걸이 아래로 손가락을 걸어 당기며<</if>> 입술이 멍들 정도로 거칠게 키스한다. <<He>>에게서 설탕에 절인 체리 맛이 난다. "그래도 존나게 <<= either("말을 잘 들으면", "고분고분하게 굴면", "얌전하게 굴면")>> 상은 주지," <<he>>【이가】 말한다.
+		당신은 굴복하여 어깨를 늘어뜨리지만, 휘트니는 <<if $worn.neck.collared is 1>>당신의 목걸이 아래로 손가락을 걸어 당기며<</if>> 입술이 멍들 정도로 거칠게 키스한다. <<He>>에게서 설탕에 절인 체리 맛이 난다. "그래도 존나게 <<= either("말을 잘 들으면", "고분고분하게 굴면", "얌전하게 굴면")>> 상은 주지." <<he>>【이가】 말한다.
 		<br><br>
 
 		<<link [[다음|Whitney Milkshake Cherry Reward]]>><</link>>
 		<br>
 	<<else>>
-		"아오, 알았어," <<he>>【이가】 못 이기는 척 말한다. "자. 넌 빌 때 좀 귀여운 걸 다행으로 알아라."
+		"아오, 알았어." <<he>>【이가】 못 이기는 척 말한다. "자. 넌 빌 때 좀 귀여운 걸 다행으로 알아."
 		<br><br>
 		당신은 전리품을 먹은 뒤 우물거리며 고맙다고 말한다. <<He>>【은는】 당신의 뺨을 톡톡 치고, 당신은 <<his>> 손길에 몸을 기댄다. <<if C.npc.Whitney.love gte 25>><<He>>【은는】 몇 초간 엄지손가락으로 당신의 뺨을 다정하게 어루만진다. 적어도, <<hes>> 자기가 무슨 짓을 하고 있는지 깨닫기 전까지는 말이다.<</if>>
 		<br><br>
@@ -774,7 +774,7 @@
 			<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 			<br>
 		<<else>>
-			<<whitneyoptions>>
+			<<whitneyOptions>>
 		<</if>>
 	<</if>>
 <</if>>
@@ -788,7 +788,7 @@
 	<</if>>
 
 	<<if $NPCList[0].penis isnot "none">>
-		당신은 <<his>> <<npcClothesText `C.npc.Whitney` "lower">>【을를】 제대로 치워, 이미 당신의 입술을 기다리듯 달아오른 <<his>> <<print window.KR.getPenisDescKr($NPCList[0].penisdesc)>>【을를】 드러낸다. 당신은 <<his>> 무릎 위로 몸을 숙여 <<him>> 입에 넣는다. 휘트니는 한숨을 쉬며 <<his>> 자리에 몸을 맡기고, <<his>> 손은 당신의 머리카락을 움켜쥔다. "아직 세계적인 자지 빠는 년으로 만들어주마."
+		당신은 <<his>> <<npcClothesText `C.npc.Whitney` "lower">>【을를】 제대로 치워, 이미 당신의 입술을 기다리듯 달아오른 <<his>> <<print window.KR.getPenisDescKr($NPCList[0].penisdesc)>>【을를】 드러낸다. 당신은 <<his>> 무릎 위로 몸을 숙여 <<him>> 입에 넣는다. 휘트니는 한숨을 쉬며 <<his>> 자리에 몸을 맡기고, <<his>> 손은 당신의 머리카락을 움켜쥔다. "아직 세계적인 자지 빠는 년으로 만들어줄 거야."
 		<br><br>
 		<<switch C.npc.Whitney.penissize>>
 			<<case 4>>
@@ -796,7 +796,7 @@
 			<<case 3>>
 				당신은 <<him>>【을를】 몇 인치 이상 받아들이려 애쓰지만, 휘트니는 당신의 코가 <<his>> 사타구니에 완전히 닿을 때까지 만족하지 않는다. <<He>>【은는】 당신을 그 자리에 붙잡고, 침입감에 목구멍이 경련한다. "네가 내 걸로 헛구역질하는 거 존나 좋아..." 당신은 <<he>>【이가】 이끄는 대로 머리를 위아래로 움직이기 시작하고, 머리카락이 방해되지 않게 붙잡힌 채 움직인다.
 			<<case 2>>
-				당신은 <<him>>【의】 주위로 볼을 오므린다. "하, 따뜻하네. 씨발. 혀 좀 더 써." 민감한 아랫면을 혀끝으로 스치자 <<His>> 숨이 걸린다. "씨, 씨발..." <<He>>【은는】 당신의 입 안으로 조금 밀어붙이고, <<his>> 손가락이 당신의 머리카락을 더 세게 움켜쥐는 것이 느껴진다.
+				당신은 <<him>>【의】 주위로 볼을 오므린다. "하, 따뜻하네. 씨발. 혀 좀 더 써." 민감한 아랫면을 혀끝으로 스치자 <<His>> 숨이 걸린다. "씨-씨발..." <<He>>【은는】 당신의 입 안으로 조금 밀어붙이고, <<his>> 손가락이 당신의 머리카락을 더 세게 움켜쥐는 것이 느껴진다.
 			<<default>>
 				당신이 <<his>> 자지를 따라 혀를 돌리자 <<He>>【은는】 신음한다. "그래. 받아, 씨발, 그렇게. 전부 받아." 당신은 <<him>>에게 <<his>> 크기를 생각하면 딱히 어려운 일은 아니라고 말하고 싶은 것을 참고, 민감한 귀두를 따뜻하고 젖은 입으로 감싸는 데 집중한다.
 		<</switch>>
@@ -805,9 +805,9 @@
 		얼마 지나지 않아 휘트니는 <<he>>【이가】 사정하며 몸을 접듯 굽힌다. <<hes>> 끝날 때까지 <<his>> <<print window.KR.getPenisDescKr($NPCList[0].penisdesc)>>【을를】 당신의 입 안에 박아둔 채, 뜨겁고 진득한 정액을 목구멍으로 쏟아 넣는다.<<arousal 600 "mouth">><<garousal>>
 		<<oralejacstat>><<ejacstat>><<cumswallow "human" null `npcSemenMod(C.npc.Whitney.penissize)`>>
 	<<else>>
-		당신은 바닥에 무릎을 꿇고 <<his>> <<npcClothesText `C.npc.Whitney` "lower">>【을를】 제대로 치워, 이미 당신의 혀를 기다리듯 젖은 <<his>> 보지를 드러낸다. 당신은 <<his>> 허벅지 안쪽에 입을 맞춘 뒤, 코와 입술을 <<his>> 갈라진 살 깊숙이 파묻는다. 휘트니는 한숨을 쉬며 <<his>> 자리에 몸을 맡기고, <<his>> 손은 당신의 머리카락을 움켜쥐어 거칠게 이끈다. "아직 세계적인 보지 빠는 년으로 만들어주마."
+		당신은 바닥에 무릎을 꿇고 <<his>> <<npcClothesText `C.npc.Whitney` "lower">>【을를】 제대로 치워, 이미 당신의 혀를 기다리듯 젖은 <<his>> 보지를 드러낸다. 당신은 <<his>> 허벅지 안쪽에 입을 맞춘 뒤, 코와 입술을 <<his>> 갈라진 살 깊숙이 파묻는다. 휘트니는 한숨을 쉬며 <<his>> 자리에 몸을 맡기고, <<his>> 손은 당신의 머리카락을 움켜쥐어 거칠게 이끈다. "아직 세계적인 보지 빠는 년으로 만들어줄 거야."
 		<br><br>
-		당신이 <<his>> 부풀어 오른 클리를 번갈아 핥고 빨자 <<He>>【은는】 헐떡이며 신음한다. "아, 씨발, 좋네. 혀 좀 더 써. 손가락도." 당신은 <<his>> 축축한 보지에 손가락 하나를 밀어 넣고, 이어 하나를 더 넣어 본격적으로 움직인다. "씨, 씨발, 언제 그런 걸 배운..." <<His>> 말은 추잡한 신음으로 무너지고, 당신의 <<genitals>>마저 더한 것을 갈망하게 된다.
+		당신이 <<his>> 부풀어 오른 클리를 번갈아 핥고 빨자 <<He>>【은는】 헐떡이며 신음한다. "아, 씨발, 좋네. 혀 좀 더 써. 손가락도." 당신은 <<his>> 축축한 보지에 손가락 하나를 밀어 넣고, 이어 하나를 더 넣어 본격적으로 움직인다. "씨-씨발, 언제 그런 걸 배운..." <<His>> 말은 추잡한 신음으로 무너지고, 당신의 <<genitals>>마저 더한 것을 갈망하게 된다.
 		<br><br>
 		얼마 지나지 않아 휘트니는 <<he>>【이가】 사정하며 <<his>> 머리를 뒤로 젖히고, <<he>>【은는】 당신의 얼굴을 <<his>> 보지에 밀어 넣은 채 코와 입술에 몸을 비빈다. <<His>> 뜨거운 애액이 당신의 얼굴을 흠뻑 적시고, 턱까지 흘러내린다.<<arousal 600 "mouth">><<garousal>>
 		<<faceejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "face" "goo">>
@@ -829,9 +829,9 @@
 		<br><br>
 
 		<<endevent>>
-		<<whitneyexit>>
+		<<whitneyExit>>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <<else>> /* Refuse */
 	휘트니가 <<his>> 눈을 굴리지만, 당신의 손을 놓아준다. "됐어. 그냥 도와주려고 한 거야."
@@ -846,7 +846,7 @@
 		<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <</if>>
 
@@ -914,7 +914,7 @@
 
 	<<clotheson>>
 	<<endcombat>>
-	<<whitneyexit>>
+	<<whitneyExit>>
 <<elseif $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation>>
 	휘트니는 만족스러운 한숨을 쉬며 <<= Weather.precipitation is "snow" ? "분수 턱" : "공원 벤치">>에 도로 앉는다.
@@ -953,7 +953,7 @@
 			"거래해서 즐거웠어, 걸레야." <<He>>【은는】 다른 말 없이 공원을 나간다.
 			<br><br>
 
-			<<whitneyexit>>
+			<<whitneyExit>>
 		<</if>>
 	<<else>>
 		<<npcincr Whitney lust -20>><<llust>>
@@ -971,7 +971,7 @@
 		<</if>>
 		<br><br>
 		<<endcombat>>
-		<<whitneyexit>>
+		<<whitneyExit>>
 	<</if>>
 <<elseif $alarm is 1 and $rescue is 1>>
 	당신 쪽을 바라보는 공원 이용객 몇 명을 <<he>>【이가】 발견하자 휘트니가 고개를 번쩍 든다. "젠장, 폐활량 하나는 끝내주네," 휘트니는 <<he>>【이가】 당신 위에서 <<= $phase is 0 ? "기어내려오며" : "기어가듯 내려오며">> <<his>> 옷을 추스르며 투덜댄다. "다음엔 각오해."
@@ -980,7 +980,7 @@
 
 	<<clotheson>>
 	<<endcombat>>
-	<<whitneyexit>>
+	<<whitneyExit>>
 <<else>>
 	휘트니가 <<his>> 눈을 굴리고 당신 위에서 내려온다. "좋아. 앞으로 내가 너한테 뭘 주나 봐." <<He>>【은는】 <<his>> 옷을 추스르고 불붙이지 않은 담배를 <<his>> 입술 사이에 문다. "나중에 갚게 될 거야. 기대해."
 	<<He>>【은는】 당신을 벤치에서 밀어내고 뒤도 돌아보지 않은 채 공원 밖으로 성큼성큼 나간다.<<npcincr Whitney love -1>><<npcincr Whitney dom -1>><<llove>><<ldom>>
@@ -988,9 +988,8 @@
 
 	<<clotheson>>
 	<<endcombat>>
-	<<whitneyexit>>
+	<<whitneyExit>>
 <</if>>
-<<endcombat>>
 
 :: Whitney Milkshake Cherry Sex Exposed
 <<effects>><<set $outside to 1>><<set $location to "town">><<pass 20>>
@@ -1016,18 +1015,18 @@
 	<<if $worn.genitals.origin is "Whitney">>
 		"아. 맞다." 휘트니는 <<his>> 고개를 젓고 한숨을 쉬지만, 그래도 히죽 웃는다. "넌 진짜 착한 걸레네, 응?" <<He>>【은는】 대신 다시 한 번 키스해준다. 방금 전보다 조금 덜 공격적인 듯하다. "계속 그렇게 해."<<npcincr Whitney love 1>><<npcincr Whitney lust 5>><<glove>><<glust>>
 		<br><br>
-		당신은 다시 밀크쉐이크를 함께 마신다. 간식을 다 먹자, <<he>>【이가】 빈 컵을 당신 손에 찔러 넣는다. "자. 네 멍청한 밀크쉐이크 같이 마셔줬다. 이제 딴 놈이나 귀찮게 해." <<He>>【은는】 나무 아래 <<his>> 자리로 돌아간다.
+		당신은 다시 밀크쉐이크를 함께 마신다. 간식을 다 먹자, <<he>>【이가】 빈 컵을 당신 손에 찔러 넣는다. "자. 네 멍청한 밀크쉐이크 같이 마셔줬어. 이제 딴 놈이나 귀찮게 해." <<He>>【은는】 나무 아래 <<his>> 자리로 돌아간다.
 	<<else>>
 		<<He>>【은는】 <<his>> 미간을 찌푸리고는 당신에게 답을 구하듯 본다. 당신은 민망하게 어깨를 으쓱한다. <<He>>【은는】 재미없다는 듯, 거의 실망한 표정으로 남아 있다. "됐어. 네 손해지." 휘트니는 당신을 <<his>> 무릎에서 밀어내고 <<his>> 우산을 챙겨 나무 아래 <<his>> 자리로 돌아간다.
 		<br><br>
-		"저, 저기, 밀크쉐이크는?" 당신이 <<him>>【을를】 부르지만, 휘트니는 아랑곳하지 않는다.
+		"저-저기, 밀크쉐이크는?" 당신이 <<him>>【을를】 부르지만, 휘트니는 아랑곳하지 않는다.
 	<</if>>
 	<br><br>
 	<<if $location is "park">>
 		<<link [[다음|Whitney Park]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <<else>>
 	<<if $player.penisExist and (!$player.vaginaExist or random(1, 2) is 2)>>
@@ -1042,7 +1041,7 @@
 		<<if $worn.genitals.name is "chastity parasite">>
 			<<He>>【은는】 당신의 _bottom.name 아래로 <<his>> 손을 밀어 넣고, 피부를 따라 훑다가 정조대 기생충을 움켜쥔다.
 			<br><br>
-			"표정만 봐도 다 알겠네," <<he>>【이가】 웃는다. "굶주린 빌어먹을 걸레." 당신은 <<his>> 거센 압박과 손길에 맞춰 엉덩이를 흔들기 시작한다.
+			"표정만 봐도 다 알겠네." <<he>>【이가】 웃는다. "굶주린 빌어먹을 걸레." 당신은 <<his>> 거센 압박과 손길에 맞춰 엉덩이를 흔들기 시작한다.
 		<<else>>
 			<<His>> 손가락이 당신의 길이를 따라 훑고, 당신이 충분히 단단해지자 <<him>>【은는】 본격적으로 당신의 <<penis>>【을를】 훑기 시작한다.
 			<br><br>
@@ -1052,14 +1051,14 @@
 	<<else>>
 		<<His>> 손가락이 능숙하게 당신의 클리를 맴돌고, 충분히 젖자 <<him>>【은는】 두 손가락을 당신의 보지 안으로 부드럽게 밀어 넣는다.
 		<br><br>
-		"참 조이는 조그만 씹이네," <<he>>【이가】 말한다. "내 손 위에 질질 쌀 거야?" 당신은 <<his>> 움직임에 맞춰 <<his>> 손 위로 엉덩이를 흔들기 시작한다. <<He>>【은는】 <<his>> 손바닥 아랫부분으로 당신의 클리를 짓눌러 문지르고, 몸 안에 전율이 번진다. 몇 분이면 충분하다. <<him>>【이가】 당신의 목에서 떨리는 숨을 끌어내며, 당신은 절정에 오른다.
+		"참 조이는 조그만 씹이네." <<he>>【이가】 말한다. "내 손 위에 질질 쌀 거야?" 당신은 <<his>> 움직임에 맞춰 <<his>> 손 위로 엉덩이를 흔들기 시작한다. <<He>>【은는】 <<his>> 손바닥 아랫부분으로 당신의 클리를 짓눌러 문지르고, 몸 안에 전율이 번진다. 몇 분이면 충분하다. <<him>>【이가】 당신의 목에서 떨리는 숨을 끌어내며, 당신은 절정에 오른다.
 	<</if>>
 	<br><br>
 	<<orgasm>>
 	<<if ($parasite.penis.name and $parasite.penis.name isnot "parasite") or $worn.genitals.name is "chastity parasite" or ($player.penisExist and $femaleclimax is 1)>>
-		휘트니는 <<his>> 손에 묻은 체액이 적은 것이 아쉬운 듯하다. "뭐, 적어도 그 완전히 박힌 표정만 봐도 좋았다는 건 알겠네. 감사 인사는 됐어," <<he>>【이가】 말한다.
+		휘트니는 <<his>> 손에 묻은 체액이 적은 것이 아쉬운 듯하다. "뭐, 적어도 그 완전히 박힌 표정만 봐도 좋았다는 건 알겠네. 감사 인사는 됐어." <<he>>【이가】 말한다.
 	<<else>>
-		휘트니는 <<his>> 손가락을 깨끗이 핥는다. "간식 고맙다," <<he>>【이가】 웃는다. "내가 제일 좋아하는 맛이네."
+		휘트니는 <<his>> 손가락을 깨끗이 핥는다. "간식 고마워." <<he>>【이가】 웃는다. "내가 제일 좋아하는 맛이네."
 	<</if>>
 	<<npcincr Whitney love 1>><<npcincr Whitney lust 5>><<glove>><<glust>>
 	<br><br>
@@ -1067,9 +1066,9 @@
 		휘트니는 <<his>> 우산을 챙겨 들고 공원을 어슬렁거리며 나간다. 당신의 다리는 너무 떨려서 <<him>>【을를】 따라갈 수 없다.
 		<br><br>
 
-		<<whitneyexit>>
+		<<whitneyExit>>
 	<<else>>
-		<<whitneyoptions>>
+		<<whitneyOptions>>
 	<</if>>
 <</if>>
 
@@ -1109,7 +1108,7 @@
 	당신은 바닥에서 무언가를 줍는 척하며, 그 과정에서 그들이 당신의 셔츠 안을 엿볼 수 있게 한다. "마음에 드는 거라도 있어?" 당신이 속삭인다.
 	<br><br>
 
-	그들은 돈을 거의 휘트니에게 던지다시피 건네고, 휘트니는 그것을 챙긴다. "재밌게 놀아, 걸레야," <<nnpc_he "Whitney">> 웃으며, <<nnpc_he "Whitney">> 떠나면서 당신의 엉덩이를 찰싹 때린다.
+	그들은 돈을 거의 휘트니에게 던지다시피 건네고, 휘트니는 그것을 챙긴다. "재밌게 놀아, 걸레야," <<nnpc_he "Whitney">>【이가】 웃으며, <<nnpc_he "Whitney">>【이가】 떠나면서 당신의 엉덩이를 찰싹 때린다.
 	<br><br>
 
 	<<fullGroup>>【은는】 당신을 근처 골목으로 이끈다. 그곳에 도착하자마자, 그들은 일 초도 지체하지 않고 당신에게 달려든다.
@@ -1170,10 +1169,10 @@
 	<<npcincr Whitney dom -1>><<ldom>>
 	<br><br>
 	<<endcombat>><<clotheson>>
-	<<whitneyexit>>
+	<<whitneyExit>>
 <<else>> <!-- Defeat -->
 	<<endevent>><<loadNPC 0 "park_whore1">><<loadNPC 1 "park_whore2">>
-	"씩." <<tearful>> 당신은 휘트니에게서 끌려가고, 휘트니는 <<person1>><<person>>【이가】 <<nnpc_him "Whitney">>에게 준 돈을 센다.
+	"걸레를 원해?" 휘트니가 인상을 쓴다. "각각 £100." <<tearful>> 당신은 휘트니에게서 끌려가고, 휘트니는 <<person1>><<person>>【이가】 <<nnpc_him "Whitney">>에게 준 돈을 센다.
 	<br><br>
 
 	"조용히 즐기는 게 좋을 거야." <<person2>><<person>>【이가】 당신을 골목으로 끌고 가며 말한다. 두 사람이 다가온다.
@@ -1269,13 +1268,13 @@
 
 <<His>> 얼굴이 잠깐 누그러졌다가, <<he>>【이가】 코웃음을 치며 고개를 돌린다.
 <<if $whitneyromance is 1>>
-	"마음대로 해, 걸레야," <<he>>【이가】 말한다. "대신 이건 빚진 거야." <span class="green"><<He>>【이가】 당신의 팔을 놓고</span> 나무에 기대선다.
+	"마음대로 해, 걸레야." <<he>>【이가】 말한다. "대신 이건 빚진 거야." <span class="green"><<He>>【이가】 당신의 팔을 놓고</span> 나무에 기대선다.
 	<br><br>
 
 	<<endevent>><<clearNPC "park_whore1">><<clearNPC "park_whore2">><<npc Whitney>>
-	<<whitneyoptions>>
+	<<whitneyOptions>>
 <<else>>
-	"그딴 말은 신경 쓰는 놈한테나 해," <<he>>【이가】 중얼거린다. <span class="red"><<He>>【은는】 <<his>> 손아귀를 더 세게 조이고 계속 걷는다.</span> 당신의 항의는 전혀 막지 못한다.
+	"그딴 말은 신경 쓰는 놈한테나 해." <<he>>【이가】 중얼거린다. <span class="red"><<He>>【은는】 <<his>> 손아귀를 더 세게 조이고 계속 걷는다.</span> 당신의 항의는 전혀 막지 못한다.
 	<br><br>
 
 	<<link [[다음|Whitney Park Whore]]>><</link>>
@@ -1299,7 +1298,7 @@
 		"난 창녀가 아니야." 당신이 말한다. "다시는 그러지 마."
 		<br><br>
 
-		<<He>>【은는】 웃는다. "네게 선택권이 있는 것처럼 말하네."
+		<<He>>【은는】 웃는다. "너한테 선택권이 있는 것처럼 말하네."
 	<</if>>
 	긴 침묵이 흐른다. 그 사이로 <<if Weather.precipitation is "rain">>빗소리와<</if>> 휘트니가 <<print playerBellyVisible() ? "<<his>> 껌을 씹는 소리" : "<<his>> 담배를 깊게 빨아들이는 소리">>【이가】 섞인다. <<He>>【은는】 한숨으로 침묵을 깬다.
 	<br><br>
@@ -1324,7 +1323,7 @@
 <</if>>
 <br><br>
 
-<<whitneyoptions>>
+<<whitneyOptions>>
 
 :: Whitney Park Whore Romance
 <<effects>>
@@ -1339,7 +1338,7 @@
 	등 뒤를 더듬어보니 작은 지폐 뭉치가 만져진다. <<printmoney 5000>><<money 5000 "prostitution">>【을를】 얻었다.
 	<br><br>
 
-	<<whitneyoptions>>
+	<<whitneyOptions>>
 <<else>>
 	<<if $speech_attitude is "meek">>
 		"미안해." 당신이 말한다. "오늘은 이만하면 된 것 같아."
@@ -1353,13 +1352,13 @@
 	당신이 <<him>>【을를】 밀어내도 <<He>>【은는】 거의 움찔하지 않는다. <<He>>【은는】 말을 꺼내려다 코웃음으로 끝낸다. <<he>>【이가】 떠나려고 돌아서는 순간, 현금 뭉치가 <<his>> 어깨 너머로 툭 날아온다.
 	<br><br>
 
-	"네 몫," <<he>>【이가】 말한다. "고맙다는 말은 하지 마."
+	"네 몫." <<he>>【이가】 말한다. "고맙다는 말은 하지 마."
 	<br><br>
 
 	당신은 버려진 지폐들을 주워 모은다. <<printmoney 5000>><<money 5000 "prostitution">>【을를】 얻었다. 돈을 다 주웠을 때, 휘트니는 이미 사라지고 없었다.
 	<br><br>
 
-	<<whitneyexit>>
+	<<whitneyExit>>
 <</if>>
 
 :: Whitney Park Run Advice
@@ -1367,7 +1366,7 @@
 
 <<if $phase is 2>>
 	<<if $speech_attitude is "meek">>
-		"나, 나는 무서웠어." 당신이 더듬거리며 말한다. "미안해."
+		"나-나는 무서웠어." 당신이 더듬거리며 말한다. "미안해."
 	<<elseif $speech_attitude is "bratty">>
 		"네가 신경 쓸 줄은 몰랐네." 당신이 말한다. "미안."
 	<<else>>
@@ -1406,7 +1405,7 @@
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"제, 제발." 당신이 훌쩍인다. "다시는 안 돼."
+	"제-제발." 당신이 훌쩍인다. "다시는 안 돼."
 <<elseif $speech_attitude is "bratty">>
 	"엿 먹어." 당신이 으르렁거린다. "다시는 이 짓 안 해."
 <<else>>
@@ -1414,13 +1413,13 @@
 <</if>>
 <br><br>
 
-"내가 하려는 건—" <<He>>【은는】 말을 끊으며 신음하더니 당신을 놓아준다. "씨발, 됐다. 넌 수고할 가치도 없어."
+"내가 하려는 건—" <<He>>【은는】 말을 끊으며 신음하더니 당신을 놓아준다. "씨발, 됐어. 넌 수고할 가치도 없어."
 <br><br>
 
 <<He>>【은는】 한 번도 돌아보지 않고 공원 밖으로 성큼성큼 나간다.
 <br><br>
 
-<<whitneyexit>>
+<<whitneyExit>>
 
 :: Whitney Park Run Advice 2
 <<set $location to "alley">><<set $bus to "commercial">><<set $outside to 0>><<effects>>
