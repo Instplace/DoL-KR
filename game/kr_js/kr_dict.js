@@ -1159,6 +1159,40 @@ window.KR.getTentacleDescKr = function(word) {
     return window.KR.tentacleDescDict[String(word).toLowerCase()] || word;
 };
 
+// 머릿속 슬라임의 명령(영어 키)을 한국어 동사 어간으로 바꾼다. 뒤에 "라고"/"기를"/"길" 등이 바로 붙는다.
+// 주의: sleep.twee의 $_earSlimeEventText 맵과 같은 내용을 일부러 중복해 둔 것이므로 한쪽을 고치면 다른 쪽도 맞춰야 한다.
+// 모드가 추가한 모르는 명령은 영어 그대로 두고 " 하"를 붙인다.
+window.KR.earSlimeOrderDict = {
+    "go commando": "속옷을 입지 말",
+    "masturbate to orgasm": "자위해서 절정에 도달하",
+    "have sex with someone or something": "누군가 혹은 무언가와 섹스하",
+    "have sex with someone": "누군가와 섹스하",
+    "only sleep naked from now on": "이제부터 나체로만 자",
+    "go running or swimming for an hour": "한 시간 동안 달리거나 수영하",
+    "steal something": "무언가 훔치",
+    "go running or swimming naked for an hour": "한 시간 동안 나체로 달리거나 수영하",
+    "go running or swimming naked for two hours": "두 시간 동안 나체로 달리거나 수영하",
+    "study at the school library while naked for an hour": "한 시간 동안 나체로 학교 도서관에서 공부하",
+    "study at the school library while naked for two hours": "두 시간 동안 나체로 학교 도서관에서 공부하",
+    "fully expose yourself while working as a model in town": "마을에서 모델 일을 하는 동안 몸을 완전히 드러내",
+    "use the farm equipment to empty your breasts of milk": "농장 장비로 가슴의 모유를 전부 짜내",
+    "use the farm equipment to empty your penis of semen": "농장 장비로 자지의 정액을 전부 짜내",
+    "only wear feminine clothes for a while": "한동안 여성스러운 옷만 입으",
+    "only wear masculine clothes for a while": "한동안 남성스러운 옷만 입으",
+    "get sperm into your vagina": "정액을 질 안에 들이",
+    "get sperm into your anus": "정액을 항문 안에 들이",
+    "get your own sperm into your vagina": "자기 정액을 질 안에 들이",
+    "get your own sperm into your anus": "자기 정액을 항문 안에 들이",
+    "ejaculate into someone's vagina": "누군가의 질 안에 사정하",
+    "masturbate and orgasm at least ten times": "자위로 최소 열 번 절정에 이르",
+    "masturbate and orgasm at least five times": "자위로 최소 다섯 번 절정에 이르"
+};
+window.KR.getEarSlimeOrderKr = function(event) {
+    if (!event) return "";
+    const dict = window.KR.earSlimeOrderDict;
+    return Object.prototype.hasOwnProperty.call(dict, event) ? dict[event] : (String(event) + " 하");
+};
+
 window.KR.getCreatureTypeKr = function(type) {
     let _key = String(type).toLowerCase();
     let _giantPrefix = "";

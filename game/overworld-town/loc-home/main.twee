@@ -242,7 +242,7 @@
 	<<if $possessed>>
 		<<ind>><span class="purple">머릿속 슬라임은 조용하다.</span>
 	<<else>>
-		<<ind>><span class="red">머릿속 슬라임은 잠자리에 들기 전에 <<print $earSlime.event>> 하기를 원한다.</span>
+		<<ind>><span class="red">머릿속 슬라임은 잠자리에 들기 전에 <<= window.KR.getEarSlimeOrderKr($earSlime.event)>>기를 원한다.</span>
 	<</if>>
 	<br>
 <</if>>

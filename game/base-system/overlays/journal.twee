@@ -573,7 +573,7 @@
 						<li class="lewd"><<socialiseicon "ask">> 머릿속의 슬라임이 당신의 <<print $player.vaginaExist ? "vagina" : "anus">>에 당신 자신의 정액을 넣으라고 명령했습니다.</li>
 					<<case "only sleep naked from now on" "only wear feminine clothes for a while" "only wear masculine clothes for a while">> /* Show nothing */
 					<<default>>
-						<li class="lewd"><<bedicon>> 머릿속의 슬라임이 당신에게 <<print $earSlime.event>> 하라고 명령했습니다<<if $earSlime.noSleep>>. 명령을 따르기 전에는 잠을 잘 수 없습니다<</if>>.</li>
+						<li class="lewd"><<bedicon>> 머릿속의 슬라임이 당신에게 <<= window.KR.getEarSlimeOrderKr($earSlime.event)>>라고 명령했습니다<<if $earSlime.noSleep>>. 명령을 따르기 전에는 잠을 잘 수 없습니다<</if>>.</li>
 				<</switch>>
 			<</if>>
 			<<if $earSlime.forcedCommando isnot undefined and !$hypnosis_traits.silence gte 1>>
