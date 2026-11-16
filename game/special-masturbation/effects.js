@@ -1,6 +1,9 @@
 /*
 	Old version can be found at https://gitgud.io/Vrelnir/degrees-of-lewdity/-/blob/master/game/special-masturbation/effects.twee?ref_type=7f47147b
 */
+/* 한글판: 손가락 수를 고유어로("두 손가락"). masturbationEffectsArms에서 쓰므로 함수 밖에 둔다. */
+const nativeCount = n => ({ 1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯" })[Number(n)] || String(n);
+
 function masturbationEffects() {
 	const fragment = document.createDocumentFragment();
 	const br = () => document.createElement("br");
@@ -22,7 +25,6 @@ function masturbationEffects() {
 		element.textContent = text;
 		return element;
 	};
-	const nativeCount = n => ({ 1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯" })[Number(n)] || String(n);
 	const genitalsExposed = () => V.worn.over_lower.vagina_exposed >= 1 && V.worn.lower.vagina_exposed >= 1 && V.worn.under_lower.vagina_exposed >= 1;
 	const waterproofLower = [V.worn.over_lower, V.worn.lower].find(garment => garment.type.includes("waterproof"))?.name;
 	const breastsExposed = () => V.worn.over_upper.exposed >= 1 && V.worn.upper.exposed >= 1 && V.worn.under_upper.exposed >= 1;

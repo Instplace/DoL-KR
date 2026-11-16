@@ -699,7 +699,7 @@
 	<<runeventpool>>
 <</widget>>
 <<widget "destinationBeach" container>>
-	<<set _linkText to _args[0] ?? "Next">>
+	<<set _linkText to _args[0] ?? "다음">>
 	<<if $bus is "fishingBeach">>
 		<<link [[_linkText|Fishing Beach Wait]]>><<= _contents>><</link>>
 	<<else>>

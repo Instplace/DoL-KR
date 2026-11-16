@@ -1103,7 +1103,7 @@
 	<br>
 <</widget>>
 <<widget "destinationMoor" container>>
-	<<set _linkText to _args[0] ?? "Next">>
+	<<set _linkText to _args[0] ?? "다음">>
 	<<if $bus is "fishingMoor">>
 		<<link [[_linkText|Fishing Moor Wait]]>><<= _contents>><</link>>
 	<<else>>
