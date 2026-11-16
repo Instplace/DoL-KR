@@ -4,8 +4,9 @@
 #   - Actions 탭에서 직접 실행할 수도 있다. 태그를 비우면 게임 버전
 #     (game/01-config/sugarcubeConfig.js의 version)을 태그로 쓰고, 그 릴리스가 이미 있으면 파일만 새로 올린다.
 #
-# APK는 저장소 시크릿의 키로 서명한다(DOL_KEYSTORE_BASE64, DOL_KEYSTORE_PASSWORD). 같은 키로 서명해야
-# 이전 릴리스로 설치한 앱 위에 새 버전이 설치되므로, 키를 바꾸지 않는다.
+# APK는 저장소 시크릿의 키로 서명한다(DOL_KEYSTORE_BASE64: PKCS12 키 저장소를 base64로 적은 것, 별칭 dol.
+# DOL_KEYSTORE_PASSWORD: 그 암호). 같은 키로 서명해야 이전 릴리스로 설치한 앱 위에 새 버전이 설치되므로,
+# 키를 바꾸지 않는다. 시크릿이 없으면 APK는 게시하지 않고(zip만 게시), 빌드가 되는지만 디버그 빌드로 확인한다.
 name: Release
 
 on:
@@ -73,6 +74,13 @@ jobs:
           (cd out && zip -qr -9 "$name.zip" "$name" && rm -r "$name")
           ls -la out
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DoL-KR-${{ env.TAG }}-zip
+          path: out/*.zip
+          retention-days: 14
+          compression-level: 0
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -115,7 +123,12 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.DOL_KEYSTORE_BASE64 }}
           KEYSTORE_PASSWORD: ${{ secrets.DOL_KEYSTORE_PASSWORD }}
         run: |
-          if [ -z "$KEYSTORE_BASE64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then echo "::error::서명 키 시크릿(DOL_KEYSTORE_BASE64, DOL_KEYSTORE_PASSWORD)이 없습니다"; exit 1; fi
+          if [ -z "$KEYSTORE_BASE64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then
+            echo "::warning::서명 키 시크릿(DOL_KEYSTORE_BASE64, DOL_KEYSTORE_PASSWORD)이 없어 APK는 게시하지 않습니다. 빌드가 되는지만 디버그 빌드로 확인합니다."
+            echo "SIGNED=false" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          echo "SIGNED=true" >> "$GITHUB_ENV"
           mkdir -p keys
           printf '%s' "$KEYSTORE_BASE64" | base64 -d > keys/dol.keystore
           node -e '
@@ -127,31 +140,40 @@ jobs:
 
       - name: APK 빌드
         working-directory: devTools/apkbuilder
-        env:
-          BUILD_RELEASE: "true"
-          SKIP_PASSWORD: "true"
         run: |
           npm install --no-audit --no-fund
           npx cordova telemetry off
           npx cordova prepare
-          node scripts/build_app.js
+          if [ "$SIGNED" = "true" ]; then
+            BUILD_RELEASE=true SKIP_PASSWORD=true node scripts/build_app.js
+          else
+            node scripts/build_app.js
+          fi
 
       - name: APK 확인
         run: |
-          apk="$(ls dist/*-release.apk | head -n 1)"
-          cp "$apk" "out/DoL-KR-$TAG.apk"
           tools="$ANDROID_HOME/build-tools/32.0.0"
-          "$tools/aapt" dump badging "out/DoL-KR-$TAG.apk" | grep -E "^package:|^application-label:|^sdkVersion|^targetSdkVersion" | tee badging.txt
-          grep -q "name='$APP_PACKAGE'" badging.txt
-          grep -q "versionName='$VERSION'" badging.txt
-          "$tools/apksigner" verify --print-certs "out/DoL-KR-$TAG.apk" | grep -E "^Signer #1 certificate (DN|SHA-256)"
+          ls -la dist
+          if [ "$SIGNED" = "true" ]; then
+            apk="$(ls dist/*-release.apk | head -n 1)"
+            cp "$apk" "out/DoL-KR-$TAG.apk"
+            "$tools/aapt" dump badging "out/DoL-KR-$TAG.apk" | grep -E "^package:|^application-label:|^sdkVersion|^targetSdkVersion" | tee badging.txt
+            grep -q "name='$APP_PACKAGE'" badging.txt
+            grep -q "versionName='$VERSION'" badging.txt
+            "$tools/apksigner" verify --print-certs "out/DoL-KR-$TAG.apk" | grep -E "^Signer #1 certificate (DN|SHA-256)"
+          else
+            # 서명 키 없이 만든 디버그 빌드: 빌드가 되는지만 본다. 게시하지 않는다.
+            apk="$(ls dist/*-debug.apk | head -n 1)"
+            "$tools/aapt" dump badging "$apk" | grep -E "^package:|^application-label:|^sdkVersion|^targetSdkVersion"
+          fi
           rm -f keys/dol.keystore devTools/apkbuilder/build.json
           ls -la out
 
       - uses: actions/upload-artifact@v4
+        if: env.SIGNED == 'true'
         with:
-          name: DoL-KR-${{ env.TAG }}
-          path: out/
+          name: DoL-KR-${{ env.TAG }}-apk
+          path: out/*.apk
           retention-days: 14
           compression-level: 0
 
@@ -161,9 +183,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{TAG}}/$TAG/g" -e "s/{{COMMIT}}/$GITHUB_SHA/g" -e "s/{{PACKAGE}}/$APP_PACKAGE/g" -e "s/{{APP_NAME}}/$APP_NAME/g" .github/release-notes.md > notes.md
+          # APK가 없는 릴리스의 본문에서는 APK 이야기를 뺀다.
+          if [ "$SIGNED" != "true" ]; then sed -i '/<!-- apk -->/,/<!-- \/apk -->/d' notes.md; fi
+          sed -i '/<!-- \/\?apk -->/d' notes.md
+          files=("out/DoL-KR-$TAG.zip")
+          if [ "$SIGNED" = "true" ]; then files+=("out/DoL-KR-$TAG.apk"); fi
           if gh release view "$TAG" > /dev/null 2>&1; then
-            gh release upload "$TAG" "out/DoL-KR-$TAG.zip" "out/DoL-KR-$TAG.apk" --clobber
+            gh release upload "$TAG" "${files[@]}" --clobber
             gh release edit "$TAG" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
           else
-            gh release create "$TAG" "out/DoL-KR-$TAG.zip" "out/DoL-KR-$TAG.apk" --target "$GITHUB_SHA" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
+            gh release create "$TAG" "${files[@]}" --target "$GITHUB_SHA" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
           fi
