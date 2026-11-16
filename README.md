@@ -1,42 +1,10 @@
-# Degrees of Lewdity 한국어 번역판 (DoL-KR)
+# DoL-KR
 
 [Degrees of Lewdity](https://vrelnir.blogspot.com/) **0.5.13.8**의 한국어 번역본입니다.
 
-[아카라이브 DOL 채널](https://arca.live/b/dolgame)에서 만들어 온 번역본([Ooo-eee/DoL_KrTranslation](https://github.com/Ooo-eee/DoL_KrTranslation), 게임 버전 0.5.12.13)을 이어받아, 원작 0.5.13.8에 맞춰 갱신하고 문체와 용어를 정리했습니다.
+[아카라이브 DOL 채널](https://arca.live/b/dolgame)에서 만들어 온 번역본을 이어받아, 원작 0.5.13.8에 맞춰 갱신하고 문체와 용어를 정리했습니다.
 
 > 이 게임은 성인용입니다. 성적·폭력적인 내용을 담고 있으며 미성년자에게 적합하지 않습니다.
-
-## 이전 번역본과 달라진 점
-
-- **0.5.13.8 반영**: 원작에서 새로 생기거나 바뀐 문장 약 7,000줄과 선택지 문구 약 1,000개를 번역했습니다. 기존 번역문은 원문이 바뀌지 않은 한 그대로 두었습니다.
-- **고유 명사 통일**: 같은 대상을 여러 가지로 적던 표기를 하나로 맞췄습니다(약 470곳). 거리 이름은 "○○ 가"(하이 가, 다뉴브 가…), 인물·장소는 용어집의 표준 표기를 따릅니다.
-- **문체 통일**: 번역 안에서 갈리던 관례를 다수 쪽으로 정리했습니다.
-  - 서술은 현재형 한다체, 선택지는 "~한다" 꼴("~하기" 1,400여 곳 변경)
-  - 대사 뒤에 화자 표시가 이어지면 대사를 마침표로 끝냄(`"집에 가자." 로빈이 말한다.`)
-  - 말더듬은 `"고-고마워."` 꼴
-- **인물 말투 정리**: 이름 있는 인물 34명의 성격과 말투를 정리한 가이드를 만들고, 그에 맞춰 대사 약 1,400줄을 다듬었습니다(화계·호칭·1인칭이 장면마다 흔들리던 곳 위주).
-- **원작과 어긋나 있던 수치 정리**: 기존 번역본에는 원작의 밸런스 변경(절도 수입, 과외 보수, 농장 시설 비용 등. 일부는 0.5.11.4에서 바뀐 것)이 반영되지 않은 줄이 남아 있었습니다. 매크로 인자와 본문에 적힌 금액 등 약 120곳을 원작 0.5.13.8의 값으로 맞췄습니다.
-- 원작 갱신으로 구조가 바뀐 패시지의 코드를 원문과 맞추고, 그 과정에서 발견한 기존 오류(없는 함수를 부르던 출산 장면, 오타 난 식별자 등)를 고쳤습니다.
-
-정리 기준은 [`docs/kr-translation/`](docs/kr-translation/)에 있습니다.
-
-| 문서 | 내용 |
-| --- | --- |
-| [`STYLE.md`](docs/kr-translation/STYLE.md) | 문체·표기 규칙 |
-| [`GLOSSARY-propernouns.md`](docs/kr-translation/GLOSSARY-propernouns.md) | 고유 명사 표준 표기 |
-| `GLOSSARY-system.md` · `GLOSSARY-world.md` · `GLOSSARY-body-combat.md` | 시스템·세계·신체/전투 용어 |
-| [`CONVENTIONS.md`](docs/kr-translation/CONVENTIONS.md) | 조사 마커, 한글화 사전(`game/kr_js/`) 등 기술 관례 |
-| [`characters/`](docs/kr-translation/characters/) | 인물별 말투 가이드 |
-
-### 알아 둘 점
-
-이번 갱신분의 번역과 통일 작업은 AI(Claude)의 도움을 받아 진행했습니다. 원문과의 구조 비교, 빌드, 브라우저에서의 실행 점검은 자동으로 거쳤지만 사람이 모든 문장을 하나하나 검수한 것은 아닙니다. 어색한 문장이나 오역, 표기가 어긋난 곳을 발견하면 Issue나 Pull Request로 알려 주세요.
-
-## 이용 방법
-
-컴파일된 파일은 [Releases](https://github.com/Instplace/DoL-KR/releases)에서 받을 수 있습니다: PC용 zip(HTML과 `img` 폴더)과 안드로이드용 APK. 안드로이드판은 이 저장소의 키로 서명한 별도의 앱이라 원작의 공식 앱과 나란히 설치됩니다. 버전 태그를 올리면 GitHub Actions([`.github/workflows/release.yml`](.github/workflows/release.yml))가 컴파일해 게시합니다.
-
-직접 빌드하는 방법은 원작과 같습니다. 아래에 이어지는 원문 README의 "How to build"를 참고하세요(`compile.bat` 또는 `compile.sh`를 실행하면 `Degrees of Lewdity.html`이 만들어집니다).
 
 ## 원작과 출처
 
