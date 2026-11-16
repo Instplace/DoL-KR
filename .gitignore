@@ -47,3 +47,6 @@ release/
 
 # Gitlab configuration
 !.gitlab
+
+# GitHub Actions (릴리스 빌드)
+!.github

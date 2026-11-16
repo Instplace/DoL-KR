@@ -34,7 +34,9 @@
 
 ## 이용 방법
 
-빌드와 실행 방법은 원작과 같습니다. 아래에 이어지는 원문 README의 "How to build"를 참고하세요(`compile.bat` 또는 `compile.sh`를 실행하면 `Degrees of Lewdity.html`이 만들어집니다).
+컴파일된 파일은 [Releases](https://github.com/Instplace/DoL-KR/releases)에서 받을 수 있습니다: PC용 zip(HTML과 `img` 폴더)과 안드로이드용 APK. 안드로이드판은 이 저장소의 키로 서명한 별도의 앱이라 원작의 공식 앱과 나란히 설치됩니다. 버전 태그를 올리면 GitHub Actions([`.github/workflows/release.yml`](.github/workflows/release.yml))가 컴파일해 게시합니다.
+
+직접 빌드하는 방법은 원작과 같습니다. 아래에 이어지는 원문 README의 "How to build"를 참고하세요(`compile.bat` 또는 `compile.sh`를 실행하면 `Degrees of Lewdity.html`이 만들어집니다).
 
 ## 원작과 출처
 

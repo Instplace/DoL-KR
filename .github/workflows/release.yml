@@ -1,0 +1,169 @@
+# 한국어판을 컴파일해 릴리스로 게시한다: PC용 zip(HTML + img)과 안드로이드용 APK.
+#
+#   - 버전 태그(예: 0.5.13.8)를 올리면 그 태그의 릴리스를 만든다.
+#   - Actions 탭에서 직접 실행할 수도 있다. 태그를 비우면 게임 버전
+#     (game/01-config/sugarcubeConfig.js의 version)을 태그로 쓰고, 그 릴리스가 이미 있으면 파일만 새로 올린다.
+#
+# APK는 저장소 시크릿의 키로 서명한다(DOL_KEYSTORE_BASE64, DOL_KEYSTORE_PASSWORD). 같은 키로 서명해야
+# 이전 릴리스로 설치한 앱 위에 새 버전이 설치되므로, 키를 바꾸지 않는다.
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "릴리스 태그 (비우면 게임 버전)"
+        required: false
+        type: string
+      publish:
+        description: "릴리스로 게시 (끄면 빌드 결과를 아티팩트로만 남김)"
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+env:
+  # 안드로이드 앱의 패키지 이름과 표시 이름. 원작의 공식 앱(com.vrelnir.dol)과 서명 키가 다르므로
+  # 같은 패키지 이름을 쓰면 서로 설치를 막는다: 별도의 앱으로 설치되게 한다.
+  APP_PACKAGE: io.github.instplace.dolkr
+  APP_NAME: Degrees of Lewdity KR
+  APP_SHORT: DoL KR
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 버전과 태그
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          version="$(grep -oP '(?<=version: ")[0-9]+(\.[0-9]+)*' game/01-config/sugarcubeConfig.js | head -n 1)"
+          if [ -z "$version" ]; then echo "::error::게임 버전을 읽지 못했습니다"; exit 1; fi
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then tag="$GITHUB_REF_NAME"; else tag="${INPUT_TAG:-$version}"; fi
+          if ! printf '%s' "$tag" | grep -Eq '^[0-9A-Za-z][0-9A-Za-z._-]*$'; then echo "::error::태그 이름이 올바르지 않습니다: $tag"; exit 1; fi
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          echo "TAG=$tag" >> "$GITHUB_ENV"
+          echo "게임 버전 $version, 태그 $tag"
+
+      - name: HTML 컴파일
+        run: |
+          chmod +x compile.sh devTools/tweego/tweego_linux64
+          FORCE_VERSION="$VERSION" ./compile.sh
+          test -s "Degrees of Lewdity $VERSION.html"
+
+      - name: PC용 zip
+        run: |
+          name="DoL-KR-$TAG"
+          mkdir -p "out/$name"
+          cp "Degrees of Lewdity $VERSION.html" "out/$name/"
+          cp -r img "out/$name/img"
+          cp LICENSE "DoL Changelog.txt" "out/$name/"
+          (cd out && zip -qr -9 "$name.zip" "$name" && rm -r "$name")
+          ls -la out
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.5"
+
+      - name: Android SDK
+        run: |
+          set +o pipefail
+          sdkmanager="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$sdkmanager" --licenses > /dev/null
+          "$sdkmanager" "build-tools;32.0.0" "platforms;android-32" > /dev/null
+          test -x "$ANDROID_HOME/build-tools/32.0.0/apksigner"
+
+      # 원작의 빌드 안내대로, 안드로이드판은 선택지 번호 매기기를 끈 HTML로 만든다.
+      - name: 안드로이드용 HTML
+        run: |
+          sed -i 's/enableLinkNumberify: true/enableLinkNumberify: false/' game/01-config/sugarcubeConfig.js
+          grep -q 'enableLinkNumberify: false' game/01-config/sugarcubeConfig.js
+          FORCE_VERSION="$VERSION" ./compile.sh
+          test -s "Degrees of Lewdity.html"
+
+      - name: 앱 이름과 패키지
+        working-directory: devTools/apkbuilder
+        run: |
+          sed -i "s/android-packageName=\"[^\"]*\"/android-packageName=\"$APP_PACKAGE\"/" config.xml
+          sed -i "s|<name short=\"[^\"]*\">[^<]*</name>|<name short=\"$APP_SHORT\">$APP_NAME</name>|" config.xml
+          grep -q "android-packageName=\"$APP_PACKAGE\"" config.xml
+          grep -q ">$APP_NAME</name>" config.xml
+
+      - name: 서명 키
+        env:
+          KEYSTORE_BASE64: ${{ secrets.DOL_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.DOL_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then echo "::error::서명 키 시크릿(DOL_KEYSTORE_BASE64, DOL_KEYSTORE_PASSWORD)이 없습니다"; exit 1; fi
+          mkdir -p keys
+          printf '%s' "$KEYSTORE_BASE64" | base64 -d > keys/dol.keystore
+          node -e '
+            const fs = require("fs"), path = require("path");
+            const password = process.env.KEYSTORE_PASSWORD;
+            const release = { keystore: path.resolve("keys/dol.keystore"), storePassword: password, password, alias: "dol", keystoreType: "pkcs12", packageType: "apk" };
+            fs.writeFileSync("devTools/apkbuilder/build.json", JSON.stringify({ android: { release } }));
+          '
+
+      - name: APK 빌드
+        working-directory: devTools/apkbuilder
+        env:
+          BUILD_RELEASE: "true"
+          SKIP_PASSWORD: "true"
+        run: |
+          npm install --no-audit --no-fund
+          npx cordova telemetry off
+          npx cordova prepare
+          node scripts/build_app.js
+
+      - name: APK 확인
+        run: |
+          apk="$(ls dist/*-release.apk | head -n 1)"
+          cp "$apk" "out/DoL-KR-$TAG.apk"
+          tools="$ANDROID_HOME/build-tools/32.0.0"
+          "$tools/aapt" dump badging "out/DoL-KR-$TAG.apk" | grep -E "^package:|^application-label:|^sdkVersion|^targetSdkVersion" | tee badging.txt
+          grep -q "name='$APP_PACKAGE'" badging.txt
+          grep -q "versionName='$VERSION'" badging.txt
+          "$tools/apksigner" verify --print-certs "out/DoL-KR-$TAG.apk" | grep -E "^Signer #1 certificate (DN|SHA-256)"
+          rm -f keys/dol.keystore devTools/apkbuilder/build.json
+          ls -la out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DoL-KR-${{ env.TAG }}
+          path: out/
+          retention-days: 14
+          compression-level: 0
+
+      - name: 릴리스 게시
+        if: github.event_name == 'push' || inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{TAG}}/$TAG/g" -e "s/{{COMMIT}}/$GITHUB_SHA/g" -e "s/{{PACKAGE}}/$APP_PACKAGE/g" -e "s/{{APP_NAME}}/$APP_NAME/g" .github/release-notes.md > notes.md
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "out/DoL-KR-$TAG.zip" "out/DoL-KR-$TAG.apk" --clobber
+            gh release edit "$TAG" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
+          else
+            gh release create "$TAG" "out/DoL-KR-$TAG.zip" "out/DoL-KR-$TAG.apk" --target "$GITHUB_SHA" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
+          fi
