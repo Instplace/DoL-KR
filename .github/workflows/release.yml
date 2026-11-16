@@ -1,6 +1,9 @@
 # 한국어판을 컴파일해 릴리스로 게시한다: PC용 zip(HTML + img)과 안드로이드용 APK.
 #
 #   - 버전 태그(예: 0.5.13.8)를 올리면 그 태그의 릴리스를 만든다.
+#   - dev 브랜치에 푸시할 때마다 개발판을 빌드해, "dev-build" 태그의 시험판(pre-release)으로 게시한다(브랜치 이름과
+#     겹치지 않게 태그는 dev가 아니다). 개발판 릴리스는
+#     푸시마다 지우고 새 커밋에 다시 만든다(태그도 새 커밋으로 옮겨진다). 빌드 중에 dev에 다시 푸시하면 앞의 빌드는 취소된다.
 #   - Actions 탭에서 직접 실행할 수도 있다. 태그를 비우면 게임 버전
 #     (game/01-config/sugarcubeConfig.js의 version)을 태그로 쓰고, 그 릴리스가 이미 있으면 파일만 새로 올린다.
 #
@@ -13,6 +16,8 @@ on:
   push:
     tags:
       - "[0-9]*"
+    branches:
+      - dev
   workflow_dispatch:
     inputs:
       tag:
@@ -28,9 +33,10 @@ on:
 permissions:
   contents: write
 
+# 태그 릴리스는 차례로, 개발판은 새 푸시가 오면 앞의 빌드를 취소한다.
 concurrency:
-  group: release
-  cancel-in-progress: false
+  group: release-${{ github.ref_type == 'branch' && github.event_name == 'push' && 'dev' || 'tag' }}
+  cancel-in-progress: ${{ github.ref_type == 'branch' && github.event_name == 'push' }}
 
 env:
   # 안드로이드 앱의 패키지 이름과 표시 이름. 원작의 공식 앱(com.vrelnir.dol)과 서명 키가 다르므로
@@ -52,11 +58,15 @@ jobs:
         run: |
           version="$(grep -oP '(?<=version: ")[0-9]+(\.[0-9]+)*' game/01-config/sugarcubeConfig.js | head -n 1)"
           if [ -z "$version" ]; then echo "::error::게임 버전을 읽지 못했습니다"; exit 1; fi
-          if [ "$GITHUB_REF_TYPE" = "tag" ]; then tag="$GITHUB_REF_NAME"; else tag="${INPUT_TAG:-$version}"; fi
+          prerelease=false
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then tag="$GITHUB_REF_NAME"
+          elif [ "$GITHUB_EVENT_NAME" = "push" ]; then tag="dev-build"; prerelease=true
+          else tag="${INPUT_TAG:-$version}"; fi
           if ! printf '%s' "$tag" | grep -Eq '^[0-9A-Za-z][0-9A-Za-z._-]*$'; then echo "::error::태그 이름이 올바르지 않습니다: $tag"; exit 1; fi
           echo "VERSION=$version" >> "$GITHUB_ENV"
           echo "TAG=$tag" >> "$GITHUB_ENV"
-          echo "게임 버전 $version, 태그 $tag"
+          echo "PRERELEASE=$prerelease" >> "$GITHUB_ENV"
+          echo "게임 버전 $version, 태그 $tag, 개발판 $prerelease"
 
       - name: HTML 컴파일
         run: |
@@ -188,7 +198,13 @@ jobs:
           sed -i '/<!-- \/\?apk -->/d' notes.md
           files=("out/DoL-KR-$TAG.zip")
           if [ "$SIGNED" = "true" ]; then files+=("out/DoL-KR-$TAG.apk"); fi
-          if gh release view "$TAG" > /dev/null 2>&1; then
+          if [ "$PRERELEASE" = "true" ]; then
+            # 개발판: 앞의 것을 태그째 지우고 이 커밋에 새로 만든다.
+            short="${GITHUB_SHA:0:8}"
+            { printf '> **개발판입니다.** `dev` 브랜치의 커밋 %s를 자동으로 빌드했습니다. 정식 릴리스 전의 수정이 들어 있으며, 다음 푸시 때 이 릴리스는 새 빌드로 바뀝니다.\n\n' "$short"; cat notes.md; } > notes-dev.md
+            gh release delete "$TAG" --cleanup-tag --yes > /dev/null 2>&1 || true
+            gh release create "$TAG" "${files[@]}" --target "$GITHUB_SHA" --prerelease --title "개발판 (dev $short) - Degrees of Lewdity $VERSION 한국어판" --notes-file notes-dev.md
+          elif gh release view "$TAG" > /dev/null 2>&1; then
             gh release upload "$TAG" "${files[@]}" --clobber
             gh release edit "$TAG" --title "Degrees of Lewdity $VERSION 한국어판" --notes-file notes.md
           else
