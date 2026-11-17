@@ -192,16 +192,16 @@
 	"글쎄." <<he>>【이가】 수건을 풀어 옆으로 치우며 말한다,
 	<<if $averySeen.includes("spa")>>
 		<<if $averyragerevealed is 1 and (C.npc.Avery.rage gte 60 or $averyRejectedSpa)>>
-			"이번에는 네가 내 말을 고분고분 들을지 궁금하군." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
+			"이번에는 당신이 내 말을 고분고분 들을지 궁금하군요." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
 		<<else>>
-			"다시 만나서 반갑군, <<pcpetname "Avery">>. 날 아주 잘 돌봐줄 거지, 안 그래?"
+			"다시 만나서 반갑군요, <<pcpetname "Avery">>. 날 아주 잘 돌봐줄 거죠, 안 그래요?"
 		<</if>>
 	<<else>>
-		"널 볼 줄은 예상치 못했다고 해야겠지,
+		"당신을 볼 줄은 예상치 못했다고 해야겠죠,
 		<<if $averyragerevealed is 1 and C.npc.Avery.rage gte 60>>
-			최근의 네 태도를 생각하면, 이렇게 시중드는 자리에서는 말이야." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
+			최근 당신의 태도를 생각하면, 이렇게 시중드는 자리에서는 말이죠." <<He>>【이가】 한쪽 눈썹을 치켜올린다.
 		<<else>>
-			여기서 말이야, <<pcpetname "Avery">>."
+			여기서 말이죠, <<pcpetname "Avery">>."
 		<</if>>
 	<</if>>
 	<br><br>

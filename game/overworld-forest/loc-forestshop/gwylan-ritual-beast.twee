@@ -13,7 +13,7 @@
 	<<if $daily.gwylan.eventCancelled and $hypnosis_traits.devotion gte 1>>
 		<span class="green">그윌란과 함께 가고 싶은 충동을 떨쳐낸다.</span>
 	<</if>>
-	<<He>>【은는】 얼굴을 찌푸린다. "알겠다. 준비되면 다시 와라."
+	<<He>>【은는】 얼굴을 찌푸린다. "알았어. 준비되면 다시 와."
 	<br><br>
 
 	<<link [[다음|Forest Shop Entrance]]>><<endevent>><<set $daily.gwylan.eventCancelled to true>><</link>>
@@ -476,7 +476,7 @@
 	다른 하나에는 점프하는 여우 스케치가 있다.<br>
 <</if>>
 <<if $settings.plantsEnabled and $settings.tentaclesEnabled>>
-	마지막 것에는 나뭇잎 스케치가 있다. "이게 가장 위험하지만, 독을 정화할 가장 큰 기회가 되기도 할 거다."<br>
+	마지막 것에는 나뭇잎 스케치가 있다. "이게 가장 위험하지만, 독을 정화할 가장 큰 기회가 되기도 할 거야."<br>
 <</if>>
 <br>
 
@@ -2011,7 +2011,7 @@
 	<<if $beastRitual.petplay gte 3>>
 		당신은 숲속 상점으로 돌아온다. 마지막에는 그윌란이 당신을 개처럼 끌고 왔다. <<He>>【이가】 무릎을 꿇고 당신의 뺨을 쓰다듬는다.
 		<<if $beastRitual.sex or $beastRitual.orgasm>>
-			"이제 상을 받았으니, 얌전히 굴어야 할 거다." <<he>>【이가】 말한다.
+			"이제 상을 받았으니, 얌전히 굴어야 할 거야." <<he>>【이가】 말한다.
 		<<else>>
 			"아주 <<pcpetname "Gwylan" "good">>【이었였】어." <<trauma -1>><<ltrauma>>
 		<</if>>
@@ -2087,7 +2087,7 @@
 		<<He>>【은는】 거친 숨을 내쉰다.
 	<</if>>
 	<<if $beastRitual.result is "won">>
-		"인상... 깊군. 아주." <<He>>【이가】 미소 짓는다. "난 숲을 헤쳐나가는 법을 잘 안다. 날 앞지를 수 있는 자는 많지 않아." <<npcincr Gwylan dom 1>><<gyearning>>
+		"인상... 깊군. 아주." <<He>>【이가】 미소 짓는다. "난 숲을 헤쳐나가는 법을 잘 알아. 날 앞지를 수 있는 자는 많지 않아." <<npcincr Gwylan dom 1>><<gyearning>>
 	<<elseif $beastRitual.result is "lost">>
 		"다음 기회에." <<he>>【이가】 미소 지으며 말한다. "기분 나빠하지 마. 난 숲을 다녀본 경험이 많으니까."
 	<<else>>
@@ -3302,7 +3302,7 @@
 모든 녀석들에게서 흥분한 기색이 역력하다.
 <br><br>
 
-<<nnpc_He "Gwylan">>【이가】 당신을 돌아본다. "준비는 끝났다. 어떻게든 네가 맡은 셋을 절정에 이르게 해. 준비됐나?" <<nnpc_He "Gwylan">>【이가】 당신 옆에 선다. <<beastsplural>>【이가】 당신 주위를 돌기 시작한다.
+<<nnpc_He "Gwylan">>【이가】 당신을 돌아본다. "준비는 끝났어. 어떻게든 네가 맡은 셋을 절정에 이르게 해. 준비됐나?" <<nnpc_He "Gwylan">>【이가】 당신 옆에 선다. <<beastsplural>>【이가】 당신 주위를 돌기 시작한다.
 <br><br>
 
 <<link [[준비됐다|Gwylan Ritual Bait Sex Pack]]>><<set $sexstart to 1>><</link>>

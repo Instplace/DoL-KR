@@ -603,7 +603,7 @@
 	<<elseif $photo_timer lte 0>>
 
 		<<photo_high_description>>
-		<span class="teal">어느새 니키가 곁에 나타난다.</span> "촬영 끝!" 카메라 뒷면을 확인하며 <<nnpc_he "Niki">>【이가】 말한다. "옷 입으세요, 보수에 대해 얘기하죠."
+		<span class="teal">어느새 니키가 곁에 나타난다.</span> "촬영 끝났어요." 카메라 뒷면을 확인하며 <<nnpc_he "Niki">>【이가】 말한다. "옷 입으세요, 보수에 대해 얘기하죠."
 		<br><br>
 
 		<<link [[다음|Photo High End]]>>

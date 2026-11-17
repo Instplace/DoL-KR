@@ -2282,7 +2282,7 @@
 			<</if>>
 			<br><br>
 
-			"잠깐," <<gwylanDesc "the" "cap">>【이가】 두 손을 들고 <<nnpc_he "Gwylan">>【이가】 들고 있던 ?gwylanItem【을를】 떨어뜨린다. "나도 당신과 같은 이유로 왔어, 에덴."
+			"잠깐," <<gwylanDesc "the" "cap">>【이가】 두 손을 들고 <<nnpc_he "Gwylan">>【이가】 들고 있던 ?gwylanItem【을를】 떨어뜨린다. "나도 너와 같은 이유로 왔어, 에덴."
 			<br><br>
 
 			에덴은 <<nnpc_his "Eden">> 총을 내리지 않는다. "내가 널 왜 믿어야 하지?" <<nnpc_He "Eden">>【이가】 <<nnpc_his "Eden">> 손가락을 방아쇠에 올려놓는다. <<stress 3>><<gstress>>
@@ -3078,7 +3078,7 @@
 	<</if>>
 <</widget>>
 <<widget "destinationForest" container>>
-	<<set _linkText to _args[0] ?? "Next">>
+	<<set _linkText to _args[0] ?? "다음">>
 	<<if $bus is "fishingForestLake">>
 		<<link [[_linkText|Fishing Forest Lake Wait]]>><<= _contents>><</link>>
 	<<else>>

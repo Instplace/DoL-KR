@@ -46,7 +46,7 @@ and (($worn.upper.type.includes("naked") or $worn.upper.type.includes("swim")) a
 
 	<<if $daily.school.swimmingExcused>>
 		<<run delete $daily.school.swimmingExcused>>
-		"이제야 왔냐." <<he>>【이가】 말한다. "결석 처리 안 되긴 했지만, 지금 참여하기엔 너무 늦었어."
+		"이제야 왔구나." <<he>>【이가】 말한다. "결석 처리 안 되긴 했지만, 지금 참여하기엔 너무 늦었어."
 		<br><br>
 
 		<<He>>【은는】 구석에 있는 자리를 턱짓으로 가리킨다. "저기 가서 앉아 있지 그래?"

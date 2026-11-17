@@ -545,7 +545,7 @@
 	<<link [[다음|Swimming Lesson]]>><<endevent>><</link>>
 	<br>
 <<else>>
-	<<endevent>><<npc Mason>><<person1>>당신은 두 사람을 밀쳐낸다. 그들은 놀라서 소리를 지르고, 메이슨의 주의를 끈다. <<He>>【은는】 두 사람을 본다. "또 너희들이냐. 다른 학생들 괴롭히지 마." <<He>>【은는】 그들을 당신에게서 떼어놓는다.
+	<<endevent>><<npc Mason>><<person1>>당신은 두 사람을 밀쳐낸다. 그들은 놀라서 소리를 지르고, 메이슨의 주의를 끈다. <<He>>【은는】 두 사람을 본다. "또 너희들이구나. 다른 학생들 괴롭히지 마." <<He>>【은는】 그들을 당신에게서 떼어놓는다.
 	<br><br>
 	<<link [[다음|Swimming Lesson]]>><<endevent>><</link>>
 	<br>

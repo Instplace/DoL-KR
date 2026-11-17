@@ -1737,7 +1737,7 @@
 <<elseif $alarm is 1 and $rescue is 1>>
 	<<npc Doren 3>>
 	<br><br>
-	"지금 가마!" 앞쪽에서 들려온다. 도렌이 모퉁이를 돌아 나타나더니, 당신을 보고 미간을 찌푸린다.
+	"지금 갈게!" 앞쪽에서 들려온다. 도렌이 모퉁이를 돌아 나타나더니, 당신을 보고 미간을 찌푸린다.
 <<if $player.gender_appearance is "f" and $worn.upper.exposed gte 1>>
 	<<He>>【은는】 당신의 노출된 <<undertop>>【을를】 발견하고는 시선을 피한다.
 	<br><br>

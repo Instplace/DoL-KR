@@ -291,11 +291,11 @@
 			<<if $speechChastity>>
 				<<addSpeechLine "chastity">>
 				<<speechLine>>
-					<<He>>【이가】 인상을 찡그린다. "<<printChastity>>【이】라고요? 이런 애간장 태우는 짓을 즐기는 줄은 몰랐는걸."
+					<<He>>【이가】 인상을 찡그린다. "<<printChastity>>【이】라고요? 이런 애간장 태우는 짓을 즐기는 줄은 몰랐네요."
 				<<speechLine>>
-					<<He>>【이가】 픽 웃는다. "비싸게 구는 건가요? 아주 사랑스럽네."
+					<<He>>【이가】 픽 웃는다. "비싸게 구는 건가요? 아주 사랑스럽네요."
 				<<speechLine>>
-					"몸을 지켜보겠다 이건가요? 오히려 당신을 차지하고 싶어 안달이 나게 만드는걸."
+					"몸을 지켜보겠다 이건가요? 오히려 당신을 차지하고 싶어 안달이 나게 만드네요."
 				<</addSpeechLine>>
 			<</if>>
 		<</if>>
@@ -524,9 +524,9 @@
 				<<speechLine>>
 					<<He>>【이가】 유난스럽게 한숨을 쉰다. "짐승처럼 굴기엔 네가 너무 비싼 애완동물인데 말이야."
 				<<speechLine>>
-					"이거 원, 야성미가 넘쳐나시네. 목줄이라도 채워줄까요?"
+					"이거 원, 야성미가 넘쳐나시네요. 목줄이라도 채워줄까요?"
 				<<speechLine>>
-					"조심해요. 입마개까지 새로 사야 하면 곤란하니까."
+					"조심해요. 입마개까지 새로 사야 하면 곤란하니까요."
 				<<speechLine>>
 					"내 작은 강아지가 떼라도 쓰는 건가? 자, 이리 와서 어루만져 줄 테니까."
 				<<speechLine>>
@@ -1937,7 +1937,7 @@
 	<<if ($avery_mansion?.chase?.trap_done ?? []).includes("garage") and not ($avery_mansion?.chase?.trap ?? []).includes("garage")>>
 		<<addSpeechLine "idle" 3>>
 		<<speechLine>>
-			"내 차에 한 짓을 뼈저리게 후회하게 만들어 주마!" <<he>>【이가】 비명을 지른다.
+			"내 차에 한 짓을 뼈저리게 후회하게 만들어 줄 거야!" <<he>>【이가】 비명을 지른다.
 		<<speechLine>>
 			"내 차가 너보다 훨씬 값비싸, 이 좆같은 <<= either("걸레년","<<bitch>>","쓰레기","<<bastard>>","창녀","시궁쥐 새끼")>>야!"
 		<<speechLine>>
@@ -1959,7 +1959,7 @@
 			<<speechLine>>
 				"날 위해 목줄을 차고 온 건가요, <<pcpetname "Avery">>?" <<he>>【이가】 미소 짓는다. "이걸 찬 모습도 사랑스럽지만, 내 펫이라면 진짜 다이아몬드가 박힌 제대로 된 목줄을 차야 마땅하죠."
 			<<speechLine>>
-				<<He>>【은는】 <<if $position is "missionary">>리드줄을 가볍게 잡아당기며 능글맞게 내려다본다<<else>>리드줄을 뒤로 확 잡아채 당신의 허리를 억지로 휘게 만든다<</if>>. "목줄이 채워져서 딱 내가 원하는 자리에 있네... 하지만 내 펫이라면 다이아몬드가 촘촘히 박힌 목줄을 차야 어울리지 않겠어요?"
+				<<He>>【은는】 <<if $position is "missionary">>리드줄을 가볍게 잡아당기며 능글맞게 내려다본다<<else>>리드줄을 뒤로 확 잡아채 당신의 허리를 억지로 휘게 만든다<</if>>. "목줄이 채워져서 딱 내가 원하는 자리에 있네요... 하지만 내 펫이라면 다이아몬드가 촘촘히 박힌 목줄을 차야 어울리지 않겠어요?"
 			<</addSpeechLine>>
 		<</if>>
 
@@ -2118,7 +2118,7 @@
 		<<if $worn.legs.name is "fishnet stockings">>
 			<<addSpeechLine "idle" 3>>
 				<<set $averyUniqueComments.pushUnique("clothes")>>
-				<<He>>【은는】 미소를 지으며, <<if $NPCList[_n].lefthand is 0 or $NPCList[_n].righthand is 0>>망사 틈으로 손가락을 넌지시 걸어 넣는다<<else>>다리를 타고 올라가는 망사를 눈으로 훑는다<</if>>. "다리를 정말 매혹적으로 살려주네요. 찢어지면 아까울 텐데... 얌전히 굴겠다고 장담하진 못하겠네요. 망가져도 신경 안 쓸 거죠, 내 <<pcpetname "Avery" "my">>?"
+				<<He>>【은는】 미소를 지으며, <<if $NPCList[_n].lefthand is 0 or $NPCList[_n].righthand is 0>>망사 틈으로 손가락을 넌지시 걸어 넣는다<<else>>다리를 타고 올라가는 망사를 눈으로 훑는다<</if>>. "다리를 정말 매혹적으로 살려주네요. 찢어지면 아까울 텐데요... 얌전히 굴겠다고 장담하진 못하겠네요. 망가져도 신경 안 쓸 거죠, 내 <<pcpetname "Avery" "my">>?"
 			<</addSpeechLine>>
 		<</if>>
 		<<if $worn.legs.name is "lace tights">>
@@ -2167,7 +2167,7 @@
 			<<addSpeechLine "idle" 3>>
 				<<if $averySeen.includes("officeAssistant")>>
 					<<set $averyUniqueComments.pushUnique("clothes")>>
-					"이런 옷이 내 일정에 어떤 지장을 줄지 잘 알고 있을 텐데요? 중요한 회의 직전에 어디 한번 입고 와 보시죠, 어떻게 되나."
+					"이런 옷이 내 일정에 어떤 지장을 줄지 잘 알고 있을 텐데요? 중요한 회의 직전에 어디 한번 입고 와 보시죠, 어떻게 되는지 보죠."
 				<<else>>
 					<<set $averyUniqueComments.pushUnique("clothes")>>
 					"있잖아요, <<pcpetname "Avery">>, 그걸 입고 내 책상 뒤에서 비서 노릇을 하면 참 매력적이겠어요. 당신만을 위한 자리를 하나 새로 만들어야 할까 봐요."
@@ -2200,7 +2200,7 @@
 			<<addSpeechLine "idle" 3>>
 				<<if C.npc.Avery.lust gte 20>>
 					<<set $averyUniqueComments.pushUnique("clothes")>>
-					<<He>>【이가】 짓궂게 미소 짓는다. "있잖아요, <<pcpetname "Avery">>, 이 옷을 입혀둔 채 내 마음대로 안고 나면 어떤 모습일지 궁금하네요. 허리춤까지 걷어 올려두면 훨씬 보기 좋을 것 같은데."
+					<<He>>【이가】 짓궂게 미소 짓는다. "있잖아요, <<pcpetname "Avery">>, 이 옷을 입혀둔 채 내 마음대로 안고 나면 어떤 모습일지 궁금하네요. 허리춤까지 걷어 올려두면 훨씬 보기 좋을 것 같은데요."
 				<<else>>
 					<<set $averyUniqueComments.pushUnique("clothes")>>
 					"나들이 가기에 딱 어울리는 옷이네요, <<pcpetname "Avery">>. 조만간 이거 입히고 데리고 나가야겠어요." <<he>>【이가】 웃는다. "쉽게 걷어 올릴 수 있어 보여서 아주 마음에 드네요."
@@ -2217,7 +2217,7 @@
 		<<if $worn.face.type.includes("mask")>>
 			<<addSpeechLine "idle" 3>>
 				<<set $averyUniqueComments.pushUnique("clothes")>>
-				<<He>>【은는】 헛웃음을 친다. "도대체 뭘 숨기려고 그 예쁜 얼굴을 가린 거죠, <<pcpetname "Avery">>? 설마 나한테서 숨으려는 건 아니겠죠? 귀엽기도 해라. 당장이라도 잡아먹어 버리고 싶네요."
+				<<He>>【은는】 헛웃음을 친다. "도대체 뭘 숨기려고 그 예쁜 얼굴을 가린 거죠, <<pcpetname "Avery">>? 설마 나한테서 숨으려는 건 아니겠죠? 귀엽기도 하네요. 당장이라도 잡아먹어 버리고 싶네요."
 			<</addSpeechLine>>
 		<</if>>
 
@@ -2234,7 +2234,7 @@
 	<<if $allure gte 6000 * $settings.allureModifier and C.npc.Avery.rage lt 20>>
 		<<addSpeechLine "idle">>
 		<<speechLine>>
-			"그런 꼴을 하고 다니면 온 동네 시선을 다 사로잡겠어요. 그런데도 지금 내 곁에 있네..." <<He>>【은는】 능글맞게 웃는다.<<if $averyragerevealed is 1>> "하지만 뭐, 당연한 결과인가."<</if>>
+			"그런 꼴을 하고 다니면 온 동네 시선을 다 사로잡겠어요. 그런데도 지금 내 곁에 있네요..." <<He>>【은는】 능글맞게 웃는다.<<if $averyragerevealed is 1>> "하지만 뭐, 당연한 결과인가요."<</if>>
 		<<speechLine>>
 			"정말 <<cute>>하기도 하지..." 당신의 얼굴을 뜯어보며 <<he>>【이가】 속삭인다.
 		<<speechLine>>
@@ -2359,7 +2359,7 @@
 				<<speechLine>>
 					"그 반항질도 이제 지긋지긋해, <<girl>>."
 				<<speechLine>>
-					"계속 반항하면 후회하게 만들어 줄 테다. 이미 벼르고 있는 참이니까."
+					"계속 반항하면 후회하게 만들어 줄 거야. 이미 벼르고 있는 참이니까."
 				<<speechLine>>
 					<<He>>【은는】 조롱하듯 <<laughs>>. "원하지 않는 척 굴지 마, <<pcpetname "Avery">>."
 				<<speechLine>>

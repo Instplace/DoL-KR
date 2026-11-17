@@ -61,12 +61,12 @@
 
 :: Sell Children
 <<set $outside to 0>><<set $location to "town">><<effects>>
-하퍼 의사가 <<his>> 사무실 문으로 걸어가 잠근다. <<He>>【은는】 다시 자리에 앉는다. "오늘은 뭘 가져왔지?" <<he>>【이가】 묻는다.
+하퍼 의사가 <<his>> 사무실 문으로 걸어가 잠근다. <<He>>【은는】 다시 자리에 앉는다. "오늘은 뭘 가져오셨죠?" <<he>>【이가】 묻는다.
 <br><br>
 /* the 100 multiplier is intentional, used to use the moneyGain widget */
 당신은 <<he>>【이가】 준 작은 용기를 꺼낸다. <<He>>【이가】 안을 들여다본다. 만족한 듯, <<he>>【은는】 <<his>> 책상 밑에서 더 큰 다른 용기를 꺼낸다. <<He>>【은는】 내용물을 옮겨 담고 빈 용기를 당신에게 건넨다. <<He>>【은는】 서랍을 열고 <<money `$container.portable.value * 100` "hospitalParasitesSold">><<printmoney `$container.portable.value * 100`>>【을를】 세어본다. <<He>>【이가】 그것을 당신에게 건넨다.
 <br><br>
-"지역 사회에서 고마워할 거요." <<he>>【이가】 말한다.
+"지역 사회에서 고마워할 겁니다." <<he>>【이가】 말한다.
 <br><br>
 <<set _paleAmount to 0>>
 <<for _i to 0; _i lt $container.portable.creatures.length; _i++>>
@@ -601,7 +601,7 @@
 
 		<<link [[다음 (<<print getTimeString(_timeCalc)>>)| Pregnancy Birth Hospital 3]]>><<endevent>><<run setPlayerLitterBorn()>><<pass _timeCalc>><</link>>
 	<<case "wolf">>
-		하퍼의 목소리가 안개 속에서 들려온다. "인간이 아니군. 비정상적인 분만이 될 거다. 내 지시를 글자 하나 틀리지 말고 따르도록..."
+		하퍼의 목소리가 안개 속에서 들려온다. "인간이 아니군요. 비정상적인 분만이 될 겁니다. 제 지시를 글자 하나 틀리지 말고 따라 주세요..."
 		<br><br>
 		<<link [[다음 (<<print getTimeString(_timeCalc)>>)|Pregnancy Birth Hospital Wolf]]>><<endevent>><<pass _timeCalc>><</link>>
 <</switch>>
@@ -1089,7 +1089,7 @@
 	당신은 담요에 단단히 싸인 채로 깨어난다. 두 눈이 천천히 떠진다. 그윌란이 <<his>> 품에 포대기에 싸인 <<= $litter_size is 3 ? "세 명의" : $litter_size is 2 ? "두 명의" : "한 명의">> _baby【을를】 안고 당신 곁에 서 있다.
 	<br><br>
 
-	"일어나세요, <<pmummy>>." <<he>>【이가】 말하며 _baby【을를】 건네준다.
+	"일어나, <<pmummy>>." <<he>>【이가】 말하며 _baby【을를】 건네준다.
 	<<birthCradle>>
 	<<birthDissociationGlee>>
 	<<birthBabySleeps>> <<trauma -100>><<llltrauma>>
@@ -1097,7 +1097,7 @@
 	당신은 담요에 단단히 싸인 채로 깨어난다. 그윌란이 <<his>> 품에 포대기에 싸인 <<= $litter_size is 3 ? "세 명의" : $litter_size is 2 ? "두 명의" : "한 명의">> _baby【을를】 안고 당신 곁에 서 있다.
 	<br><br>
 
-	"일어나세요, <<pmummy>>." <<he>>【이가】 말하며 _baby【을를】 건네준다.
+	"일어나, <<pmummy>>." <<he>>【이가】 말하며 _baby【을를】 건네준다.
 	<<birthCradle>>
 	<<birthBabySleeps>>
 <</if>>
@@ -1314,7 +1314,7 @@
 담요에 단단히 싸인 채 잠에서 깬다. 천천히 눈을 뜨자, 그윌란이 곁에 서서 <<his>> 팔에 당신의 새끼들을 한아름 안고 있다.
 <br><br>
 
-"일어나세요, <<pmummy>>." <<he>>【이가】 말하며 새끼들을 한 마리씩 건네준다. 눈은 아직 감겨 있고, 배는 조용한 숨결에 맞춰 오르내린다.
+"일어나, <<pmummy>>." <<he>>【이가】 말하며 새끼들을 한 마리씩 건네준다. 눈은 아직 감겨 있고, 배는 조용한 숨결에 맞춰 오르내린다.
 <br><br>
 
 "순조로웠어." <<he>>【이가】 말한다. <<He>>【은는】 잠시 아쉬운 표정을 짓지만, 이내 떨쳐버리고 당신과 새끼들이 함께 있는 모습을 보며 거의 현기증이 날 정도로 기뻐하는 듯 보인다. "숲의 모든 아이는 이름이 필요해. 생각해 둔 거 있어?"
