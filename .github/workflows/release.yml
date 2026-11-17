@@ -53,6 +53,19 @@ jobs:
           echo "PRERELEASE=$prerelease" >> "$GITHUB_ENV"
           echo "게임 버전 $version, 태그 $tag, 개발판 $prerelease"
 
+      # 개발판은 게임 화면 오른쪽 위의 판 이름과 오류 상자 머리에 "dev 커밋"을 붙여, 어느 빌드인지 알아볼 수 있게 한다.
+      # (게임 버전 version은 세이브 호환에 쓰이므로 건드리지 않는다.)
+      - name: 개발판 레이블
+        if: env.PRERELEASE == 'true'
+        run: |
+          label="dev ${GITHUB_SHA:0:8}"
+          config=game/01-config/sugarcubeConfig.js
+          sed -i -E "s/^(\s*versionName: \`[^\`]*)\`,/\1 ($label)\`,/" "$config"
+          sed -i -E "s/^(\s*)version: (\"[0-9.]+\"),/\1version: \2,\n\1build: \"$label\",/" "$config"
+          grep -n "versionName\|build:\|version:" "$config"
+          grep -q "build: \"$label\"" "$config"
+          grep -q "($label)\`" "$config"
+
       - name: HTML 컴파일
         run: |
           chmod +x compile.sh devTools/tweego/tweego_linux64
