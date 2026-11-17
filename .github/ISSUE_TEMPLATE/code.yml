@@ -13,6 +13,7 @@ body:
         - d.pla.is
         - 로컬 Web
         - Android 앱
+        - 환경 상관 없이 발생함
     validations:
       required: true
   - type: textarea
