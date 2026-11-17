@@ -336,7 +336,7 @@
 
 				<<case 4>>당신에 대한 이야기를 나누었다.
 					<<if C.npc.River.love gte 40 and C.npc.Doren.love gte 50 and $monthly.volunteer and $monthly.soupKitchen>>
-			"<<pShe>> 여기서 많은 도움이 되네요." 리버가 <<= either("채소를 썰며","수프를 저으며")>> 말한다.
+			"<<pShe>> 여기서 많은 도움이 되고 있어." 리버가 <<= either("채소를 썰며","수프를 저으며")>> 말한다.
 						<br>
 			"<<pShes>> 나와 함께 봉사활동을 하고 있지. 참 착한 <<lassie>>란다!" 도렌이 <<= either("채소를 썰며","수프를 저으며")>> 미소 짓는다.
 					<<else>>

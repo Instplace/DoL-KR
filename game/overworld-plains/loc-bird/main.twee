@@ -2165,7 +2165,7 @@
 <<if $bird.activity is "sing" and $bird.state is "home">>
 	<<npc "Great Hawk">>
 	<<if $monster is 1>>
-		"부디 곧 돌아와 주시오, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+		"곧 돌아와 줘, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 	<<else>>
 		<<bHe>>【은는】 당신이 횃대 가장자리로 다가가자 곧 돌아오라며 울음소리를 낸다.
 	<</if>>
@@ -2191,9 +2191,9 @@
 	<<npc "Great Hawk">>
 	<<if $monster is 1>>
 		<<if playerIsPregnant() and playerBellySize() gte 12>>
-			"이렇게 취약한 상태인데 <<wife>>【이가】 떠나야만 하오?" <<bHe>>【은는】 당신의 <<bellyDescription>>【을를】 걱정스럽게 쳐다본다. "부디 무사히 돌아오시오." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+			"이렇게 취약한 상태인데 <<wife>>【이가】 떠나야만 해?" <<bHe>>【은는】 당신의 <<bellyDescription>>【을를】 걱정스럽게 쳐다본다. "부디 무사히 돌아와." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 		<<else>>
-			<<if Weather.precipitation is "rain">>"성난 하늘을 조심하시오<<else>>"부디 곧 돌아와 주시오<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+			<<if Weather.precipitation is "rain">>"성난 하늘을 조심해<<else>>"곧 돌아와 줘<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 		<</if>>
 	<<else>>
 		<<bHe>>【은는】 당신이 횃대 가장자리로 다가가자 곧 돌아오라며 울음소리를 낸다.
@@ -2211,7 +2211,7 @@
 <<if ($bird.activity is "sing" or $bird.activity is "groom") and $bird.state is "home">>
 	<<npc "Great Hawk">>
 	<<if $monster is 1>>
-		<<if Weather.precipitation is "rain">>"성난 하늘을 조심하시오<<else>>"부디 곧 돌아와 주시오<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+		<<if Weather.precipitation is "rain">>"성난 하늘을 조심해<<else>>"곧 돌아와 줘<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 	<<else>>
 		<<bHe>>【은는】 당신이 횃대 가장자리로 다가가자 곧 돌아오라며 울음소리를 낸다.
 	<</if>>
@@ -2231,7 +2231,7 @@
 <<if ($bird.activity is "sing" or $bird.activity is "groom") and $bird.state is "home">>
 	<<npc "Great Hawk">>
 	<<if $monster is 1>>
-		<<if Weather.precipitation is "rain">>"성난 하늘을 조심하시오<<else>>"부디 곧 돌아와 주시오<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+		<<if Weather.precipitation is "rain">>"성난 하늘을 조심해<<else>>"곧 돌아와 줘<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 	<<else>>
 		<<bHe>>【은는】 당신이 횃대 가장자리로 다가가자 곧 돌아오라며 울음소리를 낸다.
 	<</if>>
@@ -2251,7 +2251,7 @@
 <<if ($bird.activity is "sing" or $bird.activity is "groom") and $bird.state is "home">>
 	<<npc "Great Hawk">>
 	<<if $monster is 1>>
-		<<if Weather.precipitation is "rain">>"성난 하늘을 조심하시오<<else>>"부디 곧 돌아와 주시오<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑하오."
+		<<if Weather.precipitation is "rain">>"성난 하늘을 조심해<<else>>"곧 돌아와 줘<</if>>, <<wife>>." 당신이 횃대 가장자리로 다가가자 <<bhe>>【이가】 말한다. "사랑해."
 	<<else>>
 		<<bHe>>【은는】 당신이 횃대 가장자리로 다가가자 곧 돌아오라며 울음소리를 낸다.
 	<</if>>
@@ -2311,7 +2311,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	<<bhis>> 날개가 축 늘어진 채 <<bhe>>【이가】 얼굴을 찌푸린다. "미안하오, <<wife>>. 다음 사냥에서는 더 좋은 고기를 찾아오겠소." <<bHe>>【은는】 럴커를 들고 가버린다.
+	<<bhis>> 날개가 축 늘어진 채 <<bhe>>【이가】 얼굴을 찌푸린다. "미안해, <<wife>>. 다음 사냥에서는 더 좋은 고기를 찾아올게." <<bHe>>【은는】 럴커를 들고 가버린다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕는다. <<bHe>>【은는】 럴커를 들고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2328,7 +2328,7 @@
 
 당신은 가만히 있는다.
 <<if $monster is 1>>
-	<<bhis>> 깃털이 납작하게 눕고 <<bhis>> 날개가 축 늘어진다. "다음 사냥에서는 더 좋은 고기를 찾아오겠소." <<bHe>>【은는】 럴커를 들고 가버린다.
+	<<bhis>> 깃털이 납작하게 눕고 <<bhis>> 날개가 축 늘어진다. "다음 사냥에서는 더 좋은 고기를 찾아올게." <<bHe>>【은는】 럴커를 들고 가버린다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕는다. <<bHe>>【은는】 럴커를 들고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2396,7 +2396,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	<<bhis>> 날개가 축 늘어진 채 <<bhe>>【이가】 얼굴을 찌푸린다. "미안하오. 땅에 있는 장신구의 가치는 이해하기 어렵구려. 다음번엔 더 반짝이는 걸 가져오겠소."
+	<<bhis>> 날개가 축 늘어진 채 <<bhe>>【이가】 얼굴을 찌푸린다. "미안해. 땅에 있는 장신구는 가치를 알기가 어렵군. 다음엔 더 반짝이는 걸 가져올게."
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2412,7 +2412,7 @@
 <<setTowerTemp>><<effects>>
 
 <<if $monster is 1>>
-	<<bhis>> 날개가 축 늘어진다. "당신에게 깊은 인상을 주기 위해 더 반짝이는 것을 가져오겠소. 다음번에."
+	<<bhis>> 날개가 축 늘어진다. "너에게 깊은 인상을 주려고 더 반짝이는 걸 가져올게. 다음번에."
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2443,7 +2443,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	"소리가 듣기 좋구려, 꼭 <<wife>>처럼." <<bhe>>【이가】 속삭인다.
+	"소리가 듣기 좋군, 꼭 <<wife>>처럼." <<bhe>>【이가】 속삭인다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2474,7 +2474,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	"날개 없는 것들은 짝에게 반지를 준다지, 맞소? 모든 반지를 찾아 당신을 위해 둥지를 지어주겠소." <<bhe>>【이가】 당신의 뺨에 입을 맞추고는 걸어간다.
+	"날개 없는 것들은 짝에게 반지를 준다지, 맞지? 모든 반지를 찾아 널 위해 둥지를 지어줄게." <<bhe>>【이가】 당신의 뺨에 입을 맞추고는 걸어간다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2552,7 +2552,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	"날개 없는 것들은 항상 이걸 가지고 다니며 다른 이들에게 깊은 인상을 주려 하지, 맞소? <<wife>>도 감명받았으면 좋겠소." <<bhe>>【이가】 <<bhis>> 깃털을 부풀리며 말한다.
+	"날개 없는 것들은 항상 이걸 가지고 다니며 다른 이들에게 깊은 인상을 주려 하지, 맞지? <<wife>>도 감명받았으면 좋겠어." <<bhe>>【이가】 <<bhis>> 깃털을 부풀리며 말한다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2576,7 +2576,7 @@
 <</if>>
 <br><br>
 <<if $monster is 1>>
-	"훔친 거? 훔친 게 뭔지는 모르겠지만, <<wife>>【을를】 화나게 해서 미안하오." <<bHe>>【은는】 부끄러운 듯 고개를 숙이고 걸어간다.
+	"훔친 거? 훔친 게 뭔지는 모르겠지만, <<wife>>【을를】 화나게 해서 미안해." <<bHe>>【은는】 부끄러운 듯 고개를 숙이고 걸어간다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2592,7 +2592,7 @@
 <<setTowerTemp>><<effects>>
 
 <<if $monster is 1>>
-	"<<Wife>>【은는】 땅의 보물을 원하지 않소?" <<bHe>>【은는】 고개를 갸웃거리며 생각에 잠기다가 걸어간다.
+	"<<Wife>>【은는】 땅의 보물을 원하지 않아?" <<bHe>>【은는】 고개를 갸웃거리며 생각에 잠기다가 걸어간다.
 <<else>>
 	당신은 움직이지 않는다. <<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2701,7 +2701,7 @@
 <<unset $bird_food>>
 
 <<if $monster is 1>>
-	<<bHe>>【이가】 얼굴을 찌푸린다. "다음 사냥에서는 더 좋은 음식을 찾아오겠소. 나와 같은 것을 먹는 건 어떻소?" <<bHe>>【은는】 희망에 찬 눈으로 당신을 바라보다가 걸어간다.
+	<<bHe>>【이가】 얼굴을 찌푸린다. "다음 사냥에서는 더 좋은 음식을 찾아올게. 나와 같은 것을 먹는 건 어때?" <<bHe>>【은는】 희망에 찬 눈으로 당신을 바라보다가 걸어간다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2718,7 +2718,7 @@
 
 당신은 움직이지 않는다.
 <<if $monster is 1>>
-	"배고프지 않소? <<Wife>>【은는】 힘을 내기 위해 먹어야 하오." <<bHe>>【은는】 당신을 골똘히 쳐다보다가 걸어간다.
+	"배고프지 않아? <<Wife>>【은는】 힘을 내려면 먹어야 해." <<bHe>>【은는】 당신을 골똘히 쳐다보다가 걸어간다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2736,7 +2736,7 @@
 
 당신은 새 아이템을 입는다.
 <<if $monster is 1>>
-	"<<Wife>>【은는】 언제나 보기 좋소." <<bHe>>【은는】 당신의 뺨에 입을 맞추고는 걸어간다.
+	"<<Wife>>【은는】 언제나 보기 좋아." <<bHe>>【은는】 당신의 뺨에 입을 맞추고는 걸어간다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2758,7 +2758,7 @@
 <br><br>
 
 <<if $monster is 1>>
-	"날개 없는 것들의 깃털은 느낌이 좋구려, 당신에게 위안이 되길 바라오." <<bHe>>【은는】 <<bhis>> 날개를 펼쳐 보이고는 걸어간다.
+	"날개 없는 것들의 깃털은 느낌이 좋군, 너에게 위안이 되길 바라." <<bHe>>【은는】 <<bhis>> 날개를 펼쳐 보이고는 걸어간다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2782,7 +2782,7 @@
 <</if>>
 
 <<if $monster is 1>>
-	"미안하오, <<wife>>, 당신이 자신의 깃털을 더 선호할 줄 알았어야 했는데." <<bHe>>【은는】 슬금슬금 물러난다.
+	"미안해, <<wife>>. 자신의 깃털을 더 선호할 줄 알았어야 했는데." <<bHe>>【은는】 슬금슬금 물러난다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2799,7 +2799,7 @@
 
 당신은 움직이지 않는다.
 <<if $monster is 1>>
-	"예쁜 것들이 <<wife>>에게 감명을 주지 못했소?" <<bHe>>【은는】 잠시 낙담한 표정을 짓다가 걸어간다.
+	"예쁜 것들이 <<wife>>에게 감명을 주지 못했어?" <<bHe>>【은는】 잠시 낙담한 표정을 짓다가 걸어간다.
 <<else>>
 	<<beasttype>>의 깃털이 납작하게 눕고, <<bhe>>【은는】 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -2817,7 +2817,7 @@
 
 당신은 그것을 옷장에 넣는다.
 <<if $monster is 1>>
-	"<<Wife>>의 깃털 컬렉션이 늘어나지만, <<wife>>【은는】 언제나 보기 좋소." <<bHe>>【은는】 당신의 뺨에 입을 맞추고는 걸어간다.
+	"<<Wife>>의 깃털 컬렉션이 늘어나지만, <<wife>>【은는】 언제나 보기 좋아." <<bHe>>【은는】 당신의 뺨에 입을 맞추고는 걸어간다.
 <<else>>
 	<<beasttype>>【은는】 <<bhis>> 깃털을 부풀리고 깡충깡충 뛰어가 버린다.
 <</if>>
@@ -3229,7 +3229,7 @@
 	<</if>>
 	<<deviancy4>>
 	<<if $monster is 1>>
-		"<<Wife>>【이가】 짝짓기할 준비가 되었나?" <<bhis>> 눈이 빛난다. "당신을 위해서라면 뭐든지."
+		"<<Wife>>【이가】 짝짓기할 준비가 되었나?" <<bhis>> 눈이 빛난다. "널 위해서라면 뭐든지."
 	<<else>>
 		<<beasttype>>【이가】 당신 위에 올라타려 하자 양옆에서 날개가 퍼덕인다.
 	<</if>>
@@ -3313,7 +3313,7 @@
 <<else>>
 
 	<<if $monster is 1>>
-		"흠. 알았어, 당신의 편안함이 중요하지." <<bHe>>【이가】 당신 옆에 몸을 웅크린다.
+		"흠. 알았어, 네 편안함이 중요하지." <<bHe>>【이가】 당신 옆에 몸을 웅크린다.
 	<<else>>
 		<<beasttype>>【이가】 당신에게서 펄쩍 뛰어 물러나 몸을 웅크린다.
 	<</if>>
@@ -3486,7 +3486,7 @@
 	<<bhis>> 머리를 갸웃하며 당신을 본다.
 <</if>>
 <<if $monster is 1 and $syndromebird gte 1>>
-	"<<Wife>>【이가】 그럴 필요는 없지만... 당신의 제안을 거절할 수는 없지."
+	"<<Wife>>【이가】 그럴 필요는 없지만... 네 제안을 거절할 수는 없지."
 <</if>>
 당신은 손을 아래로 내려 손가락으로 <<bhis>> 날개를 빗기 시작한다. 눈에 띄는 잔가지나 나뭇잎을 빼낸다.
 <<if $harpy gte 6 or understandsBirdBehaviour()>>
@@ -4362,7 +4362,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 	<<bHe>>【은는】 침묵에 잠기고, 대신 한동안 당신의 남은 깃털을 한가롭게 매만진다. 그럼에도 기분은 좋다.
 <<else>>
 	<<if $monster is 1>>
-		"당신의 날개... 정말 아름다워. 하지만 날개가 없어도 <<wife>>【을를】 사랑할 거야."
+		"네 날개... 정말 아름다워. 하지만 날개가 없어도 <<wife>>【을를】 사랑할 거야."
 	<</if>>
 	결국, <<bhe>>【은는】 당신과 함께 제자리로 돌아와 앉는다.
 <</if>>
@@ -4645,7 +4645,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 당신이 날개를 펼치며 말한다.
 <<if $monster is 1>>
 	<<if $bird.lock isnot 1>>
-		<<bHe>>【은는】 당신을 마주보며 돌아선다, 기쁨에 겨워 보인다. "물론이지, <<wife>>! 하늘이 당신으로 인해 훨씬 더 예뻐질 거야."
+		<<bHe>>【은는】 당신을 마주보며 돌아선다, 기쁨에 겨워 보인다. "물론이지, <<wife>>! 하늘이 너 때문에 훨씬 더 예뻐질 거야."
 		<br><br>
 		<<link [[다음|Bird Tower Fly Intro 2]]>><</link>>
 	<<else>>
@@ -6790,7 +6790,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 	<<if $phase is 0>>
 		당신은 <<bhis>> 깃털을 쓰다듬는다. 잠시 <<bhim>>【을를】 어루만지다 몸을 일으킨다. 당신은 <<bhim>>에게 정말 좋은 시간이었다고 말한다. <<bHe>>【은는】 당신 옆에 바싹 붙어 웅크린다.
 		<<if $monster is 1>>
-			"당신은 최고의 짝이자 <<wife>>【이】야. 의심의 여지가 없지."
+			"넌 최고의 짝이자 <<wife>>【이】야. 의심의 여지가 없지."
 		<<else>>
 			<<bHe>>【이가】 <<bhis>> 날개로 당신의 얼굴을 다정하게 어루만진다.
 		<</if>>
@@ -6874,7 +6874,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 		<<npc "Great Hawk">>
 		황야를 둘러본다. 갑자기 거대한 눈이 시야를 가득 채운다. 당신은 얼굴을 멀리한다. <<your_bird_text "cap">>【이가】 망원경 반대편에서 당신을 들여다보고 있다.
 		<<if $monster is 1>>
-			"이상한 물건이네. 이걸로 보니 당신이 아주 작게 보여."
+			"이상한 물건이네. 이걸로 보니 네가 아주 작게 보여."
 		<<else>>
 			<<bHe>>【이가】 당신에게 지저귄다.
 		<</if>>
@@ -7206,7 +7206,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 
 		<<bhis>> 아랫배가 고동치는 것이 느껴진다. $eggLayText
 		<<if $monster is 1>>
-			<<bHe>>【은는】 길고 안도하는 한숨을 내쉰다. "고맙소, <<wife>>."
+			<<bHe>>【은는】 길고 안도하는 한숨을 내쉰다. "고마워, <<wife>>."
 		<<else>>
 			<<bHe>>【은는】 킁 하는 것과 비슷한 소리를 내고는, <<bhis>> 부리로 당신의 뺨에 코를 비빈다.
 		<</if>>
@@ -7587,7 +7587,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 	<</switch>>
 	<br><br>
 
-	<<bHe>>【이가】 당신을 보며 따뜻하게 미소 짓는다. "<<wife>>, 당신 덕분에 정말 행복해."
+	<<bHe>>【이가】 당신을 보며 따뜻하게 미소 짓는다. "<<wife>>, 너 덕분에 정말 행복해."
 <<elseif $phase is 0 and $bird.syndrome gte 15 and $syndromebird isnot 1>>
 	말을 하려고 입을 열었지만, 목이 메어 말이 나오지 않는다. 당신은 그저 <<bhe>>【이가】 당신을 안고 있도록 내버려 둔다.
 	<br><br>
@@ -7895,7 +7895,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 
 <<npc "Great Hawk">>
 <<if $monster is 1>>
-	<<your_bird_text "cap">>【은는】 <<if $eggsHatched.length is 2>><<childrenNames $eggsHatched>><<else>><<childname>><</if>>【을를】 감상하며 당신을 날개로 감싼다. "고맙소, <<wife>>. 당신 덕분에 정말 행복하오."
+	<<your_bird_text "cap">>【은는】 <<if $eggsHatched.length is 2>><<childrenNames $eggsHatched>><<else>><<childname>><</if>>【을를】 감상하며 당신을 날개로 감싼다. "고마워, <<wife>>. 너 덕분에 정말 행복해."
 <<else>>
 	<<your_bird_text "cap">>【은는】 <<if $eggsHatched.length is 2>><<childrenNames $eggsHatched>><<else>><<childname>><</if>>【을를】 감상하며 당신에게 몸을 비빈다.
 <</if>>
@@ -7935,14 +7935,14 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 <</if>>
 <br><br>
 <<if $monster is 1>>
-	<<beasttype>>【은는】 얼굴을 찌푸린다. "<<Wife>> 먹어야 하오." <<bhe>>【은는】 발톱으로 생물체의 살점을 찢어내며 말한다.
+	<<beasttype>>【은는】 얼굴을 찌푸린다. "<<Wife>>【은는】 먹어야 해." <<bhe>>【은는】 발톱으로 생물체의 살점을 찢어내며 말한다.
 	<<if playerIsPregnant() and playerNormalPregnancyType() is "hawk" and talkedAboutPregnancy("pc","Great Hawk")>>
-		"알들이 건강하게 자라려면 잘 먹어야 하오."
+		"알들이 건강하게 자라려면 잘 먹어야 해."
 	<<else>>
 		<<if $phase is 0>> /* Scold */
-			"싫더라도, <<wife>>【은는】 굶으면 안 되오."
+			"싫더라도, <<wife>>【은는】 굶으면 안 돼."
 		<<else>> /* Do nothing */
-			"먹는 법을 모르시오? 내가 직접 먹여줘야겠소?"
+			"먹는 법을 몰라? 내가 직접 먹여줘야겠어?"
 		<</if>>
 	<</if>>
 	<<bhe>>【이가】 당신 얼굴에 고기를 들이미는 <<bhis>> 목소리에는 절박함이 묻어난다.
@@ -7969,7 +7969,7 @@ or ($demon gte 6 and $transformationParts.demon.wings isnot "hidden")>>
 	<br><br>
 	<<beasttype>>【이가】 포기할 때까지 당신은 숨은 곳 뒤쪽에서 몸을 떤다. <<bhis>> 발톱이 물러나고 그 자리에 <<bhis>> 얼굴이 나타난다. 커다란 눈 하나가 <<= $monster is 1 or understandsBirdBehaviour() ? "슬프게" : "뚫어지게">> 당신을 바라본다.
 	<<if $monster is 1>>
-		"<<Wife>>?" <<beasttype>>【이가】 부드럽게 말한다. "미안하오. <<= $bodysize gte 3 ? "다치게 할" : "겁줄">> 생각은 없었소. 준비되면 먹으시오."
+		"<<Wife>>?" <<beasttype>>【이가】 부드럽게 말한다. "미안해. <<= $bodysize gte 3 ? "다치게 할" : "겁줄">> 생각은 없었어. 준비되면 먹어."
 	<<else>>
 		<<beasttype>>【은는】 <<if understandsBirdBehaviour()>>미안한 듯<</if>> 울음소리를 낸다. <<bhe>>【은는】 <<bhis>> 머리 깃털을 납작하게 붙이고 땅에 바싹 엎드린다<<if understandsBirdBehaviour()>>. 덜 위협적으로 보이려는 듯하다<</if>>.
 	<</if>>

@@ -2239,7 +2239,7 @@
 	<<set $brothelVirginityState to "virginity">>
 	브라이어는 알 수 없는 표정으로 잠시 당신을 살핀다.
 	<br><br>
-	<<He>>【은는】 <<his>> 사무실로 당신을 안내한다. 안에 들어가자, 당신은 브라이어가 말하기를 끈기 있게 기다린다. "대체 그게 뭐였죠? 당신 때문에 환불해 줘야 했잖아요."
+	<<He>>【은는】 <<his>> 사무실로 당신을 안내한다. 안에 들어가자, 당신은 브라이어가 말하기를 끈기 있게 기다린다. "대체 그게 뭐였지? 너 때문에 환불해 줘야 했잖아."
 	<br><br>
 	<<if $speech_attitude is "meek">>
 		당신은 브라이어의 시선 아래 잠시 떨며 고개를 숙인다.
@@ -2249,15 +2249,15 @@
 		당신은 잠시 브라이어의 시선을 마주하다가 어색하게 시선을 피한다.
 	<</if>>
 	<br><br>
-	마침내 브라이어가 입을 연다. "그래도 쇼가 완전히 실패한 건 아니었어요. 관중들 사이에서 행복한 사고가 꽤 많이 있었으니까요."
+	마침내 브라이어가 입을 연다. "그래도 쇼가 완전히 실패한 건 아니었어. 관중들 사이에서 행복한 사고가 꽤 많이 있었으니까."
 	<br><br>
-	<<He>>【은는】 당신에게 <<= C.npc.Briar.love gte 40 ? "<<printmoney 100000>><<money 100000 'brothelShow'>>" : "<<printmoney 50000>><<money 50000 'brothelShow'>>">>【을를】 건네준다. "약속대로 순결을 바쳤다면 더 많았을 텐데요. 다음번엔 더 잘해주길 기대하죠."
+	<<He>>【은는】 당신에게 <<= C.npc.Briar.love gte 40 ? "<<printmoney 100000>><<money 100000 'brothelShow'>>" : "<<printmoney 50000>><<money 50000 'brothelShow'>>">>【을를】 건네준다. "약속대로 순결을 바쳤다면 더 많았을 텐데. 다음번엔 더 잘해 주길 기대하지."
 <<else>>
 	브라이어는 당신에게 만족스러운 미소를 짓는다.
 	<br><br>
-	<<He>>【은는】 <<his>> 사무실로 당신을 안내한다. 안에 들어가자, 당신은 브라이어가 말하기를 끈기 있게 기다린다. "아주 좋은 쇼였어요. 당신 팬들이 아주 좋아했죠."
+	<<He>>【은는】 <<his>> 사무실로 당신을 안내한다. 안에 들어가자, 당신은 브라이어가 말하기를 끈기 있게 기다린다. "아주 좋은 쇼였어. 네 팬들이 아주 좋아했지."
 	<br><br>
-	<<He>>【은는】 만족한 듯 보이며 당신에게 <<printmoney $tip>><<money $tip "brothelShow">><<set $tip to 0>>【을를】 건네준다. "잘했어요. 나도 거의..." <<He>>【은는】 말을 흐리더니 당신에게 나가라는 손짓을 한다.
+	<<He>>【은는】 만족한 듯 보이며 당신에게 <<printmoney $tip>><<money $tip "brothelShow">><<set $tip to 0>>【을를】 건네준다. "잘했어. 나도 거의..." <<He>>【은는】 말을 흐리더니 당신에게 나가라는 손짓을 한다.
 <</if>>
 <br><br>
 
@@ -2369,23 +2369,23 @@
 <<effects>>
 <<npc Briar>><<person1>>
 
-"당신은 정말 멍청한 창녀로군요.
+"너 정말 멍청한 창녀로군.
 <<if playerChastity()>>
 	그딴 걸 입고 여기에 오다니,"
 <<elseif $brothelVirginityState is "chastitylost">>
 	그딴 걸 입고 여기에 오다니, 게다가 처녀라고 거짓말까지 하고. 돈 좀 벌 수 있었을 텐데,"
 <<elseif $brothelVirginityState is "chastity" and $player.virginity.penile isnot true or $player.virginity.vaginal isnot true>>
-	그딴 걸 입고 여기에 오다니. 당신의 순결로 돈 좀 벌 수 있었을 텐데,"
+	그딴 걸 입고 여기에 오다니. 네 순결로 돈 좀 벌 수 있었을 텐데,"
 <<elseif $brothelVirginityState is "lost">>
-	처녀라고 거짓말을 하다니. 이제 없어져서 안타깝군요,"
+	처녀라고 거짓말을 하다니. 이제 없어져서 안타깝군,"
 <<else>>
-	그딴 걸 입고 여기에 오다니. 이제 없어져서 다행이군요,"
+	그딴 걸 입고 여기에 오다니. 이제 없어져서 다행이군,"
 <</if>>
 브라이어가 당신을 내려다보며 말한다.
 <<if !playerChastity() and $brothelVirginityState is "chastity" and ($player.virginity.penile isnot true or $player.virginity.vaginal isnot true)>>
-	"그리고 이제 그냥 그렇게 사라졌죠." <<He>>【은는】 <<his>> 손가락을 튕긴다.
+	"그리고 이제 그냥 그렇게 사라졌지." <<He>>【은는】 <<his>> 손가락을 튕긴다.
 <</if>>
-"돈은 안 줄 겁니다. 대체 뭘 기대한 거죠,
+"돈은 안 줄 거야. 대체 뭘 기대한 거지,
 <<if $brothelVirginityState is "lost">>
 	처녀라고 거짓말을 하면서?"
 <<elseif !playerChastity() and $brothelVirginityState is "chastitylost">>

@@ -91,7 +91,7 @@
 	<<case "pure" "neutral">>
 		<<He>>【은는】 숨을 들이켜며 <<his>> 눈을 가린다.
 		<<if $sydneyromance is 1>>
-			"아! 으음... 조... 좋은 하루입니다, 제 사랑." <<He>>【은는】 긴장한 듯 주위를 둘러본다. "이... 이번에는 넘어가겠습니다. 다른 사람은 당신을 보지 못한 것 같아요." <<npcincr Sydney lust 3>><<npcincr Sydney purity -2>><<ggslust>><<lspurity>>
+			"아! 으음... 조... 좋은 하루예요, 제 사랑." <<He>>【은는】 긴장한 듯 주위를 둘러본다. "이... 이번에는 넘어갈게요. 다른 사람은 당신을 보지 못한 것 같아요." <<npcincr Sydney lust 3>><<npcincr Sydney purity -2>><<ggslust>><<lspurity>>
 			<br><br>
 			<<link [[시드니를 유혹한다|Sydney Temple Seduce]]>><</link>><<promiscuous1>><<sydneyWarning corrupt>>
 			<br>
@@ -113,7 +113,7 @@
 	<<case "pureLust" "neutralLust">>
 		<<He>>【은는】 숨을 들이켜고, <<his>> 얼굴은 새빨갛게 물든다. <<He>>【은는】 시선을 떼지 못하는 듯하다.
 		<<if $sydneyromance is 1>>
-			"아! 으음... 조... 좋은 하루입니다, 제 사랑." <<He>>【은는】 긴장한 듯 주위를 둘러본다. "당신은... 욕정이라는 죄를 억누르는 데 어려움을 겪는 것 같군요." <<He>>【은는】 헛기침하고 속삭이기 시작한다. "<<if $sydney.rank is "initiate">>이... 입문자로서<<else>><<temple_title "Sydney">>로서<</if>>... 죄에 사로잡힌 이를 돕는 것이... 제 의무입니다. 저쪽에... 방이 하나 있어요, 아무도 방해하지 않을 겁니다... 원한다면요..." <<npcincr Sydney lust 1>><<npcincr Sydney purity -5>><<gslust>><<llspurity>>
+			"아! 으음... 조... 좋은 하루예요, 제 사랑." <<He>>【은는】 긴장한 듯 주위를 둘러본다. "당신은... 욕정이라는 죄를 억누르는 데 어려움을 겪는 것 같군요." <<He>>【은는】 헛기침하고 속삭이기 시작한다. "<<if $sydney.rank is "initiate">>이... 입문자로서<<else>><<temple_title "Sydney">>로서<</if>>... 죄에 사로잡힌 이를 돕는 것이... 제 의무예요. 저쪽에... 방이 하나 있어요, 아무도 방해하지 않을 거예요... 원한다면요..." <<npcincr Sydney lust 1>><<npcincr Sydney purity -5>><<gslust>><<llspurity>>
 			<br><br>
 			<<link [[받아들인다|Sydney Temple Sex]]>><<set $sexstart to 1>><</link>><<promiscuous1>><<sydneyWarning corrupt>>
 			<br>
@@ -870,7 +870,7 @@
 	<br><br>
 	<<sydneyOptions>>
 <<elseif Time.hour gte 21>>
-	시드니는 깊이 숨을 들이쉰다. "준비됐어요." <<He>>【은는】 주변의 <<monks>> 수를 세기 시작한다. "완벽하네요. 1분 뒤쯤 빈틈이 생길 겁니다. 제가 먼저 갈 테니, 당신은 2분쯤 뒤에 따라오세요." <<He>>【은는】 신전 뒤쪽 복도에서 주의해야 할 방향과 미묘한 세부 사항들을 줄줄이 알려주기 시작한다.
+	시드니는 깊이 숨을 들이쉰다. "준비됐어요." <<He>>【은는】 주변의 <<monks>> 수를 세기 시작한다. "완벽하네요. 1분 뒤쯤 빈틈이 생길 거예요. 제가 먼저 갈 테니, 당신은 2분쯤 뒤에 따라오세요." <<He>>【은는】 신전 뒤쪽 복도에서 주의해야 할 방향과 미묘한 세부 사항들을 줄줄이 알려주기 시작한다.
 	<br><br>
 	<<He>>【은는】 일어나려다가 멈추고 당신을 돌아본다. "정말로 준비된 게 확실한가요? 서약 위반은 여기서 아주 엄중하게 다뤄져서, 우리가 잡히기라도 하면..."
 	<br><br>
@@ -1387,7 +1387,7 @@
 
 :: Sydney Temple Corrupt End 3
 <<effects>>
-"정말 얼마나 좋았는지 아직도 믿기지 않아요." 시드니가 정원을 거닐며 당신에게 속삭인다. "좋을 줄은 알았지만... 왜 그들은 우리에게서 그걸 막으려는 걸까? 우리가 천국에 가지 못할까 봐? 헛소리! 우리는 방금 천국을 찾았는데!"
+"정말 얼마나 좋았는지 아직도 믿기지 않아요." 시드니가 정원을 거닐며 당신에게 속삭인다. "좋을 줄은 알았지만... 왜 그들은 우리에게서 그걸 막으려는 걸까요? 우리가 천국에 가지 못할까 봐서요? 헛소리예요! 우리는 방금 천국을 찾았는데요!"
 <br><br>
 <<He>>【은는】 당신을 풀밭 위로 덮치듯 쓰러뜨리고, 목과 얼굴 곳곳에 입을 맞춘다. <<He>>【은는】 당신을 눌러붙이고 킥킥 웃는다. "다시 하고 싶어요. 당신도 다시 하고 싶죠? <<if C.npc.Sydney.virginity.vaginal isnot true>>당신이 제 안에 들어오는 걸<<elseif C.npc.Sydney.virginity.penile isnot true>>제가 당신 안에 들어가는 걸<<else>>당신을 느끼는 걸<</if>> 다시 느끼고 싶어요."
 <br><br>

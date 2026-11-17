@@ -1232,7 +1232,7 @@
 	<<set _rng to random(1, 3)>>
 	<<switch _rng>>
 	<<case 1>>
-		렌이 당신의 <<pussy>> 위로 손가락을 스친다. "이거 자제력 엄청 필요한 거 알아?" 렌이 당신을 애무하며 말한다. "이렇게 귀여운 <<girl>>【이가】 <<if $estate.cards.position is "pc_lap" or $estate.cards.position is "penile">>내 아래에 있다니<<else>>내 무릎 위에 있다니<</if>>. 나보다 못한 <<personsimple>> 벌써 널 덮쳤을 거야."
+		렌이 당신의 <<pussy>> 위로 손가락을 스친다. "이거 자제력 엄청 필요한 거 알아?" 렌이 당신을 애무하며 말한다. "이렇게 귀여운 <<girl>>【이가】 <<if $estate.cards.position is "pc_lap" or $estate.cards.position is "penile">>내 아래에 있다니<<else>>내 무릎 위에 있다니<</if>>. 나보다 못한 <<personsimple>>【이가】 벌써 널 덮쳤을 거야."
 	<<case 2>>
 		렌의 손가락이 당신의 입구를 희롱하는 동안, <<his>> 시선이 당신의 <<pussy>>에 꽂히는 것이 느껴진다. "곧 네 안에 들어갈 거야." <<he>>【이가】 쓰다듬으며 말한다. "기대해."
 	<<default>>
@@ -1264,7 +1264,7 @@
 		<<set _rng to random(1, 3)>>
 		<<switch _rng>>
 		<<case 1>>
-			렌이 당신의 <<penis>> 귀두를 쓰다듬는다. "이거 자제력 엄청 필요한 거 알아?" 렌이 당신을 애무하며 말한다. "이렇게 귀여운 <<girl>>의 무릎 위에 앉아있다니. 나보다 못한 <<personsimple>> 벌써 널 덮쳤을 거야."
+			렌이 당신의 <<penis>> 귀두를 쓰다듬는다. "이거 자제력 엄청 필요한 거 알아?" 렌이 당신을 애무하며 말한다. "이렇게 귀여운 <<girl>>의 무릎 위에 앉아있다니. 나보다 못한 <<personsimple>>【이가】 벌써 널 덮쳤을 거야."
 		<<case 2>>
 			렌의 손가락이 당신의 <<penis>>【을를】 감싸는 동안, <<he>>【은는】 그것을 쳐다본다. "넌 지고 싶어 해." <<he>>【이가】 당신의 자지를 쓰다듬으며 말한다. "넌 저항할 수 없어."
 		<<default>>

@@ -1585,7 +1585,7 @@
 				<</if>>
 			<<default>>
 				<<if $speechPlead is 1 or $speechApologiseRejected is 1 or $speechApologiseUnforgiving is 1>>
-					베일리가 당신을 비웃는다. "오, 이제 와서 미안하다고? 이제 와서 대가를 치를 때가 되니까?"
+					베일리가 당신을 비웃는다. "오, 이제 와서 미안하다고? 벌을 받게 생기니까?"
 					<<set $baileySpoke++>>
 				<<elseif $speechScreamForHelp is 1 or $speechDemand is 1>>
 					"닥쳐." 베일리가 당신에게 쏘아붙인다. "네가 대가를 치르지 않았으니, <<nnpc_he "Robin">>【이가】 치르게 될 거다."

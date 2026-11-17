@@ -541,9 +541,9 @@
 		"<span class="wraith">어디 있지? 봤어? 내 목걸이...</span>"
 	<</if>>
 <<elseif $wraith.offspring is "dead" and $settings.tentaclesEnabled>>
-	"<span class="wraith">네가 그들을 죽게 내버려 뒀어. 우리는 더 만들 것이다.</span>"
+	"<span class="wraith">네가 그들을 죽게 내버려 뒀어. 우리는 더 만들 거야.</span>"
 <<elseif $wraith.offspring is "sold" and $settings.tentaclesEnabled>>
-	"<span class="wraith">네가 그들을 버렸어. 우리는 더 만들 것이다.</span>"
+	"<span class="wraith">네가 그들을 버렸어. 우리는 더 만들 거야.</span>"
 <<else>>
 	"<span class="wraith">육욕. 열정. 아름다워. <<pcPetname "Wraith">>.</span>"
 <</if>>
@@ -566,7 +566,7 @@
 	<<elseif $wraith.gen is "arms">>
 		<<His>> 여분의 팔들이 다시 안으로 접힌다.
 	<</if>>
-	<<His>> 머리가 뒤로 꺾이고, <<he>>【은는】 당신의 마음속에 메아리치는 짧은 비명과 함께 흔적도 없이 사라진다. 귀가 울리고, 웃음소리가 들리는 것 같다. "<span class="wraith">나는 모든 곳에 있다. 넌 절대 나에게서 벗어날 수 없어, <<pcpetname "Wraith">>.</span>"
+	<<His>> 머리가 뒤로 꺾이고, <<he>>【은는】 당신의 마음속에 메아리치는 짧은 비명과 함께 흔적도 없이 사라진다. 귀가 울리고, 웃음소리가 들리는 것 같다. "<span class="wraith">나는 모든 곳에 있어. 넌 절대 나에게서 벗어날 수 없어, <<pcpetname "Wraith">>.</span>"
 	<br><br>
 	<<tearful>> <<he>>【이가】 정말 사라졌는지 확인하려 주위를 둘러본다.
 	<<set $wraith.defeated++>>
@@ -1126,7 +1126,7 @@
 		<<kissWraith "stress">>
 		<br><br>
 		<<if $moonstate is "morning" and Time.hour gte 6>>
-			<<He>>【은는】 해가 떠오르는 하늘을 보며 당신에게서 멀어진다. <<He>>【은는】 비웃는다. "<span class="wraith">아아, 시간이 덧없구나. 걱정 마라, <<pcpetname "Wraith">>. 우린 곧 다시 만날 테니.</span>"
+			<<He>>【은는】 해가 떠오르는 하늘을 보며 당신에게서 멀어진다. <<He>>【은는】 비웃는다. "<span class="wraith">아아, 시간이 덧없네. 걱정 마, <<pcpetname "Wraith">>. 우린 곧 다시 만날 테니.</span>"
 			<br><br>
 			<<His>> 빛이 희미해지기 시작하고, <<he>>【은는】 거센 물줄기 속으로 서서히 녹아 사라진다.
 			공포가 서서히 사라진다. <span class="blue"><i>다음 블러드문까지는 안전하다.</i></span>

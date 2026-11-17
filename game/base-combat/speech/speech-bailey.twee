@@ -5,7 +5,7 @@
 	<<speechPool "Bailey" "noMouthAction">>
 	<<if ($speechPenisVirgin and $player.virginity.penile is "Bailey") or ($speechVaginaVirgin and $player.virginity.vaginal is "Bailey")>>
 		<<addSpeechLine "virginity">>
-			<<print $_stringsPre>>"젠장. 네년 가치가 방금 좀 떨어졌어."
+			<<print $_stringsPre>>"젠장. 네 값어치가 방금 좀 떨어졌군."
 		<</addSpeechLine>>
 	<</if>>
 	<<if $player.virginity.anal is "Bailey" and $speechAnusVirgin>>
@@ -15,7 +15,7 @@
 	<</if>>
 	<<if $player.virginity.oral is "Bailey" and $speechOralVirgin>>
 		<<addSpeechLine "virginity">>
-			<<print $_stringsPre>>"이상한 생각 마라. 얌전히 받아들여."
+			<<print $_stringsPre>>"이상한 생각 마. 얌전히 받아들여."
 		<</addSpeechLine>>
 	<</if>>
 	<<if $player.virginity.kiss is "Bailey" and $speechKissVirgin>>
@@ -71,7 +71,7 @@
 				<<if $kylar_abduction_bailey is 1>>
 					<<addSpeechLine "namedrop">>
 					<<speechLine>>
-						<<print $_stringsPre>>"어디 <<nnpc_him 'Kylar'>>【을를】 더 크게 불러보시지. 창문 밖에 <<nnpc_he 'Kylar'>>【이가】 있을지도 모르잖아."
+						<<print $_stringsPre>>"어디 <<nnpc_him 'Kylar'>>【을를】 더 크게 불러보든가. 창문 밖에 <<nnpc_he 'Kylar'>>【이가】 있을지도 모르잖아."
 					<<speechLine>>
 						<<print $_stringsPre>>"그 변태 새끼는 아마 지켜보고 있을 거다. 맘대로 보라지."
 					<</addSpeechLine>>

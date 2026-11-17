@@ -1,7 +1,7 @@
 :: School Leave Stop
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
 
-<<npc Leighton>><<person1>>당신이 떠나려 하자, 레이튼이 당신의 어깨에 팔을 올린다. "잊은 거 없어?" <<He>>【은는】 당신을 다시 학교 쪽으로 돌려세우려 한다.
+<<npc Leighton>><<person1>>당신이 떠나려 하자, 레이튼이 당신의 어깨에 팔을 올린다. "잊은 거 없나?" <<He>>【은는】 당신을 다시 학교 쪽으로 돌려세우려 한다.
 <br><br>
 
 <<link [[방과 후 활동하러 간다|School Detention]]>><<endevent>><</link>>
@@ -461,9 +461,9 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 <<wearProp "marker">>
 <<if $phase is 0>>
-	당신은 빨리 이곳을 벗어나길 바라며 일을 시작한다. 20분이 지나자 레이튼이 다시 입을 연다. "그 정도면 됐어." <<He>>【은는】 당신에게 나가보라고 손짓한다.
+	당신은 빨리 이곳을 벗어나길 바라며 일을 시작한다. 20분이 지나자 레이튼이 다시 입을 연다. "그 정도면 됐다." <<He>>【은는】 당신에게 나가보라고 손짓한다.
 <<elseif $phase is 1>>
-	당신은 느긋하게 칠판에 글씨를 쓰기 시작한다. 레이튼은 짜증이 난 듯 입술을 오므리며 이따금 당신을 쳐다본다. 마침내 <<he>>【은는】 <<his>> 시계를 본다. "그만하면 됐어, 나도 하루 종일 있을 순 없으니. 다음번엔 좀 더 열심히 하면 우리 둘 다 더 빨리 끝날 거야." <<He>>【은는】 당신에게 나가보라고 손짓한다.
+	당신은 느긋하게 칠판에 글씨를 쓰기 시작한다. 레이튼은 짜증이 난 듯 입술을 오므리며 이따금 당신을 쳐다본다. 마침내 <<he>>【은는】 <<his>> 시계를 본다. "그만하면 됐다, 나도 하루 종일 있을 순 없으니. 다음번엔 좀 더 열심히 하면 우리 둘 다 더 빨리 끝날 거다." <<He>>【은는】 당신에게 나가보라고 손짓한다.
 <</if>>
 <br><br>
 <<link [[다음|Hallways]]>><<endevent>><</link>>
@@ -479,7 +479,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<br>
 <<elseif $phase is 1>>
 	<<if $delinquency gte 400>>
-		당신은 비명을 지르며 <<person>>에게서 멀리 떨어져, 엉덩이를 감싸 쥐고 방금 무슨 일이 있었는지 레이튼에게 명확히 보여준다. <<person1>>레이튼이 당신을 똑바로 쳐다본다. "네 속임수에 넘어가지 않을 거다." <<He>>【은는】 <<person2>><<person>>【을를】 본다. "넌 볼일 끝났으니, 나가봐." <<person>>【은는】 지체 없이 방을 나간다.
+		당신은 비명을 지르며 <<person>>에게서 멀리 떨어져, 엉덩이를 감싸 쥐고 방금 무슨 일이 있었는지 레이튼에게 명확히 보여준다. <<person1>>레이튼이 당신을 똑바로 쳐다본다. "네 속임수에 넘어가지 않을 거다." <<He>>【은는】 <<person2>><<person>>【을를】 본다. "넌 볼일 끝났으니 나가라." <<person>>【은는】 지체 없이 방을 나간다.
 		<br><br>
 		<<person1>>혼자 남게 되자, 레이튼은 당신의 팔을 잡고 <<his>> 무릎 위에 당신을 엎드리게 한다.
 		<br><br>
@@ -487,7 +487,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 		<<link [[다음|School Detention Spank]]>><<npc Leighton>><<person1>><<set $molestationstart to 1>><</link>>
 		<br>
 	<<else>>
-		당신은 비명을 지르며 <<person>>에게서 멀리 떨어져, 엉덩이를 감싸 쥐고 방금 무슨 일이 있었는지 레이튼에게 명확히 보여준다. <<person1>> <<He>>【은는】 <<person2>><<person>>【을를】 본 다음, 다시 당신을 본다.<<person1>> "넌 볼일 끝났으니, 나가봐." <<his>> 목소리에는 반박을 허용하지 않는 무언가가 있었고, 당신은 서둘러 방을 빠져나온다. 복도를 걸어 내려가면서 등 뒤에서 희미한 비명 소리가 들리는 것 같다.
+		당신은 비명을 지르며 <<person>>에게서 멀리 떨어져, 엉덩이를 감싸 쥐고 방금 무슨 일이 있었는지 레이튼에게 명확히 보여준다. <<person1>> <<He>>【은는】 <<person2>><<person>>【을를】 본 다음, 다시 당신을 본다.<<person1>> "넌 볼일 끝났으니 나가라." <<his>> 목소리에는 반박을 허용하지 않는 무언가가 있었고, 당신은 서둘러 방을 빠져나온다. 복도를 걸어 내려가면서 등 뒤에서 희미한 비명 소리가 들리는 것 같다.
 		<br><br>
 		<<link [[다음|Hallways]]>><<endevent>><</link>>
 		<br>
@@ -544,12 +544,12 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 
 	<<if $worn.lower.type.includes("naked") and $worn.upper.type.includes("naked")>>
 		<<upperon>><<upperruined>><<loweron>><<lowerruined>>
-		복도를 따라 도망치는 당신의 등 뒤로 <<He>>【이가】 소리친다. "야, 이 <<bitch>>, 뭐 잊은 거 없어?"
+		복도를 따라 도망치는 당신의 등 뒤로 <<He>>【이가】 소리친다. "야, 이 <<bitch>>, 뭐 잊은 거 없나?"
 		<br>
 		나오는 길에 옷을 챙기지 못했다. <<tearful>> 당신은 계속 달린다.
 		<br><br>
 	<<else>>
-		복도를 따라 도망치는 당신의 등 뒤로 <<He>>【이가】 소리친다. "네 스스로 상황을 훨씬 더 악화시켰어, 이 <<bitch>>. 내 말 명심해." <<tearful>> 당신은 계속 달린다.
+		복도를 따라 도망치는 당신의 등 뒤로 <<He>>【이가】 소리친다. "네 스스로 상황을 훨씬 더 악화시켰다, 이 <<bitch>>. 내 말 명심해라." <<tearful>> 당신은 계속 달린다.
 		<<clotheson>>
 	<</if>>
 	<<endcombat>>
@@ -557,7 +557,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<link [[다음|Hallways]]>><</link>>
 	<br>
 <<else>>
-	<<He>>【은는】 당신을 놓아준다. "즐겁지 않았어. 네가 교훈을 얻었기를 바란다." <<He>>【은는】 당신에게 나가라고 손짓한다. <<tearful>> 당신은 그렇게 한다.
+	<<He>>【은는】 당신을 놓아준다. "즐겁지 않았다. 네가 교훈을 얻었기를 바란다." <<He>>【은는】 당신에게 나가라고 손짓한다. <<tearful>> 당신은 그렇게 한다.
 	<br><br>
 
 	<<clotheson>>
@@ -603,7 +603,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 :: School Detention Car2
 <<set $outside to 1>><<set $location to "school">><<schooleffects>><<effects>>
 <<if $phase is 0>>
-	당신은 <<he>>【이가】 가리킨 흙을 닦기 위해 웅크린다. "그걸로 됐어. 이제 가봐도 좋다." <<he>>【은는】 블라인드를 닫으며 말한다. 당신은 옷을 입고 그곳을 떠난다.
+	당신은 <<he>>【이가】 가리킨 흙을 닦기 위해 웅크린다. "그걸로 됐다. 이제 가봐도 좋다." <<he>>【은는】 블라인드를 닫으며 말한다. 당신은 옷을 입고 그곳을 떠난다.
 	<br><br>
 	<<link [[다음|Oxford Street]]>><<clotheson>><<endevent>><</link>>
 <<elseif $phase is 1>>
@@ -695,14 +695,14 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 <<if $phase is 1>>
 	당신은 한 손에 패들을 들고, 다른 손을 뻗어 <<person2>><<persons>> <<if $pronoun is "m">>삼각팬티<<else>>팬티<</if>>【을를】 끌어내린다. <<He>>【은는】 <<his>> 맨엉덩이가 드러나자 놀라서 비명을 지른다. 그 광경에 흥분이 솟구치는 것을 느낀다. <<promiscuity3>>
 
-	"오, 이런." 레이튼이 <<person1>><<his>> 목소리에 역력한 기쁨을 담아 말한다. "이거 꽤 괜찮은 벌이 되겠는데!"
+	"오, 이런." 레이튼이 <<person1>><<his>> 목소리에 역력한 기쁨을 담아 말한다. "이거 꽤 괜찮은 벌이 되겠군!"
 	<br><br>
 <</if>>
 
 당신은 패들을 높이 들어 <<person2>><<persons>> <<if $phase is 1>> 맨<</if>> 엉덩이를 힘껏 내리친다. <<He>>【은는】 고개를 돌려 당신을 바라본다. <<his>> 눈에는 배신감이 서려 있다. 당신은 <<if $submissive lte 500 or $sadism_level gte 1>>흥분과 함께,<<arousal 1000>><<else>>죄책감을 느끼지만,<<stress 12>><</if>> 레이튼이 <<persons>> 머리를 책상으로 눌러 정신을 차리게 한다.
 <br><br>
 
-"그래, <<him>>【을를】 더 세게 때려!" 레이튼이 욕정으로 눈을 번뜩이며 외친다. "<<him>>【이가】 몸부림치게 만들어!"
+"그래, <<him>>【을를】 더 세게 때려라!" 레이튼이 욕정으로 눈을 번뜩이며 외친다. "<<him>>【이가】 몸부림치게 만들어라!"
 <br><br>
 
 <<set _defiance_arousal to ($sadism / 40)>>
@@ -881,7 +881,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 <</if>>
 <br><br>
 
-레이튼이 당신을 노려본다. "나는 <<nnpc_title "Leighton">>【이】다, 어린 <<lady>>. 난 내가 원하는 건 뭐든지 할 수 있어. 보기 싫다면, 너도 <<person2>><<him>>【와과】 함께하면 된다."
+레이튼이 당신을 노려본다. "나는 <<nnpc_title "Leighton">>【이】다, 어린 <<lady>>. 난 내가 원하는 건 뭐든지 할 수 있다. 보기 싫다면, 너도 <<person2>><<him>>【와과】 함께하면 된다."
 <br><br>
 
 <<person>>【은는】 당신에게 동정적인 눈빛을 보내지만, <<he>>【은는】 당신이 시도해준 것에 감사하는 것 같다. 하지만 <<His>> 안도감은 오래가지 못한다. 레이튼이 당신의 목덜미를 잡고 책상 위로 밀치고는 당신의 <<bottom>> 위로 패들을 들어 올린다.
@@ -980,7 +980,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 
 	<<npc Leighton>><<person1>>
 	<<if $schoolfameblackmail isnot undefined>>
-		"너는 말이지." <<he>>【이가】 당신에게 돌아서며 말한다. 그의 눈은 욕정으로 번들거린다. "내 앞에서 그렇게 몸이나 만지다니, 더러운 암캐 같으니. 네 덕에 잔뜩 흥분해 버렸잖아. 내 생각엔 네가 이걸 좀 풀어줘야겠어." <<He>>【이가】 당신을 일으켜 세워 책상에 밀어붙인다.
+		"너는 말이지." <<he>>【이가】 당신에게 돌아서며 말한다. 그의 눈은 욕정으로 번들거린다. "내 앞에서 그렇게 몸이나 만지다니, 더러운 암캐 같으니. 네 덕에 잔뜩 흥분해 버렸군. 내 생각엔 네가 이걸 좀 풀어줘야겠다." <<He>>【이가】 당신을 일으켜 세워 책상에 밀어붙인다.
 		<br><br>
 
 		<<link [[다음|School Detention Paddle Rape]]>><<set $molestationstart to 1>><</link>>
@@ -1006,7 +1006,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<endmasturbation>>
 	<<endcombat>>
 
-	"너는 말이지." <<nnpc_he "Leighton">>【이가】 당신에게 돌아서며 씩 웃는다. "쇼를 즐겨줘서 기쁘군. 나도 즐거웠거든." <<nnpc_He "Leighton">>【은는】 다 안다는 듯이 당신에게 윙크한 후, 사무실 밖으로 안내한다.
+	"너는 말이지." <<nnpc_he "Leighton">>【이가】 당신에게 돌아서며 씩 웃는다. "쇼를 즐겨줘서 기쁘군. 나도 즐거웠다." <<nnpc_He "Leighton">>【은는】 다 안다는 듯이 당신에게 윙크한 후, 사무실 밖으로 안내한다.
 	<br><br>
 
 	<<link [[다음|Hallways]]>><</link>>
@@ -1075,15 +1075,15 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 			<<if $delinquency gte 800>>
 				"너 같은 버릇없는 놈들은 이런 대접을 받아야 해." 레이튼이 비웃으며 패들을 세게 내리친다.<<violence 4>><<gpain>>
 			<<elseif $physique gte ($physiquesize / 7) * 5>>
-				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그래?"<<combattrauma 4>><<gtrauma>>
+				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그런가?"<<combattrauma 4>><<gtrauma>>
 			<<else>>
 				레이튼은 혀를 차며 다음 타격을 준비한다. "이제부터는 착한 <<girl>>【이가】 될 거지, 그렇지?"<<combattrauma 2>><<gtrauma>>
 			<</if>>
 		<<case 8>>
 			<<if $pain gte 100>>
-				레이튼이 비웃는다. "울어봐야 소용없어, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
+				레이튼이 비웃는다. "울어봐야 소용없다, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 3>>
-				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "너는 더러운 작은 창녀야, 이거 좋아하지, 안 그래?"<<combattrauma 2>><<gtrauma>>
+				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "넌 더러운 꼬맹이 창녀로구나. 이거 좋아하지 않나?"<<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 1>>
 				고통이 당신을 흥분시켜, 당신의
 				<<if $player.penisExist and $player.vaginaExist>>
@@ -1124,7 +1124,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	레이튼의 절정이 가라앉자 패들이 땅에 쨍그랑 소리를 내며 떨어지고, <<himself>> 책상에 기대어 몸을 가눈다. <<his>> 눈에 명료함이 돌아오고 <<he>>【은는】 방금 무슨 일이 일어났는지 깨닫고 갑자기 일어선다. <<He>>【은는】 바닥에서 패들을 주워들며 당황한 표정을 짓는다.
 	<br><br>
 
-	"이 일에 대해 누구에게도 한마디도 하지 마." <<he>>【이가】 힘겹게 숨을 몰아쉬며 말한다. "너희 둘 다 마찬가지야."
+	"이 일에 대해 누구에게도 한마디도 하지 마라." <<he>>【이가】 힘겹게 숨을 몰아쉬며 말한다. "너희 둘 다 마찬가지다."
 	<br><br>
 
 	<<tearful>> 당신은 고개를 끄덕인다. <<person2>><<person>> 학생은 당신 옆에서 말없이 흐느끼며, <<his>> 얼굴을 책상에 파묻고 있다. <<he>>【이가】 무슨 일이 있었는지 알아차리기나 했는지 궁금하다.
@@ -1144,7 +1144,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	레이튼이 고통에 움츠러들자, 당신은 <<his>> 손아귀에서 몸부림쳐 빠져나온다.
 	<br><br>
 
-	<<He>>【은는】 복도를 따라 도망치는 당신의 뒤에 대고 소리친다. "네 스스로 일을 훨씬 더 악화시켰어, 이 <<bitch>>【아야】. 내 말 명심해." <<tearful>> 당신은 <<person2>><<person>> 학생을 <<his>> 운명에 맡겨두고 계속 달린다.
+	<<He>>【은는】 복도를 따라 도망치는 당신의 뒤에 대고 소리친다. "네 스스로 일을 훨씬 더 악화시켰다, 이 <<bitch>>【아야】. 내 말 명심해라." <<tearful>> 당신은 <<person2>><<person>> 학생을 <<his>> 운명에 맡겨두고 계속 달린다.
 	<br><br>
 
 	<<clotheson>>
@@ -1155,7 +1155,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<br>
 <<else>>
 	<<loadNPC 1 paddle_other_student_1>>
-	레이튼이 만족스러운 표정으로 한 걸음 물러선다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠어?"
+	레이튼이 만족스러운 표정으로 한 걸음 물러선다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠나?"
 	<br><br>
 
 	<<if $speech_attitude is "meek">>
@@ -1206,14 +1206,14 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 <<else>>
 	<<switch random(1, 12)>>
 		<<case 1>>
-			레이튼이 잠시 패들을 내려놓고 당신의 턱 아래에 손을 넣어 머리를 억지로 들어 올린다. "그 표정 그대로 있어." <<he>>【이가】 사진을 찍으며 명령한다.<<violence -2>><<combattrauma 10>><<gtrauma>><<lpain>>
+			레이튼이 잠시 패들을 내려놓고 당신의 턱 아래에 손을 넣어 머리를 억지로 들어 올린다. "그 표정 그대로 있어라." <<he>>【이가】 사진을 찍으며 명령한다.<<violence -2>><<combattrauma 10>><<gtrauma>><<lpain>>
 		<<case 2>>
 			레이튼이 잠시 숨을 고르기 위해 짧은 휴식을 취하며, 당신에게 안도의 순간을 준다.<<violence -2>><<lpain>>
 			<br>
 			<<if $delinquency gte 800>>
 				그것도 잠시, <<his>> 손바닥이 갑자기 당신의 <<bottom>>【을를】 때린다. <<He>>【은는】 씩 웃는다. "사악한 자에게 휴식은 없지, 유감스럽게도." <<violence 4>><<gstress>><<gtrauma>><<gpain>>
 			<<else>>
-				"그렇게 안심한 표정 짓지 마." <<he>>【이가】 웃는다. "아직 너랑 볼일 안 끝났어."
+				"그렇게 안심한 표정 짓지 마라." <<he>>【이가】 웃는다. "아직 너랑 볼일 안 끝났다."
 			<</if>>
 		<<case 3>>
 			레이튼이 <<his>> 팔을 뒤로 젖히며, 거친 한 대를 날릴 준비를 한다.<<set $stress += 12>><<gstress>>
@@ -1231,15 +1231,15 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 			<<if $delinquency gte 800>>
 				"너 같은 버릇없는 놈들은 이런 대접을 받아야 해." 레이튼이 비웃으며 패들을 세게 내리친다.<<violence 4>><<gpain>>
 			<<elseif $physique gte ($physiquesize / 7) * 5>>
-				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그래?"<<combattrauma 4>><<gtrauma>>
+				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그런가?"<<combattrauma 4>><<gtrauma>>
 			<<else>>
 				레이튼은 혀를 차며 다음 타격을 준비한다. "이제부터는 착한 <<girl>>【이가】 될 거지, 그렇지?"<<combattrauma 2>><<gtrauma>>
 			<</if>>
 		<<case 8>>
 			<<if $pain gte 100>>
-				레이튼이 비웃는다. "울어봐야 소용없어, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
+				레이튼이 비웃는다. "울어봐야 소용없다, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 3>>
-				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "너는 더러운 작은 창녀야. 이거 좋아하지, 안 그래?"<<combattrauma 2>><<gtrauma>>
+				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "넌 더러운 꼬맹이 창녀로구나. 이거 좋아하지 않나?"<<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 1>>
 				고통이 당신을 흥분시켜, 당신의
 				<<if $player.penisExist and $player.vaginaExist>>
@@ -1290,7 +1290,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<He>>【은는】 고통에 움츠러들고 당신은 <<his>> 손아귀에서 몸부림쳐 빠져나온다.
 	<br><br>
 
-	<<He>>【은는】 복도를 따라 도망치는 당신의 뒤에 대고 소리친다. "네 스스로 일을 훨씬 더 악화시켰어, 이 <<bitch>>【아야】. 내 말 명심해." <<tearful>> 당신은 계속 달린다.
+	<<He>>【은는】 복도를 따라 도망치는 당신의 뒤에 대고 소리친다. "네 스스로 일을 훨씬 더 악화시켰다, 이 <<bitch>>【아야】. 내 말 명심해라." <<tearful>> 당신은 계속 달린다.
 	<br><br>
 
 	<<clotheson>>
@@ -1299,7 +1299,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<link [[다음|Hallways]]>><</link>>
 	<br>
 <<else>>
-	레이튼이 책상 위 당신 옆에 패들을 내려놓는다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠어?"
+	레이튼이 책상 위 당신 옆에 패들을 내려놓는다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠나?"
 	<br><br>
 
 	<<clotheson>>
@@ -1307,7 +1307,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<npc Leighton>><<person1>>
 
 	<<if $pain gte 60>>
-		당신이 책상에서 몸을 일으키려 하자, 레이튼이 당신의 어깨에 손을 얹어 제자리에 고정시킨다. "잠깐만. 줄 게 있어." <<stress 2>><<gstress>>
+		당신이 책상에서 몸을 일으키려 하자, 레이튼이 당신의 어깨에 손을 얹어 제자리에 고정시킨다. "잠깐. 줄 게 있다." <<stress 2>><<gstress>>
 		<br><br>
 
 		<<He>>【은는】 <<his>> 책상 뒤로 걸어가 서랍을 뒤지더니, 마비 크림 한 통을 꺼낸다. "착한 <<girl>>【이가】 되겠다고 약속하면, 기분을 좋게 해 주지. 어때?"
@@ -1371,15 +1371,15 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 			<<if $delinquency gte 800>>
 				"너 같은 버릇없는 놈들은 이런 대접을 받아야 해." 레이튼이 비웃으며 패들을 세게 내리친다.<<violence 4>><<gpain>>
 			<<elseif $physique gte ($physiquesize / 7) * 5>>
-				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그래?"<<combattrauma 4>><<gtrauma>>
+				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그런가?"<<combattrauma 4>><<gtrauma>>
 			<<else>>
 				레이튼은 혀를 차며 다음 타격을 준비한다. "이제부터는 착한 <<girl>>【이가】 될 거지, 그렇지?"<<combattrauma 2>><<gtrauma>>
 			<</if>>
 		<<case 8>>
 			<<if $pain gte 100>>
-				레이튼이 비웃는다. "울어봐야 소용없어, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
+				레이튼이 비웃는다. "울어봐야 소용없다, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 3>>
-				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "너는 더러운 작은 창녀야, 이거 좋아하지, 안 그래?"<<combattrauma 2>><<gtrauma>>
+				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "넌 더러운 꼬맹이 창녀로구나. 이거 좋아하지 않나?"<<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 1>>
 				고통이 당신을 흥분시켜, 당신의
 				<<if $player.penisExist and $player.vaginaExist>>
@@ -1420,10 +1420,10 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	레이튼의 눈에 명료함이 돌아오고 <<he>>【은는】 방금 무슨 일이 일어났는지 깨닫고 갑자기 일어선다. <<person2>><<person>> 학생은 턱이 빠질 듯이 그 장면을 쳐다본다.
 	<br><br>
 
-	레이튼은 <<his>> 멍한 표정을 알아채고 <<him>>【을를】 쏘아본다. "이 일에 대해 누구에게도 말할 생각조차 하지 마, 안 그러면 다음번엔 네 엉덩이가 여기 올라올 줄 알아. 알겠어?" <<person>> 학생은 재빨리 고개를 끄덕인다.
+	레이튼은 <<his>> 멍한 표정을 알아채고 <<him>>【을를】 쏘아본다. "이 일에 대해 누구에게도 말할 생각조차 하지 마라, 안 그러면 다음번엔 네 엉덩이가 여기 올라올 줄 알아. 알겠나?" <<person>> 학생은 재빨리 고개를 끄덕인다.
 	<br><br>
 
-	"그리고 너," 레이튼이 숨을 몰아쉬며 당신에게 돌아선다. "내 사무실에서 나가. 다시는 여기서 널 보고 싶지 않아."
+	"그리고 너," 레이튼이 숨을 몰아쉬며 당신에게 돌아선다. "내 사무실에서 나가라. 다시는 여기서 널 보고 싶지 않다."
 	<br><br>
 
 	<<earnFeat "Leighton's Nightmare">>
@@ -1440,7 +1440,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	당신은 레이튼의 손아귀에서 팔을 비틀어 빼내고 <<him>>【을를】 밀쳐낸다. <<person2>><<person>> 학생은 충격받은 듯하면서도 약간 감명받은 표정이다.<<status 2>><<gcool>>
 	<br><br>
 
-	당신은 혼란을 틈타 복도로 도망치고, 레이튼은 당신 뒤에서 화를 내며 소리친다. "야, 이 <<bitch>>【아야】, 뭐 잊은 거 없어?"
+	당신은 혼란을 틈타 복도로 도망치고, 레이튼은 당신 뒤에서 화를 내며 소리친다. "야, 이 <<bitch>>【아야】, 뭐 잊은 거 없나?"
 	<br>
 	나오는 길에 옷을 챙기지 못했다. <<tearful>> 당신은 계속 달린다.
 	<br><br>
@@ -1451,7 +1451,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<link [[다음|Hallways]]>><<clotheson>><<clothesruined>><</link>>
 	<br>
 <<else>>
-	레이튼이 책상 위 당신 옆에 패들을 내려놓는다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠어?"
+	레이튼이 책상 위 당신 옆에 패들을 내려놓는다. "착한 <<girl>>【이】군. 그냥 시키는 대로 했으면 일이 얼마나 더 쉬워졌을지 모르겠나?"
 	<br><br>
 
 	<<endcombat>>
@@ -1470,7 +1470,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 		<<link [[거절한다|School Detention Paddle Cream Refuse]]>><<set $phase to 1>><</link>>
 		<br>
 	<<else>>
-		"물론이지." 레이튼이 씩 웃으며 동의한다. "<<pshe>>【은는】【은는】 <<pher>> 교훈을 배웠을 거야. 적어도 <<pher>> 자신을 위해서라도 그랬으면 좋겠군."
+		"물론이지." 레이튼이 씩 웃으며 동의한다. "<<pshe>>【은는】【은는】 <<pher>> 교훈을 배웠을 거다. 적어도 <<pher>> 자신을 위해서라도 그랬으면 좋겠군."
 		<br><br>
 
 		당신이 옷을 입자, <<person1>><<he>>【은는】 당신을 <<his>> 사무실 밖으로 이끈다. 당신은 복도로 나서면서 <<person2>><<persons>> 의기양양한 미소를 무시하려고 최선을 다한다.
@@ -1533,7 +1533,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 		<<case 3>>
 			세 학생은 휴대폰을 들고 웃으며 사진을 찍어댄다.<<combattrauma 3>><<fameexhibitionism 6 "pic">><<gtrauma>>
 		<<case 4>>
-			레이튼이 어깨너머로 다른 학생들을 훔쳐본다. <<He>>【은는】 씨익 웃는다. "내가 끝나면 저 녀석들이 너랑 한 번 하게 해줄까. 그러면 네가 교훈을 얻을 수 있을 텐데 말이야." <<set $stress += 18>><<ggstress>>
+			레이튼이 어깨너머로 다른 학생들을 훔쳐본다. <<He>>【은는】 씨익 웃는다. "내가 끝나면 저 녀석들이 너랑 한 번 하게 해줄까. 그러면 네가 교훈을 얻을 수 있을 텐데 말이다." <<set $stress += 18>><<ggstress>>
 		<<case 5>>
 			레이튼은 멈추지 않고, 악랄한 연타로 당신의 <<bottom>>【을를】 괴롭힌다. 다른 학생들은 <<he>>【이가】 따끔한 한 대로 마무리하자 환호한다.<<violence 5>><<combattrauma 5>><<ggstress>><<ggtrauma>><<ggpain>>
 		<<case 6>>
@@ -1546,15 +1546,15 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 			<<if $delinquency gte 800>>
 				"너 같은 버릇없는 놈들은 이런 대접을 받아야 해." 레이튼이 비웃으며 패들을 세게 내리친다.<<violence 4>><<gpain>>
 			<<elseif $physique gte ($physiquesize / 7) * 5>>
-				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그래?"<<combattrauma 4>><<gtrauma>>
+				레이튼은 당신의 굴욕을 즐기며 웃는다. "이제 별로 안 세 보이는데, 안 그런가?"<<combattrauma 4>><<gtrauma>>
 			<<else>>
 				레이튼은 혀를 차며 다음 타격을 준비한다. "이제부터는 착한 <<girl>>【이가】 될 거지, 그렇지?"<<combattrauma 2>><<gtrauma>>
 			<</if>>
 		<<case 8>>
 			<<if $pain gte 100>>
-				레이튼이 비웃는다. "울어봐야 소용없어, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
+				레이튼이 비웃는다. "울어봐야 소용없다, 넌 여전히 받아야 할 벌을 받게 될 테니까." <<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 3>>
-				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "너는 더러운 작은 창녀야, 이거 좋아하지, 안 그래?"<<combattrauma 2>><<gtrauma>>
+				고통스러운 감각에 쾌감을 느끼며 몸을 꿈틀거릴 수밖에 없다. 레이튼은 그 광경을 보고 낄낄거린다. "넌 더러운 꼬맹이 창녀로구나. 이거 좋아하지 않나?"<<combattrauma 2>><<gtrauma>>
 			<<elseif $masochism_level gte 1>>
 				고통이 당신을 흥분시켜, 당신의
 				<<if $player.penisExist and $player.vaginaExist>>
@@ -1612,7 +1612,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	당신은 레이튼의 손아귀에서 팔을 비틀어 빼내고 <<him>>【을를】 밀쳐낸다. 다른 학생들은 그 광경에 웃으며 환호한다. 당신의 대담함에 즐거워하면서도 감명받은 듯하다.<<status 5>><<gcool>>
 	<br><br>
 
-	당신은 혼란을 틈타 복도로 도망치고, 레이튼은 당신 뒤에서 화를 내며 소리친다. "야, <<bitch>>, 뭐 잊은 거 없어?"
+	당신은 혼란을 틈타 복도로 도망치고, 레이튼은 당신 뒤에서 화를 내며 소리친다. "야, <<bitch>>, 뭐 잊은 거 없나?"
 	<br>
 	나오는 길에 옷을 챙기지 못했다. <<tearful>> 당신은 계속 달린다.
 	<br><br>
@@ -1644,7 +1644,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 		<<link [[거절한다|School Detention Paddle Cream Refuse]]>><<set $phase to 1>><</link>>
 		<br>
 	<<else>>
-		"그렇지," 레이튼이 씩 웃으며 동의한다. "<<pshe>>【은는】 <<pher>> 교훈을 배웠을 거라고 확신해. 적어도 <<pher>> 자신을 위해서라도 그랬으면 좋겠군."
+		"그렇지," 레이튼이 씩 웃으며 동의한다. "<<pshe>>【은는】 <<pher>> 교훈을 배웠을 거라고 확신한다. 적어도 <<pher>> 자신을 위해서라도 그랬으면 좋겠군."
 		<br><br>
 
 		당신이 옷을 입자, <<person1>><<he>>【은는】 당신을 <<his>> 사무실 밖으로 이끈다. 당신은 복도로 나서면서 다른 학생들의 조롱 섞인 말을 무시하려고 최선을 다한다.
@@ -1899,7 +1899,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<case 4, 5>>
 		<<person1>>"<<He>>【은는】 이걸 잘하지, 안 그런가?" 레이튼이 <<person>>【을를】 올려다보며 히죽 웃는다.
 	<<case 6>>
-		"그 표정 그대로 있어." 레이튼이 <<nnpc_his "Leighton">> 카메라를 들며 명령한다.<<famesex 2 "pic">>
+		"그 표정 그대로 있어라." 레이튼이 <<nnpc_his "Leighton">> 카메라를 들며 명령한다.<<famesex 2 "pic">>
 <</switch>>
 
 <<stateman>>
@@ -1955,7 +1955,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 		<<nnpc_He "Leighton">> <<nnpc_his "Leighton">> 카메라의 사진들을 훑어보다가 당신에게 말을 건다.
 		<br><br>
 
-		"둘 다 귀중한 교훈을 얻었길 바란다." <<nnpc_he "Leighton">>【이가】 말한다. <<nnpc_He "Leighton">>【은는】 <<nnpc_his "Leighton">> 카메라를 들어 올리며 미소 짓는다. "너희들만 알고 있는 게 좋을 교훈 말이야."
+		"둘 다 귀중한 교훈을 얻었길 바란다." <<nnpc_he "Leighton">>【이가】 말한다. <<nnpc_He "Leighton">>【은는】 <<nnpc_his "Leighton">> 카메라를 들어 올리며 미소 짓는다. "너희들만 알고 있는 게 좋을 교훈 말이다."
 		<br><br>
 
 		<<tearful>> 당신은 <<person>>【을를】 데리고 교장실에서 끌려 나온다. <<He>>【은는】 복도 저편으로 사라지면서 윙크를 한다.
@@ -1971,7 +1971,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	당신은 <<person>>【을를】 밀쳐내고 책상에서 재빨리 벗어난다.
 	<br><br>
 
-	레이튼이 당신을 잡으려 하지만, 당신은 이미 문밖으로 나간 뒤다. 복도를 따라 도망치는 당신의 뒤에 대고 <<nnpc_He "Leighton">>【이가】 소리친다. "어이, <<bitch>>, 뭐 잊은 거 없어?"
+	레이튼이 당신을 잡으려 하지만, 당신은 이미 문밖으로 나간 뒤다. 복도를 따라 도망치는 당신의 뒤에 대고 <<nnpc_He "Leighton">>【이가】 소리친다. "어이, <<bitch>>, 뭐 잊은 거 없나?"
 	<br>
 	당신은 나오는 길에 옷을 챙기지 못했다. <<tearful>> 당신은 계속 달린다.
 	<br><br>
@@ -1984,7 +1984,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 	<<person>>【은는】 실망과 안도가 뒤섞인 한숨을 내쉬며 당신에게서 물러난다.
 	<br><br>
 
-	레이튼은 <<nnpc_his "Leighton">> 카메라의 사진들을 훑어보며 눈살을 찌푸린다. "이 정도면 충분하겠지." <<nnpc_he "Leighton">>【이가】 중얼거리더니, 당신을 올려다본다. "가봐, 내 시간만 충분히 낭비했으니. 다시는 여기 오지 않도록 해라."
+	레이튼은 <<nnpc_his "Leighton">> 카메라의 사진들을 훑어보며 눈살을 찌푸린다. "이 정도면 충분하겠지." <<nnpc_he "Leighton">>【이가】 중얼거리더니, 당신을 올려다본다. "가라, 내 시간만 충분히 낭비했으니. 다시는 여기 오지 않도록 해라."
 	<br><br>
 
 	<<tearful>> 당신은 옷을 입고 <<person>>【와과】 함께 교장실을 나선다. <<He>>【은는】 당신 쪽으로 어색한 시선을 던지더니, 얼굴을 붉히며 복도를 따라 허둥지둥 사라진다.
@@ -2045,7 +2045,7 @@ Some events are replaced with more severe events if PC is deemed (randomly) to b
 :: School Detention Paddle Cream Refuse
 <<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
 
-레이튼이 한숨을 쉬며 고개를 젓고는 튜브를 서랍에 다시 넣는다. "정말 배은망덕하군." <<he>>【이가】 작은 목소리로 중얼거린 뒤 당신을 쳐다본다. "볼일 끝났다. 가봐."
+레이튼이 한숨을 쉬며 고개를 젓고는 튜브를 서랍에 다시 넣는다. "정말 배은망덕하군." <<he>>【이가】 작은 목소리로 중얼거린 뒤 당신을 쳐다본다. "볼일 끝났다. 가라."
 <br><br>
 
 <<tearful>> 당신은 옷을 고쳐 입고 떠난다<<if $phase gte 1>>, <<if $phase is 1>><<person2>><<persons>><<else>>다른 학생들의<</if>> 조롱하는 말을 무시하려고 최선을 다하며<</if>>.

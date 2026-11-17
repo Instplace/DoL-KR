@@ -1731,21 +1731,21 @@
 
 	<<if $sexRitual.forced>>
 		<<if $sexRitual.virginity.includesAny("penis", "vagina")>>
-			잠시 침묵이 흐른다. "네가 우리 의식을 계속 피해왔던 걸 생각하면, 이 제안을 받아들이다니 놀랍군." 그윌란이 말한다. "날 믿어줘서 고맙다. 기억해두지."
+			잠시 침묵이 흐른다. "네가 우리 의식을 계속 피해왔던 걸 생각하면, 이 제안을 받아들이다니 놀랍군." 그윌란이 말한다. "날 믿어줘서 고마워. 기억해두지."
 		<<else>>
-			"고맙다." 그윌란이 엄숙하게 대답한다.
+			"고마워." 그윌란이 엄숙하게 대답한다.
 		<</if>>
 	<<elseif $sexRitual.bondage>>
 		<<if $sexRitual.virginity.includesAny("penis", "vagina")>>
-			"날 믿어줘서 고맙다." 그윌란이 말한다. "기억해두지."
+			"날 믿어줘서 고마워." 그윌란이 말한다. "기억해두지."
 		<<else>>
-			"고맙다." 그윌란이 엄숙하게 대답한다.
+			"고마워." 그윌란이 엄숙하게 대답한다.
 		<</if>>
 	<<else>>
 		<<if $sexRitual.virginity.includesAny("penis", "vagina")>>
-			그윌란이 <<his>> 모자를 내려 <<his>> 얼굴을 가린다. "날 믿어줘서 고맙다. 기억해두지."
+			그윌란이 <<his>> 모자를 내려 <<his>> 얼굴을 가린다. "날 믿어줘서 고마워. 기억해두지."
 		<<else>>
-			그윌란이 엄숙하게 고개를 끄덕인다. "고맙다."
+			그윌란이 엄숙하게 고개를 끄덕인다. "고마워."
 		<</if>>
 	<</if>>
 <<elseif $phase is "virginityRequest">>
@@ -4209,7 +4209,7 @@
 
 <<if $auriga_scar and $gwylanSeen.includes("auriga_scar") and !$gwylanSeen.includes("auriga_scar_forgiven")>>
 	<<set $gwylanSeen.pushUnique("auriga_scar_forgiven")>><<set $gwylanSeen.pushUnique("nobody")>>
-	<<He>>【이가】 <<His>> 마녀 모자를 벗는다. <<His>> 얼굴이 당신에게 가까워진다. "이제 알겠나?"
+	<<He>>【이가】 <<His>> 마녀 모자를 벗는다. <<His>> 얼굴이 당신에게 가까워진다. "이제 알겠어?"
 	<br><br>
 
 	당신이 대답하기도 전에, <<his>> 손이 당신의 뒤통수에 닿는다. "더 가까이 봐."

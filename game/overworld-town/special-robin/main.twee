@@ -4012,7 +4012,7 @@ _skin_array.includes("right_cheek") and !["tattoo", "brand", "magic"].includes($
 		<<if C.npc.Robin.dom gte 50>>
 			<<He>>【은는】 입술을 삐죽이고, 시드니가 입 맞춘 바로 그 자리에 당신의 뺨에 입을 맞춘다. "내가 더 잘해."
 		<<else>>
-			왜... 방금 무슨 일이야?" <<He>>【은는】 얼굴을 찌푸린다.
+			"왜... 방금 무슨 일이야?" <<He>>【은는】 얼굴을 찌푸린다.
 		<</if>>
 		당신은 식사하며 <<him>>【와과】 이야기를 나누고, 시드니 이야기는 피하려 애쓴다.
 	<<else>>

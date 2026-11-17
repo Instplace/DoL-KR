@@ -74,7 +74,7 @@
 		<<addSpeechLine "reveal">>
 			<<if _sydneyStatus.includes("corrupt")>>
 				<<if _sydney.gender is "h">>
-					<<He>>【은는】 헐떡인다. "와! <<nnpc_Mum "Sirris">>【이가】 나한테 항상 특별하다고 말했었는데, 당신도 둘 다 가지고 있구나!"
+					<<He>>【은는】 헐떡인다. "와! <<nnpc_Mum "Sirris">>【이가】 나한테 항상 특별하다고 말했었는데, 너도 둘 다 가지고 있구나!"
 				<<else>>
 					<<He>>【은는】 헐떡인다. "와! <<nnpc_Mum "Sirris">>【은는】 그게 가능하다고 절대 말 안 해줬는데."
 				<</if>>

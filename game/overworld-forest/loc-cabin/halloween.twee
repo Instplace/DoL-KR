@@ -56,9 +56,9 @@
 <<if $speech_attitude is "meek">>
 	"이-이 과자는 당신을 위해 산 거예요."
 <<elseif $speech_attitude is "bratty">>
-	"당신 주려고 산 과자예요. 당신 거예요."
+	"널 주려고 산 과자야. 네 거야."
 <<else>>
-	"당신을 위해 산 과자예요."
+	"널 위해 산 과자야."
 <</if>>
 <br><br>
 
