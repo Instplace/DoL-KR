@@ -15,6 +15,8 @@ body:
         - 과도한 의역 (번역으로 인해 의미가 달라짐)
         - 고유명사가 일관적으로 표시되지 않음
         - 그 외 나머지
+    validations:
+      required: true
   - type: input
     id: passage
     attributes:
