@@ -1,27 +1,26 @@
 # DoL-KR
 
-[Degrees of Lewdity](https://vrelnir.blogspot.com/) **0.5.13.8**의 한국어 번역본입니다.
-
-[아카라이브 DOL 채널](https://arca.live/b/dolgame)에서 만들어 온 번역본을 이어받아, 원작 0.5.13.8에 맞춰 갱신하고 문체와 용어를 정리했습니다.
+[Degrees of Lewdity](https://vrelnir.blogspot.com/)의 한국어 번역본입니다.
 
 > 이 게임은 성인용입니다. 성적·폭력적인 내용을 담고 있으며 미성년자에게 적합하지 않습니다.
 
-## 원작과 출처
+## 원작자
+### Degrees of Lewdity
+© Vrelnir
 
-- **원작**: Vrelnir의 [Degrees of Lewdity](https://vrelnir.blogspot.com/) ([소스 저장소](https://gitgud.io/Vrelnir/degrees-of-lewdity))
-- **한국어 번역**: [아카라이브 DOL 채널](https://arca.live/b/dolgame)의 번역 참여자들, 그리고 그 결과물을 공개한 [Ooo-eee/DoL_KrTranslation](https://github.com/Ooo-eee/DoL_KrTranslation). 이 저장소의 첫 커밋이 그 번역본(0.5.12.13)입니다.
+[개발자 블로그](https://vrelnir.blogspot.com/) | [GitGud (소스 코드)](https://gitgud.io/Vrelnir/degrees-of-lewdity) | [FANBOX (후원)](https://vrelnir.fanbox.cc)
 
-기존 번역에는 여러 참여자가 관여했으므로 개별 번역문의 저작자를 여기서 모두 특정하지는 않습니다.
+### 한국어 번역
+[아카라이브 DOL 채널](https://arca.live/b/dolgame)의 여러 기여자
 
 ## 라이선스
-
-원작과 기존 번역본에 적용된 **CC BY-NC-SA 4.0**을 그대로 따릅니다. 이 저장소에서 더한 변경도 같은 조건으로 공개합니다.
+본 리포지토리의 모든 컨텐츠는 **CC BY-NC-SA 4.0**에 따라서 배포됩니다.
 
 - **BY (저작자표시)**: 원작과 번역본의 저작자 및 출처를 밝혀야 합니다.
 - **NC (비영리)**: 영리 목적으로 이용할 수 없습니다.
 - **SA (동일조건변경허락)**: 이 번역본을 고치거나 바탕으로 삼은 2차 저작물에도 같은 라이선스를 적용해야 합니다.
 
-자세한 내용은 [`LICENSE`](LICENSE) 파일과 [라이선스 한글 요약](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)을 참고하세요. 조건을 지키는 한 자유롭게 Fork하여 번역을 이어가거나 재배포할 수 있습니다.
+자세한 내용은 [`LICENSE`](LICENSE) 파일과 [라이선스 한글 요약](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)을 참고하세요.
 
 아래로는 원작의 `README.md`가 이어집니다.
 
