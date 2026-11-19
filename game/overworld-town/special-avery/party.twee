@@ -6340,7 +6340,7 @@
 <<if $speech_attitude is "meek">>
 	당신은 <<person3>><<person>>에게서 시선을 돌리고 침묵을 지킨다.
 <<elseif $speech_attitude is "bratty">>
-	당신은 <<hes>> 선을 넘었다는 듯 <<person3>><<person>>【을를】 빤히 바라본다. <<He>>【은는】 시선을 피한다.
+	당신은 <<he>>【이가】 선을 넘었다는 듯 <<person3>><<person>>【을를】 빤히 바라본다. <<He>>【은는】 시선을 피한다.
 <<else>>
 	당신은 <<person>>【을를】 무시한다.
 <</if>>

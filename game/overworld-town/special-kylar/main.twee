@@ -2004,7 +2004,7 @@
 :: Kylar Orphanage Cuddle Ignore
 <<effects>><<run statusCheck("Kylar")>>
 
-당신은 <<hes>> 하는 말을 무시하기로 한다. <<His>> 더듬거림은 서서히 잦아들고, <<he>>【은는】 침묵한다.
+당신은 <<he>>【이가】 하는 말을 무시하기로 한다. <<His>> 더듬거림은 서서히 잦아들고, <<he>>【은는】 침묵한다.
 <<if !_kylarStatus.includes("Calm")>>
 	당신이 반응하지 않자 <<he>>【은는】 실망한 듯하다.
 <<else>>

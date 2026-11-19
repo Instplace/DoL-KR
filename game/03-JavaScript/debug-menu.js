@@ -253,7 +253,7 @@ setup.debugMenu.eventList = {
 			],
 		},
 		{
-			link: [`숲 상점 의상 잠금 해제하기`, stayOnPassageFn],
+			link: [`숲속 상점 의상 잠금 해제하기`, stayOnPassageFn],
 			widgets: [
 				`
 				<<for _i to 0; _i lt $specialClothes.length; _i++>>

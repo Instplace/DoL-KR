@@ -2246,7 +2246,7 @@
 <<masturbationactions>>
 
 <<if $corruptionMasturbation>>
-	<span class="red">귀 안의 슬라임이 멈추는 것을 허락하지 않는다.</span>
+	<span class="red">귀 슬라임이 멈추는 것을 허락하지 않는다.</span>
 <</if>>
 
 <<if $drugged lte 0 and $arousal lte 3000>>

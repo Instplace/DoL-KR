@@ -562,7 +562,7 @@ setup.feats = {
 		difficulty: 2,
 		series: "",
 		filter: ["All", "Social"],
-		hint: "힌트: 부유한 후원자와 발렌타인 데이트를 하십시오.",
+		hint: "힌트: 부유한 후원자와 발렌타인데이트를 하십시오.",
 	},
 	"Pride Cometh": {
 		title: "무너지는 교만",
@@ -2126,7 +2126,7 @@ setup.feats = {
 	},
 	"Curious Attire": {
 		title: "호기심을 자극하는 복장",
-		desc: "숲 상점의 의상 세트 절반 해금하기.",
+		desc: "숲속 상점의 의상 세트 절반 해금하기.",
 		difficulty: 2,
 		series: "specialClothes",
 		filter: ["All", "Special"],
@@ -2135,7 +2135,7 @@ setup.feats = {
 	},
 	"Wicked Wardrobe": {
 		title: "사악한 옷장",
-		desc: "숲 상점의 의상 세트 전부 해금하기.",
+		desc: "숲속 상점의 의상 세트 전부 해금하기.",
 		difficulty: 3,
 		series: "specialClothes",
 		filter: ["All", "Special"],

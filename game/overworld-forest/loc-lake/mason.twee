@@ -530,7 +530,7 @@
 		<<set _storedClothes to clothingInStorage("lakeshore")>>
 
 		<<if $earSlime.forcedCommando isnot undefined and (_storedClothes.find(item => item.slot is "under_lower" and !item.type.includes("naked")) or !$worn.under_lower.type.includes("naked"))>>
-			<span class="red">귓속의 슬라임이 당신이 <<if $worn.under_lower.type.includes("naked")>>옷을 갈아입고 <</if>>속옷을 입은 채로 떠나는 것을 허락하지 않는다.</span>
+			<span class="red">귀 슬라임이 당신이 <<if $worn.under_lower.type.includes("naked")>>옷을 갈아입고 <</if>>속옷을 입은 채로 떠나는 것을 허락하지 않는다.</span>
 			<<set _earSlimeText to true>>
 		<<elseif _storedClothes.length>>
 			<<link [[옷을 갈아입은 뒤, 메이슨과 함께 집으로 걸어간다 (0:40)|Mason Walk]]>><<pass 40>><<storeload "lakeshore">><<set $masonDressed to true>><</link>>

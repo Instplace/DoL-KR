@@ -932,7 +932,7 @@ function specialClothesUnlockText(toUnlock, group) {
 				return output;
 			}
 			if (group === "valentines") {
-				output += `<span class="gold">숲속 상점에 </span><span class="pink">발렌타인 데이 의상</span><span class="gold">이 해금되었습니다!</span><br>`;
+				output += `<span class="gold">숲속 상점에 </span><span class="pink">발렌타인데이 의상</span><span class="gold">이 해금되었습니다!</span><br>`;
 				return output;
 			}
 			if (toUnlock.length === 1) {

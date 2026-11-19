@@ -61,7 +61,7 @@
 	<<He>>【은는】 처음엔 작은 한 입을 베어 물지만, 곧 타르트를 전부 먹어치운다. 다 먹고 나서, <<he>>【은는】 빈 접시를 바라본다. 아주 작은 부스러기가 <<his>> 입술에 붙어 있다.<<glove>><<npcincr Sydney love 1>>
 <<elseif $gift is "valentines_chocolate" and $valentines>>
 	<<earnFeat "Be My Valentine">>
-	당신은 시드니에게 초콜릿 상자를 건넨다. <<His>> 미소가 환해진다. "발렌타인 데이라서요? 이러지 않으셔도 되는데!"<<gglove>><<npcincr Sydney love 3>>
+	당신은 시드니에게 초콜릿 상자를 건넨다. <<His>> 미소가 환해진다. "발렌타인데이라서요? 이러지 않으셔도 되는데!"<<gglove>><<npcincr Sydney love 3>>
 	<br><br>
 	<<He>>【은는】 뚜껑을 열고 초콜릿 하나의 윗부분을 베어 문 뒤, 속을 핥아먹는다. "돼지처럼 굴어서 죄송해요." <<he>>【이가】 말한다. "제가 원래 단 걸 정말 좋아해서요. 게다가 이건 정말 황홀해요."
 	<br><br>

@@ -319,17 +319,17 @@
 	<<if !_noSlimes>>
 		<<if _deniedOrgasm>>
 			<span class="blue">너그러운 온기가 당신을 채운다.</span>
-			이것은 절정을 망친 것에 대해 귀 안의 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
+			이것은 절정을 망친 것에 대해 귀 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
 			<<gcorruption>><<ltrauma>><<trauma -1>><<corruption 1>>
 			<br>
 		<<elseif numberOfEarSlime() gte 2 and $_earslimeEjaculateTask>>
 			<span class="green">기분 좋은 온기가 당신을 채운다.</span>
-			세상의 시련을 잊어버릴 것만 같다. 이것은 자신들의 요구를 충족하며 절정에 달한 것에 대해, 귀 안의 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
+			세상의 시련을 잊어버릴 것만 같다. 이것은 자신들의 요구를 충족하며 절정에 달한 것에 대해, 귀 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
 			<<gcorruption>><<lltrauma>><<llstress>><<trauma -24>><<stress -24>><<corruption 2>>
 			<br>
 		<<elseif numberOfEarSlime() gte 2>>
 			<span class="blue">위안을 주는 온기가 당신을 채운다.</span>
-			세상의 시련을 잊어버릴 것만 같다. 이것은 절정에 달한 것에 대해 귀 안의 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
+			세상의 시련을 잊어버릴 것만 같다. 이것은 절정에 달한 것에 대해 귀 슬라임들이 보상을 주는 것임을 당신은 알 수 있다.
 			<<gcorruption>><<ltrauma>><<lstress>><<trauma -12>><<stress -12>><<corruption 2>>
 			<br>
 		<<elseif $parasite.left_ear.name is "slime">>

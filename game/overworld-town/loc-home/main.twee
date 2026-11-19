@@ -4781,7 +4781,7 @@ and !$fromRobinRoom and _robin.cdquest is 2 and _robin.trauma lte 20 and !$daily
 		<<avery_mansion_init>>
 	<</if>>
 	<<avery_valentines_init>>
-<</link>> <i>에이버리는 저택에서 발렌타인 데이트에 당신을 초대할 것이다.</i>
+<</link>> <i>에이버리는 저택에서 발렌타인데이트에 당신을 초대할 것이다.</i>
 <br>
 <<link [[2월 6일로 시간 이동하고 도무스 가로 순간이동한다|Domus Street]]>>
 	<<run Time.timeTravel(new DateTime(2022, 2, 6, 7))>>

@@ -1830,7 +1830,7 @@
 <<masturbationactions>>
 
 <<if $corruptionMasturbation>>
-	<span class="red">귀 안의 슬라임이 멈추는 것을 허락하지 않는다.</span>
+	<span class="red">귀 슬라임이 멈추는 것을 허락하지 않는다.</span>
 <</if>>
 <div id="masturbationButtons">
 	<<if $masturbationorgasm gte 3 and ($anususe is "mpenisflowerpenetrate" or $vaginause is "mpenisflowerpenetrate" or $mouth is "mpenisflowersuck")>>
@@ -3323,7 +3323,7 @@
 <br><br>
 
 <<if $corruptionMasturbation>>
-	<span class="red">귀 안의 슬라임이 멈추는 것을 허락하지 않는다.</span>
+	<span class="red">귀 슬라임이 멈추는 것을 허락하지 않는다.</span>
 <</if>>
 <div id="masturbationButtons">
 	<<if $audience_lust gte 3>>

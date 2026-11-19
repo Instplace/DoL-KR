@@ -747,7 +747,7 @@
 <<masturbationactions>>
 
 <<if $corruptionMasturbation>>
-	<span class="red">귓속의 슬라임이 당신을 멈추지 못하게 한다.</span>
+	<span class="red">귀 슬라임이 당신을 멈추지 못하게 한다.</span>
 <</if>>
 <div id="masturbationButtons">
 	<<if $timer lte 0>>

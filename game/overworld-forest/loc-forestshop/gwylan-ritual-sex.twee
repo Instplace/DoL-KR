@@ -1528,13 +1528,13 @@
 	<</if>>
 	<<He>>【은는】 더 자세히 들여다본다.
 	<<if !$gwylanSeen.includes("ear_slime")>>
-		"이런." <span class="purple">귓속의 슬라임<<if numberOfEarSlime() gt 1>>들<</if>>【이가】 꿈틀거리는 것이 느껴진다.</span>
+		"이런." <span class="purple">귀 슬라임<<if numberOfEarSlime() gt 1>>들<</if>>【이가】 꿈틀거리는 것이 느껴진다.</span>
 		"이것이 문제를 일으킬 수도 있겠지만, 지금은 어쩔 수 없군. <span class="blue">나중에 얘기하자. 시간이 더 있을 때 도와줄 수 있을 거다.</span>"
 	<<elseif $hypnosis_traits.silence>>
 		"<<if $parasite.left_ear.name is "slime" and $parasite.right_ear.name is "slime">>슬라임들이<<else>>슬라임이<</if>> 우리에게 문제를 일으켰을지도 모르지.
 		다행히 <<if $parasite.left_ear.name is "slime" and $parasite.right_ear.name is "slime">>그것들을<<else>>그것을<</if>> 조용히 시켰군."
 	<<else>>
-		"그래. 그 귓속의 슬라임<<if numberOfEarSlime() gt 1>>들<</if>> 말이지. 문제가 생길 수 있으니, 준비해 둬."
+		"그래. 그 귀 슬라임<<if numberOfEarSlime() gt 1>>들<</if>> 말이지. 문제가 생길 수 있으니, 준비해 둬."
 	<</if>>
 	<<set $gwylanSeen.pushUnique("ear_slime_intro")>>
 	<br><br>

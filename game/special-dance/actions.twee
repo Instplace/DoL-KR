@@ -121,7 +121,7 @@
 		<<link [[은근슬쩍 더듬게 내버려 둔다|$passage]]>><<set $danceaction to "cop">><</link>>
 		<br>
 		<<if $dancelocation is "brothel" and $corruptionDancing isnot undefined>>
-			귓속의 슬라임이 쇼를 끝내지 못하게 막는다.
+			귀 슬라임이 쇼를 끝내지 못하게 막는다.
 		<<elseif $forceddance isnot 1>>
 			<<link [["너무 위험하니 쇼를 끝낸다"|$passage]]>><<set $danceaction to "finish">><</link>>
 			<br>

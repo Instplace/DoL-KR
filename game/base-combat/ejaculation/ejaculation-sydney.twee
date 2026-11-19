@@ -146,7 +146,7 @@
 				<<He>>【은는】 절정에 다다르면서 큰 소리로 신음을 낸다. "흥," <<he>>【은는】 뾰로통한 표정으로 <<his>> 정조대를 헛되이 잡아당긴다.
 			<<elseif $NPCList[_nn].vagina is "vagina">>
 				<<if random(1)>>
-					<<He>>【은는】 절정에 다다르며 <<his>> 팔로 당신을 껴안고, 두 사람은 계속 몸을 문지르며 서로를 꽉 안는다. 당신은 <<hes>> 떨림이 멎은 후에야 천천히 움직임을 멈춘다.
+					<<He>>【은는】 절정에 다다르며 <<his>> 팔로 당신을 껴안고, 두 사람은 계속 몸을 문지르며 서로를 꽉 안는다. 당신은 <<he>>【이가】 떨림이 멎은 후에야 천천히 움직임을 멈춘다.
 				<<else>>
 					<<switch _sydneyStatus>>
 						<<case "pure" "pureLust">>
@@ -300,7 +300,7 @@
 				<</if>>
 				<br><br>
 			<<elseif $NPCList[_nn].vagina is "frot">>
-				<<He>>【은는】 사정하면서 당신의 자지에 <<his>> <<sydneyGenitals>>【을를】 강하게 문지른다. <<He>>【은는】 얼굴의 홍조를 가리지만, 당신은 <<hes>> 웃고 있다고 생각한다.
+				<<He>>【은는】 사정하면서 당신의 자지에 <<his>> <<sydneyGenitals>>【을를】 강하게 문지른다. <<He>>【은는】 얼굴의 홍조를 가리지만, 당신은 <<he>>【이가】 웃고 있다고 생각한다.
 				<br><br>
 				<<ejacstat>><<set $hygiene += 500>><<bodyliquid "penis" "goo">>
 			<!-- Special case male PC with female NPC -->
@@ -956,7 +956,7 @@
 			<<He>>【은는】 절정에 다다르면서 큰 소리로 신음을 낸다. "흥," <<he>>【은는】 뾰로통한 표정으로 <<his>> 정조대를 헛되이 잡아당긴다.
 		<<elseif $NPCList[_nn].penis is "penis">>
 			<<if random(1)>>
-				<<He>>【은는】 절정에 다다르며 <<his>> 팔로 당신을 껴안고, 두 사람은 계속 몸을 문지르며 서로를 꽉 안는다. 당신은 <<hes>> 떨림이 멎은 후에야 천천히 움직임을 멈춘다.
+				<<He>>【은는】 절정에 다다르며 <<his>> 팔로 당신을 껴안고, 두 사람은 계속 몸을 문지르며 서로를 꽉 안는다. 당신은 <<he>>【이가】 떨림이 멎은 후에야 천천히 움직임을 멈춘다.
 			<<else>>
 				<<switch _sydneyStatus>>
 					<<case "pure" "pureLust">>
