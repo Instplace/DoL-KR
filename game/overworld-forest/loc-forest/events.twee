@@ -4138,7 +4138,7 @@
 		<br>
 	<</if>>
 <<elseif $NPCList[0].traits.includes("friendly")>>
-	<<bHis>>의 귀가 행복하게 씰룩거린다.
+	<<bHis>> 귀가 행복하게 씰룩거린다.
 	<<if $monster is 1>>
 		"<<if $phase is 2>>나랑 놀아주고 <</if>>쓰다듬어줘서 고마워." <<bhe>>【이가】 말한다. "모든 사람들이 너 같았으면 좋겠어."
 	<</if>>

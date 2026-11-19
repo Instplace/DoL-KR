@@ -4374,7 +4374,7 @@
 			<<kylarRandomUnderwear "f">>
 		<</if>>
 		<<set _kylarUnderLower to $daily.kylar.underwear.simpleDesc>>
-		당신은 발로 <<his>> _kylarLower를 걷어 올리고, 발가락을 <<his>> _kylarUnderLower에 누른다.
+		당신은 발로 <<his>> _kylarLower【을를】 걷어 올리고, 발가락을 <<his>> _kylarUnderLower에 누른다.
 	<<else>>
 		당신은 발을 <<his>> 사타구니에 댄다.
 	<</if>>
@@ -4435,7 +4435,7 @@
 			<<kylarRandomUnderwear>>
 		<</if>>
 		<<set _kylarUnderLower to $daily.kylar.underwear.simpleDesc>>
-		당신은 왼손으로 <<his>> _kylarLower를 걷어 올리고, <<his>> _kylarUnderLower 위로 손가락을 누른다.
+		당신은 왼손으로 <<his>> _kylarLower【을를】 걷어 올리고, <<his>> _kylarUnderLower 위로 손가락을 누른다.
 	<<else>>
 		당신은 왼손을 <<his>> 사타구니에 댄다.
 	<</if>>
@@ -4766,9 +4766,9 @@
 
 <<set _kylarLower to _kylar.clothes.lower.name>>
 <<if _kylarLower.includes("skirt")>>
-	<span class="purple">당신은 <<his>> _kylarLower를 걷어 올리고,</span>
+	<span class="purple">당신은 <<his>> _kylarLower【을를】 걷어 올리고,</span>
 <<else>>
-	<span class="purple">당신은 <<his>> _kylarLower를 끌어내리고,</span>
+	<span class="purple">당신은 <<his>> _kylarLower【을를】 끌어내리고,</span>
 <</if>>
 <<if _kylar.penis isnot "none" and _kylar.vagina isnot "none">>
 	<span class="lewd"><<his>> <<= window.KR.getPenisDescKr(_kylar.penisdesc)>>【와과】 흘러내리는 보지를 드러낸다.</span>

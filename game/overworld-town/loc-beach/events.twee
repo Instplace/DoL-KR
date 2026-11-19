@@ -907,7 +907,7 @@
 		<br><br>
 		<<person2>> 그 <<person>>【이가】 높은 목소리로 말한다. "누가 착한 <<beasttype>>【이】지! 바로 너야! 우리가 너에게 <<bitch>>【을를】 데려왔어, 네가 정말 착한 <<beasttype>>【이】니까!"
 		<<if $monster is 1>>
-			그 <<beasttype>>【은는】 얼굴이 붉어지며 거친 숨을 내쉰다. <<bHis>> 의도는 명확하다. <<bHes>>【은는】 짝을 갈망하고 있다.
+			그 <<beasttype>>【은는】 얼굴이 붉어지며 거친 숨을 내쉰다. <<bHis>> 의도는 명확하다. <<bHes>> 짝을 갈망하고 있다.
 		<</if>>
 		<br><br>
 		<<link [[도망치려 한다|Beach Abduction Dog]]>><<set $molestationstart to 1>><<set $phase to 0>><</link>>

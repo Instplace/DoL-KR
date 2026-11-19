@@ -854,11 +854,11 @@ function masturbationEffectsArms(
 					} else if (V.arousal >= (V.arousalmax / 5) * 3) {
 						fragment.append(span(`당신은 ${
 									handsOn > 1 ? "양쪽 " : ""
-								}유두을 견딜 수 있는 만큼 꼬집는다.`));
+								}유두를 견딜 수 있는 만큼 꼬집는다.`));
 					} else {
 						fragment.append(span(`당신은 ${
 									handsOn > 1 ? "양쪽 " : ""
-								}유두을 가볍게 꼬집는다.`));
+								}유두를 가볍게 꼬집는다.`));
 					}
 				}
 			} else {

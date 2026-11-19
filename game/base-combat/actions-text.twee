@@ -1427,7 +1427,7 @@
 					<<elseif $vaginastate is "imminent" or $penisstate is "imminent" or $penisstate is "otheranusimminent">>
 						<<if $player.virginity.vaginal is true and $player.virginity.penile is true>>
 							<<if $awarelevel gte 1>>
-								"ㅇ-거긴 안 돼, 거긴 알렉스의 것이야!"
+								"거-거긴 안 돼, 거긴 알렉스의 것이야!"
 							<<else>>
 								"거기 찌르지 마, 거긴 알렉스의 자리야!"
 							<</if>>
@@ -1579,7 +1579,7 @@
 					<<elseif $vaginastate is "imminent" or $penisstate is "imminent" or $penisstate is "otheranusimminent">>
 						<<if $player.virginity.vaginal is true and $player.virginity.penile is true>>
 							<<if $awarelevel gte 1>>
-								"ㅇ-거긴 안 돼, 그윌란과의 특별한 순간을 위해 남겨둔 거란 말이야!"
+								"거-거긴 안 돼, 그윌란과의 특별한 순간을 위해 남겨둔 거란 말이야!"
 							<<else>>
 								"거긴 안 돼, 그윌란이 할 때만 자연스럽단 말이야!"
 							<</if>>

@@ -886,7 +886,7 @@
 		<<elseif $NPCList[_nn].penis is "rightarm">>
 			<<switch _sydneyStatus>>
 				<<case "pure" "pureLust">>
-					<<He>>【은는】 당신이 오른손으로 <<his>> 자지을 쓸어주자 신음하며, 당신이 마지막으로 꽉 쥐었을 때 사정한다. 당신의 손은 따뜻한 정액으로 뒤덮인다. "정말... 엄청 좋았어요..."
+					<<He>>【은는】 당신이 오른손으로 <<his>> 자지를 쓸어주자 신음하며, 당신이 마지막으로 꽉 쥐었을 때 사정한다. 당신의 손은 따뜻한 정액으로 뒤덮인다. "정말... 엄청 좋았어요..."
 					<br><br>
 					<<handejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "rightarm" "semen">>
 				<<case "corrupt" "corruptLust">>
@@ -1318,7 +1318,7 @@
 		<<elseif $NPCList[_nn].penis is "rightarm">>
 			<<switch random(1, 7)>>
 				<<case 1 2 3>>
-					당신이 오른손으로 <<his>> 자지을 애무하는 동안 <<He>>【이가】 앓는 소리를 내며, 당신이 마지막으로 꽉 쥐어주자 사정한다. <<He>>【은는】 땅바닥에 <<his>> 자지를 털어낸다.
+					당신이 오른손으로 <<his>> 자지를 애무하는 동안 <<He>>【이가】 앓는 소리를 내며, 당신이 마지막으로 꽉 쥐어주자 사정한다. <<He>>【은는】 땅바닥에 <<his>> 자지를 털어낸다.
 					<br><br>
 				<<case 4 5>>
 					<<He>>【이가】 경련하며 신음을 내고 굵은 정액 줄기를 쏘아 보낸다. 당신은 <<him>>【을를】 계속 애무하는 데 너무 몰두한 나머지 <<his>> 자지가 당신의 가슴을 향하고 있다는 사실을 알아차리지 못했고, 그 과정에서 당신의 가슴에 정액이 흩뿌려진다.
@@ -1332,7 +1332,7 @@
 		<<elseif $NPCList[_nn].penis is 0>>
 			<<switch random(1, 5)>>
 			<<case 1>>
-				<<He>>【이가】 <<his>> 자지을 애무하며 앓는 소리를 내다가 마지막으로 한 번 꽉 쥐며 당신의 배 위에 사정한다. "우리가 함께 이걸 할 수 있어서 좋아, 넌 안 그래?"
+				<<He>>【이가】 <<his>> 자지를 애무하며 앓는 소리를 내다가 마지막으로 한 번 꽉 쥐며 당신의 배 위에 사정한다. "우리가 함께 이걸 할 수 있어서 좋아, 넌 안 그래?"
 				<br><br>
 				<<tummyejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "tummy" "semen">>
 			<<case 2>>

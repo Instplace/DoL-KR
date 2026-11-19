@@ -1308,7 +1308,7 @@
 
 						<<link [[<<bhim>>【을를】 피한다|Gwylan Forest Run Fox]]>><<set $phase to "dodge">><</link>><<dancedifficulty 1 1000>>
 						<br>
-						<<link [[<<bhis>>의 돌진 방향을 바꾼다|Gwylan Forest Run Fox]]>><<set $phase to "redirect">><</link>><<physiquedifficulty 4000 15000>>
+						<<link [[<<bhis>> 돌진 방향을 바꾼다|Gwylan Forest Run Fox]]>><<set $phase to "redirect">><</link>><<physiquedifficulty 4000 15000>>
 						<br>
 						<<if $fox gte 4>>
 							<<link [[<<bhim>>에게 소리 지른다|Gwylan Forest Run Fox]]>><<set $phase to "scream">><<transform fox 1>><</link>><<fox>>
@@ -2903,7 +2903,7 @@
 	<<set $beastRitual.arousal to true>>
 	당신은 몸을 숙여 당신의 <<beasttype>>의 배를 긁어주다가, 손을 더 아래로 내려 <<bhis>> <<npcGenitals>> 쪽으로 움직인다. 그 덕에 <<bhim>>【이가】 잠시 얌전해지지만, 흥분이 금세 <<bhim>>【을를】 덮친다. <<deviancy3>>
 
-	<<bHis>>의 눈에 초점이 돌아오기 시작한다. "시간이 없어." 그윌란이 말한다. "적어도 네 쪽은 절정에 이르게 하기 더 쉬울 거야."
+	<<bHis>> 눈에 초점이 돌아오기 시작한다. "시간이 없어." 그윌란이 말한다. "적어도 네 쪽은 절정에 이르게 하기 더 쉬울 거야."
 <</if>>
 <br><br>
 
@@ -3129,9 +3129,9 @@
 당신은 몸을 일으켜 그윌란을 쳐다본다.
 <<if V.NPCList[0].penis isnot "none" and (C.npc.Gwylan.vagina isnot "none" or V.settings.analEnabled) and _gwylanStatus.includesAny("dom", "lust") and !$beastRitual.combatChase>>
 	<<set $beastRitual.gwylanKnotted to true>><<set $gwylanSeen.pushUnique("knotted")>>
-	<<nnpc_Hes 'Gwylan'>>【은는】 당신 바로 옆에서 <<nnpc_his "Gwylan">> 손과 무릎을 짚고 있다.
+	<<nnpc_Hes 'Gwylan'>> 당신 바로 옆에서 <<nnpc_his "Gwylan">> 손과 무릎을 짚고 있다.
 	<<nnpc_His "Gwylan">> 머리는 <<nnpc_his "Gwylan">> 손에 기댄 채, 다른 손으로는 초조하게 바닥을 두드리고 있다.
-	<span class="pink"><<nnpc_Hes "Gwylan">>【은는】 다른 <<beasttype>>에게 노팅된 상태다.</span>
+	<span class="pink"><<nnpc_Hes "Gwylan">> 다른 <<beasttype>>에게 노팅된 상태다.</span>
 	<br><br>
 
 	노트가 풀리며 <<nnpc_him "Gwylan">>의 몸이 자유로워지자, <<nnpc_He "Gwylan">>【은는】 부드럽게 숨을 내쉬며 당신에게 윙크한다.
@@ -5525,7 +5525,7 @@
 <<else>>
 	<<switch $speech_attitude>>
 		<<case "meek">>
-			"ㄷ-내가 반 맡을게."
+			"내-내가 반 맡을게."
 		<<case "bratty">>
 			"도와줄게. 묻는 거 아니야."
 		<<default>>
