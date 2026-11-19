@@ -4358,7 +4358,7 @@ _bottom.name에서 멀리 떨어진 곳에 넓은 호를 그리며 곡물을 흩
 <<effects>>
 
 <<if $speech_attitude is "meek">>
-	"ㄱ, 괘-괜찮아요." 당신이 말한다.
+	"괘-괘-괜찮아요." 당신이 말한다.
 <<elseif $speech_attitude is "bratty">>
 	"신경 쓰지 마." 당신이 말한다. "난 괜찮아."
 <<else>>
