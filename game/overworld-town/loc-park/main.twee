@@ -1431,7 +1431,7 @@
 	<<storeon $bus "check">>
 	<<if _store_check is 1>>
 		<<storeon $bus>>
-		당신의 옷이 뒤쪽으로 내던져집니다.
+		당신의 옷이 뒤쪽으로 내던져진다.
 	<</if>>
 	<<clearNPC toilets_1>>
 	<<if $phase2 is 1>>
@@ -1518,7 +1518,7 @@
 	<<storeon $bus "check">>
 	<<if _store_check is 1>>
 		<<storeon $bus>>
-		당신의 옷이 뒤쪽으로 내던져집니다.
+		당신의 옷이 뒤쪽으로 내던져진다.
 	<</if>>
 	<<clearNPC toilets_1>>
 	<<if $phase2 is 1>>

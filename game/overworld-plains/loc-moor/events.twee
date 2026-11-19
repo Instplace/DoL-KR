@@ -357,7 +357,7 @@
 <<case 6>>
 	목까지
 <</switch>>
-유사에 빠졌습니다!
+유사에 빠졌다!
 <br><br>
 
 <<if $stress gte $stressmax>>

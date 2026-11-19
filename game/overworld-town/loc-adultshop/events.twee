@@ -2360,7 +2360,7 @@
 	<<if $cowbuild gte 20>>
 		당신은 장애물을 무시하고 똑바로 돌진한다.
 	<<elseif $birdbuild gte 20>>
-		당신은 맹금류처럼 가볍게 건너뜁니다.
+		당신은 맹금류처럼 가볍게 건너뛴다.
 	<<elseif $catbuild gte 20 or $danceSuccess>>
 		당신은 우아하게 질주한다.
 	<</if>>

@@ -1567,7 +1567,7 @@
 			<<if $possessed>>
 				<span class="purple">슬라임은 조용하다.</span>
 			<<else>>
-				<span class="purple">슬라임이 당신이 무언가를 입고 자는 것을 허락하지 않습니다.</span>
+				<span class="purple">슬라임이 당신이 무언가를 입고 자는 것을 허락하지 않는다.</span>
 			<</if>>
 		<</if>>
 		<br>

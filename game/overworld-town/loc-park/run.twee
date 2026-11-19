@@ -649,7 +649,7 @@
 		그 <<person>>【은는】 당신의 <<bottom>>【을를】 후려치고, 풀밭에 쓰러진 당신을 내버려 두고 떠난다.
 	<</if>>
 	<br><br>
-	<<tearful>> 당신은 몸을 일으킵니다.
+	<<tearful>> 당신은 몸을 일으킨다.
 	<br><br>
 	<<clotheson>>
 	<<endcombat>>
