@@ -934,7 +934,7 @@ setup.debugMenu.eventList = {
 			widgets: [`<<set $trauma to 4900>>`],
 		},
 		{
-			link: [`교도소`, `Police Prison Intro Bailey`],
+			link: [`감옥`, `Police Prison Intro Bailey`],
 			widgets: [`<<npc Bailey>>`, `<<generate2>>`, `<<generate3>>`, `<<generate4>>`, `<<person2>>`, `<<neckwear 1>>`, `<<crimeUpFlat 5000 "thievery">>`],
 		},
 		{
@@ -1156,7 +1156,7 @@ setup.debugMenu.eventList = {
 			widgets: [`<<endevent>>`, `<<leash 21>>`, `<<badEndTracking "Underground Farm" { reason: "abductedMoor" }>>`],
 		},
 		{
-			link: [`교도소`, `Police Cell`],
+			link: [`감옥`, `Police Cell`],
 			widgets: [`<<set $stat_police.pillory += 1>>`, `<<crimeUp 7000 "prostitution" "debug">>`],
 		},
 		{

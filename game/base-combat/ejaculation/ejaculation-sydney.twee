@@ -1010,7 +1010,7 @@
 				<<his>> $NPCList[_nn].clothes.lower.name 위에 젖은 얼룩이 생긴다.
 			<</if>>
 			<<if $speech_attitude is "bratty">>
-				그 한심한 꼴을 보고는 간신히 웃음을 참는다
+				그 한심한 꼴을 보고는 간신히 웃음을 참는다.
 			<</if>>	
 			<br><br>
 		<<elseif $NPCList[_nn].penis is "thighs">>

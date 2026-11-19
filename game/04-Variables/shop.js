@@ -145,7 +145,7 @@ setup.shopDetails = {
 	},
 	prison: {
 		name: "죄수복",
-		desc: "교도소에서 입던 옷입니다.",
+		desc: "감옥에서 입던 옷입니다.",
 		details: "없음",
 	},
 	sticky: {

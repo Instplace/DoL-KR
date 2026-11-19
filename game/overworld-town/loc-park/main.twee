@@ -1256,7 +1256,7 @@
 	<<case 1>>
 		<<if $toiletswrong is 1>>
 			<<if $speech_attitude is "meek">>
-				"아, ㅈ...죄송합니다! 제가 착각했나 봐요."
+				"아, 죄-죄송합니다! 제가 착각했나 봐요."
 			<<elseif $speech_attitude is "bratty">>
 				"이런. 미안<<if $phase2 is 1>> <<if $bus is "parkmens">>얘들아<<else>>얘들아<</if>><</if>>, 내가 방을 잘못 들어왔나 봐."
 			<<else>>
@@ -1264,7 +1264,7 @@
 			<</if>>
 		<<else>>
 			<<if $speech_attitude is "meek">>
-				"아, ㅈ...죄송합니다! 제가 깜빡 졸았나 봐요."
+				"아, 죄-죄송합니다! 제가 깜빡 졸았나 봐요."
 			<<elseif $speech_attitude is "bratty">>
 				"이런. 미안<<if $phase2 is 1>> <<if $bus is "parkmens">>얘들아<<else>>얘들아<</if>><</if>>, 그냥 좀 뽐내봤어."
 			<<else>>
@@ -1275,7 +1275,7 @@
 		<br><br>
 	<<case 2>>
 		<<if $speech_attitude is "meek">>
-			"ㅈ...제발... 내가 하는 걸 봐줬으면 좋겠어."
+			"제-제발... 내가 하는 걸 봐줬으면 좋겠어."
 		<<elseif $speech_attitude is "bratty">>
 			"신경 쓰지 마. 그냥 쇼나 즐기라고."
 		<<else>>

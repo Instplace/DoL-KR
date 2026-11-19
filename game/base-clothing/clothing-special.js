@@ -381,7 +381,7 @@ function initSpecialClothes() {
 		prison: {
 			text: "죄수복",
 			requirements: () => V.prison_intro === 1,
-			hint: "교도소에 수감되기",
+			hint: "감옥에 수감되기",
 			shop: ["forest"],
 			subsetOf: ["bad_end"],
 			feat: true,

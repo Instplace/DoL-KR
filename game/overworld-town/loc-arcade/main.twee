@@ -1070,7 +1070,7 @@
 		"넌 대체 무슨 변태야?" 상대방의 친구가 소리친다. 당신은 <<him>>【을를】 무시하고 계속 플레이한다.
 		<br><br>
 	<<elseif $worn.under_lower.name isnot "naked">>
-		설상가상으로, 당신의 $worn.under_lower.name【이】 함께 내려간다.
+		설상가상으로, 당신의 $worn.under_lower.name【이가】 함께 내려간다.
 		<br><br>
 	<</if>>
 <</if>>
