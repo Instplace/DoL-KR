@@ -6,7 +6,7 @@
 	<<if $consensual is 1>>
 		<<set _nectar to "넥타르">>
 		<<set _Nectar to "넥타르">>
-		<<set _fizzyNectar to "거품이 알어난 넥타르">>
+		<<set _fizzyNectar to "거품이 일어난 넥타르">>
 	<<else>>
 		<<set _nectar to "원치 않는 넥타르">>
 		<<set _Nectar to "원치 않는 넥타르">>
@@ -337,7 +337,7 @@
 			<</if>>
 		<<elseif $NPCList[_nn].penis is "anusentrance">>
 			<<if $NPCList[_nn].mouth is "kissimminent" or $NPCList[_nn].mouth is "kiss">>
-				<<He>>【은는】 당신에게 몸을 기대로 <<his>> 입술을 당신의 입술에 짓이기며, 당신의 <<bottom>>에 끈적한 넥타르를 사정한다.
+				<<He>>【은는】 당신에게 몸을 기대고 <<his>> 입술을 당신의 입술에 짓이기며, 당신의 <<bottom>>에 끈적한 넥타르를 사정한다.
 			<<else>>
 				<<switch random(1, 5)>>
 				<<case 1 2>>

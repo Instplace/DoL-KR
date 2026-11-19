@@ -870,7 +870,7 @@
 	당신은 부엌에서 옷을 입는다. 알렉스가 계단을 내려온다.
 <</if>>
 
-<<He>>【은는】 <<his>> 자신의 <<if Weather.precipitation isnot "none">>진흙<<else>>잡초<</if>>투성이 옷을 본다. "젠장. 옷 갈아입어야겠네. 샤워도 하고."
+<<He>>【은는】 자신의 <<if Weather.precipitation isnot "none">>진흙<<else>>잡초<</if>>투성이 옷을 본다. "젠장. 옷 갈아입어야겠네. 샤워도 하고."
 <br><br>
 
 <<link [[다음|Farm Stage 6 2]]>><</link>>

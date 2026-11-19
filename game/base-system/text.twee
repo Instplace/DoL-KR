@@ -6552,10 +6552,10 @@ Argument 2, where appropriate, determines whether it's the player undressing the
 		<<if random(1, 10000) is 10000>>
 			<<set _text_output to "빵(bread)">>
 		<<else>>
-			<<set _text_output to "교배당한">>
+			<<set _text_output to "교배">>
 		<</if>>
 	<<else>>
-		<<set _text_output to "따먹힌">>
+		<<set _text_output to "유린">>
 	<</if>>
 	<<print _text_output>>
 <</widget>>

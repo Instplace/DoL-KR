@@ -2579,10 +2579,10 @@
 	당신의 <<if $phase is 4>>피로<<elseif $phase is 1>>고통<<else>>불편함<</if>>【을를】 알아차리고, <<bhe>>【은는】 당신 곁으로 달려온다.
 	<<if $monster is 1>>
 		"<<wife>>【은는】 괜찮아?" <<bhe>>【이가】 묻는다. "<<wife>>【은는】 둥지로 돌아가고 싶어?"
-		<<bHe>> 당신의 어깨에 부드럽게 <<bhis>> 손을 얹는다<<if $pain gte 90>>. 당신이 고통에 움찔하자 걱정스러운 표정으로 재빨리 손을 뗀다<<else>>. 그리고 당신에게 미소 짓는다<</if>>.
+		<<bHe>>【은는】 당신의 어깨에 부드럽게 <<bhis>> 손을 얹는다<<if $pain gte 90>>. 당신이 고통에 움찔하자 걱정스러운 표정으로 재빨리 손을 뗀다<<else>>. 그리고 당신에게 미소 짓는다<</if>>.
 	<<else>>
-		<<bHe>> 부드럽게 지저귀며 당신을 바라본다. <<bhis>> 머리가 옆으로 기울어져 있다<<if understandsBirdBehaviour()>>. 걱정하는 듯이<</if>>.
-		<<bHe>> 더 가까이 뛰어와, 당신의 어깨에 부드럽게 <<bhis>> 머리를 기댄다. <<if $pain gte 90>>당신이 고통에 움찔하자 <<bHe>>【은는】 물러나며 <<if understandsBirdBehaviour()>>걱정스러운<<else>>부드러운<</if>> 울음소리를 낸다.<</if>>
+		<<bHe>>【은는】 부드럽게 지저귀며 당신을 바라본다. <<bhis>> 머리가 옆으로 기울어져 있다<<if understandsBirdBehaviour()>>. 걱정하는 듯이<</if>>.
+		<<bHe>>【은는】 더 가까이 뛰어와, 당신의 어깨에 부드럽게 <<bhis>> 머리를 기댄다. <<if $pain gte 90>>당신이 고통에 움찔하자 <<bHe>>【은는】 물러나며 <<if understandsBirdBehaviour()>>걱정스러운<<else>>부드러운<</if>> 울음소리를 낸다.<</if>>
 	<</if>>
 	<br><br>
 
@@ -4022,7 +4022,7 @@
 		<<if $NPCList[0].traits.includes("clever")>>
 			그러더니 <<bhe>>【이가】 씨익 웃는다. "아, 그런 거였군? <span class="green">좋아, 좋아, 네가 이겼어,</span>" <<bhe>>【이가】 당신에게 다가오며 말한다.
 		<<elseif $NPCList[0].traits.includes("cowardly")>>
-			<<bHe>> 주저하며 다가온다. <span class="green">"아... 안녕."</span>
+			<<bHe>>【은는】 주저하며 다가온다. <span class="green">"아... 안녕."</span>
 		<<else>>
 			<<bHe>>【이가】 <<bhis>> 고개를 갸웃거린다. <span class="green">"너 좀 이상한 녀석이네."</span> <<bHe>>【이가】 다가온다.
 		<</if>>
@@ -4393,16 +4393,16 @@
 		<</if>>
 	<<elseif $NPCList[0].traits.includes("friendly")>>
 		<<if $monster is 1>>
-			<<bHe>> 당신에게 코를 비빈다. "재밌었어!"
+			<<bHe>>【은는】 당신에게 코를 비빈다. "재밌었어!"
 		<<else>>
-			<<bHe>> 당신의 얼굴에 코를 비빈다.
+			<<bHe>>【은는】 당신의 얼굴에 코를 비빈다.
 		<</if>>
 		<<stress -3>><<lstress>><br>
 	<<else>>
 		<<if $monster is 1>>
 			<<bHe>> <<bhis>> 발로 일어선다. "고마워. 이제 진짜 짝을 찾을 수 있을지도 모르겠네."
 		<<else>>
-			<<bHe>> 당신의 얼굴을 핥는다.
+			<<bHe>>【은는】 당신의 얼굴을 핥는다.
 		<</if>>
 	<</if>>
 	<<bHe>> 덤불 속으로 슬그머니 사라진다.
@@ -4425,13 +4425,13 @@
 		<<if $monster is 1>>
 			"아야! 아야! 그만해!"
 		<<else>>
-			<<bHe>> 당신에게서 굴러 떨어진다.
+			<<bHe>>【은는】 당신에게서 굴러 떨어진다.
 		<</if>>
 	<<else>>
 		<<if $monster is 1>>
-			<<bHe>> 당신을 보고 움찔한다. "어쩌면 난 짝을 가질 자격이 없나 봐..."
+			<<bHe>>【은는】 당신을 보고 움찔한다. "어쩌면 난 짝을 가질 자격이 없나 봐..."
 		<<else>>
-			<<bHe>> 당신에게서 굴러 떨어진다.
+			<<bHe>>【은는】 당신에게서 굴러 떨어진다.
 		<</if>>
 	<</if>>
 	<<beasttype>>【은는】 낑낑거리며 덤불 속으로 달아난다.
@@ -4550,10 +4550,10 @@
 		<<if $monster is 1>>
 			"아야! 아야! 그만해!"
 		<<else>>
-			<<bHe>> 당신에게서 굴러 떨어진다.
+			<<bHe>>【은는】 당신에게서 굴러 떨어진다.
 		<</if>>
 	<<else>>
-		<<bHe>> 당신에게서 굴러 떨어진다.
+		<<bHe>>【은는】 당신에게서 굴러 떨어진다.
 	<</if>>
 	<<beasttype>>【은는】 히스 덤불 속으로 달아난다.
 	<br><br>
@@ -5077,7 +5077,7 @@
 <<if $monster is 1>>
 	"...<<Wife>>?" <<bhe>>【이가】 묻는다.
 <<else>>
-	<<bHe>> 작게 짹짹거린다.
+	<<bHe>>【은는】 작게 짹짹거린다.
 <</if>>
 <br><br>
 

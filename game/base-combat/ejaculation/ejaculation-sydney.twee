@@ -616,7 +616,7 @@
 					<<default>>
 						<<He>>【은는】 조용히 당신의 어깨를 잡고 당신을 <<his>> 자지 위로 당기면서 사정한다. 정액이 당신의 <<pussy>>【을를】 가득 채우고 당신을 숨차게 만든다. <<He>>【은는】 당신의 배를 토닥인다.
 						<<if $settings.pregnancySpeechEnabled>>
-							"음, <<nnpc_Mum "Sirris">>【은는】 분명 <<nnpc_he "Sirris">> 손주를 보고 싶다고 하셨어요..."
+							"음, <<nnpc_Mum "Sirris">>【은는】 분명 <<nnpc_he "Sirris">>【이가】 손주를 보고 싶다고 하셨어요..."
 						<<else>>
 							"당신도 좋았어요?"
 						<</if>>
@@ -1051,7 +1051,7 @@
 				<br><br>
 				<<vaginalentranceejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "vaginaoutside" "semen">>
 			<<case 7>>
-				<<He>>【은는】 사정하면서 신음하고 <<his>> 자지를 어루만지며 굵직한 정액 줄기를 당신의 <<pussy>>【와과】 엉덩이에 쏟아낸다. <<He>>【은는】 <<hes>> 만든 난장판에 감탄한 듯하다.
+				<<He>>【은는】 사정하면서 신음하고 <<his>> 자지를 어루만지며 굵직한 정액 줄기를 당신의 <<pussy>>【와과】 엉덩이에 쏟아낸다. <<He>>【은는】 자신이 만든 난장판에 감탄한 듯하다.
 				<br><br>
 				<<vaginalentranceejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "vaginaoutside" "semen">>
 				<<bottomejacstat>><<set $hygiene += 500>><<bodyliquid "bottom" "semen">>
@@ -1098,7 +1098,7 @@
 				<br><br>
 				<<vaginalejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "vagina" "semen">>
 			<<case 7>>
-				<<He>>【은는】 경련하며 당신의 보지를 내리찍으며 사정하고, 굵직한 정액의 파도를 당신의 <<pussy>> 안으로 보낸다. 정액이 당신의 질에서 흘러나와 다리를 타고 내린다. <<He>>【은는】 <<hes>> 남긴 흔적을 만족스럽게 내려다본다. "아까워라."
+				<<He>>【은는】 경련하며 당신의 보지를 내리찍으며 사정하고, 굵직한 정액의 파도를 당신의 <<pussy>> 안으로 보낸다. 정액이 당신의 질에서 흘러나와 다리를 타고 내린다. <<He>>【은는】 자신이 남긴 흔적을 만족스럽게 내려다본다. "아까워라."
 				<br><br>
 				<<vaginalentranceejacstat>><<ejacstat>><<set $hygiene += 500>><<bodyliquid "vaginaoutside" "semen">>
 				<<vaginalejacstat>><<set $hygiene += 500>><<bodyliquid "vagina" "semen">>

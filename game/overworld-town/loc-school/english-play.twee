@@ -1019,7 +1019,7 @@
 
 당신과 시드니는 카일라를 따라잡으려 한다.
 <<if $syndromekylar gte 1>>
-	<<nnpc_He "Kylar">> 재빨리 당신을 알아채고, 따라잡을 수 있도록 속도를 늦춘다.
+	<<nnpc_He "Kylar">>【은는】 재빨리 당신을 알아채고, 따라잡을 수 있도록 속도를 늦춘다.
 	<br><br>
 
 	"고-고마워," <<nnpc_he "Kylar">>【이가】 중얼거리며 시드니에게 어색한 눈길을 보낸다. "같이 있으니... 좋네." <<npcincr Kylar rage 1>><<gksuspicion>>

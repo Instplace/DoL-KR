@@ -8683,7 +8683,7 @@ USB를 설치하자 잠시 후 파일 폴더가 자동으로 나타난다. 당�
 <<if C.npc.Robin.lust gte 40>>
 	<<He>>【은는】 충격받은 듯 당신의 <<chest>>【을를】 바라보며 얼굴을 새빨갛게 붉힌다. 당신은 <<his>> 손목을 잡고 <<his>> 손이 당신의 <<chestsimple>> 위에 놓이도록 부드럽게 이끈다.
 	<<if C.npc.Robin.lust gte 80>>
-		<span class="lewd"><<His>> 손이 머문다.</span> <<He>>【은는】 <<his>> 얼굴에 멍한 표정을 띤 채 천천히 당신의 <<breasts>>【을를】 문지른다. <<He>>【은는】 <<hes>> 당신을 애무하고 있다는 것도 깨닫지 못하는 듯하다.
+		<span class="lewd"><<His>> 손이 머문다.</span> <<He>>【은는】 <<his>> 얼굴에 멍한 표정을 띤 채 천천히 당신의 <<breasts>>【을를】 문지른다. <<He>>【은는】 자신이 당신을 애무하고 있다는 것도 깨닫지 못하는 듯하다.
 		<<arousal 600>><<garousal>>
 		<br><br>
 

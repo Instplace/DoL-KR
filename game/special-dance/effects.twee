@@ -837,7 +837,7 @@
 				<<if $rng gte 76>>
 					"무대 위에서 저렇게 가버리다니, 저 년은 진짜배기 걸레가 분명해."
 				<<elseif $rng gte 51>>
-					"<<pshe>> 방금 진짜로 간 거야?"
+					"<<pshe>>【은는】 방금 진짜로 간 거야?"
 				<<elseif $rng gte 26>>
 					"음탕한 <<girls>>【이가】 절정에 달하는 걸 직접 보니 훨씬 낫네."
 				<<else>>
@@ -847,7 +847,7 @@
 				<<if $rng gte 76>>
 					"저렇게 드라이 오르가즘으로 느끼다니, 진짜 걸레가 분명해."
 				<<elseif $rng gte 51>>
-					"<<pshe>> 방금 진짜 여자애처럼 간 거야?"
+					"<<pshe>>【은는】 방금 진짜 여자애처럼 간 거야?"
 				<<elseif $rng gte 26>>
 					"음탕한 <<girls>>【이가】 절정에 달하는 걸 직접 보니까 훨씬 낫네."
 				<<else>>
@@ -1026,7 +1026,7 @@
 							<</if>>
 							<<switch $rng>>
 							<<case 1>>
-								"<<pshe>> 분명히 자기 자지랑 보지를 내놓고 과시하는 걸 즐길 거야."
+								"<<pshe>>【은는】 분명히 자기 자지랑 보지를 내놓고 과시하는 걸 즐길 거야."
 							<<case 2>>
 								"핥기 좋은 성기가 두 개나 달려있잖아."
 							<<case 3>>
@@ -1175,7 +1175,7 @@
 								"저 <<print $worn.under_lower.name_simple>>【은는】 뭘 가려주질 못하네."
 							<</if>>
 						<<else>>
-							"<<pshe>> 너무 다 내놓고 있잖아, 최고야."
+							"<<pshe>>【은는】 너무 다 내놓고 있잖아, 최고야."
 						<</if>>
 					<</if>>
 				<<else>>
@@ -1270,7 +1270,7 @@
 				<<elseif $audiencearousal gte 60>>
 					"<<pshe>>【은는】 완벽한 <<girl>>【이】야."
 				<<elseif $audiencearousal gte 40>>
-					"<<pshe>> 너무 아름다워."
+					"<<pshe>>【은는】 너무 아름다워."
 				<<elseif $audiencearousal gte 20>>
 					"<<pshe>>【은는】 파는 상품이려나."
 				<<else>>
@@ -1278,7 +1278,7 @@
 				<</if>>
 			<<elseif $audienceexcitement gte 81>>
 				<<if $audiencearousal gte 100>>
-					"<<pshe>> 너무 사랑스러워, 더는 못 참겠어."
+					"<<pshe>>【은는】 너무 사랑스러워, 더는 못 참겠어."
 				<<elseif $audiencearousal gte 80>>
 					"<<phim>>【을를】 나 혼자만 독차지하고 싶어."
 				<<elseif $audiencearousal gte 60>>

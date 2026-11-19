@@ -41,13 +41,13 @@
 					<<if $face is "covered">>
 						"<<= $position is "doggy" ? "넌 반기고 있잖아" : "네 다리가 감싸고 있잖아">> <<beasttype>>【을를】, 무슨 자존심이라도 있는 척하지 마."
 					<<else>>
-						"이 <<bitch>>【은는】 내가 보고 싶어 하는 것보다 훨씬 더 <<bred>> 당하고 싶어 하는군!"
+						"이 <<bitch>>【은는】 내가 보고 싶어 하는 것보다 훨씬 더 <<bred>>당하고 싶어 하는군!"
 					<</if>>
 				<<else>>
 					<<if $face is "covered">>
 						"<<beasttype>>【와과】 떡치고 있으면서 무슨 자존심이라도 있는 척하지 마."
 					<<else>>
-						"이 <<bitch>>【이가】 <<bred>> 당하는 걸 볼 수 있어서 정말 다행이야."
+						"이 <<bitch>>【이가】 <<bred>>당하는 걸 볼 수 있어서 정말 다행이야."
 					<</if>>
 				<</if>>
 			<<else>>
@@ -603,7 +603,7 @@
 						<<case 0>>
 							"<<pShes>> 그냥 엉덩이를 핥는 것만으로 가버리네. 착한 <<girl>>."
 						<<case 1>>
-							"이것 봐! <<pShes>> 입 안에서 느껴지는 저 <<print either("엉덩이", "엉덩이", "궁둥이")>> 의 맛에 미쳐서 절정에 도달했어."
+							"이것 봐! <<pShes>> 입 안에서 느껴지는 저 <<print either("엉덩이", "엉덩이", "궁둥이")>>의 맛에 미쳐서 절정에 도달했어."
 						<<case 2>>
 							"<<pShe>>【은는】 방금 엉덩이를 핥다가 가버렸어. 이거 공유해야겠는걸."
 					<</switch>>
@@ -1188,7 +1188,7 @@
 				<<if $orgasmdown gte 1>>
 					"<<phim>>【이가】 그 <<if random(1, 10) is 1>><<npcPenis>><<else>><<npcPenisSimple>><</if>> 위에서 덜덜 떨고 있는 아주 멋진 샷을 건졌어."
 				<<elseif playerBellyVisible() and $settings.pregnancySpeechEnabled>>
-					"<<pshes>> 이미 임신했는데도 불구하고, 이 <<bitch>>처럼 <<bred>> 당하고 싶은 충동을 억누르지 못하는구나!"
+					"<<pshes>> 이미 임신했는데도 불구하고, 이 <<bitch>>처럼 <<bred>>당하고 싶은 충동을 억누르지 못하는구나!"
 				<<elseif $leglocktarget isnot undefined>>
 					"<<phim>>【이가】 <<= $position is "doggy" ? "스스로 뒤로 밀어붙여" : "<<pher>> 다리를 감아" >> <<beasttype>>【을를】 받아들이는 꼴 좀 봐! 변태 <<bitch>> 같으니!"
 				<<else>>
@@ -1211,7 +1211,7 @@
 			<<personselect $vaginatarget>>
 			<<if $enemytype is "beast">>
 				<<if $orgasmdown gte 1>>
-					"<<pHer>> <<bitch>> ?vulva【이가】 아직 들어가지도 않았는데 씰룩거리고 있어. <<pShe>>【은는】 <<bred>> 싶어서 안달이 났네."
+					"<<pHer>> <<bitch>> ?vulva【이가】 아직 들어가지도 않았는데 씰룩거리고 있어. <<pShe>>【은는】 <<bred>>당하고 싶어서 안달이 났네."
 				<<else>>
 					"<<pher>> <<pussy>>【이가】 처음으로 유린당하는 순간을 꼭 찍고 싶어."
 				<</if>>
@@ -1345,7 +1345,7 @@
 			<<addinlineevent "" 2>>
 			<<if $worn.under_lower.exposed gte 1 and (_skirtExposed or $worn.lower.exposed gte 2)>>
 				<<if playerHasStrapon()>>
-					"<<pshe>> 저걸 어떻게 쓰는지 알고 있길 바라!"
+					"<<pshe>>【이가】 저걸 어떻게 쓰는지 알고 있길 바라!"
 				<<elseif !playerChastity("hidden","penis")>>
 					<<if $orgasmdown gte 1>>
 						"<<pShes>> 이렇게 적은 자극으로도 가버리다니, <<phim>>【을를】 박아버리면 <<phim>>【은는】 완전히 망가질지도 몰라."
@@ -1354,7 +1354,7 @@
 					<</if>>
 				<<else>>
 					<<if $orgasmdown gte 1>>
-						"빨리, <<pshe>> 반응하지 못할 때. <<pher>> $worn.genitals.name【을를】 더 세게 잡아당겨."
+						"빨리, <<pshe>>【이가】 반응하지 못할 때. <<pher>> $worn.genitals.name【을를】 더 세게 잡아당겨."
 					<<else>>
 						"넌 $worn.genitals.name【을를】 통해서만 ?vulva【을를】 기쁘게 해 줄 수 있을 거야. 정말 슬프네."
 					<</if>>
@@ -1382,7 +1382,7 @@
 			<<addinlineevent "" 2>>
 			<<personselect $penistarget>>
 			<<if playerHasStrapon()>>
-				"<<pshe>> 저걸 어떻게 쓰는지 알고 있길 바라!"
+				"<<pshe>>【이가】 저걸 어떻게 쓰는지 알고 있길 바라!"
 			<<elseif $orgasmdown gte 1>>
 				"<<pHer>> <<if random(1, 4) is 1>><<penis>><<else>><<penisSimple>><</if>>【이가】 아직 들어가지도 않았는데 씰룩거리고 있어. 엄청난 <<slut>>【이】야."
 			<<else>>
@@ -1454,7 +1454,7 @@
 					<</if>>
 				<<else>>
 					<<if $orgasmdown gte 1>>
-						"빨리, <<pshe>> 반응하지 못할 때. <<pher>> $worn.genitals.name【을를】 더 세게 잡아당겨."
+						"빨리, <<pshe>>【이가】 반응하지 못할 때. <<pher>> $worn.genitals.name【을를】 더 세게 잡아당겨."
 					<<else>>
 						"넌 $worn.genitals.name【을를】 통해서만 ?vulva【을를】 기쁘게 해 줄 수 있을 거야. 정말 슬프네."
 					<</if>>
@@ -1574,7 +1574,7 @@
 				<<elseif $rng gte 76>>
 					"저게 널 순결하게 지켜줄 수나 있을 것처럼 구네."
 				<<elseif $rng gte 51>>
-					"누가 저 장치를 부숴버려, 저 상태로는 <<pshe>> 제대로 즐기지도 못하잖아."
+					"누가 저 장치를 부숴버려, 저 상태로는 <<pshe>>【이가】 제대로 즐기지도 못하잖아."
 				<<elseif $rng gte 26>>
 					"저 장치 아래에 뭐가 있는지 볼 수 없다니 아쉽네."
 				<<else>>
@@ -1627,7 +1627,7 @@
 									<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
 								<<case 5>>
 									<<if $rng gte 67>>
-										"<<pShes>> 내 생각보다 훨씬 크네.<<if playerHasStrapon()>> 적어도 <<pshe>> 페니스 밴드는 하고 있잖아.<</if>>"
+										"<<pShes>> 내 생각보다 훨씬 크네.<<if playerHasStrapon()>> 적어도 <<pshe>>【이가】 페니스 밴드는 하고 있잖아.<</if>>"
 									<<elseif $rng gte 33>>
 										"부끄러워하지 마, 비록 단단히 묶여있긴 해도 네 자지는 자랑스러워해도 될 만해."
 									<<else>>
@@ -1702,7 +1702,7 @@
 									<<insecurity "penis_big" 1>><<ginsecurity "penis_big">>
 								<<case 5>>
 									<<if $rng gte 67>>
-										"<<pShes>> 생각보다 훨씬 크네.<<if playerHasStrapon()>> <<pShe>> 페니스 밴드는 벗어던져야겠어.<</if>>"
+										"<<pShes>> 생각보다 훨씬 크네.<<if playerHasStrapon()>> <<pShe>>【은는】 페니스 밴드를 벗어던져야겠어.<</if>>"
 									<<elseif $rng gte 33>>
 										"부끄러워하지 마, 네 자지는 자랑스러워해도 될 만해."
 									<<else>>
@@ -1828,7 +1828,7 @@
 					<<if $face is "covered">>
 						"그 <<bitch>> 같은 얼굴은 숨겨도, 네 그 <<bitch>> 같은 다리는 거짓말 못 하지!"
 					<<elseif $speechCameraPose is 1>>
-						"그래, <<bred>> 동안 카메라를 향해 웃어보라고!"
+						"그래, <<bred>>당하는 동안 카메라를 향해 웃어보라고!"
 					<<else>>
 						"착한 <<beasttype>>, 이 <<bitch>>에게 <<pher>> 분수를 가르쳐 줘. <<pShes>> 널 허락하고 있잖아."
 					<</if>>
@@ -2273,7 +2273,7 @@
 					<</if>>
 				<<else>>
 					<<if $face is "covered">>
-						"누가 <<pher>> 얼굴 좀 선명하게 보이게 잡아줄래? <<pshe>> 아직 옷을 좀 입고 있을 때 사진을 찍고 싶거든."
+						"누가 <<pher>> 얼굴 좀 선명하게 보이게 잡아줄래? <<pshe>>【이가】 아직 옷을 좀 입고 있을 때 사진을 찍고 싶거든."
 					<<elseif $speechCameraPose is 1>>
 						"<<pShe>>【은는】 이 춤을 확실히 즐기고 있네."
 					<<else>>
@@ -3294,7 +3294,7 @@
 				<<if $penisstate is "otheranusrub" and !playerHasStrapon()>>
 					<<addinlineevent "" 1>>
 					<<personselect $penistarget>>
-					"부비적거리는 건 그만하고, 저 잘난 천사님이 항문로 함락되는 꼴이나 보고 싶네."
+					"부비적거리는 건 그만하고, 저 잘난 천사님이 항문으로 함락되는 꼴이나 보고 싶네."
 					<</addinlineevent>>
 				<</if>>
 				<<if $penisstate is "clit" and !playerHasStrapon()>>
@@ -3504,7 +3504,7 @@
 					<</addinlineevent>>
 					<<if !$femaleclimax and !$player.condom>>
 						<<addinlineevent "" 1>>
-						"순결이 남아있는 척은 그만해. 저 <<semen>>【이가】 네가 그저 더러운 <<slut>> 라는 걸 증명하잖아."
+						"순결이 남아있는 척은 그만해. 저 <<semen>>【이가】 네가 그저 더러운 <<slut>>【이】라는 걸 증명하잖아."
 						<</addinlineevent>>
 					<</if>>
 				<</if>>
@@ -3626,7 +3626,7 @@
 					<</addinlineevent>>
 				<<elseif $NPCList[0].type.includes("wolf") or $NPCList[0].type.includes("dog")>>
 					<<addinlineevent "" 1>>
-					"자연의 섭리를 배워둬라: 저 <<print window.KR.getBeastTypeKr($NPCList[0].type)>> 에게 붙잡힌 고양이들은 복종해야만 한다고."
+					"자연의 섭리를 배워둬라: 저 <<print window.KR.getBeastTypeKr($NPCList[0].type)>>에게 붙잡힌 고양이들은 복종해야만 한다고."
 					<</addinlineevent>>
 				<<elseif $settings.pregnancySpeechEnabled is true>>
 					<<addinlineevent "" 1>>
@@ -3666,7 +3666,7 @@
 			<</if>>
 			<<if playerChastity()>>
 				<<addinlineevent "" 0.5>>
-				"호기심 때문에 이 $worn.genitals.name 에 갇혀버린 걸까?"
+				"호기심 때문에 이 $worn.genitals.name에 갇혀버린 걸까?"
 				<</addinlineevent>>
 			<</if>>
 			<<if ($player.virginity.vaginal is true and $vaginastate isnot 0 and $vaginastate.endsWith("imminent"))>>
@@ -3922,7 +3922,7 @@
 			<<if $vaginastate isnot 0 and $vaginastate.endsWith("penetrated")>>
 				<<if $settings.pregnancySpeechEnabled is true>>
 					<<addinlineevent "" 1>>
-					"<<pher>> 배를 새끼로 가득 채워버려. 그럼 <<pshe>> 평생 네 곁을 못 떠날 테니까."
+					"<<pher>> 배를 새끼로 가득 채워버려. 그럼 <<pshe>>【이가】 평생 네 곁을 못 떠날 테니까."
 					<</addinlineevent>>
 				<</if>>
 				<<addinlineevent "" 1>>
@@ -3980,7 +3980,7 @@
 			<</if>>
 			<<if $enemyanger gte 60>>
 				<<addinlineevent "" 0.5>>
-				"<<pShe>> 꼬리를 치켜들고 있잖아. 저 발칙한 여우 엉덩이를 때려줘."
+				"<<pShe>>【이가】 꼬리를 치켜들고 있잖아. 저 발칙한 여우 엉덩이를 때려줘."
 				<</addinlineevent>>
 			<</if>>
 		<</if>>

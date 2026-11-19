@@ -3924,7 +3924,7 @@
 				관객들은 그 쇼를 즐긴다.
 				<br>
 				<<print either(
-					`"믿을 수가 없어. 돼지에게 <<silently>><<bred>><</silently>><<capitalise>>【이】라니."`,
+					`"믿을 수가 없어. 돼지에게 <<silently>><<bred>><</silently>><<capitalise>>당하다니."`,
 					`"분명 저 <<pshe>>【은는】 이렇게 돼지랑 하는 걸 즐기고 있을 거야."`
 				)>>
 				<br>
@@ -4021,7 +4021,7 @@
 				관객들은 그 쇼를 즐긴다.
 				<br>
 				<<print either(
-					`"믿을 수가 없어. 돼지에게 <<silently>><<bred>><</silently>><<capitalise>>【이】라니."`,
+					`"믿을 수가 없어. 돼지에게 <<silently>><<bred>><</silently>><<capitalise>>당하다니."`,
 					`"분명 저 <<pshe>>【은는】 이렇게 돼지랑 하는 걸 즐기고 있을 거야."`
 				)>>
 				<br>

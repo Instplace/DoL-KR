@@ -2992,7 +2992,7 @@
 	<br>
 	<<endcombat>>
 	<<clotheson>>
-	시리스는 당신 주위에 흩어진 딜도를 보고 <<nnpc_he Sirris>> 눈살을 찌푸리지만 아무 말도 하지 않는다. 당신은 별다른 사건 없이 근무를 마친다. 당신은 <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.<<llove "Sirris">><<npcincr Sirris love -1>>
+	시리스는 당신 주위에 흩어진 딜도를 보고 <<nnpc_he Sirris>>【이가】 눈살을 찌푸리지만 아무 말도 하지 않는다. 당신은 별다른 사건 없이 근무를 마친다. 당신은 <<adultShopWage>><<moneyGain _wage>>【을를】 벌었다.<<llove "Sirris">><<npcincr Sirris love -1>>
 	<br><br>
 	<<link [[다음|Adult Shop]]>><<set $eventskip to 1>><</link>>
 	<br>
