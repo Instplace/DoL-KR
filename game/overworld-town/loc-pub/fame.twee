@@ -293,7 +293,7 @@
 		) + $_krWord[$_result[1]]>>
 		<<if _args[1] is "cap">><<capitalise>><</if>>
 	<<else>>
-		<<set _text_output to "<span class='black'><i>pubfameRemyPassword 위젯이 레미 작업이 활성화되지 않은 상태에서 $passage 패시지에서 호출되었습니다. Vrelnir에게 알려주세요.</i></span>">>
+		<<set _text_output to "<span class='black'><i>pubfameRemyPassword 위젯이 레미 작업이 활성화되지 않은 상태에서 $passage 패시지에서 호출되었습니다. Vrelnir에게 알려 주십시오.</i></span>">>
 	<</if>>
 <</silently>><<print _text_output>><</widget>>
 
