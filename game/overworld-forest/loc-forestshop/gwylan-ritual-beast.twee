@@ -782,7 +782,7 @@
 				이런 음란한 행위는 당신을 흥분시키며 <span class="green">당신의 -【을를】 회복시킵니다</span>-
 				<<control 25>><<arousal 200>><<set $stress -= 600>><<combattrauma -60>>
 			<<else>>
-				이런 음란한 행위는 당신을 흥분시키지만, 당신을 짓누르는 우울함을 걷어내지는 못합니다. <span class="pink">당신은 -해야 합니다</span>-
+				이런 음란한 행위는 당신을 흥분시키지만, 당신을 짓누르는 우울함을 걷어내지는 못한다. <span class="pink">당신은 -해야 합니다</span>-
 				<<arousal 200>>
 			<</if>>
 		<<else>>

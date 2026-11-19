@@ -499,10 +499,10 @@
 
 <<if $syndromewolves isnot 1>>
 	<<if animalSexEnabledForType("wolf")>>
-		<span class="red"><i>자신만의 새끼들을 낳고 나니, 그들이 그저 귀여운 동물일 뿐이라는 것을 알게 됩니다.</i> "스톡홀름 증후군: 늑대" 특성을 얻었습니다.</span>
+		<span class="red"><i>자신만의 새끼들을 낳고 나니, 그들이 그저 귀여운 동물일 뿐이라는 것을 알게 된다.</i> "스톡홀름 증후군: 늑대" 특성을 얻었습니다.</span>
 		<br><br>
 	<<else>>
-		<span class="red"><i>당신 자신의 새끼를 낳고 나니, 그들이 그저 귀여운 괴물로 보입니다.</i> "스톡홀름 증후군: 늑대 인간" 특성을 얻었습니다.</span>
+		<span class="red"><i>당신 자신의 새끼를 낳고 나니, 그들이 그저 귀여운 괴물로 보인다.</i> "스톡홀름 증후군: 늑대 인간" 특성을 얻었습니다.</span>
 		<br><br>
 	<</if>>
 	<<if hasSexStat("deviancy", 3)>>
