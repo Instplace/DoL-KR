@@ -391,7 +391,7 @@
 			<</if>>
 
 		<<elseif $NPCList[_nn].vagina is "footjob">>
-			<<He>>【은는】 <<his>> 발로 당신의 <<penis>>【을를】 내리누르며 가볍게 몸을 떨었다. <<His>> 발가락이 꿈틀거린다.
+			<<He>>【은는】 <<his>> 발로 당신의 <<penis>>【을를】 내리누르며 가볍게 몸을 떤다. <<His>> 발가락이 꿈틀거린다.
 
 		<<else>>
 			<<He>>【은는】 절정의 쾌락에 취해 조용히 경련한다. "이번엔 내가 당했네." <<he>>【이가】 숨을 헐떡이며 낄낄거린다.
@@ -405,7 +405,7 @@
 	<<if _condomResult is "leaked">>
 		<span class="red">콘돔이 찢어졌다.</span>
 	<<elseif _condomResult is "burst">>
-		<span class="red">콘돔 끝부분이 터지며 찢겨나가, <<his>> 자지 귀두가 드러났다.</span>
+		<span class="red">콘돔 끝부분이 터지며 찢겨나가, <<his>> 자지 귀두가 드러난다.</span>
 	<</if>>
 
 	<<if _condomResult is "contained">>
@@ -784,7 +784,7 @@
 		<<if _args[0] isnot "short">><<gwylanChastityRequest $consensual>><</if>>
 
 	<<elseif $NPCList[_nn].penis is "otheranusfrot" or $NPCList[_nn].penis is "otheranusentrance" or $NPCList[_nn].penis is "otheranusimminent">>
-		<<He>>【은는】 거친 숨을 내쉬고 당신의 <<bottom>>에 비벼대며 몸을 떨었다. <<He>>【은는】 지친 듯 앞쪽으로 쓰러진다. "날 그런 식으로 감질나게 하다니, 참 못된 <<girl>>【이】네."
+		<<He>>【은는】 거친 숨을 내쉬고 당신의 <<bottom>>에 비벼대며 몸을 떤다. <<He>>【은는】 지친 듯 앞쪽으로 쓰러진다. "날 그런 식으로 감질나게 하다니, 참 못된 <<girl>>【이】네."
 
 	<<elseif $NPCList[_nn].penis is "penis" and playerChastity("penis")>>
 		<<if $consensual is 0 or _gwylanStatus.includes("heat")>>

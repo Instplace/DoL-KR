@@ -531,7 +531,7 @@
 		<<elseif $worn.face.type.includes("face_covering") or $worn.face.type.includes("gag")>>
 			<<switch random(0,2)>>
 				<<case 0 1>>
-					<<bHe>>【이가】 <<bhis>> <<= window.KR.getPenisDescKr($NPCList[_n].penisdesc)>>【을를】 당신의 $worn.face.name【이】에 밀어붙인다.
+					<<bHe>>【이가】 <<bhis>> <<= window.KR.getPenisDescKr($NPCList[_n].penisdesc)>>【을를】 당신의 $worn.face.name에 밀어붙인다.
 					<<damageFaceCover 2>>
 				<<case 2>>
 					<span class="lblue"><<bHe>>【이가】 당신의 입에서 <<bhis>> 자지를 떼어낸다.</span>
@@ -1283,7 +1283,7 @@
 				<<bHe>>【이가】 <<bhis>> 혀로 당신의 <<pussy>>【을를】 훑고는 밀어붙여, 당신 깊숙이 밀고 들어온다. <<bHe>>【은는】 다시 빼내고 헐떡인다.
 				<<sex 30 "genitals">><<bruise vagina>><<violence 1>>
 			<<else>>
-				당신의 골반에 <<beast_Jaws_text>> 꽉 물고, <<bhe>>【은는】 <<bhis>> 혀로 당신의 <<pussy>>【을를】 박는다. <<bHis>> 숨결이 더욱 거칠어진다.
+				<<bhis>> <<beast_Jaws_text>>【으로로】 당신의 골반을 꽉 물고, <<bhe>>【은는】 <<bhis>> 혀로 당신의 <<pussy>>【을를】 박는다. <<bHis>> 숨결이 더욱 거칠어진다.
 				<<sex 30 "genitals">><<bruise vagina>><<violence 1>>
 			<</if>>
 		<</if>>
@@ -1545,9 +1545,9 @@
 				<<if $speechGrowl is 1 and $pounce_delay isnot 1>>
 					<<set $pounce_delay to 1>>
 					<<if $water is 0>>
-						<<bHe>>【은는】 당신에게 뛰어들 것 같았지만, <span class="teal">당신의 위협 덕분에</span> 일단은 거리를 두고 있다.
+						<<bHe>>【은는】 당신에게 뛰어들 것 같지만, <span class="teal">당신의 위협 덕분에</span> 일단은 거리를 두고 있다.
 					<<else>>
-						<<bHe>>【은는】 다가올 것 같았지만, <span class="teal">당신의 위협 덕분에</span> 일단은 거리를 두고 있다.
+						<<bHe>>【은는】 다가올 것 같지만, <span class="teal">당신의 위협 덕분에</span> 일단은 거리를 두고 있다.
 					<</if>>
 				<<else>>
 					<<if $NPCList[_n].gender is "f" and !$player.penisExist>>
