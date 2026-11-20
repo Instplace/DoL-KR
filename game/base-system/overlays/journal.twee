@@ -1837,7 +1837,7 @@
 		<<link "새 페이지">>
 			<<journalNotesTextareaSave>>
 			<<set _newName to journalNotesReplacer(_pageName).slice(0,20)>>
-			<<if $journalNotes[_newName] is undefined>>
+			<<if _newName isnot "" and $journalNotes[_newName] is undefined>>
 				<<set $journalNotes[_newName] to "">>
 				<<set _currentPage to _newName>>
 				<<replace "#customOverlayContent">><<journalNotes>><</replace>>
@@ -1902,8 +1902,8 @@
 
 <<widget "journalNotesTextareaSave">>
 	<<set _noteElement to jQuery('#textarea--displayedtextarea')[0]>>
-	<<if _noteElement and _noteElement.value>>
-		<<set $journalNotes[_currentPage] to LZString.compress(_noteElement.value)>>
+	<<if _noteElement and (_noteElement.value or $journalNotes[_currentPage])>>
+		<<set $journalNotes[_currentPage] to (_noteElement.value ? LZString.compress(_noteElement.value) : "")>>
 		/* put notes into save data immediately without the need to change passage */
 		<<run State.history[State.activeIndex].variables.journalNotes = clone(V.journalNotes)>>
 	<</if>>
