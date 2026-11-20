@@ -36,7 +36,7 @@
 		<</if>>
 
 		<<if $schoolpoolundress isnot undefined>>
-			<span class="yellow">당신의 옷은 <<print $schoolpoolundress is "wardrobe" ? "옷장" : $schoolpoolundress + " 탈의실">>【으로로】 옮겨졌다.</span>
+			<span class="yellow">당신의 옷은 <<print $schoolpoolundress is "wardrobe" ? "옷장" : ($schoolpoolundress is "boys" ? "남자" : "여자") + " 탈의실">>【으로로】 옮겨졌다.</span>
 			<br>
 			<<unset $schoolpoolundress>>
 		<</if>>

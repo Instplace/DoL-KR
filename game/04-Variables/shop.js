@@ -2,7 +2,7 @@ setup.shopDetails = {
 	normal: {
 		name: "평범함",
 		desc: "일상복으로 입기에 무난합니다.",
-		details: "",
+		details: "none",
 	},
 	formal: {
 		name: "정장",
@@ -141,12 +141,12 @@ setup.shopDetails = {
 	asylum: {
 		name: "정신병원",
 		desc: "정신병원에서 입던 옷입니다.",
-		details: "없음",
+		details: "none",
 	},
 	prison: {
 		name: "죄수복",
 		desc: "감옥에서 입던 옷입니다.",
-		details: "없음",
+		details: "none",
 	},
 	sticky: {
 		name: "끈적임",
@@ -231,17 +231,17 @@ setup.shopDetails = {
 	bellyHide: {
 		name: "가려짐",
 		desc: "임신한 배를 어느 정도 가려줍니다.",
-		details: "없음",
+		details: "none",
 	},
 	bellyShow: {
 		name: "드러남",
 		desc: "배를 노출합니다. 임신한 티가 더 잘 납니다.",
-		details: "없음",
+		details: "none",
 	},
 	constricting: {
 		name: "타이트한",
 		desc: "임신 후기에는 입을 수 없습니다.",
-		details: "없음",
+		details: "none",
 	},
 	bookbag: {
 		name: "책가방",
@@ -294,12 +294,12 @@ setup.shopDetails = {
 	hat: {
 		name: "모자",
 		desc: "머리에 쓰는 물건입니다.",
-		details: "없음",
+		details: "none",
 	},
 	fishing_rod: {
 		name: "낚싯대",
 		desc: "낚시를 하려면 필요합니다.",
-		details: "없음",
+		details: "none",
 	},
 };
 
