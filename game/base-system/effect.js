@@ -1749,15 +1749,9 @@ function effects() {
 		V.timeMessages = [];
 	}
 
-	sWikifier("<<integritycheck>><<exposure>>");
+	sWikifier("<<integritycheck>>");
 
 	V.orgasmdown -= 1;
-
-	if (V.exposed >= 1 && V.exposedcheck === 1) {
-		V.exposedcheck = 0;
-		sWikifier("자신의 <<nudity>>【이가】 신경 쓰인다.");
-		br();
-	}
 
 	if (V.timer >= 1) V.timer--;
 	// V.turnCount++;

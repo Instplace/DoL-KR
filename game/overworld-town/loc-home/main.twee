@@ -84,8 +84,8 @@
 <<set _deco to Furniture.get('decoration')>>
 <<if _deco>>
 	<br>
-	<<switch _deco.name>>
-		<<case "large bear plushie" "large candy pillow">>
+	<<switch _deco.id>>
+		<<case "bearplushie" "candypillow">>
 			<<furnitureicon _deco.iconFile>>_deco.name【은는】 구석에 놓여 있다.
 		<<default>>
 			<<furnitureicon _deco.iconFile>>_deco.name【은는】 벽에 걸려 있다.

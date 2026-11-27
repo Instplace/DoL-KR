@@ -4217,7 +4217,7 @@
 	<<nnpc_He "Bailey">>【이가】 얼굴을 찌푸린다. "들어, 이 꼬맹아—"
 	<br><br>
 
-	"어이!" 알렉스가 말을 가로막는다. <<nnpc_He "Alex">>【은는】 걷기 힘들어 보인다<<if C.npc.Alex.pregnancy.nursery isnot true>>, <<pluralise $alexBabiesCount "아이" "아이">> 팔에 <<his>> 아이<<if $alexBabiesCount gt 1>>들<</if>>【을를】 안고 있다<</if>>. "왜 우리가 우리 <<pluralise $alexBabiesCount "아이" "아이">>【을를】 당신에게 그냥 줘야 한다고 생각하는 거지?"
+	"어이!" 알렉스가 말을 가로막는다. <<nnpc_He "Alex">>【은는】 걷기 힘들어 보인다<<if C.npc.Alex.pregnancy.nursery isnot true>>, 팔에 <<his>> 아이<<if $alexBabiesCount gt 1>>들<</if>>【을를】 안고 있다<</if>>. "왜 우리가 우리 <<pluralise $alexBabiesCount "아이" "아이">>【을를】 당신에게 그냥 줘야 한다고 생각하는 거지?"
 	<br><br>
 
 	베일리가 알렉스에게 시선을 돌린다. "이봐, '소<<nnpc_gendery "Alex">>', 네가 어떤 멍청이랑 뒹굴었든 상관없는데, 하필 내 소유물에 손을 댔더군."
